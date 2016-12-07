@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxgerm DXGetErrorMessage #!N #!N Function #!N #!N Returns the current error 
+message. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> char *DXGetErrorMessage() #!EF 
+#!N #!N Functional Details #!N #!N Returns a pointer to the 
+current error message  #!F-adobe-times-bold-r-normal--18*   NULL #!EF -terminated string. This is a 
+pointer to a static buffer in local memory, so it must 
+be copied if it is to be used outside the scope 
+of the calling routine. #!N #!N Return Value #!N #!N Returns 
+a pointer to a null string if the error code is 
+ #!F-adobe-times-bold-r-normal--18*   ERROR_NONE #!EF . Otherwise, returns a pointer to the current 
+error message. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxsetex,dxall1378 h DXSetErrorExit  #!EL  #!EF 
+#!N #!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxgfa,dxall1238 h DXGetFloatAttribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

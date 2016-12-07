@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall675 Separate Variables 
+#!N #!EC #!N #!N When there are separate netCDF variables defined 
+for each step in the series, but all variables are in 
+the same file, use the following global attribute tags: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N :series  #!F-adobe-times-bold-i-normal--18*   xxx #!EF = "  #!F-adobe-times-bold-i-normal--18*   fieldname 
+#!EF ; #!N  #!F-adobe-times-bold-i-normal--18*   variable1a #!EF ; #!N  #!F-adobe-times-bold-i-normal--18*   variable1b #!EF 
+; #!N . #!N . #!N . #!N  #!F-adobe-times-bold-i-normal--18*   variable1x #!EF 
+"; #!EF #!N #!N #!EC or #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+:series  #!F-adobe-times-bold-i-normal--18*   xxx #!EF = "  #!F-adobe-times-bold-i-normal--18*   fieldname #!EF ; #!N 
+ #!F-adobe-times-bold-i-normal--18*   variable1a #!EF ,  #!F-adobe-times-bold-i-normal--18*   float_value #!EF ; #!N  #!F-adobe-times-bold-i-normal--18*   variable1b 
+#!EF ,  #!F-adobe-times-bold-i-normal--18*   float_value #!EF ; #!N . #!N  #!F-adobe-times-bold-i-normal--18*   variable1x 
+#!EF ,  #!F-adobe-times-bold-i-normal--18*   float_value #!EF "; #!EF #!N #!N #!EC where 
+the global tag must have the first 6 characters series. Global 
+tags must be unique, so additional characters can be added to 
+distinguish them. #!N #!N Each  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF x is the 
+name array containing the data for that step. In the first 
+format, the spacing of the steps is assumed to be 1.0. 
+In the second format, the  #!F-adobe-times-bold-i-normal--18*   float_value #!EF is the value 
+of each step. All other specifications are the same as for 
+simple fields. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lall676,dxall677 h Separate Files  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

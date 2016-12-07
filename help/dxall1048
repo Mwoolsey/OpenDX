@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rasynmod 
+Asynchronous Modules #!N #!EC #!N #!N Inboard, outboard, and runtime-loadable modules 
+can be asynchronous. That is, depending on events external to Data 
+Explorer, an asynchronous module can request that it be rerun. If 
+Data Explorer is in execute-on-change mode, the module will reexecute immediately. 
+If it is not, the module is called the next time 
+the user runs the network. #!N #!N To cause executions in 
+this fashion, the ASYNC flag must be set in the module's 
+ #!F-adobe-times-bold-r-normal--18*   .mdf #!EF file. Then it can call the DXReadyToRun() function 
+to request reexecution. (For an example of how to use this 
+function, see the sample outboard files "async.c" and "watchfile.c" in  #!F-adobe-times-bold-r-normal--18*   
+/usr/lpp/dx/samples/outboard #!EF .) If the module is outboard, the PERSISTENT flag 
+must also be set, so that it does not exit after 
+each execution. #!N #!N DXReadyToRun() can be called in a variety 
+of ways: by a signal handler (signal), after a prescribed time 
+interval has passed (sleep, alarm), when a file appears (stat), or 
+when data is received across a pipe or socket from another 
+process (select). #!N #!N #!N #!N If a module must wait 
+for input associated with a file descriptor (e.g., a socket), it 
+should use DXRegisterInputHandler to add another file descriptor to the select 
+list. If data is received along with the input associated with 
+that file descriptor, a user-supplied routine is called to check the 
+status and may call DXReadyToRun. When the module is called, it 
+can read the information in, process it, and return the output(s). 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmodsior,dxall1049 h Inboard, Outboard, and Runtime-loadable Modules  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

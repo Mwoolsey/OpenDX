@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - ReadImage</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu109.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu111.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRREADIMA" ></A>ReadImage</H3>
+		<A NAME="IDX633"></A><A NAME="IDX634"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATIAE">Import and Export</A>
+<A NAME="IDX635"></A>
+<A NAME="IDX636"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Reads an image from an image file.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+image</STRONG> = ReadImage(<STRONG>name, format, start, end, delta, width, height</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>name</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;image&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">file name
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>format</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;rgb&quot; or input
+dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">file format
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>start</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">first frame
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">first movie frame
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>end</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">last frame
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">last movie frame
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>delta</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">delta of images to be read
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>width</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">width of image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>height</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">height of image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>delayed</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">environment dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">use delayed colors if present in
+file
+
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>colortype</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">environment dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">data type for colors
+
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>image</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">image or image series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">resulting image
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module supports four basic file formats: RGB and TIFF (Tag Image
+File Format),
+
+GIF (Graphics Interchange Format), and MIFF.
+
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>name</STRONG></TT>
+</B></TD><TD><P>is the name of the image file.
+<P>
+If <TT><STRONG>name</STRONG></TT> contains a series, the parameters
+<TT><STRONG>start</STRONG></TT>, <TT><STRONG>end</STRONG></TT>, and
+<TT><STRONG>delta</STRONG></TT> can be used to read a
+subset of the images (see parameter
+descriptions).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>format</STRONG></TT>
+</B></TD><TD><P>specifies the format of the image file.
+This parameter is not required if <TT><STRONG>name</STRONG></TT> includes a
+file extension defining the format (see following table).
+If <TT><STRONG>name</STRONG></TT> is specified without the appropriate
+extension, then the file format must be specified.
+If <TT><STRONG>format</STRONG></TT> is specified as "rgb," and
+<TT><STRONG>name</STRONG></TT> is "image," the module
+will first try to open image.rgb.
+If that fails, it will then try to open image.
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">File Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">Format Specifier
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">Expected File Extension(s)
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">Multiframe/Series Data
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">RGB
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">&quot;rgb&quot;
+<BR>
+"r+g+b"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">&#46;rgb and &#46;size
+<BR>
+&#46;r,
+&#46;g,
+&#46;b,
+&#46;size,
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">Yes
+</TD></TR>
+						<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">TIFF
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">&quot;tiff&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">.tiff
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">Yes
+</TD></TR>
+						<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">MIFF
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">&quot;miff&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">.miff
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">Yes
+
+</TD></TR>
+						<TR>
+							<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">many different</TD>
+							<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">&quot;ImageMagick supported format&quot;</TD>
+							<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">many different</TD>
+							<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="21%">First frame only</TD>
+						</TR>
+					</TABLE>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>start</STRONG></TT>
+&nbsp;and&nbsp; <TT><STRONG>end</STRONG></TT>
+</B></TD><TD><P>specify the first and last frame to be read from an image file
+containing a series.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>delta</STRONG></TT>
+</B></TD><TD><P>specifies the increment in counting the frames in the range from
+<TT><STRONG>start</STRONG></TT> to <TT><STRONG>end</STRONG></TT>.
+For example, if the first and last frames are 10 and 20 respectively,
+and <TT><STRONG>delta</STRONG></TT> = 2, the output
+(<TT><STRONG>image</STRONG></TT>) is a series group
+with six members (indexed from 0 to 5).
+Frame numbers (10, 12,..., 20 in this example) are preserved as the
+series position number.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>width</STRONG></TT>
+&nbsp;and&nbsp; <TT><STRONG>height</STRONG></TT>
+</B></TD><TD><P>are used only for RGB format files.
+The module obtains information about the size and number of images from
+<TT><STRONG>name.size</STRONG></TT>, an ASCII file containing the string
+"<VAR>w</VAR>&times;<VAR>h</VAR>&times;<VAR>f</VAR>," (where <VAR>w</VAR>
+and <VAR>h</VAR> are pixel width and height of image
+respectively, and <VAR>f</VAR> is the number
+of frames).
+<P>
+If the <TT><STRONG>.size</STRONG></TT> file is not available, then
+<TT><STRONG>width</STRONG></TT> and <TT><STRONG>height</STRONG></TT>
+can be used to specify the size of the image(s).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>delayed</STRONG></TT>
+
+</B></TD><TD><P>specifies whether ReadImage should create a "delayed color"
+image if the image file is stored in an "image with colormap"
+format.  By default, ReadImage will create a "delayed color" image
+if possible, unless the environment variable <TT>DXDELAYEDCOLORS</TT>
+is set to 0, or the <TT><STRONG>delayed</STRONG></TT> parameter is set to 0.
+
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>colortype</STRONG></TT>
+</B></TD><TD><P>specifies whether the colors in the image should be byte or
+floating
+point. By default, ReadImage will create byte colors unless the
+<TT>DXPIXELTYPE</TT> environment variable is set to DXFloat, or
+<TT><STRONG>colortype</STRONG></TT> is set to "float".
+
+</TD></TR></TABLE>
+<P><B>Notes: </B>
+		<OL>
+<P>
+			<LI>RGB format files can be either "rgb" or
+"r&#43;g&#43;b."
+The file format "rgb" contains the image with the bytes for the
+red, green, and blue values interleaved.
+An alternate file format is "r&#43;g&#43;b," where three output
+files contain the non-interleaved image:
+"<TT><STRONG>name.r</STRONG></TT>,"
+"<TT><STRONG>name.g</STRONG></TT>," and
+"<TT><STRONG>name.b</STRONG></TT>."
+<p></p>
+			<LI>
+TIFF format files must be either full color RGB images (TIFF Class R)
+or palette color RGB images (TIFF Class P), uncompressed
+("Compression=1"), and interleaved
+("PlanarConfiguration=1").
+If the extension is not part of the name, the format must be set to
+"tiff."
+Information about the size of the image is obtained from the file
+itself, since TIFF files are self-describing.
+(For more information on file formats, see
+<A HREF="refgu173.htm#HDRWRITEIM">WriteImage</A>&#46;)
+<p></p>
+			<LI>With the <A HREF="http://www.imagemagick.org">ImageMagick<FONT SIZE="-2"><SUP>TM</SUP></FONT></A> libraries configured and compiled with DX, ReadImage can read and write a large number of image file formats. ImageMagick is a robust collection of tools and libraries to read, write, and manipulate an image in many image formats (over 68 major formats) including popular formats like TIFF, JPEG, PNG, PDF, PhotoCD, and GIF. The formats that can be read by ReadImage will depend on what functionality is compiled into ImageMagick. The ImageMagick option supports:<BR>
+				<BR>
+			
+						<UL>
+				<LI TYPE="disc">creating opacities/opacity map components for images which have opacities or a transparency map, such as the GIF format and PNG format,
+				<LI TYPE="disc">both delayed and direct color images, with delayed-&gt;direct option and float/byte option,
+				<LI TYPE="disc">smart chomping of supported ImageMagick extensions
+				<LI TYPE="disc">the DX convention for reading multi-frame multi-file sequences; such as name=&quot;t.gif&quot;, where the image files are t.0.gif, t.1.gif, t.2.gif, ...,
+				<LI TYPE="disc">for multi-frame single-file images such as animated GIFs, stacked TIFF/PNGs, but only loading the first image is supported (ImageMagick is missing basic sub-image support; see the source comments for details).
+			</UL>
+			<p></p>
+			<LI>If you do not specify the environment variable <TT>DXPIXELTYPE</TT> as &quot;DXFloat&quot;, ReadImage will create byte colors internally. This will result in reduced storage required for the image, and will only affect networks that require the colors to be of type float, in which case the ReadImage parameter &quot;colortype&quot; should be set to &quot;float&quot;, or the <TT>DXPIXELTYPE</TT> environment variable should be set to &quot;DXFloat&quot;.
+			<P></P>
+			<LI>ReadImage will also maintain the delayed color status of an image, as will be the case for GIF, some TIFF, and some MIFF format files. If the visualization program requires full colors for each pixel, set the ReadImage &quot;delayed&quot; parameter to false (0) or set the environment variable <TT>DXDELAYEDCOLORS</TT> to 0.
+			<P></P>
+			<LI>If you want to convert an image file that does not already have delayed colors to one that does, use ReadImage to load it in and then use QuantizeImage to make it delayed color.
+		</OL>
+		<P><STRONG>Components</STRONG>
+		<P>
+Creates an output with "positions," "connections," and
+"colors" components.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+ReadImage.net
+UsingFilter.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu173.htm#HDRWRITEIM">WriteImage</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

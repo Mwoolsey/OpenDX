@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxswp DXSwap #!N #!N Function #!N #!N Interchanges two components in 
+a Field. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXSwap(Object 
+o, char *name1, char *name2) #!EF #!N #!N Functional Details #!N 
+#!N Interchanges the component values for each Field in Object  #!F-adobe-times-bold-r-normal--18*   
+o #!EF , if both components (  #!F-adobe-times-bold-r-normal--18*   name1 #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   name2 #!EF ) exist. Object  #!F-adobe-times-bold-r-normal--18*   o #!EF can be 
+a single Field or any Object that can contain Fields, such 
+as Groups or Series. #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. It is an error if any Field of Object 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF contains one of the named components but not 
+the other. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxexi,dxall1204 h DXExists  #!EL  , 
+ #!Ldxext,dxall1206 h DXExtract  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  ,  #!Ldxins,dxall1282 h DXInsert  #!EL  ,  #!Ldxrem,dxall1355 h DXRemove  #!EL  ,  #!Ldxren,dxall1356 h DXRename  #!EL  ,  #!Ldxrep,dxall1358 h DXReplace  #!EL  
+,  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  #!EF #!N #!N  #!Lctmn,dxall1089 h Component Manipulation  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxtt,dxall1398 h DXTraceTime  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

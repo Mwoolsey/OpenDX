@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Usage</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu165.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu167.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRUSAGE" ></A>Usage</H3>
+		<A NAME="IDX763"></A><A NAME="IDX764"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATDBG">Debugging</A>
+<A NAME="IDX765"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Prints information about current use of resources.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+Usage(<STRONG>what, how</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>what</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the string to be printed
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>how</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">level of detail
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The output of this module appears in the Message window of the user
+interface.
+Since, the module traverses the entire memory, it can be used
+to check for corruption of the memory area.
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>what</STRONG></TT>
+</B></TD><TD><P>specifies what resource information is to be printed.
+Currently, the only allowed value for this parameter is "memory."
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>how</STRONG></TT>
+</B></TD><TD><P>specifies the level of detail of the printout.
+<TABLE CELLPADDING="3">
+
+<TR VALIGN="TOP"><TD><P><TT><STRONG>0</STRONG></TT>
+</TD><TD><P>Prints out a summary of the total
+current use of memory.
+A typical printout might look like:
+<PRE>
+0: 58720256 bytes total : 1379008 in use, 57341248 free
+</PRE>
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>1</STRONG></TT>
+</TD><TD><P>Prints out a summary of current use of memory, both in small
+and in large arenas. A typical printout might look like:
+<PRE>
+0: small: 4194304 = hdr 16472 + used 486864 +
+                    free 3920 + pool 3687048 (limit 4194304)
+0: large: 2097152 = hdr 16472 + used 494656 +
+                    free 29704 + pool 1558120 (limit 54525952)
+</PRE>
+
+where
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>small</STRONG></TT>
+</TD><TD><P>is the total number of bytes currently managed by the memory manager
+for the small arena.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>large</STRONG></TT>
+</TD><TD><P>is the total number of bytes currently managed by the memory manager
+for the large arena.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>hdr</STRONG></TT>
+</TD><TD><P>is the amount of memory space used by internal data structures.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>used</STRONG></TT>
+</TD><TD><P>is the amount of memory space allocated for use.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>free</STRONG></TT>
+</TD><TD><P>is the amount of memory previously used and available for reuse.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>pool</STRONG></TT>
+</TD><TD><P>is the amount of memory space allocated to Data Explorer but not yet
+used.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>limit</STRONG></TT>
+</TD><TD><P>is the largest amount of memory that can be managed by the memory
+manager.
+</TD></TR></TABLE>
+
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>2</STRONG></TT>
+</TD><TD><P>lists the number of blocks on each free list
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>3</STRONG></TT>
+</TD><TD><P>lists the number of blocks on each free list plus the actual
+blocks on each free list
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>4</STRONG></TT>
+</TD><TD><P>lists addresses of all allocated blocks
+(warning: very long)
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>5</STRONG></TT>
+</TD><TD><P>lists addresses of all allocated and all freed blocks (warning:
+very long)
+
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+<P><B>Note: </B>
+
+You can easily specify Usage("memory", 0) by using the Show Memory
+Use button in the <TT><STRONG>Commands</STRONG></TT> menu of the Message
+window.
+
+The information provided by this module applies to memory use
+at the time of execution and should be interpreted with that
+restriction in mind.
+See <A HREF="progu267.htm#HDRDXPA">DXPrintAlloc</A> in <I>IBM Visualization Data
+Explorer Programmer&#39;s Reference</I> for more information.
+<P><STRONG>Script Language Example</STRONG>
+<P>
+This example shows the use of memory before and after the Isosurface
+module is printed.
+(For this example, Data Explorer should be started with the <TT>-readahead
+off</TT> option.)
+<PRE>
+electrondensity = Import("/usr/local/dx/samples/data/watermolecule");
+camera = AutoCamera(electrondensity,width=5);
+Usage("memory", 1);
+isosurface = Isosurface(electrondensity,0.3);
+Usage("memory", 1);
+Display(isosurface,camera);
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu158.htm#HDRTRACE">Trace</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

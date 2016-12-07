@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rbops Basic Operations #!N #!EC #!N #!N A number 
+of basic operations on the  #!F-adobe-times-bold-r-normal--18*   Matrix #!EF ,  #!F-adobe-times-bold-r-normal--18*   Point 
+#!EF , and  #!F-adobe-times-bold-r-normal--18*   Vector #!EF types are defined here. Operations 
+declared as operating on type  #!F-adobe-times-bold-r-normal--18*   Vector #!EF also work on 
+ #!F-adobe-times-bold-r-normal--18*   Point #!EF because both are type-defined for structure. These operations 
+all take their arguments by value and return the result. #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Vector DXNeg() #!EF #!N 
+Vector DXNormalize(); #!N double DXLength(); #!EF #!I50 #!N Perform unary operations 
+of negation, normalization, and length. See  #!Ldxaplus,dxall1164 h DXAdd, DXCross, DXDiv, DXDot, DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Vector DXAdd() #!EF #!N Vector DXSub(); #!N Vector DXMin(); 
+#!N Vector DXMax(); #!EF #!I50 #!N Perform vector operations of addition, 
+subtraction, min, and max. Min and max operations are performed on 
+each component of a vector. See  #!Ldxaplus,dxall1164 h DXAdd, DXCross, DXDiv, DXDot, DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!EF Vector DXMul(); #!N Vector DXDiv(); #!EF #!I50 #!N 
+Multiply or divide a vector by a floating-point number. See  #!Ldxaplus,dxall1164 h DXAdd, DXCross, DXDiv, DXDot, DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   float DXDot() #!EF #!N Vector 
+DXCross(); #!EF #!I50 #!N Form the dot product or cross-product of 
+two vectors. See  #!Ldxaplus,dxall1164 h DXAdd, DXCross, DXDiv, DXDot, DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Matrix 
+DXConcatenate() #!EF #!EF #!I50 #!N Returns a Matrix equivalent to the 
+concatenation of two matrices. See  #!Ldxcplus,dxall1185 h DXConcatenate, DXInvert, DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Matrix DXInvert() #!EF #!N Matrix DXTranspose(); #!N Matrix DXAdjointTranspose(); #!N 
+float DXDeterminant(); #!EF #!I50 #!N Compute, respectively, the inverse, transpose, adjoint 
+transpose, and determinant of a matrix. See  #!Ldxcplus,dxall1185 h DXConcatenate, DXInvert, DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Vector DXApply() #!EF #!EF #!I50 #!N Forms the 
+product of a vector (interpreted as a row vector) and a 
+matrix. See  #!Ldxcplus,dxall1185 h DXConcatenate, DXInvert, DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lmodacss,dxall1113 h Module Access  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

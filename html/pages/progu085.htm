@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu084.htm">Previous Page</A> &#124; <A HREF="progu086.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+
+<HR>
+<H2><A NAME="Header_172" HREF="progu084.htm#PToC_172">17.2 Example 1:
+sealevel.c</A></H2>
+<P>
+The first example which we will discuss is sealevel.c. This sample
+program starts the Data Explorer user interface in
+<TT><STRONG>-image</STRONG></TT>
+mode, and then loads a
+visual program (see <A HREF="#FIGSEALVL">Figure 12</A>).
+<P><B><A NAME="FIGSEALVL" HREF="../proguide.htm#FT_FIGSEALVL">Figure 12.
+sealevel.net</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/sealevel.gif" ALT="Figure sealevel not
+displayed."></CENTER><BR></B><BR>
+The visual program contains a DXLInput tool which can receive
+values from the DXLink program. It is named
+<TT><STRONG>contour_line_value</STRONG></TT>.
+The DXLink program sends several different values to this
+DXLInput tool, and the resulting image is displayed to the user.
+<P>
+<PRE>
+#include &lt;stdio.h&gt;
+#include "dx/dxl.h"
+#ifndef BASE
+#define BASE "/usr/local/dx"
+#endif
+/*
+ * define an error handler
+ */
+void ErrorHandler(DXLConnection *conn, const char *msg, void *data)
+{
+    printf("DXL Error: %s\n", msg);
+}
+main(int argc, char *argv&#91;&#93;)
+{
+    DXLConnection *conn = NULL;
+    char result&#91;100&#93;;
+    /*
+     * Start Data Explorer in -image mode with certain menus disabled.
+     */
+    conn = DXLStartDX(
+              "dx -image -noExitOptions -noExecuteMenus -noConnectionMenus",
+              NULL);
+    if (conn == NULL)
+    {
+        fprintf(stderr,"Could not connect\n");
+        perror("DXLStartDX");
+        exit(1);
+    }
+    /*
+     * Set the error handler
+     */
+    DXLSetErrorHandler(conn, ErrorHandler, NULL);
+    /*
+     * Load the visual program to run
+     */
+    DXLLoadVisualProgram(conn, BASE"/samples/dxlink/sealevel.net");
+    /*
+     * Set the value of the DXLInput tool which is labelled
+     * "contour_line_value" and execute.
+     */
+    DXLSetValue(conn, "contour_line_value", "0");
+    DXLExecuteOnce(conn);
+    /*
+     * Set the value of the DXLInput tool which is labelled
+     * "contour_line_value" and execute.
+     */
+    DXLSetValue(conn, "contour_line_value", "2");
+    DXLExecuteOnce(conn);
+    /*
+     * Set the value of the DXLInput tool which is labelled
+     * "contour_line_value" and execute.
+     */
+    DXLSetValue(conn, "contour_line_value", "5");
+    DXLExecuteOnce(conn);
+    /*
+     * Set the value of the DXLInput tool which is labelled
+     * "contour_line_value" and execute.
+     */
+    DXLSetValue(conn, "contour_line_value", "20");
+    DXLExecuteOnce(conn);
+    /*
+     * Set the value of the DXLInput tool which is labelled
+     * "contour_line_value" and execute.
+     */
+    DXLSetValue(conn, "contour_line_value", "50");
+    DXLExecuteOnce(conn);
+    printf("An image window will appear\n");
+    printf("and a sequence of images will be created.\n");
+    printf("When you are finished, hit return to quit:");
+    gets(result);
+    DXLExitDX(conn);
+}
+</PRE>
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu084.htm">Previous Page</A> &#124; <A HREF="progu086.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

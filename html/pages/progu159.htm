@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu158.htm">Previous Page</A> &#124; <A HREF="progu160.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXGCEV" HREF="progu097.htm#PToC_253">DXGetCacheEntry,
+DXGetCacheEntryV</A></H3>
+<A NAME="IDX1699"></A>
+<A NAME="IDX1700"></A>
+<A NAME="IDX1701"></A>
+<A NAME="IDX1702"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Retrieve a cache entry.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXGetCacheEntry(char *function, int key, int n, ...)<BR>
+Object DXGetCacheEntryV(char *function, int key, int n, Object *in)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Both routines return the Object referenced by a cache entry.
+The cache is indexed by a key created from <TT><STRONG>function</STRONG></TT>,
+<TT><STRONG>key</STRONG></TT>, <TT><STRONG>n</STRONG></TT>, and the Objects in
+the Array <TT><STRONG>in</STRONG></TT>.
+These must be the same values as those used when the Object was placed
+in the cache with <TT><STRONG>DXSetCacheEntry</STRONG></TT>.
+<P><B>Notes: </B><OL>
+<P><LI>Because Data Explorer modules follow pure function semantics, the cache
+should <I>not</I> be used to store a state that affects the
+output of the module.
+A module must always be able to recreate the Object from the same set
+of inputs; the cache should only be used as an optimization tool.
+<P><LI>On a multiprocessor machine, processor local information should
+<I>not</I> be stored in the cache, since its contents may be
+retrieved on another processor.
+<P><LI>The cache is local to one machine and cannot be used to communicate
+information between modules on different machines when running in
+distributed mode.
+</OL>
+Since DXGetCacheEntry returns an Object that is referenced so that it
+will not be deleted, you must delete it when you are finished with
+it.
+Failure to do so will result in a memory leak.
+<P>
+For additional details on the deletion of cached Objects, see
+<TT><STRONG>DXSetCacheEntry</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the cached output Object or returns <TT><STRONG>NULL</STRONG></TT>
+but does not set an error code if no such cache entry exists.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu130.htm#HDRDXDEL">DXDelete</A>,
+<A HREF="progu288.htm#HDRDXREF">DXReference</A>,
+<A HREF="progu304.htm#HDRDXSCEV">DXSetCacheEntry, DXSetCacheEntryV</A>,
+<A HREF="progu190.htm#HDRDXGSOT">DXGetObjectTag, DXSetObjectTag</A>
+</STRONG></TT>
+<P>
+<A HREF="progu059.htm#HDRCACHE">13.5 , "Cache"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu158.htm">Previous Page</A> &#124; <A HREF="progu160.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

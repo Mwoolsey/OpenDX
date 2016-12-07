@@ -1,0 +1,105 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rmakex MakeX Module Example--Create 
+New Positions #!N #!EC #!N #!N The MakeX module places an 
+"x" at every position in an input Field. MakeX differs from 
+the Add module (see  #!Laddmodx,dxall1028 h Add Module Example--Add a Number to Every Data Value  #!EL  ) in that, instead of simply 
+modifying a component of the input Field, it creates new positions 
+and connections components. #!N #!N The MakeX module takes two inputs: 
+the first,  #!F-adobe-times-bold-r-normal--18*   data #!EF , is of type  #!F-adobe-times-bold-r-normal--18*   field 
+#!EF and has no default value; the second,  #!F-adobe-times-bold-r-normal--18*   size #!EF 
+, is of type  #!F-adobe-times-bold-r-normal--18*   float #!EF , and has a 
+default value of 1. #!N #!N The MakeX module has one 
+output:  #!F-adobe-times-bold-r-normal--18*   result #!EF , of type  #!F-adobe-times-bold-r-normal--18*   field #!EF . 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   (1) START THE MODULE BUILDER #!EF with the 
+command: __________________________________ #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -builder #!EF #!N 
+#!N #!EC #!N #!N The Module Builder dialog box appears. Note 
+that the dialog box carries no information, since no module has 
+been specified. (For a simple example of creating a module with 
+the Module Builder, see  #!Ltmodbld,dxall1006 h Using the Module Builder: A Quick Walk Through  #!EL  ) #!N #!N  #!F-adobe-times-bold-r-normal--18*   (2) SELECT 
+___________  #!F-adobe-times-bold-r-normal--18*   OPEN #!EF #!EF from the _______________________  #!F-adobe-times-bold-r-normal--18*   File #!EF 
+pull-down menu. An  #!F-adobe-times-bold-r-normal--18*   Open a Module Builder file... #!EF dialog 
+box appears. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (3) READ IN #!EF /usr/lpp/dx/samples/program_guide/makex.mb as 
+follows: __________________ #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+Type the full path name in the  #!F-adobe-times-bold-r-normal--18*   Filter #!EF field 
+of the dialog box. #!N #!I30 #!N o Click on (in 
+sequence): #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N - the 
+ #!F-adobe-times-bold-r-normal--18*   Filter #!EF button #!N #!I30 #!N - the name of 
+the file in the  #!F-adobe-times-bold-r-normal--18*   Files #!EF field #!N #!I30 #!N 
+- the  #!F-adobe-times-bold-r-normal--18*   OK #!EF button. #!N #!I0 #!N #!EF #!N 
+Information describing the inputs and output of the module (extracted from 
+the makex.mb file) appears in the Module Builder dialog box. #!N 
+#!I0 #!N #!EF #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   (4) SAVE THE .MB 
+FILE #!EF to a writable directory (use ___________________________  #!F-adobe-times-bold-r-normal--18*   Save As... 
+#!EF in the  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu). #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+(5) SELECT CREATE ALL #!EF from the ___________________________  #!F-adobe-times-bold-r-normal--18*   Build #!EF 
+pull-down menu of the dialog box. This option creates three files 
+for the module: makex.make, makex.c, and makex.mdf. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (6) 
+IMPLEMENT THE MAKEX FUNCTION. #!EF As in the example of Add2Invalid 
+(see  #!L_________________________________________,dxall1030 h ADD2I Add2Invalid Module Example--Manipulate Invalid Data  #!EL  ), the MakeX module needs access to the input 
+Object at a higher level than that provided by the MakeX_worker 
+routine. Consequently, the addition of new user code includes a modification 
+of the routine doLeaf as well. #!N #!N Use an editor 
+to add the following lines (after extracting the positions Array with 
+ #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF ): #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N . . 
+. #!N #!N p_position = (float *)DXGetArrayData(array); #!N if (! positions) 
+#!N goto error; #!N } #!N #!N /* New User code 
+starts here */ #!EF #!N #!N #!EC #!N #!N #!CForestGreen #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N /* #!N * Make the new positions array for 
+the output. The positions are #!N * 3-dimensional. #!N */ #!N 
+positions = DXNewArray(TYPE_FLOAT, CATEGORY_REAL, 1, 3); #!N if (! positions) #!N 
+goto error; #!N #!N /* #!N * Check that the input 
+positions are 3-dimensional: #!N */ #!N if (p_dim != 3) { 
+#!N DXSetError(ERROR_INVALID_DATA,"input positions must be 3-dimensional"); #!N goto error; #!N } 
+#!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* #!N 
+* Allocate space to the new positions array. Four positions are 
+needed #!N * for every input position (the four points making 
+up the "x"). #!N */ #!N if (! DXAddArrayData(positions, 0, 4*p_knt, 
+NULL)) #!N goto error; #!N #!N /* Get a pointer to 
+the output positions. */ #!N out_pos_ptr = (Point *)DXGetArrayData(positions); #!N #!N 
+/* Make a connections component for the output. The connections are 
+#!N * 2-dimensional (lines). #!N */ #!N connections = DXNewArray(TYPE_INT, CATEGORY_REAL, 
+1, 2); #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+/* Allocate space to the new connections array. There are two 
+lines for #!N * each input position. #!N */ #!N if 
+(! DXAddArrayData(connections, 0, 2*p_knt, NULL)) #!N goto error; #!N DXSetAttribute((Object)connections, "element 
+type", #!N (Object)DXNewString("lines")); #!N #!N /* Get a pointer to the 
+new connections. */ #!N conn_ptr = (Line *)DXGetArrayData(connections); #!N #!N /* 
+Get the size of the "x" */ #!N DXExtractFloat(in[1], &size); #!EF 
+#!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* Now "draw" 
+the x's */ #!N for (i=0; i< p_knt; i++) { #!N 
+inpoint = DXPt(p_positions[3*i], p_positions[3*i+1], p_positions[3*i+2]); #!N out_pos_ptr[4*i] = DXPt(inpoint.x - size, 
+inpoint.y, inpoint.z); #!N out_pos_ptr[4*i+1] = DXPt(inpoint.x + size, inpoint.y, inpoint.z); #!N 
+out_pos_ptr[4*i+2] = DXPt(inpoint.x, inpoint.y - size, inpoint.z); #!N out_pos_ptr[4*i+3] = DXPt(inpoint.x, 
+inpoint.y + size, inpoint.z); #!N #!N conn_ptr[2*i] = DXLn(4*i, 4*i+1); #!N 
+conn_ptr[2*i+1] = DXLn(4*i+2, 4*i+3); #!N } #!EF #!N #!N #!EC #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* Clean up; we're about to significantly 
+modify the positions and connections #!N */ #!N DXChangedComponentStructure((Field)out[0],"positions"); #!N DXChangedComponentStructure((Field)out[0],"connections"); 
+#!N #!N /* Now place the new positions and connections in 
+the output field */ #!N DXSetComponentValue((Field)out[0], "positions", (Object)positions); #!N positions = 
+NULL; #!N DXSetComponentValue((Field)out[0], "connections", (Object)connections); #!N connections = NULL; #!N #!N 
+/* Finalize the field */ #!N DXEndField((Field)out[0]); #!N #!N /* return 
+*/ #!N return OK; #!N error: #!N DXDelete((Object)positions); #!N DXDelete((Object)connections); #!N 
+return ERROR; #!EF #!N #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   (7) REMOVE 
+THE CALL TO MAKEX_WORKER: #!EF it is not needed. All of 
+the data processing code has been added to __________________________________________ doLeaf (Step 
+5). #!N #!N  #!F-adobe-times-bold-r-normal--18*   (8) INSERT THE FOLLOWING DECLARATIONS #!EF after 
+the first block of code in the doLeaf routine: ___________________________________________ #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* User added declarations */ #!N Point 
+*out_pos_ptr, inpoint; #!N Array connections=NULL, positions=NULL; #!N Line *conn_ptr; #!N float 
+size; #!EF #!N #!N #!EC #!N #!N The file /usr/lpp/dx/samples/program_guide/makex.c contains 
+a completed version of this program. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (9) TO 
+CREATE A VERSION OF DATA EXPLORER THAT INCLUDES #!EF the MakeX 
+module, enter the command: ____________________________________________________________ #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N make 
+-f makex.make dxexec #!EF #!N #!N #!EC #!N #!N (You have 
+now created an executable that contains the MakeX module.) #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   (10) TO INVOKE THIS VERSION, ENTER: #!EF __________________________________________ #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf ./makex.mdf -exec ./dxexec #!EF #!N 
+#!N #!EC #!N #!N This command starts Data Explorer (the  #!F-adobe-times-bold-r-normal--18*   
+makex.mdf #!EF file tells the graphical user interface about MakeX and 
+its inputs and outputs). The executable dxexec invoked here is the 
+one created in Step 8. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (11) WITH THIS 
+VERSION OF DATA EXPLORER #!EF you can now run any visual 
+program that uses the MakeX module. One _____________________________________________ such program is 
+/usr/lpp/dx/samples/program_guide/makex.net #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lexmkx2,dxall1033 h MakeXEfficient Module Example--Create New Positions  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

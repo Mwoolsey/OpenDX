@@ -1,0 +1,61 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rcmapem Colormap Edit Menu #!N #!EC #!N #!N The 
+Colormap  #!F-adobe-times-bold-r-normal--18*   Edit #!EF menu displays the options used to edit 
+the current color map. #!N #!N The following options appear on 
+the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF menu: #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Undo #!EF #!I50 #!N Returns an operation to its previous 
+value.  #!F-adobe-times-bold-r-normal--18*   Undo #!EF retains a stack of 10 operations. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Copy #!EF #!I50 #!N Copies selected control points 
+to a buffer so that they can be pasted to another 
+field. See  #!Lcapcps,dxall373 h Copying and Pasting Control Points  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Paste #!EF #!I50 
+#!N Pastes selected control points to a different field. See  #!Lcapcps,dxall373 h Copying and Pasting Control Points  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Use Application Default #!EF #!I50 #!N 
+If the Colormap Editor is data-driven, it is still possible to 
+override its data-driven values by explicitly setting them in the Colormap 
+Editor. The  #!F-adobe-times-bold-r-normal--18*   Use Application Default #!EF option restores the data-driven 
+values. It generates a cascade menu with four suboptions: #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Color (HSV) Map #!EF #!EF 
+#!I50 #!N If a color map was provided to the color-map 
+tab of the Colormap tool, and was subsequently modified by the 
+user (i.e, adding, moving, or deleting control points), selection of this 
+suboption restores the original color map. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Opacity Map #!EF #!EF #!I50 #!N If an opacity map was 
+provided to the opacity tab of the Colormap tool, and was 
+subsequently modified by the user (i.e, adding, moving, or deleting control 
+points), selection of this suboption restores the original opacity map. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Minimum #!EF #!EF #!I50 #!N If the 
+minimum was set either by a field passed to the data 
+tab of the Colormap tool or by a value passed to 
+or set for the  #!F-adobe-times-bold-r-normal--18*   min #!EF parameter of Colormap, and 
+was subsequently modified by the user in the Colormap Editor, this 
+suboption restores the original value. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Maximum 
+#!EF #!EF #!I50 #!N If the maximum was set either by 
+a field passed to the data tab of the Colormap tool 
+or by a value passed to or set for the  #!F-adobe-times-bold-r-normal--18*   
+max #!EF parameter of Colormap, and was subsequently modified by the 
+user in the Colormap Editor, this suboption restores the original value. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   All #!EF #!EF #!I50 #!N Restores 
+all values to their data-driven settings. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Minimum & Maximum #!EF #!EF #!I50 #!N Restores both the minimum 
+and the maximum values of the original color map. #!I0 #!N 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Add Control Points... #!EF #!I50 #!N 
+Brings up a dialog box in which you can enter the 
+exact numerical location for control points to be added as the 
+data value and as the value for either the Hue, Saturation, 
+Value, or Opacity area of the color map. See  #!Ladconp,dxall367 h Adding Control Points  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Constrain Horizontal #!EF #!I50 #!N Constrains the 
+horizontal movement of all control points in all areas of the 
+Colormap. See  #!Lmovcps,dxall371 h Moving Control Points  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Constrain Vertical #!EF 
+#!I50 #!N Constrains the vertical movement of all control points in 
+all areas of the color map. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Generate 
+Waveforms #!EF #!I50 #!N Displays a dialog box that allows you 
+to select from a menu of waveforms. The waveforms can be 
+applied to the full range of hue, saturation, value or opacity 
+or to a selected range. See  #!Lcrewvs,dxall372 h Creating Waveforms  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Delete Selected Control Points #!EF #!I50 #!N Deletes selected control 
+points in the selected area of the Colormap. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Select All Control Points #!EF #!I50 #!N Selects all the 
+control points in the selected area of the Colormap. #!I0 #!N 
+#!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcmapxm,dxall467 h Colormap Execute Menu  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

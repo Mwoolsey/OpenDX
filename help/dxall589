@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall589 Cache Control: Display #!N #!N 
+#!N Some modules use the caching system to cache their own 
+data. The Display and Image tools are such tools. When using 
+software rendering, they cache the images they display in the X 
+windows. This is an optimization that can be seen when using 
+the Sequencer. When this tool starts repeating itself (in loop or 
+palindrome mode), the images are displayed much faster. That is, Display 
+(or Image) is pulling them out of the cache instead of 
+rerendering the input objects each time. You can observe this effect 
+by running the example program MovingCamera.net with software rendering. #!N #!N 
+Most of the time this caching behavior is desirable, but in 
+some cases it is better turned off. To do that, use 
+the Options module to add a "cache" attribute with the integer 
+value of 0 (zero), as follows: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+o = Options(o, "cache", 0); #!N Display(o, camera); #!EF #!N #!N 
+#!EC #!N #!N The Image tool's Configuration dialog box has an 
+ #!F-adobe-times-bold-r-normal--18*   option #!EF menu that lets you control its caching. This 
+can be useful when one is running a batch job to 
+generate an animation in which none of the frames will be 
+displayed a second time. #!N #!N Note that the -cache off 
+command line option mentioned above has no effect on the internal 
+caching that modules themselves perform. Note: You can use the Data 
+Explorer command line option -optimize memory, which will automatically set the 
+DXDELAYEDCOLORS and DXPIXELTYPE environment variable to the options that consume the 
+least memory. The alternative is -optimize precision. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall589,dxall590 h System Tuning  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

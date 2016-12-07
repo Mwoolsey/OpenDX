@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu139.htm">Previous Page</A> &#124; <A HREF="progu141.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXEDX" HREF="progu097.htm#PToC_234">DXExportDX</A></H3>
+<A NAME="IDX1660"></A>
+<A NAME="IDX1661"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Writes an Object to a specified file in a specified Data Explorer format.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Error DXExportDX(Object o, char *filename, char *format)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Writes the contents of Object
+<TT><STRONG>o</STRONG></TT> into the file specified by
+<TT><STRONG>filename</STRONG></TT> using format
+<TT><STRONG>format</STRONG></TT>.  <TT><STRONG>format</STRONG></TT>
+must be "dx" with the following
+optional keywords appended:
+<BR>
+<P><B><A NAME="TBLFKW" HREF="progu002.htm#FT_TBLFKW">Table 5. Format Keyword
+Description</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Keyword
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="89%">Format of the Data in the File
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">text
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="89%">data in ASCII
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">ASCII
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="89%">data in ASCII
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">binary
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="89%">data in binary
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="89%">header and data in a single file:
+header section, then data section
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">2
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="89%">header and data in two files
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">follows
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="89%">header and data in a single file;
+data immediately following object
+description in header section
+</TD></TR></TABLE>
+<P>
+You may specify more than one keyword (e.g.,
+<TT><STRONG>format</STRONG></TT>=&quot;dx text 2&quot;).
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>OK</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+and
+sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu211.htm#HDRDXIDX">DXImportDX</A>
+</STRONG></TT>
+<P>
+<A HREF="progu054.htm#HDRDEF">"Data Explorer Format Files"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu139.htm">Previous Page</A> &#124; <A HREF="progu141.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

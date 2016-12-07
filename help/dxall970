@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtranspo Transpose #!N #!N Category #!N 
+#!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N Function #!N #!N Performs a generalized transpose. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF 
+= Transpose(  #!F-adobe-times-bold-r-normal--18*   input, dimensions #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB input TAB field TAB 
+none TAB object to be transposed #!N TAB dimensions TAB integer 
+list, string list TAB no transposition TAB new coordinate list #!N 
+TAB - TAB - TAB - TAB #!EF #!N #!N Outputs 
+#!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF 
+#!N TAB output TAB field TAB transposed object #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N This 
+module rearranges the dimensions of a specified input field. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N 
+specifies the field to be transposed. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+dimensions #!EF #!EF #!I50 #!N specifies the list of transposed coordinates. 
+The  #!F-adobe-times-medium-i-normal--18*   n #!EF dimensions of the object can be specified 
+by number (from 0 to  #!F-adobe-times-medium-i-normal--18*   n #!EF - 1). The 
+first three dimensions can also be specified as  #!F-adobe-times-medium-i-normal--18*   x #!EF 
+,  #!F-adobe-times-medium-i-normal--18*   y #!EF , and  #!F-adobe-times-medium-i-normal--18*   z #!EF , respectively. 
+#!I0 #!N #!N #!N #!N The output also has  #!F-adobe-times-medium-i-normal--18*   n 
+#!EF dimensions, and the  #!F-adobe-times-medium-i-normal--18*   i #!EF th output dimension is 
+the same as  #!F-adobe-times-bold-r-normal--18*   input #!EF 's  #!F-adobe-times-bold-r-normal--18*   dimensions #!EF [ 
+ #!F-adobe-times-medium-i-normal--18*   i #!EF ]th input dimension. #!N #!N This module transposes 
+only the "positions" component, leaving other components unaffected. For example, if 
+the "data" component represents a velocity vector, the components of the 
+vector continue to be specified in the original coordinate system. To 
+rearrange the "data" component, use Compute. (If the output of Transpose 
+is later used as input to Slab, Slice, or Stack, the 
+ #!F-adobe-times-bold-r-normal--18*   dimensions #!EF parameter must be specified as in the original 
+data before they were transposed.) #!N #!N Components #!N #!N All 
+input components are propagated to the output. #!N #!N Example Visual 
+Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N GeneralImport2.net #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lcompute,dxall795 h Compute  #!EL  ,  #!Lslice,dxall950 h Slice  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltube,dxall971 h Tube  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

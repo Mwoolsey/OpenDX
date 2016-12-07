@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdft 
+DFT #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N 
+#!N Computes a discrete Fourier transform. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   output #!EF = DFT(  #!F-adobe-times-bold-r-normal--18*   input #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   direction #!EF ,  #!F-adobe-times-bold-r-normal--18*   center #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB input TAB 
+field TAB none TAB field to be transformed #!N TAB direction 
+TAB string TAB "forward" TAB direction of the transform #!N TAB 
+center TAB flag TAB 0 TAB center the result of the 
+transform #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB output TAB field TAB transformed data #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module computes the discrete Fourier transform of a 2- 
+or 3-dimensional regular data set. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N specifies the field to 
+be transformed. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   direction #!EF #!EF #!I50 
+#!N is one of the following: "forward," "inverse," or "backward" (the 
+last two are interchangeable). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   center #!EF 
+#!EF #!I50 #!N specifies whether zero frequency should be placed at 
+the center of the transformed field or at the origin of 
+the positions array. #!I0 #!N #!N #!N #!N Components #!N #!N 
+All scalar components of  #!F-adobe-times-bold-r-normal--18*   input #!EF are individually Fourier-transformed and 
+output as complex float. All other input components are propagated to 
+the output. Thus a float 2-vector input produces a complex 2-vector 
+output. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+FFT.net #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Lfft,dxall846 h FFT  #!EL  ,  #!Lfilter,dxall849 h Filter  #!EL  ,  #!Lmorph,dxall896 h Morph  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxlinpt,dxall802 h DXLInput  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu008.htm">Previous Page</A> &#124; <A HREF="progu010.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu006.htm#PToC2">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRPROGCHP" HREF="../proguide.htm#ToC_14">Chapter 1. Overview</A></H1>
+<P><A NAME="PToC3" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_15" HREF="#Header_15">1.1 Writing Modules for use in the Data
+Explorer VPE or Scripting Language</A>
+<LI><A NAME="PToC_16" HREF="progu010.htm#Header_16">1.2 Writing a Stand-alone
+Program Using the Data Explorer Data Model</A>
+<LI><A NAME="PToC_17" HREF="progu011.htm#Header_17">1.3 Writing a Stand-alone
+Program Using Data Explorer Modules</A>
+<LI><A NAME="PToC_18" HREF="progu012.htm#Header_18">1.4 Controlling the Data
+Explorer Executive or User Interface from a Separate Program</A>
+</MENU><HR><P>
+
+The Data Explorer libraries allow you to extend Data Explorer's functionality in
+a variety of
+ways. Depending on the task you want to accomplish, the way you use the
+libraries will vary. <A HREF="#FIGARCH">Figure 1</A> shows the Data Explorer
+architecture.
+<P><B><A NAME="FIGARCH" HREF="../proguide.htm#FT_FIGARCH">Figure 1. Data Explorer
+architecture</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/arch.gif" ALT="Figure arch not
+displayed."></CENTER><BR></B><BR>
+The Data Explorer User Interface and Data Explorer Executive are the two
+programs you use
+when you create and execute visual programs. Underlying the Data Explorer
+Executive is a collection of modules, which in turn use the Data Explorer data
+model to manipulate all of the objects in a program (data sets,
+isosurfaces, images, etc.). The Data Explorer architecture is described in more
+detail in <A HREF="usrgu020.htm#HDROVE">Chapter 1. "Overview"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I>.
+<HR>
+<H2><A NAME="Header_15" HREF="#PToC_15">1.1 Writing Modules for use in the Data
+Explorer VPE or Scripting Language</A></H2>
+<P>If you want to write a module to use in the Data Explorer Visual Program
+Editor,
+or in the scripting language, you will probably use the libDXlite.a
+library. This library contains all of the Data Explorer data model routines
+which
+allow you to query, manipulate, and create data model objects. Much of
+this reference book concerns this common use of the Data Explorer library
+routines. You should be familiar with the material in
+<A HREF="progu044.htm#HDRDATACHP">Chapter 12. "Working with Data Model
+Objects"</A>, which discusses how to use the Data Explorer data model
+routines. You may also want to incorporate one or more of the existing
+Data Explorer modules into your own module, or use some of the high level data
+processing functions, such as interpolation. In this case you would need
+to use the libDXcallm.a library. DXCallModule is discussed in
+<A HREF="progu064.htm#HDRMODACSS">13.10 , "Module Access"</A>.
+<P>
+<A HREF="progu013.htm#HDRWRITMOD">Chapter 2. "Writing a Simple Module"</A>
+through
+<A HREF="progu037.htm#HDRMTDS">Chapter 11. "Making a Module Work"</A> show you a
+number of examples of
+modules, including import filters and various data manipulation modules.
+These examples are supported by <TT>.c</TT> files and makefiles in
+<TT>/usr/local/dx/samples/program_guide</TT>. If you wish to incorporate
+routines from the libDXcallm.a library, simply change the makefiles to
+link to this library instead of to libDXlite.a. All of the routines in
+libDXcallm.a are described in <A HREF="progu097.htm#HDRALLR">Appendix C. "Data
+Explorer Library Routines"</A>, while the subset of
+routines available in libDXlite.a is listed in <A
+HREF="progu096.htm#HDRDXLAP1">Appendix B. "Data Explorer Data Model Library:
+DXlite Routines"</A>.
+When you write a module for use in Data Explorer, the Data Explorer Executive is
+still the
+process which "owns main". Your module is simply incorporated into
+Data Explorer. Your module can be directly built in to the Data Explorer
+Executive
+(inboard module), run as a separate process (outboard module), or loaded
+into the Data Explorer executive at runtime (runtime-loadable module).  Each of
+these is discussed in <A HREF="progu037.htm#HDRMTDS">Chapter 11. "Making a
+Module Work"</A>. Using runtime-loadable modules
+is in general the preferred option.
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu008.htm">Previous Page</A> &#124; <A HREF="progu010.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC3">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

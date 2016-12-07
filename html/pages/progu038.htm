@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu037.htm">Previous Page</A> &#124; <A HREF="progu039.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRASYNMOD" HREF="progu037.htm#PToC_77">11.2 Asynchronous
+Modules</A></H2>
+<A NAME="IDX327"></A>
+<A NAME="IDX328"></A>
+<P>
+Inboard, outboard, and runtime-loadable modules can be asynchronous.
+That is, depending on events external to Data Explorer, an asynchronous module
+can request that it be rerun.
+If Data Explorer is in execute-on-change mode, the module will reexecute
+immediately.
+If it is not, the module is called the next time the user runs the
+network.
+<P>
+To cause executions in this fashion, the ASYNC flag must be set in the
+module&#39;s <TT><STRONG>.mdf</STRONG></TT> file.
+Then it can call the DXReadyToRun() function to request reexecution.
+(For an example of how to use this function,  see the sample
+outboard files "async.c" and "watchfile.c" in
+<TT><STRONG>/usr/local/dx/samples/outboard</STRONG></TT>.)
+If the module is outboard, the PERSISTENT flag must also be set, so that
+it does not exit after each execution.
+<P>
+DXReadyToRun() can be called in a variety of ways: by a signal handler
+(signal), after a prescribed time interval has passed (sleep,
+alarm), when a file appears (stat), or when data is
+received across a pipe or socket from another
+process (select).
+<P>
+<P>
+If a module must wait for input associated with a file descriptor (e.g.,
+a socket), it should use DXRegisterInputHandler to add another file
+descriptor to the select list.
+If data is received along with the input associated with that file
+descriptor, a user-supplied routine is called to check the
+status and may call DXReadyToRun.
+When the module is called, it can read the information in, process it,
+and return the output(s).
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu037.htm">Previous Page</A> &#124; <A HREF="progu039.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

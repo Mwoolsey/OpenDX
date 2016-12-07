@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall737 DXSHMEMSEGMAX #!N 
+Some architectures have a default configuration which limits the size of 
+shared memory segments (see the architecture specific README file in /usr/lpp/dx), 
+and the system configuration must be changed as root to increase 
+the maximum allowed size of a shared memory segment. If the 
+maximum is not reset or if it is already set to 
+a different limit, then you can use DXSHMEMSEGMAX to tell Data 
+Explorer what the current limit is in megabytes (e.g. 128 == 
+128 MB). Data Explorer will allocate multiple shared memory segments if 
+necessary to get the total amount of space, but it must 
+be able to allocate them at contiguous virtual memory addresses. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltall739,dxall739 h DXTRIALKEY  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnmg DXNewMultiGrid #!N #!N 
+Function #!N #!N Creates a new MultiGrid Object. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> MultiGrid DXNewMultiGrid() #!EF #!N #!N Functional Details 
+#!N #!N The new Object is a Group Object that can 
+contain a Field or Composite Field Objects. #!N #!N The Fields 
+in a MultiGrid Object must all be the same data type 
+and have the same connections element type, but the combined positions 
+are not required to fill space exactly. The Fields may overlap 
+or there may be space between them. An "invalid positions" component 
+may be used to select the preferred Field in the overlapping 
+case. #!N #!N The Group created can be deleted with DXDelete. 
+See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N #!N Returns the 
+MultiGrid Object or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error 
+code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcich,dxall1191 h DXCreateInvalidComponentHandle  #!EL  ,  #!Ldxncf,dxall1313 h DXNewCompositeField  #!EL  
+,  #!Ldxsm,dxall1382 h DXSetMember  #!EL  #!EF #!N #!N  #!Lmigd,dxall1066 h MultiGrid Groups  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxnpa,dxall1321 h DXNewPathArray  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

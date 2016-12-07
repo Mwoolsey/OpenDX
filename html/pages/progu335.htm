@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu334.htm">Previous Page</A> &#124; <A HREF="progu336.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXT"></A><A HREF="progu097.htm#PToC_429">DXTrim</A></H3>
+<A NAME="IDX2129"></A>
+<A NAME="IDX2130"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Frees space allocated in an Array beyond that required for the number
+of items in the Array.
+
+		<P><STRONG>Syntax</STRONG></P>
+		<P><TT><STRONG>
+					#include &lt;dx/dx.h&gt;</STRONG></TT></P>
+		<P><TT><STRONG>Array DXTrim(Array a)</STRONG></TT></P>
+		<P><STRONG>Functional Details</STRONG>
+		<P>
+Under
+some circumstances, more space than is necessary to hold the
+items added to
+<TT><STRONG>
+a
+</STRONG></TT>
+may have been allocated.  This can happen if
+you have called
+<TT><STRONG>DXAllocateArray</STRONG></TT>.  It can also happen when you
+call
+<TT><STRONG>DXAddArrayData</STRONG></TT>.  This
+extra space can be freed by calling
+<TT><STRONG>DXTrim</STRONG></TT>.  The
+<TT><STRONG>
+DXEndField
+</STRONG></TT>
+routine automatically calls
+<TT><STRONG>
+DXTrim
+</STRONG></TT>
+on all components of a Field.
+<P><STRONG>Return Value</STRONG>
+		<P>
+Returns <TT><STRONG>a</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+and
+sets an error code.
+
+		<H3><A NAME="HDRDTI"></a><A HREF="progu097.htm#PToC_429">DXTrimItems</A></H3>
+		<P><STRONG>Function</STRONG></P>
+		<P>Frees space allocated in an Array beyond that required for the number of items in the Array.</P>
+		<P><STRONG>Syntax</STRONG></P>
+		<P><TT><STRONG>#include &lt;dx/dx.h&gt;</STRONG></TT></P>
+		<P><TT><STRONG>Array DXTrimItems(Array a, int nitems)</STRONG></TT></P>
+		<P><STRONG>Functional Details</STRONG></P>
+		<P>It may desirable to remove elements at the end of an array to shrink the array without having to copy it. 
+		<TT><STRONG>DXTrimItems</TT></STRONG>  will make the array nitems long removing items 
+		from the end of the array and  automatically calling <TT><STRONG>DXTrim</STRONG></TT> to free the extra array memory.</P>
+		<P><STRONG>Return Value</STRONG></P>
+		<P>Returns <TT><STRONG>a</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT> and sets an error code. </P>
+		<P><STRONG>See Also</STRONG></P>
+		<P>
+<TT><STRONG>
+<A HREF="progu100.htm#HDRDXAAD">DXAddArrayData</A>,
+<A HREF="progu107.htm#HDRDXAA">DXAllocateArray</A>,
+<A HREF="progu136.htm#HDRDXENDF">DXEndField</A>, </STRONG></TT><A HREF="progu046.htm#HDRIRREG">"Irregular Arrays"</A>.
+
+		<P>
+		<HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu334.htm">Previous Page</A> &#124; <A HREF="progu336.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

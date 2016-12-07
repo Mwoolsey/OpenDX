@@ -1,0 +1,4748 @@
+//
+// time: Tue Apr 23 19:44:21 2002
+//
+// version: 3.1.2 (format), 4.1.3 (DX)
+//
+//
+//
+// macro reference (direct): DXExport /usr/local/dx/java/server/dxmacros/dxmac.net
+include "dxmac.net"
+//
+// macro reference (direct): ImageExport /usr/local/dx/java/server/dxmacros/gifmac.net
+include "gifmac.net"
+//
+// macro reference (direct): VRMLExport /usr/local/dx/java/server/dxmacros/vrmlmac.net
+include "vrmlmac.net"
+//
+// Begin MDF
+// MODULE Image
+// CATEGORY Macros
+// DESCRIPTION The Image macro
+// INPUT id[visible:0]; object; (none); module Id
+// INPUT object; object; (none); Rendered object
+// INPUT where[visible:0]; object; (no default); X Window information
+// INPUT useVector[visible:0]; object; (0);  
+// INPUT to[visible:0]; object; (no default); camera to parameter
+// INPUT from[visible:0]; object; (no default); camera from parameter
+// INPUT width[visible:0]; object; (no default); camera width
+// INPUT resolution[visible:0]; object; (no default);  
+// INPUT aspect[visible:0]; object; (no default);  
+// INPUT up[visible:0]; object; (no default);  
+// INPUT viewAngle[visible:0]; object; (no default);  
+// INPUT perspective[visible:0]; object; (no default);  
+// INPUT options[visible:0]; object; (no default);  
+// INPUT buttonState[visible:0]; value list or string list or object; (no default);  
+// INPUT buttonUpApprox[visible:0]; value list or string list or object; (no default);  
+// INPUT buttonDownApprox[visible:0]; value list or string list or object; (no default);  
+// INPUT buttonUpDensity[visible:0]; value list or string list or object; (1);  
+// INPUT buttonDownDensity[visible:0]; value list or string list or object; (1);  
+// INPUT renderMode[visible:0]; value list or string list or object; (no default);  
+// INPUT defaultCamera[visible:0]; object; (no default);  
+// INPUT reset[visible:0]; value list or string list or object; (no default);  
+// INPUT backgroundColor[visible:0]; object; (no default);  
+// INPUT throttle[visible:0]; object; (no default);  
+// INPUT recEnable[visible:0]; value list or string list or object; (false);  
+// INPUT recFile[visible:0]; object; (no default);  
+// INPUT recFormat[visible:0]; object; (no default);  
+// INPUT recResolution[visible:0]; object; (no default);  
+// INPUT recAspect[visible:0]; object; (no default);  
+// INPUT AAenable[visible:0]; value list or string list or object; (false);  
+// INPUT AAlabels[visible:0]; object; (no default);  
+// INPUT AAticks[visible:0]; object; (no default);  
+// INPUT AAcorners[visible:0]; object; (no default);  
+// INPUT AAframe[visible:0]; object; (no default);  
+// INPUT AAadjust[visible:0]; object; (no default);  
+// INPUT AAcursor[visible:0]; object; (no default);  
+// INPUT AAgrid[visible:0]; object; (no default);  
+// INPUT AAcolors[visible:0]; object; (no default);  
+// INPUT AAannotation[visible:0]; object; (no default);  
+// INPUT AAlabelscale[visible:0]; object; (no default);  
+// INPUT AAfont[visible:0]; object; (no default); Font for x,y,z axis labels 
+// INPUT interactionMode[visible:0]; value list or string list or object; (none);  Interaction Mode
+// INPUT title[visible:0]; object; (no default);  Image window title
+// INPUT aaxTickLocs[visible:0]; object; (no default);  Tick values for X Axis 
+// INPUT AAyTickLocs[visible:0]; object; (no default);  Tick values for Y Axis
+// INPUT aazTickLocs[visible:0]; object; (no default);  Tick values for Z Axis
+// INPUT aaxTickLabels[visible:0]; object; (no default);  Labels for X Axis ticks
+// INPUT aayTickLabels[visible:0]; object; (no default);  Labels for Y Axis ticks
+// INPUT aazTickLabels[visible:0]; object; (no default);  Labels for Z Axis ticks
+// INPUT webOptions[visible:0]; value list or string list or object; (no default);  
+// OUTPUT object; object;  
+// OUTPUT camera; object; camera used to render
+// OUTPUT Where; object;  
+// End MDF
+// page assignment: ImageMessage	order=16, windowed=0, showing=0
+// page assignment: aa inputs	order=14, windowed=0, showing=0
+// page assignment: autoaxes	order=15, windowed=0, showing=0
+// page assignment: camera	order=2, windowed=0, showing=0
+// page assignment: gif data	order=9, windowed=0, showing=0
+// page assignment: hw approx	order=17, windowed=0, showing=0
+// page assignment: inputs	order=13, windowed=0, showing=0
+// page assignment: java export	order=5, windowed=0, showing=0
+// page assignment: java file	order=6, windowed=0, showing=0
+// page assignment: java gif	order=8, windowed=0, showing=0
+// page assignment: java inputs	order=10, windowed=0, showing=0
+// page assignment: java orbit 1	order=3, windowed=0, showing=0
+// page assignment: java orbit 2	order=4, windowed=0, showing=0
+// page assignment: java wrl dx	order=7, windowed=0, showing=1
+// page assignment: outputs	order=11, windowed=0, showing=0
+// page assignment: recording	order=12, windowed=0, showing=0
+// workspace: width = 571, height = 530
+// layout: snap = 1, width = 35, height = 26, align = UN
+//
+macro Image(
+ id
+,object
+,where
+,useVector
+,to
+,from
+,width
+,resolution
+,aspect
+,up
+,viewAngle
+,perspective
+,options
+,buttonState
+,buttonUpApprox
+,buttonDownApprox
+,buttonUpDensity
+,buttonDownDensity
+,renderMode
+,defaultCamera
+,reset
+,backgroundColor
+,throttle
+,recEnable
+,recFile
+,recFormat
+,recResolution
+,recAspect
+,AAenable
+,AAlabels
+,AAticks
+,AAcorners
+,AAframe
+,AAadjust
+,AAcursor
+,AAgrid
+,AAcolors
+,AAannotation
+,AAlabelscale
+,AAfont
+,interactionMode
+,title
+,aaxTickLocs
+,AAyTickLocs
+,aazTickLocs
+,aaxTickLabels
+,aayTickLabels
+,aazTickLabels
+,webOptions
+) -> (
+ object
+,camera
+,Where
+) {
+    // 
+    // node Input[2]: x = 966, y = 572, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 2, name = 'object', value = ' ', descriptive = 0, description = 'Rendered object', required = 1, visible = 1
+    //
+Image_Input_2_out_1 = object;
+    // 
+    // node Transmitter[65]: x = 959, y = 676, inputs = 1, label = objectx
+    // page group: inputs
+    //
+objectx = Image_Input_2_out_1;
+    // 
+    // node Receiver[14]: x = 0, y = 364, inputs = 1, label = objectx
+    // page group: autoaxes
+    //
+Image_Receiver_14_out_1[cache: 0] = objectx;
+    // 
+    // node Input[21]: x = 1314, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 21, name = 'reset', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_21_out_1 = reset;
+    // 
+    // node Inquire[44]: x = 1253, y = 78, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: inputs
+    //
+Image_Inquire_44_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_21_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 44, cache: 1];
+    // 
+    // node Switch[33]: x = 1296, y = 156, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = 0
+    // page group: inputs
+    //
+Image_Switch_33_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_44_out_1,
+    Image_Input_21_out_1,
+    0
+    ) [instance: 33, cache: 1];
+    // 
+    // node Transmitter[67]: x = 1298, y = 234, inputs = 1, label = resetx
+    // page group: inputs
+    //
+resetx = Image_Switch_33_out_1;
+    // 
+    // node Receiver[5]: x = 0, y = 182, inputs = 1, label = resetx
+    // page group: camera
+    //
+Image_Receiver_5_out_1[cache: 0] = resetx;
+    // 
+    // node Inquire[2]: x = 10, y = 364, inputs = 3, label = resetNull
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: camera
+    //
+Image_Inquire_2_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_5_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 2, cache: 1];
+    // 
+    // node Switch[3]: x = 34, y = 442, inputs = 3, label = reset
+    // input[3]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: camera
+    //
+Image_Switch_3_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_2_out_1,
+    Image_Receiver_5_out_1,
+    0
+    ) [instance: 3, cache: 1];
+    // 
+    // node Input[4]: x = 977, y = 286, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 4, name = 'useVector', value = '(0)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_4_out_1 = useVector;
+    // 
+    // node Transmitter[46]: x = 956, y = 364, inputs = 1, label = useVectorx
+    // page group: inputs
+    //
+useVectorx = Image_Input_4_out_1;
+    // 
+    // node Receiver[4]: x = 87, y = 182, inputs = 1, label = useVectorx
+    // page group: camera
+    //
+Image_Receiver_4_out_1[cache: 0] = useVectorx;
+    // 
+    // node Compute[6]: x = 56, y = 546, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "($0 != 0 || $1 == 0) ? 1 : 2"
+    // page group: camera
+    // expression: value = (a != 0 || b == 0) ? 1 : 2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_6_out_1[cache: 2] = 
+    Compute(
+    "($0 != 0 || $1 == 0) ? 1 : 2",
+    Image_Switch_3_out_1,
+    Image_Receiver_4_out_1
+    ) [instance: 6, cache: 1];
+    // 
+    // node Input[20]: x = 1073, y = 286, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 20, name = 'defaultCamera', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_20_out_1 = defaultCamera;
+    // 
+    // node Transmitter[49]: x = 1038, y = 468, inputs = 1, label = defaultCamerax
+    // page group: inputs
+    //
+defaultCamerax = Image_Input_20_out_1;
+    // 
+    // node Receiver[2]: x = 266, y = 156, inputs = 1, label = defaultCamerax
+    // page group: camera
+    //
+Image_Receiver_2_out_1[cache: 0] = defaultCamerax;
+    // 
+    // node Inquire[1]: x = 232, y = 364, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: camera
+    //
+Image_Inquire_1_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_2_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 1, cache: 1];
+    // 
+    // node Input[22]: x = 71, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 22, name = 'backgroundColor', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_22_out_1 = backgroundColor;
+    // 
+    // node Transmitter[13]: x = 49, y = 104, inputs = 1, label = bkgndColor
+    // page group: inputs
+    //
+bkgndColor = Image_Input_22_out_1;
+    // 
+    // node Receiver[3]: x = 845, y = 78, inputs = 1, label = bkgndColor
+    // page group: camera
+    //
+Image_Receiver_3_out_1[cache: 0] = bkgndColor;
+    // 
+    // node UpdateCamera[1]: x = 296, y = 364, inputs = 10, label = UpdateCamera
+    // input[2]: visible = 0
+    // input[3]: visible = 0
+    // input[4]: visible = 0
+    // input[5]: visible = 0
+    // input[6]: visible = 0
+    // input[7]: visible = 0
+    // input[8]: visible = 0
+    // input[9]: visible = 0
+    // page group: camera
+    //
+Image_UpdateCamera_1_out_1[cache: 2] = 
+    UpdateCamera(
+    Image_Receiver_2_out_1,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    Image_Receiver_3_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Receiver[119]: x = 418, y = 312, inputs = 1, label = objectx
+    // page group: camera
+    //
+Image_Receiver_119_out_1[cache: 0] = objectx;
+    // 
+    // node Input[8]: x = 1085, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 8, name = 'resolution', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_8_out_1 = resolution;
+    // 
+    // node Transmitter[35]: x = 1065, y = 182, inputs = 1, label = resolutionx
+    // page group: inputs
+    //
+resolutionx = Image_Input_8_out_1;
+    // 
+    // node Receiver[9]: x = 727, y = 104, inputs = 1, label = resolutionx
+    // page group: camera
+    //
+Image_Receiver_9_out_1[cache: 0] = resolutionx;
+    // 
+    // node Input[9]: x = 1215, y = 286, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 9, name = 'aspect', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_9_out_1 = aspect;
+    // 
+    // node Transmitter[51]: x = 1206, y = 442, inputs = 1, label = aspectx
+    // page group: inputs
+    //
+aspectx = Image_Input_9_out_1;
+    // 
+    // node Receiver[10]: x = 512, y = 156, inputs = 1, label = aspectx
+    // page group: camera
+    //
+Image_Receiver_10_out_1[cache: 0] = aspectx;
+    // 
+    // node Input[12]: x = 1175, y = 546, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 12, name = 'perspective', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_12_out_1 = perspective;
+    // 
+    // node Transmitter[66]: x = 1149, y = 676, inputs = 1, label = perspectivex
+    // page group: inputs
+    //
+perspectivex = Image_Input_12_out_1;
+    // 
+    // node Receiver[12]: x = 793, y = 0, inputs = 1, label = perspectivex
+    // page group: camera
+    //
+Image_Receiver_12_out_1[cache: 0] = perspectivex;
+    // 
+    // node Input[11]: x = 1155, y = 286, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 11, name = 'viewAngle', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_11_out_1 = viewAngle;
+    // 
+    // node Transmitter[50]: x = 1153, y = 364, inputs = 1, label = angle
+    // page group: inputs
+    //
+angle = Image_Input_11_out_1;
+    // 
+    // node Receiver[13]: x = 567, y = 78, inputs = 1, label = angle
+    // page group: camera
+    //
+Image_Receiver_13_out_1[cache: 0] = angle;
+    // 
+    // node AutoCamera[1]: x = 431, y = 442, inputs = 9, label = AutoCamera
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "front"
+    // input[3]: visible = 1
+    // input[4]: visible = 1
+    // input[5]: visible = 1
+    // input[6]: defaulting = 0, visible = 0, type = 8, value = [0 1 0 ]
+    // input[7]: visible = 1
+    // input[8]: visible = 1
+    // input[9]: visible = 1
+    // page group: camera
+    //
+Image_AutoCamera_1_out_1[cache: 2] = 
+    AutoCamera(
+    Image_Receiver_119_out_1,
+    "front",
+    Image_Receiver_119_out_1,
+    Image_Receiver_9_out_1,
+    Image_Receiver_10_out_1,
+    [0 1 0 ],
+    Image_Receiver_12_out_1,
+    Image_Receiver_13_out_1,
+    Image_Receiver_3_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[1]: x = 306, y = 546, inputs = 3, label = resetCamera
+    // page group: camera
+    //
+Image_Switch_1_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_1_out_1,
+    Image_UpdateCamera_1_out_1,
+    Image_AutoCamera_1_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Input[5]: x = 875, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 5, name = 'to', value = '(no default)', descriptive = 1, description = 'camera to parameter', required = 0, visible = 0
+    //
+Image_Input_5_out_1 = to;
+    // 
+    // node Transmitter[32]: x = 881, y = 104, inputs = 1, label = tox
+    // page group: inputs
+    //
+tox = Image_Input_5_out_1;
+    // 
+    // node Receiver[6]: x = 681, y = 312, inputs = 1, label = tox
+    // page group: camera
+    //
+Image_Receiver_6_out_1[cache: 0] = tox;
+    // 
+    // node Input[6]: x = 1071, y = 572, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 6, name = 'from', value = '(no default)', descriptive = 1, description = 'camera from parameter', required = 0, visible = 0
+    //
+Image_Input_6_out_1 = from;
+    // 
+    // node Transmitter[61]: x = 1069, y = 676, inputs = 1, label = fromx
+    // page group: inputs
+    //
+fromx = Image_Input_6_out_1;
+    // 
+    // node Receiver[7]: x = 697, y = 234, inputs = 1, label = fromx
+    // page group: camera
+    //
+Image_Receiver_7_out_1[cache: 0] = fromx;
+    // 
+    // node Input[7]: x = 1015, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 7, name = 'width', value = '(no default)', descriptive = 1, description = 'camera width', required = 0, visible = 0
+    //
+Image_Input_7_out_1 = width;
+    // 
+    // node Transmitter[34]: x = 1010, y = 104, inputs = 1, label = widthx
+    // page group: inputs
+    //
+widthx = Image_Input_7_out_1;
+    // 
+    // node Receiver[8]: x = 772, y = 208, inputs = 1, label = widthx
+    // page group: camera
+    //
+Image_Receiver_8_out_1[cache: 0] = widthx;
+    // 
+    // node Input[10]: x = 1259, y = 546, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 10, name = 'up', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_10_out_1 = up;
+    // 
+    // node Transmitter[63]: x = 1263, y = 650, inputs = 1, label = upx
+    // page group: inputs
+    //
+upx = Image_Input_10_out_1;
+    // 
+    // node Receiver[11]: x = 799, y = 312, inputs = 1, label = upx
+    // page group: camera
+    //
+Image_Receiver_11_out_1[cache: 0] = upx;
+    // 
+    // node Camera[1]: x = 681, y = 442, inputs = 9, label = realCamera
+    // page group: camera
+    //
+Image_Camera_1_out_1[cache: 2] = 
+    Camera(
+    Image_Receiver_6_out_1,
+    Image_Receiver_7_out_1,
+    Image_Receiver_8_out_1,
+    Image_Receiver_9_out_1,
+    Image_Receiver_10_out_1,
+    Image_Receiver_11_out_1,
+    Image_Receiver_12_out_1,
+    Image_Receiver_13_out_1,
+    Image_Receiver_3_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[2]: x = 306, y = 624, inputs = 3, label = Switch
+    // page group: camera
+    //
+Image_Switch_2_out_1[cache: 2] = 
+    Switch(
+    Image_Compute_6_out_1,
+    Image_Switch_1_out_1,
+    Image_Camera_1_out_1
+    ) [instance: 2, cache: 1];
+    // 
+    // node Transmitter[69]: x = 452, y = 702, inputs = 1, label = camera_xcvr
+    // page group: camera
+    //
+camera_xcvr = Image_Switch_2_out_1;
+    // 
+    // node Receiver[15]: x = 72, y = 104, inputs = 1, label = camera_xcvr
+    // page group: autoaxes
+    //
+Image_Receiver_15_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Input[30]: x = 654, y = 260, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 30, name = 'AAlabels', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_30_out_1 = AAlabels;
+    // 
+    // node Transmitter[29]: x = 616, y = 338, inputs = 1, label = aalabels
+    // page group: aa inputs
+    //
+aalabels = Image_Input_30_out_1;
+    // 
+    // node Receiver[16]: x = 44, y = 234, inputs = 1, label = aalabels
+    // page group: autoaxes
+    //
+Image_Receiver_16_out_1[cache: 0] = aalabels;
+    // 
+    // node Input[31]: x = 334, y = 26, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 31, name = 'AAticks', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_31_out_1 = AAticks;
+    // 
+    // node Transmitter[19]: x = 327, y = 130, inputs = 1, label = aaticks
+    // page group: aa inputs
+    //
+aaticks = Image_Input_31_out_1;
+    // 
+    // node Receiver[17]: x = 155, y = 26, inputs = 1, label = aaticks
+    // page group: autoaxes
+    //
+Image_Receiver_17_out_1[cache: 0] = aaticks;
+    // 
+    // node Input[32]: x = 510, y = 26, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 32, name = 'AAcorners', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_32_out_1 = AAcorners;
+    // 
+    // node Transmitter[30]: x = 493, y = 130, inputs = 1, label = aacorners
+    // page group: aa inputs
+    //
+aacorners = Image_Input_32_out_1;
+    // 
+    // node Receiver[22]: x = 204, y = 104, inputs = 1, label = aacorners
+    // page group: autoaxes
+    //
+Image_Receiver_22_out_1[cache: 0] = aacorners;
+    // 
+    // node Input[33]: x = 31, y = 234, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 33, name = 'AAframe', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_33_out_1 = AAframe;
+    // 
+    // node Transmitter[37]: x = 20, y = 338, inputs = 1, label = aaframe
+    // page group: aa inputs
+    //
+aaframe = Image_Input_33_out_1;
+    // 
+    // node Receiver[21]: x = 251, y = 182, inputs = 1, label = aaframe
+    // page group: autoaxes
+    //
+Image_Receiver_21_out_1[cache: 0] = aaframe;
+    // 
+    // node Input[34]: x = 228, y = 260, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 34, name = 'AAadjust', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_34_out_1 = AAadjust;
+    // 
+    // node Transmitter[38]: x = 228, y = 364, inputs = 1, label = aaadjust
+    // page group: aa inputs
+    //
+aaadjust = Image_Input_34_out_1;
+    // 
+    // node Receiver[20]: x = 290, y = 260, inputs = 1, label = aaadjust
+    // page group: autoaxes
+    //
+Image_Receiver_20_out_1[cache: 0] = aaadjust;
+    // 
+    // node Input[35]: x = 299, y = 260, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 35, name = 'AAcursor', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_35_out_1 = AAcursor;
+    // 
+    // node Transmitter[39]: x = 324, y = 390, inputs = 1, label = aacursor
+    // page group: aa inputs
+    //
+aacursor = Image_Input_35_out_1;
+    // 
+    // node Receiver[19]: x = 342, y = 26, inputs = 1, label = aacursor
+    // page group: autoaxes
+    //
+Image_Receiver_19_out_1[cache: 0] = aacursor;
+    // 
+    // node Input[36]: x = 370, y = 260, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 36, name = 'AAgrid', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_36_out_1 = AAgrid;
+    // 
+    // node Transmitter[40]: x = 422, y = 390, inputs = 1, label = aagrid
+    // page group: aa inputs
+    //
+aagrid = Image_Input_36_out_1;
+    // 
+    // node Receiver[18]: x = 384, y = 104, inputs = 1, label = aagrid
+    // page group: autoaxes
+    //
+Image_Receiver_18_out_1[cache: 0] = aagrid;
+    // 
+    // node Input[37]: x = 583, y = 260, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 37, name = 'AAcolors', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_37_out_1 = AAcolors;
+    // 
+    // node Transmitter[43]: x = 920, y = 468, inputs = 1, label = aacolors
+    // page group: aa inputs
+    //
+aacolors = Image_Input_37_out_1;
+    // 
+    // node Receiver[26]: x = 417, y = 182, inputs = 1, label = aacolors
+    // page group: autoaxes
+    //
+Image_Receiver_26_out_1[cache: 0] = aacolors;
+    // 
+    // node Input[38]: x = 699, y = 234, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 38, name = 'AAannotation', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_38_out_1 = AAannotation;
+    // 
+    // node Transmitter[44]: x = 689, y = 338, inputs = 1, label = annotation
+    // page group: aa inputs
+    //
+annotation = Image_Input_38_out_1;
+    // 
+    // node Receiver[25]: x = 471, y = 260, inputs = 1, label = annotation
+    // page group: autoaxes
+    //
+Image_Receiver_25_out_1[cache: 0] = annotation;
+    // 
+    // node Input[39]: x = 441, y = 260, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 39, name = 'AAlabelscale', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_39_out_1 = AAlabelscale;
+    // 
+    // node Transmitter[41]: x = 505, y = 390, inputs = 1, label = aalabelscale
+    // page group: aa inputs
+    //
+aalabelscale = Image_Input_39_out_1;
+    // 
+    // node Receiver[24]: x = 514, y = 0, inputs = 1, label = aalabelscale
+    // page group: autoaxes
+    //
+Image_Receiver_24_out_1[cache: 0] = aalabelscale;
+    // 
+    // node Input[40]: x = 512, y = 260, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 40, name = 'AAfont', value = '(no default)', descriptive = 1, description = 'Font for x,y,z axis labels ', required = 0, visible = 0
+    //
+Image_Input_40_out_1 = AAfont;
+    // 
+    // node Transmitter[42]: x = 767, y = 442, inputs = 1, label = aafont
+    // page group: aa inputs
+    //
+aafont = Image_Input_40_out_1;
+    // 
+    // node Receiver[23]: x = 574, y = 78, inputs = 1, label = aafont
+    // page group: autoaxes
+    //
+Image_Receiver_23_out_1[cache: 0] = aafont;
+    // 
+    // node Input[43]: x = 20, y = 26, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 43, name = 'aaxTickLocs', value = '(no default)', descriptive = 1, description = ' Tick values for X Axis ', required = 0, visible = 0
+    //
+Image_Input_43_out_1 = aaxTickLocs;
+    // 
+    // node Transmitter[58]: x = 102, y = 286, inputs = 1, label = AAxTickLocs
+    // page group: aa inputs
+    //
+AAxTickLocs = Image_Input_43_out_1;
+    // 
+    // node Receiver[27]: x = 611, y = 156, inputs = 1, label = AAxTickLocs
+    // page group: autoaxes
+    //
+Image_Receiver_27_out_1[cache: 0] = AAxTickLocs;
+    // 
+    // node Input[44]: x = 625, y = 416, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 44, name = 'AAyTickLocs', value = '(no default)', descriptive = 1, description = ' Tick values for Y Axis', required = 0, visible = 0
+    //
+Image_Input_44_out_1 = AAyTickLocs;
+    // 
+    // node Transmitter[55]: x = 422, y = 468, inputs = 1, label = aayTickLocs
+    // page group: aa inputs
+    //
+aayTickLocs = Image_Input_44_out_1;
+    // 
+    // node Receiver[29]: x = 669, y = 234, inputs = 1, label = aayTickLocs
+    // page group: autoaxes
+    //
+Image_Receiver_29_out_1[cache: 0] = aayTickLocs;
+    // 
+    // node Input[45]: x = 696, y = 442, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 45, name = 'aazTickLocs', value = '(no default)', descriptive = 1, description = ' Tick values for Z Axis', required = 0, visible = 0
+    //
+Image_Input_45_out_1 = aazTickLocs;
+    // 
+    // node Transmitter[62]: x = 397, y = 598, inputs = 1, label = AAzTickLocs
+    // page group: aa inputs
+    //
+AAzTickLocs = Image_Input_45_out_1;
+    // 
+    // node Receiver[28]: x = 732, y = 312, inputs = 1, label = AAzTickLocs
+    // page group: autoaxes
+    //
+Image_Receiver_28_out_1[cache: 0] = AAzTickLocs;
+    // 
+    // node Input[46]: x = 956, y = 26, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 46, name = 'aaxTickLabels', value = '(no default)', descriptive = 1, description = ' Labels for X Axis ticks', required = 0, visible = 0
+    //
+Image_Input_46_out_1 = aaxTickLabels;
+    // 
+    // node Transmitter[57]: x = 905, y = 156, inputs = 1, label = AAxTickLabels
+    // page group: aa inputs
+    //
+AAxTickLabels = Image_Input_46_out_1;
+    // 
+    // node Receiver[30]: x = 790, y = 390, inputs = 1, label = AAxTickLabels
+    // page group: autoaxes
+    //
+Image_Receiver_30_out_1[cache: 0] = AAxTickLabels;
+    // 
+    // node Input[47]: x = 998, y = 520, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 47, name = 'aayTickLabels', value = '(no default)', descriptive = 1, description = ' Labels for Y Axis ticks', required = 0, visible = 0
+    //
+Image_Input_47_out_1 = aayTickLabels;
+    // 
+    // node Transmitter[64]: x = 936, y = 624, inputs = 1, label = AAyTickLabels
+    // page group: aa inputs
+    //
+AAyTickLabels = Image_Input_47_out_1;
+    // 
+    // node Receiver[32]: x = 851, y = 468, inputs = 1, label = AAyTickLabels
+    // page group: autoaxes
+    //
+Image_Receiver_32_out_1[cache: 0] = AAyTickLabels;
+    // 
+    // node Input[48]: x = 718, y = 0, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 48, name = 'aazTickLabels', value = '(no default)', descriptive = 1, description = ' Labels for Z Axis ticks', required = 0, visible = 0
+    //
+Image_Input_48_out_1 = aazTickLabels;
+    // 
+    // node Transmitter[59]: x = 789, y = 78, inputs = 1, label = AAzTickLabels
+    // page group: aa inputs
+    //
+AAzTickLabels = Image_Input_48_out_1;
+    // 
+    // node Receiver[31]: x = 909, y = 546, inputs = 1, label = AAzTickLabels
+    // page group: autoaxes
+    //
+Image_Receiver_31_out_1[cache: 0] = AAzTickLabels;
+    // 
+    // node AutoAxes[2]: x = 13, y = 650, inputs = 19, label = AutoAxes
+    // input[4]: visible = 1
+    // input[5]: visible = 1
+    // input[6]: visible = 1
+    // input[7]: visible = 1
+    // input[8]: visible = 1
+    // input[9]: visible = 1
+    // input[10]: visible = 1
+    // input[11]: visible = 1
+    // input[12]: visible = 1
+    // input[13]: visible = 1
+    // input[14]: visible = 1
+    // input[15]: visible = 1
+    // input[16]: visible = 1
+    // input[17]: visible = 1
+    // input[18]: visible = 1
+    // input[19]: visible = 1
+    // page group: autoaxes
+    //
+Image_AutoAxes_2_out_1[cache: 2] = 
+    AutoAxes(
+    Image_Receiver_14_out_1,
+    Image_Receiver_15_out_1,
+    Image_Receiver_16_out_1,
+    Image_Receiver_17_out_1,
+    Image_Receiver_22_out_1,
+    Image_Receiver_21_out_1,
+    Image_Receiver_20_out_1,
+    Image_Receiver_19_out_1,
+    Image_Receiver_18_out_1,
+    Image_Receiver_26_out_1,
+    Image_Receiver_25_out_1,
+    Image_Receiver_24_out_1,
+    Image_Receiver_23_out_1,
+    Image_Receiver_27_out_1,
+    Image_Receiver_29_out_1,
+    Image_Receiver_28_out_1,
+    Image_Receiver_30_out_1,
+    Image_Receiver_32_out_1,
+    Image_Receiver_31_out_1
+    ) [instance: 2, cache: 1];
+    // 
+    // node CollectNamed[1]: x = 41, y = 0, inputs = 20, label = CollectNamed
+    // input[1]: defaulting = 0, visible = 0, type = 67108863, value = 0
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "javaId"
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = [0,0]
+    // input[4]: defaulting = 0, visible = 1, type = 32, value = "counters"
+    // input[5]: defaulting = 0, visible = 0, type = 67108863, value = "gif"
+    // input[6]: defaulting = 0, visible = 1, type = 32, value = "format"
+    // input[7]: defaulting = 0, visible = 0, type = 67108863, value = 0
+    // input[8]: defaulting = 0, visible = 1, type = 32, value = "orbit"
+    // input[9]: defaulting = 0, visible = 0, type = 67108863, value = 0
+    // input[10]: defaulting = 0, visible = 1, type = 32, value = "imgId"
+    // input[11]: defaulting = 0, visible = 0, type = 67108863, value = 0
+    // input[12]: defaulting = 0, visible = 1, type = 32, value = "enabled"
+    // input[13]: defaulting = 0, visible = 0, type = 67108863, value = "image"
+    // input[14]: defaulting = 0, visible = 1, type = 32, value = "file"
+    // input[15]: defaulting = 0, visible = 1, type = 67108863, value = {10.0}
+    // input[16]: defaulting = 0, visible = 1, type = 32, value = "orbitDelta"
+    // input[17]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // input[18]: defaulting = 0, visible = 1, type = 32, value = "cacheCount"
+    // input[19]: defaulting = 0, visible = 1, type = 67108863, value = "untitled"
+    // input[20]: defaulting = 0, visible = 1, type = 32, value = "groupName"
+    // page group: java inputs
+    //
+Image_CollectNamed_1_out_1[cache: 2] = 
+    CollectNamed(
+    0,
+    "javaId",
+    [0,0],
+    "counters",
+    "gif",
+    "format",
+    0,
+    "orbit",
+    0,
+    "imgId",
+    0,
+    "enabled",
+    "image",
+    "file",
+    {10.0},
+    "orbitDelta",
+    0,
+    "cacheCount",
+    "untitled",
+    "groupName"
+    ) [instance: 1, cache: 1];
+    // 
+    // node Input[29]: x = 97, y = 442, inputs = 0, label = Input
+    // page group: aa inputs
+    // parameter: position = 29, name = 'AAenable', value = '(false)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_29_out_1 = AAenable;
+    // 
+    // node Inquire[24]: x = 3, y = 546, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null +1"
+    // page group: aa inputs
+    //
+Image_Inquire_24_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_29_out_1,
+    "is null +1",
+    NULL
+    ) [instance: 24, cache: 1];
+    // 
+    // node Switch[25]: x = 79, y = 624, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: aa inputs
+    //
+Image_Switch_25_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_24_out_1,
+    Image_Input_29_out_1,
+    0
+    ) [instance: 25, cache: 1];
+    // 
+    // node Transmitter[18]: x = 83, y = 728, inputs = 1, label = aaenable
+    // page group: aa inputs
+    //
+aaenable = Image_Switch_25_out_1;
+    // 
+    // node Receiver[33]: x = 77, y = 0, inputs = 1, label = aaenable
+    // page group: hw approx
+    //
+Image_Receiver_33_out_1[cache: 0] = aaenable;
+    // 
+    // node Compute[1]: x = 80, y = 312, inputs = 2, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0 + 1"
+    // page group: hw approx
+    // expression: value = a + 1
+    // name[2]: value = a
+    //
+Image_Compute_1_out_1[cache: 2] = 
+    Compute(
+    "$0 + 1",
+    Image_Receiver_33_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Input[19]: x = 805, y = 338, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 19, name = 'renderMode', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_19_out_1 = renderMode;
+    // 
+    // node Inquire[30]: x = 811, y = 442, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: inputs
+    //
+Image_Inquire_30_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_19_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 30, cache: 1];
+    // 
+    // node Switch[31]: x = 838, y = 546, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = 0
+    // page group: inputs
+    //
+Image_Switch_31_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_30_out_1,
+    Image_Input_19_out_1,
+    0
+    ) [instance: 31, cache: 1];
+    // 
+    // node Transmitter[45]: x = 816, y = 650, inputs = 1, label = renderModex
+    // page group: inputs
+    //
+renderModex = Image_Switch_31_out_1;
+    // 
+    // node Receiver[162]: x = 280, y = 182, inputs = 1, label = renderModex
+    // page group: hw approx
+    //
+Image_Receiver_162_out_1[cache: 0] = renderModex;
+    // 
+    // node Compute[2]: x = 297, y = 286, inputs = 2, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0 + 1"
+    // page group: hw approx
+    // expression: value = a + 1
+    // name[2]: value = a
+    //
+Image_Compute_2_out_1[cache: 2] = 
+    Compute(
+    "$0 + 1",
+    Image_Receiver_162_out_1
+    ) [instance: 2, cache: 1];
+    // 
+    // node Input[24]: x = 145, y = 0, inputs = 0, label = Input
+    // page group: recording
+    // parameter: position = 24, name = 'recEnable', value = '(false)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_24_out_1 = recEnable;
+    // 
+    // node Inquire[8]: x = 77, y = 130, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // page group: recording
+    //
+Image_Inquire_8_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_24_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 8, cache: 1];
+    // 
+    // node Switch[15]: x = 127, y = 208, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: recording
+    //
+Image_Switch_15_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_8_out_1,
+    Image_Input_24_out_1,
+    0
+    ) [instance: 15, cache: 1];
+    // 
+    // node Transmitter[96]: x = 125, y = 312, inputs = 1, label = recEnablex
+    // page group: recording
+    //
+recEnablex = Image_Switch_15_out_1;
+    // 
+    // node Receiver[123]: x = 555, y = 390, inputs = 1, label = recEnablex
+    // page group: recording
+    //
+Image_Receiver_123_out_1[cache: 0] = recEnablex;
+    // 
+    // node Input[27]: x = 230, y = 0, inputs = 0, label = Input
+    // page group: recording
+    // parameter: position = 27, name = 'recResolution', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_27_out_1 = recResolution;
+    // 
+    // node Transmitter[97]: x = 223, y = 130, inputs = 1, label = recRes
+    // page group: recording
+    //
+recRes = Image_Input_27_out_1;
+    // 
+    // node Receiver[168]: x = 527, y = 0, inputs = 1, label = recRes
+    // page group: recording
+    //
+Image_Receiver_168_out_1[cache: 0] = recRes;
+    // 
+    // node Inquire[4]: x = 540, y = 182, inputs = 3, label = RECresNull
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // page group: recording
+    //
+Image_Inquire_4_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_168_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 4, cache: 1];
+    // 
+    // node Receiver[171]: x = 633, y = 0, inputs = 1, label = camera_xcvr
+    // page group: recording
+    //
+Image_Receiver_171_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Inquire[7]: x = 665, y = 182, inputs = 3, label = ImageResolution
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera resolution"
+    // page group: recording
+    //
+Image_Inquire_7_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_171_out_1,
+    "camera resolution",
+    NULL
+    ) [instance: 7, cache: 1];
+    // 
+    // node Switch[12]: x = 617, y = 312, inputs = 3, label = RECresolution
+    // page group: recording
+    //
+Image_Switch_12_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_4_out_1,
+    Image_Receiver_168_out_1,
+    Image_Inquire_7_out_1
+    ) [instance: 12, cache: 1];
+    // 
+    // node Input[28]: x = 400, y = 0, inputs = 0, label = Input
+    // page group: recording
+    // parameter: position = 28, name = 'recAspect', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_28_out_1 = recAspect;
+    // 
+    // node Transmitter[99]: x = 392, y = 130, inputs = 1, label = recAsp
+    // page group: recording
+    //
+recAsp = Image_Input_28_out_1;
+    // 
+    // node Receiver[169]: x = 901, y = 0, inputs = 1, label = recAsp
+    // page group: recording
+    //
+Image_Receiver_169_out_1[cache: 0] = recAsp;
+    // 
+    // node Inquire[5]: x = 915, y = 182, inputs = 3, label = RECaspectNull
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // page group: recording
+    //
+Image_Inquire_5_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_169_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 5, cache: 1];
+    // 
+    // node Inquire[6]: x = 790, y = 182, inputs = 3, label = ImageAspect
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera aspect"
+    // page group: recording
+    //
+Image_Inquire_6_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_171_out_1,
+    "camera aspect",
+    NULL
+    ) [instance: 6, cache: 1];
+    // 
+    // node Switch[13]: x = 863, y = 312, inputs = 3, label = RECaspect
+    // page group: recording
+    //
+Image_Switch_13_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_5_out_1,
+    Image_Receiver_169_out_1,
+    Image_Inquire_6_out_1
+    ) [instance: 13, cache: 1];
+    // 
+    // node Compute[3]: x = 641, y = 468, inputs = 6, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0 == 0 ? 1 : (($1 == $2) && ($3 == $4)) ? 2 : 4"
+    // page group: recording
+    // expression: value = a == 0 ? 1 : ((b == c) && (d == e)) ? 2 : 4
+    // name[2]: value = a
+    // name[3]: value = b
+    // name[4]: value = c
+    // name[5]: value = d
+    // name[6]: value = e
+    //
+Image_Compute_3_out_1[cache: 2] = 
+    Compute(
+    "$0 == 0 ? 1 : (($1 == $2) && ($3 == $4)) ? 2 : 4",
+    Image_Receiver_123_out_1,
+    Image_Switch_12_out_1,
+    Image_Inquire_7_out_1,
+    Image_Switch_13_out_1,
+    Image_Inquire_6_out_1
+    ) [instance: 3, cache: 1];
+    // 
+    // node Input[50]: x = 33, y = 78, inputs = 0, label = Input
+    // page group: java inputs
+    // parameter: position = 49, name = 'webOptions', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_50_out_1 = webOptions;
+    // 
+    // node Inquire[23]: x = 29, y = 208, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: java inputs
+    //
+Image_Inquire_23_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_50_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 23, cache: 1];
+    // 
+    // node Switch[24]: x = 182, y = 234, inputs = 3, label = Switch
+    // page group: java inputs
+    //
+Image_Switch_24_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_23_out_1,
+    Image_Input_50_out_1,
+    Image_CollectNamed_1_out_1
+    ) [instance: 24, cache: 1];
+    // 
+    // node Select[7]: x = 142, y = 312, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "enabled"
+    // page group: java inputs
+    //
+Image_Select_7_out_1[cache: 2] = 
+    Select(
+    Image_Switch_24_out_1,
+    "enabled",
+    NULL
+    ) [instance: 7, cache: 1];
+    // 
+    // node Transmitter[16]: x = 145, y = 390, inputs = 1, label = java_enabled
+    // page group: java inputs
+    //
+java_enabled = Image_Select_7_out_1;
+    // 
+    // node Receiver[129]: x = 0, y = 0, inputs = 1, label = java_enabled
+    // page group: outputs
+    //
+Image_Receiver_129_out_1[cache: 0] = java_enabled;
+    // 
+    // node Inquire[10]: x = 81, y = 104, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // page group: outputs
+    //
+Image_Inquire_10_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_129_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 10, cache: 1];
+    // 
+    // node Switch[17]: x = 11, y = 208, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: outputs
+    //
+Image_Switch_17_out_1[cache: 0] = 
+    Switch(
+    Image_Inquire_10_out_1,
+    Image_Receiver_129_out_1,
+    0
+    ) [instance: 17, cache: 1];
+    // 
+    // node Compute[7]: x = 18, y = 312, inputs = 2, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0+1"
+    // page group: outputs
+    // expression: value = a+1
+    // name[2]: value = a
+    //
+Image_Compute_7_out_1[cache: 2] = 
+    Compute(
+    "$0+1",
+    Image_Switch_17_out_1
+    ) [instance: 7, cache: 1];
+    // 
+    // node Receiver[215]: x = 591, y = 0, inputs = 1, label = camera_xcvr
+    // page group: java orbit 2
+    //
+Image_Receiver_215_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Inquire[31]: x = 623, y = 104, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera to"
+    // input[3]: visible = 0
+    // page group: java orbit 2
+    //
+Image_Inquire_31_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_215_out_1,
+    "camera to",
+    NULL
+    ) [instance: 31, cache: 1];
+    // 
+    // node Inquire[32]: x = 748, y = 104, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera from"
+    // input[3]: visible = 0
+    // page group: java orbit 2
+    //
+Image_Inquire_32_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_215_out_1,
+    "camera from",
+    NULL
+    ) [instance: 32, cache: 1];
+    // 
+    // node Compute[27]: x = 729, y = 208, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$1-$0"
+    // page group: java orbit 2
+    // expression: value = b-a
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_27_out_1[cache: 2] = 
+    Compute(
+    "$1-$0",
+    Image_Inquire_31_out_1,
+    Image_Inquire_32_out_1
+    ) [instance: 27, cache: 1];
+    // 
+    // node Compute[28]: x = 633, y = 286, inputs = 2, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "mag($0)"
+    // page group: java orbit 2
+    // expression: value = mag(a)
+    // name[2]: value = a
+    //
+Image_Compute_28_out_1[cache: 2] = 
+    Compute(
+    "mag($0)",
+    Image_Compute_27_out_1
+    ) [instance: 28, cache: 1];
+    // 
+    // node Compute[29]: x = 715, y = 364, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$1/$0"
+    // page group: java orbit 2
+    // expression: value = a/b
+    // name[2]: value = b
+    // name[3]: value = a
+    //
+Image_Compute_29_out_1[cache: 2] = 
+    Compute(
+    "$1/$0",
+    Image_Compute_28_out_1,
+    Image_Compute_27_out_1
+    ) [instance: 29, cache: 1];
+    // 
+    // node Receiver[216]: x = 782, y = 286, inputs = 1, label = camera_xcvr
+    // page group: java orbit 2
+    //
+Image_Receiver_216_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Inquire[33]: x = 814, y = 364, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera up"
+    // page group: java orbit 2
+    //
+Image_Inquire_33_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_216_out_1,
+    "camera up",
+    NULL
+    ) [instance: 33, cache: 1];
+    // 
+    // node Compute[30]: x = 730, y = 494, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "v = $1 cross $0; v/mag(v)"
+    // page group: java orbit 2
+    // expression: value = v = b cross a; v/mag(v)
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_30_out_1[cache: 2] = 
+    Compute(
+    "v = $1 cross $0; v/mag(v)",
+    Image_Compute_29_out_1,
+    Image_Inquire_33_out_1
+    ) [instance: 30, cache: 1];
+    // 
+    // node Compute[31]: x = 578, y = 572, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "v = $0 cross $1; norm(v)"
+    // page group: java orbit 2
+    // expression: value = v = a cross b; norm(v)
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_31_out_1[cache: 2] = 
+    Compute(
+    "v = $0 cross $1; norm(v)",
+    Image_Compute_29_out_1,
+    Image_Compute_30_out_1
+    ) [instance: 31, cache: 1];
+    // 
+    // node Transmitter[109]: x = 817, y = 208, inputs = 1, label = cfrom
+    // page group: java orbit 2
+    //
+cfrom = Image_Inquire_32_out_1;
+    // 
+    // node Receiver[67]: x = 492, y = 728, inputs = 1, label = cfrom
+    // page group: java orbit 2
+    //
+Image_Receiver_67_out_1[cache: 0] = cfrom;
+    // 
+    // node Construct[3]: x = 366, y = 338, inputs = 4, label = Construct
+    // input[1]: defaulting = 0, visible = 1, type = 16777224, value = {[-1 1 0]}
+    // input[2]: defaulting = 0, visible = 1, type = 16777224, value = {[0 -1 0] [1 0 0] [0 0 1]}
+    // input[3]: defaulting = 0, visible = 1, type = 8, value = [3 3 1]
+    // page group: java orbit 2
+    //
+Image_Construct_3_out_1[cache: 0] = 
+    Construct(
+    {[-1 1 0]},
+    {[0 -1 0] [1 0 0] [0 0 1]},
+    [3 3 1],
+    NULL
+    ) [instance: 3, cache: 1];
+    // 
+    // node Extract[9]: x = 402, y = 468, inputs = 2, label = Extract
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "positions"
+    // page group: java orbit 2
+    //
+Image_Extract_9_out_1[cache: 2] = 
+    Extract(
+    Image_Construct_3_out_1,
+    "positions"
+    ) [instance: 9, cache: 1];
+    // 
+    // node Route[14]: x = 291, y = 390, inputs = 2, outputs = 2, label = Route
+    // page group: java inputs
+    //
+Image_Route_14_out_1[cache: 0],
+Image_Route_14_out_2[cache: 0] = 
+    Route(
+    Image_Select_7_out_1,
+    Image_Switch_24_out_1
+    ) [instance: 14, cache: 1];
+    // 
+    // node Select[11]: x = 96, y = 572, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "orbit"
+    // page group: java inputs
+    //
+Image_Select_11_out_1[cache: 2] = 
+    Select(
+    Image_Route_14_out_1,
+    "orbit",
+    NULL
+    ) [instance: 11, cache: 1];
+    // 
+    // node Transmitter[105]: x = 85, y = 676, inputs = 1, label = java_orbit
+    // page group: java inputs
+    //
+java_orbit = Image_Select_11_out_1;
+    // 
+    // node Receiver[232]: x = 383, y = 26, inputs = 1, label = java_orbit
+    // page group: java orbit 1
+    //
+Image_Receiver_232_out_1[cache: 0] = java_orbit;
+    // 
+    // node Route[9]: x = 407, y = 130, inputs = 2, outputs = 2, label = Route
+    // input[2]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: java orbit 1
+    //
+Image_Route_9_out_1[cache: 2],
+Image_Route_9_out_2[cache: 2] = 
+    Route(
+    Image_Receiver_232_out_1,
+    0
+    ) [instance: 9, cache: 1];
+    // 
+    // node ForEachN[1]: x = 407, y = 208, inputs = 3, label = ForEachN
+    // input[1]: defaulting = 1, visible = 1, type = 1, value = 0
+    // input[2]: defaulting = 0, visible = 1, type = 1, value = 8
+    // input[3]: defaulting = 0, visible = 1, type = 1, value = 1
+    // page group: java orbit 1
+    //
+Image_ForEachN_1_out_1[cache: 2],
+Image_ForEachN_1_out_2[cache: 2] = 
+    ForEachN(
+    Image_Route_9_out_1,
+    8,
+    1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[114]: x = 392, y = 312, inputs = 1, label = orbitLoop
+    // page group: java orbit 1
+    //
+orbitLoop = Image_ForEachN_1_out_1;
+    // 
+    // node Receiver[58]: x = 471, y = 468, inputs = 1, label = orbitLoop
+    // page group: java orbit 2
+    //
+Image_Receiver_58_out_1[cache: 0] = orbitLoop;
+    // 
+    // node Select[6]: x = 415, y = 624, inputs = 3, label = Select
+    // page group: java orbit 2
+    //
+Image_Select_6_out_1[cache: 2] = 
+    Select(
+    Image_Extract_9_out_1,
+    Image_Receiver_58_out_1,
+    NULL
+    ) [instance: 6, cache: 1];
+    // 
+    // node Select[13]: x = 612, y = 572, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "orbitDelta"
+    // page group: java inputs
+    //
+Image_Select_13_out_1[cache: 2] = 
+    Select(
+    Image_Route_14_out_1,
+    "orbitDelta",
+    NULL
+    ) [instance: 13, cache: 1];
+    // 
+    // node Transmitter[112]: x = 599, y = 676, inputs = 1, label = orbit_delta
+    // page group: java inputs
+    //
+orbit_delta = Image_Select_13_out_1;
+    // 
+    // node Receiver[63]: x = 697, y = 572, inputs = 1, label = orbit_delta
+    // page group: java orbit 2
+    //
+Image_Receiver_63_out_1[cache: 0] = orbit_delta;
+    // 
+    // node Compute[33]: x = 648, y = 676, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0*sin($1*3.14159265/180.0)"
+    // page group: java orbit 2
+    // expression: value = a*sin(b*3.14159265/180.0)
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_33_out_1[cache: 2] = 
+    Compute(
+    "$0*sin($1*3.14159265/180.0)",
+    Image_Compute_28_out_1,
+    Image_Receiver_63_out_1
+    ) [instance: 33, cache: 1];
+    // 
+    // node Compute[32]: x = 500, y = 832, inputs = 6, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0-$4*($1.x*$2+$1.y*$3)"
+    // page group: java orbit 2
+    // expression: value = a-e*(b.x*c+b.y*d)
+    // name[2]: value = a
+    // name[3]: value = b
+    // name[4]: value = c
+    // name[5]: value = d
+    // name[6]: value = e
+    //
+Image_Compute_32_out_1[cache: 2] = 
+    Compute(
+    "$0-$4*($1.x*$2+$1.y*$3)",
+    Image_Receiver_67_out_1,
+    Image_Select_6_out_1,
+    Image_Compute_30_out_1,
+    Image_Compute_31_out_1,
+    Image_Compute_33_out_1
+    ) [instance: 32, cache: 1];
+    // 
+    // node Select[9]: x = 500, y = 572, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "counters"
+    // page group: java inputs
+    //
+Image_Select_9_out_1[cache: 0] = 
+    Select(
+    Image_Route_14_out_1,
+    "counters",
+    NULL
+    ) [instance: 9, cache: 1];
+    // 
+    // node Transmitter[36]: x = 475, y = 676, inputs = 1, label = java_counters
+    // page group: java inputs
+    //
+java_counters = Image_Select_9_out_1;
+    // 
+    // node Receiver[158]: x = 128, y = 0, inputs = 1, label = java_counters
+    // page group: java file
+    //
+Image_Receiver_158_out_1[cache: 0] = java_counters;
+    // 
+    // node Compute[56]: x = 77, y = 104, inputs = 2, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0.x"
+    // page group: java file
+    // expression: value = a.x
+    // name[2]: value = a
+    //
+Image_Compute_56_out_1[cache: 2] = 
+    Compute(
+    "$0.x",
+    Image_Receiver_158_out_1
+    ) [instance: 56, cache: 1];
+    // 
+    // node Compute[57]: x = 148, y = 104, inputs = 2, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0.y"
+    // page group: java file
+    // expression: value = a.y
+    // name[2]: value = a
+    //
+Image_Compute_57_out_1[cache: 2] = 
+    Compute(
+    "$0.y",
+    Image_Receiver_158_out_1
+    ) [instance: 57, cache: 1];
+    // 
+    // node Select[5]: x = 288, y = 572, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "format"
+    // page group: java inputs
+    //
+Image_Select_5_out_1[cache: 2] = 
+    Select(
+    Image_Route_14_out_1,
+    "format",
+    NULL
+    ) [instance: 5, cache: 1];
+    // 
+    // node Transmitter[91]: x = 270, y = 676, inputs = 1, label = java_format
+    // page group: java inputs
+    //
+java_format = Image_Select_5_out_1;
+    // 
+    // node Receiver[131]: x = 32, y = 0, inputs = 1, label = java_format
+    // page group: java export
+    //
+Image_Receiver_131_out_1[cache: 0] = java_format;
+    // 
+    // node Inquire[22]: x = 62, y = 78, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "string match"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "wrl"
+    // page group: java export
+    //
+Image_Inquire_22_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_131_out_1,
+    "string match",
+    "wrl"
+    ) [instance: 22, cache: 1];
+    // 
+    // node Inquire[11]: x = 306, y = 78, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "string match"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "gif"
+    // page group: java export
+    //
+Image_Inquire_11_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_131_out_1,
+    "string match",
+    "gif"
+    ) [instance: 11, cache: 1];
+    // 
+    // node Inquire[54]: x = 415, y = 78, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "string match"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "jpg"
+    // page group: java export
+    //
+Image_Inquire_54_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_131_out_1,
+    "string match",
+    "jpg"
+    ) [instance: 54, cache: 1];
+    // 
+    // node Inquire[55]: x = 513, y = 78, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "string match"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "png"
+    // page group: java export
+    //
+Image_Inquire_55_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_131_out_1,
+    "string match",
+    "png"
+    ) [instance: 55, cache: 1];
+    // 
+    // node Compute[78]: x = 401, y = 182, inputs = 4, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0+$1+$2"
+    // page group: java export
+    // expression: value = a+b+c
+    // name[2]: value = a
+    // name[3]: value = b
+    // name[4]: value = c
+    //
+Image_Compute_78_out_1 = 
+    Compute(
+    "$0+$1+$2",
+    Image_Inquire_11_out_1,
+    Image_Inquire_54_out_1,
+    Image_Inquire_55_out_1
+    ) [instance: 78, cache: 1];
+    // 
+    // node Inquire[53]: x = 691, y = 78, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "string match"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "dx"
+    // page group: java export
+    //
+Image_Inquire_53_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_131_out_1,
+    "string match",
+    "dx"
+    ) [instance: 53, cache: 1];
+    // 
+    // node Compute[58]: x = 879, y = 182, inputs = 4, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "($0==$1) && ($1==$2)"
+    // page group: java export
+    // expression: value = (a==b) && (b==c)
+    // name[2]: value = a
+    // name[3]: value = b
+    // name[4]: value = c
+    //
+Image_Compute_58_out_1[cache: 0] = 
+    Compute(
+    "($0==$1) && ($1==$2)",
+    Image_Inquire_22_out_1,
+    Image_Compute_78_out_1,
+    Image_Inquire_53_out_1
+    ) [instance: 58, cache: 1];
+    // 
+    // node Receiver[204]: x = 274, y = 364, inputs = 1, label = java_orbit
+    // page group: java export
+    //
+Image_Receiver_204_out_1[cache: 0] = java_orbit;
+    // 
+    // node Receiver[128]: x = 186, y = 0, inputs = 1, label = objectx
+    // page group: hw approx
+    //
+Image_Receiver_128_out_1[cache: 0] = objectx;
+    // 
+    // node Transmitter[79]: x = 220, y = 780, inputs = 1, label = aaobj
+    // page group: autoaxes
+    //
+aaobj = Image_AutoAxes_2_out_1;
+    // 
+    // node Receiver[127]: x = 214, y = 130, inputs = 1, label = aaobj
+    // page group: hw approx
+    //
+Image_Receiver_127_out_1[cache: 0] = aaobj;
+    // 
+    // node Switch[4]: x = 175, y = 416, inputs = 3, label = Switch
+    // page group: hw approx
+    //
+Image_Switch_4_out_1[cache: 2] = 
+    Switch(
+    Image_Compute_1_out_1,
+    Image_Receiver_128_out_1,
+    Image_Receiver_127_out_1
+    ) [instance: 4, cache: 1];
+    // 
+    // node Inquire[3]: x = 199, y = 754, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "object tag"
+    // page group: hw approx
+    //
+Image_Inquire_3_out_1[cache: 2] = 
+    Inquire(
+    Image_Switch_4_out_1,
+    "object tag",
+    NULL
+    ) [instance: 3, cache: 1];
+    // 
+    // node Transmitter[71]: x = 39, y = 702, inputs = 1, label = whichCamera
+    // page group: camera
+    //
+whichCamera = Image_Compute_6_out_1;
+    // 
+    // node Receiver[40]: x = 237, y = 676, inputs = 1, label = whichCamera
+    // page group: hw approx
+    //
+Image_Receiver_40_out_1[cache: 0] = whichCamera;
+    // 
+    // node Input[14]: x = 528, y = 338, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 14, name = 'buttonState', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_14_out_1 = buttonState;
+    // 
+    // node Inquire[28]: x = 534, y = 442, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: inputs
+    //
+Image_Inquire_28_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_14_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 28, cache: 1];
+    // 
+    // node Switch[29]: x = 551, y = 546, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = 1
+    // page group: inputs
+    //
+Image_Switch_29_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_28_out_1,
+    Image_Input_14_out_1,
+    1
+    ) [instance: 29, cache: 1];
+    // 
+    // node Transmitter[47]: x = 532, y = 650, inputs = 1, label = buttonStatex
+    // page group: inputs
+    //
+buttonStatex = Image_Switch_29_out_1;
+    // 
+    // node Receiver[161]: x = 377, y = 0, inputs = 1, label = buttonStatex
+    // page group: hw approx
+    //
+Image_Receiver_161_out_1[cache: 0] = buttonStatex;
+    // 
+    // node Input[15]: x = 53, y = 338, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 15, name = 'buttonUpApprox', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_15_out_1 = buttonUpApprox;
+    // 
+    // node Inquire[25]: x = 15, y = 442, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: inputs
+    //
+Image_Inquire_25_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_15_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 25, cache: 1];
+    // 
+    // node Switch[26]: x = 35, y = 546, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = "none"
+    // page group: inputs
+    //
+Image_Switch_26_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_25_out_1,
+    Image_Input_15_out_1,
+    "none"
+    ) [instance: 26, cache: 1];
+    // 
+    // node Transmitter[52]: x = 0, y = 650, inputs = 1, label = buttonUpApproxx
+    // page group: inputs
+    //
+buttonUpApproxx = Image_Switch_26_out_1;
+    // 
+    // node Receiver[163]: x = 489, y = 0, inputs = 1, label = buttonUpApproxx
+    // page group: hw approx
+    //
+Image_Receiver_163_out_1[cache: 0] = buttonUpApproxx;
+    // 
+    // node Input[16]: x = 227, y = 338, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 16, name = 'buttonDownApprox', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_16_out_1 = buttonDownApprox;
+    // 
+    // node Inquire[26]: x = 171, y = 442, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: inputs
+    //
+Image_Inquire_26_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_16_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 26, cache: 1];
+    // 
+    // node Switch[27]: x = 209, y = 546, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = "none"
+    // page group: inputs
+    //
+Image_Switch_27_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_26_out_1,
+    Image_Input_16_out_1,
+    "none"
+    ) [instance: 27, cache: 1];
+    // 
+    // node Transmitter[54]: x = 165, y = 650, inputs = 1, label = buttonDownApproxx
+    // page group: inputs
+    //
+buttonDownApproxx = Image_Switch_27_out_1;
+    // 
+    // node Receiver[164]: x = 625, y = 0, inputs = 1, label = buttonDownApproxx
+    // page group: hw approx
+    //
+Image_Receiver_164_out_1[cache: 0] = buttonDownApproxx;
+    // 
+    // node Switch[10]: x = 512, y = 182, inputs = 3, label = SWapproximationOptions
+    // page group: hw approx
+    //
+Image_Switch_10_out_1[cache: 2] = 
+    Switch(
+    Image_Receiver_161_out_1,
+    Image_Receiver_163_out_1,
+    Image_Receiver_164_out_1
+    ) [instance: 10, cache: 1];
+    // 
+    // node Format[14]: x = 657, y = 182, inputs = 3, label = HWapproximationOptions
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "%s,%s"
+    // page group: hw approx
+    //
+Image_Format_14_out_1[cache: 2] = 
+    Format(
+    "%s,%s",
+    Image_Receiver_164_out_1,
+    Image_Receiver_163_out_1
+    ) [instance: 14, cache: 1];
+    // 
+    // node Switch[8]: x = 314, y = 546, inputs = 3, label = approximation_options
+    // page group: hw approx
+    //
+Image_Switch_8_out_1[cache: 2] = 
+    Switch(
+    Image_Compute_2_out_1,
+    Image_Switch_10_out_1,
+    Image_Format_14_out_1
+    ) [instance: 8, cache: 1];
+    // 
+    // node Receiver[194]: x = 384, y = 182, inputs = 1, label = buttonStatex
+    // page group: hw approx
+    //
+Image_Receiver_194_out_1[cache: 0] = buttonStatex;
+    // 
+    // node Input[17]: x = 365, y = 338, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 17, name = 'buttonUpDensity', value = '(1)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_17_out_1 = buttonUpDensity;
+    // 
+    // node Inquire[27]: x = 371, y = 442, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: inputs
+    //
+Image_Inquire_27_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_17_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 27, cache: 1];
+    // 
+    // node Switch[28]: x = 388, y = 546, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = 1
+    // page group: inputs
+    //
+Image_Switch_28_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_27_out_1,
+    Image_Input_17_out_1,
+    1
+    ) [instance: 28, cache: 1];
+    // 
+    // node Transmitter[60]: x = 352, y = 650, inputs = 1, label = buttonUpDensityx
+    // page group: inputs
+    //
+buttonUpDensityx = Image_Switch_28_out_1;
+    // 
+    // node Receiver[165]: x = 853, y = 286, inputs = 1, label = buttonUpDensityx
+    // page group: hw approx
+    //
+Image_Receiver_165_out_1[cache: 0] = buttonUpDensityx;
+    // 
+    // node Input[18]: x = 677, y = 338, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 18, name = 'buttonDownDensity', value = '(1)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_18_out_1 = buttonDownDensity;
+    // 
+    // node Inquire[29]: x = 683, y = 442, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: inputs
+    //
+Image_Inquire_29_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_18_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 29, cache: 1];
+    // 
+    // node Switch[30]: x = 701, y = 546, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = 1
+    // page group: inputs
+    //
+Image_Switch_30_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_29_out_1,
+    Image_Input_18_out_1,
+    1
+    ) [instance: 30, cache: 1];
+    // 
+    // node Transmitter[48]: x = 657, y = 650, inputs = 1, label = buttonDownDensityx
+    // page group: inputs
+    //
+buttonDownDensityx = Image_Switch_30_out_1;
+    // 
+    // node Receiver[166]: x = 690, y = 286, inputs = 1, label = buttonDownDensityx
+    // page group: hw approx
+    //
+Image_Receiver_166_out_1[cache: 0] = buttonDownDensityx;
+    // 
+    // node Switch[11]: x = 654, y = 364, inputs = 3, label = SWdensityOptions
+    // page group: hw approx
+    //
+Image_Switch_11_out_1[cache: 2] = 
+    Switch(
+    Image_Receiver_194_out_1,
+    Image_Receiver_165_out_1,
+    Image_Receiver_166_out_1
+    ) [instance: 11, cache: 1];
+    // 
+    // node Format[2]: x = 722, y = 442, inputs = 3, label = HWdensityOptions
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "%d,%d"
+    // page group: hw approx
+    //
+Image_Format_2_out_1[cache: 2] = 
+    Format(
+    "%d,%d",
+    Image_Receiver_166_out_1,
+    Image_Receiver_165_out_1
+    ) [instance: 2, cache: 1];
+    // 
+    // node Switch[7]: x = 654, y = 546, inputs = 3, label = densityOptions
+    // page group: hw approx
+    //
+Image_Switch_7_out_1[cache: 2] = 
+    Switch(
+    Image_Compute_2_out_1,
+    Image_Switch_11_out_1,
+    Image_Format_2_out_1
+    ) [instance: 7, cache: 1];
+    // 
+    // node Switch[5]: x = 439, y = 546, inputs = 3, label = renderModeString
+    // input[2]: defaulting = 0, visible = 1, type = 16777248, value = {"software"}
+    // input[3]: defaulting = 0, visible = 1, type = 16777248, value = {"hardware"}
+    // page group: hw approx
+    //
+Image_Switch_5_out_1[cache: 2] = 
+    Switch(
+    Image_Compute_2_out_1,
+    {"software"},
+    {"hardware"}
+    ) [instance: 5, cache: 1];
+    // 
+    // node Options[1]: x = 79, y = 858, inputs = 17, label = Options
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "send boxes"
+    // input[3]: defaulting = 0, visible = 1, type = 29, value = 0
+    // input[4]: defaulting = 0, visible = 1, type = 32, value = "cache"
+    // input[5]: defaulting = 0, visible = 1, type = 29, value = 1
+    // input[6]: defaulting = 0, visible = 1, type = 32, value = "object tag"
+    // input[8]: defaulting = 0, visible = 1, type = 32, value = "ddcamera"
+    // input[10]: defaulting = 0, visible = 1, type = 32, value = "rendering approximation"
+    // input[11]: defaulting = 1, visible = 1, type = 32, value = "none"
+    // input[12]: defaulting = 0, visible = 1, type = 32, value = "render every"
+    // input[13]: defaulting = 1, visible = 1, type = 29, value = 1
+    // input[14]: defaulting = 0, visible = 1, type = 32, value = "button state"
+    // input[15]: defaulting = 1, visible = 1, type = 29, value = 1
+    // input[16]: defaulting = 0, visible = 1, type = 32, value = "rendering mode"
+    // input[17]: defaulting = 1, visible = 1, type = 32, value = "software"
+    // page group: hw approx
+    //
+Image_Options_1_out_1[cache: 2] = 
+    Options(
+    Image_Switch_4_out_1,
+    "send boxes",
+    0,
+    "cache",
+    1,
+    "object tag",
+    Image_Inquire_3_out_1,
+    "ddcamera",
+    Image_Receiver_40_out_1,
+    "rendering approximation",
+    Image_Switch_8_out_1,
+    "render every",
+    Image_Switch_7_out_1,
+    "button state",
+    Image_Receiver_194_out_1,
+    "rendering mode",
+    Image_Switch_5_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[70]: x = 225, y = 988, inputs = 1, label = annotated_object
+    // page group: hw approx
+    //
+annotated_object = Image_Options_1_out_1;
+    // 
+    // node Receiver[125]: x = 128, y = 286, inputs = 1, label = annotated_object
+    // page group: outputs
+    //
+Image_Receiver_125_out_1[cache: 0] = annotated_object;
+    // 
+    // node Inquire[37]: x = 319, y = 26, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "object tag"
+    // page group: outputs
+    //
+Image_Inquire_37_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_125_out_1,
+    "object tag",
+    NULL
+    ) [instance: 37, cache: 1];
+    // 
+    // node GetGlobal[4]: x = 425, y = 26, inputs = 3, label = GetGlobal
+    // input[1]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: outputs
+    //
+Image_GetGlobal_4_out_1[cache: 2],
+Image_GetGlobal_4_out_2[cache: 2] = 
+    GetGlobal(
+    0,
+    NULL,
+    NULL
+    ) [instance: 4, cache: 1];
+    // 
+    // node Compute[65]: x = 341, y = 156, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "($0!=$1) ? 1: 2"
+    // page group: outputs
+    // expression: value = (a!=b) ? 1: 2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_65_out_1[cache: 2] = 
+    Compute(
+    "($0!=$1) ? 1: 2",
+    Image_Inquire_37_out_1,
+    Image_GetGlobal_4_out_1
+    ) [instance: 65, cache: 1];
+    // 
+    // node Transmitter[115]: x = 327, y = 234, inputs = 1, label = same_object
+    // page group: outputs
+    //
+same_object = Image_Compute_65_out_1;
+    // 
+    // node Receiver[222]: x = 585, y = 182, inputs = 1, label = same_object
+    // page group: java gif
+    //
+Image_Receiver_222_out_1[cache: 0] = same_object;
+    // 
+    // node Receiver[250]: x = 280, y = 0, inputs = 1, label = java_orbit
+    // page group: java gif
+    //
+Image_Receiver_250_out_1[cache: 0] = java_orbit;
+    // 
+    // node Compute[72]: x = 287, y = 104, inputs = 2, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0+1"
+    // page group: java gif
+    // expression: value = a+1
+    // name[2]: value = a
+    //
+Image_Compute_72_out_1[cache: 2] = 
+    Compute(
+    "$0+1",
+    Image_Receiver_250_out_1
+    ) [instance: 72, cache: 1];
+    // 
+    // node Receiver[220]: x = 376, y = 0, inputs = 1, label = camera_xcvr
+    // page group: java gif
+    //
+Image_Receiver_220_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Receiver[217]: x = 0, y = 130, inputs = 1, label = camera_xcvr
+    // page group: java orbit 2
+    //
+Image_Receiver_217_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Transmitter[110]: x = 526, y = 936, inputs = 1, label = NewFrom
+    // page group: java orbit 2
+    //
+NewFrom = Image_Compute_32_out_1;
+    // 
+    // node Receiver[57]: x = 80, y = 52, inputs = 1, label = NewFrom
+    // page group: java orbit 2
+    //
+Image_Receiver_57_out_1[cache: 0] = NewFrom;
+    // 
+    // node Receiver[60]: x = 120, y = 130, inputs = 1, label = orbitNewRes
+    // page group: java orbit 2
+    //
+Image_Receiver_60_out_1[cache: 0] = orbitNewRes;
+    // 
+    // node UpdateCamera[3]: x = 68, y = 234, inputs = 10, label = UpdateCamera
+    // input[2]: visible = 0
+    // input[4]: visible = 0
+    // input[6]: visible = 0
+    // input[7]: visible = 0
+    // input[8]: visible = 0
+    // input[9]: visible = 0
+    // input[10]: visible = 0
+    // page group: java orbit 2
+    //
+Image_UpdateCamera_3_out_1[cache: 2] = 
+    UpdateCamera(
+    Image_Receiver_217_out_1,
+    NULL,
+    Image_Receiver_57_out_1,
+    NULL,
+    Image_Receiver_60_out_1,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+    ) [instance: 3, cache: 1];
+    // 
+    // node Transmitter[125]: x = 174, y = 442, inputs = 1, label = orbit_cam
+    // page group: java orbit 2
+    //
+orbit_cam = Image_UpdateCamera_3_out_1;
+    // 
+    // node Receiver[251]: x = 436, y = 104, inputs = 1, label = orbit_cam
+    // page group: java gif
+    //
+Image_Receiver_251_out_1[cache: 0] = orbit_cam;
+    // 
+    // node Switch[32]: x = 384, y = 208, inputs = 3, label = Switch
+    // page group: java gif
+    //
+Image_Switch_32_out_1[cache: 0] = 
+    Switch(
+    Image_Compute_72_out_1,
+    Image_Receiver_220_out_1,
+    Image_Receiver_251_out_1
+    ) [instance: 32, cache: 1];
+    // 
+    // node Transmitter[124]: x = 368, y = 312, inputs = 1, label = camera_in_use
+    // page group: java gif
+    //
+camera_in_use = Image_Switch_32_out_1;
+    // 
+    // node Receiver[249]: x = 647, y = 0, inputs = 1, label = camera_in_use
+    // page group: java gif
+    //
+Image_Receiver_249_out_1[cache: 0] = camera_in_use;
+    // 
+    // node Inquire[35]: x = 687, y = 78, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "object tag"
+    // page group: java gif
+    //
+Image_Inquire_35_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_249_out_1,
+    "object tag",
+    NULL
+    ) [instance: 35, cache: 1];
+    // 
+    // node GetGlobal[2]: x = 853, y = 78, inputs = 3, label = GetGlobal
+    // input[1]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: java gif
+    //
+Image_GetGlobal_2_out_1[cache: 2],
+Image_GetGlobal_2_out_2[cache: 2] = 
+    GetGlobal(
+    0,
+    NULL,
+    NULL
+    ) [instance: 2, cache: 1];
+    // 
+    // node Compute[62]: x = 709, y = 182, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "($0 != $1) ? 1:2"
+    // page group: java gif
+    // expression: value = (a != b) ? 1:2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_62_out_1[cache: 2] = 
+    Compute(
+    "($0 != $1) ? 1:2",
+    Image_Inquire_35_out_1,
+    Image_GetGlobal_2_out_1
+    ) [instance: 62, cache: 1];
+    // 
+    // node Compute[63]: x = 695, y = 286, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "(($0==1)||($1==1))?1:2"
+    // page group: java gif
+    // expression: value = ((a==1)||(b==1))?1:2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_63_out_1[cache: 2] = 
+    Compute(
+    "(($0==1)||($1==1))?1:2",
+    Image_Receiver_222_out_1,
+    Image_Compute_62_out_1
+    ) [instance: 63, cache: 1];
+    // 
+    // node Transmitter[117]: x = 681, y = 364, inputs = 1, label = same_image
+    // page group: java gif
+    //
+same_image = Image_Compute_63_out_1;
+    // 
+    // node Receiver[230]: x = 363, y = 364, inputs = 1, label = same_image
+    // page group: java export
+    //
+Image_Receiver_230_out_1[cache: 0] = same_image;
+    // 
+    // node Receiver[233]: x = 484, y = 0, inputs = 1, label = java_orbit
+    // page group: java inputs
+    //
+Image_Receiver_233_out_1[cache: 0] = java_orbit;
+    // 
+    // node GetGlobal[3]: x = 578, y = 0, inputs = 3, label = GetGlobal
+    // input[1]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: java inputs
+    //
+Image_GetGlobal_3_out_1[cache: 2],
+Image_GetGlobal_3_out_2[cache: 2] = 
+    GetGlobal(
+    0,
+    NULL,
+    NULL
+    ) [instance: 3, cache: 1];
+    // 
+    // node Compute[64]: x = 506, y = 78, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "($0 != $1) ? 1 : 2"
+    // page group: java inputs
+    // expression: value = (a != b) ? 1 : 2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_64_out_1[cache: 2] = 
+    Compute(
+    "($0 != $1) ? 1 : 2",
+    Image_Receiver_233_out_1,
+    Image_GetGlobal_3_out_1
+    ) [instance: 64, cache: 1];
+    // 
+    // node Transmitter[120]: x = 496, y = 156, inputs = 1, label = same_orbit
+    // page group: java inputs
+    //
+same_orbit = Image_Compute_64_out_1;
+    // 
+    // node Receiver[243]: x = 1062, y = 390, inputs = 1, label = same_orbit
+    // page group: java inputs
+    //
+Image_Receiver_243_out_1[cache: 0] = same_orbit;
+    // 
+    // node Select[12]: x = 196, y = 572, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "imgId"
+    // page group: java inputs
+    //
+Image_Select_12_out_1[cache: 2] = 
+    Select(
+    Image_Route_14_out_1,
+    "imgId",
+    NULL
+    ) [instance: 12, cache: 1];
+    // 
+    // node Transmitter[108]: x = 195, y = 676, inputs = 1, label = img_id
+    // page group: java inputs
+    //
+img_id = Image_Select_12_out_1;
+    // 
+    // node Receiver[234]: x = 688, y = 0, inputs = 1, label = img_id
+    // page group: java inputs
+    //
+Image_Receiver_234_out_1[cache: 0] = img_id;
+    // 
+    // node GetGlobal[5]: x = 771, y = 0, inputs = 3, label = GetGlobal
+    // input[1]: defaulting = 0, visible = 1, type = 67108863, value = -1
+    // page group: java inputs
+    //
+Image_GetGlobal_5_out_1[cache: 2],
+Image_GetGlobal_5_out_2[cache: 2] = 
+    GetGlobal(
+    -1,
+    NULL,
+    NULL
+    ) [instance: 5, cache: 1];
+    // 
+    // node Compute[66]: x = 699, y = 78, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "($0 != $1) ? 1 : 2"
+    // page group: java inputs
+    // expression: value = (a != b) ? 1 : 2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_66_out_1[cache: 2] = 
+    Compute(
+    "($0 != $1) ? 1 : 2",
+    Image_Receiver_234_out_1,
+    Image_GetGlobal_5_out_1
+    ) [instance: 66, cache: 1];
+    // 
+    // node Transmitter[121]: x = 698, y = 156, inputs = 1, label = same_id
+    // page group: java inputs
+    //
+same_id = Image_Compute_66_out_1;
+    // 
+    // node Receiver[242]: x = 1161, y = 390, inputs = 1, label = same_id
+    // page group: java inputs
+    //
+Image_Receiver_242_out_1[cache: 0] = same_id;
+    // 
+    // node Receiver[235]: x = 871, y = 0, inputs = 1, label = java_format
+    // page group: java inputs
+    //
+Image_Receiver_235_out_1[cache: 0] = java_format;
+    // 
+    // node GetGlobal[6]: x = 971, y = 0, inputs = 3, label = GetGlobal
+    // input[1]: defaulting = 0, visible = 1, type = 67108863, value = ""
+    // page group: java inputs
+    //
+Image_GetGlobal_6_out_1[cache: 2],
+Image_GetGlobal_6_out_2[cache: 2] = 
+    GetGlobal(
+    "",
+    NULL,
+    NULL
+    ) [instance: 6, cache: 1];
+    // 
+    // node Compute[67]: x = 899, y = 78, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "strcmp($0,$1) ? 1 : 2"
+    // page group: java inputs
+    // expression: value = strcmp(a,b) ? 1 : 2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_67_out_1[cache: 2] = 
+    Compute(
+    "strcmp($0,$1) ? 1 : 2",
+    Image_Receiver_235_out_1,
+    Image_GetGlobal_6_out_1
+    ) [instance: 67, cache: 1];
+    // 
+    // node Transmitter[119]: x = 884, y = 156, inputs = 1, label = same_format
+    // page group: java inputs
+    //
+same_format = Image_Compute_67_out_1;
+    // 
+    // node Receiver[241]: x = 1256, y = 390, inputs = 1, label = same_format
+    // page group: java inputs
+    //
+Image_Receiver_241_out_1[cache: 0] = same_format;
+    // 
+    // node Receiver[236]: x = 1090, y = 0, inputs = 1, label = orbit_delta
+    // page group: java inputs
+    //
+Image_Receiver_236_out_1[cache: 0] = orbit_delta;
+    // 
+    // node GetGlobal[7]: x = 1185, y = 0, inputs = 3, label = GetGlobal
+    // input[1]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: java inputs
+    //
+Image_GetGlobal_7_out_1[cache: 2],
+Image_GetGlobal_7_out_2[cache: 2] = 
+    GetGlobal(
+    0,
+    NULL,
+    NULL
+    ) [instance: 7, cache: 1];
+    // 
+    // node Compute[70]: x = 1113, y = 78, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "($0 != $1) ? 1 : 2"
+    // page group: java inputs
+    // expression: value = (a != b) ? 1 : 2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_70_out_1[cache: 2] = 
+    Compute(
+    "($0 != $1) ? 1 : 2",
+    Image_Receiver_236_out_1,
+    Image_GetGlobal_7_out_1
+    ) [instance: 70, cache: 1];
+    // 
+    // node Transmitter[122]: x = 1103, y = 156, inputs = 1, label = same_delta
+    // page group: java inputs
+    //
+same_delta = Image_Compute_70_out_1;
+    // 
+    // node Receiver[240]: x = 1366, y = 390, inputs = 1, label = same_delta
+    // page group: java inputs
+    //
+Image_Receiver_240_out_1[cache: 0] = same_delta;
+    // 
+    // node Input[41]: x = 314, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 41, name = 'interactionMode', value = ' ', descriptive = 0, description = ' Interaction Mode', required = 1, visible = 0
+    //
+Image_Input_41_out_1 = interactionMode;
+    // 
+    // node Inquire[50]: x = 248, y = 104, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // input[3]: visible = 0
+    // page group: inputs
+    //
+Image_Inquire_50_out_1[cache: 2] = 
+    Inquire(
+    Image_Input_41_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 50, cache: 1];
+    // 
+    // node Switch[34]: x = 296, y = 182, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = "none"
+    // page group: inputs
+    //
+Image_Switch_34_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_50_out_1,
+    Image_Input_41_out_1,
+    "none"
+    ) [instance: 34, cache: 1];
+    // 
+    // node Transmitter[56]: x = 294, y = 260, inputs = 1, label = imodex
+    // page group: inputs
+    //
+imodex = Image_Switch_34_out_1;
+    // 
+    // node Receiver[282]: x = 1319, y = 0, inputs = 1, label = imodex
+    // page group: java inputs
+    //
+Image_Receiver_282_out_1[cache: 0] = imodex;
+    // 
+    // node GetGlobal[11]: x = 1403, y = 0, inputs = 3, label = GetGlobal
+    // input[1]: defaulting = 0, visible = 1, type = 67108863, value = ""
+    // page group: java inputs
+    //
+Image_GetGlobal_11_out_1[cache: 2],
+Image_GetGlobal_11_out_2[cache: 2] = 
+    GetGlobal(
+    "",
+    NULL,
+    NULL
+    ) [instance: 11, cache: 1];
+    // 
+    // node Compute[76]: x = 1331, y = 78, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "strcmp($0,$1) ? 1 : 2"
+    // page group: java inputs
+    // expression: value = strcmp(a,b) ? 1 : 2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_76_out_1[cache: 2] = 
+    Compute(
+    "strcmp($0,$1) ? 1 : 2",
+    Image_Receiver_282_out_1,
+    Image_GetGlobal_11_out_1
+    ) [instance: 76, cache: 1];
+    // 
+    // node Transmitter[134]: x = 1319, y = 156, inputs = 1, label = same_mode
+    // page group: java inputs
+    //
+same_mode = Image_Compute_76_out_1;
+    // 
+    // node Receiver[283]: x = 1462, y = 390, inputs = 1, label = same_mode
+    // page group: java inputs
+    //
+Image_Receiver_283_out_1[cache: 0] = same_mode;
+    // 
+    // node Compute[69]: x = 1205, y = 494, inputs = 6, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "(($0==1)||($1==1)||($2==1)||($3==1)||($4==1))? 1: 2"
+    // page group: java inputs
+    // expression: value = ((a==1)||(b==1)||(c==1)||(d==1)||(e==1))? 1: 2
+    // name[2]: value = a
+    // name[3]: value = b
+    // name[4]: value = c
+    // name[5]: value = d
+    // name[6]: value = e
+    //
+Image_Compute_69_out_1[cache: 2] = 
+    Compute(
+    "(($0==1)||($1==1)||($2==1)||($3==1)||($4==1))? 1: 2",
+    Image_Receiver_243_out_1,
+    Image_Receiver_242_out_1,
+    Image_Receiver_241_out_1,
+    Image_Receiver_240_out_1,
+    Image_Receiver_283_out_1
+    ) [instance: 69, cache: 1];
+    // 
+    // node Transmitter[123]: x = 1218, y = 572, inputs = 1, label = same_options
+    // page group: java inputs
+    //
+same_options = Image_Compute_69_out_1;
+    // 
+    // node Receiver[226]: x = 488, y = 364, inputs = 1, label = same_options
+    // page group: java export
+    //
+Image_Receiver_226_out_1[cache: 0] = same_options;
+    // 
+    // node Compute[59]: x = 370, y = 468, inputs = 4, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "(($1==1)||($2==1) ? (($0==1)?2:1) : 0)"
+    // page group: java export
+    // expression: value = ((b==1)||(c==1) ? ((a==1)?2:1) : 0)
+    // name[2]: value = a
+    // name[3]: value = b
+    // name[4]: value = c
+    //
+Image_Compute_59_out_1[cache: 2] = 
+    Compute(
+    "(($1==1)||($2==1) ? (($0==1)?2:1) : 0)",
+    Image_Receiver_204_out_1,
+    Image_Receiver_230_out_1,
+    Image_Receiver_226_out_1
+    ) [instance: 59, cache: 1];
+    // 
+    // node Receiver[246]: x = 0, y = 390, inputs = 1, label = same_image
+    // page group: java export
+    //
+Image_Receiver_246_out_1[cache: 0] = same_image;
+    // 
+    // node Receiver[247]: x = 114, y = 390, inputs = 1, label = same_options
+    // page group: java export
+    //
+Image_Receiver_247_out_1[cache: 0] = same_options;
+    // 
+    // node Compute[71]: x = 29, y = 468, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "(($0==1)||($1==1)) ?1:0"
+    // page group: java export
+    // expression: value = ((a==1)||(b==1)) ?1:0
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_71_out_1[cache: 2] = 
+    Compute(
+    "(($0==1)||($1==1)) ?1:0",
+    Image_Receiver_246_out_1,
+    Image_Receiver_247_out_1
+    ) [instance: 71, cache: 1];
+    // 
+    // node Select[15]: x = 828, y = 572, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "groupName"
+    // page group: java inputs
+    //
+Image_Select_15_out_1[cache: 2] = 
+    Select(
+    Image_Route_14_out_1,
+    "groupName",
+    NULL
+    ) [instance: 15, cache: 1];
+    // 
+    // node Transmitter[130]: x = 812, y = 676, inputs = 1, label = groupName
+    // page group: java inputs
+    //
+groupName = Image_Select_15_out_1;
+    // 
+    // node Receiver[267]: x = 36, y = 806, inputs = 1, label = groupName
+    // page group: java inputs
+    //
+Image_Receiver_267_out_1[cache: 0] = groupName;
+    // 
+    // node GetGlobal[8]: x = 134, y = 806, inputs = 3, label = GetGlobal
+    // input[1]: defaulting = 0, visible = 1, type = 67108863, value = "untitled"
+    // page group: java inputs
+    //
+Image_GetGlobal_8_out_1[cache: 2],
+Image_GetGlobal_8_out_2[cache: 2] = 
+    GetGlobal(
+    "untitled",
+    NULL,
+    NULL
+    ) [instance: 8, cache: 1];
+    // 
+    // node Compute[73]: x = 62, y = 884, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "strcmp($0,$1) != 0?1:2"
+    // page group: java inputs
+    // expression: value = strcmp(a,b) != 0?1:2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_73_out_1[cache: 2] = 
+    Compute(
+    "strcmp($0,$1) != 0?1:2",
+    Image_Receiver_267_out_1,
+    Image_GetGlobal_8_out_1
+    ) [instance: 73, cache: 1];
+    // 
+    // node Select[14]: x = 717, y = 572, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "cacheCount"
+    // page group: java inputs
+    //
+Image_Select_14_out_1[cache: 2] = 
+    Select(
+    Image_Route_14_out_1,
+    "cacheCount",
+    NULL
+    ) [instance: 14, cache: 1];
+    // 
+    // node Transmitter[129]: x = 697, y = 676, inputs = 1, label = cache_count
+    // page group: java inputs
+    //
+cache_count = Image_Select_14_out_1;
+    // 
+    // node Receiver[268]: x = 261, y = 806, inputs = 1, label = cache_count
+    // page group: java inputs
+    //
+Image_Receiver_268_out_1[cache: 0] = cache_count;
+    // 
+    // node GetGlobal[9]: x = 363, y = 806, inputs = 3, label = GetGlobal
+    // input[1]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: java inputs
+    //
+Image_GetGlobal_9_out_1[cache: 2],
+Image_GetGlobal_9_out_2[cache: 2] = 
+    GetGlobal(
+    0,
+    NULL,
+    NULL
+    ) [instance: 9, cache: 1];
+    // 
+    // node Compute[74]: x = 291, y = 884, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "($0 != $1) ? 1 : 2"
+    // page group: java inputs
+    // expression: value = (a != b) ? 1 : 2
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_74_out_1[cache: 2] = 
+    Compute(
+    "($0 != $1) ? 1 : 2",
+    Image_Receiver_268_out_1,
+    Image_GetGlobal_9_out_1
+    ) [instance: 74, cache: 1];
+    // 
+    // node Receiver[284]: x = 630, y = 364, inputs = 1, label = same_image
+    // page group: java export
+    //
+Image_Receiver_284_out_1[cache: 0] = same_image;
+    // 
+    // node Receiver[285]: x = 744, y = 364, inputs = 1, label = same_options
+    // page group: java export
+    //
+Image_Receiver_285_out_1[cache: 0] = same_options;
+    // 
+    // node Compute[77]: x = 659, y = 442, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "(($0==1)||($1==1)) ?1:0"
+    // page group: java export
+    // expression: value = ((a==1)||(b==1)) ?1:0
+    // name[2]: value = a
+    // name[3]: value = b
+    //
+Image_Compute_77_out_1[cache: 2] = 
+    Compute(
+    "(($0==1)||($1==1)) ?1:0",
+    Image_Receiver_284_out_1,
+    Image_Receiver_285_out_1
+    ) [instance: 77, cache: 1];
+    // 
+    // node Receiver[290]: x = 778, y = 78, inputs = 1, label = objectx
+    // page group: java export
+    //
+Image_Receiver_290_out_1[cache: 0] = objectx;
+    // 
+    // node Route[15]: x = 715, y = 182, inputs = 2, outputs = 2, label = Route
+    // page group: java export
+    //
+Image_Route_15_out_1[cache: 2],
+Image_Route_15_out_2[cache: 2] = 
+    Route(
+    Image_Inquire_53_out_1,
+    Image_Receiver_290_out_1
+    ) [instance: 15, cache: 1];
+    // 
+    // node Route[16]: x = 691, y = 520, inputs = 2, outputs = 2, label = Route
+    // page group: java export
+    //
+Image_Route_16_out_1[cache: 2],
+Image_Route_16_out_2[cache: 2] = 
+    Route(
+    Image_Compute_77_out_1,
+    Image_Route_15_out_1
+    ) [instance: 16, cache: 1];
+    // 
+    // node Transmitter[135]: x = 666, y = 676, inputs = 1, label = DXExporter
+    // page group: java export
+    //
+DXExporter = Image_Route_16_out_1;
+    // 
+    // node Receiver[288]: x = 403, y = 26, inputs = 1, label = DXExporter
+    // page group: java wrl dx
+    //
+Image_Receiver_288_out_1[cache: 0] = DXExporter;
+    // 
+    // node Select[8]: x = 397, y = 572, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "file"
+    // page group: java inputs
+    //
+Image_Select_8_out_1[cache: 2] = 
+    Select(
+    Image_Route_14_out_1,
+    "file",
+    NULL
+    ) [instance: 8, cache: 1];
+    // 
+    // node Transmitter[92]: x = 391, y = 676, inputs = 1, label = java_file
+    // page group: java inputs
+    //
+java_file = Image_Select_8_out_1;
+    // 
+    // node Receiver[133]: x = 410, y = 0, inputs = 1, label = java_file
+    // page group: java file
+    //
+Image_Receiver_133_out_1[cache: 0] = java_file;
+    // 
+    // node Inquire[21]: x = 7, y = 104, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null+1"
+    // input[3]: visible = 0
+    // page group: java file
+    //
+Image_Inquire_21_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_158_out_1,
+    "is null+1",
+    NULL
+    ) [instance: 21, cache: 1];
+    // 
+    // node Switch[22]: x = 19, y = 234, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = 0
+    // page group: java file
+    //
+Image_Switch_22_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_21_out_1,
+    Image_Compute_56_out_1,
+    0
+    ) [instance: 22, cache: 1];
+    // 
+    // node Transmitter[88]: x = 0, y = 364, inputs = 1, label = seq_number
+    // page group: java file
+    //
+seq_number = Image_Switch_22_out_1;
+    // 
+    // node Receiver[134]: x = 477, y = 0, inputs = 1, label = seq_number
+    // page group: java file
+    //
+Image_Receiver_134_out_1[cache: 0] = seq_number;
+    // 
+    // node Switch[23]: x = 141, y = 234, inputs = 3, label = Switch
+    // input[3]: defaulting = 0, visible = 0, type = 67108863, value = 0
+    // page group: java file
+    //
+Image_Switch_23_out_1[cache: 2] = 
+    Switch(
+    Image_Inquire_21_out_1,
+    Image_Compute_57_out_1,
+    0
+    ) [instance: 23, cache: 1];
+    // 
+    // node Transmitter[89]: x = 120, y = 364, inputs = 1, label = loop_number
+    // page group: java file
+    //
+loop_number = Image_Switch_23_out_1;
+    // 
+    // node Receiver[98]: x = 582, y = 0, inputs = 1, label = loop_number
+    // page group: java file
+    //
+Image_Receiver_98_out_1[cache: 0] = loop_number;
+    // 
+    // node Format[1]: x = 460, y = 104, inputs = 4, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "%s.%d.%d"
+    // page group: java file
+    //
+Image_Format_1_out_1[cache: 2] = 
+    Format(
+    "%s.%d.%d",
+    Image_Receiver_133_out_1,
+    Image_Receiver_134_out_1,
+    Image_Receiver_98_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[8]: x = 468, y = 208, inputs = 1, label = base_name
+    // page group: java file
+    //
+base_name = Image_Format_1_out_1;
+    // 
+    // node Receiver[289]: x = 491, y = 104, inputs = 1, label = base_name
+    // page group: java wrl dx
+    //
+Image_Receiver_289_out_1[cache: 0] = base_name;
+    // 
+    // node DXExport[1]: x = 426, y = 208, inputs = 2, label = DXExport
+    // page group: java wrl dx
+    //
+Image_DXExport_1_out_1[cache: 2] = 
+    DXExport(
+    Image_Receiver_288_out_1,
+    Image_Receiver_289_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[100]: x = 658, y = 572, inputs = 1, label = record_code
+    // page group: recording
+    //
+record_code = Image_Compute_3_out_1;
+    // 
+    // node Receiver[172]: x = 455, y = 390, inputs = 1, label = record_code
+    // page group: outputs
+    //
+Image_Receiver_172_out_1[cache: 0] = record_code;
+    // 
+    // node Route[1]: x = 35, y = 416, inputs = 2, outputs = 2, label = Route
+    // page group: outputs
+    //
+Image_Route_1_out_1[cache: 2],
+Image_Route_1_out_2[cache: 2] = 
+    Route(
+    Image_Compute_7_out_1,
+    Image_Receiver_125_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Route[6]: x = 474, y = 494, inputs = 2, outputs = 4, label = Route
+    // page group: outputs
+    //
+Image_Route_6_out_1[cache: 2],
+Image_Route_6_out_2[cache: 2],
+Image_Route_6_out_3[cache: 2],
+Image_Route_6_out_4[cache: 2] = 
+    Route(
+    Image_Receiver_172_out_1,
+    Image_Route_1_out_1
+    ) [instance: 6, cache: 1];
+    // 
+    // node Receiver[50]: x = 128, y = 520, inputs = 1, label = camera_xcvr
+    // page group: outputs
+    //
+Image_Receiver_50_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Input[3]: x = 945, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 3, name = 'where', value = '(no default)', descriptive = 1, description = 'X Window information', required = 0, visible = 0
+    //
+Image_Input_3_out_1 = where;
+    // 
+    // node Transmitter[33]: x = 937, y = 182, inputs = 1, label = wherex
+    // page group: inputs
+    //
+wherex = Image_Input_3_out_1;
+    // 
+    // node Receiver[51]: x = 246, y = 520, inputs = 1, label = wherex
+    // page group: outputs
+    //
+Image_Receiver_51_out_1[cache: 0] = wherex;
+    // 
+    // node Input[23]: x = 150, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 23, name = 'throttle', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_23_out_1 = throttle;
+    // 
+    // node Transmitter[14]: x = 140, y = 104, inputs = 1, label = throttlex
+    // page group: inputs
+    //
+throttlex = Image_Input_23_out_1;
+    // 
+    // node Receiver[52]: x = 192, y = 598, inputs = 1, label = throttlex
+    // page group: outputs
+    //
+Image_Receiver_52_out_1[cache: 0] = throttlex;
+    // 
+    // node Display[1]: x = 136, y = 702, inputs = 8, label = Display
+    // input[3]: visible = 1
+    // input[4]: visible = 1
+    // page group: outputs
+    // depth: value = 8
+    // window: position = (0.0000,0.0000), size = 0.5109x0.5127
+    //
+Image_Display_1_out_1[cache: 2] = 
+    Display(
+    Image_Route_6_out_1,
+    Image_Receiver_50_out_1,
+    Image_Receiver_51_out_1,
+    Image_Receiver_52_out_1,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+    ) [instance: 1, cache: 1];
+    // 
+    // node Render[1]: x = 377, y = 676, inputs = 3, label = Render
+    // page group: outputs
+    //
+Image_Render_1_out_1[cache: 2] = 
+    Render(
+    Image_Route_6_out_2,
+    Image_Receiver_50_out_1,
+    NULL
+    ) [instance: 1, cache: 1];
+    // 
+    // node Receiver[173]: x = 445, y = 676, inputs = 1, label = throttlex
+    // page group: outputs
+    //
+Image_Receiver_173_out_1[cache: 0] = throttlex;
+    // 
+    // node Display[2]: x = 389, y = 806, inputs = 8, label = Display
+    // input[3]: visible = 1
+    // input[4]: visible = 1
+    // page group: outputs
+    // depth: value = 8
+    // window: position = (0.0000,0.0000), size = 0.5109x0.5127
+    //
+Image_Display_2_out_1[cache: 2] = 
+    Display(
+    Image_Render_1_out_1,
+    NULL,
+    Image_Receiver_51_out_1,
+    Image_Receiver_173_out_1,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+    ) [instance: 2, cache: 1];
+    // 
+    // node Receiver[177]: x = 601, y = 754, inputs = 1, label = camera_xcvr
+    // page group: outputs
+    //
+Image_Receiver_177_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Receiver[178]: x = 719, y = 754, inputs = 1, label = wherex
+    // page group: outputs
+    //
+Image_Receiver_178_out_1[cache: 0] = wherex;
+    // 
+    // node Receiver[179]: x = 665, y = 832, inputs = 1, label = throttlex
+    // page group: outputs
+    //
+Image_Receiver_179_out_1[cache: 0] = throttlex;
+    // 
+    // node Display[3]: x = 609, y = 936, inputs = 8, label = Display
+    // input[3]: visible = 1
+    // input[4]: visible = 1
+    // page group: outputs
+    // depth: value = 8
+    // window: position = (0.0000,0.0000), size = 0.5109x0.5127
+    //
+Image_Display_3_out_1[cache: 2] = 
+    Display(
+    Image_Route_6_out_3,
+    Image_Receiver_177_out_1,
+    Image_Receiver_178_out_1,
+    Image_Receiver_179_out_1,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+    ) [instance: 3, cache: 1];
+    // 
+    // node Receiver[180]: x = 897, y = 962, inputs = 1, label = camera_xcvr
+    // page group: outputs
+    //
+Image_Receiver_180_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Receiver[181]: x = 1015, y = 962, inputs = 1, label = wherex
+    // page group: outputs
+    //
+Image_Receiver_181_out_1[cache: 0] = wherex;
+    // 
+    // node Receiver[182]: x = 961, y = 1040, inputs = 1, label = throttlex
+    // page group: outputs
+    //
+Image_Receiver_182_out_1[cache: 0] = throttlex;
+    // 
+    // node Display[4]: x = 905, y = 1144, inputs = 8, label = Display
+    // input[3]: visible = 1
+    // input[4]: visible = 1
+    // page group: outputs
+    // depth: value = 8
+    // window: position = (0.0000,0.0000), size = 0.5109x0.5127
+    //
+Image_Display_4_out_1[cache: 2] = 
+    Display(
+    Image_Route_6_out_4,
+    Image_Receiver_180_out_1,
+    Image_Receiver_181_out_1,
+    Image_Receiver_182_out_1,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+    ) [instance: 4, cache: 1];
+    // 
+    // node Input[1]: x = 0, y = 0, inputs = 0, label = id
+    // page group: inputs
+    // parameter: position = 1, name = 'id', value = ' ', descriptive = 0, description = 'module Id', required = 1, visible = 0
+    //
+Image_Input_1_out_1 = id;
+    // 
+    // node Transmitter[12]: x = 6, y = 104, inputs = 1, label = idx
+    // page group: inputs
+    //
+idx = Image_Input_1_out_1;
+    // 
+    // node Receiver[147]: x = 119, y = 520, inputs = 1, label = idx
+    // page group: gif data
+    //
+Image_Receiver_147_out_1[cache: 0] = idx;
+    // 
+    // node Receiver[258]: x = 58, y = 338, inputs = 1, label = img_id
+    // page group: gif data
+    //
+Image_Receiver_258_out_1[cache: 0] = img_id;
+    // 
+    // node Receiver[259]: x = 0, y = 260, inputs = 1, label = resetx
+    // page group: gif data
+    //
+Image_Receiver_259_out_1[cache: 0] = resetx;
+    // 
+    // node Receiver[255]: x = 408, y = 0, inputs = 1, label = camera_xcvr
+    // page group: gif data
+    //
+Image_Receiver_255_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Transmitter[80]: x = 23, y = 806, inputs = 1, label = java_exporter
+    // page group: outputs
+    //
+java_exporter = Image_Route_1_out_2;
+    // 
+    // node Receiver[130]: x = 335, y = 0, inputs = 1, label = java_exporter
+    // page group: java export
+    //
+Image_Receiver_130_out_1[cache: 0] = java_exporter;
+    // 
+    // node Route[2]: x = 473, y = 260, inputs = 2, outputs = 2, label = Route
+    // page group: java export
+    //
+Image_Route_2_out_1[cache: 2],
+Image_Route_2_out_2[cache: 2] = 
+    Route(
+    Image_Compute_78_out_1,
+    Image_Receiver_130_out_1
+    ) [instance: 2, cache: 1];
+    // 
+    // node Route[8]: x = 439, y = 546, inputs = 2, outputs = 2, label = Route
+    // page group: java export
+    //
+Image_Route_8_out_1[cache: 2],
+Image_Route_8_out_2[cache: 2] = 
+    Route(
+    Image_Compute_59_out_1,
+    Image_Route_2_out_1
+    ) [instance: 8, cache: 1];
+    // 
+    // node Transmitter[86]: x = 361, y = 676, inputs = 1, label = gifexporter
+    // page group: java export
+    //
+gifexporter = Image_Route_8_out_1;
+    // 
+    // node Receiver[146]: x = 63, y = 0, inputs = 1, label = gifexporter
+    // page group: java gif
+    //
+Image_Receiver_146_out_1[cache: 0] = gifexporter;
+    // 
+    // node Receiver[139]: x = 123, y = 104, inputs = 1, label = base_name
+    // page group: java gif
+    //
+Image_Receiver_139_out_1[cache: 0] = base_name;
+    // 
+    // node Receiver[138]: x = 175, y = 0, inputs = 1, label = camera_xcvr
+    // page group: java gif
+    //
+Image_Receiver_138_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Receiver[292]: x = 214, y = 234, inputs = 1, label = java_format
+    // page group: java gif
+    //
+Image_Receiver_292_out_1[cache: 0] = java_format;
+    // 
+    // node ImageExport[1]: x = 118, y = 312, inputs = 4, label = ImageExport
+    // page group: java gif
+    //
+Image_ImageExport_1_out_1 = 
+    ImageExport(
+    Image_Receiver_146_out_1,
+    Image_Receiver_139_out_1,
+    Image_Receiver_138_out_1,
+    Image_Receiver_292_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[126]: x = 108, y = 416, inputs = 1, label = gif_data_drive
+    // page group: java gif
+    //
+gif_data_drive = Image_ImageExport_1_out_1;
+    // 
+    // node Receiver[266]: x = 505, y = 0, inputs = 1, label = gif_data_drive
+    // page group: gif data
+    //
+Image_Receiver_266_out_1[cache: 0] = gif_data_drive;
+    // 
+    // node Inquire[45]: x = 440, y = 130, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera perspective + 1"
+    // page group: gif data
+    //
+Image_Inquire_45_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_255_out_1,
+    "camera perspective + 1",
+    Image_Receiver_266_out_1
+    ) [instance: 45, cache: 1];
+    // 
+    // node Route[11]: x = 482, y = 208, inputs = 2, outputs = 2, label = Route
+    // page group: gif data
+    //
+Image_Route_11_out_1[cache: 0],
+Image_Route_11_out_2[cache: 0] = 
+    Route(
+    Image_Inquire_45_out_1,
+    Image_Receiver_255_out_1
+    ) [instance: 11, cache: 1];
+    // 
+    // node Transmitter[128]: x = 448, y = 338, inputs = 1, label = ocam
+    // page group: gif data
+    //
+ocam = Image_Route_11_out_1;
+    // 
+    // node Receiver[260]: x = 99, y = 52, inputs = 1, label = ocam
+    // page group: gif data
+    //
+Image_Receiver_260_out_1[cache: 0] = ocam;
+    // 
+    // node Inquire[40]: x = 107, y = 234, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera width"
+    // input[3]: visible = 0
+    // page group: gif data
+    //
+Image_Inquire_40_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_260_out_1,
+    "camera width",
+    NULL
+    ) [instance: 40, cache: 1];
+    // 
+    // node Inquire[51]: x = 148, y = 156, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera to"
+    // input[3]: visible = 0
+    // page group: gif data
+    //
+Image_Inquire_51_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_260_out_1,
+    "camera to",
+    NULL
+    ) [instance: 51, cache: 1];
+    // 
+    // node Inquire[42]: x = 203, y = 156, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera from"
+    // input[3]: visible = 0
+    // page group: gif data
+    //
+Image_Inquire_42_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_260_out_1,
+    "camera from",
+    NULL
+    ) [instance: 42, cache: 1];
+    // 
+    // node Inquire[43]: x = 293, y = 182, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera up"
+    // input[3]: visible = 0
+    // page group: gif data
+    //
+Image_Inquire_43_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_260_out_1,
+    "camera up",
+    NULL
+    ) [instance: 43, cache: 1];
+    // 
+    // node Receiver[278]: x = 201, y = 260, inputs = 1, label = imodex
+    // page group: gif data
+    //
+Image_Receiver_278_out_1[cache: 0] = imodex;
+    // 
+    // node Receiver[257]: x = 265, y = 338, inputs = 1, label = gif_data_drive
+    // page group: gif data
+    //
+Image_Receiver_257_out_1[cache: 0] = gif_data_drive;
+    // 
+    // node Format[20]: x = 47, y = 442, inputs = 9, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "imgId=%d; reset=%d; width=%.4f; to=%.4f; from=%.4f; up=%.4f; orbit=0; mode=%s; show=%s;"
+    // page group: gif data
+    //
+Image_Format_20_out_1[cache: 2] = 
+    Format(
+    "imgId=%d; reset=%d; width=%.4f; to=%.4f; from=%.4f; up=%.4f; orbit=0; mode=%s; show=%s;",
+    Image_Receiver_258_out_1,
+    Image_Receiver_259_out_1,
+    Image_Inquire_40_out_1,
+    Image_Inquire_51_out_1,
+    Image_Inquire_42_out_1,
+    Image_Inquire_43_out_1,
+    Image_Receiver_278_out_1,
+    Image_Receiver_257_out_1
+    ) [instance: 20, cache: 1];
+    // 
+    // node Echo[1]: x = 119, y = 624, inputs = 2, label = Echo
+    // page group: gif data
+    //
+    Echo(
+    Image_Receiver_147_out_1,
+    Image_Format_20_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Route[4]: x = 932, y = 260, inputs = 2, outputs = 2, label = Route
+    // input[2]: visible = 0
+    // page group: java export
+    //
+Image_Route_4_out_1[cache: 2],
+Image_Route_4_out_2[cache: 2] = 
+    Route(
+    Image_Compute_58_out_1,
+    NULL
+    ) [instance: 4, cache: 1];
+    // 
+    // node Format[13]: x = 897, y = 364, inputs = 3, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "Unrecognized Format: %s"
+    // page group: java export
+    //
+Image_Format_13_out_1[cache: 2] = 
+    Format(
+    "Unrecognized Format: %s",
+    Image_Receiver_131_out_1,
+    Image_Route_4_out_1
+    ) [instance: 13, cache: 1];
+    // 
+    // node Format[26]: x = 796, y = 260, inputs = 4, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "format inquiries: %d %d %d"
+    // page group: java export
+    //
+Image_Format_26_out_1[cache: 2] = 
+    Format(
+    "format inquiries: %d %d %d",
+    Image_Inquire_22_out_1,
+    Image_Compute_78_out_1,
+    Image_Inquire_53_out_1
+    ) [instance: 26, cache: 1];
+    // 
+    // node Echo[3]: x = 899, y = 494, inputs = 2, label = Echo
+    // page group: java export
+    //
+    Echo(
+    Image_Format_13_out_1,
+    Image_Format_26_out_1
+    ) [instance: 3, cache: 1];
+    // 
+    // node Receiver[205]: x = 0, y = 416, inputs = 1, label = idx
+    // page group: java orbit 1
+    //
+Image_Receiver_205_out_1[cache: 0] = idx;
+    // 
+    // node Receiver[206]: x = 46, y = 390, inputs = 1, label = img_id
+    // page group: java orbit 1
+    //
+Image_Receiver_206_out_1[cache: 0] = img_id;
+    // 
+    // node Transmitter[113]: x = 464, y = 676, inputs = 1, label = orbitexporter
+    // page group: java export
+    //
+orbitexporter = Image_Route_8_out_2;
+    // 
+    // node Receiver[213]: x = 0, y = 312, inputs = 1, label = orbitexporter
+    // page group: java orbit 2
+    //
+Image_Receiver_213_out_1[cache: 0] = orbitexporter;
+    // 
+    // node Render[3]: x = 78, y = 442, inputs = 3, label = Render
+    // page group: java orbit 2
+    //
+Image_Render_3_out_1[cache: 2] = 
+    Render(
+    Image_Receiver_213_out_1,
+    Image_UpdateCamera_3_out_1,
+    NULL
+    ) [instance: 3, cache: 1];
+    // 
+    // node Transmitter[111]: x = 57, y = 520, inputs = 1, label = orbitedImage
+    // page group: java orbit 2
+    //
+orbitedImage = Image_Render_3_out_1;
+    // 
+    // node Receiver[211]: x = 89, y = 234, inputs = 1, label = orbitedImage
+    // page group: java orbit 1
+    //
+Image_Receiver_211_out_1[cache: 0] = orbitedImage;
+    // 
+    // node Receiver[275]: x = 209, y = 208, inputs = 1, label = java_file
+    // page group: java orbit 1
+    //
+Image_Receiver_275_out_1[cache: 0] = java_file;
+    // 
+    // node Receiver[276]: x = 276, y = 208, inputs = 1, label = seq_number
+    // page group: java orbit 1
+    //
+Image_Receiver_276_out_1[cache: 0] = seq_number;
+    // 
+    // node Format[24]: x = 259, y = 312, inputs = 4, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "%s.%d.%d"
+    // page group: java orbit 1
+    //
+Image_Format_24_out_1[cache: 2] = 
+    Format(
+    "%s.%d.%d",
+    Image_Receiver_275_out_1,
+    Image_Receiver_276_out_1,
+    Image_ForEachN_1_out_1
+    ) [instance: 24, cache: 1];
+    // 
+    // node Receiver[209]: x = 142, y = 312, inputs = 1, label = camera_xcvr
+    // page group: java orbit 1
+    //
+Image_Receiver_209_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node ImageExport[2]: x = 121, y = 390, inputs = 4, label = ImageExport
+    // page group: java orbit 1
+    //
+Image_ImageExport_2_out_1 = 
+    ImageExport(
+    Image_Receiver_211_out_1,
+    Image_Format_24_out_1,
+    Image_Receiver_209_out_1,
+    NULL
+    ) [instance: 2, cache: 1];
+    // 
+    // node Format[17]: x = 35, y = 468, inputs = 3, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "imgId=%d; orbit=1; show=%s;"
+    // page group: java orbit 1
+    //
+Image_Format_17_out_1[cache: 2] = 
+    Format(
+    "imgId=%d; orbit=1; show=%s;",
+    Image_Receiver_206_out_1,
+    Image_ImageExport_2_out_1
+    ) [instance: 17, cache: 1];
+    // 
+    // node Echo[5]: x = 0, y = 546, inputs = 2, label = Echo
+    // page group: java orbit 1
+    //
+    Echo(
+    Image_Receiver_205_out_1,
+    Image_Format_17_out_1
+    ) [instance: 5, cache: 1];
+    // 
+    // node Receiver[244]: x = 20, y = 364, inputs = 1, label = idx
+    // page group: java wrl dx
+    //
+Image_Receiver_244_out_1[cache: 0] = idx;
+    // 
+    // node Receiver[245]: x = 66, y = 234, inputs = 1, label = img_id
+    // page group: java wrl dx
+    //
+Image_Receiver_245_out_1[cache: 0] = img_id;
+    // 
+    // node Route[3]: x = 86, y = 182, inputs = 2, outputs = 2, label = Route
+    // page group: java export
+    //
+Image_Route_3_out_1[cache: 2],
+Image_Route_3_out_2[cache: 2] = 
+    Route(
+    Image_Inquire_22_out_1,
+    Image_Receiver_130_out_1
+    ) [instance: 3, cache: 1];
+    // 
+    // node Route[10]: x = 62, y = 546, inputs = 2, outputs = 2, label = Route
+    // page group: java export
+    //
+Image_Route_10_out_1[cache: 2],
+Image_Route_10_out_2[cache: 2] = 
+    Route(
+    Image_Compute_71_out_1,
+    Image_Route_3_out_1
+    ) [instance: 10, cache: 1];
+    // 
+    // node Transmitter[87]: x = 36, y = 676, inputs = 1, label = wrlexporter
+    // page group: java export
+    //
+wrlexporter = Image_Route_10_out_1;
+    // 
+    // node Receiver[157]: x = 133, y = 26, inputs = 1, label = wrlexporter
+    // page group: java wrl dx
+    //
+Image_Receiver_157_out_1[cache: 0] = wrlexporter;
+    // 
+    // node Receiver[153]: x = 222, y = 104, inputs = 1, label = base_name
+    // page group: java wrl dx
+    //
+Image_Receiver_153_out_1[cache: 0] = base_name;
+    // 
+    // node VRMLExport[1]: x = 154, y = 208, inputs = 2, label = VRMLExport
+    // page group: java wrl dx
+    //
+Image_VRMLExport_1_out_1[cache: 2] = 
+    VRMLExport(
+    Image_Receiver_157_out_1,
+    Image_Receiver_153_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Format[19]: x = 55, y = 364, inputs = 3, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "imgId=%d; orbit=0; show=%s;"
+    // page group: java wrl dx
+    //
+Image_Format_19_out_1[cache: 2] = 
+    Format(
+    "imgId=%d; orbit=0; show=%s;",
+    Image_Receiver_245_out_1,
+    Image_VRMLExport_1_out_1
+    ) [instance: 19, cache: 1];
+    // 
+    // node Echo[6]: x = 20, y = 468, inputs = 2, label = Echo
+    // page group: java wrl dx
+    //
+    Echo(
+    Image_Receiver_244_out_1,
+    Image_Format_19_out_1
+    ) [instance: 6, cache: 1];
+    // 
+    // node Receiver[261]: x = 747, y = 520, inputs = 1, label = idx
+    // page group: gif data
+    //
+Image_Receiver_261_out_1[cache: 0] = idx;
+    // 
+    // node Receiver[262]: x = 686, y = 312, inputs = 1, label = img_id
+    // page group: gif data
+    //
+Image_Receiver_262_out_1[cache: 0] = img_id;
+    // 
+    // node Receiver[263]: x = 627, y = 260, inputs = 1, label = resetx
+    // page group: gif data
+    //
+Image_Receiver_263_out_1[cache: 0] = resetx;
+    // 
+    // node Transmitter[127]: x = 498, y = 338, inputs = 1, label = pcam
+    // page group: gif data
+    //
+pcam = Image_Route_11_out_2;
+    // 
+    // node Receiver[264]: x = 727, y = 52, inputs = 1, label = pcam
+    // page group: gif data
+    //
+Image_Receiver_264_out_1[cache: 0] = pcam;
+    // 
+    // node Inquire[46]: x = 735, y = 234, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera angle"
+    // input[3]: visible = 0
+    // page group: gif data
+    //
+Image_Inquire_46_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_264_out_1,
+    "camera angle",
+    NULL
+    ) [instance: 46, cache: 1];
+    // 
+    // node Inquire[52]: x = 825, y = 208, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera to"
+    // input[3]: visible = 0
+    // page group: gif data
+    //
+Image_Inquire_52_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_264_out_1,
+    "camera to",
+    NULL
+    ) [instance: 52, cache: 1];
+    // 
+    // node Inquire[48]: x = 915, y = 208, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera from"
+    // input[3]: visible = 0
+    // page group: gif data
+    //
+Image_Inquire_48_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_264_out_1,
+    "camera from",
+    NULL
+    ) [instance: 48, cache: 1];
+    // 
+    // node Inquire[49]: x = 1005, y = 208, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "camera up"
+    // input[3]: visible = 0
+    // page group: gif data
+    //
+Image_Inquire_49_out_1[cache: 2] = 
+    Inquire(
+    Image_Receiver_264_out_1,
+    "camera up",
+    NULL
+    ) [instance: 49, cache: 1];
+    // 
+    // node Receiver[279]: x = 1005, y = 286, inputs = 1, label = imodex
+    // page group: gif data
+    //
+Image_Receiver_279_out_1[cache: 0] = imodex;
+    // 
+    // node Receiver[265]: x = 879, y = 338, inputs = 1, label = gif_data_drive
+    // page group: gif data
+    //
+Image_Receiver_265_out_1[cache: 0] = gif_data_drive;
+    // 
+    // node Format[21]: x = 675, y = 442, inputs = 9, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "imgId=%d; reset=%d; angle=%.4f; to=%.4f; from=%.4f; up=%.4f; orbit=0; mode=%s; show=%s;"
+    // page group: gif data
+    //
+Image_Format_21_out_1[cache: 2] = 
+    Format(
+    "imgId=%d; reset=%d; angle=%.4f; to=%.4f; from=%.4f; up=%.4f; orbit=0; mode=%s; show=%s;",
+    Image_Receiver_262_out_1,
+    Image_Receiver_263_out_1,
+    Image_Inquire_46_out_1,
+    Image_Inquire_52_out_1,
+    Image_Inquire_48_out_1,
+    Image_Inquire_49_out_1,
+    Image_Receiver_279_out_1,
+    Image_Receiver_265_out_1
+    ) [instance: 21, cache: 1];
+    // 
+    // node Echo[7]: x = 747, y = 624, inputs = 2, label = Echo
+    // page group: gif data
+    //
+    Echo(
+    Image_Receiver_261_out_1,
+    Image_Format_21_out_1
+    ) [instance: 7, cache: 1];
+    // 
+    // node Receiver[273]: x = 475, y = 988, inputs = 1, label = idx
+    // page group: java inputs
+    //
+Image_Receiver_273_out_1[cache: 0] = idx;
+    // 
+    // node Transmitter[131]: x = 49, y = 962, inputs = 1, label = same_group
+    // page group: java inputs
+    //
+same_group = Image_Compute_73_out_1;
+    // 
+    // node Receiver[269]: x = 523, y = 780, inputs = 1, label = same_group
+    // page group: java inputs
+    //
+Image_Receiver_269_out_1[cache: 0] = same_group;
+    // 
+    // node Receiver[270]: x = 618, y = 780, inputs = 1, label = groupName
+    // page group: java inputs
+    //
+Image_Receiver_270_out_1[cache: 0] = groupName;
+    // 
+    // node Route[12]: x = 553, y = 884, inputs = 2, outputs = 2, label = Route
+    // page group: java inputs
+    //
+Image_Route_12_out_1[cache: 0],
+Image_Route_12_out_2[cache: 0] = 
+    Route(
+    Image_Receiver_269_out_1,
+    Image_Receiver_270_out_1
+    ) [instance: 12, cache: 1];
+    // 
+    // node Format[22]: x = 529, y = 988, inputs = 2, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "group=%s"
+    // page group: java inputs
+    //
+Image_Format_22_out_1[cache: 2] = 
+    Format(
+    "group=%s",
+    Image_Route_12_out_1
+    ) [instance: 22, cache: 1];
+    // 
+    // node Echo[10]: x = 517, y = 1092, inputs = 2, label = Echo
+    // page group: java inputs
+    //
+    Echo(
+    Image_Receiver_273_out_1,
+    Image_Format_22_out_1
+    ) [instance: 10, cache: 1];
+    // 
+    // node Receiver[274]: x = 722, y = 988, inputs = 1, label = idx
+    // page group: java inputs
+    //
+Image_Receiver_274_out_1[cache: 0] = idx;
+    // 
+    // node Transmitter[132]: x = 277, y = 988, inputs = 1, label = same_cache
+    // page group: java inputs
+    //
+same_cache = Image_Compute_74_out_1;
+    // 
+    // node Receiver[271]: x = 764, y = 780, inputs = 1, label = same_cache
+    // page group: java inputs
+    //
+Image_Receiver_271_out_1[cache: 0] = same_cache;
+    // 
+    // node Receiver[272]: x = 864, y = 780, inputs = 1, label = cache_count
+    // page group: java inputs
+    //
+Image_Receiver_272_out_1[cache: 0] = cache_count;
+    // 
+    // node Route[13]: x = 795, y = 884, inputs = 2, outputs = 2, label = Route
+    // page group: java inputs
+    //
+Image_Route_13_out_1[cache: 0],
+Image_Route_13_out_2[cache: 0] = 
+    Route(
+    Image_Receiver_271_out_1,
+    Image_Receiver_272_out_1
+    ) [instance: 13, cache: 1];
+    // 
+    // node Format[23]: x = 771, y = 988, inputs = 2, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "cache=%d"
+    // page group: java inputs
+    //
+Image_Format_23_out_1[cache: 2] = 
+    Format(
+    "cache=%d",
+    Image_Route_13_out_1
+    ) [instance: 23, cache: 1];
+    // 
+    // node Echo[11]: x = 759, y = 1092, inputs = 2, label = Echo
+    // page group: java inputs
+    //
+    Echo(
+    Image_Receiver_274_out_1,
+    Image_Format_23_out_1
+    ) [instance: 11, cache: 1];
+    // 
+    // node Receiver[286]: x = 289, y = 364, inputs = 1, label = idx
+    // page group: java wrl dx
+    //
+Image_Receiver_286_out_1[cache: 0] = idx;
+    // 
+    // node Receiver[287]: x = 335, y = 234, inputs = 1, label = img_id
+    // page group: java wrl dx
+    //
+Image_Receiver_287_out_1[cache: 0] = img_id;
+    // 
+    // node Format[25]: x = 324, y = 364, inputs = 3, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "imgId=%d; orbit=0; show=%s;"
+    // page group: java wrl dx
+    //
+Image_Format_25_out_1[cache: 2] = 
+    Format(
+    "imgId=%d; orbit=0; show=%s;",
+    Image_Receiver_287_out_1,
+    Image_DXExport_1_out_1
+    ) [instance: 25, cache: 1];
+    // 
+    // node Echo[12]: x = 289, y = 468, inputs = 2, label = Echo
+    // page group: java wrl dx
+    //
+    Echo(
+    Image_Receiver_286_out_1,
+    Image_Format_25_out_1
+    ) [instance: 12, cache: 1];
+    // 
+    // node Receiver[70]: x = 35, y = 26, inputs = 1, label = idx
+    // page group: ImageMessage
+    //
+Image_Receiver_70_out_1[cache: 0] = idx;
+    // 
+    // node Receiver[99]: x = 70, y = 130, inputs = 1, label = bkgndColor
+    // page group: ImageMessage
+    //
+Image_Receiver_99_out_1[cache: 0] = bkgndColor;
+    // 
+    // node Receiver[110]: x = 105, y = 26, inputs = 1, label = throttlex
+    // page group: ImageMessage
+    //
+Image_Receiver_110_out_1[cache: 0] = throttlex;
+    // 
+    // node Receiver[195]: x = 506, y = 0, inputs = 1, label = recEnablex
+    // page group: ImageMessage
+    //
+Image_Receiver_195_out_1[cache: 0] = recEnablex;
+    // 
+    // node Input[25]: x = 10, y = 0, inputs = 0, label = Input
+    // page group: recording
+    // parameter: position = 25, name = 'recFile', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_25_out_1 = recFile;
+    // 
+    // node Transmitter[95]: x = 0, y = 130, inputs = 1, label = recFilex
+    // page group: recording
+    //
+recFilex = Image_Input_25_out_1;
+    // 
+    // node Receiver[196]: x = 730, y = 0, inputs = 1, label = recFilex
+    // page group: ImageMessage
+    //
+Image_Receiver_196_out_1[cache: 0] = recFilex;
+    // 
+    // node Input[26]: x = 317, y = 0, inputs = 0, label = Input
+    // page group: recording
+    // parameter: position = 26, name = 'recFormat', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_26_out_1 = recFormat;
+    // 
+    // node Transmitter[98]: x = 296, y = 130, inputs = 1, label = recFormatx
+    // page group: recording
+    //
+recFormatx = Image_Input_26_out_1;
+    // 
+    // node Receiver[197]: x = 190, y = 0, inputs = 1, label = recFormatx
+    // page group: ImageMessage
+    //
+Image_Receiver_197_out_1[cache: 0] = recFormatx;
+    // 
+    // node Receiver[198]: x = 355, y = 0, inputs = 1, label = recRes
+    // page group: ImageMessage
+    //
+Image_Receiver_198_out_1[cache: 0] = recRes;
+    // 
+    // node Receiver[199]: x = 808, y = 0, inputs = 1, label = recAsp
+    // page group: ImageMessage
+    //
+Image_Receiver_199_out_1[cache: 0] = recAsp;
+    // 
+    // node Receiver[91]: x = 209, y = 156, inputs = 1, label = aaenable
+    // page group: ImageMessage
+    //
+Image_Receiver_91_out_1[cache: 0] = aaenable;
+    // 
+    // node Receiver[72]: x = 419, y = 52, inputs = 1, label = aalabels
+    // page group: ImageMessage
+    //
+Image_Receiver_72_out_1[cache: 0] = aalabels;
+    // 
+    // node Receiver[73]: x = 813, y = 104, inputs = 1, label = aaticks
+    // page group: ImageMessage
+    //
+Image_Receiver_73_out_1[cache: 0] = aaticks;
+    // 
+    // node Receiver[78]: x = 349, y = 156, inputs = 1, label = aacorners
+    // page group: ImageMessage
+    //
+Image_Receiver_78_out_1[cache: 0] = aacorners;
+    // 
+    // node Receiver[77]: x = 594, y = 52, inputs = 1, label = aaframe
+    // page group: ImageMessage
+    //
+Image_Receiver_77_out_1[cache: 0] = aaframe;
+    // 
+    // node Receiver[76]: x = 489, y = 104, inputs = 1, label = aaadjust
+    // page group: ImageMessage
+    //
+Image_Receiver_76_out_1[cache: 0] = aaadjust;
+    // 
+    // node Receiver[75]: x = 279, y = 52, inputs = 1, label = aacursor
+    // page group: ImageMessage
+    //
+Image_Receiver_75_out_1[cache: 0] = aacursor;
+    // 
+    // node Receiver[74]: x = 874, y = 78, inputs = 1, label = aagrid
+    // page group: ImageMessage
+    //
+Image_Receiver_74_out_1[cache: 0] = aagrid;
+    // 
+    // node Receiver[82]: x = 813, y = 208, inputs = 1, label = aacolors
+    // page group: ImageMessage
+    //
+Image_Receiver_82_out_1[cache: 0] = aacolors;
+    // 
+    // node Receiver[81]: x = 1154, y = 156, inputs = 1, label = annotation
+    // page group: ImageMessage
+    //
+Image_Receiver_81_out_1[cache: 0] = annotation;
+    // 
+    // node Receiver[80]: x = 489, y = 182, inputs = 1, label = aalabelscale
+    // page group: ImageMessage
+    //
+Image_Receiver_80_out_1[cache: 0] = aalabelscale;
+    // 
+    // node Receiver[116]: x = 1154, y = 78, inputs = 1, label = aafont
+    // page group: ImageMessage
+    //
+Image_Receiver_116_out_1[cache: 0] = aafont;
+    // 
+    // node Receiver[83]: x = 687, y = 130, inputs = 1, label = AAxTickLocs
+    // page group: ImageMessage
+    //
+Image_Receiver_83_out_1[cache: 0] = AAxTickLocs;
+    // 
+    // node Receiver[85]: x = 979, y = 78, inputs = 1, label = aayTickLocs
+    // page group: ImageMessage
+    //
+Image_Receiver_85_out_1[cache: 0] = aayTickLocs;
+    // 
+    // node Receiver[84]: x = 979, y = 156, inputs = 1, label = AAzTickLocs
+    // page group: ImageMessage
+    //
+Image_Receiver_84_out_1[cache: 0] = AAzTickLocs;
+    // 
+    // node Receiver[86]: x = 1364, y = 182, inputs = 1, label = AAxTickLabels
+    // page group: ImageMessage
+    //
+Image_Receiver_86_out_1[cache: 0] = AAxTickLabels;
+    // 
+    // node Receiver[88]: x = 1259, y = 78, inputs = 1, label = AAyTickLabels
+    // page group: ImageMessage
+    //
+Image_Receiver_88_out_1[cache: 0] = AAyTickLabels;
+    // 
+    // node Receiver[87]: x = 1434, y = 78, inputs = 1, label = AAzTickLabels
+    // page group: ImageMessage
+    //
+Image_Receiver_87_out_1[cache: 0] = AAzTickLabels;
+    // 
+    // node Receiver[118]: x = 1539, y = 182, inputs = 1, label = imodex
+    // page group: ImageMessage
+    //
+Image_Receiver_118_out_1[cache: 0] = imodex;
+    // 
+    // node Input[42]: x = 510, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 42, name = 'title', value = '(no default)', descriptive = 1, description = ' Image window title', required = 0, visible = 0
+    //
+Image_Input_42_out_1 = title;
+    // 
+    // node Transmitter[53]: x = 510, y = 130, inputs = 1, label = titlex
+    // page group: inputs
+    //
+titlex = Image_Input_42_out_1;
+    // 
+    // node Receiver[117]: x = 1609, y = 78, inputs = 1, label = titlex
+    // page group: ImageMessage
+    //
+Image_Receiver_117_out_1[cache: 0] = titlex;
+    // 
+    // node Receiver[93]: x = 1714, y = 182, inputs = 1, label = renderModex
+    // page group: ImageMessage
+    //
+Image_Receiver_93_out_1[cache: 0] = renderModex;
+    // 
+    // node Receiver[96]: x = 1924, y = 182, inputs = 1, label = buttonUpApproxx
+    // page group: ImageMessage
+    //
+Image_Receiver_96_out_1[cache: 0] = buttonUpApproxx;
+    // 
+    // node Receiver[97]: x = 1714, y = 104, inputs = 1, label = buttonDownApproxx
+    // page group: ImageMessage
+    //
+Image_Receiver_97_out_1[cache: 0] = buttonDownApproxx;
+    // 
+    // node Receiver[94]: x = 2099, y = 182, inputs = 1, label = buttonUpDensityx
+    // page group: ImageMessage
+    //
+Image_Receiver_94_out_1[cache: 0] = buttonUpDensityx;
+    // 
+    // node Receiver[95]: x = 1539, y = 0, inputs = 1, label = buttonDownDensityx
+    // page group: ImageMessage
+    //
+Image_Receiver_95_out_1[cache: 0] = buttonDownDensityx;
+    // 
+    // node ImageMessage[1]: x = 489, y = 442, inputs = 33, label = ImageMessage
+    // input[4]: defaulting = 1, visible = 1, type = 3, value = 0
+    // input[5]: defaulting = 1, visible = 1, type = 32, value = NULL
+    // input[6]: defaulting = 1, visible = 1, type = 32, value = NULL
+    // input[7]: defaulting = 1, visible = 1, type = 1, value = NULL
+    // input[8]: defaulting = 1, visible = 1, type = 5, value = NULL
+    // page group: ImageMessage
+    //
+    ImageMessage(
+    Image_Receiver_70_out_1,
+    Image_Receiver_99_out_1,
+    Image_Receiver_110_out_1,
+    Image_Receiver_195_out_1,
+    Image_Receiver_196_out_1,
+    Image_Receiver_197_out_1,
+    Image_Receiver_198_out_1,
+    Image_Receiver_199_out_1,
+    Image_Receiver_91_out_1,
+    Image_Receiver_72_out_1,
+    Image_Receiver_73_out_1,
+    Image_Receiver_78_out_1,
+    Image_Receiver_77_out_1,
+    Image_Receiver_76_out_1,
+    Image_Receiver_75_out_1,
+    Image_Receiver_74_out_1,
+    Image_Receiver_82_out_1,
+    Image_Receiver_81_out_1,
+    Image_Receiver_80_out_1,
+    Image_Receiver_116_out_1,
+    Image_Receiver_83_out_1,
+    Image_Receiver_85_out_1,
+    Image_Receiver_84_out_1,
+    Image_Receiver_86_out_1,
+    Image_Receiver_88_out_1,
+    Image_Receiver_87_out_1,
+    Image_Receiver_118_out_1,
+    Image_Receiver_117_out_1,
+    Image_Receiver_93_out_1,
+    Image_Receiver_96_out_1,
+    Image_Receiver_97_out_1,
+    Image_Receiver_94_out_1,
+    Image_Receiver_95_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Input[13]: x = 805, y = 0, inputs = 0, label = Input
+    // page group: inputs
+    // parameter: position = 13, name = 'options', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 0
+    //
+Image_Input_13_out_1 = options;
+    // 
+    // node Output[2]: x = 319, y = 702, inputs = 1, label = Output
+    // page group: camera
+    // parameter: position = 2, name = 'camera', value = ' ', descriptive = 0, description = 'camera used to render', required = 0, visible = 1
+    //
+camera = Image_Switch_2_out_1;
+    // 
+    // node Output[5]: x = 163, y = 390, inputs = 1, label = Output
+    // page group: outputs
+    // parameter: position = 1, name = 'object', value = ' ', descriptive = 0, description = ' ', required = 0, visible = 1
+    //
+object = Image_Receiver_125_out_1;
+    // 
+    // node Output[6]: x = 208, y = 806, inputs = 1, label = Output
+    // page group: outputs
+    // parameter: position = 3, name = 'Where', value = ' ', descriptive = 0, description = ' ', required = 0, visible = 1
+    //
+Where = Image_Receiver_51_out_1;
+    // 
+    // node ReadImageWindow[1]: x = 599, y = 1040, inputs = 1, label = ReadImageWindow
+    // page group: outputs
+    //
+Image_ReadImageWindow_1_out_1[cache: 2] = 
+    ReadImageWindow(
+    Image_Display_3_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Receiver[175]: x = 279, y = 806, inputs = 1, label = recFormatx
+    // page group: outputs
+    //
+Image_Receiver_175_out_1[cache: 0] = recFormatx;
+    // 
+    // node Receiver[176]: x = 331, y = 910, inputs = 1, label = recFilex
+    // page group: outputs
+    //
+Image_Receiver_176_out_1[cache: 0] = recFilex;
+    // 
+    // node Receiver[183]: x = 972, y = 780, inputs = 1, label = recFilex
+    // page group: outputs
+    //
+Image_Receiver_183_out_1[cache: 0] = recFilex;
+    // 
+    // node Receiver[184]: x = 1071, y = 780, inputs = 1, label = recFormatx
+    // page group: outputs
+    //
+Image_Receiver_184_out_1[cache: 0] = recFormatx;
+    // 
+    // node Receiver[186]: x = 820, y = 572, inputs = 1, label = camera_xcvr
+    // page group: recording
+    //
+Image_Receiver_186_out_1[cache: 0] = camera_xcvr;
+    // 
+    // node Receiver[187]: x = 927, y = 572, inputs = 1, label = recRes
+    // page group: recording
+    //
+Image_Receiver_187_out_1[cache: 0] = recRes;
+    // 
+    // node Receiver[188]: x = 1004, y = 572, inputs = 1, label = recAsp
+    // page group: recording
+    //
+Image_Receiver_188_out_1[cache: 0] = recAsp;
+    // 
+    // node UpdateCamera[2]: x = 849, y = 676, inputs = 10, label = UpdateCamera
+    // input[2]: visible = 0
+    // input[3]: visible = 0
+    // input[4]: visible = 0
+    // input[7]: visible = 0
+    // input[8]: visible = 0
+    // input[9]: visible = 0
+    // input[10]: visible = 0
+    // page group: recording
+    //
+Image_UpdateCamera_2_out_1[cache: 2] = 
+    UpdateCamera(
+    Image_Receiver_186_out_1,
+    NULL,
+    NULL,
+    NULL,
+    Image_Receiver_187_out_1,
+    Image_Receiver_188_out_1,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+    ) [instance: 2, cache: 1];
+    // 
+    // node Transmitter[103]: x = 844, y = 780, inputs = 1, label = record_camera
+    // page group: recording
+    //
+record_camera = Image_UpdateCamera_2_out_1;
+    // 
+    // node Receiver[185]: x = 1078, y = 416, inputs = 1, label = record_camera
+    // page group: outputs
+    //
+Image_Receiver_185_out_1[cache: 0] = record_camera;
+    // 
+    // node Receiver[190]: x = 453, y = 572, inputs = 1, label = annotated_object
+    // page group: recording
+    //
+Image_Receiver_190_out_1[cache: 0] = annotated_object;
+    // 
+    // node ScaleScreen[2]: x = 499, y = 676, inputs = 4, label = ScaleScreen
+    // page group: recording
+    //
+Image_ScaleScreen_2_out_1[cache: 2],
+Image_ScaleScreen_2_out_2[cache: 2] = 
+    ScaleScreen(
+    Image_Receiver_190_out_1,
+    NULL,
+    Image_Receiver_187_out_1,
+    Image_Receiver_186_out_1
+    ) [instance: 2, cache: 1];
+    // 
+    // node Transmitter[104]: x = 476, y = 780, inputs = 1, label = record_object
+    // page group: recording
+    //
+record_object = Image_ScaleScreen_2_out_1;
+    // 
+    // node Receiver[191]: x = 952, y = 416, inputs = 1, label = record_object
+    // page group: outputs
+    //
+Image_Receiver_191_out_1[cache: 0] = record_object;
+    // 
+    // node Receiver[193]: x = 959, y = 598, inputs = 1, label = record_code
+    // page group: outputs
+    //
+Image_Receiver_193_out_1[cache: 0] = record_code;
+    // 
+    // node Render[2]: x = 1026, y = 520, inputs = 3, label = Render
+    // page group: outputs
+    //
+Image_Render_2_out_1[cache: 2] = 
+    Render(
+    Image_Receiver_191_out_1,
+    Image_Receiver_185_out_1,
+    NULL
+    ) [instance: 2, cache: 1];
+    // 
+    // node Route[7]: x = 978, y = 702, inputs = 2, outputs = 4, label = Route
+    // page group: outputs
+    //
+Image_Route_7_out_1[cache: 2],
+Image_Route_7_out_2[cache: 2],
+Image_Route_7_out_3[cache: 2],
+Image_Route_7_out_4[cache: 2] = 
+    Route(
+    Image_Receiver_193_out_1,
+    Image_Render_2_out_1
+    ) [instance: 7, cache: 1];
+    // 
+    // node Select[10]: x = 4, y = 572, inputs = 3, label = Select
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "javaid"
+    // page group: java inputs
+    //
+Image_Select_10_out_1[cache: 0] = 
+    Select(
+    Image_Route_14_out_1,
+    "javaid",
+    NULL
+    ) [instance: 10, cache: 1];
+    // 
+    // node SetGlobal[2]: x = 853, y = 182, inputs = 3, label = SetGlobal
+    // page group: java gif
+    //
+    SetGlobal(
+    Image_Inquire_35_out_1,
+    Image_GetGlobal_2_out_2,
+    NULL
+    ) [instance: 2, cache: 1];
+    // 
+    // node SetGlobal[3]: x = 578, y = 78, inputs = 3, label = SetGlobal
+    // page group: java inputs
+    //
+    SetGlobal(
+    Image_Receiver_233_out_1,
+    Image_GetGlobal_3_out_2,
+    NULL
+    ) [instance: 3, cache: 1];
+    // 
+    // node SetGlobal[4]: x = 425, y = 130, inputs = 3, label = SetGlobal
+    // page group: outputs
+    //
+    SetGlobal(
+    Image_Inquire_37_out_1,
+    Image_GetGlobal_4_out_2,
+    NULL
+    ) [instance: 4, cache: 1];
+    // 
+    // node SetGlobal[5]: x = 771, y = 78, inputs = 3, label = SetGlobal
+    // page group: java inputs
+    //
+    SetGlobal(
+    Image_Receiver_234_out_1,
+    Image_GetGlobal_5_out_2,
+    NULL
+    ) [instance: 5, cache: 1];
+    // 
+    // node SetGlobal[6]: x = 971, y = 78, inputs = 3, label = SetGlobal
+    // page group: java inputs
+    //
+    SetGlobal(
+    Image_Receiver_235_out_1,
+    Image_GetGlobal_6_out_2,
+    NULL
+    ) [instance: 6, cache: 1];
+    // 
+    // node SetGlobal[7]: x = 1185, y = 78, inputs = 3, label = SetGlobal
+    // page group: java inputs
+    //
+    SetGlobal(
+    Image_Receiver_236_out_1,
+    Image_GetGlobal_7_out_2,
+    NULL
+    ) [instance: 7, cache: 1];
+    // 
+    // node SetGlobal[8]: x = 134, y = 884, inputs = 3, label = SetGlobal
+    // page group: java inputs
+    //
+    SetGlobal(
+    Image_Receiver_267_out_1,
+    Image_GetGlobal_8_out_2,
+    NULL
+    ) [instance: 8, cache: 1];
+    // 
+    // node SetGlobal[9]: x = 363, y = 884, inputs = 3, label = SetGlobal
+    // page group: java inputs
+    //
+    SetGlobal(
+    Image_Receiver_268_out_1,
+    Image_GetGlobal_9_out_2,
+    NULL
+    ) [instance: 9, cache: 1];
+    // 
+    // node SetGlobal[11]: x = 1403, y = 78, inputs = 3, label = SetGlobal
+    // page group: java inputs
+    //
+    SetGlobal(
+    Image_Receiver_282_out_1,
+    Image_GetGlobal_11_out_2,
+    NULL
+    ) [instance: 11, cache: 1];
+    // 
+    // node Transmitter[31]: x = 797, y = 182, inputs = 1, label = options
+    // page group: inputs
+    //
+options = Image_Input_13_out_1;
+    // 
+    // node Transmitter[94]: x = 0, y = 676, inputs = 1, label = java_id
+    // page group: java inputs
+    //
+java_id = Image_Select_10_out_1;
+    // 
+    // node WriteImage[2]: x = 258, y = 988, inputs = 4, label = WriteImage
+    // input[4]: visible = 0
+    // page group: outputs
+    //
+    WriteImage(
+    Image_Render_1_out_1,
+    Image_Receiver_176_out_1,
+    Image_Receiver_175_out_1,
+    NULL
+    ) [instance: 2, cache: 1];
+    // 
+    // node WriteImage[3]: x = 470, y = 1118, inputs = 4, label = WriteImage
+    // input[4]: visible = 0
+    // page group: outputs
+    //
+    WriteImage(
+    Image_ReadImageWindow_1_out_1,
+    Image_Receiver_176_out_1,
+    Image_Receiver_175_out_1,
+    NULL
+    ) [instance: 3, cache: 1];
+    // 
+    // node WriteImage[4]: x = 1050, y = 884, inputs = 4, label = WriteImage
+    // input[4]: visible = 0
+    // page group: outputs
+    //
+    WriteImage(
+    Image_Route_7_out_4,
+    Image_Receiver_183_out_1,
+    Image_Receiver_184_out_1,
+    NULL
+    ) [instance: 4, cache: 1];
+    //
+    // decorator Annotate	pos=(228,260) size=207x60 style(Label), value = <NULL>
+    // annotation user_begin: 71
+    // annotation user: Choose the java explorer
+    // annotation user: export  format: gif,  jpg, png,
+    // annotation user: wrl, gif/orbit
+    // annotation user_end: <NULL>
+    // page group: java export
+    //
+    // decorator Annotate	pos=(264,416) size=366x124 style(Label), value = <NULL>
+    // annotation user_begin: 354
+    // annotation user: gifexporter   is   the object  (yet  to  be  rendered).
+    // annotation user: camera_xcvr is the camera to be used in rendering.
+    // annotation user: We'll   route  off  the  WriteImage   and Echo  if  the
+    // annotation user: object tags for object and camera haven't changed.
+    // annotation user: That  way  we   can  reexecute without forcing the
+    // annotation user: browser   to   load  a file  which is  identical to  the
+    // annotation user: one from the previous execution.
+    // annotation user_end: <NULL>
+    // page group: java gif
+    //
+    // decorator Annotate	pos=(292,546) size=371x60 style(Label), value = <NULL>
+    // annotation user_begin: 117
+    // annotation user: If the camera we're using is a perspective camera
+    // annotation user: then we're going to send back camera angle instead
+    // annotation user: of camera width.
+    // annotation user_end: <NULL>
+    // page group: gif data
+// network: end of macro body
+}
+Image_Input_2_out_1 = NULL;
+Image_Transmitter_65_out_1 = NULL;
+Image_Receiver_14_out_1 = NULL;
+Image_Input_21_out_1 = NULL;
+Image_Inquire_44_out_1 = NULL;
+Image_Switch_33_out_1 = NULL;
+Image_Transmitter_67_out_1 = NULL;
+Image_Receiver_5_out_1 = NULL;
+Image_Inquire_2_out_1 = NULL;
+Image_Switch_3_out_1 = NULL;
+Image_Input_4_out_1 = NULL;
+Image_Transmitter_46_out_1 = NULL;
+Image_Receiver_4_out_1 = NULL;
+Image_Compute_6_out_1 = NULL;
+Image_Input_20_out_1 = NULL;
+Image_Transmitter_49_out_1 = NULL;
+Image_Receiver_2_out_1 = NULL;
+Image_Inquire_1_out_1 = NULL;
+Image_Input_22_out_1 = NULL;
+Image_Transmitter_13_out_1 = NULL;
+Image_Receiver_3_out_1 = NULL;
+Image_UpdateCamera_1_out_1 = NULL;
+Image_Receiver_119_out_1 = NULL;
+Image_Input_8_out_1 = NULL;
+Image_Transmitter_35_out_1 = NULL;
+Image_Receiver_9_out_1 = NULL;
+Image_Input_9_out_1 = NULL;
+Image_Transmitter_51_out_1 = NULL;
+Image_Receiver_10_out_1 = NULL;
+Image_Input_12_out_1 = NULL;
+Image_Transmitter_66_out_1 = NULL;
+Image_Receiver_12_out_1 = NULL;
+Image_Input_11_out_1 = NULL;
+Image_Transmitter_50_out_1 = NULL;
+Image_Receiver_13_out_1 = NULL;
+Image_AutoCamera_1_out_1 = NULL;
+Image_Switch_1_out_1 = NULL;
+Image_Input_5_out_1 = NULL;
+Image_Transmitter_32_out_1 = NULL;
+Image_Receiver_6_out_1 = NULL;
+Image_Input_6_out_1 = NULL;
+Image_Transmitter_61_out_1 = NULL;
+Image_Receiver_7_out_1 = NULL;
+Image_Input_7_out_1 = NULL;
+Image_Transmitter_34_out_1 = NULL;
+Image_Receiver_8_out_1 = NULL;
+Image_Input_10_out_1 = NULL;
+Image_Transmitter_63_out_1 = NULL;
+Image_Receiver_11_out_1 = NULL;
+Image_Camera_1_out_1 = NULL;
+Image_Switch_2_out_1 = NULL;
+Image_Transmitter_69_out_1 = NULL;
+Image_Receiver_15_out_1 = NULL;
+Image_Input_30_out_1 = NULL;
+Image_Transmitter_29_out_1 = NULL;
+Image_Receiver_16_out_1 = NULL;
+Image_Input_31_out_1 = NULL;
+Image_Transmitter_19_out_1 = NULL;
+Image_Receiver_17_out_1 = NULL;
+Image_Input_32_out_1 = NULL;
+Image_Transmitter_30_out_1 = NULL;
+Image_Receiver_22_out_1 = NULL;
+Image_Input_33_out_1 = NULL;
+Image_Transmitter_37_out_1 = NULL;
+Image_Receiver_21_out_1 = NULL;
+Image_Input_34_out_1 = NULL;
+Image_Transmitter_38_out_1 = NULL;
+Image_Receiver_20_out_1 = NULL;
+Image_Input_35_out_1 = NULL;
+Image_Transmitter_39_out_1 = NULL;
+Image_Receiver_19_out_1 = NULL;
+Image_Input_36_out_1 = NULL;
+Image_Transmitter_40_out_1 = NULL;
+Image_Receiver_18_out_1 = NULL;
+Image_Input_37_out_1 = NULL;
+Image_Transmitter_43_out_1 = NULL;
+Image_Receiver_26_out_1 = NULL;
+Image_Input_38_out_1 = NULL;
+Image_Transmitter_44_out_1 = NULL;
+Image_Receiver_25_out_1 = NULL;
+Image_Input_39_out_1 = NULL;
+Image_Transmitter_41_out_1 = NULL;
+Image_Receiver_24_out_1 = NULL;
+Image_Input_40_out_1 = NULL;
+Image_Transmitter_42_out_1 = NULL;
+Image_Receiver_23_out_1 = NULL;
+Image_Input_43_out_1 = NULL;
+Image_Transmitter_58_out_1 = NULL;
+Image_Receiver_27_out_1 = NULL;
+Image_Input_44_out_1 = NULL;
+Image_Transmitter_55_out_1 = NULL;
+Image_Receiver_29_out_1 = NULL;
+Image_Input_45_out_1 = NULL;
+Image_Transmitter_62_out_1 = NULL;
+Image_Receiver_28_out_1 = NULL;
+Image_Input_46_out_1 = NULL;
+Image_Transmitter_57_out_1 = NULL;
+Image_Receiver_30_out_1 = NULL;
+Image_Input_47_out_1 = NULL;
+Image_Transmitter_64_out_1 = NULL;
+Image_Receiver_32_out_1 = NULL;
+Image_Input_48_out_1 = NULL;
+Image_Transmitter_59_out_1 = NULL;
+Image_Receiver_31_out_1 = NULL;
+Image_AutoAxes_2_out_1 = NULL;
+Image_CollectNamed_1_out_1 = NULL;
+Image_Input_29_out_1 = NULL;
+Image_Inquire_24_out_1 = NULL;
+Image_Switch_25_out_1 = NULL;
+Image_Transmitter_18_out_1 = NULL;
+Image_Receiver_33_out_1 = NULL;
+Image_Compute_1_out_1 = NULL;
+Image_Input_19_out_1 = NULL;
+Image_Inquire_30_out_1 = NULL;
+Image_Switch_31_out_1 = NULL;
+Image_Transmitter_45_out_1 = NULL;
+Image_Receiver_162_out_1 = NULL;
+Image_Compute_2_out_1 = NULL;
+Image_Input_24_out_1 = NULL;
+Image_Inquire_8_out_1 = NULL;
+Image_Switch_15_out_1 = NULL;
+Image_Transmitter_96_out_1 = NULL;
+Image_Receiver_123_out_1 = NULL;
+Image_Input_27_out_1 = NULL;
+Image_Transmitter_97_out_1 = NULL;
+Image_Receiver_168_out_1 = NULL;
+Image_Inquire_4_out_1 = NULL;
+Image_Receiver_171_out_1 = NULL;
+Image_Inquire_7_out_1 = NULL;
+Image_Switch_12_out_1 = NULL;
+Image_Input_28_out_1 = NULL;
+Image_Transmitter_99_out_1 = NULL;
+Image_Receiver_169_out_1 = NULL;
+Image_Inquire_5_out_1 = NULL;
+Image_Inquire_6_out_1 = NULL;
+Image_Switch_13_out_1 = NULL;
+Image_Compute_3_out_1 = NULL;
+Image_Input_50_out_1 = NULL;
+Image_Inquire_23_out_1 = NULL;
+Image_Switch_24_out_1 = NULL;
+Image_Select_7_out_1 = NULL;
+Image_Transmitter_16_out_1 = NULL;
+Image_Receiver_129_out_1 = NULL;
+Image_Inquire_10_out_1 = NULL;
+Image_Switch_17_out_1 = NULL;
+Image_Compute_7_out_1 = NULL;
+Image_Receiver_215_out_1 = NULL;
+Image_Inquire_31_out_1 = NULL;
+Image_Inquire_32_out_1 = NULL;
+Image_Compute_27_out_1 = NULL;
+Image_Compute_28_out_1 = NULL;
+Image_Compute_29_out_1 = NULL;
+Image_Receiver_216_out_1 = NULL;
+Image_Inquire_33_out_1 = NULL;
+Image_Compute_30_out_1 = NULL;
+Image_Compute_31_out_1 = NULL;
+Image_Transmitter_109_out_1 = NULL;
+Image_Receiver_67_out_1 = NULL;
+Image_Construct_3_out_1 = NULL;
+Image_Extract_9_out_1 = NULL;
+Image_Route_14_out_1 = NULL;
+Image_Select_11_out_1 = NULL;
+Image_Transmitter_105_out_1 = NULL;
+Image_Receiver_232_out_1 = NULL;
+Image_Route_9_out_1 = NULL;
+Image_ForEachN_1_out_1 = NULL;
+Image_Transmitter_114_out_1 = NULL;
+Image_Receiver_58_out_1 = NULL;
+Image_Select_6_out_1 = NULL;
+Image_Select_13_out_1 = NULL;
+Image_Transmitter_112_out_1 = NULL;
+Image_Receiver_63_out_1 = NULL;
+Image_Compute_33_out_1 = NULL;
+Image_Compute_32_out_1 = NULL;
+Image_Select_9_out_1 = NULL;
+Image_Transmitter_36_out_1 = NULL;
+Image_Receiver_158_out_1 = NULL;
+Image_Compute_56_out_1 = NULL;
+Image_Compute_57_out_1 = NULL;
+Image_Select_5_out_1 = NULL;
+Image_Transmitter_91_out_1 = NULL;
+Image_Receiver_131_out_1 = NULL;
+Image_Inquire_22_out_1 = NULL;
+Image_Inquire_11_out_1 = NULL;
+Image_Inquire_54_out_1 = NULL;
+Image_Inquire_55_out_1 = NULL;
+Image_Compute_78_out_1 = NULL;
+Image_Inquire_53_out_1 = NULL;
+Image_Compute_58_out_1 = NULL;
+Image_Receiver_204_out_1 = NULL;
+Image_Receiver_128_out_1 = NULL;
+Image_Transmitter_79_out_1 = NULL;
+Image_Receiver_127_out_1 = NULL;
+Image_Switch_4_out_1 = NULL;
+Image_Inquire_3_out_1 = NULL;
+Image_Transmitter_71_out_1 = NULL;
+Image_Receiver_40_out_1 = NULL;
+Image_Input_14_out_1 = NULL;
+Image_Inquire_28_out_1 = NULL;
+Image_Switch_29_out_1 = NULL;
+Image_Transmitter_47_out_1 = NULL;
+Image_Receiver_161_out_1 = NULL;
+Image_Input_15_out_1 = NULL;
+Image_Inquire_25_out_1 = NULL;
+Image_Switch_26_out_1 = NULL;
+Image_Transmitter_52_out_1 = NULL;
+Image_Receiver_163_out_1 = NULL;
+Image_Input_16_out_1 = NULL;
+Image_Inquire_26_out_1 = NULL;
+Image_Switch_27_out_1 = NULL;
+Image_Transmitter_54_out_1 = NULL;
+Image_Receiver_164_out_1 = NULL;
+Image_Switch_10_out_1 = NULL;
+Image_Format_14_out_1 = NULL;
+Image_Switch_8_out_1 = NULL;
+Image_Receiver_194_out_1 = NULL;
+Image_Input_17_out_1 = NULL;
+Image_Inquire_27_out_1 = NULL;
+Image_Switch_28_out_1 = NULL;
+Image_Transmitter_60_out_1 = NULL;
+Image_Receiver_165_out_1 = NULL;
+Image_Input_18_out_1 = NULL;
+Image_Inquire_29_out_1 = NULL;
+Image_Switch_30_out_1 = NULL;
+Image_Transmitter_48_out_1 = NULL;
+Image_Receiver_166_out_1 = NULL;
+Image_Switch_11_out_1 = NULL;
+Image_Format_2_out_1 = NULL;
+Image_Switch_7_out_1 = NULL;
+Image_Switch_5_out_1 = NULL;
+Image_Options_1_out_1 = NULL;
+Image_Transmitter_70_out_1 = NULL;
+Image_Receiver_125_out_1 = NULL;
+Image_Inquire_37_out_1 = NULL;
+Image_GetGlobal_4_out_1 = NULL;
+Image_GetGlobal_4_out_2 = NULL;
+Image_Compute_65_out_1 = NULL;
+Image_Transmitter_115_out_1 = NULL;
+Image_Receiver_222_out_1 = NULL;
+Image_Receiver_250_out_1 = NULL;
+Image_Compute_72_out_1 = NULL;
+Image_Receiver_220_out_1 = NULL;
+Image_Receiver_217_out_1 = NULL;
+Image_Transmitter_110_out_1 = NULL;
+Image_Receiver_57_out_1 = NULL;
+Image_Receiver_60_out_1 = NULL;
+Image_UpdateCamera_3_out_1 = NULL;
+Image_Transmitter_125_out_1 = NULL;
+Image_Receiver_251_out_1 = NULL;
+Image_Switch_32_out_1 = NULL;
+Image_Transmitter_124_out_1 = NULL;
+Image_Receiver_249_out_1 = NULL;
+Image_Inquire_35_out_1 = NULL;
+Image_GetGlobal_2_out_1 = NULL;
+Image_GetGlobal_2_out_2 = NULL;
+Image_Compute_62_out_1 = NULL;
+Image_Compute_63_out_1 = NULL;
+Image_Transmitter_117_out_1 = NULL;
+Image_Receiver_230_out_1 = NULL;
+Image_Receiver_233_out_1 = NULL;
+Image_GetGlobal_3_out_1 = NULL;
+Image_GetGlobal_3_out_2 = NULL;
+Image_Compute_64_out_1 = NULL;
+Image_Transmitter_120_out_1 = NULL;
+Image_Receiver_243_out_1 = NULL;
+Image_Select_12_out_1 = NULL;
+Image_Transmitter_108_out_1 = NULL;
+Image_Receiver_234_out_1 = NULL;
+Image_GetGlobal_5_out_1 = NULL;
+Image_GetGlobal_5_out_2 = NULL;
+Image_Compute_66_out_1 = NULL;
+Image_Transmitter_121_out_1 = NULL;
+Image_Receiver_242_out_1 = NULL;
+Image_Receiver_235_out_1 = NULL;
+Image_GetGlobal_6_out_1 = NULL;
+Image_GetGlobal_6_out_2 = NULL;
+Image_Compute_67_out_1 = NULL;
+Image_Transmitter_119_out_1 = NULL;
+Image_Receiver_241_out_1 = NULL;
+Image_Receiver_236_out_1 = NULL;
+Image_GetGlobal_7_out_1 = NULL;
+Image_GetGlobal_7_out_2 = NULL;
+Image_Compute_70_out_1 = NULL;
+Image_Transmitter_122_out_1 = NULL;
+Image_Receiver_240_out_1 = NULL;
+Image_Input_41_out_1 = NULL;
+Image_Inquire_50_out_1 = NULL;
+Image_Switch_34_out_1 = NULL;
+Image_Transmitter_56_out_1 = NULL;
+Image_Receiver_282_out_1 = NULL;
+Image_GetGlobal_11_out_1 = NULL;
+Image_GetGlobal_11_out_2 = NULL;
+Image_Compute_76_out_1 = NULL;
+Image_Transmitter_134_out_1 = NULL;
+Image_Receiver_283_out_1 = NULL;
+Image_Compute_69_out_1 = NULL;
+Image_Transmitter_123_out_1 = NULL;
+Image_Receiver_226_out_1 = NULL;
+Image_Compute_59_out_1 = NULL;
+Image_Receiver_246_out_1 = NULL;
+Image_Receiver_247_out_1 = NULL;
+Image_Compute_71_out_1 = NULL;
+Image_Select_15_out_1 = NULL;
+Image_Transmitter_130_out_1 = NULL;
+Image_Receiver_267_out_1 = NULL;
+Image_GetGlobal_8_out_1 = NULL;
+Image_GetGlobal_8_out_2 = NULL;
+Image_Compute_73_out_1 = NULL;
+Image_Select_14_out_1 = NULL;
+Image_Transmitter_129_out_1 = NULL;
+Image_Receiver_268_out_1 = NULL;
+Image_GetGlobal_9_out_1 = NULL;
+Image_GetGlobal_9_out_2 = NULL;
+Image_Compute_74_out_1 = NULL;
+Image_Receiver_284_out_1 = NULL;
+Image_Receiver_285_out_1 = NULL;
+Image_Compute_77_out_1 = NULL;
+Image_Receiver_290_out_1 = NULL;
+Image_Route_15_out_1 = NULL;
+Image_Route_16_out_1 = NULL;
+Image_Transmitter_135_out_1 = NULL;
+Image_Receiver_288_out_1 = NULL;
+Image_Select_8_out_1 = NULL;
+Image_Transmitter_92_out_1 = NULL;
+Image_Receiver_133_out_1 = NULL;
+Image_Inquire_21_out_1 = NULL;
+Image_Switch_22_out_1 = NULL;
+Image_Transmitter_88_out_1 = NULL;
+Image_Receiver_134_out_1 = NULL;
+Image_Switch_23_out_1 = NULL;
+Image_Transmitter_89_out_1 = NULL;
+Image_Receiver_98_out_1 = NULL;
+Image_Format_1_out_1 = NULL;
+Image_Transmitter_8_out_1 = NULL;
+Image_Receiver_289_out_1 = NULL;
+Image_DXExport_1_out_1 = NULL;
+Image_Transmitter_100_out_1 = NULL;
+Image_Receiver_172_out_1 = NULL;
+Image_Route_1_out_1 = NULL;
+Image_Route_1_out_2 = NULL;
+Image_Route_6_out_1 = NULL;
+Image_Route_6_out_2 = NULL;
+Image_Route_6_out_3 = NULL;
+Image_Route_6_out_4 = NULL;
+Image_Receiver_50_out_1 = NULL;
+Image_Input_3_out_1 = NULL;
+Image_Transmitter_33_out_1 = NULL;
+Image_Receiver_51_out_1 = NULL;
+Image_Input_23_out_1 = NULL;
+Image_Transmitter_14_out_1 = NULL;
+Image_Receiver_52_out_1 = NULL;
+Image_Render_1_out_1 = NULL;
+Image_Receiver_173_out_1 = NULL;
+Image_Receiver_177_out_1 = NULL;
+Image_Receiver_178_out_1 = NULL;
+Image_Receiver_179_out_1 = NULL;
+Image_Display_3_out_1 = NULL;
+Image_Receiver_180_out_1 = NULL;
+Image_Receiver_181_out_1 = NULL;
+Image_Receiver_182_out_1 = NULL;
+Image_Input_1_out_1 = NULL;
+Image_Transmitter_12_out_1 = NULL;
+Image_Receiver_147_out_1 = NULL;
+Image_Receiver_258_out_1 = NULL;
+Image_Receiver_259_out_1 = NULL;
+Image_Receiver_255_out_1 = NULL;
+Image_Transmitter_80_out_1 = NULL;
+Image_Receiver_130_out_1 = NULL;
+Image_Route_2_out_1 = NULL;
+Image_Route_8_out_1 = NULL;
+Image_Route_8_out_2 = NULL;
+Image_Transmitter_86_out_1 = NULL;
+Image_Receiver_146_out_1 = NULL;
+Image_Receiver_139_out_1 = NULL;
+Image_Receiver_138_out_1 = NULL;
+Image_Receiver_292_out_1 = NULL;
+Image_ImageExport_1_out_1 = NULL;
+Image_Transmitter_126_out_1 = NULL;
+Image_Receiver_266_out_1 = NULL;
+Image_Inquire_45_out_1 = NULL;
+Image_Route_11_out_1 = NULL;
+Image_Route_11_out_2 = NULL;
+Image_Transmitter_128_out_1 = NULL;
+Image_Receiver_260_out_1 = NULL;
+Image_Inquire_40_out_1 = NULL;
+Image_Inquire_51_out_1 = NULL;
+Image_Inquire_42_out_1 = NULL;
+Image_Inquire_43_out_1 = NULL;
+Image_Receiver_278_out_1 = NULL;
+Image_Receiver_257_out_1 = NULL;
+Image_Format_20_out_1 = NULL;
+Image_Route_4_out_1 = NULL;
+Image_Format_13_out_1 = NULL;
+Image_Format_26_out_1 = NULL;
+Image_Receiver_205_out_1 = NULL;
+Image_Receiver_206_out_1 = NULL;
+Image_Transmitter_113_out_1 = NULL;
+Image_Receiver_213_out_1 = NULL;
+Image_Render_3_out_1 = NULL;
+Image_Transmitter_111_out_1 = NULL;
+Image_Receiver_211_out_1 = NULL;
+Image_Receiver_275_out_1 = NULL;
+Image_Receiver_276_out_1 = NULL;
+Image_Format_24_out_1 = NULL;
+Image_Receiver_209_out_1 = NULL;
+Image_ImageExport_2_out_1 = NULL;
+Image_Format_17_out_1 = NULL;
+Image_Receiver_244_out_1 = NULL;
+Image_Receiver_245_out_1 = NULL;
+Image_Route_3_out_1 = NULL;
+Image_Route_10_out_1 = NULL;
+Image_Transmitter_87_out_1 = NULL;
+Image_Receiver_157_out_1 = NULL;
+Image_Receiver_153_out_1 = NULL;
+Image_VRMLExport_1_out_1 = NULL;
+Image_Format_19_out_1 = NULL;
+Image_Receiver_261_out_1 = NULL;
+Image_Receiver_262_out_1 = NULL;
+Image_Receiver_263_out_1 = NULL;
+Image_Transmitter_127_out_1 = NULL;
+Image_Receiver_264_out_1 = NULL;
+Image_Inquire_46_out_1 = NULL;
+Image_Inquire_52_out_1 = NULL;
+Image_Inquire_48_out_1 = NULL;
+Image_Inquire_49_out_1 = NULL;
+Image_Receiver_279_out_1 = NULL;
+Image_Receiver_265_out_1 = NULL;
+Image_Format_21_out_1 = NULL;
+Image_Receiver_273_out_1 = NULL;
+Image_Transmitter_131_out_1 = NULL;
+Image_Receiver_269_out_1 = NULL;
+Image_Receiver_270_out_1 = NULL;
+Image_Route_12_out_1 = NULL;
+Image_Format_22_out_1 = NULL;
+Image_Receiver_274_out_1 = NULL;
+Image_Transmitter_132_out_1 = NULL;
+Image_Receiver_271_out_1 = NULL;
+Image_Receiver_272_out_1 = NULL;
+Image_Route_13_out_1 = NULL;
+Image_Format_23_out_1 = NULL;
+Image_Receiver_286_out_1 = NULL;
+Image_Receiver_287_out_1 = NULL;
+Image_Format_25_out_1 = NULL;
+Image_Receiver_70_out_1 = NULL;
+Image_Receiver_99_out_1 = NULL;
+Image_Receiver_110_out_1 = NULL;
+Image_Receiver_195_out_1 = NULL;
+Image_Input_25_out_1 = NULL;
+Image_Transmitter_95_out_1 = NULL;
+Image_Receiver_196_out_1 = NULL;
+Image_Input_26_out_1 = NULL;
+Image_Transmitter_98_out_1 = NULL;
+Image_Receiver_197_out_1 = NULL;
+Image_Receiver_198_out_1 = NULL;
+Image_Receiver_199_out_1 = NULL;
+Image_Receiver_91_out_1 = NULL;
+Image_Receiver_72_out_1 = NULL;
+Image_Receiver_73_out_1 = NULL;
+Image_Receiver_78_out_1 = NULL;
+Image_Receiver_77_out_1 = NULL;
+Image_Receiver_76_out_1 = NULL;
+Image_Receiver_75_out_1 = NULL;
+Image_Receiver_74_out_1 = NULL;
+Image_Receiver_82_out_1 = NULL;
+Image_Receiver_81_out_1 = NULL;
+Image_Receiver_80_out_1 = NULL;
+Image_Receiver_116_out_1 = NULL;
+Image_Receiver_83_out_1 = NULL;
+Image_Receiver_85_out_1 = NULL;
+Image_Receiver_84_out_1 = NULL;
+Image_Receiver_86_out_1 = NULL;
+Image_Receiver_88_out_1 = NULL;
+Image_Receiver_87_out_1 = NULL;
+Image_Receiver_118_out_1 = NULL;
+Image_Input_42_out_1 = NULL;
+Image_Transmitter_53_out_1 = NULL;
+Image_Receiver_117_out_1 = NULL;
+Image_Receiver_93_out_1 = NULL;
+Image_Receiver_96_out_1 = NULL;
+Image_Receiver_97_out_1 = NULL;
+Image_Receiver_94_out_1 = NULL;
+Image_Receiver_95_out_1 = NULL;
+Image_Input_13_out_1 = NULL;
+Image_ReadImageWindow_1_out_1 = NULL;
+Image_Receiver_175_out_1 = NULL;
+Image_Receiver_176_out_1 = NULL;
+Image_Receiver_183_out_1 = NULL;
+Image_Receiver_184_out_1 = NULL;
+Image_Receiver_186_out_1 = NULL;
+Image_Receiver_187_out_1 = NULL;
+Image_Receiver_188_out_1 = NULL;
+Image_UpdateCamera_2_out_1 = NULL;
+Image_Transmitter_103_out_1 = NULL;
+Image_Receiver_185_out_1 = NULL;
+Image_Receiver_190_out_1 = NULL;
+Image_ScaleScreen_2_out_1 = NULL;
+Image_Transmitter_104_out_1 = NULL;
+Image_Receiver_191_out_1 = NULL;
+Image_Receiver_193_out_1 = NULL;
+Image_Render_2_out_1 = NULL;
+Image_Route_7_out_4 = NULL;
+Image_Select_10_out_1 = NULL;

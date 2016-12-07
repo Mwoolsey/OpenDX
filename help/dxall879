@@ -1,0 +1,97 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rintegel IntegerList #!N #!N Category #!N #!N  #!Lcatint,dxall757 h Interactor  #!EL  #!N 
+#!N Function #!N #!N Generates a list of integers within a 
+specified range of values. #!N #!N Syntax #!N #!N Available only 
+through the user interface. #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+data TAB object TAB no default TAB object from which interactor 
+#!N TAB - TAB - TAB - TAB attributes can be 
+derived #!N TAB refresh TAB flag TAB 0 TAB reset the 
+interactor #!N TAB min TAB integer TAB minimum data value TAB 
+minimum output integer #!N TAB max TAB integer TAB maximum data 
+value TAB maximum output integer #!N TAB delta TAB scalar TAB 
+input dependent TAB increment between successive #!N TAB - TAB - 
+TAB - TAB integer outputs #!N TAB method TAB string TAB 
+input dependent TAB defines interpretation of delta #!N TAB - TAB 
+- TAB - TAB input #!N TAB nitems TAB integer TAB 
+11 TAB number of items in the initial #!N TAB - 
+TAB - TAB - TAB list #!N TAB label TAB string 
+TAB "IntegerList" TAB global name applied to interactor #!N TAB - 
+TAB - TAB - TAB stand-ins #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Description #!EF #!N TAB output TAB 
+integer list TAB interactor output #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N This interactor provides incremental 
+control of various functions in a visual program (e.g., the number 
+of contour lines currently displayed on an isosurface in the Image 
+window). But it creates a list of integers, rather than a 
+single integer, as Integer does. #!N #!N The integer range over 
+which the module acts is governed by its attributes (e.g., minimum, 
+maximum, and delta), which in turn are either (1) specified by 
+the parameter values in its configuration dialog box or (2) determined 
+from input to the module (usually a data field). In the 
+second case, the interactor is said to be "data driven." #!N 
+#!N If an interactor is not data driven, then the attributes 
+(e.g., minimum, maximum, delta, etc.) are taken from the interactor's  #!F-adobe-times-bold-r-normal--18*   
+Set Attributes... #!EF dialog box (which is accessed from the  #!F-adobe-times-bold-r-normal--18*   
+Edit #!EF pull-down menu in the Control Panel). Note: The interactor 
+is invoked by double-clicking on its icon in the VPE window. 
+Its configuration dialog box is accessed from the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF 
+pull-down menu in the same window. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N is the object 
+(usually a data field) from which the interactor can derive any 
+or all of the minimum, maximum, and delta attributes when their 
+corresponding input tabs are up. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   refresh 
+#!EF #!EF #!I50 #!N resets the interactor so that the output 
+is computed from the current input. If  #!F-adobe-times-bold-r-normal--18*   refresh #!EF = 
+0 (the default), the output is recomputed only if the current 
+output does not lie within the range of the current  #!F-adobe-times-bold-r-normal--18*   
+data #!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   min #!EF  #!F-adobe-times-medium-r-normal--18*   
+and #!EF  #!F-adobe-times-bold-r-normal--18*   max #!EF #!EF #!I50 #!N specify the minimum 
+and maximum values of the interactor's integer output. If set, these 
+values override those implied by  #!F-adobe-times-bold-r-normal--18*   data #!EF . #!N #!N 
+If neither  #!F-adobe-times-bold-r-normal--18*   min #!EF nor  #!F-adobe-times-bold-r-normal--18*   data #!EF is specified, 
+the interactor uses the minimum set in the  #!F-adobe-times-bold-r-normal--18*   Set Attributes... 
+#!EF dialog box. #!N #!N If neither  #!F-adobe-times-bold-r-normal--18*   max #!EF nor 
+ #!F-adobe-times-bold-r-normal--18*   data #!EF is specified, the interactor uses the maximum set 
+in the  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   delta #!EF #!EF #!I50 #!N specifies a scalar value 
+as a factor for calculating the increment between successive outputs over 
+the specified range. The actual value depends on the interpretation specified 
+by  #!F-adobe-times-bold-r-normal--18*   method #!EF (see below). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+method #!EF #!EF #!I50 #!N specifies the interpretation of  #!F-adobe-times-bold-r-normal--18*   delta 
+#!EF : #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+"rounded": the increment (  #!F-adobe-times-bold-r-normal--18*   max #!EF -  #!F-adobe-times-bold-r-normal--18*   min #!EF 
+) *  #!F-adobe-times-bold-r-normal--18*   delta #!EF is rounded to a "nice" number. 
+The spacing between successive values will approximate the interval specified by 
+ #!F-adobe-times-bold-r-normal--18*   delta #!EF . (For example, the default value of 0.01 
+specifies an interval of 1/100 of the specified range.) #!N #!I30 
+#!N o "relative": the interpretation is the same as for "rounded," 
+but the increment is  #!F-adobe-times-medium-i-normal--18*   not #!EF rounded. #!N #!I30 #!N 
+o "absolute":  #!F-adobe-times-bold-r-normal--18*   delta #!EF is the absolute value of the 
+interval. (If  #!F-adobe-times-bold-r-normal--18*   delta #!EF has not been specified, its default 
+is 1.) #!N #!N The default value for  #!F-adobe-times-bold-r-normal--18*   method #!EF 
+depends on other input. The default is: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N - "rounded" if  #!F-adobe-times-bold-r-normal--18*   data #!EF is 
+specified  #!F-adobe-times-medium-i-normal--18*   or #!EF if both  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   
+max #!EF are specified. #!N #!I30 #!N - "absolute" in all 
+other cases. #!N #!I0 #!N #!EF #!N #!N #!I0 #!N #!EF 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   nitems #!EF #!EF #!I50 #!N 
+specifies the number of items in a newly created list. These 
+are evenly spaced between the minimum and maximum values (see above). 
+For example, if this parameter is given a value of 5, 
+and the range is 0-100, the output list will be {0, 
+25, 50, 75, 100}. #!N #!N #!I0 #!N Notes: #!N #!I30 
+#!N 1. If  #!F-adobe-times-bold-r-normal--18*   nitems #!EF changes, a new list is 
+computed. #!N #!I30 #!N 2. This parameter takes affect only if 
+the minimum and maximum are set with the  #!F-adobe-times-bold-r-normal--18*   min #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   max #!EF parameters or with  #!F-adobe-times-bold-r-normal--18*   data #!EF parameter. 
+#!I0 #!N #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   label #!EF #!EF 
+#!I50 #!N is the global label of all instances of the 
+corresponding interactor stand-in. An interactor instance's local label (set from the 
+Control Panel) overrides a global label. By default, the global label 
+is set by the user interface. #!I0 #!N #!N #!N #!N 
+See Also #!N #!N  #!Linteger,dxall878 h Integer  #!EL  ,  #!Lscalar,dxall932 h Scalar  #!EL  ,  #!Lscalarl,dxall933 h ScalarList  #!EL  ,  #!Lvector,dxall977 h Vector  #!EL  
+,  #!Lvectorl,dxall978 h VectorList  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lisolate,dxall880 h Isolate  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

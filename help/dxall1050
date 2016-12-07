@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rmodlink Compiling, Linking, and Debugging an Inboard Module 
+#!N #!EC #!N #!N The following sample makefile templates for creating 
+inboard modules can be found in  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/user #!EF : #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o RISC System/6000* Systems: 
+ #!F-adobe-times-bold-r-normal--18*   Makefile_inboard_ibm6000 #!EF #!N #!I30 #!N o Silicon Graphics**:  #!F-adobe-times-bold-r-normal--18*   Makefile_inboard_sgi 
+#!EF #!N #!I30 #!N o Sun Microsystems**:  #!F-adobe-times-bold-r-normal--18*   Makefile_inboard_solaris #!EF or 
+ #!F-adobe-times-bold-r-normal--18*   Makefile_inboard_sun4 #!EF #!N #!I30 #!N o Hewlett-Packard**:  #!F-adobe-times-bold-r-normal--18*   Makefile_inboard_hp700 #!EF 
+#!N #!I30 #!N o Data General AViiON**:  #!F-adobe-times-bold-r-normal--18*   Makefile_inboard_aviion #!EF #!N 
+#!I30 #!N o DEC Alpha**:  #!F-adobe-times-bold-r-normal--18*   Makefile_inboard_alphax #!EF #!N #!I0 #!N 
+#!EF #!N #!N #!N Replace  #!F-adobe-times-bold-r-normal--18*   makex.o #!EF ,  #!F-adobe-times-bold-r-normal--18*   add.o 
+#!EF , and  #!F-adobe-times-bold-r-normal--18*   hello.o #!EF with the names of your 
+ #!F-adobe-times-bold-r-normal--18*   .o #!EF files. These makefiles assume that  #!F-adobe-times-bold-r-normal--18*   user_inboard.mdf #!EF 
+is the name of the module description file that describes all 
+your modules. #!N #!N Starting Data Explorer requires specifying the module 
+description file and a dxexec to the user interface: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf my.mdf -exec mydxexec #!EF #!N 
+#!N #!EC #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. 
+You can also load a .mdf file after Data Explorer has 
+started. Use the  #!F-adobe-times-bold-r-normal--18*   Load Module Description(s) #!EF option in the 
+ #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu of the VPE window. #!N #!I30 
+#!N 2. You must then restart the executive using the  #!F-adobe-times-bold-r-normal--18*   
+Disconnect from Server #!EF and  #!F-adobe-times-bold-r-normal--18*   Start Server #!EF options in 
+the  #!F-adobe-times-bold-r-normal--18*   Connection #!EF pull-down menu of the VPE window (you 
+would need to specify the dxexec, using  #!F-adobe-times-bold-r-normal--18*   Options #!EF in 
+the  #!F-adobe-times-bold-r-normal--18*   Start Server... #!EF dialog box). #!I0 #!N #!N #!N 
+#!N To debug a module you must first modify the CFLAGS 
+line of the makefile to compile your source code as debuggable 
+(  #!F-adobe-times-bold-r-normal--18*   -g #!EF ) rather than optimized (  #!F-adobe-times-bold-r-normal--18*   -O 
+#!EF ). Note: Data Explorer library routines are available only as 
+optimized object code. #!N #!N To debug a module: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Start up just the 
+user interface: dx -uionly #!N #!I30 #!N 2. Start a debugging 
+session on your executable program. #!N #!I30 #!N 3. Run the 
+executable from the debugger with the  #!F-adobe-times-bold-r-normal--18*   -r #!EF (remote) flag. 
+#!N #!I30 #!N 4. Connect the user interface to the debugging 
+session by selecting  #!F-adobe-times-bold-r-normal--18*   Connect to already running server #!EF in 
+the  #!F-adobe-times-bold-r-normal--18*   Options #!EF dialog box of the  #!F-adobe-times-bold-r-normal--18*   Start Server... 
+#!EF dialog box. You should check the port number specified when 
+you start your executable from the debugging session, and ensure that 
+the port number listed in the  #!F-adobe-times-bold-r-normal--18*   Options #!EF dialog box 
+is the same. #!N #!I0 #!N #!EF #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lclo2,dxall1051 h Compiling, Linking, and Debugging an Outboard Module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

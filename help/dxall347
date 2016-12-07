@@ -1,0 +1,74 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N 
+ #!Rinsect Inputs Section #!N #!EC #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Toggle buttons #!EF #!I50 #!N Specifies whether an input is 
+active; that is, whether the input tab on the icon is 
+folded in. The toggle buttons are the small square buttons on 
+the far left of the dialog box. #!N #!N The toggle 
+buttons provide a visual indication of the inputs that have been 
+specified. These buttons are analogous to the input tabs on the 
+tool icon and are coherent with the tabs: the buttons can 
+be activated and deactivated by clicking on them. #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o When you activate a toggle 
+button, the value of the input is either the output of 
+another module (specified in the Source field of the dialog box), 
+or the value specified in the Value field. #!N #!I30 #!N 
+o When you deactivate a toggle button, the input parameter is 
+unbound and the tool uses its default value for the input. 
+#!N #!I0 #!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Name #!EF 
+#!I50 #!N Specifies the name of an input parameter. You cannot 
+modify this field. This field is grayed out if the name 
+is specified with tab connections. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Hide #!EF 
+#!I50 #!N Indicates whether an input tab is to be hidden. 
+When you activate the  #!F-adobe-times-bold-r-normal--18*   Hide #!EF toggle button, the corresponding 
+tab on the tool icon is removed. If a tab is 
+connected to another tool it cannot be hidden. Once a tab 
+is hidden, it can be removed from display in the Configuration 
+dialog box by using the  #!F-adobe-times-bold-r-normal--18*   Collapse #!EF button. #!N #!N 
+To reveal individual input tabs, first click on the  #!F-adobe-times-bold-r-normal--18*   Expand 
+#!EF button. This will cause the Configuration dialog box to resize, 
+displaying all of the tool's inputs. Then deactivate the  #!F-adobe-times-bold-r-normal--18*   Hide 
+#!EF toggle buttons of the desired inputs by clicking on the 
+toggle buttons. As the inputs are revealed, the tool icon is 
+updated to reflect the additional inputs. Once you have revealed all 
+the desired tabs, you can click on the  #!F-adobe-times-bold-r-normal--18*   Collapse #!EF 
+button to remove the remaining hidden tabs from being displayed in 
+the Configuration dialog box. #!N #!N See also  #!Lrahit,dxall350 h Revealing and Hiding Input Tabs  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Type #!EF #!I50 #!N Specifies the type of 
+an input parameter. You cannot modify this field. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Source #!EF  #!Rsour #!I50 #!N Displays the name of the 
+tool connected to the input, if a connection exists. If the 
+name of a tool is displayed in the source field, the 
+toggle button is activated and the name field is grayed out, 
+and this input cannot be modified until the connecting line is 
+deleted. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Value #!EF #!I50 #!N You use 
+the Value field to specify a value for an input. Initially 
+the field contains the default value for an input. To modify 
+the Value field, select the field by clicking on it. Then, 
+edit it as a normal text field. The value must be 
+specified in the syntax described in  #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  . After you change 
+the field, do one of the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o Press Enter (which automatically activates the 
+toggle button if it is not already activated). #!N #!I30 #!N 
+o Activate the toggle button by clicking on it. #!N #!I30 
+#!N o Click on either the  #!F-adobe-times-bold-r-normal--18*   OK #!EF pushbutton or 
+the  #!F-adobe-times-bold-r-normal--18*   Apply #!EF button at the bottom of the box 
+(see button descriptions in  #!Lbtns,dxall349 h Pushbuttons  #!EL  ). #!N #!I0 #!N #!EF #!N 
+#!N #!N Data Explorer automatically adds the appropriate delimiters for the 
+type of value entered. For instance, if you specified a string 
+parameter in the Configuration dialog box, Data Explorer automatically adds the 
+quotes around it. If you specified a scalar list, Data Explorer 
+adds braces. #!N Note: If a source is displayed, you cannot 
+modify the Value field. If you have modified the Value field 
+and you want to use the default value, release the toggle 
+button. With the toggle button, you can flip between the modified 
+value and the default value. #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+... #!EF #!EF #!I50 #!N This button, when enabled, brings up 
+a list of possible values for the parameter. This list is 
+for convenience only; you may enter values other than those listed 
+as long as they are valid inputs for that parameter. For 
+example, the  #!F-adobe-times-bold-r-normal--18*   ... #!EF button for the  #!F-adobe-times-bold-r-normal--18*   color #!EF 
+parameter to the Color module lists red, green, and blue. #!I0 
+#!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lall347,dxall348 h Outputs Section  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

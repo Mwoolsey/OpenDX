@@ -1,0 +1,85 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall110 Describing the Data #!N #!EC 
+#!N #!N To import data through the General Array Importer, you 
+must be able to answer the following questions. #!N #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. What are the independent 
+and dependent variables? For example, if temperature and wind velocity are 
+measured on a latitude-longitude grid, then latitude and longitude are the 
+independent variables, temperature and wind velocity the dependent variables. In the 
+case of resistance measurements versus the voltage applied to a semiconductor, 
+voltage is the independent variable and resistance the dependent variable. #!CIndianRed 
+#!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Components and Variables #!N #!N In Data 
+Explorer terminology, the values of the independent variable constitute the "positions" 
+component of a data field. In the examples above, the first 
+independent variable consists of locations in space and the second does 
+not, but both would be represented as "positions" in a data 
+field. The independent variable is  #!F-adobe-times-medium-i-normal--18*   always #!EF represented by the 
+"positions" component. #!N #!N The values of the dependent variable constitute 
+the "data" component. #!N #!N #!EC #!N #!I30 #!N 2. What 
+is the dimensionality of the positions and data components? In the 
+first example above, latitude and longitude are represented by 2-dimensional positions, 
+the temperature by scalar data, and the wind velocity by 2- 
+or 3-dimensional vectors. In the second example, voltage is represented by 
+1-dimensional positions and the resistance by scalar data. #!N #!I30 #!N 
+3. How is the independent variable (the set of positions) to 
+be described? By a regular grid (which can be completely described 
+by an origin and a set of deltas) or by an 
+explicit list (which may or may not be part of the 
+data file)? For example, data measurements might be on a grid 
+of 1-degree increments in latitude and 5-degree increments in longitude; voltage 
+levels might be a set of unrelated values stored with the 
+resistances in the data file. #!N #!I30 #!N 4. How are 
+the positions connected to one another, if they are connected? For 
+example, a regular grid of positions might be connected by a 
+regular grid of connections (lines, quads, or cubes). The connections specify 
+how data values should be interpolated between positions. Positions that are 
+explicitly specified (i.e., not regular) can also be connected by a 
+regular grid of connections (e.g., if the grid is deformed, or 
+warped). See  #!Lgrdtyps11,dxall111 f Figure 11  #!EL  . #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rgrdtyps11 #!N Graphics omitted 
+from Online Documentation. Please see the manual. #!N #!N Figure 11. 
+Examples of Grid Types. The three grids in the top row 
+represent surfaces; those in the bottom row, volumes. Reading from left 
+to right, the three types of grid are: irregular (irregular positions, 
+irregular connections), deformed regular (irregular positions, regular connections), and regular (regular 
+positions, regular connections), #!EF #!N #!EC #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rcoldpnd12 #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N #!N 
+Figure 12. Examples of Data Dependency. In the visualization on the 
+left, data correspond one-to-one with positions. Other data values (and colors) 
+are interpolated linearly between positions. In the visualization on the right, 
+the elements connecting positions are quads. Data (and colors) correspond one-to-one 
+with, and are constant within, each quad. #!EF #!N #!EC Note: 
+The General Array Importer supports only regular connections (lines, quads, and 
+cubes) or scattered data. For irregular connections such as triangles or 
+tetrahedra, you can use the Data Explorer native format to import 
+your data. (See IBM Visualization Data Explorer User's Guide.) #!N #!I30 
+#!N 5. What is the format of the stored data values, 
+ASCII or binary? Are they floating point, integer, signed or unsigned 
+byte, etc.? #!N #!I30 #!N 6. Are the data dependent on 
+"positions" or on "connections"? That is, are the data values associated 
+one-to-one with positions or with the connections between positions? See  #!Lcoldpnd12,dxall111 f Figure 12  #!EL  
+. (Data associated with connections are often referred to as "cell-centered.") 
+With position-dependent data, values between positions are interpolated within the connection 
+element. With connection-dependent data, values are assumed to be constant within 
+the connection element. #!N #!I30 #!N 7. Do these data values 
+represent "series data" or do they constitute only a single frame 
+of data? In the example of resistance levels versus voltage, data 
+may exist for each of a number of different doping levels. 
+Each doping level could be considered a single data field and 
+the collection treated as a series. #!N #!I30 #!N 8. Is 
+the data in "record" or "spreadsheet" style? (See  #!Lboxes114,dxall113 f Figure 14  #!EL  .) #!N 
+#!I30 #!N 9. If the data are on a grid, what 
+is the order of the data items with respect to the 
+grid? Is it column majority (first index varies fastest) or row 
+majority (last index varies fastest)? (See  #!Lrowcol13,dxall111 f Figure 13  #!EL  .) #!N #!I30 #!N 
+10. What kind of embedded text (comments, etc.) in the data 
+file must be "skipped" when the data values are read? #!N 
+#!I0 #!N #!EF #!N #!N #!N With the answers to these 
+questions, you can now use the General Array Importer to describe 
+your data. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rrowcol13 #!N Graphics omitted from Online 
+Documentation. Please see the manual. #!N #!N Figure 13. Row- versus 
+Column-Majority Grids. The two grids shown here are generated from the 
+same data file, consisting simply of the numbers 1, 2, 3, 
+..., 20. The associated header files differ only in the specification 
+of the grids' majority. #!EF #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall111,dxall112 h Creating a Header File  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

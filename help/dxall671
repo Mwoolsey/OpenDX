@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall670 Positions #!N #!EC #!N #!N If the 
+locations of the data values in  #!F-adobe-times-medium-i-normal--18*   variable1 #!EF do not 
+form a regular lattice (with origins at 0.0 and spacings of 
+1.0), the name of a netCDF variable that contains the position 
+information must be specified as an attribute for  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF 
+. #!N #!N There are five different types of position specifications: 
+none, completely regular, completely irregular, and two types of partially regular. 
+#!N #!N Completely irregular is assumed if the following attribute is 
+specified: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF :positions = 
+"  #!F-adobe-times-bold-i-normal--18*   variable2 #!EF "; #!EF #!N #!N #!EC where  #!F-adobe-times-bold-i-normal--18*   
+variable2 #!EF is an array of vectors, one for each grid 
+point, defining its location. The dimensionality of the data space is 
+determined by the number of items in a vector. #!N #!N 
+Regular positions can be specified with just the origin and spacing 
+between grid points along each axis in compact form. The following 
+attribute is used: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF 
+:positions = "  #!F-adobe-times-bold-i-normal--18*   variable2 #!EF , compact"; #!EF #!N #!N 
+#!EC where  #!F-adobe-times-bold-i-normal--18*   variable2 #!EF is the name of a  #!F-adobe-times-medium-i-normal--18*   
+n*2 #!EF array containing origin, delta pairs for the spacing and 
+location of positions along each axis. The number of positions along 
+each axis is determined from the shape of  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF 
+. #!N #!N Positions that can be specified as the product 
+of arrays containing the location of points along each axis can 
+be input in product form. Use the following attribute: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF :positions = "  #!F-adobe-times-bold-i-normal--18*   variable2a 
+#!EF , product; #!N  #!F-adobe-times-bold-i-normal--18*   variable2b #!EF , product; #!N . 
+#!N . #!N . #!N  #!F-adobe-times-bold-i-normal--18*   variable2x #!EF , product"; #!EF 
+#!N #!N #!EC where the  #!F-adobe-times-bold-i-normal--18*   variable2 #!EF 's are each 
+the name of an array containing a list of positions along 
+that axis. The number of items in each array must match 
+the length of the corresponding axis in the original  #!F-adobe-times-bold-i-normal--18*   variable1 
+#!EF data array. #!N #!N If any of the axes in 
+an partially regular product array are actually regular, they can be 
+specified in compact form: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-i-normal--18*   variable1 
+#!EF :positions = "  #!F-adobe-times-bold-i-normal--18*   variable2a #!EF , product, compact; #!N 
+ #!F-adobe-times-bold-i-normal--18*   variable2b #!EF , product; #!N . #!N . #!N . 
+#!N  #!F-adobe-times-bold-i-normal--18*   variable2x #!EF , product"; #!EF #!N #!N #!EC where 
+ #!F-adobe-times-bold-i-normal--18*   variable2a #!EF is the name of an origin, delta array, 
+and the rest are position lists as before. #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall671,dxall672 h Connections  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

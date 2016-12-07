@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgis DXGetItemSize 
+#!N #!N Function #!N #!N Returns the size in bytes of 
+each individual item of an Array. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> int DXGetItemSize(Array a) #!EF #!N #!N Functional Details #!N 
+#!N The routine takes into account the type, category, rank, and 
+shape of Array  #!F-adobe-times-bold-r-normal--18*   a #!EF . (String Arrays are implemented 
+as arrays of type  #!F-adobe-times-bold-r-normal--18*   TYPE_STRING #!EF ,  #!F-adobe-times-bold-r-normal--18*   rank 1 
+#!EF , and  #!F-adobe-times-bold-r-normal--18*   shape max_string_length+1 #!EF .) #!N #!N Return 
+Value #!N #!N Returns the size in bytes or returns 0. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxts,dxall1403 h DXTypeSize, DXCategorySize  #!EL  #!EF #!N #!N 
+ #!Larraysc,dxall1069 h Array Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxgm,dxall1246 h DXGetMember  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

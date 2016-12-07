@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall177 
+Using the Header File to Import Data #!N #!EC #!N #!N 
+Once you have created a Data Prompter header file, the next 
+step is to use that file to import the data it 
+describes. The basic procedure follows: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N 1. Place an Import tool icon on the VPE 
+canvas (see  #!Ltstapi,dxall28 h Selecting tools and placing icons  #!EL  ). #!N #!I30 #!N 2. Double click on 
+the icon to invoke the configuration dialog box (see  #!Ldp1219,dxall178 f Figure 19  #!EL  ). 
+#!N #!I30 #!N 3. The following information is required: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N a. The (path)  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF of the header file to be imported (in the first 
+text field of the  #!F-adobe-times-bold-r-normal--18*   Value #!EF column (at right). If 
+the Import module is part of a network displayed in the 
+VPE, the path name appears automatically. #!N #!I30 #!N b. Set 
+ #!F-adobe-times-bold-r-normal--18*   format #!EF (the third field of the column) #!N #!I30 
+#!N c. Set  #!F-adobe-times-bold-r-normal--18*   format #!EF (the third field of the 
+column) to "general" unless the header file already has that as 
+its extension. #!N #!I0 #!N #!EF #!N #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rdp1219 
+#!N Figure 19. Import Configuration Dialog Box. #!N Graphics omitted from 
+Online Documentation. Please see the manual. #!N #!EF #!N #!EC #!N 
+#!N #!I0 #!N Notes: #!N #!I30 #!N a. Header files created 
+with the Data Prompter are given this extension automatically when they 
+are saved with Save As... (Step 10 of Example 1 in 
+ #!Lex1a,dxall116 s To save the header file  #!EL  ). #!N #!I30 #!N b. The  #!F-adobe-times-bold-r-normal--18*   variable #!EF parameter 
+can be used to import a subset of the variables specified 
+by the  #!F-adobe-times-bold-r-normal--18*   field #!EF keyword statement. For the General Array 
+format, by default, all variables are imported. #!I0 #!N #!N #!N 
+#!I0 #!N #!EF #!N The specified data file will now be 
+imported when any visualization program containing this Import module is run. 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall178,dxall179 h User's Guide  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

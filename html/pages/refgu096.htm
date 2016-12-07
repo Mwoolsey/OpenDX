@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Morph</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu095.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu097.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRMORPH" ></A>Morph</H3>
+		<A NAME="IDX598"></A><A NAME="IDX599"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<A NAME="IDX600"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Applies a binary morphological operator to a field.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+output</STRONG> = Morph(<STRONG>input, operation, mask</STRONG>);
+</PRE>
+<P>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">input data
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>operation</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;erode&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the operation to be applied
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>mask</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">value or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;box&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the mask element
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">morphologically transformed input
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module applies one of the following binary morphological operators
+to input data:
+<PRE>
+"close"    "dilate"    "erode"    "open"
+</PRE>
+The input data are treated much as booleans are in the C language
+(e.g., 0 = FALSE and nonzero = TRUE).
+<P>
+The <TT><STRONG>mask</STRONG></TT> parameter (see below) is centered on each
+position in <TT><STRONG>input</STRONG></TT> in turn, and all positions
+corresponding to "1" in the mask are considered for
+<TT><STRONG>operation</STRONG></TT> (see below).
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is the input data to be operated on.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>operation</STRONG></TT>
+</B></TD><TD><P>specifies one of the following:
+<UL COMPACT>
+<LI>"dilate": The output corresponding to a given data value is
+true (1) if any data value in <TT><STRONG>input</STRONG></TT>
+corresponding to a "1" in <TT><STRONG>mask</STRONG></TT>
+is true.
+Otherwise, the output is false.
+<LI>"erode": The output corresponding to a given data value is
+true (1) if all the data values corresponding to a "1" in
+<TT><STRONG>mask</STRONG></TT>
+are true.
+Otherwise, the output is false.
+<LI>"close": is dilation followed by erosion.
+<LI>"open" is erosion followed by dilation.
+<P><B>Note: </B>Successive openings or closings have no additional effect.
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>mask</STRONG></TT>
+</B></TD><TD><P>specifies one of the following:
+<UL COMPACT>
+<LI>a Filter name (see <A HREF="refgu061.htm#HDRFILTER">Filter</A>)
+<LI>an explicit matrix.
+</UL>
+The function of both is to identify potential operands for
+<TT><STRONG>operation</STRONG></TT> (see above).
+The dimensions must be odd, and the default is the 3 &times; 3 box
+filter of Filter.
+</TD></TR></TABLE>
+<P>
+The module supports all data types and, like Filter, requires
+regular connections (quads or cubes).
+It handles both position- and connection-dependent data.
+<P>
+If the data are vectors, each element of a vector is transformed
+independently.
+Because the module returns a 0&#47;1 output, its output is always
+TYPE&#95;UBYTE.
+<P><B>Note: </B>Data along the boundary are replicated to fill the overlap
+region
+for the filter.
+<P><STRONG>Components</STRONG>
+<P>
+Modifies the "data" component.
+All other components are propagated to the output.
+<P><STRONG>Example Visual Program</STRONG>
+<PRE>
+UsingMorph.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu036.htm#HDRCOMPUTE">Compute</A>,
+&nbsp;<A HREF="refgu061.htm#HDRFILTER">Filter</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

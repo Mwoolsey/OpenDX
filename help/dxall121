@@ -1,0 +1,79 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rex6n7 Examples 6 and 7. Vector Data #!N 
+#!EC #!N #!N The General Array Importer supports three representations, or 
+"styles," of vector data: record, record-vector, and series-vector. The first two 
+are illustrated here. For the third, see  #!Lintrkwd,dxall148 h interleaving  #!EL  . #!N #!N 
+Which representation matches the data depends on a characteristic called  #!F-adobe-times-medium-i-normal--18*   
+interleaving #!EF . In record interleaving, the data for each vector 
+component are stored together in individual blocks (e.g., X[0], X[1],..., X[n], 
+Y[0], Y[1],..., Y[n]). In record-vector interleaving, the components of each vector 
+are stored consecutively (e.g., X[0]Y[0], X[1]Y[1],..., X[n]Y[n]). #!N #!N The following 
+pair of examples illustrates the differences between the two representations and 
+between the header files used to import them. The header files 
+are identical in that they both specify a unit 2-vector that 
+parallels the x-axis and is defined on a 5 x 4 
+regular grid. That is, the data consists of 20 instances of 
+the vector [1 0]. #!N #!N In Example 7, the interleaving 
+style of the data file is  #!F-adobe-times-medium-i-normal--18*   record #!EF : #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 1 1 1 1 1 1 1 
+1 #!N 1 1 1 1 1 1 1 1 #!N 
+1 1 1 1 #!N 0 0 0 0 0 0 
+0 0 #!N 0 0 0 0 0 0 0 0 
+#!N 0 0 0 0 #!EF #!N #!N #!EC #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. In the Data Prompter 
+simplified dialog box, select  #!F-adobe-times-bold-r-normal--18*   New #!EF in the  #!F-adobe-times-bold-r-normal--18*   File 
+#!EF pull-down menu (this selection clears the dialog box of any 
+information from a previous file). #!N #!I30 #!N 2. Enter the 
+path name of the data file in the  #!F-adobe-times-bold-r-normal--18*   Data file 
+#!EF field: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /usr/lpp/dx/samples/data/record_vectordata1. #!EF #!N #!N 
+#!EC #!N #!I30 #!N 3. Enter the values "5" and "4," 
+in that order, in the first two  #!F-adobe-times-bold-r-normal--18*   Grid size #!EF 
+fields. (Note that the origin-delta values default to [0 1].) #!N 
+#!I30 #!N 4. Add a field to the Field list by 
+typing a name (e.g. field0) in the  #!F-adobe-times-bold-r-normal--18*   Field name #!EF 
+text field, and then pressing the  #!F-adobe-times-bold-r-normal--18*   Add #!EF button. #!N 
+#!I30 #!N 5. Change  #!F-adobe-times-bold-r-normal--18*   Type #!EF (right-hand panel) to "int." 
+Note: To implement this change, you must click on  #!F-adobe-times-bold-r-normal--18*   Modify 
+#!EF at the bottom of the dialog box. However, you can 
+delay implementation to Step 5, and implement both steps at the 
+same time. #!N #!I30 #!N 6. Change  #!F-adobe-times-bold-r-normal--18*   Structure #!EF (right-hand 
+panel) to "2-vector." To implement this change, click on  #!F-adobe-times-bold-r-normal--18*   Modify 
+#!EF at the bottom of the dialog box (note the instruction 
+there). #!N #!I30 #!N 7. Step 5 activates the  #!F-adobe-times-bold-r-normal--18*   Vector 
+interleaving #!EF button. Select X[0],X[1],...,X[n],Y[0],Y[1],...,Y[n] (the notation used for record style). 
+#!N #!I30 #!N 8. Repeat Example 1, Step 10 (see  #!Lex1a,dxall116 s To save the header file  #!EL  
+), to save the header file, which should look like: #!N 
+#!I0 #!N #!EF #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N file = 
+/usr/lpp/dx/samples/data/record_vectordata1 #!N grid = 5 x 4 #!N format = text 
+#!N interleaving = record #!N majority = row #!N field = 
+field0 #!N structure = 2-vector #!N type = int #!N dependency 
+= positions #!N positions = regular, regular, 0, 1, 0, 1 
+#!N #!N end #!EF #!N #!N #!EC #!N #!N In Example 
+7, the interleaving style of the data file is  #!F-adobe-times-medium-i-normal--18*   record-vector 
+#!EF : #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 1 0 1 
+0 1 0 1 0 1 0 #!N 1 0 1 
+0 1 0 1 0 1 0 #!N 1 0 1 
+0 1 0 1 0 1 0 #!N 1 0 1 
+0 1 0 1 0 1 0 #!EF #!N #!N #!EC 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. If you 
+have not closed the simplified dialog box from Example 5, all 
+you need do is: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N a. Change the path name for the data file (in 
+the  #!F-adobe-times-bold-r-normal--18*   Data file #!EF field) to: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N /usr/lpp/dx/samples/data/record_vectordata2. #!EF #!N #!N #!EC #!N #!I30 #!N b. For 
+ #!F-adobe-times-bold-r-normal--18*   Vector interleaving #!EF , select X[0]Y[0],X[1]Y[1],...,X[n]Y[n] (the notation used for 
+record-vector style). #!N #!I0 #!N #!EF #!N Otherwise you can repeat 
+Example 6 (or open the header file record_vectordata1) and make the 
+appropriate changes. #!N #!I30 #!N 2. Repeat Example 1, Step 10 
+(see  #!Lex1a,dxall116 s To save the header file  #!EL  ), to save the new header file, which should 
+look like the one shown at the top of the next 
+page. #!N #!I0 #!N #!EF #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+file = /usr/lpp/dx/samples/data/record_vectordata2 #!N grid = 5 x 4 #!N format 
+= text #!N interleaving = record-vector #!N majority = row #!N 
+field = field0 #!N structure = 2-vector #!N type = int 
+#!N dependency = positions #!N positions = regular, regular, 0, 1, 
+0, 1 #!N #!N end #!EF #!N #!N #!EC Note: If 
+the interleaving is not specified, the default is record-vector. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall121,dxall122 h Example 8. Series Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

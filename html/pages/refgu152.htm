@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - SuperviseState</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu151.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu153.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRSUPSTAT" ></A>SuperviseState</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATWIN">Windows</A>
+<P><STRONG>Function</STRONG>
+<P>Manages the object and/or camera associated with an image window
+created using SuperviseWindow.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>object, camera, where, events</STRONG> = SuperviseState(<STRONG>where,defaultCamera, resetCamera,
+                                               object, resetObject, size,
+                                               events, mode, args</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>where</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the window for which objects and
+cameras are to be manipulated
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>defaultCamera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">initial or default camera
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>resetCamera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">whether to reset camera to the
+default
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">initial or default object
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>resetObject</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">whether to reset object to the
+default
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>size</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector or integer list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">size
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>events</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">mouse or keyboard events from
+SuperviseWindow
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>mode</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">specifies the mode, or which
+UserInteractor to enable
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>args</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">interactor arguments
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">current object
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>camera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">current camera
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>where</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">input where
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>events</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">unhandled events
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>Briefly, this module allows a user to specify the particular
+action that should be
+taken on mouse or keyboard events in a window created using SuperviseWindow.
+The SuperviseState module is expected to be used together with
+SuperviseWindow and Display to create and display a window. These
+modules are used as an alternative to the Image tool.
+See <A HREF="refgu153.htm#HDRSUPWIND">SuperviseWindow</A> for a more complete
+discussion of the use
+of the Supervise modules and the benefits one gets with respect to
+the simple use of the Image tool.
+<P>
+Actions are specified using user-supplied routines called
+UserInteractors. A single UserInteractor is the set of actions which
+take place for any mouse or keyboard event for a given
+<TT><STRONG>mode</STRONG></TT>. For example, a single
+<TT><STRONG>mode</STRONG></TT>
+may define different behaviors for left, middle, and right mouse
+actions. An arbitrary number of different modes can be defined,
+providing a limitless number of different user interactions with the
+image. Note that this implies that different actions (for example zoom
+and translate) can be implemented either as different modes using the
+same mouse button, as the same mode with different mouse buttons, or of
+course, different modes and different buttons.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>where</STRONG></TT>
+</B></TD><TD><P>the window for which objects and cameras are to be manipulated.
+This input should be supplied by the <TT><STRONG>where</STRONG></TT> output of
+SuperviseWindow.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>defaultCamera</STRONG></TT>
+</B></TD><TD><P>is the initial or default camera.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>resetCamera</STRONG></TT>
+</B></TD><TD><P>indicates whether to reset camera to the default
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>object</STRONG></TT>
+</B></TD><TD><P>is the initial or default object
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>resetObject</STRONG></TT>
+</B></TD><TD><P>indicates whether to reset object to the default
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>size</STRONG></TT>
+</B></TD><TD><P>is the current size of the image, and should be
+supplied by the <TT><STRONG>size</STRONG></TT> output of SuperviseWindow
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>events</STRONG></TT>
+</B></TD><TD><P>mouse or keyboard events. Should be supplied by the
+<TT><STRONG>events</STRONG></TT> output of SuperviseWindow
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>mode</STRONG></TT>
+</B></TD><TD><P>specifies the mode, (which UserInteractor to enable). The set of
+user-defined UserInteractors is created as a table of callbacks.  The
+<TT><STRONG>mode</STRONG></TT> value specifies which entry in that table is to
+be called.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>args</STRONG></TT>
+</B></TD><TD><P>interactor arguments as required by a UserInteractor.
+</TD></TR></TABLE>
+<P>
+The following are output parameters:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>object</STRONG></TT>
+</B></TD><TD><P>current object; should be passed to the
+<TT><STRONG>object</STRONG></TT>
+input of Display.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>camera</STRONG></TT>
+</B></TD><TD><P>current camera; should be passed to the
+<TT><STRONG>camera</STRONG></TT>
+input of Display
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>where</STRONG></TT>
+</B></TD><TD><P>Window where parameter; should be passed to the
+<TT><STRONG>where</STRONG></TT> input of Display.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>events</STRONG></TT>
+</B></TD><TD><P>are unhandled events, that is any mouse or keyboard events that
+have
+been masked off within the routine InitMode, described in
+UserInteractors.
+</TD></TR></TABLE>
+<P>
+<H4><A NAME="Header_207">UserInteractors</A></H4>
+UserInteractors consist of the following routines,
+the contents of which must be provided by the user.
+You specify the location of your custom interactor object files using
+the <TT>DX_USER_INTERACTOR_FILE</TT> environment variable (see
+<A HREF="usrgu073.htm#HDRMOREVAR">"Other Environment Variables"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I>).
+<P><B>Note: </B>Default user interactors to implement rotation, pan, and zoom
+functionality are provided by Data Explorer if you do not provide your own
+custom
+interactors. Rotation (mode 0) is the same as the standard left-button
+rotation interaction of the Image tool. Pan (mode 1) operates
+differently than the Data Explorer pan mode of the Image tool; you simply drag
+on
+the object to move it in the desired direction. Zoom (mode 2) operates
+as follows: drag upward to zoom in; drag downward to zoom out.
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>void *InitMode(Object args, int width,
+int height, int
+*mask)</STRONG></TT>
+</B></TD><TD><P>Given an object containing <TT><STRONG>args</STRONG></TT> (which
+come in
+as input to SuperviseState and are up to the interactor builder to
+specify), and the current width and height of the window, returns a
+handle that is passed into all the other UserInteractor routines. This
+routine also sets the value of <TT><STRONG>mask</STRONG></TT> to reflect which
+events the particular interactor is interested in (for example, only
+left or right buttons). Once <TT><STRONG>mask</STRONG></TT> is set, only those
+events which have been specified as interesting to the interactor will
+cause the interactor to be called. The set of possible masks is:
+<TT>
+<DL>
+<DD><P>DXEVENT_LEFT
+<DD><P>DXEVENT_MIDDLE
+<DD><P>DXEVENT_RIGHT
+<DD><P>DXEVENT_KEYPRESS
+</DL>
+</TT>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void EndMode(void
+*handle)</STRONG></TT>
+</B></TD><TD><P>Frees the space allocated in InitMode.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void SetCamera(void *handle,
+float *to, float *from, float
+*up, int projection, float fov, float width)</STRONG></TT>
+</B></TD><TD><P>Passes current camera info from Data Explorer into the
+interactor. The
+interactor can extract whatever camera information it is interested in
+and put into its private <TT><STRONG>handle</STRONG></TT>. Note that if the
+camera is going to be modified, this handle must retain the entire
+camera state so that it can be passed back in GetCamera().
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void SetRenderable(void
+*handle, Object object)</STRONG></TT>
+</B></TD><TD><P>Passes the current object into the interactor. If the interactor
+is going to change
+the object, it must be retained in <TT><STRONG>handle</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>int GetCamera(void *handle,
+float *to, float *from,
+float *up, int *projection, float *fov, float *width)</STRONG></TT>
+</B></TD><TD><P>Passes updated camera information from the interactor back to
+Data Explorer.
+If the interactor has not updated the camera information, return 0;
+otherwise set ALL the inputs and return 1.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>int GetRenderable(void *handle,
+Object *obj)</STRONG></TT>
+</B></TD><TD><P>Passes updated object information from the interactor back to
+Data Explorer.
+If the interactor has not updated the object, return 0, otherwise set
+<TT><STRONG>obj</STRONG></TT> to point to the updated object and return 1.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void EventHandler(void *handle,
+DXEvent *event)</STRONG></TT>
+</B></TD><TD><P>Event handler. Receives the event in
+<TT><STRONG>*event</STRONG></TT>
+where a <TT><STRONG>DXEvent</STRONG></TT> is of type:
+<PRE>
+typedef union
+&#123;
+  DXAnyEvent any;
+  DXMouseEvent mouse;
+  DXKeyPressEvent keypress;
+&#125;
+</PRE>
+and where <TT>DXAnyEvent</TT>,
+<TT>DXMouseevent</TT>, and <TT>DXKeyPressEvent</TT> are of type:
+<PRE>
+typedef struct
+&#123;
+  int event
+&#125; DXAnyEvent
+typedef struct
+&#123;
+  int event;
+  int x;
+  int y;
+  int state;
+&#125; DXMouseEvent
+typedef struct
+&#123;
+  int event;
+  int x;
+  int y;
+  int key;
+&#125; DXKeyPressEvent
+</PRE>
+<TT>event</TT> is one of <TT>DXEVENT_LEFT</TT>,
+<TT>DXEVENT_MIDDLE</TT>, <TT>DXEVENT_RIGHT</TT>, or
+<TT>DXEVENT_KEYPRESS</TT>; <TT>x</TT> and
+<TT>y</TT> are the pixel location of the event; <TT>state</TT> is
+one of <TT>BUTTON_DOWN</TT>, <TT>BUTTON_MOTION</TT>, or
+<TT>BUTTON_UP</TT>;
+and <TT>key</TT> is the key that was pressed.
+</TD></TR></TABLE>
+<P>
+<H4><A NAME="HDRPICKING">Doing Picking</A></H4>
+If you want to do picking in a window created by SuperviseWindow, simply
+pass the <TT><STRONG>events</STRONG></TT>, <TT><STRONG>object</STRONG></TT>, and
+<TT><STRONG>camera</STRONG></TT> outputs of SuperviseState to the
+<TT><STRONG>locations</STRONG></TT>, <TT><STRONG>object</STRONG></TT>, and
+<TT><STRONG>camera</STRONG></TT> inputs of Pick. Pick will pull out only the
+locations of button-down events from <TT><STRONG>events</STRONG></TT> and use
+<TT><STRONG>camera</STRONG></TT> to do the picking.
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+<PRE>
+SIMPLE/Supervise.net
+Image_wo_UI.net
+IndependentlyArrange.net
+InsetImage.net
+</PRE>
+Also see the demonstrations of custom interactors in
+<TT>/usr/local/dx/samples/supervise</TT>.
+<P><STRONG>See Also</STRONG>
+<P>
+<A HREF="refgu153.htm#HDRSUPWIND">SuperviseWindow</A>,
+<A HREF="refgu048.htm#HDRDISPLAY">Display</A>,
+<A HREF="refgu072.htm#HDRIMAGE">Image</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

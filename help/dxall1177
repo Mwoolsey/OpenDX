@@ -1,0 +1,57 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcmplu DXCallModule, DXModSet..., DXSetModule... 
+#!N #!N Function #!N #!N Enable a routine to call a 
+Data Explorer module. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error 
+DXCallModule(char *modname, int num_inputs, ModuleInput *listin, int num_outputs, ModuleOutput *listout); Object 
+DXModSetFloatInput(ModuleInput *in, char *name, int n); Object DXModSetIntegerInput(ModuleInput *in, char *name, 
+int n); Object DXModSetStringInput(ModuleInput *in, char *name, char *s); void DXModSetObjectInput(ModuleInput 
+*in, char *name, Object obj); void DXModSetObjectOutput(ModuleOutput *out, char *name, Object 
+*obj); DXSetModuleInput(ModuleInput in, char *name, Object *obj); DXSetModuleOutput(ModuleOutput out, char *name, 
+Object *obj); #!EF #!N #!N Functional Details #!N #!N The five 
+ #!F-adobe-times-bold-r-normal--18*   DXModSet... #!EF routines are auxiliary to  #!F-adobe-times-bold-r-normal--18*   DXCallModule #!EF , 
+which makes the actual call to a specified module. #!N #!N 
+#!I0 #!N Notes: #!N #!I30 #!N 1. If you use  #!F-adobe-times-bold-r-normal--18*   
+DXCallModule #!EF in a stand-alone program or outboard module, you must 
+call  #!F-adobe-times-bold-r-normal--18*   DXInitModule #!EF before making any calls to  #!F-adobe-times-bold-r-normal--18*   DXCallModule 
+#!EF #!N #!I30 #!N 2. The two  #!F-adobe-times-bold-r-normal--18*   DXSetModule... #!EF routines 
+are provided solely for backward compatibility. Their use is not recommended. 
+#!N #!I30 #!N 3. The Get and Set modules cannot be 
+called by DXCallModule. #!N #!I30 #!N 4. Objects passed as inputs 
+to DXCallModule will be deleted when that module is finished. To 
+use the Object after DXCallModule requires a call to DXReference first, 
+and the responsibility for deleting the Object when you are finished 
+with it is yours. #!I0 #!N #!N #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   modname #!EF #!EF #!I50 #!N specifies the 
+name of the module being called. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+num_inputs #!EF #!EF #!I50 #!N specifies the number of inputs in 
+ #!F-adobe-times-bold-r-normal--18*   listin #!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   listin #!EF 
+#!EF #!I50 #!N is an Array of ModuleInput structures specifying the 
+module inputs. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   num_outputs #!EF #!EF #!I50 
+#!N specifies the number of outputs in  #!F-adobe-times-bold-r-normal--18*   listout #!EF . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   listout #!EF #!EF #!I50 #!N is 
+an Array of ModuleOutput structures specifying the module outputs. #!I0 #!N 
+#!N #!N #!N The four  #!F-adobe-times-bold-r-normal--18*   DXModSet...Input #!EF routines set the 
+contents of  #!F-adobe-times-bold-r-normal--18*   ModuleInput #!EF structures.  #!F-adobe-times-bold-r-normal--18*   DXModSetObjectOutput #!EF sets the 
+destination for module outputs. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o If  #!F-adobe-times-bold-r-normal--18*   name #!EF is specified as  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , the inputs and outputs set by these routines are 
+considered positional. For example, the first values passed using one of 
+the  #!F-adobe-times-bold-r-normal--18*   DXModSet...Input #!EF routines will be assigned to the first 
+parameter of the module, the second value to the second parameter 
+of that module, and so on. #!N #!I30 #!N o If 
+ #!F-adobe-times-bold-r-normal--18*   name #!EF is a valid string, then it specifies a 
+parameter of the module specified by  #!F-adobe-times-bold-r-normal--18*   modname #!EF , and 
+the passed value is assigned to that parameter. #!N #!I30 #!N 
+o Positional parameters cannot follow named ones. #!N #!I0 #!N #!EF 
+#!N #!N #!N A  #!F-adobe-times-bold-r-normal--18*   ModuleInput #!EF is defined as follows: 
+#!N  #!F-adobe-times-bold-r-normal--18*   typedef struct { char *name; Object value; } ModuleInput; 
+#!EF #!N #!N A  #!F-adobe-times-bold-r-normal--18*   ModuleOutput #!EF is defined as follows: 
+#!N  #!F-adobe-times-bold-r-normal--18*   typedef struct { char *name; Object *value; } ModuleOutput; 
+#!EF #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+or returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets an error code. #!N 
+#!N See Also #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N  #!Ldximod,dxall1280 h DXInitModules  #!EL  , 
+#!N  #!Ldxgetex,dxall1236 h DXGetErrorExit  #!EL  , #!N  #!Ldxsetex,dxall1378 h DXSetErrorExit  #!EL  , #!N #!N  #!Ldxcrih,dxall1179 h DXCheckRIH  #!EL  #!N #!EF 
+#!EF #!N #!N #!EC #!N #!N  #!Lmodacss,dxall1113 h Module Access  #!EL  . #!N #!N Readme 
+file in /usr/lpp/dx/samples/callmodule/Readme. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxccvs,dxall1178 h DXChangedComponentValues, DXChangedComponentStructure  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

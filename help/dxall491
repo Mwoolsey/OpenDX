@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rall490 Restrictions #!N #!EC #!N #!N In general, you can 
+place any tool in any execution group, alter the members of 
+an execution group at any time, or change the assignment of 
+an execution group from one host to another at any time. 
+The exceptions to these rules deal with: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o Modules maintaining state (e.g., Streakline) #!N 
+#!I30 #!N o Hardware rendering #!N #!I30 #!N o The Pick 
+Module. #!N #!I0 #!N #!EF #!N #!N #!N Modules that maintain 
+internal state information using private cache objects cannot be freely moved 
+between hosts. Doing so will cause the module to lose its 
+state information or obtain old state information. If you do reassign 
+a module maintaining state to another host, you should reset the 
+server using the  #!F-adobe-times-bold-r-normal--18*   Connection #!EF menu  #!F-adobe-times-bold-r-normal--18*   Reset Server #!EF 
+option to ensure correct execution. The only Data Explorer module provided 
+with the system that maintains state information is Streakline. #!N #!N 
+When you are using the hardware rendering option with either the 
+Display or Image tools, the tool should be assigned to execution 
+on the host physically connected to your display. #!N #!N The 
+Pick module must be run on the same host as the 
+Image tool. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lvfm,dxall492 h Loading and Using Outboard and Runtime-Loadable Modules  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

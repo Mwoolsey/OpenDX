@@ -1,0 +1,60 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtslice Slices #!N #!EC Following are a few examples 
+of how to generate and process data slices. #!N #!N For 
+3-dimensional data on any type of grid or for non-orthogonal slices, 
+use the  #!F-adobe-times-bold-r-normal--18*   MapToPlane #!EF tool. If the data set is 
+on a regular grid, use the  #!F-adobe-times-bold-r-normal--18*   Slab #!EF tool to 
+take slices along connection elements. You can use other tools (e.g., 
+ #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF or  #!F-adobe-times-bold-r-normal--18*   RubberSheet #!EF ) on data slices 
+just as you can on any 2-dimensional object. #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Open and execute visual program 
+.../MapToPlane.net. The image is a colored plane through a 3-dimensional data 
+field. By default,  #!F-adobe-times-bold-r-normal--18*   MapToPlane #!EF maps onto a plane at 
+the center of the data. To change the orientation of this 
+plane: #!N #!I30 #!N 2. Open the configuration dialog box for 
+ #!F-adobe-times-bold-r-normal--18*   MapToPlane #!EF , change the value in the  #!F-adobe-times-bold-r-normal--18*   normal 
+#!EF parameter field to [1 1 1] and click on  #!F-adobe-times-bold-r-normal--18*   
+OK #!EF . The change of orientation will appear when the 
+program is reexecuted. #!N #!I30 #!N 3. Reexecute the visual program. 
+ #!F-adobe-times-bold-r-normal--18*   MapToPlane #!EF performs the necessary interpolation for a data slice 
+of any orientation in a 3-dimensional field. #!N #!N See MapToPlane 
+in IBM Visualization Data Explorer User's Reference. #!N #!I0 #!N #!EF 
+#!N #!N #!N To visualize an orthogonal slice without interpolation, use 
+ #!F-adobe-times-bold-r-normal--18*   Slab #!EF : #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N 1. Open and execute visual program .../Slab.net. The image is 
+a translucent isosurface with a colored slice (or slab) cutting through 
+it. To visualize a slice through another part of the isosurface: 
+#!N #!I30 #!N 2. Open the configuration dialog box for  #!F-adobe-times-bold-r-normal--18*   
+Slab #!EF and change the  #!F-adobe-times-bold-r-normal--18*   position #!EF parameter value to 
+"10." #!N #!I30 #!N 3. Click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF or 
+ #!F-adobe-times-bold-r-normal--18*   Apply #!EF . #!N #!I30 #!N 4. Reexecute the visual 
+program. The position of the new slice is changed. #!N #!N 
+See Slab in IBM Visualization Data Explorer User's Reference. #!N #!I0 
+#!N #!EF #!N #!N #!N To create an animation that generates 
+different slices of the data: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N 1. Select  #!F-adobe-times-bold-r-normal--18*   Special #!EF in the categories palette 
+and then  #!F-adobe-times-bold-r-normal--18*   Sequencer #!EF in the tools palette. #!N #!I30 
+#!N 2. Position the cursor to the right of  #!F-adobe-times-bold-r-normal--18*   Slab 
+#!EF in the VPE. #!N #!I30 #!N 3. Open the  #!F-adobe-times-bold-r-normal--18*   
+Slab #!EF configuration dialog box. #!N #!I30 #!N 4. Click on 
+the  #!F-adobe-times-bold-r-normal--18*   position #!EF toggle (unsetting the parameter value). The parameter 
+field now reads "(all)" and the  #!F-adobe-times-medium-i-normal--18*   third #!EF input tab 
+on the  #!F-adobe-times-bold-r-normal--18*   Slab #!EF icon (counting from the left) projects 
+outward from the icon (instead of into it). #!N #!I30 #!N 
+5. Click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF . #!N #!I30 #!N 6. 
+Connect the output tab of  #!F-adobe-times-bold-r-normal--18*   Sequencer #!EF to this third 
+input tab (i.e., "position") of  #!F-adobe-times-bold-r-normal--18*   Slab #!EF . #!N #!I30 
+#!N 7. Double click on the  #!F-adobe-times-bold-r-normal--18*   Sequencer #!EF icon to 
+display the  #!F-adobe-times-bold-r-normal--18*   Sequence Control #!EF panel. #!N #!I30 #!N 8. 
+Click on the frame button (  #!F-adobe-times-bold-r-normal--18*   ... #!EF ) to 
+display the  #!F-adobe-times-bold-r-normal--18*   Frame Control #!EF panel. #!N #!I30 #!N 9. 
+Reset the limits: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+a. Click on the  #!F-adobe-times-bold-r-normal--18*   min #!EF field, type "0," and 
+press Enter. #!N #!I30 #!N b. Click on the  #!F-adobe-times-bold-r-normal--18*   max 
+#!EF field, type "20," and press Enter. #!N #!I0 #!N #!EF 
+#!N #!N #!I30 #!N 10. Click on the Forward (>) button 
+to play the sequence. #!N #!N See  #!Lsequen2,dxall21 h Using the Sequencer  #!EL  in this Guide 
+and  #!Lsequenc,dxall939 h Sequencer  #!EL  in IBM Visualization Data Explorer User's Reference. #!N #!I0 
+#!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ltstmln3,dxall52 h Streamlines  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Preserving Explicit State</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu030.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu032.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu026.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRSTATES" ></A>4.6 Preserving Explicit State</H2>
+		<A NAME="IDX602"></A><A NAME="IDX603"></A>
+<A NAME="IDX604"></A>
+<A NAME="IDX605"></A>
+<A NAME="IDX606"></A>
+<A NAME="IDX607"></A>
+<A NAME="IDX608"></A>
+<P><B><A NAME="FIGXMODX6" HREF="../usrguide.htm#FT_FIGXMODX6">Figure 22. Example
+5</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmodf6.gif" ALT="Figure xmodf6 not
+displayed."></CENTER><BR></B><BR>
+<P>
+Some visualization applications require the retention
+of state from one execution to the next, which as
+discussed earlier, cannot be supported within the
+context of pure data flow. Consider, for example, the
+creation of a plot of data values at a given point while
+sequencing through a time series.
+The state of the plot from the prior execution is retrieved.
+It is updated by appending the new time-step information, and the
+result is then preserved by resaving the state of the plot
+for the next execution.
+
+Data Explorer provides two sets of tools for preserving state depending on
+whether the state needs to be preserved over one execution of the
+network or over multiple executions of the network. The tools for
+preserving state are GetLocal, SetLocal, GetGlobal, and SetGlobal. The
+Set tools enable you to save an object (in Data Explorer's cache) for
+access in a subsequent execution or iteration. The Get tools enable you
+to retrieve the object saved by the Set tools.
+
+<P>
+You pair a GetLocal and SetLocal in a visual program by creating an
+arc from GetLocal&#39;s <TT><STRONG>link</STRONG></TT> output parameter to
+SetLocal&#39;s <TT><STRONG>link</STRONG></TT> input parameter.
+In a visual program a GetLocal typically appears logically above a
+SetLocal.
+When GetLocal runs, it checks if an object has been saved in the cache.
+If no object was saved  (as would be the case if SetLocal has
+not yet run) or the <TT><STRONG>reset</STRONG></TT>
+parameter to GetLocal is set,
+GetLocal outputs an initial value that you can set
+using the
+<TT><STRONG>initial</STRONG></TT> parameter.
+Otherwise, GetLocal retrieves the saved
+object from the cache and outputs it.
+When SetLocal runs, it saves its input object in the cache and then
+indicates that its paired GetLocal
+should simply be scheduled
+
+during the next iteration of a loop
+or the next time an execution is called for.
+
+(Note that if GetLocal is inside a macro, it will be executed only if the
+macro needs to be executed; that is, if the macro's inputs have changed
+
+or there is a side effect module in the macro.)
+
+<P>
+
+GetGlobal and SetGlobal are paired in the same way as GetLocal and SetLocal.
+They also save and retrieve items from the cache. The main
+difference is that GetGlobal and SetGlobal will preserve state over
+more than one execution of a program. (However, recall that a complete
+loop takes place within a <I>single</I> execution.)
+<P>
+Using GetGlobal and SetGlobal is comparable to using
+a static variable in C-language programming. GetLocal and SetLocal are
+good for saving state inside of a looping construct. Once the loop is
+terminated, the state is reset for the next execution of the loop. To
+save state in a program that uses a Sequencer module, you should
+use GetGlobal and SetGlobal, since each iteration of the Sequencer
+is a separate execution of the program as described in <A
+HREF="usrgu030.htm#HDRLOOP">4.5 , "Iteration using Looping"</A>.
+
+<P>
+<P>
+Illustrated in <A HREF="#FIGXMODX6">Figure 22</A>
+is a simple macro that sums the numbers from 1 to N, where N is an input
+parameter.
+The <TT><STRONG>start</STRONG></TT> parameter to ForEachN has been set to 1.
+GetLocal and SetLocal are used to accumulate the sum.
+Sum is a trivial macro consisting of a Compute where the
+expression is "a+b."
+
+On the first iteration of the loop,
+GetLocal will output its <TT><STRONG>initial</STRONG></TT> value,
+which has been set to 0.
+
+On subsequent iterations GetLocal will output the accumulated
+value SetLocal saved during the previous iteration. When the loop
+terminates the final accumulated value is the output of the macro.
+This macro is roughly equivalent to the
+following C-language statements:
+<PRE>
+    b = 0;
+    for (a=1; a&lt;=10; a++)
+      b = b+a;
+</PRE>
+<P>
+
+If the macro were run again, on the first iteration of the loop
+GetLocal would again output its <TT><STRONG>initial</STRONG></TT> value.
+(Note that the macro
+will only run again if the input to the macro changes or the output of the
+macro has been removed from cache.)
+<P>
+If you replaced the GetLocal and SetLocal in <A HREF="#FIGXMODX6">Figure 22</A>
+with
+GetGlobal and SetGlobal it would be equivalent to the following
+C-language statements:
+<PRE>
+   int a;
+   static int b = 0;
+   for (a=1; a&lt;=10; a++)
+     b = b+a;
+</PRE>
+While when SetLocal is used, the sum is reset each time the macro is
+run, if SetGlobal is used, the sum of a previous execution is added to the
+sum of the current execution.  For example, let macro_local be the macro
+shown in <A HREF="#FIGXMODX6">Figure 22</A> and macro_global be the same macro
+but with
+SetGlobal and GetGlobal substituted for SetLocal and GetLocal. If the
+input to both macros is 10 then both macros will output 55 (the sum of numbers
+1 to 10) the first time they are run. If an execution takes place
+without the input to the macros changing then neither macro will run again
+and the value 55 will be used as the output again. If you change the input
+to 3 then macro_local will output 6 and macro_global will output 61 (55+6).
+
+<P>
+Illustrated in <A HREF="#FIGXMODX7">Figure 23</A> is a macro that returns the
+accumulated volumes of the members of a group and the number of
+members in the group.
+ForEachMember is used to iterate through the group.
+Measure is used to determine the volume of a member and the GetLocal
+and SetLocal pair on the left side of the macro is used to accumulate
+the volumes.
+For illustrative purposes, a loop containing GetLocal, SetLocal, and Increment
+is used to count the number of members in the group.
+(Inquire also provides this function, as does the
+<TT><STRONG>index</STRONG></TT> output of
+ForEachMember.)
+Increment is a trivial macro consisting of a
+Compute where the expression is set to "a+1."
+The <TT><STRONG>initial</STRONG></TT> values to both GetLocal tools are 0.
+<P><B><A NAME="FIGXMODX7" HREF="../usrguide.htm#FT_FIGXMODX7">Figure 23. Example
+6</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmodf7.gif" ALT="Figure xmodf7 not
+displayed."></CENTER><BR></B><BR>
+<P>
+
+Illustrated in <A HREF="#FIGXMODX13">Figure 24</A> is a visual program that
+saves the
+current camera settings for use in the next execution of the
+program. The initial value of GetGlobal is NULL. The Inquire
+module checks to see that the output of GetGlobal is
+a valid camera object. If it's not a camera
+object, then Route is used to ensure that the Display module is
+not scheduled to run.
+When a new camera is chosen (for example by rotating the object in the Image
+window) the Display window will show the image
+using the previous execution's camera settings.
+<P><B><A NAME="FIGXMODX13" HREF="../usrguide.htm#FT_FIGXMODX13">Figure 24. Example
+7</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmodf13.gif" ALT="Figure xmodf13 not
+displayed."></CENTER><BR></B><BR>
+<P>
+As mentioned previously, in a true data-flow implementation, all
+modules are pure functions (i.e. their outputs are fully defined
+by their inputs). Hence, processes are stateless with no side
+effects. A macro in Data Explorer is considered to be a function,
+with its outputs being fully defined by its inputs. This is no
+longer true when a GetGlobal module is added to a macro. GetLocal
+maintains state information only within one execution of the macro.
+GetGlobal maintains state information between executions, and therefore
+the outputs of a macro containing GetGlobal
+are no longer entirely defined by the inputs. The outputs
+from macros with state (containing a GetGlobal module) are
+guaranteed to stay in the cache until the inputs for that macro
+change. At that point, the results of the previous execution
+are discarded to make room for the new
+results. This is equivalent to setting the cache attribute of the macro to
+<TT><STRONG>cache last</STRONG></TT> for each of the outputs. These cache
+settings
+cannot be overwritten by the user. This guarantees coherency when
+executing macros with state.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+		<P></P>
+	</BODY></HTML>

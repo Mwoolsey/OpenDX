@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Categorize</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu022.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu024.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRCATEGOR" ></A>Categorize</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<P><STRONG>Function</STRONG>
+<P>
+Categorizes components of a field
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>output</STRONG> = Categorize(<STRONG>input, name, sort</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">field to categorize
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>name</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string or string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">"data"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component to categorize
+</TD></TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">sort</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: don't sort the added lookup component<BR>
+					1: sort the added lookup component</TD>
+			</TR>
+		</TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">with additional lookup components
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is the field containing the components to categorize
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>name</STRONG></TT>
+</B></TD><TD><P>is the name or names of the components to categorize
+</TD></TR>
+			<TR VALIGN="TOP">
+				<TD><B><TT><STRONG>sort</STRONG></TT></B></TD>
+				<TD>specifies whether the newly created lookup component should be sorted or left in insertion order when it is created.</TD>
+			</TR>
+		</TABLE>
+<P>The Categorize module converts a component of any type to an integer array that references a newly created &quot;lookup&quot; component, which is a list of the unique values in the original component. This serves to<OL COMPACT>
+<LI>reduce the size of a component that contains
+duplicate values,
+<LI>allow conversion of string or vector data to
+"categorical" data,
+<LI>detect repeated values in a component, and
+<LI>create a sorted list of the unique values in a component
+for inspection.
+</OL>
+<P>
+Each component that is categorized will yield its own lookup
+component named "compname lookup", where compname is the
+name of the categorized component.
+<P>For example, if the component name is &quot;state&quot; and its values are {&quot;MO&quot;, &quot;CA&quot;, &quot;MO&quot;, &quot;NH&quot;, &quot;AK&quot;, &quot;NH&quot;} then Categorize(field, &quot;state&quot;, 1) would convert component state to: {2, 1, 2, 3, 0, 3} and produce a new component, &quot;state lookup&quot; containing the values {&quot;AK&quot;, &quot;CA&quot;, &quot;MO&quot;, &quot;NH&quot;} or Categorize(field, &quot;state&quot;, 0) would convert component state to: {0, 1, 0, 2, 3} and produce a new component, &quot;state lookup&quot; containing the values {&quot;MO&quot;, &quot;CA&quot;, &quot;NH&quot;, &quot;AK&quot;}<P>
+<P><B>Notes: </B><OL>
+<P><LI>Categorize works on scalar, string, or vectors of any type,
+with the lookup component sorted in order of x, y, z, ...
+If the lookup component has fewer items than the original
+component, then there are duplicate values in the original component.
+If the lookup component has 256 or fewer items,
+the categorized component will be of type unsigned byte;
+otherwise it will be of type int.
+<P><LI>Categorical data can be converted back to its original
+values using either the Lookup module or Map.
+If the lookup component is of type string, it can be input
+as the <TT><STRONG>labels</STRONG></TT> parameter of Plot, ColorBar, or
+AutoAxes to label the values 0, 1, .. n-1 with the corresponding strings.
+This helps automate the labelling of categorical plots. Data imported
+by ImportSpreadsheet can be categorized on import directly by
+specifying the components to categorize. Statistics on the
+categorized component, and another associated component,
+can be found with CategoryStatistics.
+Include can be used to remove data by category.
+</OL>
+<P><STRONG>Components</STRONG>
+<P>
+Modifies the components specified by <TT><STRONG>name</STRONG></TT>, replacing
+it by a list of indices. Adds a new component with the name
+"<TT><STRONG>name</STRONG></TT> lookup" which is a lookup table for component
+<TT><STRONG>name</STRONG></TT>.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+Duplicates.net
+Categorical.net          (Categorize is called on import by ImportSpreadsheet)
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+<A HREF="refgu024.htm#HDRCATEGST">CategoryStatistics</A>,
+<A HREF="refgu074.htm#HDRIMPSPSH">ImportSpreadsheet</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

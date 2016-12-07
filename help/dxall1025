@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall1024 
+Reference Counts #!N #!EC #!N #!N In Data Explorer, reference counts 
+typically require no special action from the user. Thus modules seldom 
+need to call DXReference for any reason, and they usually call 
+DXDelete only to clean up Objects after an error. Note the 
+following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o All 
+Objects are created with a reference count of zero (0). #!N 
+#!I30 #!N o If you call DXDelete on an Object having 
+a reference count of 0 or 1, the Object is invalidated 
+and the space is freed. If the reference count is greater 
+than 1, DXDelete simply decrements the count by 1 and returns. 
+#!N #!I30 #!N o If an Object is incorporated in another 
+Object by a call to DXSetComponentValue or DXSetMember, its reference count 
+is incremented to 1. #!N #!N This means you can create 
+Array Objects and use DXSetComponentValue to add them to a Field 
+as a component, without having to call DXDelete: the Array will 
+be deleted when the Field itself is deleted. (However, if an 
+error occurs before you add the Array to the Field, you 
+must call DXDelete.) #!N #!I30 #!N o Objects returned as output 
+from your module should not be referenced. #!N #!I30 #!N o 
+New Objects that are not part of another Object will have 
+a reference count of 0. The executive increments the reference counts 
+for outputs used by other modules and deletes the Objects when 
+memory space is needed. #!N #!I0 #!N #!EF #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lexecm,dxall1026 h Data Explorer Execution Model  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxproi DXProcessorId #!N #!N 
+Function #!N #!N Returns the identifier of the current processor in 
+a multiprocessor machine. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> int 
+DXProcessorId() #!EF #!N #!N Functional Details #!N #!N The processor identifier 
+is a number ranging from  #!F-adobe-times-medium-i-normal--18*   0 #!EF to  #!F-adobe-times-medium-i-normal--18*   n-1 
+#!EF , where  #!F-adobe-times-medium-i-normal--18*   n #!EF is the number of processors 
+in use. This routine is not generally needed by modules. #!N 
+#!N Return Value #!N #!N Returns the processor identifier. Always returns 
+0 (zero) for a single processor machine. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxproc,dxall1335 h DXProcessors  #!EL  #!EF #!N #!N  #!Lplsm,dxall1105 h Parallelism  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxproc,dxall1335 h DXProcessors  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxrtr DXReadyToRun #!N #!N Function #!N #!N Allows an 
+asynchronous module to signal if it is ready to execute again. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXReadyToRun(Pointer id) #!EF 
+#!N #!N Functional Details #!N #!N Allows an asynchronous module to 
+signal if it is ready to execute again.  #!F-adobe-times-bold-r-normal--18*   id #!EF 
+is the module identifier returned by  #!F-adobe-times-bold-r-normal--18*   DXGetModuleId #!EF . #!N 
+#!N A module normally does not reexecute unless one of its 
+inputs has changed. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXReadyToRun #!EF is normally called 
+from the input handler routine set up with  #!F-adobe-times-bold-r-normal--18*   DXRegisterInputHandler #!EF 
+or from a signal handler set up with the  #!F-adobe-times-bold-r-normal--18*   signal 
+#!EF () system call. #!N #!N If Data Explorer's  #!F-adobe-times-bold-r-normal--18*   Execute 
+on Change #!EF option is active, this call will cause the 
+network to reexcute immediately. Otherwise, the next time the user executes 
+the network, this module will then be executed. #!N #!N It 
+is the module writer's responsibility to determine if the network was 
+reexecuted if one of its inputs has changed because its cached 
+output was reclaimed and needs to be regenerated or because  #!F-adobe-times-bold-r-normal--18*   
+DXReadyToRun #!EF was called. #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   OK #!EF , or returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets 
+the error code to indicate an error. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcrih,dxall1179 h DXCheckRIH  #!EL  ,  #!Ldxcmpmi,dxall1183 h DXCompareModuleId  #!EL  ,  #!Ldxcpmi,dxall1188 h DXCopyModuleId  #!EL  ,  #!Ldxgmid,dxall1250 h DXGetModuleId  #!EL  , 
+ #!Ldxregih,dxall1354 h DXRegisterInputHandler  #!EL  ,  #!Ldxscev,dxall1369 h DXSetCacheEntry, DXSetCacheEntryV  #!EL  #!EF #!N #!N  #!Lasyns,dxall1114 h Asynchronous Services  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxrea,dxall1352 h DXReAllocate  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

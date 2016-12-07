@@ -1,0 +1,148 @@
+*
+* README for IBM Visualization Data Explorer for HP
+*
+*
+*
+ 
+ 
+The information contained in this file consists of hints for using the
+system, help with functions that may not be apparent, and last minute updates
+to the existing documentation.  It is advisable to review this file any time
+Data Explorer updates are applied.
+ 
+========================================================================
+ 
+CONTENTS
+ 
+    To go directly to an item, search for the item number beginning
+    at the left margin.
+ 
+ 
+    1. System Configuration 
+        A. Colormap Considerations
+        B. Default Keyboard Mappings
+        C. DX no longer statically links libC
+    2. Hardware Rendering Considerations
+        A. Shared Library Support for Hardware Rendering
+        B. Hardware Rendering Not Available Message
+        C. Shared Memory Usage
+        D. The CRX Adapter and Direct Interactors
+        E. Resizing in Script Mode
+        F. Near Clipping in Perspective Mode 
+        G. Z-buffer  
+ 
+========================================================================
+ 
+ 
+1. System Configuration
+ 
+A. Colormap Considerations 
+If you are using a workstation with a CRX adapter, you can reduce the
+visual effect of colormap thrashing by setting the environment variable
+SB_X_SHARED_CMAP to TRUE so that X and Starbase will use a shared
+colormap.
+ 
+If you are using x11start, make sure you set this environment variable
+before you issue the x11start command.
+ 
+If you are using the HP VUE (Visual User Environment) add the following
+to the end of the Xconfig file:
+ 
+   vuelogin*environment:SB_X_SHARED_CMAP=TRUE
+ 
+The Xconfig file is located in /usr/vue/config/Xconfig for HP/UX 9.0x.
+ 
+This will effectively make the first 8 colormap cells accessible
+(read/only) to both X and StarBase, reserve the next 34 cells for X,
+and set aside the remaining 214 for StarBase.
+ 
+Since there are relatively few colors available to X, it is possible
+that you will get color map allocation errors when invoking Data
+Explorer, especially if you use the HP VUE, as it can require all
+42 colors reserved for X, depending on the settings of the following
+resources:
+ 
+  *colorUse 
+  *shadowPixmaps
+ 
+The *colorUse resource determines the number of color sets available in
+the current HP VUE color palette, whereas the shadowPixmaps determines
+whether shadowing is done with colors or pixmaps.  
+ 
+For HP/UX 9.0x, color usage is reduced in HP VUE by cascading up from the 
+'Tool Box' icon, and selecting the following icons in order:
+ 
+        General
+        System_admin
+        EditResources 
+ 
+Edit the file provided in the last window to include 
+ 
+*ColorUse: LOW_COLOR 
+*ShadowPixmaps: TRUE 
+ 
+You will then need to log out from the console and log back in for
+these new resources to take effect.
+ 
+B. Default Keyboard Mappings On the Hewlett Packard 9000/700 series
+workstations, the Delete key is marked "Del", and is found on the
+numeric keypad.
+
+C. DX no longer statically links libC
+Data Explorer no longer statically links in libC on hp systems.  
+This may be a problem on older hp systems (9.x) where the libC runtime library
+was not installed by default. However, this library was on
+the original distribution so you should have a copy you 
+can install. 
+ 
+ 
+2. Hardware Rendering Considerations
+ 
+A. Shared Library Support for Hardware Rendering
+When hardware rendering is requested for the first time, the executive
+dynamically loads /usr/lpp/dx/bin_hp700/DXhwdd.sl and the StarBase shared 
+libraries.  If one of these is not present then hardware rendering will 
+be disabled.
+ 
+B. Hardware Rendering Not Available Message
+When the message 'Hardware rendering not available: /usr/lib/libsb.sl not
+found' appears, then StarBase shared library or run-time support has 
+not been installed. 
+ 
+C. Shared Memory Usage
+The hardware rendering software uses shared memory segments.  If Data 
+Explorer exits abnormally after beginning hardware rendering, then these 
+shared memory segments may not be properly deallocated.  Use the 'ipcs' 
+command to see if this has happened and use the 'ipcrm' command to remove 
+them.  If these are not removed they may hamper subsequent executions.
+ 
+D. The CRX Adapter and Direct Interactors
+When using the direct interactors and hardware rendering on a CRX graphics 
+card, zoom boxes and probe points may cause minor image corruption while the 
+mouse button is depressed.  When the mouse button is released, the proper 
+image is generated. 
+ 
+E. Resizing in Script Mode
+For script mode and hardware rendering, an open or resize of the display 
+window might produce a Starbase error.
+ 
+F. Near Clipping in Perspective Projections 
+When navigating into an object, the near clip plane may clip graphics
+primitives to their triangle boundaries instead of the exact intersection
+with the clip plane.  
+ 
+G. Z-buffer  
+Hardware rendering may be performed on a system without a z-buffer card
+if PowerShade is installed on that system.
+----------------------------------------------------------------------
+ 
+The following trademarks apply to this information:
+ 
+IBM is a registered trademark of International Business Machines Corporation.  
+IBM Visualization Data Explorer is a trademark of International
+    Business Machines Corporation.
+HP, Starbase and PowerShade are registered trademarks of Hewlett-Packard 
+    Company.  
+HP-UX and HP VUE are registered trademarks of Hewlett-Packard Company.
+ 
+ 

@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rformkwd format #!N #!EC #!T,115,165 TAB  #!F-adobe-times-bold-r-normal--18*   ascii 
+#!EF #!N #!T,60,115,165 TAB  #!F-adobe-times-bold-r-normal--18*   [ msb #!EF TAB  #!F-adobe-times-bold-r-normal--18*   text 
+#!EF #!N  #!F-adobe-times-bold-r-normal--18*   [format #!EF = #!N TAB  #!F-adobe-times-bold-r-normal--18*   lsb ] 
+#!EF TAB  #!F-adobe-times-bold-r-normal--18*   binary #!EF #!N #!T,115,165 TAB  #!F-adobe-times-bold-r-normal--18*   ieee TAB 
+] #!EF #!N #!T,0 #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Function: #!EF #!I50 #!N Specifies the format and byte order of 
+the data. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Use: #!EF #!I50 #!N Optional. 
+#!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 
+1. The accepted values for byte order are  #!F-adobe-times-bold-r-normal--18*   msb #!EF 
+(most significant byte first) and  #!F-adobe-times-bold-r-normal--18*   lsb #!EF (least significant byte 
+first). If the format is specified as binary, then the default 
+byte order is the host byte order (i.e., the byte order 
+of the machine on which the Import module is executing). #!N 
+#!I30 #!N 2. For specifying the data format,  #!F-adobe-times-bold-r-normal--18*   ascii #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   text #!EF are synonymous, as are  #!F-adobe-times-bold-r-normal--18*   binary #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   ieee #!EF . The default is  #!F-adobe-times-bold-r-normal--18*   ascii #!EF 
+. The supported binary form is IEEE. #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lhdrkwd,dxall147 h header  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

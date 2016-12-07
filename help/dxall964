@@ -1,0 +1,60 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtext Text #!N #!N Category #!N #!N 
+ #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N Function #!N #!N Displays text. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N text #!EF = Text(  #!F-adobe-times-bold-r-normal--18*   
+string, position, height, font, direction, up #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB string TAB string 
+or field TAB none TAB text to be displayed #!N TAB 
+position TAB vector TAB [0 0 0] TAB placement of displayed 
+text #!N TAB height TAB scalar TAB 1 TAB height of 
+the text (in world #!N TAB - TAB - TAB - 
+TAB coordinates) #!N TAB font TAB string TAB "variable" TAB text 
+font #!N TAB direction TAB vector TAB [1 0 0] TAB 
+orientation of the baseline #!N TAB up TAB vector TAB perpendicular 
+to baseline TAB orientation of vertical strokes of #!N TAB - 
+TAB - TAB - TAB text font #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB text 
+TAB color field TAB renderable string object #!N TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N This module 
+produces text that is displayed in space. #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   string #!EF #!EF #!I50 #!N specifies the 
+text to be displayed. If the parameter value is a string, 
+that string is displayed. If the parameter value is a field, 
+its "data" component must be TYPE_STRING. The data may be position 
+or connection dependent: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o position dependent: each string in the "data" component is displayed 
+at its corresponding position. #!N #!I30 #!N o connection dependent: each 
+string is displayed at the center of its corresponding connection element. 
+#!N #!I0 #!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   position 
+#!EF #!EF #!I50 #!N specifies in world units the placement of 
+the displayed text. It is used only when  #!F-adobe-times-bold-r-normal--18*   string #!EF 
+is not a field. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   height #!EF 
+#!EF #!I50 #!N specifies the height of the text, in world 
+units. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   font #!EF #!EF #!I50 #!N 
+specifies the font used for displayed text. You can specify any 
+of the defined fonts supplied with Data Explorer. These include a 
+variable-width font ("variable," the default) and a fixed-width font ("fixed"): #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N area gothicit_t pitman roman_ext #!N cyril_d greek_d 
+roman_d script_d #!N fixed greek_s roman_dser script_s #!N gothiceng_t italic_d roman_s 
+variable #!N gothicger_t italic_t roman_tser #!EF #!N #!N #!EC For more 
+information, see  #!Lapc,dxall746 h Data Explorer Fonts  #!EL  in IBM Visualization Data Explorer User's Guide. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   direction #!EF #!EF #!I50 #!N specifies the 
+orientation of the baseline (see Note in next description). For example, 
+a value of 10 for this parameter specifies that the text 
+is aligned with the x-axis. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   up 
+#!EF #!EF #!I50 #!N specifies the orientation of the vertical strokes 
+of the font used for the displayed text. Note: For string 
+data in a field, the orientation of baseline and text can 
+specified by using "tangents" and "binormals" components. In that way, each 
+string can be oriented individually. These components should have the same 
+dependency as "data" The "tangents" component corresponds to  #!F-adobe-times-bold-r-normal--18*   direction #!EF 
+and "binormals" to  #!F-adobe-times-bold-r-normal--18*   up #!EF . #!N #!N The parameter 
+specifications will override those of the field components. #!I0 #!N #!N 
+#!N #!N Components #!N #!N Creates new "positions," "connections," and "colors" 
+components. #!N #!N Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+UsingTextAndTextGlyphs.net #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Lcaption,dxall781 h Caption  #!EL  ,  #!Lcolor,dxall792 h Color  #!EL  ,  #!Lformat,dxall853 h Format  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ltoggle,dxall965 h Toggle  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

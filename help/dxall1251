@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgnhe DXGetNextHashElement #!N #!N 
+Function #!N #!N Returns the next element in a hash table 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Element DXGetNextHashElement(HashTable hashTable) #!EF 
+#!N #!N Functional Details #!N #!N The elements are returned in 
+no predefined order.  #!F-adobe-times-bold-r-normal--18*   DXInitGetNextHashElement #!EF must be called before any 
+calls to  #!F-adobe-times-bold-r-normal--18*   DXGetNextHashElement #!EF are made. #!N #!N  #!F-adobe-times-bold-r-normal--18*   Element 
+#!EF is defined as: #!N #!N  #!F-adobe-times-bold-r-normal--18*   typedef Pointer Element; #!EF 
+#!N #!N Return Value #!N #!N Returns the next element or 
+returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF if there are no more elements to 
+return. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxch,dxall1190 h DXCreateHash  #!EL  ,  #!Ldxignhe,dxall1279 h DXInitGetNextHashElement  #!EL  
+#!EF #!N #!N  #!Lhash,dxall1121 h Hashing  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxgniei,dxall1252 h DXGetNextInvalidElementIndex  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

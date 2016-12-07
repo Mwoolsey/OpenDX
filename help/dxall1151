@@ -1,0 +1,58 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rexecctl Execution Control #!N 
+#!EC #!N #!N These routines allow an application program to control 
+the execution of an instance of Data Explorer (represented by  #!F-adobe-times-bold-r-normal--18*   
+*conn #!EF ). #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+DXLError DXLEndExecution(DXLConnection *conn) #!EF #!EF #!I50 #!N Terminates execution of a 
+program running in Data Explorer. Returns OK or ERROR. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLEndExecuteOnChange(DXLConnection *conn) #!EF #!EF #!I50 #!N Takes 
+Data Explorer out of Execute on Change mode, but does not 
+terminate the current execution. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLExecuteOnChange(DXLConnection 
+*conn) #!EF #!EF #!I50 #!N Puts Data Explorer into execute-on-change mode: 
+the main macro reexecutes each time any of its inputs or 
+referenced global variables changes value. Returns OK or ERROR. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLEndExecuteOnChange(DXLConnection *conn); #!EF #!EF #!I50 #!N ends 
+execute-on-change mode. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLExecuteOnce(DXLConnection *conn) #!EF 
+#!EF #!I50 #!N Initiates a single execution of the macro called 
+main. Returns OK or ERROR. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError 
+DXLGetExecutionStatus(DXLConnection *conn, int *state) #!EF #!EF #!I50 #!N Gets the execution 
+status of Data Explorer. The parameter state is returned with a 
+nonzero value if the executive is currently executing. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLSequencerCtl(DXLConnection *conn, DXLSequencerCtlEnum action) #!EF #!EF #!I50 #!N 
+Causes the specified action to occur. Valid arguments for  #!F-adobe-times-bold-r-normal--18*   action 
+#!EF are: #!N #!N SeqLoopOff SeqLoopOn SeqPalindromeOff SeqPalindromeOn SeqPause SeqPlayBackward SeqPlayForward 
+SeqStep SeqStop #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLSync(DXLConnection *conn) #!EF 
+#!EF #!I50 #!N Sends a message to the server and does 
+not return until an acknowledgment is received. (This is a one-time 
+synchronization. Compare with DXLSetSynchronization in  #!Linitex,dxall1146 h Initialization and Exit  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLSyncExecutive(DXLConnection *conn) #!EF #!EF #!I50 #!N Sends a message 
+through the user interface to the executive and does not return 
+until the executive has acknowledged the message. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLSetRenderMode(DXLConnection *conn, char *title, int rmode) #!EF #!EF #!I50 
+#!N lets you set the rendering mode of a window specified 
+by  #!F-adobe-times-bold-r-normal--18*   title #!EF . The title of the window (accessible 
+through the  #!F-adobe-times-bold-r-normal--18*   Image Name #!EF option in the  #!F-adobe-times-bold-r-normal--18*   Options 
+#!EF pull-down menu of the Image window, the  #!F-adobe-times-bold-r-normal--18*   title #!EF 
+parameter of the Image tool, or the  #!F-adobe-times-bold-r-normal--18*   where #!EF parameter 
+of the Display module.  #!F-adobe-times-bold-r-normal--18*   rmode #!EF must be either 0 
+(for software) or 1 (for hardware). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+DXLError uiDXLResetServer() #!EF #!EF #!I50 #!N effectively does a "reset server." 
+That is, it flushes the Data Explorer software cache. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError exDXLExecuteOnceNamed(DXLConnection *conn, char *name); #!EF #!EF #!I50 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError exDXLExecuteOnceNamedWithArgs(DXLConnection *conn, char *name, 
+. ..); #!EF #!EF #!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+DXLError exDXLExecuteOnceNamedWithArgsV(DXLConnection *conn, char *name, char **args); #!EF #!EF #!I50 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError exDXLExecuteOnChangeNamed(DXLConnection *conn, char *name); #!EF 
+#!EF #!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError exDXLExecuteOnChangeNamedWithArgs(DXLConnection *conn, 
+char *name, ...); #!EF #!EF #!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DXLError exDXLExecuteOnChangeNamedWithArgsV(DXLConnection *conn, char *name , char **args); #!EF #!EF 
+#!I50 #!N These routines, used ONLY when the application is connected 
+directly to the Data Explorer executive, allow the application to execute 
+macros by name. The application can cause the named macro to 
+be executed once or to be executed whenever a macro global 
+input changes (such as when a value is sent to a 
+DXLInput or DXLInputNamed module). The macro may be given a NULL-terminated 
+list of arguments (the ...WithArgs form) or a NULL-terminated vector of 
+arguments (the ...WithArgsV form). #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lprgctl,dxall1152 h Program Control  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

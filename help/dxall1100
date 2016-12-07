@@ -1,0 +1,62 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rotrs Object Routines #!N #!EC #!N #!N 
+A number of routines can operate on any Object. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Class DXGetObjectClass() #!EF #!EF #!I50 
+#!N Returns the class of an Object. See  #!Ldxgoc,dxall1254 h DXGetObjectClass  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXDelete() #!EF #!EF #!I50 #!N Deletes 
+a reference to an Object. See  #!Ldxdel,dxall1195 h DXDelete  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXSetAttribute() #!EF #!N Object DXDeleteAttribute(); #!EF #!I50 #!N 
+Add or remove a named attribute from an Object. See  #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXGetAttribute() #!EF #!N Object 
+DXGetEnumeratedAttribute(); #!EF #!I50 #!N Retrieve an attribute from an Object. See 
+ #!Ldxga,dxall1223 h DXGetAttribute  #!EL  and  #!Ldxgea,dxall1231 h DXGetEnumeratedAttribute  #!EL  . #!N #!N The first retrieves a named 
+attribute from an Object; the second, the  #!F-adobe-times-medium-i-normal--18*   n #!EF th 
+attribute. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXGetFloatAttribute() #!EF #!EF #!I50 
+#!N Retrieves a named attribute from an Object, verifies that its 
+contents are a floating-point number, and returns that number. See  #!Ldxgfa,dxall1238 h DXGetFloatAttribute  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXGetIntegerAttribute() #!EF #!EF #!I50 
+#!N Retrieves a named attribute from an Object, verifies that it 
+contains an integer number, and returns that number. See  #!Ldxgia,dxall1242 h DXGetIntegerAttribute  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXGetStringAttribute() #!EF #!EF #!I50 #!N 
+Retrieves a named attribute from an Object, verifies that it contains 
+a string, and returns a pointer to that string. See  #!Ldxgsa,dxall1268 h DXGetStringAttribute  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXSetFloatAttribute() #!EF #!N Object 
+DXSetIntegerAttribute(); #!N Object DXSetStringAttribute(); #!EF #!I50 #!N Associate a floating-point, integer, 
+or string attribute with an Object. See  #!Ldxsfa,dxall1379 h DXSetFloatAttribute  #!EL  ,  #!Ldxsia,dxall1381 h DXSetIntegerAttribute  #!EL  , 
+and  #!Ldxssa,dxall1392 h DXSetStringAttribute  #!EL  . #!I0 #!N #!N #!N #!N Objects can also 
+be copied: #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N enum copy { 
+#!N COPY_ATTRIBUTES, #!N COPY_HEADER, #!N COPY_STRUCTURE #!N }; #!EF #!N #!N 
+#!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXCopy() 
+#!EF #!EF #!I50 #!N Copies the structure of an object. The 
+ #!F-adobe-times-bold-r-normal--18*   COPY_ #!EF parameter determines the depth to which an Object 
+is copied: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+ #!F-adobe-times-bold-r-normal--18*   COPY_ATTRIBUTES #!EF Creates a new Object of the same type 
+as the old and copies all attributes and type information. It 
+ #!F-adobe-times-medium-i-normal--18*   does not #!EF put references to members, components, etc. into 
+the new object. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   COPY_HEADER #!EF Copies 
+only the header of the immediate Object. It  #!F-adobe-times-medium-i-normal--18*   does not 
+#!EF copy the attributes, members, etc.; instead it puts references to 
+them into the new Object. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   COPY_STRUCTURE 
+#!EF Is the parameter most frequently used with this routine. #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N - For Groups: copies 
+the Group header and recursively copies all Group members. #!N #!I30 
+#!N - For Fields: copies the Field header. It  #!F-adobe-times-medium-i-normal--18*   does 
+not #!EF copy the components (which are usually Arrays); instead it 
+puts references to the components into the resulting Field. #!N #!I30 
+#!N - For Arrays: passes back a pointer to the Array 
+and makes no copy. #!N #!I0 #!N #!EF #!N #!N #!I0 
+#!N #!EF #!N #!N #!N On error, the routine returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. See  #!Ldxc,dxall1186 h DXCopy  #!EL  . See 
+also  #!Lposit,dxall1031 h Working with Positions  #!EL  ,  #!Lconnec,dxall1034 h Working with Connections  #!EL  , and  #!Limptd,dxall1036 h Importing Data  #!EL  for examples of this 
+routine's use. #!I0 #!N #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   LESS COMMONLY USED 
+ROUTINES #!EF __________________________________ #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Object DXReference() #!EF #!EF #!I50 #!N Increments the reference count of 
+a specified Object. See  #!Ldxref,dxall1353 h DXReference  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Error DXUnreference() #!EF #!EF #!I50 #!N Removes a reference from an 
+Object without deleting it. See  #!Ldxuref,dxall1404 h DXUnreference  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   int DXGetObjectTag() #!EF #!N Object DXSetObjectTag(); #!EF #!I50 #!N Manipulate 
+unique Object identifiers. See  #!Ldxgsot,dxall1255 h DXGetObjectTag, DXSetObjectTag  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Object DXCopyAttributes() #!EF #!EF #!I50 #!N Copies attributes from one Object 
+to another. See  #!Ldxca,dxall1187 h DXCopyAttributes  #!EL  . #!I0 #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lty,dxall1101 h Setting Data Types  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

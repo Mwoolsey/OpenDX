@@ -1,0 +1,771 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+ #!R#!el #!N #!CIndianRed  #!Lall0,dxall1 h QuickStart Guide  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lquikov,dxall2 h A Very Quick Overview  #!EL  #!N 
+#!N #!EC #!CSlateBlue .  #!Lapa,dxall3 h Tutorial I: Using Data Explorer  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Ltstart,dxall4 h Starting Data Explorer  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall4,dxall5 h Accessing the Tutorials  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lstrttut,dxall6 h Where To Begin  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Ltuta2,dxall7 h Opening and Executing a Visual Program  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lloadvp,dxall8 h Opening a Visual Program  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall8,dxall9 h Executing a Visual Program  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Ltuta5,dxall10 h Controlling the Appearance of an Object: The Image Window  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall10,dxall11 h Size, View, and AutoAxes  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lall11,dxall12 h Size Control  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall12,dxall13 h View Control  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lall19,dxall20 h AutoAxes Configuration  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lsequen2,dxall21 h Using the Sequencer  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lcpapa,dxall22 h Using Control Panels  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall22,dxall23 h Using the Colormap Editor  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lall23,dxall24 h Opening the Colormap Editor:  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lall24,dxall25 h Specifying Colormap Values  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lapg,dxall26 h Tutorial II: Editing and Creating Visual Programs  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Ltedvp,dxall27 h Editing a Visual Program: The Basics  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Ltstapi,dxall28 h Selecting tools and placing icons  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall28,dxall29 h Tool icons  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lcdb,dxall30 h Specifying inputs: configuration dialog boxes  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall30,dxall31 h Specifying inputs: arcs and icons  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall31,dxall32 h Deleting a tool icon  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall32,dxall33 h Moving a tool icon  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall33,dxall34 h Creating a Visual Program: Two short examples  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall34,dxall35 h A simple two-dimensional field  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall35,dxall36 h A simple three-dimensional field  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Ltimpdat,dxall37 h Importing Data  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall37,dxall38 h Example 1  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall38,dxall39 h Example 2  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall39,dxall40 h A thumbnail Sketch of the Data Prompter Choices  #!EL  
+#!N #!N #!EC #!CNavyBlue . .  #!Ltyod,dxall41 h Importing Your Own Data  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lt2ddat,dxall42 h Visualizing 2-Dimensional Data  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ltcolor,dxall43 h Colors  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Ltcntln,dxall44 h Contour Lines  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Ltstmln2,dxall45 h Streamlines  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Ltrbrsht,dxall46 h RubberSheet  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lt2dsgly,dxall47 h 2-D Scalar Glyphs  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lt2dvgly,dxall48 h 2-D Vector Glyphs  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lt3ddat,dxall49 h Visualizing 3-Dimensional Data  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ltisosrf,dxall50 h Isosurfaces  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Ltslice,dxall51 h Slices  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Ltstmln3,dxall52 h Streamlines  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lt3dsgly,dxall53 h 3-D Scalar Glyphs  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lt3dvgly,dxall54 h 3-D Vector Glyphs  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Ltvolrnd,dxall55 h Volume Rendering  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lttandt,dxall56 h Tasks and Tools  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ltcaps,dxall57 h Adding Captions  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Ltadts,dxall58 h Adding Input Tabs to Tool Icons  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Ltscdps,dxall59 h Connecting Scattered Data Points  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Ltcntxec,dxall60 h Controlling Execution with Switch  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ltcnfgbx,dxall61 h Controlling Inputs: Configuration Dialog Boxes  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall61,dxall62 h Changing parameter values  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lthidprm,dxall63 h Displaying and hiding parameters  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Ltconpan,dxall64 h Controlling Inputs: Interactors  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Ltstapi1,dxall65 h Selecting interactors and placing stand-ins  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall65,dxall66 h Connecting the interactor  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall66,dxall67 h Creating a control panel  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lsetia,dxall68 h Setting the interactor attributes  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall68,dxall69 h Executing the program on change  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall69,dxall70 h Changing the interactor style  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall70,dxall71 h Changing the interactor label  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Ltanimat,dxall72 h Creating Animations  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall72,dxall73 h Changing the limits of the sequencer  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Ltmacro,dxall74 h Creating and Using Macros  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ltddint,dxall75 h Data-driven Tools  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall75,dxall76 h Data-Driven Colormap Editor  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lall76,dxall77 h Data-Driven scalar interactor  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall77,dxall78 h Data-driven selector  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lall78,dxall79 h Data-driven sequencer  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ltautcol,dxall80 h Modules: Using AutoColor  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Ltcmpmod,dxall81 h Modules: Using Compute  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Ltmappng,dxall82 h Modules: Using Map  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Ltplot,dxall83 h Modules: Using Plot  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ltimproc,dxall84 h Processing Images  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Ltsandp,dxall85 h Saving and Printing Images  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Ltsclang,dxall86 h Scripting Language  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lsamples,dxall87 h Sample Visual Programs and Sample Macros  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Lsamplvp,dxall88 h Sample Visual Programs  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall88,dxall89 h Simple Visual Programs  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall89,dxall90 h 2-Dimensional Data  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!L3ddat,dxall91 h 3-Dimensional Data  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall91,dxall92 h Annotation  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall92,dxall93 h Categorical  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall93,dxall94 h Colormap Editor  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall94,dxall95 h Compute  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall95,dxall96 h Data-driven Interactors  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall96,dxall97 h Debugging  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall97,dxall98 h Distributed Processing  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall98,dxall99 h Image Processing  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall99,dxall100 h Importing Data  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall100,dxall101 h Interface Control  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall101,dxall102 h Looping  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall102,dxall103 h Miscellaneous  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall103,dxall104 h Probes  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall104,dxall105 h Rendering  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall105,dxall106 h Scattered Data  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall106,dxall107 h Sequencer  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lsamplma,dxall108 h Sample Macros  #!EL  #!N 
+#!N #!EC #!CSlateBlue .  #!Lqimd,dxall109 h Importing Data  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Lgai,dxall110 h General Array Importer  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall110,dxall111 h Describing the Data  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall111,dxall112 h Creating a Header File  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lgaints,dxall113 h Some Notes on General Array Importer Format  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lgaiexs,dxall114 h Importing Data: Header File Examples  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall114,dxall115 h Record Style: Single-Variable Data  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall115,dxall116 h Example 1. Scalar Data on a Regular Grid  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lall116,dxall117 h Example 2. Cell-centered Data  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lall117,dxall118 h Example 3. Data with Header information  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall118,dxall119 h Example 4. Naming a Field  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Ldgrdinf,dxall120 h Example 5. Deriving Grid Information from a Data File  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lex6n7,dxall121 h Examples 6 and 7. Vector Data  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall121,dxall122 h Example 8. Series Data  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lex4a,dxall123 h Example 9. Data and Header in the Same File  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lmvardat,dxall124 h Record Style: Multivariable Data  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall124,dxall125 h Example 1. Multiple Scalar Fields  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall125,dxall126 h Example 2. Cell-Centered Data  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall126,dxall127 h Example 3. Multiple Scalars with Mixed Dependencies  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall127,dxall128 h Examples 4 and 5. Scalar and Vector Data  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lmltvrx6,dxall129 h Example 6. Deformed (Warped) Regular Grid  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall129,dxall130 h Example 7. Scattered Data  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lall130,dxall131 h Example 8. Using the Block Keyword  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall131,dxall132 h Columnar Style  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall132,dxall133 h Example 1. Scalar and Vector Data on a Regular Grid.  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall133,dxall134 h Example 2. Deformed (Warped) Regular Grid  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall134,dxall135 h Example 3. Scattered Scalar Data  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lall135,dxall136 h Example 4. Handling Interspersed Text  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall136,dxall137 h Example 5. Time Series with Interspersed Text  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lall137,dxall138 h Example 6. Column Majority Data  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lsydfgi,dxall139 h Header File Syntax: Keyword Statements  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lfilkwd,dxall140 h file  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lgridkwd,dxall141 h grid  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lpntkwd,dxall142 h points  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lblokwd,dxall143 h block  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Ldepkwd,dxall144 h dependency  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lfldkwd,dxall145 h field  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lformkwd,dxall146 h format  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lhdrkwd,dxall147 h header  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lintrkwd,dxall148 h interleaving  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Llaytkwd,dxall149 h layout  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lmajkwd,dxall150 h majority  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lrsepkwd,dxall151 h recordseparator  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lserskwd,dxall152 h series  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lstrckwd,dxall153 h structure  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ltypkwd,dxall154 h type  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lposkwd,dxall155 h positions  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lendkwd,dxall156 h end  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lprompt,dxall157 h Data Prompter  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall157,dxall158 h For Future Reference  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall158,dxall159 h Supported Formats  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Linitdb,dxall160 h Initial Dialog Box  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lsimpdp,dxall161 h Simplified Data Prompter  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Ldprfile,dxall162 h Data Prompter File Pull-down Menu  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Ldpredit,dxall163 h Data Prompter Edit Pull-down Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Ldpropts,dxall164 h Data Prompter Options Pull-down Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Ldprhelp,dxall165 h Data Prompter Help Pull-down Menu  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lfulldpr,dxall166 h Full Data Prompter  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Ldfndinf,dxall167 h Data File and Data Information  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Ldfldinf,dxall168 h Data Fields Information  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Lbrowse,dxall169 h Data Prompter Browser  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lstrtbrs,dxall170 h Starting the Browser  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall170,dxall171 h Browser Menu Bar  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lbrsfile,dxall172 h Browser File Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lbrsmark,dxall173 h Browser Mark Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lbrspage,dxall174 h Browser Page Menu  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lbrssear,dxall175 h Browser Search Menu  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lbrswind,dxall176 h Browser Text Window  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lbrsoffa,dxall177 h Browser Offset Area  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall177,dxall178 h Using the Header File to Import Data  #!EL  #!N 
+#!N #!EC #!CIndianRed  #!Lall178,dxall179 h User's Guide  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Love,dxall180 h Overview  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Lovedx,dxall181 h Overview of Data Explorer  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lc11,dxall182 h System Structure  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall182,dxall183 h Graphical User Interface  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall183,dxall184 h Executive  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall184,dxall185 h Modules  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Ldam,dxall186 h Data Management  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall186,dxall187 h How the Data Model Facilitates Interoperability  #!EL  #!N #!N 
+#!EC #!CSlateBlue .  #!Lvis,dxall188 h Introduction to Visualization  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall188,dxall189 h Terminology  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall189,dxall190 h Rendering  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall190,dxall191 h Positions and Connections Dependence  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall191,dxall192 h Connections and Interpolation  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall192,dxall193 h Identifying Connections  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Linvdat,dxall194 h Invalid Data  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lfields,dxall195 h Fields  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall195,dxall196 h Visual Programming: The Basics  #!EL  
+#!N #!N #!EC #!CSlateBlue .  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lall197,dxall198 h Introduction to the Data Model  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall198,dxall199 h Object Types  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall199,dxall200 h Fields  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lstancom,dxall201 h Standard Components  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lsca,dxall223 h Standard Attributes  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Larrays,dxall252 h Arrays  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall252,dxall253 h Irregular Arrays  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall253,dxall254 h Regular Array  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall254,dxall255 h Product Array  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall255,dxall256 h Path Array  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall256,dxall257 h Mesh Array  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall257,dxall258 h Constant Array  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall258,dxall259 h Groups  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall259,dxall260 h Multigrid Groups  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall260,dxall261 h Composite Field Groups  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lsergrp,dxall262 h Series Groups  #!EL  
+#!N #!N #!EC #!CSlateBlue .  #!Lxmod,dxall263 h Data Explorer Execution Model  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lall263,dxall264 h Data Flow  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall264,dxall265 h Iterative Execution and Caching of Intermediate Results  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Lall265,dxall266 h Conditional Execution: Route and Switch  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Literseq,dxall267 h Iteration using the Sequencer  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lloop,dxall268 h Iteration using Looping  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lstates,dxall269 h Preserving Explicit State  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall269,dxall270 h Advanced Looping Constructs  #!EL  
+#!N #!N #!EC #!CNavyBlue . .  #!Lall270,dxall271 h External Asynchronous Data Sources  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lall271,dxall272 h Parallelism using Distributed Processing  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall272,dxall273 h Parallelism for Data Explorer SMP  #!EL  #!N 
+#!N #!EC #!CSlateBlue .  #!Lunduse,dxall274 h Graphical User Interface: Basics  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Lall274,dxall275 h Starting Data Explorer  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lenvar,dxall276 h Using Environment Variables  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Ltypes,dxall283 h Understanding Data Explorer Windows  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall283,dxall284 h Looking at Window Structure  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lusemous,dxall285 h Using the Mouse  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lresize,dxall286 h Moving and Resizing Windows  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lselmen,dxall287 h Selecting Pull-Down Menus and Pull-Down Menu Options  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall287,dxall288 h Selecting and Deselecting Items with the Mouse  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall288,dxall289 h Selecting a Choice in an Option Box  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Ledtxt,dxall290 h Editing Text Fields  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lwinstak,dxall291 h Working with Windows  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lonhelp,dxall292 h Using Online Help  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lusrhelp,dxall293 h User-Defined Help Files  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lexvp,dxall294 h Executing a Visual Program  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lsequen,dxall295 h Using the Sequencer  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall295,dxall296 h Using a Data-Driven Sequencer  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lermsgs,dxall297 h Error Messages  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lundus2,dxall298 h Graphical User Interface: Important Windows  #!EL  
+#!N #!N #!EC #!CNavyBlue . .  #!Luseimag,dxall299 h Using the Image Window  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lchav,dxall300 h Controlling the Image: View Control...  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lchvudir,dxall301 h Changing Your Viewing Direction  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lprojmet,dxall302 h Changing the Projection Method  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lrotobj,dxall305 h Rotating the Object  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lzooming,dxall306 h Zooming into and out of the Image  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lroam,dxall307 h Changing the Look-to Point  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lpanzoom,dxall308 h Panning and Zooming into and out of the Image  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lnavigat,dxall309 h Navigating in a Scene  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lcamset,dxall310 h Precise Camera Settings  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall316,dxall317 h Resizing the Image  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lrestimg,dxall318 h Restoring Images  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lprobes,dxall321 h Using Probes (Cursors)  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lpickin,dxall322 h Using Pick  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall322,dxall323 h Undo, Redo, and Reset  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lgautax,dxall324 h AutoAxes...  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lstbkcl,dxall325 h Set Background Color...  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall325,dxall326 h Display Rotation Globe  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lglopt,dxall327 h Rendering Options...  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Limdep,dxall328 h Image Depth  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lspeed,dxall329 h Changing the Rate of Frame Display: Throttle...  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lchtiiw,dxall330 h Changing the Title of an Image Window  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lcpacc,dxall331 h Control Panel Access...  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lsavimgs,dxall332 h Saving an Image  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lall332,dxall333 h Save Image Options  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lprtimgs,dxall334 h Printing an Image  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall334,dxall335 h Print Image Options  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Lusvpe,dxall336 h Using the VPE  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lcreatvp,dxall337 h Creating a Visual Program  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lptocanv,dxall338 h Placing Tools on the Canvas  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lsmd,dxall339 h Selecting, Moving, and Deleting Tool Icons  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lsetval,dxall340 h Specifying Values for a Tool's Inputs  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lcdmtc,dxall341 h Creating, Deleting, and Moving Tab Connections  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lmacts,dxall342 h Moving and Copying Tools  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Ltnr,dxall343 h Using Transmitters and Receivers  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lartabs,dxall344 h Adding and Removing Input and Output Tabs  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lucb,dxall345 h Entering Values in a Configuration Dialog Box  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lnota,dxall346 h Notation Field  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Linsect,dxall347 h Inputs Section  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lall347,dxall348 h Outputs Section  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lbtns,dxall349 h Pushbuttons  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lrahit,dxall350 h Revealing and Hiding Input Tabs  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lcompdi,dxall351 h Using the Compute Module Configuration Dialog Box  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lltftdb,dxall352 h Locating Tools: The Find Tool Dialog Box  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lwindset,dxall353 h Customizing the VPE Window  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Ladcom,dxall354 h Adding Comments to a Visual Program  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lvpeanot,dxall355 h Adding Annotation to a Visual Program  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lvpepage,dxall356 h Creating pages in the VPE  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lsavervp,dxall357 h Saving and Restoring a Visual Program  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lfsbox,dxall358 h File Selection Dialog Boxes  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lsavevp,dxall359 h Saving a Visual Program  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lrestpre,dxall364 h Restoring a Previously Created Program  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lcolmape,dxall365 h Using the Colormap Editor  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lentv,dxall366 h Entering Values in a Colormap Editor  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Ladconp,dxall367 h Adding Control Points  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lselconp,dxall368 h Selecting Control Points  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lmovcps,dxall371 h Moving Control Points  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lcrewvs,dxall372 h Creating Waveforms  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lcapcps,dxall373 h Copying and Pasting Control Points  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Ldiscpv,dxall374 h Display Control Point Values  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Laxdisp,dxall375 h Axis Display  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lcolcnam,dxall376 h Changing the name of the Colormap Editor  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall376,dxall377 h Saving and Loading Color Maps  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall377,dxall378 h Using Data-Driven Colormap Editors  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lundus3,dxall379 h Graphical User Interface: Control Panels, Interactors, and Macros  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lbuico,dxall380 h Using Control Panels and Interactors  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lcpi,dxall381 h Building Control Panels  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lintracs,dxall382 h Placing Interactors in a New Control Panel  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Ladin2cp,dxall383 h Adding Interactors to an Existing Control Panel  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall383,dxall384 h Selecting, Moving, and Deleting Interactors  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall384,dxall385 h Changing the Size of an Interactor  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Llocsti,dxall386 h Locating Interactor Stand-ins  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall386,dxall387 h Deleting Control Panels  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall387,dxall388 h Saving and Restoring Control Panels  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lccp,dxall389 h Customizing a Control Panel  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lchcpnm,dxall390 h Changing the Name of a Control Panel  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Ladcm2cp,dxall391 h Adding Comments to a Control Panel  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lccpgrid,dxall392 h Changing the Alignment of Interactors in the Control Panel  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lchinst,dxall393 h Changing the Interactor Style  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lreszint,dxall394 h Resizable Interactors.  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lchindi,dxall395 h Changing the Interactor Dimensionality  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lchinla,dxall396 h Changing the Interactor Layout  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lsetatdb,dxall397 h Setting Interactor Attributes  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lcpadbs,dxall403 h Control Panels as Dialog Boxes  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lcpa,dxall404 h Control Panel Access, Groups, and Hierarchies  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lcmd,dxall405 h Creating, Modifying, and Deleting Control Panel Groups  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lrcpa,dxall406 h Restricting Control Panel Access  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lstartcp,dxall407 h Specifying a Startup Control Panel  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Locp,dxall408 h Opening Existing Control Panels  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Linterac,dxall409 h Using Interactors  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lintscai,dxall410 h Integer and Scalar Interactors  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lstrint,dxall418 h String Interactor  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lvalint,dxall419 h Value Interactor  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lvecint,dxall420 h Vector Interactor  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Llistint,dxall421 h List Interactors  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lselint,dxall430 h Selector and SelectorList Interactors  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lfselint,dxall431 h FileSelector Interactor  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lrsetint,dxall432 h Reset Interactor  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Ltoglint,dxall433 h Toggle Interactor  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lddinter,dxall434 h Using Data-Driven Interactors  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lmacros,dxall435 h Creating and Using Macros  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lcremac,dxall436 h Creating Macros  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Llodmac,dxall437 h Loading Macros  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lumacvp,dxall438 h Using Macros in a Visual Program  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall438,dxall439 h Viewing and Changing Macros  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lundus4,dxall440 h Graphical User Interface: Menus, Options, and the Message Window  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lprimwin,dxall441 h Using the Primary Window Pull-Down Menus and Options  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lvpemenu,dxall442 h VPE Window Menu Bar  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lvpefmen,dxall443 h VPE File Menu  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lvpeemen,dxall444 h VPE Edit Menu  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lvpexmen,dxall445 h VPE Execute Menu  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lvpewmen,dxall446 h VPE Windows Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lvpecmen,dxall447 h VPE Connection Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lvpeomen,dxall448 h VPE Options Menu  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lvpehmen,dxall449 h Help Menu  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lcpmenu,dxall450 h Control Panel Menu Bar  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lcpfmen,dxall451 h Control Panel File Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lcpemen,dxall452 h Control Panel Edit Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lcpxmen,dxall453 h Control Panel Execute Menu  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lcppmen,dxall454 h Control Panel Panels Menu  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lconpop,dxall455 h Control Panel Options Menu  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall455,dxall456 h Help Menu  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Limamenu,dxall457 h Image Window Menu Bar  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Limwinfm,dxall458 h Image Window File Menu  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall458,dxall459 h Image Window Execute Menu  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Limwinwm,dxall460 h Image Window Windows Menu  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall460,dxall461 h Image Window Connection Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Limwinom,dxall462 h Image Window Options Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lall462,dxall463 h Help Menu  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lcolmen,dxall464 h Colormap Menu Bar  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lcmapfm,dxall465 h Colormap File Menu  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lcmapem,dxall466 h Colormap Edit Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lcmapxm,dxall467 h Colormap Execute Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lcmapom,dxall468 h Colormap Options Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall468,dxall469 h Help Menu  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lmenbmen,dxall470 h Menu Bar Menu Bar  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall470,dxall471 h Menu Bar File Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lall471,dxall472 h Menu Bar Execute Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lall472,dxall473 h Menu Bar Connection Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall473,dxall474 h Menu Bar Windows Menu  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall474,dxall475 h Help Menu  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lmessmen,dxall476 h Message Window Menu Bar  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lmsgwfm,dxall477 h Message Window File Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lmsgwem,dxall478 h Message Window Edit Menu  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lmsgwxm,dxall479 h Message Window Execute Menu  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lmsgwcm,dxall480 h Message Window Commands Menu  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lmsgwom,dxall481 h Message Window Options Menu  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Ldebug,dxall482 h Using the Message Window  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lundus5,dxall483 h Graphical User Interface: For Advanced Users  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Ldistcmp,dxall484 h Using Distributed Computation  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall484,dxall485 h Creating, Modifying, and Deleting Execution Groups  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lcrexegr,dxall486 h Creating an Execution Group  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall486,dxall487 h Modifying Execution Groups  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall487,dxall488 h Deleting an Execution Group  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall488,dxall489 h Displaying the Tools in an Execution Group  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lasxgrp,dxall490 h Assigning Execution Groups to Workstations  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall490,dxall491 h Restrictions  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lvfm,dxall492 h Loading and Using Outboard and Runtime-Loadable Modules  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lconserv,dxall493 h Connecting to the Server  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lrstsrv,dxall494 h Resetting the Server  #!EL  #!N #!N #!EC 
+#!CSlateBlue .  #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lstartsc,dxall496 h Starting Data Explorer in Script Mode  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall496,dxall497 h Setting Environment Variables  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lbaselm,dxall506 h Understanding the Script Structure  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lall506,dxall507 h Example 1. A Simple Script  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall507,dxall508 h Example 2. Setting Parameters  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall508,dxall509 h Example 3. Using a Macro  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall509,dxall510 h Example 4. Using Route in the Script Language  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall510,dxall511 h Example 5. Using the Sequencer  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall511,dxall512 h Language Delimiters  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall512,dxall513 h Commenting Scripts  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall513,dxall514 h Naming Variables and Macros  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lall514,dxall515 h Reserved Words  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall515,dxall516 h Specifying Values in a Script  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lstrico,dxall517 h String Constants  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lall517,dxall518 h Scalar Numeric Constants  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lvecm,dxall523 h Vectors, Matrices, and Tensors  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Llists1,dxall530 h Lists  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lbld,dxall531 h Building Expressions and Statements  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall531,dxall532 h Arithmetic Expressions  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Loper,dxall533 h Operators  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall533,dxall534 h Assignment Statements  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall534,dxall535 h Expression Assignments  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lfuncall,dxall536 h Function Call Assignments  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lcallf,dxall537 h Invoking Data Explorer Macros and Modules  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall537,dxall538 h Function Call Arguments  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall538,dxall539 h Positional Arguments  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall539,dxall540 h By-Name Arguments  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall540,dxall541 h Missing Arguments  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall541,dxall542 h Example  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lfca,dxall543 h Function Call Attributes  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lmacrdef,dxall544 h Defining Macros  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall544,dxall545 h Macro Header  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall545,dxall546 h Macro Body  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall546,dxall547 h Macro Examples  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Lsdxsc,dxall548 h Using Data Explorer Script Commands  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lvcrcomm,dxall549 h Sequencer  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lfilincl,dxall550 h File Inclusion  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall550,dxall551 h Prompts  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lsem,dxall552 h Understanding the Script Execution Model  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall552,dxall553 h Top-level Environment  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall553,dxall554 h Function Execution  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall554,dxall555 h Macro Expansion  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lvuim,dxall556 h Variables Used in Macros  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lvalsv,dxall557 h Variables as Left-Side Values  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lvarsv,dxall558 h Variables as Right-Side Values  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall558,dxall559 h Example  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall559,dxall560 h Assignment and Function Call Semantics  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall560,dxall561 h Execution Example  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall561,dxall562 h Running .net files in script mode  #!EL  #!N #!N 
+#!EC #!CSlateBlue .  #!Lappviz,dxall563 h Using Data Explorer: Some Useful Hints  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Ludxeff,dxall564 h Using Data Explorer Effectively  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall564,dxall565 h Common Problems  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall565,dxall566 h Debugging  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall566,dxall567 h Stopping Execution  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall567,dxall568 h How to orient yourself in the Image window  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall568,dxall569 h What is the Difference Between Image and Display?  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall569,dxall570 h How do I get more information?  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall570,dxall571 h Memory Use  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall571,dxall572 h Data Explorer Object Cache  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall572,dxall573 h Reducing Memory Requirements  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall589,dxall590 h System Tuning  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Lall596,dxall597 h Visualization Techniques  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lanimat,dxall598 h Animation  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lannot,dxall599 h Annotation  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lcolmap,dxall600 h Color Mapping  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lcntiso,dxall601 h Contours and Isosurfaces  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lmaping,dxall602 h Mapping  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lnorsha,dxall603 h Normals and Shading  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lplohis,dxall604 h Plots and Histograms  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lrubsht,dxall605 h Rubbersheet  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ltrastr,dxall606 h Transformations and Structuring  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lvecfld,dxall607 h Vector Fields  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lvolrnd,dxall608 h Volume Rendering  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Lall608,dxall609 h Design for Interactive Use  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall609,dxall610 h Interactors and Control Panels  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall610,dxall611 h Transmitters and Receivers  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall611,dxall612 h Documentation  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall612,dxall613 h Design for Video Output  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall613,dxall614 h TV Line Resolution  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall614,dxall615 h TV Color Resolution  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall615,dxall616 h Animation and Frame Rates  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall616,dxall617 h Presentation: Issues and Techniques  #!EL  #!N #!N #!EC 
+#!CSlateBlue .  #!Limd,dxall618 h Importing Data: File Formats  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lkwifdf,dxall619 h General Array Importer: Keyword Information from Data Files  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall619,dxall620 h Example 1  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall620,dxall621 h Example 2  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall621,dxall622 h Example 3  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Ledf,dxall623 h Data Explorer Native Files  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall623,dxall624 h Overview of the Native File Format  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lxmples,dxall625 h Examples  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lex1,dxall626 h Example 1. A Regular Grid  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lall626,dxall627 h Example 2. A Regular Skewed Grid  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall627,dxall628 h Example 3. A Warped Regular Grid  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lex4,dxall629 h Example 4. An Irregular Grid  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall629,dxall630 h Example 5. Header and Data in Separate Files  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall630,dxall631 h Example 6. Product Arrays  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall631,dxall632 h Example 7. Series  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall632,dxall633 h Example 8. Two-dimensional Grid, Cell-centered Data  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall633,dxall634 h Example 9. Faces, Loops, and Edges  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lall634,dxall635 h Example 10. Faces, Loops, and Edges with a Hole  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall635,dxall636 h Example 11. Three-dimensional Faces, Loops, and Edges  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lex10,dxall637 h Example 12. Image Files  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lsynff,dxall638 h Syntax of the Native File Format  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall638,dxall639 h Header Section  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lall639,dxall640 h Data Section  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lobj,dxall641 h Objects  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall641,dxall642 h Group Objects  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall642,dxall643 h Series Objects  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall643,dxall644 h Multigrid Objects  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall644,dxall645 h Composite Field Objects  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall645,dxall646 h Field Objects  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall646,dxall647 h Array Objects  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall647,dxall648 h Constant Array Objects  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall648,dxall649 h gridpositions Keyword  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall649,dxall650 h Regular Array Objects  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall650,dxall651 h Product Array Objects  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall651,dxall652 h gridconnections Keyword  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall652,dxall653 h Path Array Objects  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall653,dxall654 h Mesh Array Objects  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall654,dxall655 h Xform Objects  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall655,dxall656 h String Objects  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall656,dxall657 h Light Objects  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall657,dxall658 h Camera Objects  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall658,dxall659 h Clipped Objects  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall659,dxall660 h Screen Objects  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ldatmodc,dxall661 h Data Mode Clause  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall661,dxall662 h Default Clause  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall662,dxall663 h End Clause  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lcdf,dxall664 h CDF Files  #!EL  
+#!N #!N #!EC #!CNavyBlue . .  #!Lnetcdf,dxall665 h netCDF Files  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall665,dxall666 h Regular Grids  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall666,dxall667 h Example of a Regular Grid  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lape,dxall668 h netCDF Files: Complex Fields  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall668,dxall669 h Irregular Arrays  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall669,dxall670 h Data  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall670,dxall671 h Positions  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall671,dxall672 h Connections  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall672,dxall673 h Additional Components  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lall673,dxall674 h Series Data  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall674,dxall675 h Single Variable  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall675,dxall676 h Separate Variables  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall676,dxall677 h Separate Files  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall677,dxall678 h Examples  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall678,dxall679 h Compact Specifications of Regular Dimensions  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lcdfser,dxall680 h Partially Regular Grids and Time Series  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall680,dxall681 h Irregular Surface  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lhdf,dxall682 h HDF Files  #!EL  #!N #!N 
+#!EC #!CSlateBlue .  #!Lapb,dxall683 h Environment Variables and Command Line Options  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lenvvar,dxall684 h Environment Variables  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lpathvar,dxall685 h Path Variables  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall693,dxall694 h Setting a Path Variable: Examples  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lmorevar,dxall695 h Other Environment Variables  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lcmdlopt,dxall744 h Command Line Options  #!EL  #!N 
+#!N #!EC #!CSlateBlue .  #!Lapf,dxall745 h User Interface Configuration  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lapc,dxall746 h Data Explorer Fonts  #!EL  
+#!N #!N #!EC #!CSlateBlue .  #!Lintcols,dxall747 h Data Explorer Colors  #!EL  #!N #!N #!EC #!CSlateBlue . 
+ #!Lapd,dxall748 h Accelerator Keys  #!EL  #!N #!N #!EC #!CIndianRed  #!Lall748,dxall749 h User's Reference  #!EL  #!N #!N #!EC #!CSlateBlue . 
+ #!Lmda,dxall750 h Data Explorer Tools  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Ltoolcat,dxall751 h Tool Categories  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lcatdxl,dxall753 h DXLink  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lcatdbg,dxall754 h Debugging  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lcatflow,dxall755 h Flow Control  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lcatint,dxall757 h Interactor  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lcatictl,dxall758 h Interface Control  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lcatspe,dxall761 h Special  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lcatwin,dxall764 h Windows  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lfmd,dxall765 h Functional Modules  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Lambligh,dxall766 h AmbientLight  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Lappend,dxall767 h Append  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Larrange,dxall768 h Arrange  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Lattrib,dxall769 h Attribute  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Lautoaxe,dxall770 h AutoAxes  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Lautocam,dxall771 h AutoCamera  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Lautocol,dxall772 h AutoColor  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Lautogly,dxall773 h AutoGlyph  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall773,dxall774 h Scalar Data  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall774,dxall775 h Vector and Tensor Data  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall775,dxall776 h User-supplied and Annotation Glyphs  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lautogra,dxall777 h AutoGrayScale  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lautgrid,dxall778 h AutoGrid  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lband,dxall779 h Band  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lcamera,dxall780 h Camera  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lcaption,dxall781 h Caption  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lcategor,dxall782 h Categorize  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lcategst,dxall783 h CategoryStatistics  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lchggrme,dxall784 h ChangeGroupMember  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lchggrty,dxall785 h ChangeGroupType  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lclipbox,dxall786 h ClipBox  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lclippla,dxall787 h ClipPlane  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lcollect,dxall788 h Collect  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lmultigr,dxall789 h CollectMultiGrid  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lcollecn,dxall790 h CollectNamed  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lcollecs,dxall791 h CollectSeries  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lcolor,dxall792 h Color  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lcolorba,dxall793 h ColorBar  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lcolrmap,dxall794 h Colormap  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lcompute,dxall795 h Compute  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lcomput2,dxall796 h Compute2  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lconnect,dxall797 h Connect  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lconstru,dxall798 h Construct  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lconvert,dxall799 h Convert  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lcopycon,dxall800 h CopyContainer  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Ldft,dxall801 h DFT  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Ldxlinpt,dxall802 h DXLInput  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Ldxlinpn,dxall803 h DXLInputNamed  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Ldxloutp,dxall804 h DXLOutput  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Ldescrib,dxall805 h Describe  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Ldirect,dxall806 h Direction  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Ldisplay,dxall807 h Display  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Ldivcurl,dxall827 h DivCurl  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lodone,dxall828 h Done  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lecho,dxall829 h Echo  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lenumer,dxall830 h Enumerate  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lequaliz,dxall831 h Equalize  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lexecute,dxall832 h Execute  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lexectv,dxall833 h Executive  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lexport,dxall844 h Export  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lextract,dxall845 h Extract  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lfft,dxall846 h FFT  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lfacenor,dxall847 h FaceNormals  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lfilesel,dxall848 h FileSelector  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lfilter,dxall849 h Filter  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lofirst,dxall850 h First  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lforemem,dxall851 h ForEachMember  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lforen,dxall852 h ForEachN  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lformat,dxall853 h Format  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lgetglo,dxall854 h GetGlobal  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lgetloc,dxall855 h GetLocal  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lglyph,dxall856 h Glyph  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lgradien,dxall857 h Gradient  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lgrid,dxall858 h Grid  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lhistogr,dxall859 h Histogram  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Limage,dxall860 h Image  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Limport,dxall871 h Import  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Limpspsh,dxall872 h ImportSpreadsheet  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Linclude,dxall873 h Include  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Linput,dxall876 h Input  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Linquire,dxall877 h Inquire  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Linteger,dxall878 h Integer  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lintegel,dxall879 h IntegerList  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lisolate,dxall880 h Isolate  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lisosurf,dxall881 h Isosurface  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lkeyin,dxall882 h KeyIn  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Llegend,dxall883 h Legend  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Llight,dxall884 h Light  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Llist,dxall885 h List  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Llookup,dxall886 h Lookup  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lmngcmpe,dxall887 h ManageColormapEditor  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lmngcntp,dxall888 h ManageControlPanel  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lmngimgw,dxall889 h ManageImageWindow  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lmngseq,dxall890 h ManageSequencer  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lmap,dxall891 h Map  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lmaptopl,dxall892 h MapToPlane  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lmark,dxall893 h Mark  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lmeasure,dxall894 h Measure  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lmessage,dxall895 h Message  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lmorph,dxall896 h Morph  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lnormals,dxall897 h Normals  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Loptions,dxall898 h Options  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Loutput,dxall899 h Output  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Loverlay,dxall900 h Overlay  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lparse,dxall901 h Parse  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lpartiti,dxall902 h Partition  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lpick,dxall903 h Pick  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lplot,dxall904 h Plot  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lpost,dxall910 h Post  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lprint,dxall911 h Print  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lprobe,dxall912 h Probe  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lprobeli,dxall913 h ProbeList  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lqantimg,dxall914 h QuantizeImage  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lreadima,dxall915 h ReadImage  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lreadimw,dxall916 h ReadImageWindow  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lreceive,dxall917 h Receiver  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lreduce,dxall918 h Reduce  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lrefine,dxall919 h Refine  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lregrid,dxall920 h Regrid  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lremove,dxall921 h Remove  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lrename,dxall922 h Rename  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lrender,dxall923 h Render  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lreorent,dxall924 h Reorient  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lreplace,dxall925 h Replace  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lreset,dxall926 h Reset  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lribbon,dxall927 h Ribbon  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lrotate,dxall928 h Rotate  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lroute,dxall929 h Route  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lrubbers,dxall930 h RubberSheet  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lsample,dxall931 h Sample  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lscalar,dxall932 h Scalar  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lscalarl,dxall933 h ScalarList  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lscale,dxall934 h Scale  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lscalscr,dxall935 h ScaleScreen  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lselect,dxall936 h Select  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lselecto,dxall937 h Selector  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lsellist,dxall938 h SelectorList  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lsequenc,dxall939 h Sequencer  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lsetglo,dxall940 h SetGlobal  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lsetloc,dxall941 h SetLocal  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lshade,dxall942 h Shade  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lshowbou,dxall943 h ShowBoundary  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lshowbox,dxall944 h ShowBox  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lshowcon,dxall945 h ShowConnections  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lshowpos,dxall946 h ShowPositions  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lsimpsur,dxall947 h SimplifySurface  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Llod,dxall948 h Generating surface levels of detail.  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lslab,dxall949 h Slab  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lslice,dxall950 h Slice  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lsort,dxall951 h Sort  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lstack,dxall952 h Stack  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lstatist,dxall953 h Statistics  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lstreakl,dxall954 h Streakline  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lstreaml,dxall955 h Streamline  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lstring,dxall956 h String  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lstringl,dxall957 h StringList  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lsupstat,dxall958 h SuperviseState  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall958,dxall959 h UserInteractors  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lpicking,dxall960 h Doing Picking  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lsupwind,dxall961 h SuperviseWindow  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lswitch,dxall962 h Switch  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lsystem,dxall963 h System  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Ltext,dxall964 h Text  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Ltoggle,dxall965 h Toggle  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Ltrace,dxall966 h Trace  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Ltransfo,dxall967 h Transform  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Ltransla,dxall968 h Translate  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Ltransmi,dxall969 h Transmitter  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Ltranspo,dxall970 h Transpose  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Ltube,dxall971 h Tube  #!EL  #!N #!N #!EC #!CDarkGreen 
+......  #!Lunmark,dxall972 h Unmark  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lupdatca,dxall973 h UpdateCamera  #!EL  #!N #!N #!EC 
+#!CDarkGreen ......  #!Lusage,dxall974 h Usage  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lvalue,dxall975 h Value  #!EL  #!N #!N 
+#!EC #!CDarkGreen ......  #!Lvaluel,dxall976 h ValueList  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lvector,dxall977 h Vector  #!EL  #!N 
+#!N #!EC #!CDarkGreen ......  #!Lvectorl,dxall978 h VectorList  #!EL  #!N #!N #!EC #!CDarkGreen ......  #!Lverify,dxall979 h Verify  #!EL  
+#!N #!N #!EC #!CDarkGreen ......  #!Lvisuobj,dxall980 h VisualObject  #!EL  #!N #!N #!EC #!CDarkGreen ...... 
+ #!Lwriteim,dxall981 h WriteImage  #!EL  #!N #!N #!EC #!CIndianRed  #!Lall982,dxall983 h Programmer's Reference  #!EL  #!N #!N #!EC #!CSlateBlue . 
+ #!Lprogchp,dxall984 h Overview  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall984,dxall985 h Writing Modules for use in the Data Explorer VPE or Scripting Language  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lall985,dxall986 h Writing a Stand-alone Program Using the Data Explorer Data Model  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall986,dxall987 h Writing a Stand-alone Program Using Data Explorer Modules  #!EL  
+#!N #!N #!EC #!CNavyBlue . .  #!Lall987,dxall988 h Controlling the Data Explorer Executive or User Interface from a Separate Program  #!EL  #!N #!N #!EC #!CSlateBlue 
+.  #!Lwritmod,dxall989 h Writing a Simple Module  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall989,dxall990 h Getting Started Writing a Module  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Lhmod,dxall991 h Adding the Hello Module  #!EL  #!N #!N #!EC #!CDarkGreen . . 
+. .  #!Lall991,dxall992 h (1) Define the module's function, inputs, and outputs  #!EL  #!N #!N #!EC #!CDarkGreen . . . . 
+ #!Lmbmdf,dxall993 h (2) Create a module description file  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall993,dxall994 h (3) Write the module  #!EL  #!N 
+#!N #!EC #!CDarkGreen . . . .  #!Lall994,dxall995 h (4) Compiling and Linking Hello...  #!EL  #!N #!N #!EC 
+#!CDarkGreen . . . .  #!Lall999,dxall1000 h Including Hello in a Visual Program  #!EL  #!N #!N #!EC #!CDarkGreen . 
+. . .  #!Lall1000,dxall1001 h Using Hello in a Script  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lhec,dxall1002 h Hello Module with Error Checking  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lmblder,dxall1003 h Module Builder  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lall1003,dxall1004 h Overview  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall1004,dxall1005 h Creating a Module with the Module Builder: A Summary  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Ltmodbld,dxall1006 h Using the Module Builder: A Quick Walk Through  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lall1006,dxall1007 h Module Builder: Menu Bar  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lbldfile,dxall1008 h File Options  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lbldedit,dxall1009 h Edit Options  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lbldopts,dxall1010 h Build Options  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lbldhelp,dxall1011 h Help Options  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall1011,dxall1012 h Module Builder: Overall Module Description  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lall1012,dxall1013 h Module Builder: Individual Parameter Information Section  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lmbwrkrt,dxall1014 h Worker Routine  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lall1014,dxall1015 h Positions Specification  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lall1015,dxall1016 h Connections Specification  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall1016,dxall1017 h Input Data  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lall1017,dxall1018 h Output Data  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall1018,dxall1019 h Implementing Default Input Parameters  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lwrkrxmp,dxall1020 h Worker Routine Examples  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lneedmod,dxall1021 h What you need to know about Data Explorer to write a Module  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Ldatam,dxall1022 h Data Explorer Data Model  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lmemng,dxall1023 h Memory Management  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lmemalc,dxall1024 h Allocating and Freeing Memory  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall1024,dxall1025 h Reference Counts  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lexecm,dxall1026 h Data Explorer Execution Model  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lmodexsc,dxall1027 h Working with Data  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Laddmodx,dxall1028 h Add Module Example--Add a Number to Every Data Value  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Laddtwo,dxall1029 h Add2 Module Example--Add Two Data Fields  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Ladd2i,dxall1030 h Add2Invalid Module Example--Manipulate Invalid Data  #!EL  #!N #!N #!EC 
+#!CSlateBlue .  #!Lposit,dxall1031 h Working with Positions  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lmakex,dxall1032 h MakeX Module Example--Create New Positions  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Lexmkx2,dxall1033 h MakeXEfficient Module Example--Create New Positions  #!EL  #!N #!N #!EC #!CSlateBlue . 
+ #!Lconnec,dxall1034 h Working with Connections  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lexavgc,dxall1035 h AverageCell Module Example--Average the Data Values of All Neighbors  #!EL  #!N #!N #!EC 
+#!CSlateBlue .  #!Limptd,dxall1036 h Importing Data  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall1036,dxall1037 h Writing a Filter  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Lwrimp,dxall1038 h Writing an Import Module  #!EL  #!N #!N #!EC #!CSlateBlue . 
+ #!Lpickst,dxall1039 h Using the Pick Structure  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lpkse,dxall1040 h The Pick Structure  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lshowp,dxall1041 h ShowPick Module Example--Using Color to Show a Picked Object  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lparal,dxall1042 h Writing Modules for a Parallel Environment  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Lexmodp,dxall1043 h A Parallel Version of the Add Module  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lexmodp1,dxall1044 h A Parallel Version of the AverageCell Module  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lmtds,dxall1045 h Making a Module Work  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lmdfsec,dxall1046 h Module Description Files  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lexmdf,dxall1047 h Examples of Module Description Files  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lasynmod,dxall1048 h Asynchronous Modules  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lmodsior,dxall1049 h Inboard, Outboard, and Runtime-loadable Modules  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lmodlink,dxall1050 h Compiling, Linking, and Debugging an Inboard Module  #!EL  
+#!N #!N #!EC #!CNavyBlue . .  #!Lclo2,dxall1051 h Compiling, Linking, and Debugging an Outboard Module  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall1051,dxall1052 h Special Considerations for Outboard Modules  #!EL  #!N #!N #!EC #!CDarkGreen . . . 
+.  #!Lall1052,dxall1053 h Simple outboard modules  #!EL  #!N #!N #!EC #!CDarkGreen . . . .  #!Lall1053,dxall1054 h Persistent outboard modules  #!EL  
+#!N #!N #!EC #!CDarkGreen . . . .  #!Lall1054,dxall1055 h Modules that can cause executions:  #!EL  #!N #!N 
+#!EC #!CDarkGreen . . . .  #!Lall1055,dxall1056 h Running an outboard on another machine:  #!EL  #!N #!N #!EC #!CDarkGreen 
+. . . .  #!Lall1056,dxall1057 h Miscellaneous information  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall1057,dxall1058 h Asynchronous Outboard Module: An Example  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lmodruns,dxall1059 h Compiling, Linking, and Debugging a Runtime-loadable Module  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Lmeml,dxall1060 h Memory Leaks  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Ldatachp,dxall1061 h Working with Data Model Objects  #!EL  
+#!N #!N #!EC #!CNavyBlue . .  #!Lfieldsc,dxall1062 h Field Class  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lall1062,dxall1063 h Group Class  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lmbs,dxall1064 h Generic Operations  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lssgs,dxall1065 h Series Groups  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lmigd,dxall1066 h MultiGrid Groups  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lcefd,dxall1067 h Composite Fields  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lprts,dxall1068 h Parts  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Larraysc,dxall1069 h Array Class  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall1069,dxall1070 h Generic Operations  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lirreg,dxall1071 h Irregular Arrays  #!EL  
+#!N #!N #!EC #!CSeaGreen . . .  #!Lstingl,dxall1072 h String List Routines  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Larhand,dxall1073 h Array Handling  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lcotas,dxall1074 h Creating Positions and Connections Grids  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lrras,dxall1075 h Regular Arrays  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lphas,dxall1076 h Path Arrays  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lptas,dxall1077 h Product Arrays  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lmarray,dxall1078 h Mesh Arrays  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lctas,dxall1079 h Constant Arrays  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Lsgos,dxall1080 h String Class  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Lprivsec,dxall1081 h Private Class  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall1081,dxall1082 h Printing Objects  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lall1082,dxall1083 h Field Construction  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lppoints,dxall1084 h Points and Dependent Data  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lcnn,dxall1085 h Connections  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lstdcs,dxall1086 h Standard Components  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lcrtdxos,dxall1088 h Creating Simple Data Explorer Objects  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Lctmn,dxall1089 h Component Manipulation  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Ldide,dxall1090 h Data Import and Export  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Ldef,dxall1091 h Data Explorer Format Files  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lncd,dxall1092 h netCDF Data  #!EL  #!N #!N #!EC #!CSlateBlue . 
+ #!Lsyschap,dxall1093 h System Services  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Ltimg,dxall1095 h Timing  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lstoral,dxall1096 h Memory Allocation  #!EL  
+#!N #!N #!EC #!CNavyBlue . .  #!Lobjsec,dxall1097 h Object Class  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lall1097,dxall1098 h Type Definitions  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall1098,dxall1099 h Classes and Subclasses  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lotrs,dxall1100 h Object Routines  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lty,dxall1101 h Setting Data Types  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lcache,dxall1102 h Cache  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lpndcmd,dxall1103 h Pending Commands  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Llooping,dxall1104 h Looping Support  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Lplsm,dxall1105 h Parallelism  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall1105,dxall1106 h Basic Data Types  #!EL  #!N #!N #!EC 
+#!CSeaGreen . . .  #!Lpsvs,dxall1107 h Points and Vectors  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lltqtc,dxall1108 h Lines, Triangles, Quadrilaterals, Tetrahedra, and Cubes  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lclrs,dxall1109 h Colors  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall1109,dxall1110 h Angles  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lmatrxsc,dxall1111 h Transformation Matrices  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lbops,dxall1112 h Basic Operations  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lmodacss,dxall1113 h Module Access  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lasyns,dxall1114 h Asynchronous Services  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lprochap,dxall1115 h Data Processing  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Lpttg,dxall1116 h Data Partitioning  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Linadmg,dxall1117 h Interpolation and Mapping  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Linvdata,dxall1118 h Invalid Data  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lun9,dxall1119 h Examples  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lgns,dxall1120 h Growing and Shrinking Partitioned Data  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lhash,dxall1121 h Hashing  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lun10,dxall1122 h Examples  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lpies,dxall1123 h Pick-Assistance Routines  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lun99,dxall1124 h Example  #!EL  #!N 
+#!N #!EC #!CSlateBlue .  #!Lgeochap,dxall1125 h Geometric Objects  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Ltt,dxall1126 h Text  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lclpg,dxall1127 h Clipping  #!EL  #!N #!N #!EC 
+#!CNavyBlue . .  #!Lphos,dxall1128 h Path Operations  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Lrendchp,dxall1129 h Rendering  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Ltransec,dxall1130 h Transformation  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lall1130,dxall1131 h Surface Shading  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall1131,dxall1132 h Tiling  #!EL  #!N #!N 
+#!EC #!CSeaGreen . . .  #!Lrendmdl,dxall1133 h Rendering Model  #!EL  #!N #!N #!EC #!CSeaGreen . 
+. .  #!Lall1133,dxall1134 h Tiling Options  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lxformsc,dxall1135 h Xform Class  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Lsncs,dxall1136 h Screen Class  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lcdcs,dxall1137 h Clipped Class  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lcamsec,dxall1138 h Camera Class  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Llightsc,dxall1139 h Light Class  #!EL  #!N #!N #!EC #!CNavyBlue . . 
+ #!Liefs,dxall1140 h Image Fields  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lall1141,dxall1142 h Introduction  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall1142,dxall1143 h Example 1: sealevel.c  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Lall1143,dxall1144 h Example 2: maptoplane.c  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lall1144,dxall1145 h Example 3: xapp.c  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Linitex,dxall1146 h Initialization and Exit  #!EL  #!N #!N 
+#!EC #!CNavyBlue . .  #!Lmsgsys,dxall1147 h Messaging System  #!EL  #!N #!N #!EC #!CSeaGreen . . 
+.  #!Lall1147,dxall1148 h Sending Messages to the Server  #!EL  #!N #!N #!EC #!CSeaGreen . . .  #!Lrcvmsg,dxall1149 h Receiving Messages from the Server  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lmsgrtns,dxall1150 h Messaging Routines  #!EL  #!N #!N #!EC #!CNavyBlue 
+. .  #!Lexecctl,dxall1151 h Execution Control  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lprgctl,dxall1152 h Program Control  #!EL  #!N 
+#!N #!EC #!CSeaGreen . . .  #!Lall1152,dxall1153 h Loading programs and macros  #!EL  #!N #!N #!EC #!CSeaGreen 
+. . .  #!Lsetvars,dxall1154 h Setting Variables  #!EL  #!N #!N #!EC #!CSeaGreen . . . 
+ #!Lall1154,dxall1155 h Retrieving Values Sent From Data Explorer  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall1155,dxall1156 h Window Control  #!EL  #!N #!N #!EC 
+#!CSlateBlue .  #!Lall1156,dxall1157 h Data Explorer Libraries  #!EL  #!N #!N #!EC #!CNavyBlue . .  #!Lall1157,dxall1158 h libDXlite.a  #!EL  #!N 
+#!N #!EC #!CNavyBlue . .  #!Lall1158,dxall1159 h libDXcallm.a  #!EL  #!N #!N #!EC #!CNavyBlue . 
+.  #!Lall1159,dxall1160 h libDXL.a  #!EL  #!N #!N #!EC #!CSlateBlue .  #!Ldxlap1,dxall1161 h Data Explorer Data Model Library: DXlite Routines  #!EL  #!N #!N #!EC 
+#!CSlateBlue .  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxatg,dxall1163 h DXAbortTaskGroup  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxaplus,dxall1164 h DXAdd, DXCross, DXDiv, DXDot, DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxafns,dxall1166 h DXAddFaceNormal, DXAddFaceNormals  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxals,dxall1167 h DXAddLine, ...Triangle, ...Quad, ...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxam,dxall1168 h DXAddMessage, DXMessageReturn, DXMessageGoto  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxaddm,dxall1169 h DXAddPoint, ...Color, ...FrontColor, ...BackColor, ...Opacity, ...Normal, DXAddPoints, ...Colors, ...FrontColors, ...BackColors, ...Opacities, ...Normals  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxat,dxall1170 h DXAddTask  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxalp,dxall1171 h DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly, DXAllocateLocalOnlyZero  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxaa,dxall1172 h DXAllocateArray  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxatm,dxall1173 h DXApplyTransform  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxacv,dxall1174 h DXArrayConvert, DXArrayConvertV  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxblm,dxall1175 h DXBeginLongMessage, DXEndLongMessage  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxbb,dxall1176 h DXBoundingBox  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxcmplu,dxall1177 h DXCallModule, DXModSet..., DXSetModule...  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxccvs,dxall1178 h DXChangedComponentValues, DXChangedComponentStructure  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxcrih,dxall1179 h DXCheckRIH  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxcb,dxall1180 h DXClipBox  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxcp,dxall1181 h DXClipPlane  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxcntr,dxall1182 h DXColorNameToRGB  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxcmpmi,dxall1183 h DXCompareModuleId  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxcmany,dxall1184 h DXComponentReq, DXComponentOpt, DXComponentReqLoc, DXComponentOptLoc  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxcplus,dxall1185 h DXConcatenate, DXInvert, DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxc,dxall1186 h DXCopy  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxca,dxall1187 h DXCopyAttributes  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxcpmi,dxall1188 h DXCopyModuleId  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxch,dxall1190 h DXCreateHash  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxcich,dxall1191 h DXCreateInvalidComponentHandle  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxctg,dxall1192 h DXCreateTaskGroup  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxcul,dxall1193 h DXCull  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxdb,dxall1194 h DXDebug, DXEnableDebug, DXQueryDebug  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxdel,dxall1195 h DXDelete  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxdc,dxall1196 h DXDeleteComponent  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxdhe,dxall1197 h DXDeleteHashElement  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxdhsh,dxall1198 h DXDestroyHash  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxdxs,dxall1199 h DXDisplayX, DXDisplayX8, DXDisplayX12, DXDisplayX24  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxemf,dxall1200 h DXEmptyField  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxendf,dxall1201 h DXEndField  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxeo,dxall1202 h DXEndObject  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxetg,dxall1203 h DXExecuteTaskGroup  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxexi,dxall1204 h DXExists  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxedx,dxall1205 h DXExportDX  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxext,dxall1206 h DXExtract  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxef,dxall1207 h DXExtractFloat  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxei,dxall1208 h DXExtractInteger  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxens,dxall1209 h DXExtractNthString  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxep,dxall1210 h DXExtractParameter  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxes,dxall1211 h DXExtractString  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxfre,dxall1212 h DXFree  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxfadl,dxall1213 h DXFreeArrayDataLocal  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxfah,dxall1214 h DXFreeArrayHandle  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxfich,dxall1215 h DXFreeInvalidComponentHandle  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxfmid,dxall1216 h DXFreeModuleId  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxgtt,dxall1217 h DXGeometricText  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgac,dxall1218 h DXGetArrayClass  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgadl,dxall1220 h DXGetArrayDataLocal  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxgaey,dxall1221 h DXGetArrayEntry, DXGetArrayEntries  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgai,dxall1222 h DXGetArrayInfo  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxga,dxall1223 h DXGetAttribute  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxgcev,dxall1224 h DXGetCacheEntry, DXGetCacheEntryV  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgcmp,dxall1225 h DXGetCameraMatrix, DXGetCameraRotation, DXGetCameraMatrixWithFuzz  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxgci,dxall1226 h DXGetClippedInfo  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgca,dxall1227 h DXGetComponentAttribute  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgc,dxall1229 h DXGetConnections  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxgcad,dxall1230 h DXGetConstantArrayData  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgea,dxall1231 h DXGetEnumeratedAttribute  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxgeca,dxall1232 h DXGetEnumeratedComponentAttribute  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgecv,dxall1233 h DXGetEnumeratedComponentValue  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxgem,dxall1234 h DXGetEnumeratedMember  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxge,dxall1235 h DXGetError  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgetex,dxall1236 h DXGetErrorExit  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxgerm,dxall1237 h DXGetErrorMessage  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgfa,dxall1238 h DXGetFloatAttribute  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxgft,dxall1239 h DXGetFont  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxggc,dxall1240 h DXGetGroupClass  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxgisb,dxall1241 h DXGetImageSize, DXGetImageBounds  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgia,dxall1242 h DXGetIntegerAttribute  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxgica,dxall1243 h DXGetInvalidComponentArray  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgic,dxall1244 h DXGetInvalidCount  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxgis,dxall1245 h DXGetItemSize  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxgm,dxall1246 h DXGetMember  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgmc,dxall1247 h DXGetMemberCount  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxgmai,dxall1248 h DXGetMeshArrayInfo  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgmo,dxall1249 h DXGetMeshOffsets  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxgmid,dxall1250 h DXGetModuleId  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgnhe,dxall1251 h DXGetNextHashElement  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxgniei,dxall1252 h DXGetNextInvalidElementIndex  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgnvei,dxall1253 h DXGetNextValidElementIndex  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxgoc,dxall1254 h DXGetObjectClass  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgsot,dxall1255 h DXGetObjectTag, DXSetObjectTag  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxgp,dxall1256 h DXGetPart  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxgpc,dxall1257 h DXGetPartClass  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgpai,dxall1258 h DXGetPathArrayInfo  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxgpo,dxall1259 h DXGetPathOffset  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgpp,dxall1260 h DXGetPickPoint  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxgpx,dxall1261 h DXGetPixels  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgpd,dxall1262 h DXGetPrivateData  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxgprai,dxall1263 h DXGetProductArrayInfo  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgrai,dxall1264 h DXGetRegularArrayInfo  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxgsi,dxall1265 h DXGetScreenInfo  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgsm,dxall1266 h DXGetSeriesMember  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxgsg,dxall1267 h DXGetString  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxgsa,dxall1268 h DXGetStringAttribute  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgt,dxall1269 h DXGetTime  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxgte,dxall1270 h DXGetType  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgvc,dxall1271 h DXGetValidCount  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxgxfi,dxall1272 h DXGetXformInfo  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxgrov,dxall1273 h DXGrow, DXGrowV  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxicdf,dxall1274 h DXImportCDF  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxicm,dxall1275 h DXImportCM  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxidx,dxall1276 h DXImportDX  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxihdf,dxall1277 h DXImportHDF  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxinc,dxall1278 h DXImportNetCDF  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxignhe,dxall1279 h DXInitGetNextHashElement  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldximod,dxall1280 h DXInitModules  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxignie,dxall1281 h DXInitGetNextInvalidElementIndex, DXInitGetNextValidElementIndex  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxins,dxall1282 h DXInsert  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxihe,dxall1283 h DXInsertHashElement  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxie,dxall1284 h DXInterpolate  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxic,dxall1285 h DXInvalidateConnections  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxidb,dxall1286 h DXInvalidateDupBoundary  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxiup,dxall1287 h DXInvalidateUnreferencedPositions  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxiv,dxall1288 h DXInvertValidity  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxiev,dxall1289 h DXIsElementValid, DXIsElementInvalid  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxievs,dxall1290 h DXIsElementValidSequential, DXIsElementInvalidSequential  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxia,dxall1291 h DXIterateArray  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxltqt,dxall1292 h DXLn, DXTri, DXQuad, DXTetra  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxli,dxall1293 h DXLocalizeInterpolator  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxld,dxall1294 h DXLoopDone  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxlf,dxall1295 h DXLoopFirst  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxmakf,dxall1296 h DXMakeFloat  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxmgpv,dxall1298 h DXMakeGridPositions, DXMakeGridPositionsV  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxmi,dxall1299 h DXMakeImage  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxmaki,dxall1300 h DXMakeInteger  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxmaks,dxall1301 h DXMakeString  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxmslv,dxall1302 h DXMakeStringList, DXMakeStringListV  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxmp,dxall1303 h DXMap  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxmpa,dxall1304 h DXMapArray  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxmpc,dxall1305 h DXMapCheck  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxmt,dxall1306 h DXMarkTime, DXMarkTimeLocal  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxmess,dxall1307 h DXMessage  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxn,dxall1308 h DXNeighbors  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxnal,dxall1309 h DXNewAmbientLight  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxnav,dxall1310 h DXNewArray, DXNewArrayV  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxnca,dxall1311 h DXNewCamera  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxncd,dxall1312 h DXNewClipped  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxncf,dxall1313 h DXNewCompositeField  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxncav,dxall1314 h DXNewConstantArray, DXNewConstantArrayV  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxndl,dxall1315 h DXNewDistantLight  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxnf,dxall1316 h DXNewField  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxng,dxall1317 h DXNewGroup  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxni,dxall1318 h DXNewInterpolator  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxnmav,dxall1319 h DXNewMeshArray, DXNewMeshArrayV  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxnmg,dxall1320 h DXNewMultiGrid  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxnpa,dxall1321 h DXNewPathArray  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxnp,dxall1322 h DXNewPrivate  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxnpav,dxall1323 h DXNewProductArray, DXNewProductArrayV  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxnra,dxall1324 h DXNewRegularArray  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxnsn,dxall1325 h DXNewScreen  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxns,dxall1326 h DXNewSeries  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxnsg,dxall1327 h DXNewString  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxnxf,dxall1328 h DXNewXform  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxorgb,dxall1329 h DXOutputRGB  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxpart,dxall1330 h DXPartition  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxptv,dxall1331 h DXPrint, DXPrintV  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxpa,dxall1332 h DXPrintAlloc  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxpt,dxall1333 h DXPrintTimes  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxproi,dxall1334 h DXProcessorId  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxproc,dxall1335 h DXProcessors  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxpp,dxall1336 h DXProcessParts  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxptvc,dxall1337 h DXPt, DXVec  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxqal,dxall1338 h DXQueryAmbientLight  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxqacvm,dxall1339 h DXQueryArrayCommon, DXQueryArrayCommonV  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxqacv,dxall1340 h DXQueryArrayConvert, DXQueryArrayConvertV  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxqca,dxall1341 h DXQueryConstantArray  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxqdl,dxall1342 h DXQueryDistantLight  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxqgc,dxall1343 h DXQueryGridConnections  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxqgp,dxall1344 h DXQueryGridPositions  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxqhe,dxall1345 h DXQueryHashElement  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxqosm,dxall1346 h DXQueryOriginalSizes, DXQueryOriginalMeshExtents  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxqp,dxall1347 h DXQueryParameter  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxqpic,dxall1348 h DXQueryPickCount  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxqpp,dxall1349 h DXQueryPickPath  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxqpoc,dxall1350 h DXQueryPokeCount  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxrtr,dxall1351 h DXReadyToRun  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxrea,dxall1352 h DXReAllocate  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxref,dxall1353 h DXReference  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxregih,dxall1354 h DXRegisterInputHandler  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxrem,dxall1355 h DXRemove  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxren,dxall1356 h DXRename  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxrndr,dxall1357 h DXRender  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxrep,dxall1358 h DXReplace  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxre,dxall1359 h DXResetError  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxrcol,dxall1360 h DXRGB  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxrib,dxall1361 h DXRibbon  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxrxyz,dxall1362 h DXRotateX, DXRotateY, DXRotateZ, DXScale, DXTranslate, DXMat  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsic,dxall1363 h DXSaveInvalidComponent  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxsct,dxall1364 h DXScalarConvert  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsai,dxall1365 h DXSetAllInvalid  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxsav,dxall1366 h DXSetAllValid  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsbc,dxall1368 h DXSetBackgroundColor, DXGetBackgroundColor  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxscev,dxall1369 h DXSetCacheEntry, DXSetCacheEntryV  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsco,dxall1370 h DXSetClippedObjects  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxsca,dxall1371 h DXSetComponentAttribute  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxsc,dxall1373 h DXSetConnections  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsei,dxall1374 h DXSetElementInvalid  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxsev,dxall1375 h DXSetElementValid  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsem,dxall1376 h DXSetEnumeratedMember  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxse,dxall1377 h DXSetError, DXErrorReturn, DXErrorGoto  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxsetex,dxall1378 h DXSetErrorExit  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsfa,dxall1379 h DXSetFloatAttribute  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxsgtv,dxall1380 h DXSetGroupType, DXSetGroupTypeV  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsia,dxall1381 h DXSetIntegerAttribute  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxsm,dxall1382 h DXSetMember  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsmo,dxall1383 h DXSetMeshOffsets  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxsoc,dxall1384 h DXSetOrthographic, DXGetOrthographic  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsp,dxall1385 h DXSetPart  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxspo,dxall1386 h DXSetPathOffset  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxspc,dxall1387 h DXSetPendingCmd  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxspe,dxall1388 h DXSetPerspective, DXGetPerspective  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxsrn,dxall1389 h DXSetResolution, DXGetCameraResolution  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsso,dxall1390 h DXSetScreenObject  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxssm,dxall1391 h DXSetSeriesMember  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxssa,dxall1392 h DXSetStringAttribute  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxsvw,dxall1393 h DXSetView, DXGetView  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxsxfo,dxall1394 h DXSetXformObject  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxsk,dxall1395 h DXShrink  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxs,dxall1396 h DXStatistics  #!EL  #!N 
+#!N #!EC #!CSlateBlue ......  #!Ldxswp,dxall1397 h DXSwap  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxtt,dxall1398 h DXTraceTime  #!EL  
+#!N #!N #!EC #!CSlateBlue ......  #!Ldxtpp,dxall1399 h DXTraversePickPath  #!EL  #!N #!N #!EC #!CSlateBlue ...... 
+ #!Ldxt,dxall1400 h DXTrim  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxtbe,dxall1401 h DXTube  #!EL  #!N #!N #!EC #!CSlateBlue 
+......  #!Ldxtcv,dxall1402 h DXTypeCheck, DXTypeCheckV  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxts,dxall1403 h DXTypeSize, DXCategorySize  #!EL  #!N #!N #!EC 
+#!CSlateBlue ......  #!Ldxuref,dxall1404 h DXUnreference  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxugt,dxall1405 h DXUnsetGroupType  #!EL  #!N #!N 
+#!EC #!CSlateBlue ......  #!Ldxvpbb,dxall1406 h DXValidPositionsBoundaryBox  #!EL  #!N #!N #!EC #!CSlateBlue ......  #!Ldxw,dxall1407 h DXWarning  #!EL  #!N 
+#!N #!EC 

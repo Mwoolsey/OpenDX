@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu296.htm">Previous Page</A> &#124; <A HREF="progu298.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXRXYZ" HREF="progu097.htm#PToC_391">DXRotateX, DXRotateY,
+DXRotateZ, DXScale, DXTranslate, DXMat</A></H3>
+<A NAME="IDX2020"></A>
+<A NAME="IDX2021"></A>
+<A NAME="IDX2022"></A>
+<A NAME="IDX2023"></A>
+<A NAME="IDX2024"></A>
+<A NAME="IDX2025"></A>
+<A NAME="IDX2026"></A>
+<A NAME="IDX2027"></A>
+<A NAME="IDX2028"></A>
+<A NAME="IDX2029"></A>
+<A NAME="IDX2030"></A>
+<A NAME="IDX2031"></A>
+<P><STRONG>Function</STRONG>
+<P>Manipulate Transform matrices.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Matrix DXRotateX(Angle angle)<BR>
+Matrix DXRotateY(Angle angle)<BR>
+Matrix DXRotateZ(Angle angle)<BR>
+Matrix DXScale(double x, double y, double z)<BR>
+Matrix DXTranslate(Vector v)<BR>
+Matrix DXMat(double a, double b, double c,<BR>
+             double d, double e, double f,<BR>
+             double g, double h, double i,<BR>
+             double j, double k, double l)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>Manipulate Transform matrices.
+<TT><STRONG>
+DXRotateX, DXRotateY,
+</STRONG></TT>
+and
+<TT><STRONG>
+DXRotateZ
+</STRONG></TT>
+return a Matrix that specifies
+a rotation about the <I>x</I>, <I>y</I>, or <I>z</I> axis
+by angle <TT><STRONG>angle</STRONG></TT> in radians.
+<P><TT><STRONG>
+DXScale
+</STRONG></TT>
+returns a Matrix that specifies
+a scaling by amounts
+<TT><STRONG>x</STRONG></TT>,
+<TT><STRONG>y</STRONG></TT>, and
+<TT><STRONG>z</STRONG></TT>
+along the
+<I>x</I>, <I>y</I>, and
+<I>z</I> axes.
+<P><TT><STRONG>
+DXTranslate
+</STRONG></TT>
+returns a Matrix that specifies a translation by
+<TT><STRONG>v</STRONG></TT>.
+<P><TT><STRONG>
+DXMat
+</STRONG></TT>
+returns a Matrix with the specified components.
+<P>A
+<TT><STRONG>
+Matrix
+</STRONG></TT>
+is defined as follows:
+<BR>
+<TT><STRONG><BR>
+typedef struct matrix {<BR>
+    /* xA + b */<BR>
+    float A&#91;3&#93;&#91;3&#93;;<BR>
+    float b&#91;3&#93;;<BR>
+} Matrix;<BR>
+</STRONG></TT><BR>
+<P>An
+<TT><STRONG>
+Angle
+</STRONG></TT>
+is in radians and is defined as follows:
+<BR>
+<TT><STRONG><BR>
+typedef double Angle;<BR>
+</STRONG></TT><BR>
+<P><STRONG>Return Value</STRONG>
+<P>Returns the resulting Matrix.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert, DXTranspose,
+DXAdjointTranspose, DXDeterminant, DXApply</A>,
+<A HREF="progu108.htm#HDRDXATM">DXApplyTransform</A>,
+<A HREF="progu263.htm#HDRDXNXF">DXNewXform</A>
+</STRONG></TT>
+<P>
+<A HREF="progu063.htm#HDRMATRXSC">"Transformation Matrices"</A>.
+<P><P>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu296.htm">Previous Page</A> &#124; <A HREF="progu298.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

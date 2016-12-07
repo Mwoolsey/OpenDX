@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu012.htm">Previous Page</A> &#124; <A HREF="progu014.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu009.htm#PToC3">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+
+<HR>
+<H1><A NAME="HDRWRITMOD" HREF="../proguide.htm#ToC_19">Chapter 2. Writing a Simple
+Module</A></H1>
+<P><A NAME="PToC4" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_20" HREF="#Header_20">2.1 Getting Started Writing a Module</A>
+<LI><A NAME="PToC_21" HREF="progu014.htm#HDRHMOD">2.2 Adding the Hello
+Module</A>
+<MENU>
+<LI><A NAME="PToC_31" HREF="progu014.htm#HDRHEC">Hello Module with Error
+Checking</A>
+</MENU></MENU><HR><P>
+<P>This chapter discusses the basics of writing a simple module for
+Data Explorer. Subsequent chapters cover some typical types of modules you might
+want to write.
+Although Data Explorer modules support a broad range of data and connections
+types, your module need support only those types it can be
+expected to encounter.
+Moreover, it is not necessary to manipulate all the components of a
+Data Explorer Field.
+The programming examples in later chapters illustrate modules that
+manipulate particular components (e.g., "data").
+<P>
+<A NAME="IDX103"></A>
+Before writing a module, you should have a general understanding of
+the Data Explorer data model and be familiar with the way data is carried
+in Fields, Groups, and components (see <A HREF="progu022.htm#HDRDATAM">4.1 ,
+"Data Explorer Data Model"</A>).
+For a detailed treatment of the data model, see <A
+HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data Model"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+In this manual, <A HREF="progu044.htm#HDRDATACHP">Chapter 12. "Working with Data
+Model Objects"</A>, summarizes the routines
+that implement the model.
+<P>
+Two other important topics are briefly reviewed in subsequent sections:
+<OL COMPACT>
+<LI>managing the memory allocated to and used by visual programs and
+their constituent modules (see <A HREF="progu023.htm#HDRMEMNG">4.2 , "Memory
+Management"</A>)
+and
+<LI>the Data Explorer execution model (see <A HREF="progu024.htm#HDREXECM">4.3 ,
+"Data Explorer Execution Model"</A>).
+</OL>
+
+<HR>
+<H2><A NAME="Header_20" HREF="#PToC_20">2.1 Getting Started Writing a
+Module</A></H2>
+<A NAME="IDX104"></A>
+<A NAME="IDX107"></A>
+<A NAME="IDX108"></A>
+<A NAME="IDX109"></A>
+<A NAME="IDX110"></A>
+<A NAME="IDX111"></A>
+<A NAME="IDX112"></A>
+<P>
+To build a module, you must:
+<OL COMPACT>
+<LI>Define the module&#39;s function and its interface (i.e., its
+inputs and outputs).
+<LI>Create a <I>module description file</I> containing this
+information.
+<LI>Write the module.
+<LI>Compile and link the module.
+</OL>
+<P>
+Once you have completed these four steps, you can run a version
+of Data Explorer that incorporates the module.
+<P>
+The Module Builder is a point-and-click interface that facilitates much
+of this work by creating the files necessary for a module:
+<UL COMPACT>
+<LI>a module description file
+<LI>a C-code framework (or template) file
+<LI>a makefile.
+</UL>
+All you need do is add your own application code to the framework
+file.
+(See <A HREF="progu015.htm#HDRMBLDER">Chapter 3. "Module Builder"</A>.)
+<P>
+A module can be added to Data Explorer in one of three forms:
+<I>inboard</I>, <I>outboard</I>, or
+<I>runtime-loadable</I>.
+An inboard module is linked directly into a new Data Explorer
+executive.
+An outboard module is a separate executable linked to the Data Explorer
+routine library and controlled by the executive.
+It can later be compiled and linked as an inboard module for greater
+efficiency.
+A runtime-loadable module can be loaded when Data Explorer is started or
+while it is running.
+It is more portable than the inboard module version of the same
+function and more efficient than the outboard version.
+See <A HREF="progu039.htm#HDRMODSIOR">11.3 , "Inboard, Outboard, and
+Runtime-loadable Modules"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu012.htm">Previous Page</A> &#124; <A HREF="progu014.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC4">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

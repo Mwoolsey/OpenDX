@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu104.htm">Previous Page</A> &#124; <A HREF="progu106.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXAT" HREF="progu097.htm#PToC_199">DXAddTask</A></H3>
+<A NAME="IDX1534"></A>
+<A NAME="IDX1535"></A>
+<P><STRONG>Function</STRONG>
+Adds a task to the current task Group.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+&#35;include &lt;dx/dx.h&gt;
+Error DXAddTask(Error(*proc)(Pointer), Pointer arg, int size, double work)
+</STRONG>
+</PRE>.
+<P><STRONG>Functional Details</STRONG>
+The task to be added is defined by the following parameters:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>proc</STRONG></TT>
+</B></TD><TD><P>A pointer to a function that performs the task.
+It takes one argument of type <TT><STRONG>Pointer</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>arg</STRONG></TT>
+</B></TD><TD><P>A pointer to an argument block.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>size</STRONG></TT>
+</B></TD><TD><P>The size of the argument block in bytes.
+If <TT><STRONG>size</STRONG></TT> is nonzero, the argument block is copied.
+Otherwise, the value of <TT><STRONG>arg</STRONG></TT> is passed to
+<TT><STRONG>proc</STRONG></TT> without copying, which is useful
+for passing integers or Objects.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>work</STRONG></TT>
+</B></TD><TD><P>The estimated amount of time required by the task in
+arbitrary units.
+</TD></TR></TABLE>
+<P>
+Tasks are executed, in parallel if possible, by
+<TT><STRONG>DXExecuteTaskGroup</STRONG></TT>.
+Executing a task consists of calling <TT><STRONG>(*proc)(arg)</STRONG></TT>.
+To facilitate load balancing, tasks are executed in order of
+decreasing work estimates.
+Once <TT><STRONG>DXExecuteTaskGroup</STRONG></TT> has been called, additional
+tasks can be created only from other tasks in the current task Group,
+and they are run as soon as possible, without regard to
+<TT><STRONG>work</STRONG></TT> or the status of the
+original tasks.
+<P><STRONG>Return Value</STRONG>
+Returns <TT><STRONG>OK</STRONG></TT> or returns <TT><STRONG>ERROR</STRONG></TT>
+and sets an error code.
+<P><STRONG>See Also</STRONG>
+<TT><STRONG>
+<A HREF="progu098.htm#HDRDXATG">DXAbortTaskGroup</A>,
+<A HREF="progu127.htm#HDRDXCTG">DXCreateTaskGroup</A>,
+<A HREF="progu138.htm#HDRDXETG">DXExecuteTaskGroup</A>,
+<A HREF="progu269.htm#HDRDXPROI">DXProcessorId</A>,
+<A HREF="progu270.htm#HDRDXPROC">DXProcessors</A>
+</STRONG></TT>
+<P>
+<A HREF="progu062.htm#HDRPLSM">13.8 , "Parallelism"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu104.htm">Previous Page</A> &#124; <A HREF="progu106.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

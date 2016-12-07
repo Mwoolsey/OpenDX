@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu327.htm">Previous Page</A> &#124; <A HREF="progu329.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXSVW" HREF="progu097.htm#PToC_422">DXSetView,
+DXGetView</A></H3>
+<A NAME="IDX2112"></A>
+<A NAME="IDX2113"></A>
+<A NAME="IDX2114"></A>
+<A NAME="IDX2115"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Specify Camera position and orientation.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Camera DXSetView(Camera c, Point from, Point to, Vector up)<BR>
+Camera DXGetView(Camera c, Point *from, Point *to, Vector *up)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+A
+camera defines the position and orientation of the viewer, the
+volume of interest of the object being viewed, and the size of the
+image to contain the resulting view.
+<P>
+The position and orientation of the view are defined by where
+the viewer is standing, the <TT><STRONG>from</STRONG></TT> position,
+where the viewer is looking, the <TT><STRONG>to</STRONG></TT> position,
+and the tilt of the viewer&#39;s head,
+the <TT><STRONG>up</STRONG></TT> vector.
+<P>
+The image is always in a plane perpendicular to the
+<TT><STRONG>from</STRONG></TT>-<TT><STRONG>to</STRONG></TT> vector.  The
+<TT><STRONG>up</STRONG></TT> vector is projected onto this plane and the
+Object and camera (the <TT><STRONG>up</STRONG></TT> vector) are rotated around
+the
+<TT><STRONG>from</STRONG></TT>-<TT><STRONG>to</STRONG></TT> vector until
+<TT><STRONG>up</STRONG></TT>
+is aligned with the image
+<TT><STRONG>y</STRONG></TT> axis.  It is not necessary that the
+<TT><STRONG>from</STRONG></TT>-<TT><STRONG>to</STRONG></TT> vector and the
+<TT><STRONG>up</STRONG></TT> vector be perpendicular; if they are
+coincident, <TT><STRONG>up</STRONG></TT> becomes undefined and the
+<TT><STRONG>top</STRONG></TT> of the object, relative to the image,
+becomes undefined.
+<P>
+<TT><STRONG>DXSetView</STRONG></TT> sets the parameters
+<TT><STRONG>from</STRONG></TT>, <TT><STRONG>to</STRONG></TT>, and
+<TT><STRONG>up</STRONG></TT> for camera <TT><STRONG>c</STRONG></TT>.
+<P>
+<TT><STRONG>DXGetView</STRONG></TT>, for
+camera
+<TT><STRONG>c</STRONG></TT>, if
+<TT><STRONG>from</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, returns in
+<TT><STRONG>from</STRONG></TT> the from position.  If
+<TT><STRONG>to</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, it returns
+in
+<TT><STRONG>to</STRONG></TT> the to position.  If
+<TT><STRONG>up</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, it returns
+in
+<TT><STRONG>up</STRONG></TT> the up vector.
+<P><STRONG>Return Value</STRONG>
+<P>
+<TT><STRONG>DXSetView</STRONG></TT> returns <TT><STRONG>NULL</STRONG></TT> and
+sets an error code.
+<P>
+<TT><STRONG>DXGetView</STRONG></TT> returns the camera parameters or returns
+<TT><STRONG>NULL</STRONG></TT> and sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu160.htm#HDRDXGCMP">DXGetCameraMatrix, DXGetCameraRotation,
+DXGetCameraMatrixWithFuzz</A>,
+<A HREF="progu246.htm#HDRDXNCA">DXNewCamera</A>,
+<A HREF="progu292.htm#HDRDXRNDR">DXRender</A>,
+<A HREF="progu319.htm#HDRDXSOC">DXSetOrthographic, DXGetOrthographic</A>,
+<A HREF="progu323.htm#HDRDXSPE">DXSetPerspective, DXGetPerspective</A>,
+<A HREF="progu324.htm#HDRDXSRN">DXSetResolution, DXGetCameraResolution</A>
+</STRONG></TT>
+<P>
+<A HREF="progu081.htm#HDRCAMSEC">16.7 , "Camera Class"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu327.htm">Previous Page</A> &#124; <A HREF="progu329.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

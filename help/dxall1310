@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnav DXNewArray, DXNewArrayV #!N #!N Function #!N 
+#!N Create an irregular Array Object. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> #!N #!N Array DXNewArray(Type t, 
+Category c, int rank, ...) #!N Array DXNewArrayV(Type t, Category c, 
+int rank, int *shape) #!EF #!EF #!N #!N #!EC #!N #!N 
+Functional Details #!N #!N The Object created is an Array of 
+Array subclass  #!F-adobe-times-bold-r-normal--18*   CLASS_ARRAY #!EF . Each  #!F-adobe-times-bold-r-normal--18*   item #!EF is 
+a scalar, vector, matrix, or tensor whose rank is specified by 
+ #!F-adobe-times-bold-r-normal--18*   rank #!EF (number of dimensions). #!N #!N The first form 
+of this routine (  #!F-adobe-times-bold-r-normal--18*   DXNewArray #!EF ) specifies the shape 
+as the last  #!F-adobe-times-bold-r-normal--18*   rank #!EF arguments. The second form ( 
+ #!F-adobe-times-bold-r-normal--18*   DXNewArrayV #!EF ) specifies  #!F-adobe-times-bold-r-normal--18*   shape #!EF as an Array 
+of integers. Each entry in the item is real or complex, 
+as specified by  #!F-adobe-times-bold-r-normal--18*   c #!EF , with coefficients that are 
+integer, single precision, and double precision, according to  #!F-adobe-times-bold-r-normal--18*   t #!EF 
+. The Array initially contains no items. #!N #!N The type 
+is one of the following: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TYPE_BYTE TYPE_HYPER TYPE_SHORT #!N TYPE_UBYTE TYPE_INT TYPE_USHORT #!N TYPE_DOUBLE TYPE_UINT TYPE_STRING 
+#!N TYPE_FLOAT #!EF #!EF #!N #!N #!EC #!N #!N The category 
+is  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL or CATEGORY_COMPLEX #!EF . #!N #!N Return Value 
+#!N #!N Return the Array or return  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+set an error code. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData #!EF #!N #!N 
+ #!Lirreg,dxall1071 h Irregular Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxnca,dxall1311 h DXNewCamera  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

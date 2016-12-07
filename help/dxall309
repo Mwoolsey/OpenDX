@@ -1,0 +1,84 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rnavigat 
+Navigating in a Scene #!N #!EC #!N #!N You can move 
+your camera within the scene in all directions using the  #!F-adobe-times-bold-r-normal--18*   
+Navigate #!EF mode. As well as being able to change your 
+view direction like the other modes,  #!F-adobe-times-bold-r-normal--18*   Navigate #!EF also lets 
+you move  #!F-adobe-times-medium-i-normal--18*   through #!EF an object and view it from 
+the inside out. #!N #!N When you use  #!F-adobe-times-medium-i-normal--18*   Navigate #!EF 
+mode, the camera is automatically changed to perspective rendering. #!N #!N 
+You can also move your camera in one direction while looking 
+in another direction. For instance, you can move forward past the 
+left side of an object while looking to the right, enabling 
+you to see the object as you move past it. #!N 
+#!N Unlike the  #!F-adobe-times-bold-r-normal--18*   Roam #!EF and  #!F-adobe-times-bold-r-normal--18*   Rotate #!EF modes, 
+which appear to adjust the object to change your view, or 
+the  #!F-adobe-times-bold-r-normal--18*   Zoom #!EF mode, which appears to adjust the camera 
+lens to change your view, the  #!F-adobe-times-bold-r-normal--18*   Navigate #!EF mode appears 
+to actually move your camera around the scene, while the objects 
+you are viewing remain stationary. Note: Because Data Explorer does not 
+support perspective rendering of volumes, you cannot navigate software-rendered volumes. #!N 
+#!N To move your camera within the scene: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Select the  #!F-adobe-times-bold-r-normal--18*   Navigate #!EF 
+mode from the  #!F-adobe-times-bold-r-normal--18*   Mode #!EF option box. This adds some 
+controls, illustrated in  #!Lvc357,dxall309 f Figure 57  #!EL  , to the  #!F-adobe-times-bold-r-normal--18*   View Control... #!EF 
+dialog box. #!N #!I30 #!N 2. The mouse buttons control the 
+navigate motion of the camera, while the setting of the  #!F-adobe-times-bold-r-normal--18*   
+Look #!EF option box controls the direction the camera is pointing. 
+The  #!F-adobe-times-bold-r-normal--18*   Look #!EF options are illustrated in  #!Llookopt5,dxall309 t Table 5  #!EL  . Note: 
+You can also enable  #!F-adobe-times-bold-r-normal--18*   Navigate #!EF mode by using the 
+ #!F-adobe-times-bold-r-normal--18*   intrctnMode #!EF parameter to the Image tool (see Image in 
+IBM Visualization Data Explorer User's Reference). #!N #!N With  #!F-adobe-times-bold-r-normal--18*   Look 
+#!EF set to  #!F-adobe-times-bold-r-normal--18*   Forward #!EF , you have more control 
+over the trajectory the camera moves along in the scene. To 
+move forward, click on the left mouse button. To move backward, 
+click on the right mouse button. The position of the mouse 
+pointer on the image indicates the angle at which you travel; 
+that is, the point where the mouse pointer is located moves 
+more towards the center of the image area. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*   
+ #!Rvc357 #!N #!N Graphics omitted from Online Documentation. Please see the 
+manual. #!N Figure 57. Navigate Portion of the View Control Dialog 
+Box #!EF #!N #!EC  #!Rlookopt5 #!T,1,101  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 5. 
+Look #!N TAB Option Menu #!N TAB Forward #!N TAB 45deg 
+Left #!N TAB 45deg Right #!N TAB 45deg Up #!N TAB 
+45deg Down #!N TAB 90deg Left #!N TAB 90deg Right #!N 
+TAB 90deg Up #!N TAB 90deg Down #!N TAB Backward #!N 
+TAB Align #!N #!T,0 #!N #!N #!N #!N If the camera 
+is pointing forward, you can use the center mouse button to 
+change your direction. Clicking on the center mouse button adjusts your 
+direction (and view of the object) toward the position of the 
+mouse pointer in the image area. #!N #!N With the exception 
+of  #!F-adobe-times-bold-r-normal--18*   Align #!EF , all of the options in the 
+ #!F-adobe-times-bold-r-normal--18*   Look #!EF option box affect only the direction the camera 
+is pointing.  #!F-adobe-times-bold-r-normal--18*   Align #!EF adjusts the current navigate direction (the 
+forward direction) to be the same as the current  #!F-adobe-times-bold-r-normal--18*   Look 
+#!EF value. For example, if the camera is pointing 45deg to 
+the right of the current navigate direction,  #!F-adobe-times-bold-r-normal--18*   Align #!EF changes 
+the navigate direction to be 45deg to the right of its 
+current value, thereby aligning travel direction with camera direction. #!N Note: 
+Switching to another mode (such as  #!F-adobe-times-bold-r-normal--18*   Rotate #!EF ) from 
+ #!F-adobe-times-bold-r-normal--18*   Navigate #!EF while the Look value is something other than 
+Forward, automatically aligns the navigate direction with the camera direction. #!N 
+#!N #!N If the camera is pointing in any direction but 
+forward, you can still use the left and right mouse buttons 
+to move forward and backward; the trajectory of your movement is 
+the same as it was when you last traveled forward. In 
+this case, the center mouse button has no effect. #!N #!I30 
+#!N 3. The  #!F-adobe-times-bold-r-normal--18*   Navigate #!EF mode uses two values to 
+control its precision. These are controlled by the two sliders on 
+the  #!F-adobe-times-bold-r-normal--18*   View Control... #!EF dialog box. They are: #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Motion #!EF #!I50 #!N Controls the 
+speed of execution as you move the camera forward and backward. 
+The higher the number, the faster the speed, and the faster 
+your camera appears to move. In addition to using the slider, 
+you can use the up- and down-arrow keys to adjust this 
+value (be sure the cursor is in the Image window). #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Pivot #!EF #!I50 #!N Controls the increment of 
+the turn angle when you turn using the center mouse button. 
+The higher the number, the more drastic the turn. In addition 
+to using the slider, you can use the left- and right-arrow 
+keys to adjust this value (be sure the cursor is in 
+the Image window). #!I0 #!N #!N #!N #!I0 #!N #!EF #!N 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcamset,dxall310 h Precise Camera Settings  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

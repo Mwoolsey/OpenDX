@@ -1,0 +1,89 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rwrimp Writing 
+an Import Module #!N #!EC Any external filter, like the one 
+just illustrated, has the disadvantage of running more slowly than an 
+import module because it sends the data to a file or 
+through a socket. A built-in module reads the data into memory, 
+where Data Explorer uses it directly. In this example, the import 
+module SimpleImport reads the same HDF file as the external filter 
+did. Note: Because the import module is very simple and does 
+not require the traversal of input Fields, the Module Builder is 
+not used in this example. (This C program is also found 
+in  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/simpleimportfilter.c #!EF #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 01 #include 
+<dx/dx.h> #!EF #!N #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   df.h #!EF is 
+a necessary include file for HDF library routines. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N 02 #include <df.h> #!N 03 #!N 04 #define MAXRANK 
+3 #!N 05 #!N 06 Error m_SimpleImport(Object *in, Object *out) #!N 
+07 { #!N 08 Array a=NULL; #!N 09 Field f=NULL; #!N 
+10 char *filename; #!N 11 int dims, counts[MAXRANK], numelements, i, j; 
+#!N 12 float deltas[MAXRANK*MAXRANK], origins[MAXRANK], *data; #!EF #!N #!N #!EC #!N 
+#!N Extract the file name from  #!F-adobe-times-bold-r-normal--18*   in[0] #!EF , and 
+check that it is a string. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+13 if (!in[0]) { #!N 14 DXSetError(ERROR_BAD_PARAMETER,"missing filename"); #!N 15 goto 
+error; #!N 16 } #!N 17 else if (!DXExtractString(in[0], &filename)) { 
+#!N 18 DXSetError(ERROR_BAD_PARAMETER, "filename must be a string"); #!N 19 goto 
+error; #!N 20 } #!EF #!N #!N #!EC #!N #!N The 
+HDF library routine  #!F-adobe-times-bold-r-normal--18*   DFishdf #!EF checks the file for accessibility 
+and for the correct (HDF) format. If the file is not 
+accessible or is not an HDF file, the routine generates an 
+error message. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 21 if (DFishdf(filename) != 
+0) { #!N 22 DXSetError(ERROR_BAD_PARAMETER, #!N 23 "file \"%s\" is not 
+accessible, or is not an hdf file", #!N 24 filename); #!N 
+25 goto error; #!N 26 } #!N 27 #!EF #!N #!N 
+#!EC #!N #!N Initialize the HDF library. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N 28 DFSDrestart(); #!EF #!N #!N #!EC #!N #!N The HDF 
+library routine  #!F-adobe-times-bold-r-normal--18*   DFSDgetdims #!EF returns the dimensionality of the grid 
+(1D, 2D, etc.) in  #!F-adobe-times-bold-r-normal--18*   dims #!EF . The number of 
+positions in each dimension is returned in the Array  #!F-adobe-times-bold-r-normal--18*   counts 
+#!EF . #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 29 DFSDgetdims(filename, &dims, counts, 
+MAXRANK); #!EF #!N #!N #!EC #!N #!N Make a new Array 
+(scalar). #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 30 a = DXNewArray(TYPE_FLOAT, CATEGORY_REAL, 
+0); #!N 31 if (!a) #!N 32 goto error; #!EF #!N 
+#!N #!EC #!N #!N Determine the number of elements in the 
+data Array. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 33 numelements=1; #!N 34 
+for (i=0; i<dims; i++) { #!N 35 numelements= numelements * counts[i]; 
+#!N 36 } #!EF #!N #!N #!EC #!N #!N Allocate space 
+to the data Array. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 37 if 
+(!DXAddArrayData(a, 0, numelements, NULL)) #!N 38 goto error; #!EF #!N #!N 
+#!EC #!N #!N Get a pointer to memory for the data 
+Array. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 39 data = (float *)DXGetArrayData(a); 
+#!N 40 if (!data) #!N 41 goto error; #!EF #!N #!N 
+#!EC #!N #!N The HDF library routine  #!F-adobe-times-bold-r-normal--18*   DFSDgetdata #!EF reads 
+the data from the HDF file to the data Array. #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 42 DFSDgetdata(filename, dims, counts, data); #!EF #!N 
+#!N #!EC #!N #!N Create a new Field. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N 43 f = DXNewField(); #!N 44 if (!f) #!N 
+45 goto error; #!EF #!N #!N #!EC #!N #!N Set the 
+dependency of the data to "positions." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+46 if (!DXSetStringAttribute((Object)a, "dep", "positions")) #!N 47 goto error; #!EF #!N 
+#!N #!EC #!N #!N Set the data Array as the data 
+component of  #!F-adobe-times-bold-r-normal--18*   f #!EF . #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+48 if (!DXSetComponentValue(f, "data", (Object)a)) #!N 49 goto error; #!N 50 
+a=NULL; #!EF #!N #!N #!EC #!N #!N Create the connections Array. 
+ #!F-adobe-times-bold-r-normal--18*   DXMakeGridConnections #!EF sets up the element type. Place the connections 
+in the Field. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 51 a = 
+DXMakeGridConnectionsV(dims, counts); #!N 52 if (!a) #!N 53 goto error; #!N 
+54 if (!DXSetComponentValue(f, "connections", (Object)a)) #!N 55 goto error; #!N 56 
+a=NULL; #!EF #!N #!N #!EC #!N #!N Now create the position 
+origin and deltas for the position (origin 0 and deltas 1 
+in each dimension). #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 57 for (i=0; 
+i<dims; i++) { #!N 58 origins[i] = 0.0; #!N 59 for 
+(j=0; j<dims; j++) { #!N 60 if (i==j) #!N 61 deltas[i*dims 
++ j] = 1.0; #!N 62 else #!N 63 deltas[i*dims + 
+j] = 0.0; #!N 64 } #!N 65 } #!EF #!N 
+#!N #!EC #!N #!N Create the positions Array and place it 
+in the Field. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 66 #!N 67 
+a = DXMakeGridPositionsV(dims, counts, origins, deltas); #!N 68 if (!a) #!N 
+69 goto error; #!N 70 if (!DXSetComponentValue(f, "positions", (Object)a)) #!N 71 
+goto error; #!N 72 a=NULL; #!EF #!N #!N #!EC #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXEndField #!EF sets default attributes and creates the bounding box. 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 73 if (!DXEndField(f)) #!N 74 goto 
+error; #!N 75 #!EF #!N #!N #!EC #!N #!N Set  #!F-adobe-times-bold-r-normal--18*   
+f #!EF as the first output of the module. #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N 76 out[0]=f; #!N 77 return OK; #!N 78 
+#!EF #!N #!N #!EC #!N #!N On error, delete  #!F-adobe-times-bold-r-normal--18*   f 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   a #!EF . #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+79 error: #!N 80 DXDelete((Object)f); #!N 81 DXDelete((Object)a); #!N 82 return 
+ERROR; #!N 83 } #!EF #!N #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lpickst,dxall1039 h Using the Pick Structure  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

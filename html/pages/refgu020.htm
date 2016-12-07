@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Band</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu019.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu176.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRBAND" ></A>Band</H3>
+		<A NAME="IDX390"></A><A NAME="IDX391"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREL">Realization</A>
+<P><STRONG>Function</STRONG>
+<P>
+Divides a specified field into bands.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+band</STRONG> = Band(<STRONG>data, value, number, remap</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">field to be divided
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>value</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">data mean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">band divisions
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>number</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of divisions
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>remap</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;low&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">data values applied to bands
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>band</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field or group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">divided input
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The values used for dividing a field into bands are specified by
+<TT><STRONG>value</STRONG></TT> or <TT><STRONG>number</STRONG></TT>.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>is the field to be divided and must have 2-dimensional
+connections
+(triangles or quads).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>value</STRONG></TT>
+</B></TD><TD><P>specifies the value(s) at which the divisions are to be created
+(i.e., the data values in the data field).
+If this parameter and <TT><STRONG>number</STRONG></TT> (see below) are both
+unspecified, the module, by default, constructs the division at
+the arithmetic mean of the data set.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>number</STRONG></TT>
+</B></TD><TD><P>specifies the number of equal divisions to be created between
+the
+minimum (min) and maximum (max) data values of the field.
+The first division is created at min &#43; delta, the second at min
+&#43; 2 * delta, and the last at max &#45; delta, where delta
+= (max&#45;min)/(number+1).
+<P><B>Note: </B>This parameter is ignored if <TT><STRONG>value</STRONG></TT> is
+specified.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>remap</STRONG></TT>
+</B></TD><TD><P>assigns data values to the elements in each band:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P>"low"
+</TD><TD><P>specifies that all connection elements are assigned the value of
+the lower boundary of the band (the lowest data value if it is the
+first band).
+</TD></TR><TR VALIGN="TOP"><TD><P>"high"
+</TD><TD><P>specifies that all connection elements are assigned the value of
+the upper boundary of the band (the largest data value if it is
+the last band).
+</TD></TR><TR VALIGN="TOP"><TD><P>"original"
+</TD><TD><P>specifies that the data values remain unchanged.
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+<P><STRONG>Components</STRONG>
+<P>
+This module creates new "positions" and "connections"
+components, and adds a "colors" component if one is not
+already present.
+The "data" component is modified according to the value of
+<TT><STRONG>remap</STRONG></TT>.
+The output data are connection dependent.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+AlternateVisualizations.net
+
+BandedColors.net
+
+InvalidData.net
+SIMPLE/Band.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu081.htm#HDRISOSURF">Isosurface</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

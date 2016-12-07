@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxmess DXMessage #!N #!N 
+Function #!N #!N Presents a message to the user. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> void DXMessage(char *message, ...) #!EF #!N 
+#!N Functional Details #!N #!N The message string should not contain 
+newline characters, because the  #!F-adobe-times-bold-r-normal--18*   DXMessage #!EF routine formats the message 
+in a manner appropriate to the output medium. For terminal output, 
+this includes prefixing the message with the processor identifier and appending 
+a newline. The  #!F-adobe-times-bold-r-normal--18*   message #!EF may be a  #!F-adobe-times-bold-r-normal--18*   printf 
+#!EF form string, in which case additional arguments may be necessary. 
+#!N #!N You can also invoke standard error messages by specifying 
+ #!F-adobe-times-bold-r-normal--18*   message #!EF as #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N "#number" #!EF 
+#!N #!N #!EC where number identifies a message in the file 
+/usr/lpp/dx/messages. Note that many of the messages require one or more 
+arguments. Note: In combination with two other library routines,  #!F-adobe-times-bold-r-normal--18*   DXMessage 
+#!EF can be used to form "long" messages. For details, see 
+ #!Ldxblm,dxall1175 h DXBeginLongMessage, DXEndLongMessage  #!EL  . #!N #!N Return Value #!N #!N None. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxblm,dxall1175 h DXBeginLongMessage, DXEndLongMessage  #!EL  ,  #!Ldxse,dxall1377 h DXSetError, DXErrorReturn, DXErrorGoto  #!EL  ,  #!Ldxw,dxall1407 h DXWarning  #!EL  #!EF 
+#!N #!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxn,dxall1308 h DXNeighbors  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

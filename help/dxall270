@@ -1,0 +1,91 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall269 Advanced Looping Constructs #!N #!EC #!N #!N 
+Combinations of the modules described above enable you to create advanced 
+looping constructs. These constructs are equivalent to C-language constructs such as 
+"do while" or "for" loops containing "break" and "continue" statements. In 
+the following figures the Sum and Increment macros, as described above, 
+are used as well as a macro named Equals that consists 
+of a Compute where the expression is "a==b?1:0" (if the inputs 
+are equal output 1 otherwise output 0). #!N #!N Illustrated in 
+ #!Lxmodx844,dxall270 f Figure 44  #!EL  is a macro that computes the sum of numbers from 
+1 to N. If a number in the sequence from 1 
+to N is equal to an external input, x, the loop 
+terminates and returns the sum from 1 to x. Done, in 
+combination with Equals, is used to cause early termination of the 
+loop. Done causes the loop to terminate after all the modules 
+in the macro have executed if the input to Done is 
+nonzero. The macro illustrated in  #!Lxmodx844,dxall270 f Figure 44  #!EL  is equivalent to the C-language 
+statements: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N sum = 0; #!N i 
+= 0; #!N do #!N { #!N i++; #!N sum = 
+sum+i; #!N } while (i<=n && i!=x); #!EF #!N #!N #!EC 
+#!N #!N Now consider a macro in which the sum of 
+numbers from 1 to N is computed, but if a number 
+is equal to an external input value, x, it is excluded 
+from the sum. To achieve this result using C-language statements, you 
+would use a conditional with a "continue" statement: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N sum = 0; #!N for (i=1; i<=n; i++) #!N 
+{ #!N if (i==x) continue; #!N sum = sum+i; #!N } 
+#!EF #!N #!N #!EC #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx844 #!N Graphics omitted 
+from Online Documentation. Please see the manual. #!N #!N Figure 44. 
+Example 8 #!EF #!N #!EC As illustrated in  #!Lxmodx945,dxall270 f Figure 45  #!EL  , you 
+would use Route to create this macro using Data Explorer. The 
+ #!F-adobe-times-bold-r-normal--18*   selector #!EF input of Route is being controlled by the 
+output of Compute. The Compute has its expression set to "a==b?0:1" 
+(if a and b are equal output 0, otherwise output 1). 
+(This is similar to the Equal macro used earlier, but the 
+expression differs slightly.) Therefore, if the iteration variable is equal to 
+x, Compute outputs a 0, causing Route to disable the execution 
+of all the modules downstream from it. This implies that Sum 
+and SetLocal will not run; therefore, during the next iteration, GetLocal 
+will retrieve the same value as the current iteration. #!N #!N 
+Unfortunately, the visual program illustrated in  #!Lxmodx945,dxall270 f Figure 45  #!EL  has a minor problem. 
+If x equals N, the Route will cause the Sum and 
+SetLocal not to execute during the last iteration; therefore the output 
+of the macro will be a NULL. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx945 
+#!N Graphics omitted from Online Documentation. Please see the manual. #!N 
+#!N Figure 45. Example 9 #!EF #!N #!EC Illustrated in  #!Lxmodx1046,dxall270 f Figure 46  #!EL  
+is the fix to the problem. A Switch is included to 
+choose the correct input for the output of the macro. If 
+x equals N, the output of the GetLocal is chosen; otherwise 
+the output of Sum is chosen. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx1046 #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N #!N 
+Figure 46. Example 10 #!EF #!N #!EC #!N #!N If you 
+want to create a loop containing an early exit in the 
+middle of the loop (a "break"), you need to use a 
+Route in combination with Done. Illustrated in  #!Lxmodx1147,dxall270 f Figure 47  #!EL  is a macro 
+that performs the equivalent function as the C-language statements: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N sum = 0; #!N for (i=1; i<=n; i++) 
+#!N { #!N if (i==x) break; #!N sum = sum+i; #!N 
+} #!EF #!N #!N #!EC #!N #!N Data Explorer allows you 
+to have multiple Done tools in a single loop enabling you 
+to have more than one break or continue or combinations of 
+the two. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx1147 #!N #!N Graphics omitted from 
+Online Documentation. Please see the manual. #!N Figure 47. Example 11 
+#!EF #!N #!EC #!N #!N ForEachN or ForEachMember simplify the use 
+of loops but they are not necessary for creating them. In 
+fact, Done itself is sufficient, if it is included inside a 
+macro. The macro will execute repeatedly as long as the  #!F-adobe-times-bold-r-normal--18*   
+done #!EF parameter is equal to 0 (zero). Note that the 
+top-level visual program is itself a macro, so the same behavior 
+will occur if Done is placed in the top-level visual program. 
+#!N #!N Illustrated in  #!Lxmodx1248,dxall270 f Figure 48  #!EL  is a macro that computes the 
+Fibonacci Series (defined by setting Y[1]= 1, Y[2] = 1 and 
+by the recursion formula Y[k] = Y[k-2] + Y[k-1], for k 
+= 3,4,5...). In this example a two vector, [Y[k-1], Y[k]], is 
+used to store the elements of the series. The GetLocal module 
+has its initial value set to [1,1]. The first Compute in 
+the macro creates a new two vector consisting of [Y[k-1], Y[k]] 
+using the expression "[a.1, a.0 + a.1]." The second Compute in 
+the macro extracts Y[k] from the two vector using the expression 
+"a.1." To terminate the loop, the Y[k] element of the series 
+is checked against an external input, x. If Y[k] is greater 
+than x, the loop terminates. GreaterThan is a simple macro consisting 
+of a Compute with its expression set to "a>b?1:0." An equivalent 
+set of C-language statements is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N a=1; 
+#!N b=1; #!N do { #!N c = b; #!N b 
+= b + a; #!N a = c; #!N } while 
+(b <= x); #!EF #!N #!N #!EC #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx1248 
+#!N Graphics omitted from Online Documentation. Please see the manual. #!N 
+#!N Figure 48. Example 12 #!EF #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall270,dxall271 h External Asynchronous Data Sources  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

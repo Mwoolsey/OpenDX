@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rall1098 Classes and Subclasses #!N #!EC #!N #!N #!N Every 
+Data Explorer Object is a member of  #!F-adobe-times-bold-r-normal--18*   CLASS_OBJECT #!EF and 
+thus can be manipulated with generic-Object-class routines like  #!F-adobe-times-bold-r-normal--18*   DXDelete() #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   DXGetObjectClass() #!EF . Each Data Explorer Object is also 
+a member of one of the subclasses of  #!F-adobe-times-bold-r-normal--18*   CLASS_OBJECT #!EF 
+(e.g.,  #!F-adobe-times-bold-r-normal--18*   CLASS_FIELD #!EF ,  #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF , and so 
+on). Two of these subclasses (  #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF and  #!F-adobe-times-bold-r-normal--18*   
+CLASS_ARRAY #!EF ) themselves have subclasses (see  #!Lcl23,dxall1061 t Table 23  #!EL  ). #!N #!N 
+For any Object,  #!F-adobe-times-bold-r-normal--18*   DXGetObjectClass() #!EF returns the name of the 
+"lowest" subclass to which that Object belongs. If an operation does 
+not require a particular subclass of Object, it will not be 
+affected if the Object is a not a member. If an 
+operation does require a particular subclass, however,  #!F-adobe-times-bold-r-normal--18*   DXGetGroupClass() #!EF or 
+ #!F-adobe-times-bold-r-normal--18*   DXGetArrayClass() #!EF can be used to identify it. #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o For Groups,  #!F-adobe-times-bold-r-normal--18*   DXGetGroupClass() 
+#!EF returns one of its three subclasses or (if the Group 
+is generic)  #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF . #!N #!I30 #!N o For 
+Arrays,  #!F-adobe-times-bold-r-normal--18*   DXGetArrayClass() #!EF returns one of its five subclasses or 
+(if the Array is generic)  #!F-adobe-times-bold-r-normal--18*   CLASS_ARRAY #!EF . #!N #!I0 
+#!N #!EF #!N #!N #!N Any member of (superclass)  #!F-adobe-times-bold-r-normal--18*   CLASS_ARRAY 
+#!EF or  #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF can be manipulated with generic superclass 
+routines such as  #!F-adobe-times-bold-r-normal--18*   DXGetGroupType() #!EF and  #!F-adobe-times-bold-r-normal--18*   DXGetArrayInfo() #!EF . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

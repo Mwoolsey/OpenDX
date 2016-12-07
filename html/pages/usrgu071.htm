@@ -1,0 +1,491 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - netCDF Files: Complex Fields</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu070.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu072.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu067.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRAPE" ></A>B.5 netCDF Files: Complex Fields
+</H2>
+		<A NAME="IDX1024"></A>
+For data with more
+complex structure, conventions have been established for
+netCDF variable attributes, as
+described in the format below.
+The notation used corresponds
+to that of the netCDL "language."
+<P>
+<H3><A NAME="Header_462" ></A>Irregular Arrays</H3>
+<P>This section describes how to specify netCDF variables for
+components with irregular values.
+<P>
+<H4><U>Data</U></H4>
+<P>
+To indicate that a netCDF variable contains values corresponding to
+the data component, it must have
+the following attribute:
+<PRE>
+           <VAR>variable1</VAR>&#58;field = "<VAR>fieldname</VAR>";
+</PRE>
+<VAR>Variable1</VAR> is the name of the netCDF variable containing data
+values to be imported.  <VAR>fieldname</VAR> is the name
+of the Data Explorer field by which the
+user refers to the data
+(for example, "temperature," "pressure,"
+"wind").
+If more than one variable is
+tagged with the same field name, each
+variable is read into a field, and the fields are collected
+into a group.
+<P>
+The data are read in as an array of
+values, one number per grid point.
+If the data are actually a vector
+or a matrix at each grid point, use
+one of the following modifiers:
+<UL COMPACT>
+<LI><TT><VAR>variable1</VAR>&#58;field = "<VAR>fieldname</VAR>, vector";
+<LI><VAR>variable1</VAR>&#58;field = "<VAR>fieldname</VAR>, matrix";</TT>
+</UL>
+The non-scalar data are stored in additional dimensions for the
+variable.
+For a static three-dimensional 3-vector, the three components
+are stored in a fourth dimension of size 3.
+<P>
+If the data have both regular connections and regular positions,
+no other attributes are required.
+A regular grid is assumed,
+with the origin at 0.0, and
+a spacing of 1.0 along each axis.
+The number of axes will be determined
+from the number of dimensions in the data array.
+<P>
+<H4><U>Positions</U></H4>
+<P>
+If the locations of the data values in <I>variable1</I>
+do not form a regular lattice (with origins at 0.0 and spacings of 1.0),
+the name of a netCDF variable that contains the position information
+must be specified as an attribute for <VAR>variable1</VAR>.
+<P>
+There are five different types of position specifications: none,
+completely regular, completely irregular, and two types of
+partially regular.
+<P>
+Completely irregular is assumed if the following attribute is specified:
+<PRE>
+    <VAR>variable1</VAR>&#58;positions = "<VAR>variable2</VAR>";
+</PRE>
+where <VAR>variable2</VAR> is an array of vectors, one for each grid point,
+defining its location.
+The dimensionality of the data space is
+determined by the number of items in a vector.
+<P>
+Regular positions
+can be specified with just the origin and spacing between
+grid points along each axis in compact form.
+The following
+attribute is used:
+<PRE>
+    <VAR>variable1</VAR>&#58;positions = "<VAR>variable2</VAR>, compact";
+</PRE>
+where <VAR>variable2</VAR> is the name of a <I>n&times;2</I>
+array containing
+origin, delta pairs for the spacing and
+location of positions along each axis.
+The number of positions
+along each axis is determined from the
+shape of <VAR>variable1</VAR>.
+<P>
+Positions that can be specified as the product of arrays containing
+the location of points along
+each axis can be input in product form.
+Use the following attribute:
+<PRE>
+    <VAR>variable1</VAR>&#58;positions = "<VAR>variable2a</VAR>, product;
+                                          <VAR>variable2b</VAR>, product;
+                                                 &#46;
+                                                 &#46;
+                                                 &#46;
+                                          <VAR>variable2x</VAR>, product";
+</PRE>
+where the <VAR>variable2</VAR>'s are each the name of an array containing
+a list of positions along that axis.
+The number of items in each
+array must match the length of the corresponding axis in the original
+<VAR>variable1</VAR> data array.
+<P>
+If any of the axes in an partially regular product array are actually
+regular, they can be specified in <TT>compact</TT> form:
+<PRE>
+    <VAR>variable1</VAR>&#58;positions = "<VAR>variable2a</VAR>, product, compact;
+                                          <VAR>variable2b</VAR>, product;
+                                            &#46;
+                                            &#46;
+                                            &#46;
+                                          <VAR>variable2x</VAR>, product";
+</PRE>
+where <VAR>variable2a</VAR> is the name of an origin, delta array, and the rest
+are position lists as before.
+<P>
+<H4><U>Connections</U></H4>
+<P>
+If the connections between positions is a regular lattice, no additional
+attributes are necessary.
+For 1-D data,
+connections of "lines" is
+assumed.
+2-D data implies "quads," 3-D data implies
+"cubes" and for higher
+dimensions, "hypercubes" is assumed.
+<P>
+If the connections are irregular,
+use one of the following attributes:
+<UL COMPACT>
+<LI><TT><VAR>variable1</VAR>&#58;connections = "<VAR>variable3</VAR>,
+tetrahedra";
+<LI><VAR>variable1</VAR>&#58;connections = "<VAR>variable3</VAR>, triangles";
+<LI><VAR>variable1</VAR>&#58;connections = "<VAR>variable3</VAR>, cubes";
+<LI><VAR>variable1</VAR>&#58;connections = "<VAR>variable3</VAR>, quads";</TT>
+</UL>
+where <VAR>variable3</VAR> is the name of an array containing a vector
+of point numbers, defining each connection element item.
+The length of
+this vector depends on the choice of connections.
+If the shape is
+not explicitly specified,
+<VAR>tetrahedra</VAR> are assumed.
+<P>
+<H4><U>Additional Components</U></H4>
+<P>
+If additional component information is present in the file, the following
+attributes are valid:
+<PRE>
+   <VAR>variable1</VAR>&#58;component = "<VAR>variable4</VAR>, <VAR>componentname</VAR>, scalar;
+                          <VAR>variable5</VAR>, <VAR>componentname</VAR>, vector;
+                          <VAR>variable6</VAR>, <VAR>componentname</VAR>, matrix";
+</PRE>
+and
+<PRE>
+   <VAR>variable4</VAR>&#58;attributes = "ref, <VAR>componentname</VAR>;
+                           dep, <VAR>componentname</VAR>";
+</PRE>
+<P>
+<H3><A NAME="Header_467" ></A>Series Data</H3>
+<A NAME="IDX1025"></A>
+<A NAME="IDX1026"></A>
+There are three ways to specify
+the import of datasets that should be treated as
+series.  They are:
+<UL COMPACT>
+<LI>Single variable
+<LI>Separate variables
+<LI>Separate files
+</UL>
+<P>
+<H4><U>Single Variable</U></H4>
+<P>
+When all data values are defined as a single netCDF
+variable, and the unlimited dimension of the variable is to be
+interpreted as the series dimension,
+then use one of the following forms of the <TT>field</TT>
+attribute:
+<UL COMPACT>
+<LI><TT><VAR>variable1</VAR>&#58;field = "<VAR>fieldname</VAR>, scalar, series";
+<LI><VAR>variable1</VAR>&#58;field = "<VAR>fieldname</VAR>, vector, series";
+<LI><VAR>variable1</VAR>&#58;field = "<VAR>fieldname</VAR>, matrix,
+series";</TT>
+</UL>
+All other specifications are the same as for simple fields.
+<P>
+The position and connection information is assumed to be constant for all
+members of the series.  If the positions or connections change for each
+step of the series, then the variables used for those arrays must also
+have an unlimited
+dimension that corresponds one-for-one with the data array.
+<P>An example using this method is provided in <A HREF="#HDRCDFSER">"Partially
+Regular Grids and Time Series"</A>.
+<P>
+<H4><U>Separate Variables</U></H4>
+<P>
+When there are separate netCDF variables defined for each step in the
+series, but all variables are in the same file, use the following global
+attribute tags:
+<PRE>
+    &#58;series<VAR>xxx</VAR> = "<VAR>fieldname</VAR>;
+                  <VAR>variable1a</VAR>;
+                  <VAR>variable1b</VAR>;
+                         &#46;
+                         &#46;
+                         &#46;
+                  <VAR>variable1x</VAR>";
+</PRE>
+or
+<PRE>
+    &#58;series<VAR>xxx</VAR> = "<VAR>fieldname</VAR>;
+                  <VAR>variable1a</VAR>, <VAR>float&#95;value</VAR>;
+                  <VAR>variable1b</VAR>, <VAR>float&#95;value</VAR>;
+                         &#46;
+                  <VAR>variable1x</VAR>, <VAR>float&#95;value</VAR>";
+</PRE>
+where the global tag must have the first 6
+characters <TT>series</TT>.
+Global tags must be unique,
+so additional characters can be added
+to distinguish them.
+<P>
+Each <VAR>variable1</VAR>x is the name array containing
+the data for that step.
+In the first format,
+the spacing of the steps is assumed to be 1.0.
+In the second
+format, the <VAR>float&#95;value</VAR>
+is the value of each step.
+All other specifications
+are the same as for simple fields.
+<P>
+<H4><U>Separate Files</U></H4>
+<A NAME="IDX1027"></A>
+<P>
+When there are netCDF variables in separate files that make up the
+steps of a series, use the following global attribute tags:
+<PRE>
+    &#58;series<VAR>xxx</VAR> = "<VAR>fieldname</VAR>, files;
+                  <VAR>filename1</VAR>;
+                  <VAR>filename2</VAR>;
+                         &#46;
+                         &#46;
+                         &#46;
+                  <VAR>filenameN</VAR>";
+</PRE>
+or
+<PRE>
+    &#58;series<VAR>xxx</VAR> = "<VAR>fieldname</VAR>, files;
+                  <VAR>filename1</VAR>, <VAR>float&#95;value</VAR>;
+                  <VAR>filename2</VAR>, <VAR>float&#95;value</VAR>;
+                         &#46;
+                         &#46;
+                         &#46;
+                  <VAR>filenameN</VAR>, <VAR>float&#95;value</VAR>";
+</PRE>
+where the global tag must have the first 6
+characters <TT>series</TT>.  Global tags must be unique,
+so additional characters can be added
+to distinguish them.
+<P>
+Each <VAR>filename</VAR>N is the name of the netCDF file that
+contains the data variables for that step.
+In the first format,
+the spacing of the steps is 1.0.
+In the second
+format, the <VAR>float&#95;value</VAR>
+is the value of each step.
+All other
+specifications are the same as for simple fields.
+<P>This format can be used to create short term series within a file,
+and then have a series of these smaller series.
+<P>
+<H3><A NAME="Header_471" ></A>Examples</H3>
+<A NAME="IDX1028"></A>
+<P>This section shows examples of netCDF files in the netCDL
+description language.  See the documentation supplied by UCAR for more
+information on netCDL and the <TT><STRONG>ncgen</STRONG></TT> and
+<TT><STRONG>ncdump</STRONG></TT>
+utilities.
+<P>
+<H4><U>Compact Specifications of Regular Dimensions</U></H4>
+This example describes a single two-dimensional scalar field on
+a latitude-longitude, regular, rectangular grid.
+The example data
+are temperature on a one-degree grid
+with global coverage.
+Because Data Explorer array objects
+can be specified compactly, you can
+use this method to specify a netCDF with
+regular dimensions.
+For each dimension,
+you need to specify its value at the origin and
+its spacing along the dimension.
+<P>In this example, two variable attributes are defined for the
+netCDF variables.
+<TT><STRONG>field</STRONG></TT>
+specifies the rank of the parameter, and
+<TT><STRONG>positions</STRONG></TT>
+specifies where the information containing the locations of the data
+is space is located.
+<PRE>
+dimensions:
+    lon = 360;
+    lat = 180;
+    naxes = 2;
+    ndeltas = 2;
+variables:
+    float locations(naxes, ndeltas);
+    float temperature(lat, lon);
+    temperature&#58;field = "temperature, scalar";
+    temperature&#58;positions = "locations, regular";
+data:
+    locations = 89.5, -1.,      // compact specification, origin and
+                -179, 1.;       // spacing for lat and lon
+    temperature = ...       // Data for temperature
+</PRE>
+<P>
+<H4><U><a name="HDRCDFSER"></a>Partially Regular Grids and Time Series</U></H4>
+<P>
+This example describes an ocean circulation model that consists of
+a time series of four three-dimensional scalars
+<TT><STRONG>(temp</STRONG></TT>, <TT><STRONG>sali</STRONG></TT>,
+<TT><STRONG>wata</STRONG></TT>,
+and
+<TT><STRONG>conv)</STRONG></TT>
+and one three-dimensional 3-vector
+<TT><STRONG>(vel)</STRONG></TT>.
+netCDF typically requires seven variables, all scalars
+(the vector counting as three scalars).
+The coordinate
+system for the velocity vectors corresponds to that of the grid
+(that is, &#43;u implies north, &#43;v implies east, and
+&#43;w implies down).
+<P>These grids are partially regular in that the
+<TT><STRONG>time</STRONG></TT>,
+<TT><STRONG>tlat</STRONG></TT>,
+and
+<TT><STRONG>tlon</STRONG></TT>
+portions (three out of the four dimensions) are all regularly spaced.
+<TT><STRONG>time</STRONG></TT>
+is to be mapped to members of a series group.
+The fourth
+dimension,
+<TT><STRONG>tlvl</STRONG></TT>,
+is irregularly spaced.
+The compact notation
+can be used for the regular notation, while
+the all values along the irregular dimension must be specified;
+a product is formed from the dimensions.
+<P>
+Here is the specification in netCDL notation:
+<PRE>
+dimensions:
+    time = UNLIMITED;
+
+    tlat = 30;
+    tlon = 50;
+    tlvl = 30;
+    vsize = 3;   // At each grid cell for variable vel, there are
+                 // three floats for the u, v, and w components of the
+                 // vector field.
+    naxes = 3;
+    ndeltas = 2;
+variables:
+    float lat_axis(ndeltas, naxes);
+    float lon_axis(ndeltas, naxes);
+    float level_axis(tlvl, naxes);
+    float temp(time, tlat, tlon, tlvl);
+    temp&#58;field = "temperature, scalar, series";
+    temp&#58;positions = "lat_axis, product, compact; lon_axis,
+                      product, compact; level_axis, product";
+    float sali(time, tlat, tlon, tlvl);
+    sali&#58;field = "salinity, scalar, series";
+    sali&#58;positions = "lat_axis, product, compact; lon_axis,
+                      product, compact; level_axis, product";
+    float wata(time, tlat, tlon, tlvl);
+    wata&#58;field = "water parage, scalar, series";
+    wata&#58;positions = "lat_axis, product, compact; lon_axis,
+                      product, compact; level_axis, product";
+    float conv(time, tlat, tlon, tlvl);
+    conv&#58;field = "covective index, scalar, series";
+    conv&#58;positions = "lat_axis, product, compact; lon_axis,
+                      product, compact; level_axis, product";
+    float vel(time, tlat, tlon, tlvl, vsize);
+    vel&#58;field = "velocity, vector, series";
+    vel&#58;positions = "lat_axis, product, compact; lon_axis,
+                     product, compact; level_axis, product";
+data:
+    lat_axis = -14.667, 0., 0.,
+                 0.333, 0., 0.;
+    lon_axis = 0.0, -99.8, 0.0,
+               0.0, 0.5, 0.0;
+    level_axis = 0.0, 0.0, 17.5,
+                 0.0, 0.0, 53.425,
+                 .
+                 :
+                 0.0, 0.0, 5374.98;
+    temp = ... ;
+    sali = ... ;
+    wata = ... ;
+    conv = ... ;
+    vel = ... ;
+</PRE>
+<P>
+<H4><U>Irregular Surface</U></H4>
+<P>
+This example is the netCDL description of a netCDF for an irregular
+surface, that of the classic teapot.
+It has precomputed normals,
+which are imported as the "normals"
+component, in addition to positions and connections.
+<PRE>
+netcdf teapot8 &#123;    // name of datafile is "teapot8.ncdf"
+                    // name of field is "surface"
+dimensions:
+        pointnums = 2268;
+        trinums = 3584;
+        axes = 3;
+        sides = 3;
+variables:
+        float locations(pointnums, axes);
+        float normalvect(pointnums, axes);
+        long tris(trinums, sides);
+        float surfacedata(pointnums);
+// global attributes:
+                &#58;source = "Classic Teapot, data from Turner Whitted";
+// specific attributes:
+                surfacedata&#58;field = "surface";
+                surfacedata&#58;connections = "tris, triangles";
+                surfacedata&#58;positions = "locations";
+                surfacedata&#58;component = "normalvect, normals, vector";
+                normalvect&#58;attributes = "dep, positions";
+// This is the start of a large data section
+data:
+&middot;
+&#125;
+</PRE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

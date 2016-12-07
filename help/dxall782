@@ -1,0 +1,60 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rcategor Categorize #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function 
+#!N #!N Categorizes components of a field #!N #!N Syntax #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   output #!EF = Categorize(  #!F-adobe-times-bold-r-normal--18*   input, 
+name #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB input TAB field TAB none TAB field to 
+categorize #!N TAB name TAB string or string list TAB "data" 
+TAB component to categorize #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB output TAB field TAB 
+with additional lookup components #!N TAB - TAB - TAB #!EF 
+#!N #!N Functional Details #!N #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N is the field containing 
+the components to categorize #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF 
+#!EF #!I50 #!N is the name or names of the components 
+to categorize #!I0 #!N #!N #!N #!N The Categorize module converts 
+a component of any type to an integer array that references 
+a newly created "lookup" component, which is a sorted list of 
+the unique values in the original component. This serves to #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. reduce the size 
+of a component that contains duplicate values, #!N #!I30 #!N 2. 
+allow conversion of string or vector data to "categorical" data, #!N 
+#!I30 #!N 3. detect repeated values in a component, and #!N 
+#!I30 #!N 4. create a sorted list of the unique values 
+in a component for inspection. #!N #!I0 #!N #!EF #!N #!N 
+#!N Each component that is categorized will yield its own lookup 
+component named "compname lookup," where compname is the name of the 
+categorized component. #!N #!N For example, if the component name is 
+"state" and its values are ¤"MO," "CA," "MO," "NH," "AK," "NH"‡ 
+then Categorize(field, "state") would convert component state to: ¤2, 1, 2, 
+3, 0, 3‡ and produce a new component, "state lookup" containing 
+the values ¤"AK," "CA," "MO," "NH"‡. #!N #!N #!I0 #!N Notes: 
+#!N #!I30 #!N 1. Categorize works on scalar, string, or vectors 
+of any type, with the lookup component sorted in order of 
+x, y, z, ... If the lookup component has fewer items 
+than the original component, then there are duplicate values in the 
+original component. If the lookup component has 256 or fewer items, 
+the categorized component will be of type unsigned byte; otherwise it 
+will be of type int. #!N #!I30 #!N 2. Categorical data 
+can be converted back to its original values using either the 
+Lookup module or Map. If the lookup component is of type 
+string, it can be input as the  #!F-adobe-times-bold-r-normal--18*   labels #!EF parameter 
+of Plot, ColorBar, or AutoAxes to label the values 0, 1, 
+.. n-1 with the corresponding strings. This helps automate the labelling 
+of categorical plots. Data imported by ImportSpreadsheet can be categorized on 
+import directly by specifying the components to categorize. Statistics on the 
+categorized component, and another associated component, can be found with CategoryStatistics. 
+Include can be used to remove data by category. #!I0 #!N 
+#!N #!N #!N Components #!N #!N Modifies the components specified by 
+ #!F-adobe-times-bold-r-normal--18*   name #!EF , replacing it by a list of indices. 
+Adds a new component with the name "  #!F-adobe-times-bold-r-normal--18*   name #!EF 
+lookup" which is a lookup table for component  #!F-adobe-times-bold-r-normal--18*   name #!EF 
+. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+Duplicates.net #!N Categorical.net (Categorize is called on import by ImportSpreadsheet) #!EF 
+#!N #!N #!EC #!N #!N See Also #!N #!N  #!Lcategst,dxall783 h CategoryStatistics  #!EL  , 
+ #!Limpspsh,dxall872 h ImportSpreadsheet  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcategst,dxall783 h CategoryStatistics  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,394 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - AutoAxes</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu013.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu015.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A NAME="HDRAUTOAXE" ></A>AutoAxes</H3>
+		<A NAME="IDX367"></A><A NAME="IDX368"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATANN">Annotation</A>
+<A NAME="IDX369"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Generates an axes box to enclose an object in the Image window.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+axes</STRONG> = AutoAxes(<STRONG>input, camera, labels, ticks, corners, frame, adjust,
+                cursor, grid, colors, annotation, labelscale, font,
+                xticklocations, yticklocations, zticklocations,
+                xticklabels, yticklabels, zticklabels</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object to be enclosed
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>camera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">viewpoint
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>labels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no labels
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">labels for axes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>ticks</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer or integer list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">15
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the approximate number of major tick marks (0 to suppress)</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>corners</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">bounds of axes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>frame</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: only the frame of back faces
+   &nbsp;drawn
+<BR>
+1: entire frame drawn
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>adjust</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: end points not adjusted
+<BR>
+1: end points adjusted to match
+   &nbsp;tick marks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>cursor</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no cursor
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">cursor position
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>grid</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: grid lines not drawn
+<BR>
+1: grid lines drawn
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>colors</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate color(s)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">color(s) for annotation
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>annotation</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;all&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">annotation objects to be colored
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>labelscale</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1.0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">scale factor for labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>font</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">standard
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">font for labels
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>xticklocations</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">set of x tick locations
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>yticklocations</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">set of y tick locations
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>zticklocations</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">set of z tick locations
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>xticklabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">xticklocations
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">x tick labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>yticklabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">yticklocations
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">y tick labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>zticklabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">zticklocations
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">z tick labels
+
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>axes</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">color field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">the axes box plus the input
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+If you are using the Image tool in the user interface, you should use the
+<TT><STRONG>AutoAxes</STRONG></TT> option of the
+<TT><STRONG>Options</STRONG></TT> pull-down
+menu in the Image window, rather
+than the AutoAxes module.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is the object around which an axes box is to be generated.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>camera</STRONG></TT>
+</B></TD><TD><P>is the camera used to render the object (using Display or
+Render).
+The viewpoint determines which of the box edges AutoAxes creates and
+which way the labels face.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>labels</STRONG></TT>
+</B></TD><TD><P>specifies labels for the <I>x</I>, <I>y</I>, and
+<I>z</I> axes.
+If <TT><STRONG>input</STRONG></TT> has an "axis labels" attribute, it
+is used as the default for <TT><STRONG>labels</STRONG></TT>.
+This attribute can be imported with the original data or it can be
+added using the Options module.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>ticks</STRONG></TT>
+</B></TD><TD><P>can be an integer list, in which case it represents the
+approximate
+number of tick marks to be used on each of the three axes.
+If you specify <TT><STRONG>ticks</STRONG></TT> as a single integer, AutoAxes uses approximately that many tick marks in total for all three axes. Set the integers to their corresponding negative values to have tick marks point outwards.</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>corners</STRONG></TT>
+</B></TD><TD><P>specifies the extent of the axes.
+If this parameter is not specified, the module automatically sizes the
+box to enclose the specified input object.
+If it is specified as a list of two vectors, the module uses the points
+specified rather than the bounds of <TT><STRONG>input</STRONG></TT> to
+determine the extent of the axes.
+In that case, <TT><STRONG>corners</STRONG></TT> specifies the end points of
+the diagonal of the axes (e.g., &#91;<I>X</I>min,
+<I>Y</I>min, <I>Z</I>min&#93; and
+&#91;<I>X</I>max, <I>Y</I>max,
+<I>Z</I>max&#93;).
+<P>
+Alternatively, you can specify <TT><STRONG>corners</STRONG></TT> as an object,
+and the module uses the bounds of that object to determine the
+size of the axes.
+This feature is useful, for example, to enclose varying isosurfaces
+based on a given data field.
+You can use the data field as the <TT><STRONG>corners</STRONG></TT> parameter
+to keep the axes box a constant size, even when the isosurface
+changes in size.
+<P>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>frame</STRONG></TT>
+</B></TD><TD><P>specifies the kind of frame to be placed around the object.
+By default (<TT><STRONG>frame</STRONG></TT> = 0), the three back faces of the
+box (from the viewpoint of <TT><STRONG>camera</STRONG></TT>) are opaque,
+serving as background.
+If <TT><STRONG>frame</STRONG></TT> = 1, the module draws the outlines of the
+other three faces of the box as well.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>adjust</STRONG></TT>
+</B></TD><TD><P>adjust the end points of the axes to end exactly at the tick
+marks.
+The default is no adjustment.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>cursor</STRONG></TT>
+</B></TD><TD><P>specifies the position for the placement of a cursor.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>grid</STRONG></TT>
+</B></TD><TD><P>specifies grid lines drawn from the major tick marks.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>colors</STRONG></TT>
+</B></TD><TD><P>specifies the color(s) of one or more components of the axes.
+It can be a single color (RGB vector or name string) or a
+list of colors.
+Color names can be any of the defined color-name strings (see
+<A HREF="refgu033.htm#HDRCOLOR">Color</A>).
+Its effects are partly determined by the <TT><STRONG>annotation</STRONG></TT>
+parameter.
+<P>
+If <TT><STRONG>color</STRONG></TT> is a single string and
+<TT><STRONG>annotation</STRONG></TT> is unspecified or
+is "all," then the specified color is
+used for all axes annotation.
+Otherwise, the number of colors in <TT><STRONG>color</STRONG></TT>s must match
+the number of <TT><STRONG>annotation</STRONG></TT> strings exactly and in a
+one-to-one correspondence.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>annotation</STRONG></TT>
+</B></TD><TD><P>combines with <TT><STRONG>color</STRONG></TT> to specify the
+color of one
+or more components of the axes.
+This parameter can be a single string or a set of strings from the
+following list:
+"all," "background," "grid," "labels," and
+"ticks."
+You may remove the background by specifying "background" and
+setting <TT><STRONG>color</STRONG></TT> to "clear."
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>labelscale</STRONG></TT>
+</B></TD><TD><P>determines the size of the axes and tick-mark labels.
+For example, <TT><STRONG>labelscale</STRONG></TT> = 2.0 will display the
+labels at double their default size.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>font</STRONG></TT>
+</B></TD><TD><P>specifies the font for axes and tick-mark labels.
+The default for axes is a variable-width font ("variable"),
+and for tick-marks a fixed-width font ("fixed").
+<PRE>
+area          gothicit_t       pitman                roman_ext
+cyril_d       greek_d          roman_d               script_d
+fixed         greek_s          roman_dser            script_s
+gothiceng_t   italic_d         roman_s               variable
+gothicger_t   italic_t         roman_tser
+</PRE>
+For more information,
+see <A HREF="usrgu076.htm#HDRAPC">Appendix E. "Data Explorer Fonts"</A> in the
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>xticklocations</STRONG></TT>
+</B></TD><TD><P>list of explicit locations for tick marks on the x-axis. If
+specified, overrides the value as determined by the
+<TT><STRONG>ticks</STRONG></TT> parameter.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>yticklocations</STRONG></TT>
+</B></TD><TD><P>list of explicit locations for tick marks on the y-axis. If
+specified, overrides the value as determined by the
+<TT><STRONG>ticks</STRONG></TT> parameter.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>xticklocations</STRONG></TT>
+</B></TD><TD><P>list of explicit locations for tick marks on the z-axis. If
+specified, overrides the value as determined by the
+<TT><STRONG>ticks</STRONG></TT> parameter.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>xticklabels</STRONG></TT>
+</B></TD><TD><P>list of labels to be associated with
+<TT><STRONG>xticklocations</STRONG></TT>.  If
+<TT><STRONG>xticklabels</STRONG></TT>
+is specified, and <TT><STRONG>xticklocations</STRONG></TT> is not
+specified, then <TT><STRONG>xticklocations</STRONG></TT> defaults to
+the integers 0 to n-1 where n is the number of items in
+<TT><STRONG>xticklabels</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>yticklabels</STRONG></TT>
+</B></TD><TD><P>list of labels to be associated with
+<TT><STRONG>yticklocations</STRONG></TT>.  If
+<TT><STRONG>yticklabels</STRONG></TT>
+is specified, and <TT><STRONG>yticklocations</STRONG></TT> is not
+specified, then <TT><STRONG>yticklocations</STRONG></TT> defaults to
+the integers 0 to n-1 where n is the number of items in
+<TT><STRONG>yticklabels</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>zticklabels</STRONG></TT>
+</B></TD><TD><P>list of labels to be associated with
+<TT><STRONG>zticklocations</STRONG></TT>.  If
+<TT><STRONG>zticklabels</STRONG></TT>
+is specified, and <TT><STRONG>zticklocations</STRONG></TT> is not
+specified, then <TT><STRONG>zticklocations</STRONG></TT> defaults to
+the integers 0 to n-1 where n is the number of items in
+<TT><STRONG>zticklabels</STRONG></TT>.
+
+</TD></TR></TABLE>
+<P>
+<P><B>Notes: </B><OL>
+<P><LI>If you have applied scaling to your object using the Scale module,
+AutoAxes disregards that scaling when labeling the axes.
+This allows you to display data conveniently with an aspect ratio much
+different from 1, and still have correct labels on the axes.
+AutoAxes only disregards the top-level transformation and does not
+disregard the transformations of the Translate or
+Rotate module.
+
+(The macro AutoScaleMacro  in <TT>/usr/local/dx/samples/macros</TT>
+can be used just before Image or AutoAxes to scale the object.
+See also <A HREF="refgu017.htm#SPTAVOID">How to Avoid Stretching or Squashing
+Glyphs</A>.)
+
+Because scaling is disregarded if not done at the top level, you
+cannot have a Collect module following the Scale module.
+For example, if you want to Collect a caption with an object, you should
+use Scale <I>after</I> the Collect of the object with the caption.
+<P><LI>If you are setting the <TT><STRONG>corners</STRONG></TT> parameter as
+a vector list, and the input <TT><STRONG>object</STRONG></TT> is scaled,
+<TT><STRONG>corners</STRONG></TT> should be in units of the scaled
+object.
+
+<P><LI>If <TT><STRONG>corners</STRONG></TT> is more restrictive than the given
+<TT><STRONG>ticklocations</STRONG></TT>, then the given locations outside the
+corners are not shown.
+<P><LI>If <TT><STRONG>corners</STRONG></TT> is less restrictive than the given
+<TT><STRONG>ticklocations</STRONG></TT>, or if <TT><STRONG>corners</STRONG></TT>
+is
+not specified, then all given tick locations are shown, whether or not
+there is data there.
+<P><LI>If <TT><STRONG>ticklocations</STRONG></TT> is specified, then the data
+range determines the extent of the axes, unless
+<TT><STRONG>corners</STRONG></TT> is specified, in which case the given
+corners are used.
+<P><LI>You can change the point at which a change is made from fixed-format
+to scientific notation for tick labels by setting the <TT>DXAXESWIDTH</TT>
+environment variable (see <A HREF="usrgu073.htm#HDRMOREVAR">"Other Environment
+Variables"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+
+</OL>
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+
+AutoAxesSpecifyTicks &nbsp;(as part of the Image tool)&nbsp;
+
+GeneralImport1.net &nbsp;(as part of the Image tool)&nbsp;
+SIMPLE/AutoAxes.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu029.htm#HDRCOLLECT">Collect</A>,
+&nbsp;<A HREF="refgu033.htm#HDRCOLOR">Color</A>,
+&nbsp;<A HREF="refgu098.htm#HDROPTIONS">Options</A>,
+&nbsp;<A HREF="refgu104.htm#HDRPLOT">Plot</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

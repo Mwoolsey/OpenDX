@@ -1,0 +1,55 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtrbrsht RubberSheet 
+#!N #!EC #!N #!N You can "warp" the representation of 2-dimensional 
+data with the  #!F-adobe-times-bold-r-normal--18*   RubberSheet #!EF tool. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. Open and execute visual program .../RubberSheet.net. 
+The image represents elevation above sea level in the southeastern United 
+States. Regions of greatest elevation are colored red; regions of lowest 
+elevation, blue. #!N #!I30 #!N 2. Open the  #!F-adobe-times-bold-r-normal--18*   RubberSheet #!EF 
+configuration dialog box. #!N #!I30 #!N 3. Change the value in 
+the  #!F-adobe-times-bold-r-normal--18*   scale #!EF parameter field to ".002." #!N #!I30 #!N 
+4. Click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF and reexecute the visual program. 
+The contrast of variation is greatly increased. #!N #!I0 #!N #!EF 
+#!N #!N #!N For more information, see RubberSheet in IBM Visualization 
+Data Explorer User's Reference. #!N #!N You can also add contour 
+lines to a Rubbersheet image: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N 1. Select  #!F-adobe-times-bold-r-normal--18*   Realization #!EF in the categories palette 
+and then  #!F-adobe-times-bold-r-normal--18*   Isosurface #!EF in the tools palette. #!N #!I30 
+#!N 2. Place the icon to the right of  #!F-adobe-times-bold-r-normal--18*   RubberSheet 
+#!EF . #!N #!I30 #!N 3. Connect the output of  #!F-adobe-times-bold-r-normal--18*   
+RubberSheet #!EF to the first input tab of  #!F-adobe-times-bold-r-normal--18*   Isosurface #!EF 
+(the only connection that Data Explorer will allow you to make). 
+Make sure that you do not break the connection to  #!F-adobe-times-bold-r-normal--18*   
+Shade #!EF . #!N #!I30 #!N 4. Open the  #!F-adobe-times-bold-r-normal--18*   Isosurface 
+#!EF configuration dialog box. #!N #!I30 #!N 5. Change the  #!F-adobe-times-bold-r-normal--18*   
+number #!EF parameter value to "10" and click on  #!F-adobe-times-bold-r-normal--18*   OK 
+#!EF . #!N #!I30 #!N 6. Select  #!F-adobe-times-bold-r-normal--18*   Structuring #!EF in 
+the categories palette and  #!F-adobe-times-bold-r-normal--18*   Collect #!EF in the tools palette. 
+#!N #!I30 #!N 7. Place the  #!F-adobe-times-bold-r-normal--18*   Collect #!EF icon below 
+ #!F-adobe-times-bold-r-normal--18*   Isosurface #!EF . #!N #!I30 #!N 8. Connect the outputs 
+of both  #!F-adobe-times-bold-r-normal--18*   Shade #!EF and  #!F-adobe-times-bold-r-normal--18*   Isosurface #!EF to the 
+inputs of  #!F-adobe-times-bold-r-normal--18*   Collect #!EF (again, Data Explorer will allow only 
+valid connections). #!N #!I30 #!N 9. Disconnect  #!F-adobe-times-bold-r-normal--18*   Image #!EF from 
+ #!F-adobe-times-bold-r-normal--18*   Shade #!EF . #!N #!I30 #!N 10. Connect the output 
+of  #!F-adobe-times-bold-r-normal--18*   Collect #!EF to the input of  #!F-adobe-times-bold-r-normal--18*   Image #!EF 
+. #!N #!I30 #!N 11. Reexecute the visual program. The result 
+is a set of colored contour lines combined with the Rubbersheet 
+image. #!N #!I0 #!N #!EF #!N #!N #!N You can change 
+the color of the contour lines: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N 1. Select  #!F-adobe-times-bold-r-normal--18*   Transformation #!EF in the categories 
+palette and then  #!F-adobe-times-bold-r-normal--18*   Color #!EF in the tools palette. #!N 
+#!I30 #!N 2. Place the  #!F-adobe-times-bold-r-normal--18*   Color #!EF icon to the 
+right of  #!F-adobe-times-bold-r-normal--18*   RubberSheet #!EF and  #!F-adobe-times-bold-r-normal--18*   Collect #!EF . #!N 
+#!I30 #!N 3. Open the  #!F-adobe-times-bold-r-normal--18*   Color #!EF configuration dialog box. 
+#!N #!I30 #!N 4. Delete "(no color added)" in the  #!F-adobe-times-bold-r-normal--18*   
+color #!EF parameter field and type in "black" (the quotation marks 
+are unnecessary and will be added by Data Explorer). #!N #!I30 
+#!N 5. Click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF . #!N #!I30 #!N 
+6. Move the output of  #!F-adobe-times-bold-r-normal--18*   Isosurface #!EF from  #!F-adobe-times-bold-r-normal--18*   Collect 
+#!EF to  #!F-adobe-times-bold-r-normal--18*   Color #!EF . #!N #!I30 #!N 7. Connect 
+the output of  #!F-adobe-times-bold-r-normal--18*   Color #!EF to the input of  #!F-adobe-times-bold-r-normal--18*   
+Collect #!EF . #!N #!I30 #!N 8. Reexecute the visual program. 
+#!N #!I0 #!N #!EF #!N #!N #!N See Color and Isosurface 
+in IBM Visualization Data Explorer User's Reference. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lt2dsgly,dxall47 h 2-D Scalar Glyphs  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

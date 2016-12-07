@@ -1,0 +1,512 @@
+/***********************************************************************/
+/* Open Visualization Data Explorer                                    */
+/* (C) Copyright IBM Corp. 1989,1999                                   */
+/* ALL RIGHTS RESERVED                                                 */
+/* This code licensed under the                                        */
+/*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
+/***********************************************************************/
+
+
+INCLUDE2 <dxconfig.h>
+
+
+INCLUDE2  <dx/dx.h>
+INCLUDE2  "render.h"
+
+/*
+ * This has to do with the K&R preprocessor used for
+ * preprocessing this file.
+ */
+
+#undef ASSERT
+#define ASSERT(x) {if (!(x)) DXErrorReturn(ERROR_ASSERTION, "assertion failure")}
+
+
+/*
+ * Our own FLOOR, CEIL, ABS
+ */
+
+#define FLOOR(x) ((x)>=0 || (int)(x)==x? (int)(x) : (int)(x)-1)
+#define CEIL(x) ((x)<=0 || (int)(x)==x? (int)(x) : (int)(x)+1)
+#define ABS(x)   ((x)<0? -(x) : (x))
+#define MIN(a,b) ((a)<(b)? (a) : (b))
+
+
+/*
+ * grow/shrink take the same parameters
+ */
+
+#define GROW(op, io, IO, itype, IR, IG, IB, oo, otype, OR, OG, OB, ZTEST) { $\
+									    $\
+    iscale = 1.0 / scale;						    $\
+    dip = idy;								    $\
+    dop = scale>0? ody : -ody;						    $\
+    dz = scale>0? dzdy : -dzdy;						    $\
+    df = scale>0? iscale : -iscale;					    $\
+									    $\
+    for (x=0, yy=osy; x<ikx; x++, yy+=skew) {				    $\
+	oy = scale>0? CEIL(yy) : FLOOR(yy);				    $\
+	if (oy<0) oy = 0;						    $\
+	if (oy>=oky) oy = oky-1;					    $\
+	f = (oy - yy) * iscale;						    $\
+	iy = FLOOR(f);							    $\
+	if (iy<0) continue;						    $\
+	if (iy>=iky) continue;						    $\
+	f = f - iy + 1.0;						    $\
+	ocp = (otype *)ocstart + (x+osx)*odx + oy*ody;	    		    $\
+	if (oo) oop = oostart + (x+osx)*odx + oy*ody; 			    $\
+	ky = scale>0? oky-oy : oy+1;					    $\
+	icp = cstc ? (itype *)icstart :					    $\
+			(itype *)icstart + (x+isx)*idx + (iy+isy)*idy;	    $\
+	if (io) iop = csto ? (float *)iostart :				    $\
+			(float *)iostart + (x+isx)*idx + (iy+isy)*idy;	    $\
+	r1 = IR * cmul,  g1 = IG * cmul,  b1 = IB * cmul;		    $\
+	o1 = IO * omul;							    $\
+	r0 = g0 = b0 = o0 = 0;						    $\
+	z = osz + (osx+x)*dzdx + oy*dzdy;				    $\
+	while (ky>0) {							    $\
+	    if (f > 1.0) {						    $\
+		f -= 1.0;						    $\
+		iy += 1;						    $\
+		if (iy>=iky) break;					    $\
+		r0 = r1,  g0 = g1,  b0 = b1;				    $\
+		if (op) o0 = o1;					    $\
+		if (!cstc) icp += dip;					    $\
+		if (!csto && io) iop += dip;				    $\
+		r1 = IR*cmul,  g1 = IG*cmul,  b1 = IB*cmul;		    $\
+		o1 = IO * omul;						    $\
+	    }								    $\
+	    f1 = 1.0 - f;						    $\
+	    if (!(ZTEST));						    $\
+	    else if (op && !oo) {					    $\
+		obar = 1.0 - (o0*f1 + o1*f);				    $\
+		ocp->OR = ocp->OR*obar + r0*f1 + r1*f;			    $\
+		ocp->OG = ocp->OG*obar + g0*f1 + g1*f;			    $\
+		ocp->OB = ocp->OB*obar + b0*f1 + b1*f;			    $\
+	    } else {							    $\
+		ocp->OR = r0*f1 + r1*f;					    $\
+		ocp->OG = g0*f1 + g1*f;					    $\
+		ocp->OB = b0*f1 + b1*f;					    $\
+		if (oo) *oop = o0*f1 + o1*f;				    $\
+	    }								    $\
+	    f += df;							    $\
+	    ocp += dop;							    $\
+	    if (oo) oop += dop;						    $\
+	    z += dz;							    $\
+	    ky -= 1;							    $\
+	}								    $\
+    }									    $\
+}
+
+
+#define SHRINK(op, io, IO, itype, IR, IG, IB, oo, otype, OR, OG, OB, ZTEST){ $\
+									    $\
+    iscale = 1.0 / scale;						    $\
+    dip = idy;								    $\
+    dop = scale>0? ody : -ody;						    $\
+    dz = scale>0? dzdy : -dzdy;						    $\
+    df = scale>0? scale : -scale;					    $\
+									    $\
+    for (x=0, yy=osy; x<ikx; x++, yy+=skew) {				    $\
+	if (scale>0) {							    $\
+	    oy = CEIL(yy);						    $\
+	    if (oy<0) oy = 0;						    $\
+	    if (oy>=oky) continue;					    $\
+	    ky = oky-oy;						    $\
+	    y = (oy - 1 - yy) * iscale;					    $\
+	    iy = CEIL(y);						    $\
+	} else {							    $\
+	    oy = FLOOR(yy);						    $\
+	    if (oy<0) continue;						    $\
+	    if (oy>=oky) oy = oky-1;					    $\
+	    ky = oy+1;							    $\
+	    y = (oy + 1 - yy) * iscale;					    $\
+	    iy = CEIL(y);						    $\
+	}								    $\
+	if (iy<0) iy = 0;						    $\
+	if (iy>=iky) continue;						    $\
+	f = scale>0? oy - (yy + (iy * scale))				    $\
+	    : (yy + (iy * scale)) - oy;					    $\
+	f = 1 - f;							    $\
+	icp = cstc ? (itype *)icstart :					    $\
+			(itype *)icstart + (x+isx)*idx + (iy+isy)*idy;	    $\
+	if (io) iop = csto ? (float *)iostart :				    $\
+			(float *)iostart + (x+isx)*idx + (iy+isy)*idy;	    $\
+	ocp = (otype *)ocstart + (x+osx)*odx + oy*ody;			    $\
+	if (oo) oop = oostart + (x+osx)*odx + oy*ody;			    $\
+	r0 = r1 = g0 = g1 = b0 = b1 = o0 = o1 = s0 = s1 = 0;		    $\
+	while (f<1 && iy<iky) {						    $\
+	    r = IR,  g = IG,  b = IB;					    $\
+	    o = IO;							    $\
+	    r0 += r * f,  g0 += g * f,  b0 += b * f;			    $\
+	    if (op) o0 += o * f;					    $\
+	    s0 += f;							    $\
+	    f += df;							    $\
+	    iy += 1;							    $\
+	    if (! cstc) icp += dip;					    $\
+	    if (!csto && io) iop += dip;				    $\
+	}								    $\
+	f -= 1.0;							    $\
+	z = osz + (osx+x)*dzdx + oy*dzdy;				    $\
+	while (iy<iky && ky>0) {					    $\
+	    r = IR,  g = IG,  b = IB;					    $\
+	    o = IO;							    $\
+	    f1 = (1.0 - f);						    $\
+	    r0 += r*f1,  g0 += g*f1,  b0 += b*f1;			    $\
+	    if (op) o0 += o*f1;						    $\
+	    s0 += f1;							    $\
+	    r1 += r*f,  g1 += g*f,  b1 += b*f;				    $\
+	    if (op) o1 += o*f;						    $\
+	    s1 += f;							    $\
+	    f += df;							    $\
+	    if (f >= 1.0) {						    $\
+		f -= 1.0;						    $\
+		s0 = s0? (float)1.0/s0 : 0.0;				    $\
+		if (!(ZTEST));						    $\
+		else if (op && !oo) {					    $\
+		    obar = 1.0 - o0 * s0 * omul;			    $\
+		    s0 *= cmul;						    $\
+		    ocp->OR = ocp->OR*obar + r0*s0;			    $\
+		    ocp->OG = ocp->OG*obar + g0*s0;			    $\
+		    ocp->OB = ocp->OB*obar + b0*s0;			    $\
+		} else {						    $\
+		    if (oo) *oop = o0 * s0 * omul;			    $\
+		    s0 *= cmul;						    $\
+		    ocp->OR = r0*s0;					    $\
+		    ocp->OG = g0*s0;					    $\
+		    ocp->OB = b0*s0;					    $\
+		}							    $\
+		r0 = r1, g0 = g1,  b0 = b1;				    $\
+		if (op) o0 = o1;					    $\
+		s0 = s1;						    $\
+		r1 = g1 = b1 = s1 = 0;					    $\
+		if (op) o1 = 0;						    $\
+		ocp += dop;						    $\
+		if (oo) oop += dop;					    $\
+		z += dz;						    $\
+		ky -= 1;						    $\
+	    }								    $\
+	    iy += 1;							    $\
+	    if (! cstc) icp += dip;					    $\
+	    if (!csto && io) iop += dip;				    $\
+	}								    $\
+	if (ky>0 && f>df) {						    $\
+	    s0 = s0? (float)1.0/s0 : 0.0;				    $\
+	    if (!(ZTEST));						    $\
+	    else if (op && !oo) {					    $\
+		obar = 1.0 - o0 * s0 * omul;				    $\
+		s0 *= cmul;						    $\
+		ocp->OR = ocp->OR*obar + r0*s0;				    $\
+		ocp->OG = ocp->OG*obar + g0*s0;				    $\
+		ocp->OB = ocp->OB*obar + b0*s0;				    $\
+	    } else {							    $\
+		if (oo) *oop = o0 * s0 * omul;				    $\
+		s0 *= cmul;						    $\
+		ocp->OR = r0*s0;					    $\
+		ocp->OG = g0*s0;					    $\
+		ocp->OB = b0*s0;					    $\
+	    }								    $\
+	}								    $\
+    }									    $\
+}
+
+
+/*
+ * Choose GROW or SHRINK depending on scale 
+ */
+
+
+#define GROW_SHRINK(op,io,IO,itype,IR,IG,IB,oo,otype,OR,OG,OB,ZTEST)         $\
+    if (ABS(scale) > 1.0) {						     $\
+	GROW(op,io,IO,itype,IR,IG,IB,oo,otype,OR,OG,OB,ZTEST);		     $\
+    } else {								     $\
+	SHRINK(op,io,IO,itype,IR,IG,IB,oo,otype,OR,OG,OB,ZTEST);	     $\
+    }
+
+/*
+ * Turn run-time iostart and oostart absence/presence into
+ * compile time 0 or 1 for efficiency
+ */
+
+#define OPACITY(itype, IR, IG, IB, otype, OR, OG, OB, ZTEST) {		    $\
+    itype *icp;								    $\
+    otype *ocp;								    $\
+    if (iostart && oostart) {						    $\
+	GROW_SHRINK(1,1,*iop,itype,IR,IG,IB,1,otype,OR,OG,OB,ZTEST);	    $\
+    } else if (iostart) {						    $\
+	GROW_SHRINK(1,1,*iop,itype,IR,IG,IB,0,otype,OR,OG,OB,ZTEST);	    $\
+    } else if (oostart) {						    $\
+	GROW_SHRINK(1,0,  1, itype,IR,IG,IB,1,otype,OR,OG,OB,ZTEST);	    $\
+    } else {								    $\
+	ASSERT(0);							    $\
+	/* we don't use this case currently, so we cut it out to */	    $\
+        /* avoid overflowing compiler resources */			    $\
+	/*GROW_SHRINK(1,0,  1, itype,IR,IG,IB,0,otype,OR,OG,OB,ZTEST);*/    $\
+    }									    $\
+}
+
+enum type {
+    type_colors,		/* RGBColors */
+    type_fast,			/* rendering buffer pixel type struct fast */
+    type_big			/* rendering buffer pixel type struct pixel */
+};
+
+#define X(type,a,b) {type t=a; a=b; b=t;}
+
+/*
+ * We can assume that ->back has already been merged into ->z
+ * in the clipping case because this is a volume object.
+ */
+
+#define NOZ	1
+#define NOCLIPZ (z>ocp->z)
+#define CLIPZ   (z>ocp->z && z<ocp->front)
+
+static Error
+shear(Pointer icstart, char cstc, RGBColor *cmap,
+      Pointer iostart, char csto, float *omap,
+      float cmul, float omul,
+      int idx, int idy, int isx, int isy, int ikx, int iky,
+      float osz, float dzdx, float dzdy, int clip,
+      Pointer ocstart, enum type otype, float *oostart,
+      int osx, float osy, int onx, int ony,
+      int it, float scale, float skew, int ot
+) {
+    int odx, ody, oky;
+    int x, iy, oy, dip, dop, ky;
+    float f, f1, yy, df, iscale, y, z, dz;
+    float r, g, b, o, r0, g0, b0, o0, r1, g1, b1, o1, s0, s1, obar;
+    float *iop, *oop;
+
+    /* transpose input? */
+    if (it) {
+	X(int,ikx,iky);
+	X(int,idx,idy);
+	X(int,isx,isy);
+    }
+
+    /* transpose output? */
+    if (ot) {
+	X(int,onx,ony);
+	ody = 1, odx = ony;
+	X(float,dzdx,dzdy);
+    } else
+	odx = 1, ody = onx;   
+
+    /* clip in x? */
+    if (osx<0) {
+	osy-=skew*osx;
+	isx-=osx;
+	ikx+=osx;
+	osx=0;
+    }
+    if (onx-osx < ikx)
+	ikx = onx-osx;
+
+    /*okx = ikx;*/
+    oky = ony;
+
+    /* switch on input/output type */
+    if (cmap && omap) {
+
+	unsigned char *icp;
+	RGBColor *ocp;
+
+	ASSERT(otype==type_colors && oostart && iostart);
+	GROW_SHRINK(1, 0, omap[*icp],
+		    unsigned char, cmap[*icp].r, cmap[*icp].g, cmap[*icp].b,
+		    1, RGBColor, r, g, b, NOZ);
+
+    } else if (cmap && !omap) {
+
+	unsigned char *icp;
+	RGBColor *ocp;
+
+	ASSERT(otype==type_colors && oostart);
+	if (iostart) {
+	    GROW_SHRINK(1, 1, *iop,
+			unsigned char,cmap[*icp].r,cmap[*icp].g,cmap[*icp].b,
+			1, RGBColor, r, g, b, NOZ);
+	} else {
+	    GROW_SHRINK(1, 0, 1,
+			unsigned char,cmap[*icp].r,cmap[*icp].g,cmap[*icp].b,
+			1, RGBColor, r, g, b, NOZ);
+	}
+
+    } else if (otype==type_colors) {
+
+	OPACITY(RGBColor, icp->r, icp->g, icp->b, RGBColor, r, g, b, NOZ);
+
+    } else if (otype==type_fast) {
+
+	ASSERT(!clip);
+	OPACITY(RGBColor, icp->r, icp->g, icp->b,
+		struct fast, c.r, c.g, c.b, NOCLIPZ);
+
+    } else if (otype==type_big) {
+
+	if (clip) {
+	    OPACITY(RGBColor, icp->r, icp->g, icp->b,
+		    struct big, c.r, c.g, c.b, CLIPZ);
+	} else {
+	    OPACITY(RGBColor, icp->r, icp->g, icp->b,
+		    struct big, c.r, c.g, c.b, NOCLIPZ);
+	}
+
+    }
+    return OK;
+}
+
+
+#define TRY(a,b,c,d,e,f, m) \
+    if (ABS(b)>best) \
+        ti1=a, scale1=b, skew1=c, scale2=d, skew2=e, to2=f, best=ABS(b)
+
+#define DO(xx,yy) 				\
+    x = (  (xx)*vy - (yy)*vx) / A;		\
+    y = (- (xx)*uy + (yy)*ux) / A;		\
+    if (x<minx) minx = x;  if (x>maxx) maxx = x;\
+    if (y<miny) miny = y;  if (y>maxy) maxy = y;
+
+
+static Error
+plane(Pointer ic, 
+      char cstc,
+      RGBColor *cmap, 
+      Pointer io, 
+      char csto,
+      float *omap,
+      float cmul, float omul,
+      int idx, int idy, int inx, int iny,
+      float ux, float uy, float uz, float vx, float vy, float vz,
+      Pointer oc, enum type otype,
+      int onx, int ony, float osx, float osy, float osz, int clip
+) {
+    float x, y, minx, miny, maxx, maxy, A, dzdx, dzdy;
+    int isx, isy, ikx, iky;
+    float scale1=0, skew1=0, scale2=0, skew2=0, osy1, osy2, best, extra;
+    int ti1=0, to1, ti2, to2=0, contrary=0, osx2;
+    int nx1, ny1, nk, nc;
+    RGBColor *ic1=NULL;
+    float *io1=NULL;
+    Error rc;
+
+    /* choose one of four methods */
+    A = ux * vy - uy * vx;
+    best = 0;
+    TRY(1,ux,vx,  A/ux,uy/ux,0,  0);
+    TRY(1,uy,vy, -A/uy,ux/uy,1,  1);
+    TRY(0,vx,ux, -A/vx,vy/vx,0,  2);
+    TRY(0,vy,uy,  A/vy,vx/vy,1,  3);
+    if (scale1==0 || scale2==0)
+	return OK;
+
+    /* delta zs wrt x,y */
+    dzdx = (vy*uz - uy*vz) / A;
+    dzdy = (ux*vz - vx*uz) / A;
+
+    /* move osz to origin of our patch */
+    osz -= osx*dzdx + osy*dzdy;
+
+    /* find bounding box of our patch in input data */
+    minx = miny = DXD_MAX_FLOAT;
+    maxx = maxy = -DXD_MAX_FLOAT;
+    DO(-osx,     -osy);
+    DO(-osx+onx, -osy);
+    DO(-osx,     -osy+ony-1);
+    DO(-osx+onx, -osy+ony-1);
+    /* is this right? */
+    extra = 1.0 / MIN(ABS(scale1), ABS(scale2));
+    minx-=extra; maxx+=extra;
+    miny-=extra; maxy+=extra;
+    if (minx<0) minx = 0; else if (minx>inx-1) minx = inx-1;
+    if (maxx<0) maxx = 0; else if (maxx>inx-1) maxx = inx-1;
+    if (miny<0) miny = 0; else if (miny>iny-1) miny = iny-1;
+    if (maxy<0) maxy = 0; else if (maxy>iny-1) maxy = iny-1;
+    isx = FLOOR(minx);
+    ikx = CEIL(maxx) - isx + 1;
+    isy = FLOOR(miny);
+    iky = CEIL(maxy) - isy + 1;
+    if (ikx==0 || iky==0) return OK;
+    osx += isx * ux + isy * vx;
+    osy += isx * uy + isy * vy;
+
+    if (contrary) to1=1, ti2=0;		/* xpose during 1st pass output */
+    else          to1=0, ti2=1;		/* xpose during 2nd pass input */
+
+    if (to2) X(float,osx,osy);		/* transpose output? */
+    if (ti1) X(int,ikx,iky);		/* transpose input? */
+    nx1 = ikx;				/* 1st pass width is same as input */
+    nk = CEIL(ABS(skew1)*ikx);		/* 1st pass height due to skew */
+    nc = CEIL(ABS(scale1)*iky);		/* 1st pass height due to scale */
+    ny1 = nk + nc + 1;			/* total height of 1st pass result */
+    osx2 = FLOOR(osx);			/* x off int part done in 2nd pass */
+    osy1 = osx - osx2;			/* x off frac part done in 1st pass */
+    if (scale1<0) osy1+=nc, osx2-=nc;	/* add scale height to offset? */
+    if (skew1<0) osy1+=nk, osx2-=nk;	/* add skew height to offset? */
+    if (ti1) X(int,ikx,iky);		/* transpose input? */
+    if (to1) X(int,nx1,ny1);		/* transpose output? */
+    osy2 = osy - skew2 * osy1;		/* output y offset */
+
+    /* allocate intermediate buffers */
+    ic1 = (RGBColor *) DXAllocateLocalZero(nx1 * ny1 * sizeof(*ic1));
+    io1 = (float *) DXAllocateLocalZero(nx1 * ny1 * sizeof(*io1));
+    if (!ic1 || !io1)
+	return ERROR;
+    DXMarkTimeLocal("overhead");		/* timing */
+
+    /* first pass shear */
+    rc = shear(ic, cstc, cmap,
+	  io, csto, omap,
+	  1.0,1.0,			/* m multiplier */
+	  idx,idy,isx,isy,ikx,iky,	/* input size, offset */
+	  0,0,0,0,			/* start and delta zs, clip flag */
+	  (Pointer)ic1,type_colors,io1,	/* output colors, type, opacity */
+	  0,osy1,nx1,ny1,		/* output size, offset */
+	  ti1,scale1,skew1,to1);	/* xpose, scale, skew, xpose */
+    if (!rc) goto error;
+    DXMarkTimeLocal("shear 1");		/* timing */
+
+    /* second pass shear */
+    rc = shear((Pointer)ic1, 0, NULL,
+	  (Pointer)io1, 0, NULL,
+	  cmul,omul,			/* m multiplier */
+	  1,nx1,0,0,nx1,ny1,		/* input size, offset */
+	  osz,dzdx,dzdy,clip,		/* start and delta zs, clip flag */
+	  oc,otype,NULL,		/* output colors, type, opacity */
+	  osx2,osy2,onx,ony,		/* output size, offset */
+	  ti2,scale2,skew2,to2);	/* xpose, scale, skew, xpose */
+    if (!rc) goto error;
+    DXMarkTimeLocal("shear 2");		/* timing */
+
+    DXFree((Pointer)ic1);			/* free the temporary buffer */
+    DXFree((Pointer)io1);			/* free the temporary buffer */
+    return OK;
+
+error:
+    DXFree((Pointer)ic1);			/* free the temporary buffer */
+    DXFree((Pointer)io1);			/* free the temporary buffer */
+    return ERROR;
+}
+
+
+Error
+_dxf_CompositePlane(struct buffer *b, float osx, float osy, float osz, 
+		    int clip,
+		    float ux, float uy, float uz, float vx, float vy, float vz,
+		    Pointer ic, char cstc, RGBColor *cmap, 
+		    Pointer io, char csto, float *omap,
+		    float cmul, float omul,
+		    int idx, int idy, int inx, int iny
+) {
+    return plane(ic, cstc, cmap, io, csto, omap, cmul, omul,
+		 idx, idy, inx, iny,
+		 ux, uy, uz, vx, vy, vz,
+		 (Pointer)b->u.big,
+		 b->pix_type==pix_fast? type_fast : type_big,
+		 b->width, b->height, osx, osy, osz, clip);
+}
+
+
+
+

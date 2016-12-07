@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rvisuobj VisualObject #!N 
+#!N Category #!N #!N  #!Lcatdbg,dxall754 h Debugging  #!EL  #!N #!N Function #!N #!N Creates 
+a renderable representation of the hierarchy of a specified object. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = 
+VisualObject(  #!F-adobe-times-bold-r-normal--18*   input, options #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB input TAB object TAB none 
+TAB object to see #!N TAB options TAB string TAB "v" 
+TAB orientation: vertical ("v") or #!N TAB - TAB - TAB 
+- TAB horizontal ("h") #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB output TAB field TAB 
+visual representation of input #!N TAB - TAB - TAB #!EF 
+#!N #!N Functional Details #!N #!N The hierarchy of the input 
+object is represented by a tree-like structure that can be passed 
+directly to Image. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+input #!EF #!EF #!I50 #!N is the object to be represented. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   options #!EF #!EF #!I50 #!N specifies 
+whether the root of the tree is to be placed at 
+the top of the image (vertical orientation) or at the left 
+(horizontal orientation). #!I0 #!N #!N #!N #!N Example Visual Program #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N VisualObject.net #!EF #!N #!N #!EC #!N #!N 
+See Also  #!Limage,dxall860 h Image  #!EL  ,  #!Ldescrib,dxall805 h Describe  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lwriteim,dxall981 h WriteImage  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

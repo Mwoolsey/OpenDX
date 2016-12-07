@@ -1,0 +1,48 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rchggrme ChangeGroupMember 
+#!N #!N Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N 
+Insert, rename, or delete a member of an existing group #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   changed #!EF = 
+ChangeGroupMember(  #!F-adobe-times-bold-r-normal--18*   data, operation, id, newmember, newtag #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB data TAB 
+group TAB none TAB input group object #!N TAB operation TAB 
+string TAB none TAB how to alter the group member #!N 
+TAB id TAB integer TAB none TAB index or name of 
+existing group #!N TAB - TAB - TAB - TAB member 
+#!N TAB newmember TAB object TAB operation dependent TAB new or 
+replacement group member #!N TAB newtag TAB scalar or string TAB 
+no default TAB new series position or member name #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB changed TAB group TAB group with one member changed #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module allows you to replace or insert a member 
+of an existing group. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N is the group to be 
+modified #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   operation #!EF #!EF #!I50 #!N 
+is the operation to perform on the specified member of  #!F-adobe-times-bold-r-normal--18*   
+data #!EF . If  #!F-adobe-times-bold-r-normal--18*   data #!EF is a series group, 
+then  #!F-adobe-times-bold-r-normal--18*   operation #!EF must be one of "insert before," "replace," 
+"insert after," or "delete." If  #!F-adobe-times-bold-r-normal--18*   data #!EF is any other 
+kind of group, then  #!F-adobe-times-bold-r-normal--18*   operation #!EF must be one of 
+"insert," "replace," "delete." Note that for most applications, the order of 
+members in a group is not important, and the order of 
+members in a group is not guaranteed to be maintained by 
+modules in Data Explorer unless the group is a Series. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   id #!EF #!EF #!I50 #!N is the 
+index (from 0 to n-1, where n is the number of 
+members of  #!F-adobe-times-bold-r-normal--18*   data #!EF ) or name of an existing 
+member of  #!F-adobe-times-bold-r-normal--18*   data #!EF #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   newmember 
+#!EF #!EF #!I50 #!N is the new or replacement object to 
+be placed in  #!F-adobe-times-bold-r-normal--18*   data #!EF #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+newtag #!EF #!EF #!I50 #!N is the series position or member 
+name for  #!F-adobe-times-bold-r-normal--18*   newmember #!EF . If  #!F-adobe-times-bold-r-normal--18*   data #!EF is 
+a series, this parameter is required. #!I0 #!N #!N #!N #!N 
+Components #!N #!N This module does not modify any components of 
+the input  #!F-adobe-times-bold-r-normal--18*   data #!EF . #!N #!N Example Visual Programs 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N ManipulateGroups.net #!EF #!N #!N #!EC #!N 
+#!N See Also #!N #!N  #!Lchggrty,dxall785 h ChangeGroupType  #!EL  ,  #!Lcollect,dxall788 h Collect  #!EL  ,  #!Lcollecs,dxall791 h CollectSeries  #!EL  , 
+ #!Lcollecn,dxall790 h CollectNamed  #!EL  ,  #!Lmultigr,dxall789 h CollectMultiGrid  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lchggrty,dxall785 h ChangeGroupType  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

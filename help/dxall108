@@ -1,0 +1,55 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rsamplma 
+Sample Macros #!N #!EC #!N #!N Found in directory $DXROOT/samples/macros. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   ArrangeMemberMacro.net #!EF Allows you to independently arrange a number 
+of interactive windows within a larger window. #!N #!N  #!F-adobe-times-bold-r-normal--18*   AutoScaleMacro.net 
+#!EF Automatically scales an object to a user-specified aspect ratio. It 
+is used by the ScatterData example visual program. #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+BandColorsMacro.net #!EF "Bands" a 2-dimensional data set and applies a user-specified 
+set of colors to the bands. It is used by the 
+BandedColors example visual program. #!N #!N  #!F-adobe-times-bold-r-normal--18*   CappedIsoMacro.net #!EF caps an 
+isosurface by the boundary of the data. Used by CappedIso.net. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   ClipSurfaceMacro.net #!EF clips a surface by a plane. Is 
+used by the macro ClipVolumeMacro.net. #!N #!N  #!F-adobe-times-bold-r-normal--18*   ClipVolumeMacro #!EF clips 
+a surface in a volume by a plane, capping the hole 
+with a plane from the volume. Can be nested. Is used 
+by VolumeClip.net. #!N #!N  #!F-adobe-times-bold-r-normal--18*   ConvertColorNameListMacro.net #!EF Converts a list of 
+color names to a list of RGB vectors. It is used 
+by the BandedColorsMacro macro. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DrapeMacro.net #!EF drapes one 
+2-dimensional field over another, using one of them to deform the 
+surface. #!N #!N  #!F-adobe-times-bold-r-normal--18*   FactorialMacro.net #!EF Used by Factorial.net to compute 
+a factorial. #!N #!N  #!F-adobe-times-bold-r-normal--18*   FormatListMacro.net #!EF Formats a list of 
+values into a list of strings. #!N #!N  #!F-adobe-times-bold-r-normal--18*   Image2Macro.net #!EF 
+Implements much of the functionality of the Image tool with SuperviseWindow, 
+SuperviseState, and Display. Used by Image_wo_UI.net. #!N #!N  #!F-adobe-times-bold-r-normal--18*   InsetImageMacro.net #!EF 
+Allows you to inset an independently interactive window within a larger 
+window. #!N #!N  #!F-adobe-times-bold-r-normal--18*   InterpolatePositionsMacro.net #!EF Used by the FlyThrough example 
+visual program (see  #!L3ddat,dxall91 h 3-Dimensional Data  #!EL  ). It interpolates data values within a 
+list of 3-dimensional positions. #!N #!N  #!F-adobe-times-bold-r-normal--18*   MakeLineMacro.net #!EF Used by 
+the PlotLine2 example visual program (see  #!L3ddat,dxall91 h 3-Dimensional Data  #!EL  ). #!N #!N The 
+macro takes as input a data field, two points defining the 
+start and end of a line, and the number of samples 
+to be placed along the line. The macro has two outputs: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o a line 
+that can be displayed in the Image window #!N #!I30 #!N 
+o the data to be plotted, which has two components: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N - the "positions" component 
+is the distance along the line #!N #!I30 #!N - the 
+"data" component is the data value at each position. #!N #!I0 
+#!N #!EF #!N #!N #!I0 #!N #!EF #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+Make3DFieldMacro.net #!EF Given three fields with scalar data components, creates an 
+output field where the x's are the data components of the 
+first field, the y's are the data components of the second 
+field, and the z's are the date components of the third 
+field. It is used by the ScatterData example visual program. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   MapOnStatesMacro.net #!EF Allows you to map data onto a 
+map of the United States. It is used by the CensusData 
+and ZipCodes example visual programs. #!N #!N  #!F-adobe-times-bold-r-normal--18*   MatteMacro.net #!EF Used 
+by Bounce.net. It mattes two images together. #!N #!N  #!F-adobe-times-bold-r-normal--18*   PickPlotMacro.net 
+#!EF Extracts the transformed x,y position from a picked point in 
+a plot. #!N #!N  #!F-adobe-times-bold-r-normal--18*   UnsquishGlyphMacro.net #!EF Provides a simple solution 
+for the "squished glyph" syndrome, when data are scaled before rendering. 
+It is used by the ScatterData example visual program. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lqimd,dxall109 h Importing Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

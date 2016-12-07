@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Render</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu117.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu119.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRRENDER" ></A>Render</H3>
+		<A NAME="IDX653"></A><A NAME="IDX654"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREN">Rendering</A>
+<P><STRONG>Function</STRONG>
+<P>
+Renders an object.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>image</STRONG> = Render(<STRONG>object, camera, format</STRONG>)&#59;
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object to be rendered
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>camera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">camera to be used for rendering
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>format</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">standard
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">format of resulting image
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>image</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">image
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">resulting image
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module uses a specified camera to create an image of an
+object.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>object</STRONG></TT>
+</B></TD><TD><P>specifies the object to be rendered, which can contain surfaces,
+volumes, or combinations of surfaces and volumes.
+<P><B>Note: </B>The current algorithm does not support coincident volumes or
+volumes in perspective.
+(See <A HREF="refgu048.htm#HDRDISPLAY">Display</A> for a discussion of Data
+Explorer
+rendering capabilities.)
+<P>
+The specified object must contain a "colors," "front colors,"
+or "back colors"
+component.
+Many modules add a default color.
+In addition, volume rendering (i.e., of cubes or tetrahedra) requires
+an "opacities" component.
+For surfaces, the lack of an "opacities" component implies an
+opaque surface.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>camera</STRONG></TT>
+</B></TD><TD><P>is the camera used to create the image.
+<P><B>Note: </B>A transformed camera cannot be used for this parameter.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>format</STRONG></TT>
+</B></TD><TD><P>is reserved for future use.
+</TD></TR></TABLE>
+<P><B>Notes: </B><OL>
+<P><LI>The rendering properties of an object (e.g., shading) can be changed
+with the Options or Shade module (see
+<A HREF="refgu048.htm#HDRDISPLAY">Display</A>).
+Render always invokes the software renderer and so ignores the
+"render mode" attribute.
+<P><LI>Render creates 24-bit images if the DXPIXELTYPE environment variable
+is set to DXByte (the default is 96-bit images).
+<P><LI>If you use the Display or Image tool rather than the Render module,
+Data Explorer will automatically choose a hardware-appropriate format
+for you.
+It is generally preferable to use one of these tools unless you want to
+operate on the image itself.
+For example, filtering the image or arranging several images together
+requires the Render module.
+<P><LI>The interactive image-manipulation options provided by Data Explorer
+in the user interface require the Image tool.
+See <A HREF="usrgu040.htm#HDRCHAV">"Controlling the Image: View Control..."</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<P>
+See <A HREF="refgu048.htm#HDRDISPLAY">Display</A> for information on:
+<DL COMPACT>
+<DD><A HREF="refgu048.htm#HDRCHRNDPR">"Changing Rendering Properties"</A>
+<DD><A HREF="refgu048.htm#HDRHARDSOF">"Differences between Hardware and Software
+Rendering"</A>
+
+<DD><A HREF="refgu048.htm#HDRSHADING">"Shading"</A>
+<DD><A HREF="refgu048.htm#HDROBJFUZZ">"Object fuzz"</A>
+<DD><A HREF="refgu048.htm#HDRCVOLRND">"Coloring Objects for Volume
+Rendering"</A>
+
+</DL>
+</OL>
+<P><STRONG>Components</STRONG>
+<P>
+Creates "positions," "connections," and "colors"
+components for the resulting image.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+PlotLine.net
+UsingCompute.net
+UsingMorph.net
+SIMPLE/Arrange.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu012.htm#HDRARRANGE">Arrange</A>,
+&nbsp;<A HREF="refgu036.htm#HDRCOMPUTE">Compute</A>,
+&nbsp;<A HREF="refgu048.htm#HDRDISPLAY">Display</A>,
+&nbsp;<A HREF="refgu061.htm#HDRFILTER">Filter</A>,
+&nbsp;<A HREF="refgu072.htm#HDRIMAGE">Image</A>,
+&nbsp;<A HREF="refgu098.htm#HDROPTIONS">Options</A>,
+&nbsp;<A HREF="refgu173.htm#HDRWRITEIM">WriteImage</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

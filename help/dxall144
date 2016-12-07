@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rdepkwd dependency #!N #!EC #!N [  #!F-adobe-times-bold-r-normal--18*   dependency #!EF 
+= dependency sub 1 , dependency sub 2 , ..., dependency 
+sub f ] #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Function: #!EF #!I50 #!N Specifies the dependencies of the data fields 
+being imported. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Use: #!EF #!I50 #!N Optional. 
+By default, data are assumed to be position dependent. Only if 
+the header file also contains a  #!F-adobe-times-bold-r-normal--18*   grid #!EF statement (see 
+ #!Lgridkwd,dxall141 h grid  #!EL  ) may you specify connections (cell-centered) dependency (a  #!F-adobe-times-bold-r-normal--18*   points 
+#!EF statement implies positions dependency). #!I0 #!N #!N #!N #!N #!I0 
+#!N Notes: #!N #!I30 #!N 1. For field-interleaved data, all fields 
+must have the same dependency. #!N #!I30 #!N 2. The  #!F-adobe-times-bold-r-normal--18*   
+locations #!EF field (see "field Keyword Statement," Note 4) must be 
+specified as position dependent. #!N #!I30 #!N 3. Comma separators are 
+optional. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lfldkwd,dxall145 h field  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

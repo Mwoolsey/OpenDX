@@ -1,0 +1,43 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rshowbou ShowBoundary #!N #!N Category #!N #!N 
+ #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N #!N Shows the boundary of a 
+field. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output 
+#!EF = ShowBoundary(  #!F-adobe-times-bold-r-normal--18*   input, validity #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB input TAB field 
+TAB none TAB field whose boundary is to be #!N TAB 
+- TAB - TAB - TAB shown. #!N TAB validity TAB 
+flag TAB 0 TAB 0: create boundary of all data #!N 
+TAB - TAB - TAB - TAB 1: create boundary of 
+valid data #!N TAB - TAB - TAB - TAB only 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description 
+#!EF #!N TAB output TAB color field TAB renderable boundary of 
+the input field #!N TAB - TAB - TAB #!EF #!N 
+#!N Functional Details #!N #!N The ShowBoundary module creates a field 
+containing only the exterior faces of the input object. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N 
+is the object whose boundary is to be "shown" by the 
+module. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   validity #!EF #!EF #!I50 #!N 
+determines whether validity of data (as specified by "invalid position" and 
+"invalid connections" components) is to be used in constructing the boundary. 
+By default, such information is not used, and the information is 
+simply passed through to the output boundary. Display, Image, or Render 
+will not render any invalid faces. (See  #!Linval,dxall211 h Invalid Positions and Invalid Connections Components  #!EL  in IBM Visualization 
+Data Explorer User's Guide for a discussion of invalid data.) #!I0 
+#!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. 
+Any colors or data in the input object are passed through 
+to  #!F-adobe-times-bold-r-normal--18*   output #!EF . A default color is added if 
+a "colors" component is not already present. #!N #!I30 #!N 2. 
+The boundaries of a volumetric field are a surface or a 
+set of surfaces; the boundary a 2-dimensional field is a line 
+or a set of lines. #!I0 #!N #!N #!N #!N Components 
+#!N #!N Creates new "positions," "connections," and "normals" components. All other 
+components are propagated to the output. If  #!F-adobe-times-bold-r-normal--18*   input #!EF does 
+not have a "colors" component, one is added. Adds a "normals" 
+component if the input is a volumetric field. #!N #!N Example 
+Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N InvalidData.net #!N Thunder_cellcentered.net #!N 
+UsingCompute.net #!N SIMPLE/ShowBoundary.net #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lshowbox,dxall944 h ShowBox  #!EL  ,  #!Lshowcon,dxall945 h ShowConnections  #!EL  ,  #!Lshowpos,dxall946 h ShowPositions  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lshowbox,dxall944 h ShowBox  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

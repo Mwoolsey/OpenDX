@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rrefine Refine #!N #!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N 
+#!N Function #!N #!N "Refines" a grid or changes its element 
+type. #!N #!N Syntax #!N #!N #!CForestGreen  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   refined #!EF 
+= Refine(  #!F-adobe-times-bold-r-normal--18*   input, level #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB input TAB field TAB 
+none TAB field to be "refined" #!N TAB level TAB integer 
+or string TAB 1 TAB level of refinement #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N TAB 
+refined TAB field TAB "refined" input #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N This module resamples 
+a grid at a finer resolution or changes the element type. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF 
+#!I50 #!N is the object to be refined. It must have 
+"connections" or "faces." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   level #!EF #!EF 
+#!I50 #!N specifies either the level or the type of refinement: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   an 
+integer #!EF specifies the number of levels (in powers of 2) 
+of refinement. New positions and connections are added, and any components 
+that are position or connection dependent are interpolated linearly and placed 
+in the output. #!N #!N For quads and triangles, one level 
+of refinement increases the number of elements by a factor of 
+4, two levels by a factor of 16, and so on. 
+For cubes and tetrahedra, one level of refinement increases the number 
+of elements by a factor of 8, two levels by a 
+factor of 64, and so on. #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   
+a string #!EF has two values: "tetrahedra" refines cubes to tetrahedra; 
+"triangles" refines quads or faces to triangles. #!N #!I0 #!N #!EF 
+#!N #!I0 #!N #!N #!N #!N Components #!N #!N All components 
+in the input are propagated to the output. The "connections" component 
+is modified. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N #!N ManipulateGroups.net #!N #!N SIMPLE/Refine.net #!EF #!N #!N #!EC #!N 
+#!N See Also #!N #!N  #!Lreduce,dxall918 h Reduce  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lregrid,dxall920 h Regrid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

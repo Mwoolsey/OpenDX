@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu088.htm">Previous Page</A> &#124; <A HREF="progu090.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRMSGSYS" HREF="progu084.htm#PToC_176">17.6 Messaging
+System</A></H2>
+<A NAME="IDX1356"></A>
+<P>
+The primary functionality provided by DXLink is the sending of messages
+to the server and the handling of messages from the server.
+Messages sent to the server include the setting of variable values and
+the initiation or termination of execution.
+Messages sent from the server and handled by the DXLink library include
+errors, warnings, variable values, and execution state.
+For the most part, the message format is hidden in the programming
+interface.
+<P>
+<H3><A NAME="Header_177" HREF="progu084.htm#PToC_177">Sending Messages to the
+Server</A></H3>
+<A NAME="IDX1357"></A>
+<P>
+The function DXLSend (see <A HREF="#HDRMSGRTNS">"Messaging Routines"</A>) sends
+specific
+messages directly to the server.
+In general, one needs to be sure that the server will either handle the
+message properly or ignore it.
+The user interface will ignore most unrecognized messages, while the
+executive will accept most legal scripting-language commands.
+<A HREF="progu091.htm#HDRSETVARS">"Setting Variables"</A> discusses how an
+application program can set the
+value of variables in a visual program.
+<P>
+Other functions may also result in messages to the server.
+For example, DXLStartDX initiates the connection to the server and
+manages all the messaging associated with establishing the
+connection to Data Explorer.
+<P>
+When a function call results in sending a message to the server, DXLink
+can either synchronize with the server to ensure that the message
+has been accepted or it can return without receiving an
+acknowledgment.
+By default, DXLink is configured to use the latter (asynchronous)
+method.
+DXLSetSynchronous sets the synchronization method to be used.
+DXLSync allows synchronization at specified points in an application
+that does not use synchronous mode.
+<P>
+<H3><A NAME="HDRRCVMSG" HREF="progu084.htm#PToC_178">Receiving Messages from the
+Server</A></H3>
+<A NAME="IDX1358"></A>
+<P>
+DXLink always uses an asynchronous method of handling messages sent from
+the server to the DXLink application.
+<P>
+DXLHandlePendingMessages must be called when messages are pending and
+ready to be processed.
+This function arranges for message handlers to be called for pending
+messages and it discards any messages that do not have handlers
+installed.
+The function DXLIsMessagePending determines whether
+DXLHandlePendingMessages needs to be called and
+allows an application to poll the connection to
+the server for messages that need
+to be processed.
+<P>
+The function DXLGetSocket is provided for systems with socket
+support.
+The returned socket can be used to arrange for the operating system to
+perform a blocking <TT><STRONG>select( )</STRONG></TT> command on the
+socket to determine when there are messages available.
+This might be used in a scripting application that uses
+<TT><STRONG>select( )</STRONG></TT> on both the DXLink
+socket and the file descriptor corresponding
+to the input device.
+<P>
+<P>
+The DXLOutput module can be used to send Data Explorer values from Data Explorer
+to a
+DXLink application.
+For descriptions of both routines, see <I>IBM Visualization Data Explorer
+User&#39;s Reference</I>.
+For a discussion of Data Explorer values, see <A
+HREF="progu091.htm#HDRSETVARS">"Setting Variables"</A>.
+<P>
+X11 Windows: The function DXLInitForXMainLoop provides support for
+applications built under the X window system.
+This function should be called before entering the X main event loop;
+it arranges for DXLHandlePendingMessages to be called
+automatically when messages are available.
+See <A HREF="progu088.htm#HDRINITEX">17.5 , "Initialization and Exit"</A>.
+<P>
+Message handlers are called from DXLHandlePendingMessages when the
+indicated message is encountered.
+DXLink installs a number of its own message handlers.
+<P>
+
+The message handler structure is specified by:
+<PRE><STRONG>
+typedef void (*DXLMessageHandler)(DXLConnection *conn, const char *msg, void *data);
+</STRONG>
+</PRE>
+
+<P>
+
+The packet types for messages are defined as follows:
+<PRE><STRONG>
+enum DXLPacketType &#123;
+    PACK_INTERRUPT      = 1,
+    PACK_MACRODEF       = 4,
+    PACK_FOREGROUND     = 5,
+    PACK_BACKGROUND     = 6,
+    PACK_ERROR          = 7,
+    PACK_MESSAGE        = 8,
+    PACK_INFO           = 9,
+    PACK_LINQUIRY       = 10,
+    PACK_LRESPONSE      = 11,
+    PACK_COMPLETE       = 19,
+    PACK_LINK           = 22
+&#125;;
+typedef enum DXLPacketType DXLPacketTypeEnum;
+</STRONG>
+</PRE>
+
+<P>
+<H3><A NAME="HDRMSGRTNS" HREF="progu084.htm#PToC_179">Messaging
+Routines</A></H3>
+<A NAME="IDX1359"></A>
+<DL>
+
+<P><DT><B><TT><STRONG>DXLError DXLSetMessageHandler(DXLConnection *conn,
+                      DXLPacketTypeEnum type, const char *matchstr,
+                      DXLMessageHandler h, const void *data);</STRONG></TT>
+<A NAME="IDX1360"></A>
+<A NAME="IDX1361"></A>
+</B><DD>Sets a message handler. This routine allows the user to install a
+message handler for messages of any type. The handler "h" will be
+called, receiving the pointer "data", whenever the message handling
+infrastructure receives a message of type "type" containing a
+message that matches "matchstr".
+<P><DT><B><TT><STRONG>DXLError DXLRemoveMessageHandler(DXLConnection *conn,
+                      DXLPacketTypeEnum type, const char *matchstr,
+                      DXLMessageHandler h);</STRONG></TT>
+<A NAME="IDX1362"></A>
+<A NAME="IDX1363"></A>
+</B><DD>Removes a message handler.  The "h" argument is ignored.
+
+<P><DT><B><TT><STRONG>int DXLIsMessagePending(DXLConnection *conn)</STRONG></TT>
+<A NAME="IDX1364"></A>
+<A NAME="IDX1365"></A>
+</B><DD>Can be used by applications that need to poll the DXLConnection to
+determine whether there are messages from the server that should be
+processed with DXLHandlePendingMessages.
+It returns zero (0) if there are no messages to handle, and a
+nonzero value otherwise.
+<P><B>Note: </B>In windowing applications that use DXLInitializeXMainLoop, this
+function is not needed.
+<P><DT><B><TT><STRONG>DXLError DXLHandlePendingMessages(DXLConnection
+*conn)</STRONG></TT>
+<A NAME="IDX1366"></A>
+<A NAME="IDX1367"></A>
+</B><DD>Parses a message that is waiting to be processed.
+The result is a call to the installed message handlers.
+This routine is called automatically if DXLInitializeXmainLoop
+is used.
+<P><DT><B><TT><STRONG>DXLError DXLSend(DXLConnection *conn, const char
+*msg)</STRONG></TT>
+<A NAME="IDX1368"></A>
+<A NAME="IDX1369"></A>
+</B><DD>When the server is the executive, it will accept most one-line
+scripting-language commands, including assignments and
+module calls.
+For example, the following command makes a compound assignment (1.23 to
+the variable "foo" and &#91;1 2 3&#93; to the vector
+"bar"):
+<P>
+<PRE>
+   DXLSend(conn, "foo, bar = 1.23, &#91;1 2 3&#93;; \n");
+</PRE>
+<P><B>Notes: </B><OL>
+<P><LI>Multiline scripting-language commands (e.g., macro definitions)
+cannot be sent with this function.
+Instead see the two <TT><STRONG>...MacroDefinition</STRONG></TT> routines
+in <A HREF="progu091.htm#HDRPRGCTL">17.8 , "Program Control"</A>.
+<P><LI>When the server is the user interface, it will ignore most
+commands, and this function should be avoided.
+Instead see the <TT><STRONG>DXLSetValue</STRONG></TT> functions in
+<A HREF="progu091.htm#HDRSETVARS">"Setting Variables"</A>.
+</OL>
+<P><DT><B>
+<PRE><STRONG>DXLError DXLSetErrorHandler(DXLConnection *conn, DXLMessageHandler h,
+                                         const void *data);</STRONG>
+</PRE>
+<A NAME="IDX1370"></A>
+<A NAME="IDX1371"></A>
+</B><DD>Sets the message handler (<TT><STRONG>h</STRONG></TT>), which is called
+when an error occurs.
+The specified data is passed to the handler.
+If no error handler is specified, a default handler that prints a
+message and exits will be used.
+Returns OK or ERROR.
+
+The message handler is defined by
+<PRE><STRONG>
+typedef void
+         (*DXLMessageHandler)(DXLConnection *conn, const char *msg,
+                              void *data);
+</STRONG>
+</PRE>
+
+</DL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu088.htm">Previous Page</A> &#124; <A HREF="progu090.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

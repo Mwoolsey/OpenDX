@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu022.htm">Previous Page</A> &#124; <A HREF="progu024.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu022.htm#PToC6">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRMEMNG" HREF="progu022.htm#PToC_52">4.2 Memory
+Management</A></H2>
+<A NAME="IDX213"></A>
+<P>
+The executive is responsible for managing Objects successfully
+returned as output by modules and for the memory allocated
+to those Objects.
+Any memory allocated or any Objects created that are not returned as
+output are the responsibility of the module.
+For instance, in an unsuccessful execution of a module, no Objects
+are returned.
+It is important that the programmer remember this difference when
+writing a module.
+<P>
+<H3><A NAME="HDRMEMALC" HREF="progu022.htm#PToC_53">Allocating and Freeing
+Memory</A></H3>
+<P>
+Memory allocation results from either of the following:
+<A NAME="IDX214"></A>
+<A NAME="IDX215"></A>
+<A NAME="IDX216"></A>
+<A NAME="IDX217"></A>
+<UL>
+<P><LI>Calls to <TT><STRONG>DXAllocate</STRONG></TT> and
+<TT><STRONG>DXAllocateLocal</STRONG></TT>.
+<P>
+In general, allocations resulting from these calls must be freed
+before returning.
+<P><LI>The creation of a new Object (e.g, by
+<TT><STRONG>DXNewField</STRONG></TT> or
+<TT><STRONG>DXNewArray</STRONG></TT>).
+<P>
+On successful return, memory allocated for the use of these routines
+does <I>not</I> usually need to be freed:
+the Objects returned are managed by the executive, and the module is
+not responsible for their deletion.
+However, in case of error, no output Objects are returned, and the
+module is responsible for deleting all Objects created.
+<P>
+When a Field is placed in a Group, the Field is deleted when the
+Group is deleted; and, on error, only the Group should
+be deleted.
+Similarly, an Array placed in a Field is deleted when the Field is
+deleted.
+For that reason it is often helpful to set the pointer of a Field or
+Array to <TT><STRONG>NULL</STRONG></TT> after placing it in a
+higher-level Object.
+The Field or Array can then be safely deleted on error, regardless of
+whether it has been placed in a higher-level Object.
+</UL>
+<P>
+<H3><A NAME="Header_54" HREF="progu022.htm#PToC_54">Reference Counts</A></H3>
+<A NAME="IDX218"></A>
+<A NAME="IDX219"></A>
+<P>
+In Data Explorer, reference counts typically require no special action from
+the user.
+Thus modules seldom need to call DXReference for any reason, and they
+usually call DXDelete only to clean up Objects after an error.
+Note the following:
+<UL COMPACT>
+<LI>All Objects are created with a reference count of zero (0).
+<LI>If you call DXDelete on an Object having a reference count of
+0 or 1, the Object is invalidated and the space
+is freed.
+If the reference count is greater than 1, DXDelete simply decrements
+the count by 1 and returns.
+<LI>If an Object is incorporated in another Object by a call to
+DXSetComponentValue or DXSetMember, its reference count is
+incremented to 1.
+<P>
+This means you can create Array Objects and use DXSetComponentValue
+to add them to a Field as a component, without having to call
+DXDelete: the Array will be deleted when the Field itself
+is deleted.
+(However, if an error occurs before you add the Array to the Field,
+you must call DXDelete.)
+<LI>Objects returned as output from your module should not be
+referenced.
+<LI>New Objects that are not part of another Object will have a
+reference count of 0.
+The executive increments the reference counts for outputs used by
+other modules and deletes the Objects when memory space is
+needed.
+</UL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu022.htm">Previous Page</A> &#124; <A HREF="progu024.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu022.htm#PToC6">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

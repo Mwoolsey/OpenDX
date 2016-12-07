@@ -1,0 +1,90 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Risosurf Isosurface #!N 
+#!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N #!N Computes 
+isosurfaces and contours. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+#!N surface #!EF = Isosurface(  #!F-adobe-times-bold-r-normal--18*   data, value, number, gradient, flag, 
+direction #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB data TAB scalar field TAB none TAB field 
+from which one or more #!N TAB - TAB - TAB 
+- TAB surfaces are to be derived. #!N TAB value TAB 
+scalar or scalar list TAB data mean TAB isosurface value or 
+values #!N TAB number TAB integer TAB no default TAB number 
+of isosurfaces or contours #!N TAB - TAB - TAB - 
+TAB to be computed #!N TAB gradient TAB vector field TAB 
+no default TAB gradient field #!N TAB flag TAB flag TAB 
+1 TAB 0: normals not computed #!N TAB - TAB - 
+TAB - TAB 1: normals computed #!N TAB direction TAB integer 
+TAB -1 TAB orientation of normals #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Description #!EF #!N TAB surface TAB 
+field or group TAB isosurface #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N This module computes any 
+of the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o points (for an input field consisting of lines) #!N #!I30 
+#!N o lines (for a surface input field) #!N #!I30 #!N 
+o surfaces (for a volumetric input field). #!N #!I0 #!N #!EF 
+#!N All positions in the output field are isovalues (i.e., they 
+match a specified value or values). #!N #!N The module also 
+adds a default color to the output (gray-blue for isosurfaces and 
+yellow for contour lines and points) if the input object is 
+uncolored. If the object is colored, its colors are interpolated in 
+the output object. #!N #!N A "data" component with the same 
+value as the input  #!F-adobe-times-bold-r-normal--18*   value #!EF is added to the 
+output field. #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+data #!EF #!EF #!I50 #!N is the data object for which 
+an isosurface or contour is to be created. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   value #!EF #!EF #!I50 #!N is the isovalue or 
+isovalues to be used for computing the isosurface(s) or contour(s). #!N 
+#!N If this parameter is not specified, the module bases it 
+calculations on the value specified by  #!F-adobe-times-bold-r-normal--18*   number #!EF (see below). 
+If neither parameter is specified, the module uses the arithmetic mean 
+of the data input as a default. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   number #!EF #!EF #!I50 #!N is ignored if  #!F-adobe-times-bold-r-normal--18*   value 
+#!EF has been specified. If that parameter is not specified, the 
+module uses the value of  #!F-adobe-times-bold-r-normal--18*   number #!EF to compute a 
+set of isosurfaces or contours with the following isovalues: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N min + delta, min + (2*delta),..., min - 
+delta #!EF #!N #!N #!EC where delta = (max - min)/( 
+ #!F-adobe-times-bold-r-normal--18*   number #!EF + 1), and "max" and "min" are the 
+maximum and minimum data values of the input field. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   gradient #!EF #!EF #!I50 #!N is the gradient 
+field used to compute normals for shading (see  #!Lgradien,dxall857 h Gradient  #!EL  ). #!N 
+#!N If this parameter is not specified, the module adds normals 
+by computing the gradient internally (  #!F-adobe-times-bold-r-normal--18*   flag #!EF can nullify 
+this behavior; see below). Note: If only one isosurface is to 
+be computed, it is probably more efficient to have module compute 
+the gradient internally. If many are to be generated, it is 
+probably more efficient to compute the gradient of the entire field 
+once, so that the system can use it for every isosurface. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   flag #!EF #!EF #!I50 #!N specifies 
+whether normals are to be computed for shading. A setting of 
+0 (zero) prevents the computation of normals. The default is 1 
+(one) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   direction #!EF #!EF #!I50 #!N 
+specifies whether the normals should point against (0, the default) or 
+with (1) the gradient. #!I0 #!N #!N #!N #!N #!I0 #!N 
+Notes: #!N #!I30 #!N 1. This module adds an attribute called 
+"Isosurface value," which has as its value the isovalue(s) used. To 
+extract this attribute (e.g., for use in a caption for an 
+image), use the Attribute module. #!N #!I30 #!N 2. For contour 
+lines, this module adds a "fuzz" attribute so that the line 
+will be rendered slightly in front of a coincident surface (see 
+ #!Ldisplay,dxall807 h Display  #!EL  ). #!N #!I30 #!N 3. A surface or contour is 
+considered to be undefined if every point in the input volume 
+or surface, respectively, is equal to  #!F-adobe-times-bold-r-normal--18*   value #!EF . In 
+such cases, the module output is an empty field. #!N #!I30 
+#!N 4. Isosurface does not accept connection-dependent data. #!N #!I30 #!N 
+5. With disjoint data fields, there may be no data crossings 
+(i.e., points along a connection element where the interpolated data value 
+equals the isovalue), even though the isovalue itself falls in the 
+range of the actual data. #!I0 #!N #!N #!N #!N Components 
+#!N #!N Creates new "positions" and "connections" components. For surfaces output, 
+the default is to create a "normals" component. Any component dependent 
+on "positions" is interpolated and placed in the output object. #!N 
+#!N Example Visual Programs #!N #!N Many example visual programs use 
+the Isosurface module, including: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N 
+ContoursAndCaption.net #!N InvalidData.net #!N MappedIso.net #!N Sealevel.net #!N UsingIsosurface.net #!N SIMPLE/Isosurface.net 
+#!EF #!N #!N #!EC #!N #!N See Also #!N #!N  #!Lband,dxall779 h Band  #!EL  
+,  #!Lcolor,dxall792 h Color  #!EL  ,  #!Lgradien,dxall857 h Gradient  #!EL  ,  #!Lmap,dxall891 h Map  #!EL  ,  #!Lsimpsur,dxall947 h SimplifySurface  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lkeyin,dxall882 h KeyIn  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

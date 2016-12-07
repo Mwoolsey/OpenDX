@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall674 Single Variable #!N #!EC 
+#!N #!N When all data values are defined as a single 
+netCDF variable, and the unlimited dimension of the variable is to 
+be interpreted as the series dimension, then use one of the 
+following forms of the field attribute: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF :field = "  #!F-adobe-times-bold-i-normal--18*   
+fieldname #!EF , scalar, series"; #!N #!I30 #!N o  #!F-adobe-times-bold-i-normal--18*   variable1 
+#!EF :field = "  #!F-adobe-times-bold-i-normal--18*   fieldname #!EF , vector, series"; #!N 
+#!I30 #!N o  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF :field = "  #!F-adobe-times-bold-i-normal--18*   fieldname 
+#!EF , matrix, series"; #!N #!I0 #!N #!EF #!N All other 
+specifications are the same as for simple fields. #!N #!N The 
+position and connection information is assumed to be constant for all 
+members of the series. If the positions or connections change for 
+each step of the series, then the variables used for those 
+arrays must also have an unlimited dimension that corresponds one-for-one with 
+the data array. #!N #!N An example using this method is 
+provided in  #!Lcdfser,dxall680 h Partially Regular Grids and Time Series  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall675,dxall676 h Separate Variables  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

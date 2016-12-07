@@ -1,0 +1,87 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rinclude Include #!N #!N 
+Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N Function #!N #!N Includes data 
+points in (or excludes them from) a data set. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #!N output #!EF = 
+Include(  #!F-adobe-times-bold-r-normal--18*   data, min, max, exclude, cull, pointwise #!EF ); #!N 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+data TAB field TAB none TAB the field from which to 
+select #!N TAB - TAB - TAB - TAB points #!N 
+TAB min TAB scalar or vector TAB min of data TAB 
+minimum value to include #!N TAB max TAB scalar or vector 
+TAB max of data TAB maximum value to include #!N TAB 
+exclude TAB flag TAB 0 TAB 0: include selected range #!N 
+TAB - TAB - TAB - TAB 1: exclude selected range 
+#!N TAB cull TAB flag TAB 1 TAB 0: culled points 
+marked invalid #!N TAB - TAB - TAB - TAB 1: 
+culled points removed #!N TAB pointwise TAB flag TAB 0 TAB 
+if 1, ignore connections when #!N TAB - TAB - TAB 
+- TAB selecting points #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB output TAB field TAB 
+the field with selected points #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N This module determines which 
+points in a data set are to be treated as valid 
+by other modules. It does so by removing or invalidating data 
+values that fall within (or outside) a specified range, thereby  #!F-adobe-times-medium-i-normal--18*   
+including #!EF the remaining points in the set. If there are 
+connections (or faces or polylines) in the field, and  #!F-adobe-times-bold-r-normal--18*   pointwise 
+#!EF =0, then Include also removes all invalid connections (connections containing 
+at least one invalid position) and all unreferenced positions (positions not 
+referred to by any valid connection, face, or polyline element). #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 
+#!N is the data field that the module operates on. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   min #!EF  #!F-adobe-times-medium-r-normal--18*   and #!EF  #!F-adobe-times-bold-r-normal--18*   max 
+#!EF #!EF #!I50 #!N specify a range of data values whose 
+function is determined by the  #!F-adobe-times-bold-r-normal--18*   exclude #!EF flag (see below). 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   exclude #!EF #!EF #!I50 #!N specifies 
+whether the values to be excluded from the data set lie 
+within or outside the range defined by  #!F-adobe-times-bold-r-normal--18*   min #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   max #!EF . #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o 0: Removes or invalidates all elements or positions whose 
+data values lie  #!F-adobe-times-medium-i-normal--18*   outside #!EF the specified range. #!N #!I30 
+#!N o 1: Removes or invalidates all elements or positions whose 
+data values lie  #!F-adobe-times-medium-i-normal--18*   within #!EF the specified range. #!N #!I0 
+#!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   cull #!EF #!EF 
+#!I50 #!N specifies whether the excluded (culled) points are to be 
+invalidated or actually removed from the data set. #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 0: Returns the field with 
+invalid positions and invalid connections, invalid faces, or invalid polylines components. 
+Since it is unnecessary to remove invalid positions, connections, faces, or 
+polylines, in order to have them treated as invalid by other 
+modules, this is usually the preferred setting. #!N #!N If the 
+module removes points from data with regular connections (e.g., cubes or 
+quads), the connections become irregular. #!N #!I30 #!N o 1: Returns 
+the field with invalid positions and connections removed. #!N #!I0 #!N 
+#!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   pointwise #!EF #!I50 #!N if 
+set to 1, the connections of  #!F-adobe-times-bold-r-normal--18*   data #!EF are removed 
+before the points are selected. #!I0 #!N #!N See  #!Linval,dxall211 h Invalid Positions and Invalid Connections Components  #!EL  in 
+IBM Visualization Data Explorer User's Guide for further discussion of invalid 
+data. #!N Note: If  #!F-adobe-times-bold-r-normal--18*   data #!EF is a vector field 
+and  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF are: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o scalars, then the module 
+uses  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF to exclude points 
+whose magnitudes fall inside (or outside) the limits. #!N #!I30 #!N 
+o vectors matching the shape of the data field, then only 
+those vector values lying between the corresponding limits are retained. #!N 
+#!N For example, if the data are 3-D vectors, the values 
+retained are those for which min[x] ó data[x] ó max[x] and 
+min[y] ó data[y] ó max[y] and min[z] ó data[z] ó max[z] 
+are retained (assuming  #!F-adobe-times-bold-r-normal--18*   exclude #!EF = 0). #!N #!I0 #!N 
+#!EF #!N #!N #!N #!N Components #!N #!N Modifies the "data," 
+"positions," and "connections" components and any components that depend on "positions" 
+or "connections." Adds an "invalid positions," "invalid connections," or "invalid faces" 
+component if  #!F-adobe-times-bold-r-normal--18*   cull #!EF is set to 0. Removes the 
+"connections" component if  #!F-adobe-times-bold-r-normal--18*   pointwise #!EF is set to 1. All 
+other components are propagated to the output. #!N #!N Example #!N 
+#!N In the following example, the gradient of the electron density 
+has been mapped onto an isosurface. The Include module removes all 
+points whose data values are greater than 1.5. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N electrondensity = Import("/usr/lpp/dx/samples/data/watermolecule"); #!N electrondensity = Partition(electrondensity); #!N gradientdensity 
+= Gradient(electrondensity); #!N maggradient = Compute("mag($0)", gradientdensity); #!N isosurface = Isosurface(electrondensity, 
+0.3); #!N mappediso = Map(isosurface, maggradient); #!N camera = AutoCamera(isosurface); #!N 
+included = Include(mappediso, 0, 1.5); #!N Display(included, camera); #!EF #!N #!N 
+#!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltall875,dxall875 h Including Data Points in a Data Field  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

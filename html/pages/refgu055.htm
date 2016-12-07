@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Executive</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu054.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu056.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDREXECTV" ></A>Executive</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATICTL">Interface Control</A>
+<A NAME="IDX482"></A>
+<A NAME="IDX483"></A>
+<P><STRONG>Function</STRONG>
+<P>Executes an executive command.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<PRE>Executive(<STRONG>command, value</STRONG>);
+</PRE><BR>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>command</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">command to be executed
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>value</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">command-dependent value
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module tells the Data Explorer executive to run an internal system command.
+In the user interface, it is available only through the
+<TT><STRONG>Execute Script Command</STRONG></TT>
+option of the <TT><STRONG>Options</STRONG></TT>
+pull-down menu of the Message window.
+And with the exception of the "print" command, it should be invoked
+only through the scripting language.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>command</STRONG></TT>
+</B></TD><TD><P>is the executive command to be executed.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>value</STRONG></TT>
+</B></TD><TD><P>is a <TT><STRONG>command</STRONG></TT>-dependent value.
+</TD></TR></TABLE>
+<P>
+The types of commands executed by the Executive module fall into four
+categories:
+<UL COMPACT>
+<LI>printing system information
+<LI>distributed processing
+<LI>module definition
+<LI>system functions.
+</UL>
+<P>
+<H5><A NAME="Header_94">Printing System Information</A></H5>
+<P>
+The following list summarizes the kinds of system information available
+with the "print" command.
+<UL COMPACT>
+<LI>
+Version information for Data Explorer:
+<PRE>
+Executive("print version");
+</PRE>
+<LI>Information about the system environment:
+<PRE>
+Executive("print env");
+</PRE>
+<LI>A module definition:
+<PRE>
+Executive("print mdf","modulename");
+</PRE>
+<LI>A list of the execution groups:
+<PRE>
+Executive("print groups");
+</PRE>
+<LI>A list of the attached hosts:
+<PRE>
+Executive("print hosts");
+</PRE>
+</UL>
+<P>
+<H5><A NAME="Header_95">Distributed Processing in Script Language</A></H5>
+<P>
+Use the following commands to control distributed processing in the
+script language.
+(In the user interface, distributed processing should be controlled through the
+<TT><STRONG>Execution Group Assignment...</STRONG></TT> option of
+the <TT><STRONG>Connections</STRONG></TT> pull-down menu in the
+VPE window.
+See <A HREF="usrgu047.htm#HDRDISTCMP">9.1 , "Using Distributed Computation"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.)
+<UL COMPACT>
+<LI>To attach an execution group to a host requires the name of the host
+machine and any options to be used when Data Explorer is started
+on that host.
+Data Explorer establishes communication with the named host via a TCP/IP socket
+connection.
+The syntax for attachment is:
+<PRE>
+Executive("group attach",  "group1&#58;hostname -dxopt1 -dxopt2 ...");
+&#36;sync
+</PRE>
+or
+<PRE>
+Executive("group attach", &#123; "group1&#58;hostname -dxopt1 -dxopt2 ...",
+                            "group2&#58;hostname -dxopt1 -dxopt2 ...",
+                            "group3&#58;hostname -dxopt1 -dxopt2 ...", ...&#125;);
+&#36;sync
+</PRE>
+<LI>Detaching an execution group from a host requires only the
+group&#39;s name in the command:
+<PRE>
+Executive("group detach", "group1");
+&#36;sync
+</PRE>
+or
+<PRE>
+Executive("group detach", &#123; "group1", "group2", ... &#125;);
+&#36;sync
+</PRE>
+<LI>The "host disconnect" command terminates the connection to a
+host:
+<PRE>
+Executive("host disconnect", "hostname1");
+&#36;sync
+</PRE>
+or
+<PRE>
+Executive("host disconnect", &#123; "hostname1", "hostname2", ... &#125;);
+&#36;sync
+</PRE>
+</UL>
+<P><B>Note: </B>These Executive calls must be followed by <TT>&#36;sync</TT>,
+as shown.
+<P>
+<H5><A NAME="Header_96">Module Definition</A></H5>
+<P>
+To load the module definition file (mdf) of an outboard module after
+Data Explorer has been started, use the script
+syntax shown here.
+(In the user interface, use the <TT><STRONG>Load Module
+Description(s)...</STRONG></TT> option of the <TT><STRONG>File
+</STRONG></TT> pull-down menu in the VPE or Image window.)
+<PRE>
+Executive("mdf file", "mdf_filename");
+&#36;sync
+</PRE>
+<P><B>Note: </B>The call to load the mdf file must be followed by
+<TT>&#36;sync</TT>, as shown.
+
+<P>
+<H5><A NAME="Header_97">UserInteractor Definition</A></H5>
+To load a UserInteractor after Data Explorer has been started, use the
+following script syntax:
+<PRE>
+Executive("loadinteractors", "userinteractor_filename");
+&#36;sync
+</PRE>
+<P><B>Note: </B>In the User Interface this can be done using the
+<TT><STRONG>Execute Script Command</STRONG></TT> option in the
+<TT><STRONG>Commands</STRONG></TT> menu of the Message Window.
+
+<P>
+<H5><A NAME="Header_98">System Functions</A></H5>
+<P>
+The following commands execute system functions:
+<UL COMPACT>
+<LI>To flush all variables in the internal cache:
+<PRE>
+Executive("flush cache");
+</PRE>
+<LI>To flush all variables in the system dictionary:
+<PRE>
+Executive("flush dictionary");
+</PRE>
+<LI>To flush all macro definitions from the system:
+<PRE>
+Executive("flush macros");
+</PRE>
+</UL>
+<P><STRONG>Example</STRONG>
+<P>In this example, the execution groups "mine" and "yours"
+are attached to hosts "ours" and "theirs"
+respectively.
+Also, Data Explorer is started with a memory allocation of 50MB on the host
+"theirs."
+<PRE>
+Executive("group attach",&#123;"mine&#58;ours","yours&#58;theirs -memory 50"&#125;);
+</PRE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

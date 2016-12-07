@@ -1,0 +1,30 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxncf DXNewCompositeField #!N #!N Function #!N #!N Creates a new Composite 
+Field Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> CompositeField DXNewCompositeField() 
+#!EF #!N #!N Functional Details #!N #!N A Composite Field Object 
+(a subclass of Group) is a collection of compatible Fields, all 
+having a "positions" component of the same dimensionality, "data" components of 
+the same type, and "connections" of the same "element type." A 
+Composite Field is intended to be interpreted as a collection of 
+Fields that together define a single Field. #!N #!N Composite Fields 
+are usually created by  #!F-adobe-times-bold-r-normal--18*   DXPartition #!EF . They are used 
+to represent the spatial partitioning of one original Field. No member 
+Field may overlap any other, and, where they abut they must 
+share exact vertex locations. If the "connections" component of Composite Fields 
+are regular (i.e., Mesh Arrays), then the "connections" component of each 
+Field must have a "mesh offsets" attribute that indicates where in 
+the original grid the new Field was located. #!N #!N The 
+type of a Composite Field is set the first time a 
+typed member is added; a typed member is either a Field 
+with a "data" component or a typed Group. All typed members 
+added to a typed Composite Field must match the type of 
+the Composite Field. If a Composite Field has no members, it 
+is untyped. #!N #!N The Field created can be deleted with 
+DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N #!N Returns 
+the Composite Field or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgrov,dxall1273 h DXGrow, DXGrowV  #!EL  , 
+ #!Ldxng,dxall1317 h DXNewGroup  #!EL  ,  #!Ldxnmg,dxall1320 h DXNewMultiGrid  #!EL  ,  #!Ldxns,dxall1326 h DXNewSeries  #!EL  ,  #!Ldxsmo,dxall1383 h DXSetMeshOffsets  #!EL  #!EF #!N #!N  #!Lcefd,dxall1067 h Composite Fields  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxncav,dxall1314 h DXNewConstantArray, DXNewConstantArrayV  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

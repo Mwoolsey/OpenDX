@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall678 Compact Specifications 
+of Regular Dimensions #!N #!EC This example describes a single two-dimensional 
+scalar field on a latitude-longitude, regular, rectangular grid. The example data 
+are temperature on a one-degree grid with global coverage. Because Data 
+Explorer array objects can be specified compactly, you can use this 
+method to specify a netCDF with regular dimensions. For each dimension, 
+you need to specify its value at the origin and its 
+spacing along the dimension. #!N #!N In this example, two variable 
+attributes are defined for the netCDF variables.  #!F-adobe-times-bold-r-normal--18*   field #!EF specifies 
+the rank of the parameter, and  #!F-adobe-times-bold-r-normal--18*   positions #!EF specifies where 
+the information containing the locations of the data is space is 
+located. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dimensions: #!N lon = 360; 
+#!N lat = 180; #!N naxes = 2; #!N ndeltas = 
+2; #!N #!N variables: #!N float locations(naxes, ndeltas); #!N float temperature(lat, 
+lon); #!N temperature:field = "temperature, scalar"; #!N temperature:positions = "locations, regular"; 
+#!N #!N data: #!N locations = 89.5, -1., // compact specification, 
+origin and #!N -179, 1.; // spacing for lat and lon 
+#!N temperature = ... // Data for temperature #!EF #!N #!N 
+#!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcdfser,dxall680 h Partially Regular Grids and Time Series  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

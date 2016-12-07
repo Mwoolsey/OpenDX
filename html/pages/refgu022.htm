@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Caption</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu021.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu023.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRCAPTION" ></A>Caption</H3>
+		<A NAME="IDX397"></A><A NAME="IDX398"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATANN">Annotation</A>
+<A NAME="IDX399"></A>
+<A NAME="IDX400"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Displays a caption on the screen.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+caption</STRONG> = Caption(<STRONG>string, position, flag, reference,
+                  alignment, height, font, direction, up</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>string</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string or string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the caption to be displayed
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>position</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;0.5 0.05&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">where to display the caption
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>flag</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: viewport-relative coordinates
+<BR>
+1: pixel coordinates
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>reference</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">same as
+<TT><STRONG>position</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">reference point on caption
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>alignment</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">range:
+<BR>
+0.0: left-justify
+<BR>
+...
+<BR>
+1.0: right-justify
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>height</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">15
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">caption height (pixels)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>font</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;variable&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">caption font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>direction</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;1 0&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">direction of baseline
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>up</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">perpendicular to baseline
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">direction of vertical strokes
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>caption</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">color field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">string object that can be
+rendered
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The caption produced is aligned in parallel with the screen.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>string</STRONG></TT>
+</B></TD><TD><P>is the caption to be displayed.
+This parameter can also be a list of strings, for a multiline caption.
+
+Alternatively, you can separate substrings for a multiline caption
+by using &#92;n.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>position</STRONG></TT>
+</B></TD><TD><P>specifies the position of the caption
+in units determined by <TT><STRONG>flag</STRONG></TT> (see below).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>flag</STRONG></TT>
+</B></TD><TD><P>determines the type of coordinates used in placing the caption:
+<DL>
+<DD><P>0: viewport-relative
+<DD><P>1: pixel
+</DL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>reference</STRONG></TT>
+</B></TD><TD><P>specifies the reference point for the caption that is to be
+placed
+at <TT><STRONG>position</STRONG></TT>:
+<P>
+&#91;0 0&#93; = bottom left of the caption
+<BR>
+&#91;1 1&#93; = top right
+<P>
+If <TT><STRONG>flag</STRONG></TT> = 0, the default is the same as the current
+specification of <TT><STRONG>position</STRONG></TT>.
+<P>
+If <TT><STRONG>flag</STRONG></TT> = 1, the default is the lower left
+corner of the caption.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>alignment</STRONG></TT>
+</B></TD><TD><P>determines the alignment of a multiline caption from left
+justified
+(0.0) to right justified (1.0).
+For intermediate values, justification is defined by linear
+interpolation (e.g., a value of 0.5 centers the lines).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>height</STRONG></TT>
+</B></TD><TD><P>determines the height of the caption characters in pixels.
+A negative value generates an inverted caption.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>font</STRONG></TT>
+</B></TD><TD><P>specifies the font for a displayed caption.
+You can specify any of the defined fonts supplied with Data Explorer.
+These include a variable-width font ("variable," the default)
+and a fixed-width font ("fixed"):
+<PRE>
+area          gothicit_t       pitman                roman_ext
+cyril_d       greek_d          roman_d               script_d
+fixed         greek_s          roman_dser            script_s
+gothiceng_t   italic_d         roman_s               variable
+gothicger_t   italic_t         roman_tser
+</PRE>
+For more information,
+see <A HREF="usrgu076.htm#HDRAPC">Appendix E. "Data Explorer Fonts"</A> in the
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>direction</STRONG></TT>
+</B></TD><TD><P>determines the orientation of the caption (i.e., the direction
+of
+its baseline).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>up</STRONG></TT>
+</B></TD><TD><P>determines the direction of the vertical strokes of the caption
+font.
+</TD></TR></TABLE>
+<P><B>Notes: </B><OL>
+<P><LI>To change the color of a caption, use the Color module (see
+<A HREF="refgu033.htm#HDRCOLOR">Color</A>).
+
+<P><LI>If you are using Render or Display to render an object which
+contains a caption, when you change the resolution of the camera the
+size of the caption in pixels will not change. If you want the caption
+to take up the same proportion of the image, use the ScaleScreen
+module to change the size of the caption.
+
+</OL>
+<P><STRONG>Components</STRONG>
+<P>
+Creates "positions," "connections," and "colors"
+components.
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+Many example visual programs use Caption, including&#58;
+<PRE>
+AlternateVisualizations.net
+ContoursAndCaption.net
+Sealevel.net
+UsingAttributes.net
+UsingIsosurface.net
+SIMPLE/Caption
+
+SIMPLE/ScaleScreen.net
+
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu033.htm#HDRCOLOR">Color</A>,
+&nbsp;<A HREF="refgu065.htm#HDRFORMAT">Format</A>,
+&nbsp;<A HREF="refgu156.htm#HDRTEXT">Text</A>,
+
+&nbsp;<A HREF="refgu130.htm#HDRSCALSCR">ScaleScreen</A>,
+&nbsp;<A HREF="refgu083.htm#HDRLEGEND">Legend</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

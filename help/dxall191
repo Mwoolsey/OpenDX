@@ -1,0 +1,52 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall190 Positions and Connections 
+Dependence #!N #!EC #!N #!N The concept of sampling should be 
+familiar to anyone who has ever collected data on some kind 
+of grid. For example, a botanist may lay down a series 
+of square grid markers over an area of interest then count 
+the numbers of species of grasses growing inside each grid square. 
+The number so collected becomes a sample value or datum associated 
+with that grid marker. A single number like this, whether floating 
+point or integer, is called a  #!F-adobe-times-medium-i-normal--18*   scalar #!EF . If 
+the wind velocity and direction at, say, the center of each 
+grid square is also measured, the botanist would record a  #!F-adobe-times-medium-i-normal--18*   
+vector #!EF quantity as a second datum sampled at the same 
+place. A vector encodes both direction and magnitude with two or 
+more numeric "vector components." #!N #!N In this example, the locations 
+of the corners of each grid marker are recorded as an 
+array of 2-dimensional coordinates that define the sampling area dimensions and 
+the sampling resolution. In computer graphics terms, these spatial location points 
+are called  #!F-adobe-times-medium-i-normal--18*   vertices #!EF (singular: vertex); in Data Explorer, they 
+are referred to as "positions." Loosely, everyone calls them "points." #!N 
+#!N Four coordinate positions can be connected by a quadrilateral to 
+define a grid  #!F-adobe-times-medium-i-normal--18*   element #!EF . The quadrilateral itself is 
+called a  #!F-adobe-times-medium-i-normal--18*   connection #!EF in Data Explorer (we will discuss 
+other connection types in a moment). Since the botanist collected one 
+set of data per grid element, such data are termed  #!F-adobe-times-medium-i-normal--18*   
+connection-dependent data #!EF . This implies that the data value is 
+assumed by Data Explorer to be constant within that element. #!N 
+#!N Consider another technique for data sampling: on a larger scale, 
+remote-sensing satellites can resolve various features of the Earth down to 
+some finite level of resolution. In this case, the grid positions 
+are identified by a latitude-longitude coordinate pair, and the data values 
+may encode such things as surface reflectance in the ultraviolet. By 
+associating each data value with a latitude-longitude position, we produce  #!F-adobe-times-medium-i-normal--18*   
+position-dependent data #!EF . #!N #!N This implies that data values 
+should be interpolated between positions, using the connections (grid) if one 
+is present. Data Explorer works equally well with position-dependent and connection-dependent 
+data (see  #!Lcpdpnd20,dxall191 f Figure 20  #!EL  ). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rcpdpnd20 #!N Graphics omitted 
+from Online Documentation. Please see the manual. #!N #!N Figure 20. 
+Examples of Data Dependency #!EF #!N #!EC Generally, the decision about 
+which dependency the data has is made by you at the 
+time of data collection or simulation. (There is a simple way 
+in Data Explorer to convert either dependency to the other. See 
+ #!Lpost,dxall910 h Post  #!EL  in IBM Visualization Data Explorer User's Reference.) #!N #!N We 
+can extend our data sampling into three dimensions where appropriate. In 
+that case, we identify each grid position with three coordinates. These 
+coordinates form the corners of "volumetric" elements and the entire sample 
+space is called a  #!F-adobe-times-medium-i-normal--18*   volume #!EF . A volumetric element 
+may be a rectangular prism (like a  #!F-adobe-times-medium-i-normal--18*   cube #!EF ) 
+or a  #!F-adobe-times-medium-i-normal--18*   tetrahedron #!EF (a solid with four triangular faces, 
+not necessarily equilateral). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lall191,dxall192 h Connections and Interpolation  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

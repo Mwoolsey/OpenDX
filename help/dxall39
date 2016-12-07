@@ -1,0 +1,56 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall38 Example 2 #!N #!EC #!N #!N 
+In this example, you will use the initial dialog box to 
+customize the Data Prompter before importing a data file that contains 
+scattered data values for two variables. The organization of the file 
+is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N x, y, data1, data2 #!N 
+x, y, data1, data2 #!N . . . #!EF #!N #!N 
+#!EC where x, y define the positions (or locations) of the 
+data. (See also "For Future Reference" later in this example.) #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. First, invoke the 
+Data Prompter (as in Example 1, Step 1). When the initial 
+dialog box appears, click on the  #!F-adobe-times-bold-r-normal--18*   Grid or Scattered File 
+#!EF button for scattered data. Then click on the  #!F-adobe-times-bold-r-normal--18*   Grid 
+Type #!EF button for scattered data (farthest right). #!N #!I30 #!N 
+2. Use a stepper button to set  #!F-adobe-times-bold-r-normal--18*   Number of variables 
+#!EF to "2." #!N #!I30 #!N 3. The data positions are 
+specified in the data file itself, so activate the  #!F-adobe-times-bold-r-normal--18*   Positions 
+in data file #!EF toggle. #!N #!I30 #!N 4. The data 
+positions are 2-dimensional (x,y), so use a stepper button to set 
+ #!F-adobe-times-bold-r-normal--18*   Dimension #!EF to "2." #!N #!I30 #!N 5. Verify that 
+the  #!F-adobe-times-bold-r-normal--18*   Single time step #!EF toggle is activated. #!N #!I30 
+#!N 6. Set  #!F-adobe-times-bold-r-normal--18*   Data Organization #!EF to  #!F-adobe-times-bold-r-normal--18*   Columnar #!EF 
+. #!N #!I30 #!N 7. Click on  #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF 
+. The simplified prompter window appears. #!N #!I30 #!N 8. Position 
+the mouse cursor in the  #!F-adobe-times-bold-r-normal--18*   Data file #!EF field at 
+the top left and type in the path name /usr/lpp/dx/samples/tutorial/spreadsheet.data. #!N 
+#!N You can view the file by choosing  #!F-adobe-times-bold-r-normal--18*   Browser #!EF 
+(as in Example 1). #!N #!I30 #!N 9. There is no 
+header in this file. Set  #!F-adobe-times-bold-r-normal--18*   # of Points #!EF to 
+"49." #!N #!I30 #!N 10. To save the header file you 
+have defined, select  #!F-adobe-times-bold-r-normal--18*   Save As... #!EF in the  #!F-adobe-times-bold-r-normal--18*   File 
+#!EF pull-down menu. Save the file under any name you choose. 
+#!N #!I30 #!N 11. The  #!F-adobe-times-bold-r-normal--18*   Test Import #!EF and  #!F-adobe-times-bold-r-normal--18*   
+Visualize Data #!EF buttons in the initial Data Prompter window are 
+now enabled. Choose  #!F-adobe-times-bold-r-normal--18*   Visualize Data #!EF to see a visualization 
+of this scattered data. #!N #!I0 #!N #!EF #!N #!N #!N 
+Many other examples of using the General Array format can be 
+found in  #!Lgai,dxall110 h General Array Importer  #!EL  . Data Prompter options are described in  #!Lprompt,dxall157 h Data Prompter  #!EL  
+. #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   For Future Reference #!N #!N 
+It is important to note that the top-to-bottom order of items 
+in the  #!F-adobe-times-bold-r-normal--18*   Field list #!EF (right side of window) is 
+the same as the left-to-right order of items in the data 
+file itself: #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   locations #!EF 
+x, y #!N  #!F-adobe-times-bold-r-normal--18*   Field0 #!EF data1 #!N  #!F-adobe-times-bold-r-normal--18*   Field1 #!EF 
+data2 #!N  #!F-adobe-times-bold-r-normal--18*   ... #!EF  #!F-adobe-times-bold-r-normal--18*   ... #!EF #!EF #!N #!N 
+#!EC #!N #!N ( "locations" is a General Array reserved word 
+used to indicate when numbers in a data file are to 
+be interpreted as "positions"). #!N #!N The order of the field 
+list can be changed (with the  #!F-adobe-times-bold-r-normal--18*   Move field #!EF stepper 
+buttons) to agree with the order in the data file. #!N 
+#!N If other information (e.g., descriptive text) is interspersed among the 
+data values, you must use the layout options available in the 
+full Data Prompter (see  #!Ldprlayt,dxall168 s Layout  #!EL  and  #!Llaytkwd,dxall149 h layout  #!EL  ). #!N #!N #!EC 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall39,dxall40 h A thumbnail Sketch of the Data Prompter Choices  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

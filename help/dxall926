@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rreset Reset #!N #!N Category 
+#!N #!N  #!Lcatint,dxall757 h Interactor  #!EL  #!N #!N Function #!N #!N Outputs one of 
+two values. #!N #!N Syntax #!N #!N Available only through the 
+user interface. #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB output TAB value or 
+string TAB output of Reset #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N This module outputs one 
+("set") value on the first execution after the Reset toggle has 
+been activated and another ("unset") on all subsequent executions. The module 
+will continue to output the "unset" value in subsequent executions until 
+the toggle is activated again. The default values are "1" (set) 
+and "0" (unset), but these can be modified to any value 
+or string with  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box (selected from 
+the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu of the Interactor control panel). 
+#!N #!N Possible uses of the Reset interactor include driving the 
+reset toggle of the Get module to initialize a program state 
+and restarting an external simulator. Note: This interactor cannot be data 
+driven. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+#!N MultipleDataSets.net #!N UsingSwitchAndRoute.net #!N #!EF #!N #!N #!EC #!N #!N 
+See Also  #!Lgetloc,dxall855 h GetLocal  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lribbon,dxall927 h Ribbon  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

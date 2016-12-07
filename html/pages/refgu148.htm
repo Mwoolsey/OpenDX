@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Streakline</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu147.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu149.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRSTREAKL" ></A>Streakline</H3>
+		<A NAME="IDX724"></A><A NAME="IDX725"></A>
+<A NAME="IDX726"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREL">Realization</A>
+<P><STRONG>Function</STRONG>
+<P>
+Computes streaklines to represent the movement of particles through
+changing vector fields.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+line</STRONG> = Streakline(<STRONG>name, data, start, time, head, curl, flag, stepscale</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>name</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">name of streakline
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector field or vector field
+series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">vector series time-step or vector
+field series
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>start</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or geometric field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">center of the boundary box of the
+first series member
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">starting point(s)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>time</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">series start time(s)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">starting time(s)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>head</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">final series frame number
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">series time-step at which the
+streaklines end
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>frame</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">current frame
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">current frame
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>curl</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector field or vector field
+series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no curl
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">vorticity of vector field(s)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>flag</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">
+0: curl not used
+<BR>
+1: curl used to generate twist of streakline(s)
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>stepscale</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">value
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0.1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">step length as a fraction of the
+size of the connection
+element
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>line</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field or group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">one or more streaklines
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module traces the path of a particle through a changing vector
+field in discrete steps.
+The visual form of this trace is a streakline, which starts at a
+specified time and continues until the particle it represents
+exits from the field or until the field "expires."
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>name</STRONG></TT>
+</B></TD><TD><P>is required only if more than one invocation of Streakline in
+the
+same visual program uses the same
+<TT><STRONG>start</STRONG></TT>,
+<TT><STRONG>time</STRONG></TT>,
+<TT><STRONG>head</STRONG></TT>,
+<TT><STRONG>curl</STRONG></TT>, and
+<TT><STRONG>flag</STRONG></TT> arguments with different vector fields
+(<TT><STRONG>data</STRONG></TT>).
+<P>
+The reason for this requirement is that, in order to function
+efficiently in movie applications,
+Streakline saves intermediate results from frame to frame.
+This information is stored internally in association with a key.
+Each invocation of the Streakline module in the same graph receives a
+unique name, which is constructed from the
+<TT><STRONG>name</STRONG></TT>,
+<TT><STRONG>start</STRONG></TT>,
+<TT><STRONG>time</STRONG></TT>,
+<TT><STRONG>head</STRONG></TT>,
+<TT><STRONG>curl</STRONG></TT>, and
+<TT><STRONG>flag</STRONG></TT> arguments.
+Thus, if more than one invocation of Streakline in the same graph uses
+the same arguments, varying only the vector field, a unique
+<TT><STRONG>name</STRONG></TT> string must be assigned to each.
+<P>
+If you have only one Streakline module or if any of the inputs to the
+module other than <TT><STRONG>data</STRONG></TT> are different between
+the two modules, you do not need to specify
+<TT><STRONG>name</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>specifies a vector field or vector field series.
+Vector fields are limited to <I>n</I>-D vectors defined in
+<I>n</I> space; for example, 2-D vectors on a 2-D sheet or
+3-D vectors defined in a 3-D volume.
+<P>
+The individual time-step vector fields are passed to Streakline as
+<TT><STRONG>data</STRONG></TT>, either combined in a single series
+object or one at a time in successive executions of the
+graph containing the Streakline module, as fields.
+Times are associated with each vector field by the "series position"
+attached to each member of the series group.
+Vector values in between these times are interpolated linearly from the
+prior and subsequent vector fields.
+The times associated with each field should increase monotonically as
+they are encountered by the Streakline module, either as the
+individual series members are indexed or as the
+individual series members are encountered in
+successive executions of the graph.
+Vector fields encountered out of order are ignored.
+<P>
+If <TT><STRONG>data</STRONG></TT> is a single field rather than a series
+group, then it must have a "series position" attribute for
+Streakline to accept it.
+This attribute is attached when a series member is selected with the
+Select module.
+The individual members of the series group can be extracted using the
+Select module or by requesting a single member of the series when
+using the Import module.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>start</STRONG></TT>
+</B></TD><TD><P>specifies a set of points at which streaklines originate.
+It can be either a list of positions or a geometric field (e.g., the
+output of a Grid module).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>time</STRONG></TT>
+</B></TD><TD><P>specifies a set of times at which streaklines begin to be
+traced.
+The units of time correspond to the units of the vector field.
+That is, a particle travelling at a unit velocity moves one unit of
+distance in one unit of time.
+<P>
+Both <TT><STRONG>time</STRONG></TT> and <TT><STRONG>start</STRONG></TT> can
+contain
+single or multiple elements.
+If either parameter contains a single element, that element is
+associated with each element of the other list.
+If both parameters contain multiple elements, they must contain the
+same number of elements, which are then matched in pairs.
+This allows either a single starting point to be associated with several
+different starting times, several starting points to be associated
+with a single starting time, or several starting points to be
+associated with individual starting times.
+If no <TT><STRONG>time</STRONG></TT> parameter is given, the series position
+of the first member of the vector field series (either the first
+series member or the first individual vector field encountered)
+is used.
+If no <TT><STRONG>start</STRONG></TT> parameter is given, the center point of
+the first member of the vector field series is used.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>head</STRONG></TT>
+</B></TD><TD><P>specifies an expiration time for streaklines that have not
+otherwise terminated.
+The streakline points are computed iteratively, and the spacing between
+the points depends on the element size of the connections.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>frame</STRONG></TT>
+</B></TD><TD><P>allows the Streakline module to incrementally generate
+streaklines
+when the entire series is input as <TT><STRONG>data</STRONG></TT>.
+For example, you could attach the Sequencer to <TT><STRONG>frame</STRONG></TT>,
+and as <TT><STRONG>frame</STRONG></TT> advanced, the streaklines
+would grow longer.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>flag</STRONG></TT>
+</B></TD><TD><P>specifies whether the normals of the streaklines produced rotate
+according to the vorticity of the vector field or do not rotate
+at all.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>curl</STRONG></TT>
+</B></TD><TD><P>specifies the curl of the vector field (see
+<A HREF="refgu049.htm#HDRDIVCURL">DivCurl</A>).
+<P>
+If the vorticity of the vector field is supplied by this parameter,
+the curl is interpolated from it.
+In that case, the field must correspond to the vector field in type
+(either both must be a series or both must be a single field)
+and they should correspond in time.
+If <TT><STRONG>curl</STRONG></TT> is specified, the default value for the
+<TT><STRONG>flag</STRONG></TT> parameter is 1.
+If <TT><STRONG>curl</STRONG></TT> is not specified, the vorticity can be
+computed within Streakline, but at a considerable cost in time.
+In this case the default value for <TT><STRONG>flag</STRONG></TT> is 0, and
+if you want Streakline to compute the curl of the field, you must
+set <TT><STRONG>flag</STRONG></TT> to 1.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>stepscale</STRONG></TT>
+</B></TD><TD><P>specifies the accuracy of the interpolation.
+Streakline traces the path of a particle through the vector field in
+discrete steps.
+These steps are determined by interpolating vectors from the prior and
+subsequent vector fields at the geometric position of the current
+end of the streakline, and then linearly interpolating between
+the results to produce a vector for the current position
+and time.
+A segment is then appended to the current streakline, which continues
+it in the direction of the resulting vector.
+<P>
+The length of the new segment is determined by two factors.
+First, the length of the projection of the segment along the edges of the
+cells of the prior and subsequent vector fields in which the starting
+point of the segment is found does not exceed a proportion (specified
+by the <TT><STRONG>stepscale</STRONG></TT> parameter) of the length
+of the edge.
+Second, if grid is irregular, the segment is truncated at the boundary
+of the element in which it begins.
+This allows the segment length to be determined anew for the next
+element.
+<P>
+Thus the <TT><STRONG>stepscale</STRONG></TT> parameter offers the user control
+over the accuracy of the streakline.
+If <TT><STRONG>stepscale</STRONG></TT> is a small value (perhaps in the range
+of 0.01 to 0.05), the resulting streakline contains a relatively
+large number of segments that closely trace small variations
+in the vector field.
+If <TT><STRONG>stepscale</STRONG></TT> is assigned a large number (0.5 to 1),
+the steps are larger and less accurate, but require less execution
+time.
+Note, however, that since the step is determined as a proportion of the
+size of the grid cell in which it is contained, the segments are
+
+small in areas in which the grid elements are small, and
+proportionally larger in areas in which the grid
+elements are large.
+</TD></TR></TABLE>
+<P>
+Streaklines trace particles through time.
+Associated with the
+<A NAME="IDX727"></A>
+streakline is a "time" component that indicates, for each position
+of the streakline, the time at which the particle reached that
+position.
+The initial value in this component, therefore, is equal to the
+starting time for that streak, which is by default the first
+series position, or settable by the user using the
+<TT><STRONG>time</STRONG></TT> parameter.
+The final value in the time component is equal to the time at which
+the particle exits from the vector field, either geometrically
+or for one of the following reasons:
+<UL>
+<P><LI>It has reached the time associated with the final member of the
+vector field series.
+<P><LI>It has reached the time associated with the current frame.
+<P><LI>It has reached the time associated with the series member indicated
+by the <TT><STRONG>head</STRONG></TT> parameter.
+</UL>
+<P>
+The output streaklines also contain a "data" component that
+indicates the velocity of the data field at each position
+along the streakline.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Unlike other modules in the system, the Streakline module maintains
+information about previous executions.
+If errors occur during the execution of the visual program, it may be necessary
+to use the <TT><STRONG>Reset Server</STRONG></TT> option to reinitialize
+the system.
+</td></tr></table>
+<P><STRONG>Components</STRONG>
+<P>
+Creates new "positions," "connections," "data,"
+"time," and "colors" components.
+If the flag argument is set, "normals" and "binormals"
+components are also created.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+UsingCompute3.net
+UsingStreakline.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu049.htm#HDRDIVCURL">DivCurl</A>,
+&nbsp;<A HREF="refgu122.htm#HDRRIBBON">Ribbon</A>,
+&nbsp;<A HREF="refgu149.htm#HDRSTREAML">Streamline</A>,
+&nbsp;<A HREF="refgu163.htm#HDRTUBE">Tube</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

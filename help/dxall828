@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rodone Done #!N #!N Category #!N 
+#!N  #!Lcatflow,dxall755 h Flow Control  #!EL  #!N #!N Function #!N #!N Specifies whether a loop 
+is to be terminated. #!N #!N Syntax Done(  #!F-adobe-times-bold-r-normal--18*   done #!EF 
+); #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB done TAB flag 
+TAB none TAB 0: no termination #!N TAB - TAB - 
+TAB - TAB 1: terminate the loop #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+This module terminates a loop. If  #!F-adobe-times-bold-r-normal--18*   done #!EF is set 
+to: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   0 #!EF #!I50 
+#!N The macro containing the Done module will continue to execute 
+until #!N  #!F-adobe-times-bold-r-normal--18*   done #!EF = 1 or until one of 
+the other looping tools (ForEachN or ForEachMember) terminates the loop. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   1 #!EF #!I50 #!N The loop is terminated 
+upon completion of the current loop iteration, regardless of how many 
+iterations have been, or remain to be, executed. #!I0 #!N #!N 
+#!N #!N Typically, loops are initiated with ForEachMember or ForEachN, although 
+they can also be implemented with a Get/Set pair and Done. 
+#!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. If this 
+module is used in the scripting language, the results are defined 
+only if it is used inside a macro. #!N #!I30 #!N 
+2. If  #!F-adobe-times-bold-r-normal--18*   done #!EF is set to 1 by an 
+interactor  #!F-adobe-times-medium-i-normal--18*   during #!EF the execution of a loop, the new 
+setting will not take effect until the loop is completed: new 
+interactor values are considered at the end of an execution, and 
+a complete loop is considered to be a  #!F-adobe-times-medium-i-normal--18*   single #!EF 
+execution. #!N #!I30 #!N 3. Simply placing a Done icon in 
+a visual program and setting the parameter  #!F-adobe-times-bold-r-normal--18*   done #!EF to 
+0 (zero) will create an infinite loop. #!I0 #!N #!N #!N 
+#!N Example Visual Programs #!N #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+Bounce.net #!N SimpleGetSetLoop.net #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lofirst,dxall850 h First  #!EL  ,  #!Lforemem,dxall851 h ForEachMember  #!EL  ,  #!Lforen,dxall852 h ForEachN  #!EL  ,  #!Lgetglo,dxall854 h GetGlobal  #!EL  ,  #!Lgetloc,dxall855 h GetLocal  #!EL  
+,  #!Lsetglo,dxall940 h SetGlobal  #!EL  ,  #!Lsetloc,dxall941 h SetLocal  #!EL  #!N #!N  #!Lxmod,dxall263 h Data Explorer Execution Model  #!EL  in IBM Visualization Data 
+Explorer User's Guide. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lecho,dxall829 h Echo  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

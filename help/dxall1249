@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgmo DXGetMeshOffsets #!N #!N Function #!N #!N Gets 
+the offset of a partition within the original Field after partitioning. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> MeshArray DXGetMeshOffsets(MeshArray a, int 
+*offsets) #!EF #!N #!N Functional Details #!N #!N The offsets are 
+specified as an Array of integers, one for each dimension of 
+the mesh, specifying the offset along that dimension of the partition 
+in the original Field. In the case where a Mesh Array 
+is used to define a regular grid of connections that is 
+a part of a partitioned Field, it is useful to know 
+the offset of the partition in the original Field. #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXGetMeshOffsets #!EF works only on fully regular Mesh Arrays (e.g., 
+those that contain only Path Arrays). Mesh Arrays containing any other 
+type of array will cause an error. In the event that 
+this routine is passed to an Array that is not the 
+result of partitioning, zeros are returned. #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgmai,dxall1248 h DXGetMeshArrayInfo  #!EL  ,  #!Ldxgpo,dxall1259 h DXGetPathOffset  #!EL  ,  #!Ldxnmav,dxall1319 h DXNewMeshArray, DXNewMeshArrayV  #!EL  #!EF #!N #!N  #!Lmarray,dxall1078 h Mesh Arrays  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgmid,dxall1250 h DXGetModuleId  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

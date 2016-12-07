@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rplohis Plots and Histograms #!N #!EC #!N #!N 
+Data Explorer provides a Plot module that will give you a 
+simple 2-D graphics plot of your data. This can be convenient 
+for showing one parameter plotted "traditionally" while you show a colored 
+3-D height Field illustrating the same or other parameters, in the 
+same scene. #!N #!N Histogram regroups your data into a specified 
+number of bins (it acts like a form of filter on 
+your data). The output of Histogram is a new Field with 
+connection-dependent data. The connections are the bars on the histogram (which 
+can be plotted). The height of each histogram bar is proportional 
+to the number of samples of original data that occur in 
+the range covered by that bar. You can feed the output 
+of Histogram through AutoColor then Plot to get a colored plot 
+of the data distribution. #!N #!N If the aspect ratio of 
+the Plot is distorted, you can correct it in the Plot 
+module. This will stretch the Plot out in either the X 
+or the Y direction until you achieve the look you want. 
+Visual designers recommend an aspect ratio of approximately 4 units wide 
+to 3 units high; since this is also the aspect ratio 
+of television, your image will be ready both for video and 
+for print. #!N #!N Be aware that "binning" your data with 
+Histogram can sometimes create rather arbitrary distributions. It is important to 
+make this clear to the viewer of your visualization. For example, 
+by carefully selecting bin size, you may turn a unimodal distribution 
+into a bimodal one. Which distribution is correct for the phenomenon 
+under study must be determined by the underlying science, not by 
+the arbitrary picture you create. #!N #!N On the other hand, 
+if you wish to actually redistribute your data rather than just 
+show a histogram of its distribution, you can use the Equalize 
+module. The output of this module is essentially the same scalar 
+Field you fed into it, but the data values have been 
+changed to fit the specified distribution. By default, the data values 
+are changed to approximate a uniform distribution, but you can create 
+your own custom distribution, like a normal Gaussian curve. Equalize is 
+useful to reduce extreme values back to a range similar to 
+the majority of data values. You may also wish to experiment 
+with other data "compression" and "expansion" techniques by connecting your data 
+Field to Compute and applying a function like "ln(a)" or "a^2," 
+where "a" is the input Field. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lrubsht,dxall605 h Rubbersheet  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

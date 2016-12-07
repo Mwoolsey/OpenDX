@@ -1,0 +1,83 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmeasure Measure 
+#!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N #!N 
+Performs length, area, and volume measurements on an input object. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = 
+Measure(  #!F-adobe-times-bold-r-normal--18*   input, what #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB input TAB field TAB none 
+TAB data to be measured #!N TAB what TAB string TAB 
+input dependent TAB measurement to be performed #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB output 
+TAB value TAB result of the measurement #!N TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N is 
+the field to be measured. It is expected to have a 
+"connections" component consisting of lines, surfaces, or volumes. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   what #!EF #!EF #!I50 #!N specifies the type of 
+measurement to be performed. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o Unless the parameter value is "element," the module performs 
+a measurements of the field as a whole. The structure of 
+the output is identical to that of the input, with each 
+field (or composite field) replaced by an array containing a simple 
+scalar floating-point measurement of that field. #!N #!N The default value 
+of  #!F-adobe-times-bold-r-normal--18*   what #!EF is determined by the "connections"-component element type. 
+If the connections element type is: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N "lines," the parameter defaults to "length." #!N #!I30 
+#!N "triangles" or "quads," the parameter defaults to "area." #!N #!I30 
+#!N is "cubes" or "tetrahedra," the parameter defaults to "volume." #!N 
+#!I0 #!N #!EF #!N #!N #!I30 #!N o If  #!F-adobe-times-bold-r-normal--18*   what 
+#!EF is "element," the module performs element-by-element measurement on  #!F-adobe-times-bold-r-normal--18*   input, 
+#!EF replacing the "data" component with scalar arrays that are connection 
+dependent and contain the measurement of each connection element. If the 
+connections element type is: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N "lines," the resulting "data" component will contain the length of 
+each line segment. #!N #!I30 #!N "triangles" or "quads," the resulting 
+"data" component will contain the area of each triangle or quad. 
+#!N #!I30 #!N is "cubes" or "tetrahedra," the resulting "data" component 
+will contain the volume of each cube or tetrahedron. #!N #!I0 
+#!N #!EF #!N #!N #!I0 #!N #!EF #!N #!I0 #!N #!N 
+#!N #!N The options for  #!F-adobe-times-bold-r-normal--18*   what #!EF are shown in 
+the following table: #!T,1,106,211,641  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 20. Options for 
+Measure's What Parameter #!N TAB Connection element TAB What TAB Measurement 
+#!EF #!N TAB lines TAB "length" TAB total length of line 
+segments #!N TAB - TAB "element" TAB length of each line 
+segment #!N TAB - TAB "area" TAB 2-D area enclosed by 
+connected line segments. If a series of segments is not #!N 
+TAB - TAB - TAB closed, a segment connecting the first 
+and final points of the sequence is added. #!N TAB faces 
+TAB "area" TAB total area of all faces #!N TAB - 
+TAB "element" TAB area of each face #!N TAB triangles, quads 
+TAB "area" TAB total area of all surface elements #!N TAB 
+- TAB "element" TAB area of each surface element #!N TAB 
+- TAB "volume" TAB 3-D volume enclosed by connected sets of 
+surface elements. If a connected set of #!N TAB - TAB 
+- TAB surface elements is not closed, the approximate closing surface(s) 
+is(are) found by #!N TAB - TAB - TAB triangulating the 
+openings in the surface (defined by loops of unshared edges). #!N 
+TAB polylines TAB "length" TAB total length of all lines #!N 
+TAB - TAB "element" TAB length of each line #!N TAB 
+tetrahedra, cubes TAB "element" TAB volume of each 3-D element #!N 
+TAB - TAB "volume" TAB total volume of all 3-D elements 
+#!N TAB Notes: #!N TAB #!N TAB 1. The default value 
+for lines and polylines is "length"; "area" is the default for 
+triangles, quads, and faces; and "volume" #!N TAB is the default 
+for tetrahedra and cubes. #!N TAB #!N TAB 2. All sequences 
+of line segments are handled independently when measuring area. Sequences are 
+defined by following exactly #!N TAB identical coordinate points, rather than 
+by following identical point indices. Overlapping volumes are not detected. #!N 
+TAB Similarly for volumes enclosed by surface elements, a volume is 
+defined by triangles consisting of identical vertex #!N TAB positions, rather 
+than by triangles consisting of identical point indices. Overlapping volume is 
+not detected. #!N TAB #!N TAB 3. Be aware of the 
+following: Curves are closed by straight lines regardless of the geometry 
+from which they were derived. #!N TAB The surfaces added to 
+close volumes are triangulated as if planar. This module ignores any 
+transforms in the object. For #!N TAB example, if the object 
+is scaled by 2 (with the Scale module), the volume will 
+not increase. #!N #!N Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N ThunderGlyphSheet.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lcompute,dxall795 h Compute  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lmessage,dxall895 h Message  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

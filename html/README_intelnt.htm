@@ -1,0 +1,644 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Microsoft Windows 95/NT specific 
+README</TITLE>                                                                  
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer Microsoft 
+Windows 95/NT specific README">                                                 
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer 
+(ibmdx@watson.ibm.com)">                                                        
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer 
+(ibmdx@watson.ibm.com)">                                                        
+<META HTTP-EQUIV="updated" CONTENT="Mon, 22 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA 
+MINING">
+                                                         
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+<A NAME="Top_Of_Page"></A><IMG SRC="images/dxicon8.gif" ALT=""><BR>
+<H1>IBM Visualization Data Explorer Microsoft Windows 95/NT specific README</H1>
+
+IBM Visualization Data Explorer<BR>
+Microsoft Windows 95/NT specific README<BR>
+<P>Version 3 Release 1 Modification 4
+<P><BR>
+* Microsoft Windows 95/NT specific README for IBM Visualization Data Explorer<BR>
+                                                                    
+*<BR>
+
+*<BR>
+<P>
+The information contained in this file consists of architecture-specific
+hints for using the system, help with functions that may not be
+apparent, and last minute updates to the existing documentation.  It is
+advisable to review this file any time Data Explorer updates are
+applied.
+
+<P>
+<B>IMPORTANT:  Please look over <A HREF="#HDRISSUES">3.4 , "Known issues with 
+this version"</A> and                                                           
+<A HREF="#HDRTRBLSHT">3.5 , "Troubleshooting"</A> each time you install Data 
+Explorer.</B>
+<HR>
+<H2><A NAME="ToC"></A>Table of Contents</H2>
+<B><A NAME="ToC_1" HREF="#Header_1">Chapter 1. System configuration</A></B><BR>
+<B><A NAME="ToC_4" HREF="#Header_4">Chapter 2. Installation Notes</A></B><BR>
+<B><A NAME="ToC_7" HREF="#Header_7">Chapter 3. Running Data Explorer</A></B><BR>
+<B><A NAME="ToC_40" HREF="#Header_40">Chapter 4. Data Explorer 
+Support</A></B><BR>
+<HR>
+<H1><A NAME="Header_1" HREF="#ToC_1">Chapter 1. System 
+configuration</A></H1>
+<P><A NAME="PToC1" HREF="#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_2" HREF="#Header_2">1.1 Prerequisite Hardware</A>
+<LI><A NAME="PToC_3" HREF="#Header_3">1.2 Prerequisite Software</A>
+</MENU><HR><P>
+<HR>
+<H2><A NAME="Header_2" HREF="#PToC_2">1.1 Prerequisite Hardware</A></H2>
+<P>
+It is recommended that you have at least the following system configuration:
+<UL>
+<P>
+<LI>80486 or Pentium PC
+
+<LI>16 Megabytes RAM (Recommended at least 32 Megabytes)
+
+<LI>50 Megabytes of hard disk for Data Explorer installation
+
+<LI>Minimum 50 Megabytes of hard disk for swap/page space
+
+</UL>
+<HR>
+<H2><A NAME="Header_3" HREF="#PToC_3">1.2 Prerequisite Software</A></H2>
+<P>
+The following are required and must be at or greater than the
+specified release level:
+<UL>
+<P>
+<LI>Windows 95, Windows NT 3.51, or later versions of either
+
+<LI>TCP/IP
+
+<LI>X Server
+
+<LI>OpenGL hardware rendering requires Hummingbird Exceed 3D
+
+</UL>
+<HR>
+<H1><A NAME="Header_4" HREF="#ToC_4">Chapter 2. Installation 
+Notes</A></H1>                                                                  
+<P><A NAME="PToC2" HREF="#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_5" HREF="#Header_5">2.1 Data Explorer</A>
+<LI><A NAME="PToC_6" HREF="#Header_6">2.2 X Server</A>
+</MENU><HR><P>
+<HR>
+<H2><A NAME="Header_5" HREF="#PToC_5">2.1 Data Explorer</A></H2>
+<P>During the installation of Data Explorer you will be prompted for a user
+registration key. You may complete the installation without a key, but
+Data Explorer will only run for a few minutes at a time if it is not properly
+registered.  To obtain a registration key, send e-mail with your name,
+company's name, and the machine's operating system (95 or NT), and the
+type of registration (Trial, Beta, Visual Programmer, Visual Programmer
+with OpenGL, Runtime, Developer) to ibmdx@watson.ibm.com.
+<P>
+You may complete the installation and register later by double-clicking
+the &quot;Register DX&quot; icon. Make sure to save the registration key
+information somewhere safe.
+<P>
+Installing Data Explorer onto a hard drive is done as follows:
+<OL>
+<P>
+<LI>Place the Data Explorer CD into the CD-ROM drive;
+
+<LI>From the Windows Start menu, choose <TT>Run...</TT> and
+enter <TT>D&#58;&#92;setup</TT>, where <TT>D&#58;</TT> is
+your CD-ROM drive letter;
+
+<LI>Follow the instructions given.
+
+</OL>
+<P>
+The install process will create a Data Explorer folder from which you can
+immediately start Data Explorer simply by double-clicking on the DX icon.
+(This assumes the X server has been installed and configured correctly.)
+The Exceed X server need not be started prior to starting Data Explorer, but 
+Data Explorer                                                                   
+will start more quickly if the X server is already running.
+<P>
+If you intend to start Data Explorer from the command line,
+you should configure the environment so that the PATH variable
+includes d:\dx\bin (assuming Data Explorer was installed in d:\dx).
+<HR>
+<H2><A NAME="Header_6" HREF="#PToC_6">2.2 X Server</A></H2>
+Data Explorer has been designed to use the Hummingbird Exceed
+X Server, but, properly configured, other PC X servers should
+work fine also.
+The X server configuration notes and troubleshooting below are specific
+to the Hummingbird Exceed X server, but may apply to other X
+servers in a similar way.
+<P>
+<B>X Server settings: For best performance with the X server, turn
+off Window panning in the X configuration window. Furthermore,
+turn off "Full Drag" in the NT Desktop configuration window or
+in the Plus!Display settings.
+Finally go to <TT>Window Mode-&gt;Advanced</TT> and turn <TT>Delay
+Window Mapping</TT> off. Also <TT>Warn on Exit</TT> should be off.
+If you don't intend to use the X server to connect to remote X clients,
+go to <TT>Transports</TT> and switch to <TT>Local Only</TT>.
+</B>
+<P>
+The DISPLAY environment variable need not be defined, but if it
+is defined it should correspond to 0:0, localhost:0, localpc:0,
+or hostname:0 (where hostname is the name of the local or remote
+display machine).
+<P>
+If you have the OpenGL version of Data Explorer, you will need to
+install Exceed 3D to use OpenGL rendering. Note that even if you don't
+have a graphics card, you can still use software based OpenGL.
+<P>
+You should have TCP/IP installed so that you can ping
+localhost and localpc at a command line. If you remove the
+computer from a network, this may cease to work unless you
+install the Microsoft Loopback Adapter (on NT) or DialUp
+adapter (Win95). If you observe slower performance when off
+the network, see troubleshooting below. You should always be
+able to ping localhost and localpc from a DOS command window.
+If you do not have the "ping" command installed on your computer,
+it probably means you have not fully installed TCP/IP.
+<P>
+If you do not have a network adapter card, go to Network
+settings under the Control Panel. Using "Add Adapter", add MS
+Loopback Adapter (on NT) or DialUp Adapter (Win95).
+<P>
+You may want to define host names localhost and localpc at
+address 127.0.0.1 if your are using Data Explorer without attachment to a
+network. Create a HOSTS file in your windows directory or in
+your etc directory if you do not already have one. To confirm
+that TCP/IP is working, try pinging localhost, localpc, and
+127.0.0.1. If you still have problems, try defining them also
+in a lmhosts file in the same directories.
+<HR>
+<H1><A NAME="Header_7" HREF="#ToC_7">Chapter 3. Running Data 
+Explorer</A></H1>                                                               
+<P><A NAME="PToC3" HREF="#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_8" HREF="#Header_8">3.1 Samples</A>
+<LI><A NAME="PToC_9" HREF="#Header_9">3.2 To get command line help and Data 
+Explorer options</A>                                                            
+<LI><A NAME="PToC_10" HREF="#Header_10">3.3 File name specification: &#47; vs. 
+&#92; and &#59; vs. &#58;</A>                                                   
+<LI><A NAME="PToC_11" HREF="#HDRISSUES">3.4 Known issues with this version</A>
+<LI><A NAME="PToC_12" HREF="#HDRTRBLSHT">3.5 Troubleshooting</A>
+<MENU>
+<LI><A NAME="PToC_13" HREF="#Header_13">Starting DX produces warning screen: 
+XLIB - Cannot open connect stream.</A>                                          
+<LI><A NAME="PToC_14" HREF="#Header_14">The name specified is not recognized as 
+an internal or external command.</A>                                            
+<LI><A NAME="PToC_15" HREF="#Header_15">Can't find file in directory or DXDATA 
+path</A>                                                                        
+<LI><A NAME="PToC_16" HREF="#Header_16">Can't find macro ...</A>
+<LI><A NAME="PToC_17" HREF="#Header_17">Trouble double-clicking on items and 
+general mouse interaction issues</A>                                            
+<LI><A NAME="PToC_18" HREF="#Header_18">X Server complains when you close a 
+window</A>                                                                      
+<LI><A NAME="PToC_19" HREF="#Header_19">Images first appear red</A>
+<LI><A NAME="PToC_20" HREF="#Header_20">Nothing happens when <TT>Start 
+Server-&gt;Options...</TT> is clicked.</A>                                      
+<LI><A NAME="PToC_21" HREF="#Header_21">Slow startup/execution when off the 
+network.</A>                                                                    
+<LI><A NAME="PToC_22" HREF="#Header_22">Trouble starting Data Explorer</A>
+<LI><A NAME="PToC_23" HREF="#Header_23">UI is unable to connect to the 
+Executive</A>                                                                   
+<LI><A NAME="PToC_24" HREF="#Header_24">DXhwddOGL.dll not found</A>
+<LI><A NAME="PToC_25" HREF="#Header_25">Visual program doesn't completly 
+load</A>                                                                        
+</MENU>
+<LI><A NAME="PToC_26" HREF="#Header_26">3.6 Windows Tips</A>
+<MENU>
+<LI><A NAME="PToC_27" HREF="#Header_27">How to connect a Windows dx ui to a Unix
+dx executive</A>                                                                
+</MENU>
+<LI><A NAME="PToC_28" HREF="#Header_28">3.7 Data Explorer registration types</A>
+<MENU>
+<LI><A NAME="PToC_29" HREF="#Header_29">Visual Programmer</A>
+<LI><A NAME="PToC_30" HREF="#Header_30">Visual Programmer with OpenGL</A>
+<LI><A NAME="PToC_31" HREF="#Header_31">Runtime</A>
+<LI><A NAME="PToC_32" HREF="#Header_32">Developer</A>
+<LI><A NAME="PToC_33" HREF="#Header_33">Beta or Trial</A>
+</MENU>
+<LI><A NAME="PToC_34" HREF="#Header_34">3.8 Server and Client installation</A>
+<LI><A NAME="PToC_35" HREF="#Header_35">3.9 Data Explorer Development Version 
+Notes</A>                                                                       
+<MENU>
+<LI><A NAME="PToC_36" HREF="#Header_36">DXLink specific information</A>
+<LI><A NAME="PToC_37" HREF="#Header_37">Loadable modules (DLL) specific 
+information</A>                                                                 
+</MENU>
+<LI><A NAME="PToC_38" HREF="#Header_38">3.10 Installing Hummingbird Exceed (and 
+Exceed 3D) from the included trial diskette.</A>                                
+<LI><A NAME="PToC_39" HREF="#HDRXSERVER">3.11 X server settings (for best 
+performance)</A>                                                                
+</MENU><HR><P>
+<HR>
+<H2><A NAME="Header_8" HREF="#PToC_8">3.1 Samples</A></H2>
+<P>To run the samples shipped with Data Explorer, simply double
+click on the "DX Startup Menu"
+icon and select Samples, then go to
+the /dx/samples/programs directory if you are not already there.
+A file dialog will appear with the names of the available
+program (*.net) files. Select one by double-clicking on the file
+name with the left mouse button.  Run the file by selecting
+Execute-&gt;Once.  See the on-line help for more information on
+options for running Data Explorer.
+<P>
+Help is available on-line through the Visual Program Editor
+(VPE) "Help" menu, or by
+placing the cursor over a module and pressing the F1 key.
+A description of each sample can be found under Help-&gt;Application
+Comment. (You can also view the HTML documentation files by
+double-clicking the "DX Help" icon in the Data Explorer
+folder, which will launch your current web browser).
+<P>
+<P><B>Note: </B>Although Data Explorer starts in the samples directory by 
+default, we                                                                     
+strongly recommend doing your own work in a directory completely
+separate from the Data Explorer file structure. You might want to make your own
+desktop shortcut that starts Data Explorer in your preferred directory. Follow
+the instructions that come with Windows to copy the Data Explorer shortcut from
+the start menu to the desktop and change its properties so the "Start
+in" directory corresponds to your personal directory.
+<P>
+To run Data Explorer from a DOS command line, make sure the Data Explorer bin 
+directory                                                                       
+(typically d:&#92;dx&#92;bin) has been added to the Path
+environment variable. Then just type <TT>dx</TT> to bring up the Data Explorer
+Startup panel, or <TT>dx -edit</TT> to bring up the VPE.
+<P>
+<P><B>Note: </B>The documentation for the Unix platforms suggests
+typing <TT>dx &amp;</TT>. Note that the "&amp;" is a Unix command
+option that does not apply to PC environments. Also note that the
+documentation refers to directory <TT>/USR/LPP/DX</TT>; when reading
+the documentation, regard this as the directory in which you installed
+Data Explorer.
+<P>
+The dx.exe file that launches Data Explorer will automatically define
+DXDATA and DXMACROS to point to the sample data and macros.
+If you define your own macros and data path, the sample data
+and macros will be appended to end of the path list so they
+can always be found.
+<HR>
+<H2><A NAME="Header_9" HREF="#PToC_9">3.2 To get command line help and Data 
+Explorer options</A></H2>                                                       
+Type:
+<PRE>
+dx -help
+</PRE>
+or
+<PRE>
+dx -morehelp
+</PRE>
+(assumes <TT>d&#58;&#92;dx&#92;bin</TT> is in the path)
+<P>
+For more help, double-click on the "DX Help" icon which will load
+the HTML documentation in your Web browser. For a tutorial on Data Explorer,
+double-click on the "DX Tutorial" icon.
+<HR>
+<H2><A NAME="Header_10" HREF="#PToC_10">3.3 File name specification: &#47; vs. 
+&#92; and &#59; vs. &#58;</A></H2>                                              
+<P>Data Explorer uses forward slash path specifiers, such as
+/usr/local/dx.
+This is because 1) it helps maintains portability of nets with the Unix
+version and 2) in many situations, the "&#92;" character is
+interpreted as an escape character.
+In all the Data Explorer dialog windows,
+forward slashes should be used. This also applies to
+environment variables, with the exception of those read
+directly by the operating system, such as DXROOT.
+<P>
+In addition, multiple path specifiers are separated by &#59;
+rather than &#58;. Thus the following would be a correct way to
+define DXDATA:
+<PRE>
+     set DXDATA=d&#58;/myfiles/newdata&#59;f&#58;/mydir/mydata
+</PRE>
+<HR>
+<H2><A NAME="HDRISSUES" HREF="#PToC_11">3.4 Known issues with this 
+version</A></H2>                                                                
+<P>Some large .net files have caused the UI to hang due to a problem with some
+X servers. A workaround is to start Data Explorer with the option
+<TT>-synchronous</TT>, which should allow large nets to display. If
+possible, convert the large program to one that is "pageified", so
+that it will be more organized and display faster.
+Sometimes the UI may suddenly stop drawing until prompted by a
+mouse movement in the VPE window. If the UI seems to stop,
+first try moving the mouse in the window.
+<P>
+Import filters will work, but the filter's directory must be
+in the PATH environment variable, and the data file used must be fully
+specified. This means you must modify the sample program
+ImportExternalFilter.net before it will work. (Add
+d&#58;&#92;dx&#92;samples&#92;data to the path and specify
+<TT>Import(!externalfilter d:/dx/samples/data/external.data)</TT> -
+assuming you have installed dx in d&#58;&#92;dx.)
+<P>
+The Data Prompter screen is larger than most laptop screens, making it
+difficult to access the bottom options. You should be able to access the
+entire window by running the X Configuration routine supplied with the X
+server to set Window Panning On, with a value of 50 or so.
+Unfortunately this will not allow access to the bottom of the prompter
+if you have the Auto Hide feature enabled for the Windows Start menu, so
+you must disable this (by right clicking on a blank region of the
+Windows start menu and selecting properties). Furthermore, you may want
+to turn the panning back off when running Data Explorer if you observe any
+artifacts due to the window panning feature. It is easy to turn panning
+on and off by clicking on the X server option panel that appears on the
+desktop when the X server is running.
+<HR>
+<H2><A NAME="HDRTRBLSHT" HREF="#PToC_12">3.5 Troubleshooting</A></H2>
+<P>
+<H3><A NAME="Header_13" HREF="#PToC_13">Starting DX produces warning screen: 
+XLIB - Cannot open connect stream.</A></H3>                                     
+<P>
+The X server is unable to start on its own, so try
+starting it manually.
+<P>
+Make sure you can ping localhost from a DOS command line.
+<P>
+<H3><A NAME="Header_14" HREF="#PToC_14">The name specified is not recognized as 
+an internal or external command.</A></H3>                                       
+<P>
+Make sure d&#58;&#92;dx&#92;bin
+has been added to the PATH environment variable if you are starting Data 
+Explorer                                                                        
+from a command line.
+<P>
+<H3><A NAME="Header_15" HREF="#PToC_15">Can't find file in directory or DXDATA 
+path</A></H3>                                                                   
+<P>
+Make sure you have correctly defined DXDATA to include all
+the data directories you need to access, either by defining
+the environment variable DXDATA or at the command line,
+<TT>dx -data ...</TT>
+<P>
+<H3><A NAME="Header_16" HREF="#PToC_16">Can't find macro ...</A></H3>
+<P>
+Make sure you have correctly defined DXMACROS to include
+all the macro directories you need to access, as described for
+DXDATA above.
+<P>
+<H3><A NAME="Header_17" HREF="#PToC_17">Trouble double-clicking on items and 
+general mouse interaction issues</A></H3>                                       
+<P>
+Study the various XConfig options in Exceed and see if you
+find settings that work better for you.
+<P>
+<H3><A NAME="Header_18" HREF="#PToC_18">X Server complains when you close a 
+window</A></H3>                                                                 
+<P>
+Find the "Warn on Exit" option in the X server
+configuration dialog that comes with Exceed, and turn
+it off.
+<P>
+<H3><A NAME="Header_19" HREF="#PToC_19">Images first appear red</A></H3>
+<P>
+This appears to be related to using 8-bit color depth with
+a 3D version of the X server. Change the color depth of the
+image (using <TT>Image-&gt;Options-&gt;Image Depth</TT>)
+to 24-bit and the colors will display correctly.
+<P>
+<H3><A NAME="Header_20" HREF="#PToC_20">Nothing happens when <TT>Start 
+Server-&gt;Options...</TT> is clicked.</A></H3>                                 
+<P>See <A HREF="#HDRXSERVER">3.11 , "X server settings (for best 
+performance)"</A> and make sure <TT>Delay Window                                
+Mapping</TT> is off.
+<P>
+<H3><A NAME="Header_21" HREF="#PToC_21">Slow startup/execution when off the 
+network.</A></H3>                                                               
+<P>Make sure you can ping localhost from a command line
+successfully, and that it is defined as 127.0.0.1. If you
+still have a problem, try defining "localpc" (in addition
+to localhost) as 127.0.0.1 in the Windows "hosts" file either
+in the WINDOWS directory or in the ETC directory under NT. If
+you do not already have a
+"hosts" file, look for "hosts.sam" on your disk and copy it
+to "hosts", and then make your modifications in the new hosts
+file.
+If your machine has an IP address, try adding the line:
+<PRE>
+ip-address              machine-name
+</PRE>
+where <TT>ip-address</TT> is the machine's IP address, and
+<TT>machine-name</TT> is the machine's name.
+If you still have problems, try adding localhost and
+localpc to the lmhosts file in the same directory as hosts.
+<P>
+If you are off the network and the X server or Data Explorer takes
+a long time to start, you may need to Disable your
+name server, using the Windows Control panel-&gt;Network
+configuration tool.
+<P>
+<H3><A NAME="Header_22" HREF="#PToC_22">Trouble starting Data Explorer</A></H3>
+If you still
+seem to be having trouble starting Data Explorer, see if you are using a
+socks.cnf file. Check your &#92;windows&#92;system directory (on
+Windows 95), or the &#92;etc directory (on Windows NT) for the file
+socks.cnf. If you find one, try adding the line:
+<PRE>
+direct 127.0.0.1 255.255.255.0
+</PRE>
+towards the bottom of the file where you find other "direct"
+commands. This will prevent local TCP/IP communication from trying to
+go to a remote socks server.
+<P>
+<H3><A NAME="Header_23" HREF="#PToC_23">UI is unable to connect to the 
+Executive</A></H3>                                                              
+<P>Errors during initialization may be due to incomplete TCP/IP setup.
+If the UI comes up but is unable to connect to the Executive,
+make sure TCP/IP is set up correctly. Also, make sure you don't already
+have a copy of the Executive running.
+<P>
+<H3><A NAME="Header_24" HREF="#PToC_24">DXhwddOGL.dll not found</A></H3>
+<P>This message occurs when an Image window is trying to display with
+hardware rendering, but you do not have a 3D X server installed. To
+prevent the error, switch the Image window to software rendering mode
+(Options-&gt;Rendering Options-&gt;Software) or install a 3D
+version of the X server, along with the OpenGL version of Data Explorer.
+<P>
+<H3><A NAME="Header_25" HREF="#PToC_25">Visual program doesn't completly 
+load</A></H3>                                                                   
+<P>Try starting Data Explorer with the <TT>-synchronous</TT> option. Then break
+your network into pages.
+<HR>
+<H2><A NAME="Header_26" HREF="#PToC_26">3.6 Windows Tips</A></H2>
+<P>
+<H3><A NAME="Header_27" HREF="#PToC_27">How to connect a Windows dx ui to a Unix
+dx executive</A></H3>                                                           
+<OL>
+<P>
+<LI>Start the executive on the Unix machine with dx -exonly -license self
+
+<LI>Note the port number displayed (assume it's 1900)
+
+<LI>Start the UI on the PC with dx -host unix_host_name -port 1900
+
+<LI>The Windows UI should then connect to the Unix executive
+
+</OL>
+<HR>
+<H2><A NAME="Header_28" HREF="#PToC_28">3.7 Data Explorer registration 
+types</A></H2>                                                                  
+<P>
+<H3><A NAME="Header_29" HREF="#PToC_29">Visual Programmer</A></H3>
+<P>Allows creation of nets (visual programs) but does not allow
+execution of a user's own custom modules. It also does not allow the use
+of hardware (OpenGL) rendering.
+<P>
+<H3><A NAME="Header_30" HREF="#PToC_30">Visual Programmer with OpenGL</A></H3>
+<P>Same as Visual Programmer but allows OpenGL rendering. This
+also requires Hummingbird Exceed with Exceed 3D.  You do not need a 3D
+hardware graphics card to use OpenGL, as software-based OpenGL will be
+used automatically if no 3D hardware graphics card is found.
+<P>
+<H3><A NAME="Header_31" HREF="#PToC_31">Runtime</A></H3>
+<P>Allows loading and running of nets and custom modules with OpenGL
+support (as long as Exceed 3D is installed as described above) but
+does not allow the creation or modification of visual programs.
+<P>
+<H3><A NAME="Header_32" HREF="#PToC_32">Developer</A></H3>
+<P>Same as Visual Programmer with OpenGL but also allows the
+creation and loading of custom modules that incorporate a user's C-code.
+These modules are compiled as DLLs that can be loaded by the DX
+executive.
+<P>
+<H3><A NAME="Header_33" HREF="#PToC_33">Beta or Trial</A></H3>
+<P>Allows full use of the product and development components but only for a
+brief trial period.
+<HR>
+<H2><A NAME="Header_34" HREF="#PToC_34">3.8 Server and Client 
+installation</A></H2>                                                           
+<P>If you have purchased a multi-user registration for Data Explorer you may
+install it once on a networked computer. Other computers that
+have that computer mounted on a remote drive may perform a quick client
+installation that does not install files locally, nor does it require
+re-entry of the registration information.
+<HR>
+<H2><A NAME="Header_35" HREF="#PToC_35">3.9 Data Explorer Development Version 
+Notes</A></H2>                                                                  
+<P>The Data Explorer Development version allows the use of DXLink to control
+Data Explorer from your application. It also allows the creation of loadable 
+modules                                                                         
+as DLLs that extend the functionality of Data Explorer by incorporating your own
+C-code. Note that the creation of loadable modules requires the
+command <TT>awk</TT>, to be available on the computer.
+<P>
+You should define the following environment variables:
+<BR>
+<TT>DXROOT=d&#58;&#92;dx</TT>      (or wherever you installed it)<BR>
+<TT>ARCH=intelnt</TT>      (this is the same for NT and Win95)<BR>
+You should also make sure that d&#58;&#92;dx&#92;bin is in your
+path.
+<P>
+As indicated in the intelnt Makefiles, the following should be defined
+during compilation:
+<PRE>
+ARCH=intelnt
+intelnt
+</PRE>
+<P>
+Also, your code should include windows.h and winsock.h as needed.
+<P>
+<H3><A NAME="Header_36" HREF="#PToC_36">DXLink specific information</A></H3>
+<P>You should include a call to initialize sockets in your application using
+<PRE>
+WSAStartup(MAKEWORD(1,1), &wsastartup);
+</PRE>
+Consult the sample <TT>sealevel.c</TT> for an example of how to do this.
+We also recommend using
+<PRE>
+DXLSetSynchronization(conn, 1);
+</PRE>
+to run DXLink in synchronized mode.
+<P>
+<H3><A NAME="Header_37" HREF="#PToC_37">Loadable modules (DLL) specific 
+information</A></H3>                                                            
+<P>To avoid a conflict between Data Explorer and Windows header files you should
+undefine <TT>ERROR_DATA_INVALID</TT> after loading windows.h.
+<P>
+In order to use the DLL you should start Data Explorer with
+<PRE>
+dx -modules d&#58;&#92;where_my_dlls_are -mdf d&#58;&#92;my_mdfs&#92;my_mdf.mdf
+</PRE>
+In other words, -modules should be a directory containing the DLLs
+and -mdf shoud be the actual mdf file for the DLLs.
+Remember that "Visual Programmer" versions of Data Explorer will not allow use
+of the DLLs, but Runtime and Developer versions will.
+<HR>
+<H2><A NAME="Header_38" HREF="#PToC_38">3.10 Installing Hummingbird Exceed (and 
+Exceed 3D) from the included trial diskette.</A></H2>                           
+<OL>
+<P>
+<LI>Follow directions on the CD appropriate for your Windows version:
+95 or NT.
+
+<LI>You must install Exceed (or a different X server) in order to use
+Data Explorer.
+
+<LI>If your Data Explorer registration allows OpenGL support
+(see above) you should also install Exceed 3D after installing Exceed.
+
+<LI>For Data Explorer you only need the X server components of the Hummingbird product suite (i.e. Exceed and, for OpenGL, Exceed 3D) but you may have other uses for the networking tools.
+<LI>The included Hummingbird trial disk is a free trial that will expire
+after installation, but included on the disk are ordering instructions
+for purchasing the X server at a discount with your Data Explorer
+purchase. You must purchase a licensed version of Exceed in order to
+keep it from expiring. If you also need OpenGL support you should
+purchase Exceed 3D in addition.
+
+</OL>
+<HR>
+<H2><A NAME="HDRXSERVER" HREF="#PToC_39">3.11 X server settings (for best 
+performance)</A></H2>                                                           
+<OL>
+<P>
+<LI>Delay Window mapping should be off
+
+<LI>Warn On Exit should be off
+
+<LI>Window panning should be off
+
+<LI>"Transports" should be local/Network, but if you have trouble
+when off a network try setting Transports to local only.
+
+</OL>
+<HR>
+<H1><A NAME="Header_40" HREF="#ToC_40">Chapter 4. Data Explorer 
+Support</A></H1>                                                                
+If you encounter problems with this version, please contact Data Explorer 
+Support                                                                         
+at dxsupp@watson.ibm.com. In the note, indicate the version and platform you are
+using, along with details of the problem you have encountered.
+Also be sure to watch our web page at
+<A HREF="http://www.research.ibm.com/dx">
+<TT>http://www.research.ibm.com/dx/</TT>
+</A>
+for news and updates.
+<P>
+----------------------------------------------------------------------
+<P>
+The following trademarks apply to this information:
+<BR>
+IBM is a registered trademark of International Business Machines
+Corporation.
+<BR>
+OpenGL is a registered trademark of Silicon Graphics, Inc.
+<BR>
+Windows NT and Windows 95 are registered trademarks of Microsoft
+Corporation.
+<BR>
+Exceed X Window System and Exceed 3D are registered trademarks of Hummingbird
+Communications Ltd.
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

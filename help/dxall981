@@ -1,0 +1,59 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rwriteim WriteImage #!N 
+#!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N Function #!N #!N Writes 
+an image to a file. #!N #!N Syntax #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N WriteImage(  #!F-adobe-times-bold-r-normal--18*   image, name, format, frame #!EF ); #!EF 
+#!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Default TAB Description #!EF #!N TAB image 
+TAB image or image series TAB none TAB the image to 
+be written #!N TAB name TAB string TAB "image" TAB file 
+name #!N TAB format TAB string TAB "rgb" or input dependent 
+TAB format of file #!N TAB frame TAB integer TAB format 
+dependent TAB frame to be written #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N This 
+module writes an image or series of images to disk. #!N 
+Note: If you are using the Image tool, the functionality of 
+this module is available in the  #!F-adobe-times-bold-r-normal--18*   Save Image... #!EF option 
+of the Image window's  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu (see  #!Lsavimgs,dxall332 h Saving an Image  #!EL  
+in IBM Visualization Data Explorer User's Guide). #!N #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   image #!EF #!EF #!I50 #!N specifies 
+the image to be written to a file on disk. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF #!EF #!I50 #!N specifies the 
+name of the file to be written to. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   format #!EF #!EF #!I50 #!N specifies the format in 
+which the image is to be written. The image file format 
+can be specified by the file extension in  #!F-adobe-times-bold-r-normal--18*   name #!EF 
+or by  #!F-adobe-times-bold-r-normal--18*   format #!EF . If these specifications conflict,  #!F-adobe-times-bold-r-normal--18*   
+format #!EF takes precedence. If the format is one of RGB, 
+R+G+B, YUV, or MIFF, and the given file exists, the image(s) 
+are appended to the file. Otherwise, a new file is always 
+created. The  #!F-adobe-times-bold-r-normal--18*   format #!EF parameter allows specification of gamma for 
+all format types. The default gamma is 2. (This is a 
+change from previous releases for which gamma was always 1.) The 
+ #!F-adobe-times-bold-r-normal--18*   format #!EF parameter also allows specification that a "delayed colors" 
+image should be written, for all formats other than RGB, R+G+B, 
+and YUV. See  #!Lpsfmt,dxall982 s PostScript  #!EL  for a description of how to specify 
+these two options. #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   frame #!EF 
+#!EF #!I50 #!N specifies a frame number in the file on 
+disk. The first frame of a disk file or series is 
+frame number 0 (zero). Its interpretation varies with the format being 
+used. #!N #!N If the format is one of RGB, R+G+B, 
+or YUV, then  #!F-adobe-times-bold-r-normal--18*   frame #!EF indicates the starting image frame 
+in the disk file at which the given image or image 
+series should be written. If the  #!F-adobe-times-bold-r-normal--18*   frame #!EF does not 
+exist in the given file (this is the same as the 
+file not existing), then the file is extended to contain the 
+frames just before the indicated frame number. The contents of the 
+frames that were created to extend the file are undefined. If 
+ #!F-adobe-times-bold-r-normal--18*   frame #!EF is not provided, then the input image(s) are 
+appended to an existing file. If the file does not exist 
+it is created with the given image(s). #!N #!N For the 
+TIFF and PostScript formats, if  #!F-adobe-times-bold-r-normal--18*   frame #!EF is specified, it 
+is used to modify the output file name. For example, if 
+ #!F-adobe-times-bold-r-normal--18*   frame #!EF =  #!F-adobe-times-medium-i-normal--18*   n #!EF , the name is 
+modified from  #!F-adobe-times-medium-i-normal--18*   name #!EF .tiff to  #!F-adobe-times-medium-i-normal--18*   name.n #!EF  #!F-adobe-times-bold-r-normal--18*   
+.tiff #!EF . If the image is a series, all frames 
+will be written to this file. #!I0 #!N #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lsrfilfm,dxall982 h File Formats  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

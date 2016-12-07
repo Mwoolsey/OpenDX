@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu032.htm">Previous Page</A> &#124; <A HREF="progu034.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu031.htm#PToC10">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRPICKST" HREF="../proguide.htm#ToC_68">Chapter 9. Using the Pick
+Structure</A></H1>
+<P><A NAME="PToC11" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_69" HREF="#HDRPKSE">9.1 The Pick Structure</A>
+<LI><A NAME="PToC_70" HREF="progu034.htm#HDRSHOWP">9.2 ShowPick Module
+Example--Using Color to Show a Picked Object</A>
+</MENU><HR><P>
+<A NAME="IDX257"></A>
+<P>
+Data Explorer includes a tool for "picking" points in Objects
+in an image.
+<P>
+This tool, Pick, creates a structure that can be used to perform various
+functions (e.g., to display the data value at picked points).
+But you can also write your own module to perform different functions if
+you like.
+<HR>
+<H2><A NAME="HDRPKSE" HREF="#PToC_69">9.1 The Pick Structure</A></H2>
+<A NAME="IDX258"></A>
+<P>
+Picking is the selection of a location on an object in an image by use
+of the mouse.
+<A NAME="IDX259"></A>
+<A NAME="IDX260"></A>
+A straight line from the camera through the location selected constitutes
+a "poke," which may intersect the object in the image in one or
+more places or in none at all.
+The intersections are called "picks."
+For example, a poke through a spherical isosurface results in two
+picks:
+<A NAME="IDX261"></A>
+<A NAME="IDX262"></A>
+one on the "front" surface and one on the "back".
+<A NAME="IDX263"></A>
+<A NAME="IDX264"></A>
+Picks differ from probes in that probes may be present anywhere in
+3-dimensional space, picks only on the surface of
+an object.
+<P>
+The pick structure is a Field, and the picked points are listed in its
+"positions" component.
+A number of routines in Data Explorer allow you to query the pick structure
+output by the Pick tool and to traverse a picked Object.
+(See <A HREF="progu071.htm#HDRPIES">14.6 , "Pick-Assistance Routines"</A> for
+details.)
+The structure includes information on how to traverse the picked Object
+to reach the picked element.
+It also identifies:
+<UL COMPACT>
+<LI>the connection in which the picked point resides (the element ID)
+<LI>the vertex of the picked element closest to the picked point
+(the vertex ID)
+<LI>the position of the picked point itself.
+</UL>
+<P>
+If the picked Object has no connections, the element ID and the vertex
+ID both refer to the position closest to the
+picked point.
+Other information can be accessed with pick-assistance routines.
+<P><B>Note: </B>For a module that uses the pick structure, the Object displayed
+in the image being picked must (1) be the same as the Object
+passed to the module or (2) have a matching
+Object hierarchy.
+The reason for this requirement is that the output of the Pick tool
+describes the location of the picked Object as it exists in the
+hierarchy of the rendered Object.
+To use the pick structure, therefore, requires an Object with a
+matching structure.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu032.htm">Previous Page</A> &#124; <A HREF="progu034.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC11">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

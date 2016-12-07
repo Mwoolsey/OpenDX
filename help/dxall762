@@ -1,0 +1,57 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rcatstr Structuring #!N #!EC #!N #!N These tools manipulate Data 
+Explorer data structures. Their functions include the creation of hierarchies, selection 
+of elements in a hierarchy, allowing operations on components other than 
+"data," manipulation of Field or Group components, and determining which branches 
+of a visual program are to be executed. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lappend,dxall767 h Append  #!EL  #!EF #!I50 #!N Adds Objects as 
+members to an existing Group. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lattrib,dxall769 h Attribute  #!EL  #!EF 
+#!I50 #!N Extracts an attribute from an Object. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lchggrme,dxall784 h ChangeGroupMember  #!EL  #!EF #!I50 #!N Inserts, renames, or deletes a member 
+of an existing Group. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lchggrty,dxall785 h ChangeGroupType  #!EL  #!EF #!I50 
+#!N Changes the type of a Group. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lcollect,dxall788 h Collect  #!EL  #!EF #!I50 #!N Collects Objects into a Group. For example, 
+you can use Collect to collect a streamline, an isosurface, and 
+a light. You can then pass the collection to the Image 
+tool. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lmultigr,dxall789 h CollectMultiGrid  #!EL  #!EF #!I50 #!N Collects Objects 
+into a Multigrid (a Group that will be treated as a 
+single data Object). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lcollecn,dxall790 h CollectNamed  #!EL  #!EF #!I50 #!N 
+Collects Objects into a Group (like Collect) but allows each Object 
+in the Group to be given a name. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lcollecs,dxall791 h CollectSeries  #!EL  #!EF #!I50 #!N Collects Objects into a Series. You 
+give each element of the series a series position (e.g., a 
+time tag). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lcopycon,dxall800 h CopyContainer  #!EL  #!EF #!I50 #!N Copies 
+the top container Object. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lextract,dxall845 h Extract  #!EL  #!EF #!I50 
+#!N Extracts a component from a Field (e.g., the "colors" component). 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Linquire,dxall877 h Inquire  #!EL  #!EF #!I50 #!N Returns information about 
+the input Object (e.g., data type, number of elements, etc.). #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Llist,dxall885 h List  #!EL  #!EF #!I50 #!N Concatenates several items into 
+a single list. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lmark,dxall893 h Mark  #!EL  #!EF #!I50 #!N 
+Marks a specified component in a Field as the data component. 
+Many modules operate only on the "data" component. Thus the Mark 
+module allows modules to operate on components other than data (e.g., 
+"positions" or "colors"). If a "data" component already exists, it is 
+preserved in a "saved data" component. You can restore it by 
+using the Unmark module. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Loptions,dxall898 h Options  #!EL  #!EF #!I50 
+#!N Associates attributes with an Object. For example, plotting options such 
+as marker type can be specified by adding attributes to the 
+line. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lremove,dxall921 h Remove  #!EL  #!EF #!I50 #!N Removes a 
+specified component from a Field. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lrename,dxall922 h Rename  #!EL  #!EF 
+#!I50 #!N Renames a component in a Field. For example, you 
+could rename the "colors" component to "front colors" to get only 
+front-facing colors. You should be aware that component names have special 
+meanings to modules using them. See  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in IBM Visualization Data 
+Explorer User's Guide. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lreplace,dxall925 h Replace  #!EL  #!EF #!I50 #!N 
+Replaces a component in one Field with a component from another, 
+or with an input Array. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lselect,dxall936 h Select  #!EL  #!EF 
+#!I50 #!N Selects members out of a Group or elements from 
+a list. two isosurfaces, a streamline, and a mapped plane. You 
+could then use the  #!F-adobe-times-bold-r-normal--18*   selector #!EF input to the module 
+to choose which of these is the output of the module. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lunmark,dxall972 h Unmark  #!EL  #!EF #!I50 #!N Undoes the action 
+of the Mark module. It moves the "data" component back to 
+the component you specify, and the "saved data" component is restored 
+to the "data" component. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

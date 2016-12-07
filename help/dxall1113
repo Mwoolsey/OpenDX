@@ -1,0 +1,52 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Rmodacss Module Access #!N #!EC #!N #!N The module-access routines listed 
+here enable the programmer to call other modules through an interface 
+similar to the scripting language. #!N #!N Modules are called by 
+name, and parameters are specified as name-value pairs, freeing the programmer 
+from having to supply values for all possible parameters. Optional parameters 
+use the same defaults as they would if being executed directly 
+by the executive. (If other parameters are added in subsequent releases, 
+the call remains upwardly compatible.) #!N Note: The following modules cannot 
+be called by DXCallModule: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o Interactors #!T,1,161,321,481,641 #!N TAB FileSelector TAB Integer TAB IntegerList 
+TAB Reset #!N TAB Scalar TAB ScalarList TAB Selector TAB SelectorList 
+#!N TAB String TAB StringList TAB Toggle TAB Value #!N TAB 
+ValueList TAB Vector TAB VectorList TAB #!N #!T,0 #!N #!N #!N 
+#!I30 #!N o Flow Control #!T,1,161,321,481,641 #!N TAB Done TAB Execute 
+TAB First TAB ForEachMember #!N TAB ForEachN TAB GetGlobal TAB GetLocal 
+TAB Route #!N TAB SetGlobal TAB SetLocal TAB Switch TAB #!N 
+#!T,0 #!N #!N #!N #!I30 #!N o Interface Control #!T,1,161,321,481,641 #!N 
+TAB ManageColormapEditor TAB ManageControlPanel TAB ManageImageWindow TAB ManageSequencer #!N #!T,0 #!N 
+#!N #!N #!I30 #!N o Special #!T,1,161,321,481,641 #!N TAB Colormap TAB 
+Sequencer TAB - TAB #!N #!T,0 #!N #!N #!N #!I30 #!N 
+o DXLink #!T,1,161,321,481,641 #!N TAB DXLInput TAB DXLInputNamed TAB DXLOutput TAB 
+#!N #!T,0 #!N #!N #!N #!I0 #!N #!EF #!N #!N #!N 
+#!N Data Explorer modules can be called by inboard, outboard, and 
+runtime-loadable modules linked to Data Explorer. They can also be called 
+by stand-alone programs (for examples, see /usr/lpp/dx/samples/callmodule). Note: Use of DXCallModule 
+in a stand-alone program or outboard module requires linking to the 
+library libDXcallm.a. #!N #!I0 #!N #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Error DXCallModule(); #!EF object DXModSetFloatInput(); object DXModSetIntegerInput(); void DXModSetObjectInput(); void DXModSetObjectOutput(); 
+object DXModSetStringInput(); DXSetModuleInput(); DXSetModuleOutput(); #!EF #!I50 #!N Allow a module to 
+call another module (see  #!Lun77,dxall1113 s Note on Use  #!EL  ). See  #!Ldxcmplu,dxall1177 h DXCallModule, DXModSet..., DXSetModule...  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Void DXInitModules() #!EF #!EF #!I50 #!N Must be 
+called when using DXCallModule in a stand-alone program or outboard module. 
+See  #!Ldximod,dxall1280 h DXInitModules  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Void DXSetErrorExit() #!EF 
+#!EF #!I50 #!N Determines the action taken when DXSetError is called 
+by a stand-alone program. See  #!Ldxsetex,dxall1378 h DXSetErrorExit  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Void DXGetErrorExit() #!EF #!EF #!I50 #!N Returns the current error-handling 
+level as set by DXSetErrorExit. See  #!Ldxgetex,dxall1236 h DXGetErrorExit  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXCheckRIH() #!EF #!EF #!I50 #!N Checks registered input 
+handlers. See  #!Ldxcrih,dxall1179 h DXCheckRIH  #!EL  . #!I0 #!N #!N #!CIndianRed #!N #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   Note on Use  #!Run77 #!N #!N This example calls the 
+Slab module. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Error Slab1(Object toBeSlabbed, int 
+dimension, int position #!N Object *slabbedObject) #!N { #!N #!N ModuleInput 
+in[3]; #!N ModuleOutput out[1]; #!N Error result; #!EF #!N #!N #!EC 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N DXModSetObjectInput(&in[0], "input", toBeSlabbed); #!N DXModSetIntegerInput(&in[1], "dimension", 
+dimension); #!N DXModSetIntegerInput(&in[2], "position", position); #!N #!N DXModSetObjectOutput(&out[0], "output", SlabbedObject); #!N 
+#!N result = DXCallModule("Slab", 3, in, 1, out); #!N #!N return 
+result; #!N } #!N #!EF #!N #!N #!EC #!N #!N #!EC 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lasyns,dxall1114 h Asynchronous Services  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

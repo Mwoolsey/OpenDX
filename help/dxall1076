@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rphas 
+Path Arrays #!N #!EC Path arrays encode linear regularity of connections. 
+A path array is a set of  #!F-adobe-times-medium-i-normal--18*   n-1 #!EF line 
+segments, where the  #!F-adobe-times-medium-i-normal--18*   i #!EF th line segment joins points 
+ #!F-adobe-times-medium-i-normal--18*   i #!EF and  #!F-adobe-times-medium-i-normal--18*   i+1 #!EF . All path arrays 
+have type integer, category real, rank 1, and shape 2. #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   PathArray DXNewPathArray() #!EF #!EF 
+#!I50 #!N Creates an Array describing the connections between a set 
+of points. See  #!Ldxnpa,dxall1321 h DXNewPathArray  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   PathArray 
+DXGetPathArrayInfo() #!EF #!EF #!I50 #!N Returns the number of points referred 
+to in a path Array. See  #!Ldxgpai,dxall1258 h DXGetPathArrayInfo  #!EL  . #!I0 #!N #!N 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   LESS COMMONLY USED ROUTINES #!EF __________________________________ #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   PathArray DXSetPathOffset() #!EF #!N PathArray 
+DXGetPathOffset(); #!EF #!I50 #!N Set and retrieve the offset value for 
+the direction of the grid represented by this path. In the 
+case where a path Array is used to define a regular 
+grid of connections that is a part of a partitioned Field, 
+it is useful to know the offset of the partition within 
+the original Field. See  #!Ldxspo,dxall1386 h DXSetPathOffset  #!EL  and  #!Ldxgpo,dxall1259 h DXGetPathOffset  #!EL  . #!I0 #!N #!N 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lptas,dxall1077 h Product Arrays  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

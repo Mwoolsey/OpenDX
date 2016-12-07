@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rppoints Points and Dependent 
+Data #!N #!EC #!N #!N #!N #!N Some Field components are 
+often in one-to-one correspondence with the "positions" component (e.g., "data," "colors," 
+"opacities," and surface "normals"). (Alternatively, any of these components may be 
+in one-to-one correspondence with the "connections" component.) If they are in 
+one-to-one correspondence with positions (indicated by a "dep" attribute of "positions"), 
+then they are also expected to be the same size as 
+the positions component. The following routines aid in constructing such components. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXAddPoint() #!EF 
+#!N Field DXAddColor(); #!N Field DXAddFrontColor(); #!N Field DXAddBackColor(); #!N Field 
+DXAddOpacity(); #!N Field DXAddNormal(); #!N #!EF  #!F-adobe-times-bold-r-normal--18*   #!N #!N Field DXAddPoints(); 
+#!N Field DXAddColors(); #!N Field DXAddFrontColors(); #!N Field DXAddBackColors(); #!N Field 
+DXAddOpacities(); #!N Field DXAddNormals(); #!EF #!I50 #!N Add points or point-dependent 
+data to a Field. See  #!Ldxaddm,dxall1169 h DXAddPoint, ...Color, ...FrontColor, ...BackColor, ...Opacity, ...Normal, DXAddPoints, ...Colors, ...FrontColors, ...BackColors, ...Opacities, ...Normals  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Field DXAddFaceNormal() #!EF #!N Field DXAddFaceNormals(); #!EF #!I50 #!N Add 
+connection-dependent normals to a Field. See  #!Ldxafns,dxall1166 h DXAddFaceNormal, DXAddFaceNormals  #!EL  . #!I0 #!N #!N 
+#!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Note on Use #!N #!N The 
+fourteen routines listed above are all suitable for adding a small 
+number of points or for rapid prototyping; but for better performance, 
+see  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData() #!EF in  #!Lirreg,dxall1071 h Irregular Arrays  #!EL  . #!N #!N #!EC #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcnn,dxall1085 h Connections  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

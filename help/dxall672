@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rall671 Connections #!N #!EC #!N #!N If the connections between 
+positions is a regular lattice, no additional attributes are necessary. For 
+1-D data, connections of "lines" is assumed. 2-D data implies "quads," 
+3-D data implies "cubes" and for higher dimensions, "hypercubes" is assumed. 
+#!N #!N If the connections are irregular, use one of the 
+following attributes: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+ #!F-adobe-times-bold-i-normal--18*   variable1 #!EF :connections = "  #!F-adobe-times-bold-i-normal--18*   variable3 #!EF , tetrahedra"; 
+#!N #!I30 #!N o  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF :connections = "  #!F-adobe-times-bold-i-normal--18*   
+variable3 #!EF , triangles"; #!N #!I30 #!N o  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF 
+:connections = "  #!F-adobe-times-bold-i-normal--18*   variable3 #!EF , cubes"; #!N #!I30 #!N 
+o  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF :connections = "  #!F-adobe-times-bold-i-normal--18*   variable3 #!EF , 
+quads"; #!N #!I0 #!N #!EF #!N where  #!F-adobe-times-bold-i-normal--18*   variable3 #!EF is 
+the name of an array containing a vector of point numbers, 
+defining each connection element item. The length of this vector depends 
+on the choice of connections. If the shape is not explicitly 
+specified,  #!F-adobe-times-bold-i-normal--18*   tetrahedra #!EF are assumed. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall672,dxall673 h Additional Components  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,709 @@
+#999  Data Explorer Information Messages
+
+#1000 opening file `%s'
+#1010 %d denormalized float values converted to 0, file `%s'
+#1020 %d NaN or Infinity values converted to 0, file `%s'
+#1030 old format file, please resave
+#1040 %d degenerate triangles found
+#1050 data mean used as default value, %g
+#1060 worker here [%d]
+#1070 requested %d, using %d processors
+#1080 only one processor allowed on this architecture
+#1090 cleaning up and exiting
+#1180 Dictionary 0x%08x, size %d, %slocking, freelist size %d
+#1190 %25s | %4s | %2s | %10s
+#1200 %25s | %4d | %2d | 0x%08x
+#1220 Queue %08x:  items = %4d, local(%c), lock(%c)
+#1230 grabbed %08x
+#1240 Proc %d executed %d tasks and %d modules
+#1250 Stats (avg, min, max): (%g %d %d) tasks/proc
+#1260                       (%g %d %d) modules/proc
+#1270 Proc %d loop execution: %d slave loop, %d master loop
+#1280 This function only supported when executive leak detection is enabled
+
+
+#2000 X window depth is %d bits
+
+#3999 Data Explorer Warning Messages
+
+#4000 %s contains no fields or only empty fields
+#4010 unspecified inputs were skipped
+#4014 no inputs specified; creating an empty %s
+#4016 no inputs specified; nothing appended to group
+#4018 creating a new group
+#4020 input is dimensionless and is not a 3D point; using default camera `to' point
+#4030 width ignored for perspective camera
+#4040 up vector in line with viewpoint
+#4041 up.X changed to %f
+#4042 up.Z changed to %f
+#4050 color map does not fully encompass data
+#4060 opacity map does not fully encompass data
+#4070 input is dimensionless object; using default glyph size
+#4080 all fields are empty; using default glyph size
+#4090 no data values in histogram range
+#4100 %s and %s are identical
+#4110 %s has been specified; %s assignment ignored
+#4200 scaling by 0; output will be a single point
+#4300 slab extends out of data, thickness set to %d
+#4301 slab %d extends out of data, thickness set to %d
+#4310 possible infinite loop detected
+#4320 streamline point limit exceeded
+#4330 unrecognized element type; connections not inverted
+#4340 delayed flag ignored for field with no data
+#4350 %s component for input %d doesn't match
+#4360 bad octal digit `%c'
+#4370 demoting a double to a float for operator %s
+#4380 data provided without origin, deltas or counts; empty field created
+#4400 importing a field with no `positions' component
+#4410 creating an array with uninitialized data
+#4412 irregularizing the `%s' component, which is %s
+#4414 `%s' component is not an array
+#4415 `%s' component has unusual `%s' attribute: `%s'.  removing
+#4420 obsolete `height' keyword ignored
+#4430 interpolator objects cannot be exported
+#4440 private objects cannot be exported
+#4450 byte order in `format' statement ignored
+#4460 positions already defined by field name `locations'
+#4470 ignoring unsupported camera type
+#4480 ignoring unsupported light type
+#4490 ignoring extra `%s' statement
+#4500 idle too long (%d secs), exiting
+#4510 ExFindPID: pid %d not found in table
+#4520 %s number converted to floating point
+#4530 integer converted to floating point to avoid overflow
+#4540 invalid packet type
+#4550 %s truncated
+#4560 string not properly terminated
+#4570 %s number has no value
+#4580 invalid scientific notation
+#4590 %s: unknown command %d
+#4610 Invalid Executive Object:  %x <<<<<<<<<<<<<<<<<<<
+#4620 _dxf_EXO_delete:  object %08x [%d] deleted too often
+#4630 assignment into NULL ignored
+#4640 attempt to add null macro
+#4650 module %s:  removed - invalid use of ...
+#4652 module %s:  removed - invalid execution name for Outboard module
+#4654 module %s:  removed - invalid function entry point address
+#4660 fb wait: %s
+#4670 fb send: %s
+#4680 Reference to undefined variable: %s
+#4690 %s contains only NULL and/or invalid inputs
+#4700 %s reported an error, but returned non-null output %d
+#4710 %s returned an invalid object for output %d
+#4720 %d::%s internal error: module return value was not ERROR
+#4730 Function return %s ignored: %s
+#4732 Function does not return a value: %s
+#4740 Out of local memory in PK_IMPORT
+#4750 _graph:  bad type = %d
+#4760 Expressions are currently limited to 16 leaves
+#4770 ExGraphAssignment: Unknown assignment type
+#4780 %s:  Positional args after named args have been ignored.
+#4790 %s:  Too many arguments to function
+#4800 %s:  formal parameter '%s' not found
+#4810 %s:  invalid value for attribute:  instance
+#4820 %s:  invalid value for attribute:  cache
+#4830 Invalid value for output attribute: %s
+#4840 DXExecuteTaskGroup called while error code was set
+#4850 DXExecuteTaskGroup called while error message was set
+#4860 Module-level caching suppressed for %s as indicated by cache attribute.
+#4870 Frame buffer is in global memory
+#4880 face sort array (%d bytes) is too big for local memory
+
+#5000 HWrender:  unable to render group member %d
+#5010 HWrender:  clipping is not supported
+#5020 HWrender:  unable to process all lights
+#5030 Unable to render software image
+#5040 Illegal light tool: '%s' (using Unlit)
+#5050 Illegal color tool: '%s' (using Cpf)
+#5060 Illegal draw tool: '%s' (using Bbox)
+#5070 cannot read number of render options in option file
+#5080 cannot read name for option %d, skipping rest of option file
+#5090 option %s (number %d) garbled
+#5100 only %d rendering passes allowed
+#5110 rendering pass name truncated
+#5120 pass density truncated
+#5130 unable to gather lights from group member %d
+#5140 unable to gather lights from clipped object
+#5150 unable to gather lights from clipping object
+#5160 unable to gather lights from screen object
+#5170 no pixels found in image
+#5180 Hardware unavailable: load module '%s/%s' not found
+#5182 Hardware unavailable: unable to load module '%s/%s. Is graphics library installed?'
+#5184 Hardware unavailable: could not bind symbols for '%s/%s'
+#5190 Only first %d lights are used
+#5195 Only first 8 lights are used
+#5200 Unable to compute bounding box
+#5210 No zbuffer; display results are unpredicatable
+#5220 Unsupported hardware; display results unpredictable
+#5230 The TIFF version number is not 42.
+#5240 Defaulting TIFF `%s' to %s
+#5250 TIFF field `%s' ignored.
+#5260 %s is no longer supported, please replace with %sLocal or %sGlobal
+
+
+#7999  Data Explorer Executive Messages
+
+#8000 %s set the error code, but did not return error
+#8010 %s returned error, but did not set the error code
+#8015 Module %s should be handled by the executive
+#8200 not PVS system; no pfs manager found
+#8210 usage: %s partition:dataset
+#8220 usage: pfsmgr [ ls part: | df | rm part:dataset ]
+#8230 no partitions defined
+#8240 no files on partition '%s'
+#8250 no wildcard characters allowed
+#8300 OS page space is low, terminating execution
+#8310 invalid executive command:  %s
+#8312 missing parameter for %s
+#8320 Executive Run Queue empty with count > 0
+#8330 DXAddLikeTasks: repeat <= 0
+#8340 No open task group
+#8350 Task returned ERROR without calling DXSetError
+#8360 Executive out of memory
+#8370 module `%s' not found
+#8380 too many inputs specified for `%s', must be no more than %d
+#8381 too many outputs specified for `%s', must be no more than %d
+#8390 unnamed inputs cannot occur after named inputs, module `%s'
+#8391 unnamed outputs cannot occur after named outputs, module `%s'
+#8400 no input found with name `%s', module `%s'
+#8401 no output found with name `%s', module `%s'
+
+
+#9999  Data Explorer Library and Module Error Messages
+
+#10000 %s must be specified
+#10010 %s must be an integer
+#10011 %s must be of type integer
+#10012 %s must be an integer or a length %d integer list
+#10013 %s must be a list of %d %d-vectors or a field or group
+#10014 %s must be a %d-vector or a field or group
+#10020 %s must be a positive integer
+#10021 %s must be positive integers
+#10030 %s must be a non-negative integer
+#10040 %s must be an integer between %d and %d
+#10041 %s %d must be an integer between %d and %d
+#10050 %s must be an integer or integer list
+#10051 %s must be a string list or an integer list
+#10052 %s must be a list of strings or a list of 3-vectors
+#10060 %s must be an integer list
+#10070 %s must be either 0 or 1
+#10071 %s must be either %d or %d
+#10075 %s must be either 0 or 1 or list containing only 0s and 1s
+#10076 %s must be either 0 or 1 or list of %d items containing only 0s and 1s
+#10080 %s must be a scalar value
+#10081 %s must be scalar or 1-vector
+#10085 %s must be a scalar or a length %d scalar list
+#10090 %s must be a positive scalar value
+#10100 %s must be a non-negative scalar value
+#10110 %s must be a scalar value between %d and %d
+#10111 %s must be a field or a 3-vector
+#10112 %s must be a field or a string
+#10120 %s must be a scalar value between %g and %g
+#10121 %s must be a scalar value greater than or equal to %g
+#10122 %s must be a scalar value greater than or equal to %d
+#10130 %s must be a scalar or scalar list
+#10140 %s must be a scalar list
+#10150 %s must be less than or equal to %g
+#10160 %s must be less than or equal to %d
+#10165 %s must be less than or equal to %s
+#10170 %s must be less than %g
+#10172 %s item %d must be less than %g item %d
+#10180 %s must be less than %d
+#10185 %s item %d must be less than %d item %d
+#10185 %s must be less than %s
+#10187 %s item %d must be less than %s item %d
+#10190 %s must be a field or a group
+#10191 %s must be a field
+#10192 %s must be a group
+#10193 %s must be a group or string list
+#10200 %s must be a string
+#10201 %s must be a string or string list
+#10202 %s must be a field, a scalar value between %f and %f, or a string
+#10203 %s must be one of: %s
+#10204 %s must be a string list of length %d
+#10205 %s must be a string list
+#10210 `%s' is not a valid string for %s
+#10211 %s must be one of the following strings: %s
+#10215 %s must be a scalar, vector or vector list
+#10220 %s must be a vector or vector list
+#10221 %s must be a vector
+#10230 %s must be a %d-vector
+#10231 %s must be a %d-vector or a %d-vector
+#10232 %s must be a scalar, string, vector or 2-D field
+#10240 missing %s component 
+#10241 missing %s dependency attribute  
+#10250 %s is missing %s component
+#10251 %s is dependent on missing %s component
+#10252 %s is not a field, or has no %s component
+#10255 %s component is missing the `%s' attribute
+#10256 %s component has an invalid `%s' attribute
+#10257 %s has no `%s' attribute
+#10258 %s has no `%s' component
+#10260 %s must be a value list
+#10261 %s must be a value
+#10270 %s must be a series
+#10280 %s must be a vector field 
+#10282 %s must be a floating point vector field 
+#10290 %s must be a vector series
+#10300 %s must be a 2D or 3D vector field 
+#10302 %s must be a 2D or 3D floating point vector field 
+#10310 %s does not match hierarchy of %s
+#10320 %s: unknown data type
+#10330 %s must be floating point
+#10331 %s must be 3D floating point
+#10332 %s must be 1D floating point
+#10333 %s must be 2D 
+#10340 %s must be 2D or 3D
+#10341 %s must be 1D, 2D or 3D
+#10342 %s must be 3D
+#10350 %s must be 3D integer
+#10360 dependency of %s does not match dependency of %s
+#10370 %s must be %s
+#10371 %s must be %s %s
+#10372 %s must be %s %s or %s %s
+#10380 %s must be a numeric value
+#10381 %s must be a single numeric value
+#10390 %s must be a numeric value or string
+#10400 %s is dependent on %s but has a different number of elements
+#10410 unsupported element type: %s
+#10420 mismatching element dimensionality in composite field or multigrid
+#10430 invalid `what' parameter: %s
+#10440 cannot measure %s when element type is %s
+#10450 unable to determine dependency of %s component
+#10460 `%s' must be a 3D point or an object with dimensionality
+#10470 `%s' must be specified if `%s' is a 3D point
+#10480 unrecognized %s string
+
+#10500 %s must be a 3-vector or an object
+#10510 %s must be a string or a 3-vector
+#10511 %s must be scalar or vector
+#10520 %s must be a field or scalar value
+#10525 %s must be a positive integer or list of positive integers
+#10530 %s must be a positive integer or a %d-vector
+#10531 %s must be positive
+#10532 %s must be non-negative
+#10540 %s must be integer or float
+#10541 %s must be an integer or a vector
+#10550 %s must be a list of 3-vectors or a field
+#10560 %s must be a scalar value or object
+#10562 %s must be a scalar value or scalar list or object
+#10570 %s must be a field, 3-vector, or string
+#10580 %s must be a list of %d %d-vectors
+#10581 %s must be a list of %d %d-vectors or a list of %d %d-vectors
+#10590 %s must be %d integers
+#10600 %s not supported
+#10610 only regular connections for %s supported
+#10612 only regular positions for %s supported
+#10620 %s must be a positive integer or string
+#10630 %s must be a vector list or a field
+#10640 %s must be a scalar or a vector
+#10650 %s must be a non-negative integer or string
+#10660 %s must be a camera
+#10670 %s must be a 3-vector or a camera
+#10680 %s must be all numeric or all string; inputs %d and %d are not the same type
+
+#10700 `%s' attribute of `%s' component must be a string
+#10701 `%s' attribute of `%s' component must be a string or string list
+#10702 `%s' not a component of field (`%s' attribute of `%s' component)
+#10704 `%s' attribute of `%s' component is `%s'; should be `positions' or `connections' or `faces'
+#10706 `%s' is not an array (`%s' attribute of `%s' component)
+#10708 `%s' attribute mismatch; %d items in `%s', %d items in `%s'
+#10710 `%s' component must be type INT to `ref' another component
+#10712 `element type' attribute of `connections' component is `%s'; should be `%s'
+#10714 %d%s item in `%s' component (%d) is not between %d and %d
+#10720 error trying to run external filter `%s'
+#10722 error starting external filter `%s', or filter returned nothing
+#10730 contents of file `%s' not in DX format
+#10740 no named objects found in file
+#10742 no objects matched variable list
+#10746 no objects found in file
+
+#10760 %s must be linked to a corresponding %s
+#10762 SetLocal must be in the same macro as GetLocal
+#10764 %s must be set
+
+#10800 cannot open font %s
+#10802 font %s is invalid, font must be a group with 256 members
+#10804 font %s is invalid, font group members must be fields
+#10806 font %s is invalid, font member is missing required scalar `char width' attribute
+#10810 font %s is invalid, font group is missing required scalar `font ascent' attribute
+#10812 font %s is invalid, font group is missing required scalar `font descent' attribute
+#10814 font %s is invalid, font element type must be lines or triangles
+#10816 font %s is invalid, font positions must be 2D or 3D
+
+#10840 Number of fields indicated in '%s' statement does not equal previously specified number of fields
+#10841 Unknown, repeated or illegal parameter '%s'
+#10845 Neither '%s' nor '%s' statement is present in general import file
+#10846 '%s' statement can only be used with %s 
+#10850 '%s' or '%s' empty
+#10855 '%s' on connections with record-interleaving only
+#10856 '%s' cannot be dependent on connections
+#10860 '%s' statement (%s) is too large
+#10862 '%s' statement contains unrecognized specifier,%s
+#10865 '%s' statement is missing specifier
+#10870 cannot determine '%s' value for field %d in '%s' statment
+#10871 Missing '%s' value for field %d in '%s' statement
+#10873 '%s' requires decimal number
+#10875 '%s' or '%s' must preceed '%s' statement
+#10877 Missing 1st number in '%s' statement
+#10878 Missing position type in '%s' statement
+#10879 Position value #%d in '%s' statement must be decimal number, got '%s'
+#10880 Number of positions specified with '%s' statement does not match the number of dimensions 
+#10882 '%s' statement cannot be used with '%s' statement
+#10885 '%s' must be last
+#10886 '%s' string missing last '\"'
+#10887 '%s' string is too long
+#10890 Escaping a non-octal digit '%c'
+#10891 Escaping value '%o' too large for byte value
+#10895 '%s' statement missing '='
+#10896 '%s' keyword not found
+#10898 Reached end-of-file '%s'
+#10899 Reached end-of-line %s
+#10900 Field '%s' not found in import file
+#10901 start and end cannot be greater than number of series elements
+#10903 cannot open %s '%s'
+#10905 Value %d does not fit in type %s
+#10906 Cannot convert ascii string %s
+#10907 Cannot parse ascii %s value from '%s'
+#10910 Skipping (%s) header failed
+#10911 Seeking to offset %d in binary file failed 
+#10913 Cannot change majority of data for fields with %d dimensions
+#10920 Too many items in the list
+#10925 min and max, or data required to use '%s' %s
+
+#11000 %s as a 3-vector and %s must be specified, since %s is a 3-vector
+#11001 connections type %s requires 3 dimensional positions
+#11002 connections type %s requires 2 or 3 dimensional positions
+#11003 connections type %s requires %d dimensional positions
+#11004 connections type %s requires %d vertices per connection
+#11010 %s and %s cannot be equal
+#11012 %s and %s must be equal
+#11020 %s has a bad bounding box
+#11040 volumetric field %s must be specified, since %s is a surface
+#11050 all inputs are NULL
+#11060 missing name or position for object %d
+#11065 object %d must be specified
+#11070 series position for object %d must be a scalar value
+#11075 series positions must be monotonic
+#11080 name for object %d must be a string
+#11085 name %d is invalid, group already contains a `%s' member
+#11087 object %d is invalid, input must be a field
+#11088 object %d named `%s' is invalid, input must be a field
+#11090 member type does not match group type
+#11100 %s is a bad %s map: missing data or positions
+#11110 %s is a bad color map: data must be 3-vector
+#11120 %s is a bad opacity map: data must be scalar
+#11130 %s is a bad %s map: positions must be 1-dimensional
+#11140 for irregular positions, %s must be specified
+#11150 %s must be category real
+#11151 %s must be type int
+#11152 %s must be type float
+#11160 number of %s (%d) not equal to product of %s (%d)
+#11161 number of %s (%d) not equal to %s (%d)
+#11162 number of %s (%d) not equal to %s (%d) or %s (%d)
+#11170 invalid syntax for %s
+#11180 invalid output device %s
+#11190 format %s requested; does not match input %d
+#11220 %s greater than %s
+#11230 no data falls between %g and %g
+#11250 %s must be dependent on either positions or connection
+#11251 %s must be dependent on positions
+#11260 %s component already exists
+#11270 no value specified for attribute %s
+#11310 group has no members
+#11320 group has no members with name %s
+#11330 %s is not a group
+#11340 group only has members 0-%d
+#11350 group only has member 0
+#11360 dimension is %d, connections for %s have only dimensions 0-%d
+#11361 dimension is %d, positions for %s have only dimensions 0-%d
+#11362 %s must be of dimensionality %d or %d
+#11363 %s must be %d-dimensional
+#11364 %s must be %d-dimensional floating point
+#11365 dimension list has %d items, positions have %d dimensions
+#11370 %s = %d is greater than dimensionality of %s
+#11380 %s is an invalid connections type
+#11381 invalid object encountered during traversal
+#11382 connections components must be type integer and category real
+#11383 positions components must be type float and category real
+#11385 `ref' components must be scalar and type integer and category real 
+#11390 %s exceeds maximum dimensionality %d
+#11400 %s has invalid dimensionality; does not match %s
+#11401 %s must be a vector which matches %s
+#11450 Object internal consistency failure.  Use the Verify module.
+#11500 ProcessParts: worker output cannot equal input when called with copy
+#11510 ProcessParts: worker output must equal input when called with nocopy
+#11520 ProcessParts: args is NULL but size is nonzero
+#11530 ProcessParts: Impossible parent
+#11600 Unknown image type
+#11610 Field is not a valid X image
+#11620 Depth %d not supported, trying alternatives
+#11630 Invalid X format: '%s'
+#11640 Unable to allocate all colors, approximating
+#11650 available X colors differ from desired colors by as much as %d/256
+#11660 generic groups and series cannot be displayed
+#11670 arranged special-format images not supported
+#11680 out of color table entries
+#11690 X Error: %s
+#11700 Cannot open X display '%s'
+#11710 image size %dx%d exceeds address space
+#11712 transposed images not supported, standard deltas are {[0,1],[1,0]}
+#11713 %s size is less than that of largest image.  Using %d
+#11714 Image field does not have 2-d regular positions
+#11716 Image field does not have 2-d regular connections
+#11718 Image field does not have 3-d float colors
+#11720 Unable to find acceptable X visual
+#11730 Cannot create colormap on X display '%s'
+#11740 Cannot create translation on X display '%s'
+#11750 zero-size image
+#11760 color '%s' not recognized
+#11770 The TIFF initial offset is greater than file length.
+#11772 TIFF file header must start with 0x4949 or 0x4D4D
+#11774 Required TIFF field `%s' is missing
+#11776 TIFF field `%s' has bad type.
+#11778 TIFF field `%s' has bad size setting.
+#11780 TIFF field `%s' must be %s
+#11788 GIF decoding error
+#11790 floating point exception: overflow, underflow, or divide by zero
+#11792 GIF encoding error
+#11794 GIF signature must ge GIF87a or GIF89a
+
+
+#11800 C standard library call, %s, returns error
+#11810 Input %d used in expression and supplied as NULL
+#11811 clear color is appropriate only for background
+#11812 mixed delayed and direct colors are not supported
+#11813 number of colors must match number of annotation objects if number of annotation objects is greater than 1
+#11815 corners parameter must either be 2 vectors or be an object with a bounding box
+#11816 given glyph must have triangle connections
+#11817 normals are invalid for 2D positions
+#11818 %s is an unknown glyph type
+#11819 %s contains no non-empty fields
+#11820 Inputs must be of same length
+#11821 delayed option only valid for unsigned byte data
+#11822 zero length %s vector
+#11823 %s must be a vector list or vector field which matches %s
+#11824 no colormap values between min and max
+#11825 %s must be a single vector of type %s which matches %s
+#11826 %s must match %s
+#11827 %s cannot be specified for %s
+#11828 %s must be a vector or vector list which matches %s
+#11829 %s is of unrecognized type
+#11830 The structure of inputs must match
+#11831 degenerate %s
+#11832 for %s, %s must be a single value
+#11833 for %s, %s must be %d values
+#11834 second set of plot lines required if %s is specified 
+#11835 plot corners contain zero area 
+#11836 all connections are degenerate
+#11838 invalid %s
+#11839 more than one color specified for colors parameter; this requires a list of objects to color
+#11840 Positions arrays do not match
+#11841 %s does not match object hierarchy
+#11842 %s is incompatible with %d-dimensional %s
+#11850 No appropriate interpolation method available
+#11851 1-D maps must be monotonic
+#11860 %s must be positive for log plot
+#11870 missing object or component name for statistics
+#11880 cannot compute statistics for %s component
+#11890 object must be field or array to compute statistics
+#11900 cannot compute statistics on this data %s
+#11905 cannot compute statistics; no valid items found
+#11910 cannot convert an empty array
+#11920 input must be an Array object
+#11930 operator %d unknown
+#11940 incorrect types for operator %s
+#11945 incorrect number of arguments, %d expected
+#11950 error promoting value to float
+#11960 demoting a double to a float for operator %s
+#11970 shape requested bigger than object rank
+#11980 shape index must be of type int
+#11985 conditional expression must be type int
+#11986 then and else terms of conditional expression must match
+#11990 element %d with value %d cannot be converted to byte
+#11991 element %d with value %u cannot be converted to byte
+#11992 element %d with value %g cannot be converted to byte
+#11993 element %d with value %d cannot be converted to short
+#11994 element %d with value %u cannot be converted to short
+#11995 element %d with value %g cannot be converted to short
+#11996 element %d with value %d cannot be converted to int
+#11997 element %d with value %u cannot be converted to int
+#11998 element %d with value %g cannot be converted to int
+#11999 element %d with value %d cannot be converted to unsigned byte
+#12000 element %d with value %u cannot be converted to unsigned byte
+#12001 element %d with value %g cannot be converted to unsigned byte
+#12002 element %d with value %d cannot be converted to unsigned short
+#12003 element %d with value %u cannot be converted to unsigned short
+#12004 element %d with value %g cannot be converted to unsigned short
+#12005 element %d with value %d cannot be converted to unsigned int
+#12006 element %d with value %u cannot be converted to unsigned int
+#12007 element %d with value %g cannot be converted to unsigned int
+#12008 element %d with value %g cannot be converted to float
+#12010 attempting to select element %d from a %d-vector
+#12020 attempt to divide by 0 in the %d data element
+#12030 raising a negative number to a fractional power in element %d
+#12040 taking square root of negative number in data element %d
+#12050 taking logarithm of non-positive number in data element %d
+#12060 arcsin of a number greater than 1 or less than -1 in element %d
+#12061 arccos of a number greater than 1 or less than -1 in element %d
+#12070 input index %d must be less than %d
+#12080 hex value not representable as a 32 bit integer: %s
+#12081 octal value not representable as a 32 bit integer: %s
+#12082 decimal value not representable as a 32 bit integer: %s
+#12085 float value not representable in single precision: %s
+#12090 unknown built in function `%s'
+#12091 undefined variable `%s'
+#12095 illegal character in expression `%c'
+#12100 parse error: %s
+#12110 cannot post components that contain references
+#12120 cannot convert elements of type `%s' to type `%s'
+#12130 cannot apply %s to %s object
+#12140 memory area corrupted
+#12150 no filter named '%s' applicable to a %d-dimensional field
+#12153 invalid application of %d-dimensional filter to %d-dimensional input
+#12160 only one of %s allowed
+
+#12210 length of '%s' is too large
+#12215 format '%s' is not supported on the PVS disk array 
+#12220 format '%s' is only supported on the PVS disk array 
+#12225 format indicated by '%s' is not supported on the PVS disk array
+#12230 format indicated by '%s' is only supported on the PVS disk array
+#12235 requested format is not supported
+#12238 unrecognized format '%s'
+#12240 cannot open file '%s' in current directory or DXDATA path
+#12245 cannot open file '%s' or '%s' in current directory or DXDATA path
+#12247 cannot open file '%s' in current directory or %s path
+#12248 cannot create file '%s'
+#12249 error writing file '%s'
+#12250 supplied %s does not match Size file data
+#12255 Size file data indicates %s must be in the range %d..%d
+#12260 start greater than end (%d>%d)
+#12265 Size file is missing, 'width' and 'height' must be specified
+#12270 cannot position to frame %d in file %s
+#12275 attempt to read %d sized image
+#12280 cannot read (h=%d x w=%d) sized image from file
+#12285 error during memcpy()
+#12290 cannot read (h=%d x w=%d) sized image from file ('.%c').
+#12295 not supported on this architecture 
+#12300 image file does not contain frame %d
+#12305 `partition:name' not valid on this architecture 
+#12310 '%s' and '%s' have incompatible classes
+#12315 '%s' is not a compatible %s 
+#12320 '%s' is not an image
+#12325 no pixels found in image
+#12330 image sizes do not match (%dx%d)!=(%dx%d)
+#12335 '%s' has wrong class
+#12340 '%s' has wrong size
+#12345 size of dimension %d in %s grid (%d) does not match %s grid (%d) 
+#12350 origin of dimension %d in %s grid (%f) does not match %s grid (%f) 
+#12355 delta of dimension %d in %s grid ([%f %f]) does not match %s grid ([%f %f])
+
+
+#12999 Data Explorer Hardware Rendering Messages
+
+#13000 out of memory 
+#13005 atom %s doesn't exist
+#13010 object type %d not implemented
+#13020 unable to alloc points
+#13030 no points array
+#13040 %s line %d
+#13050 %s component has %d items, expecting %d
+#13060 %s component is missing
+#13070 bad or missing element type
+#13100 bad lines
+#13110 bad normals
+#13120 bad opacities
+#13130 bad triangles
+#13140 bad quadrilaterals
+#13150 bad cube volume
+#13155 cubes connections must have dimensionality 3
+#13160 bad tetra volume
+#13165 use colors and not front/back colors for volumes
+#13170 unknown connection type
+#13180 bad faces
+#13190 no loops
+#13200 no edges
+#13210 bad transformation
+#13220 bad clip object
+#13230 bad camera
+#13240 bad screen object
+#13250 display string %s
+#13260 cannot allocate cache id
+#13270 cannot allocate render globals
+#13280 cannot open X display
+#13290 cannot cache tdm globals
+#13300 cannot set cache entry for tdm globals
+#13310 cannot allocate winName
+#13320 cannot allocate options string
+#13330 cannot allocate density string
+#13340 graphics window destroyed
+#13350 unable to set up for rendering
+#13360 'render every' attribute must be greater than 0
+#13370 could not allocate render pass options
+#13380 unknown rendering option %s
+#13382 unknown antialiasing option
+#13384 unknown texture wrap option
+#13386 unknown texture filter option
+#13387 unknown light model option
+#13388 unknown texture function option
+#13389 unknown cull face option
+#13390 cannot allocate render option table
+#13400 cannot allocate hostName
+#13410 cannot allocate type string
+#13420 unable to create default distant light
+#13430 unable to create default ambient light
+#13440 unable to define default lights
+#13450 light gathering not implemented for class %d
+#13460 invalid transformation
+#13470 bad clip
+#13480 bad screen object
+#13490 X Error: %s
+#13500 no image received for rendering
+#13510 invalid image received
+#13520 could not get image size
+#13530 unable to get camera resolution
+#13540 unable to get image resolution
+#13550 cannot read saveunder
+#13560 cannot create graphics window
+#13570 cannot find top level UI shell
+#13580 UI client message protocol failed
+#13590 'camera' input is not a camera
+#13600 accessing background color from camera
+#13610 bad throttle value
+#13620 throttle value must be non-negative
+#13630 'where' parameter is bad
+#13640 bad rendering mode
+#13650 no object specified
+#13660 where parameter must be no longer than %d characters
+#13670 Hardware rendering is unavailable
+#13675 Hardware rendering is unavailable on host '%s'
+#13680 Hardware rendering can only be performed on local host '%s'
+#13690 gethostname failed
+#13700 DISPLAY environment variable '%s' is invalid
+#13710 display needs :0
+#13720 cannot open display '%s'
+#13730 zoom too close; camera caused numerical overflow
+#13740 attempt to redefine light 0
+#13750 invalid light
+#13751 unknown light type
+#13760 bad options file
+#13770 cannot create GL window
+#13780 cannot find GL window
+#13790 cannot allocate backing store
+#13800 invalid image
+#13810 unknown image rendering option
+#13820 unknown DrawTool
+#13830 unknown ColorTool
+#13840 invalid display or window information
+#13850 unable to propagate invalid positions to connections
+#13860 unable to create handle to invalid connection data
+#13870 unable to find mesh neighbors
+#13880 cannot render objects of class %s
+#13890 too many clip planes specified, clip object ignored
+#13900 clip planes deleted too often
+#13910 incompatible versions, %s requires newer %s
+#13920 incompatible versions, HW load module is out of date
+#13930 view angle is less than 0.001 degrees: display results unpredictable
+#13940 view angle is too small: will use minimum of 0.001 degrees instead
+#13950 failed to read image in file '%s'
+#13960 Unsupported Image Magick image type: %d

@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall661 Default Clause #!N #!EC #!N #!N 
+You can specify the default Object to be imported using the 
+ #!F-adobe-times-bold-r-normal--18*   default #!EF clause. When a Data Explorer data file contains 
+more than one Object (which is the usual case), the Import 
+module (see  #!Limport,dxall871 h Import  #!EL  in IBM Visualization Data Explorer User's Reference) decides 
+which Object to import based on the value of the  #!F-adobe-times-bold-r-normal--18*   
+variable #!EF parameter (Object name or names) of the Import module, 
+and the  #!F-adobe-times-bold-r-normal--18*   default #!EF clause (if specified). If  #!F-adobe-times-bold-r-normal--18*   variable 
+#!EF is specified to Import, then those Objects specified are imported. 
+If  #!F-adobe-times-bold-r-normal--18*   variable #!EF is not specified, but a default Object 
+is specified with the  #!F-adobe-times-bold-r-normal--18*   default #!EF clause, then the default 
+Object is imported. If  #!F-adobe-times-bold-r-normal--18*   variable #!EF is not specified, and 
+no Object has been defined as the default, then the last 
+Object in the file is imported. #!T,60 #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N  #!F-adobe-times-bold-r-normal--18*   default #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number #!EF #!N TAB " 
+ #!F-adobe-times-bold-i-normal--18*   name #!EF " #!EF #!N #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall662,dxall663 h End Clause  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

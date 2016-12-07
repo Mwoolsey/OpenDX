@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rattrib Attribute #!N #!N Category 
+#!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N Extracts an attribute 
+from an Object. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+ #!F-adobe-times-bold-r-normal--18*   object #!EF = Attribute(  #!F-adobe-times-bold-r-normal--18*   input #!EF ,  #!F-adobe-times-bold-r-normal--18*   attribute 
+#!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB input TAB object TAB none TAB object from which 
+the attribute is #!N TAB - TAB - TAB - TAB 
+obtained #!N TAB attribute TAB string TAB "name" TAB attribute name 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description 
+#!EF #!N TAB object TAB object TAB attribute value #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 
+#!N is an Object with an attribute to be extracted. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   attribute #!EF #!EF #!I50 #!N is the 
+name of the attribute to be extracted. #!I0 #!N #!N There 
+are various attributes which have definite meanings in Data Explorer (see 
+ #!Loptions,dxall898 h Options  #!EL  ). You can also add your own attributes to objects. 
+In addition, some modules (  #!Lrubbers,dxall930 h RubberSheet  #!EL  ,  #!Lisosurf,dxall881 h Isosurface  #!EL  ,  #!Lautgrid,dxall778 h AutoGrid  #!EL  , 
+ #!Ltube,dxall971 h Tube  #!EL  ,  #!Lribbon,dxall927 h Ribbon  #!EL  ) add attributes specifying the value of a 
+particular value computed and used in creating a realization. #!N #!N 
+Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingAttributes.net #!EF #!N 
+#!N #!EC #!N #!N See Also #!N #!N  #!Loptions,dxall898 h Options  #!EL  ,  #!Lrubbers,dxall930 h RubberSheet  #!EL  
+,  #!Lisosurf,dxall881 h Isosurface  #!EL  ,  #!Lautgrid,dxall778 h AutoGrid  #!EL  ,  #!Ltube,dxall971 h Tube  #!EL  ,  #!Lribbon,dxall927 h Ribbon  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lautoaxe,dxall770 h AutoAxes  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

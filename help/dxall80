@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rtautcol Modules: Using AutoColor #!N #!EC #!N #!N The AutoColor 
+module automatically colors data for you. By default, it colors data 
+from blue (for minimum values) to red (for maximum values). #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Open and execute 
+visual program .../AutoColor.net. The image is a translucent isosurface and a 
+colored plane. #!N #!I30 #!N 2. Select  #!F-adobe-times-bold-r-normal--18*   Sequencer #!EF in 
+the  #!F-adobe-times-bold-r-normal--18*   Execute #!EF pull-down menu and click on the Forward 
+(>) button in the  #!F-adobe-times-bold-r-normal--18*   Sequence Control #!EF panel. The colors 
+represent wind data. #!N #!I30 #!N 3. Click on the Stop 
+button (&sqbul.) before proceeding. #!N #!I0 #!N #!EF #!N #!N #!N 
+Because  #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF colors each plane individually, the full blue-red 
+range is used each time to represent the wind variation in 
+a single plane. As a result, the same color in different 
+planes can represent different data values and different colors can represent 
+the same value. In order to make the color representation consistent 
+from plane to plane: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N 1. Connect the output tab of the rightmost  #!F-adobe-times-bold-r-normal--18*   Import 
+#!EF icon to the second (projecting) input tab of  #!F-adobe-times-bold-r-normal--18*   AutoColor 
+#!EF ("min"). #!N #!I30 #!N 2. Click on the Forward button 
+(>) of the Sequencer again.  #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF now applies the 
+blue-red range to the entire data set, so that the same 
+color values consistently represent the same data values in every plane. 
+#!N #!I30 #!N 3. Open the  #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF configuration dialog 
+box and click on  #!F-adobe-times-bold-r-normal--18*   Expand #!EF to show the hidden 
+parameters. (See  #!Lthidprm,dxall63 h Displaying and hiding parameters  #!EL  .) #!N #!I30 #!N 4. Click on the 
+ #!F-adobe-times-bold-r-normal--18*   opacity #!EF toggle button and change the value in the 
+parameter field to ".3." #!N #!I30 #!N 5. Click on the 
+Forward button (>) of the Sequencer again and note the change 
+in the plane. #!N #!I0 #!N #!EF #!N #!N #!N See 
+AutoColor in IBM Visualization Data Explorer User's Reference. #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltcmpmod,dxall81 h Modules: Using Compute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

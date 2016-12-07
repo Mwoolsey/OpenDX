@@ -1,0 +1,1044 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Tasks and Tools</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu022.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu024.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu016.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>3.8 Tasks and Tools</H2>
+		<A NAME="IDX140"></A><A NAME="IDX141"></A>
+<P>
+The following examples illustrate a number of techniques and tools that
+are helpful in using Data Explorer.
+<P>
+<H3><A NAME="HDRTCAPS" ></A>Adding Captions</H3>
+<A NAME="IDX142"></A>
+<A NAME="IDX143"></A>
+<P>
+The <TT><STRONG>Caption</STRONG></TT> tool allows you to control the
+placement, font, size, wording, and other aspects of a
+caption in the Image window.
+<OL COMPACT>
+<LI>Open visual program <TT>.../Caption.net</TT>.
+<LI>Select <TT><STRONG>Open All Control Panels</STRONG></TT> in the
+<TT><STRONG>Windows</STRONG></TT> pull-down menu.
+A control panel appears.
+<LI>Select <TT><STRONG>Execute on Change</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu.
+When the image appears, note that the caption at the bottom of the
+Image window is the same as the name of the realization
+technique shown in the control panel.
+<LI>Click on the option button in the control panel and select
+<TT><STRONG>Streamlines</STRONG></TT>.
+Both the image and the caption change accordingly.
+</OL>
+<P>
+Use the <TT><STRONG>Caption</STRONG></TT> configuration dialog box to change
+the placement and font size of the caption.
+<OL COMPACT>
+<LI>Double click on the <TT><STRONG>Caption</STRONG></TT> icon to open the
+configuration dialog box and click on the
+<TT><STRONG>position</STRONG></TT> toggle
+button.
+<LI>Clear the
+<TT><STRONG>position</STRONG></TT> parameter field and type "0 1".
+<LI>Click on <TT><STRONG>OK</STRONG></TT>.
+The caption moves from its default position to the top left corner of
+the Image window.
+<P><B>Note: </B>&#91;0 0&#93; specifies the bottom left corner and &#91;1
+1&#93; the top right.
+<LI>Reopen the Caption configuration dialog box and click on
+<TT><STRONG>Expand</STRONG></TT> to show the hidden
+parameters.
+<LI>Click on the <TT><STRONG>height</STRONG></TT> toggle
+button.
+<LI>Double click on the associated parameter field to highlight the
+value there.
+<LI>Type a larger value in its place (e.g., if the value was "15,"
+type in "20").
+<LI>Click on <TT><STRONG>OK</STRONG></TT>.
+The caption type changes size.
+(See <A HREF="#HDRTHIDPRM">"Displaying and hiding parameters"</A>.)
+</OL>
+<P>
+To change the wording of a caption, you must use the
+<TT><STRONG>Format</STRONG></TT> tool:
+<OL COMPACT>
+<LI>In the VPE window, disconnect the <TT><STRONG>Caption</STRONG></TT>
+input from the <TT><STRONG>Selector</STRONG></TT> interactor.
+<LI>Select <TT><STRONG>Annotation</STRONG></TT> and
+<TT><STRONG>Format</STRONG></TT> in the
+palettes.
+<LI>Position the <TT><STRONG>Format</STRONG></TT> icon between
+<TT><STRONG>Selector</STRONG></TT> and
+<TT><STRONG>Caption</STRONG></TT>
+and open the configuration
+dialog box.
+<LI>Drag the cursor over "(none)" in the <TT><STRONG>template</STRONG></TT>
+parameter field and then type "Visualization Method: %s"
+in its place (%s indicates that a string will be
+inserted).
+<LI>Click on <TT><STRONG>OK</STRONG></TT>.
+<LI>Connect the second output tab of <TT><STRONG>Selector</STRONG></TT> to
+the second (middle) input tab of <TT><STRONG>Format</STRONG></TT>.
+<LI>Connect the <TT><STRONG>Format</STRONG></TT> output to
+<TT><STRONG>Caption</STRONG></TT> and reexecute the
+visual program.
+The caption reads "Visualization Method: Streamlines."
+<P>
+See Caption and Format in <I>IBM Visualization Data Explorer User&#39;s
+Reference</I>.
+</OL>
+<P>
+<H3><A NAME="HDRTADTS" ></A>Adding Input Tabs to Tool Icons
+</H3>
+<A NAME="IDX144"></A>
+<A NAME="IDX145"></A>
+<A NAME="IDX146"></A>
+<P>
+Tools such as <TT><STRONG>Compute</STRONG></TT>,
+<TT><STRONG>Options</STRONG></TT>,
+and <TT><STRONG>Switch</STRONG></TT>, among others, can have a variable
+number of inputs.
+If you need more tabs than the number shown by a default icon, you can
+increase the number:
+<OL COMPACT>
+<LI>Select the tool icon to which you want to add tabs.
+<LI>Select <TT><STRONG>Input/Output Tabs</STRONG></TT> in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu and select
+<TT><STRONG>Add Input Tab</STRONG></TT> in the
+cascade menu.
+An input tab is added to the icon.
+<LI>Repeat Step 2 as many times as necessary.
+</OL>
+<P><B>Note: </B>You can also remove tabs from a tool icon by following the
+same procedure, but select <TT><STRONG>Remove Input
+Tab</STRONG></TT> in Step 2.
+<P>
+<H3><A NAME="HDRTSCDPS" ></A>Connecting Scattered Data Points
+</H3>
+<A NAME="IDX147"></A>
+<A NAME="IDX148"></A>
+<A NAME="IDX149"></A>
+<P>
+Many Data Explorer modules cannot be used with scattered data points that have
+no connections (i.e., interpolation elements).
+However, Data Explorer does provide two methods for creating connections between
+scattered data values.
+<OL COMPACT>
+<LI>The first method uses the <TT><STRONG>Connect</STRONG></TT> module.
+<UL COMPACT>
+<LI>Open and execute visual program <TT>.../Connect.net</TT>.
+<P>
+The scattered data values in the image are created by the
+<TT><STRONG>Construct</STRONG></TT> module.
+The <TT><STRONG>Connect</STRONG></TT> module uses triangles to connect them.
+</UL>
+<LI>The second method uses the <TT><STRONG>Regrid</STRONG></TT> module.
+<UL COMPACT>
+<LI>Open and execute visual program <TT>.../Regrid.net</TT>.
+<P>
+The data values here are the same as those in the
+<TT><STRONG>Connect</STRONG></TT> example.
+They are mapped onto a regular grid by the <TT><STRONG>Regrid</STRONG></TT>
+module.
+The rightmost <TT><STRONG>Construct</STRONG></TT> module generates the grid.
+</UL>
+<P>
+See Connect and Regrid in <I>IBM Visualization Data Explorer User&#39;s
+Reference</I>.
+</OL>
+<P>
+<H3><A NAME="HDRTCNTXEC" ></A>Controlling Execution with Switch
+</H3>
+<A NAME="IDX150"></A>
+<A NAME="IDX151"></A>
+<A NAME="IDX152"></A>
+<P>
+<TT><STRONG>Switch</STRONG></TT> allows you to decide which portions of a
+visual program are executed (e.g., whether a data set is
+visualized with <TT><STRONG>Isosurface</STRONG></TT> or
+<TT><STRONG>MapToPlane</STRONG></TT>).
+<OL COMPACT>
+<LI>Open visual program <TT>.../Switch.net</TT>.
+<LI>Select <TT><STRONG>Execute on Change</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu.
+The image that appears is a streamline representation of the
+data set.
+<LI>Select <TT><STRONG>Open All Control Panels</STRONG></TT> in the
+<TT><STRONG>Windows</STRONG></TT> pull-down menu.
+You can now use the selector interactor to switch from one
+visualization to the other.
+</OL>
+<P>
+You can modify the selector interactor and increase the number of
+choices.
+<OL COMPACT>
+<LI>Double click on the interactor to open the <TT><STRONG>Set Selector
+Attributes</STRONG></TT> dialog box.
+<LI>Double click on the <TT><STRONG>Value</STRONG></TT> parameter field and
+type "3" in that space.
+<LI>Double click on the <TT><STRONG>Label</STRONG></TT> parameter field
+and type  "MapToPlane." in that space.
+<P><B>Note: </B>The integer passed from <TT><STRONG>Selector</STRONG></TT> to
+the first
+input tab of <TT><STRONG>Switch</STRONG></TT> determines what input,
+if any, is passed on to another module.
+If the integer is "0" or greater than the number of objects being
+passed to the module, the output is NULL.
+Thus, "1" selects the first input (second input tab), "2" the
+second input (third input tab), and so on.
+<LI>Click on <TT><STRONG>Add</STRONG></TT>.
+A new third line should appear under the first two.
+<LI>Click on <TT><STRONG>OK</STRONG></TT> to close the dialog box.
+If you click on the option button in the selector, you will see that it
+now offers a third choice.
+Leave the control panel open.
+</OL>
+<P>
+The third choice shown in the Selector, however, is not yet operative
+(select <TT><STRONG>MapToPlane</STRONG></TT> in the control panel and
+reexecute the visual program).
+To implement this choice, you must incorporate a third visualization
+in the program, such as that represented by the program segment
+on the right side of the VPE canvas.
+This segment computes a MapToPlane of temperature data.
+<OL COMPACT>
+<LI>Click on the <TT><STRONG>Switch</STRONG></TT> icon to highlight it.
+<LI>Select <TT><STRONG>Add Input Tab</STRONG></TT> in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+A new input tab is added to <TT><STRONG>Switch</STRONG></TT>.
+<LI>Connect the first ("mapped") output tab of the
+<TT><STRONG>AutoColor</STRONG></TT> icon (below the
+MapToPlane icon) to the new input tab of
+<TT><STRONG>Switch</STRONG></TT>.
+<LI>Select <TT><STRONG>MapToPlane</STRONG></TT> in the control panel and
+reexecute the visual program.
+The <TT><STRONG>MapToPlane</STRONG></TT> visualization appears in the Image
+window.
+</OL>
+<P><B>Note: </B>Switch selects among inputs.
+The corresponding module that selects among outputs is Route.
+Both are described in <I>IBM Visualization Data Explorer User&#39;s
+Reference</I>.
+<P>
+<H3><A NAME="HDRTCNFGBX" ></A>Controlling Inputs: Configuration Dialog Boxes
+</H3>
+<A NAME="IDX153"></A>
+<A NAME="IDX154"></A>
+<A NAME="IDX155"></A>
+<A NAME="IDX156"></A>
+<P>
+A configuration dialog box allows you to change the parameter values of
+a module.
+To open the dialog box, double click on the module&#39;s icon or
+single-click on the icon and select <TT><STRONG>Configuration</STRONG></TT>
+from the <TT><STRONG>Edit</STRONG></TT> pull-down menu.
+You can close the dialog box by clicking on <TT><STRONG>OK</STRONG></TT>.
+<P>
+<H4><U>Changing parameter values</U></H4>
+<P>
+A configuration dialog box displays the input parameters of a module.
+<P>
+You can change a parameter value by typing in a new value in the
+corresponding parameter field on the right side of the
+dialog box.
+<P><B>Note: </B>If a tab is already connected to an arc, you must first
+disconnect
+the arc before typing in a new value.
+<P>
+<H4><U><a name="HDRTHIDPRM"></a>Displaying and hiding parameters</U></H4>
+<P>
+Most configuration dialog boxes can be "expanded" to display
+"hidden" parameters for less commonly used functions.
+If a dialog box has hidden parameters, the <TT><STRONG>Expand</STRONG></TT>
+and <TT><STRONG>Collapse</STRONG></TT> buttons at the bottom of the box
+are enabled (i.e., their labels appear in solid type;
+otherwise, both labels are gray).
+<P>
+To display hidden parameters, click on the <TT><STRONG>Expand</STRONG></TT>
+button.
+To restore the dialog box to its previous state, click on
+<TT><STRONG>Collapse</STRONG></TT>.
+<P><B>Notes: </B><OL COMPACT>
+<LI>Whether a parameter is hidden or visible is determined by the
+associated toggle button in the <TT><STRONG>Hide</STRONG></TT>
+column of the dialog box.
+<LI>The number of input tabs on an icon varies with the number of
+<I>visible</I> parameters in the dialog box.
+</OL>
+<P>
+<H3><A NAME="HDRTCONPAN" ></A>Controlling Inputs: Interactors
+</H3>
+<A NAME="IDX157"></A>
+<A NAME="IDX158"></A>
+<A NAME="IDX159"></A>
+<A NAME="IDX160"></A>
+<P>
+Using a configuration dialog box to specify tool inputs can be awkward,
+especially if the inputs are changed frequently or if the number of
+inputs is large.
+A simpler means of controlling input values makes use of
+<I>interactors</I>, which appear only in Control
+Panels.
+They are represented on the VPE canvas by <I>stand-ins</I>, or
+icons, selected from the category and tool palettes just as
+tools are.
+The output of an interactor, like that of any tool, can be connected
+to one or more inputs.
+<P>
+For this part of Tutorial II, you will use a <I>scalar interactor
+stand-in</I> to control an isosurface value.
+A scalar interactor can control any parameter that accepts a scalar
+value as input.
+Other types of interactor (e.g., vector, integer, string) can control
+parameters that take the corresponding type of input.
+<P>
+Begin by opening visual program <TT>.../Isosurface3D.net.</TT>
+<P>
+<H4><U>Selecting interactors and placing stand-ins</U></H4>
+<P>
+The procedure here is essentially the same as that for selecting tools
+and placing icons (see <A HREF="qikgu016.htm#HDRTSTAPI">"Selecting tools and
+placing icons"</A>).
+<OL COMPACT>
+<LI>Select <TT><STRONG>Interactor</STRONG></TT> in the categories palette.
+<LI>Select <TT><STRONG>Scalar</STRONG></TT> in the tools palette and position
+the cursor (now an inverted "L")
+above <TT><STRONG>Isosurface</STRONG></TT>.
+<LI>Click again.
+The stand-in for the <TT><STRONG>Scalar</STRONG></TT> interactor appears.
+</OL>
+<P>
+<H4><U>Connecting the interactor</U></H4>
+<OL COMPACT>
+<LI>Click and hold on the <TT><STRONG>Scalar</STRONG></TT> output tab and drag
+the cursor to the middle <TT><STRONG>Isosurface</STRONG></TT> input tab
+(which lights up when the cursor touches it).
+<LI>Release the mouse button to establish a connection (represented by
+a rectilinear black line) between the two.
+</OL>
+<P>
+<H4><U>Creating a control panel</U></H4>
+<P>
+Double click on the <TT><STRONG>Scalar</STRONG></TT> icon.
+A control panel appears containing a scalar interactor labeled
+<TT><STRONG>Isosurface value</STRONG></TT>.
+Stepper arrowheads can be used to change this value.
+<P>
+<H4><U>Setting the interactor attributes</U></H4>
+<P>
+To set interactor attributes, you must open a
+<TT><STRONG>Set Attributes...</STRONG></TT>
+dialog box by:
+<UL COMPACT>
+<LI>double clicking on the interactor in the control panel
+<I>or</I>
+<LI>selecting <TT><STRONG>Set Attributes...</STRONG></TT> in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu of the
+control panel.
+</UL>
+When the dialog box appears, you are ready to (re)set the
+attribute values:
+<OL COMPACT>
+<LI>Click on the <TT><STRONG>Maximum</STRONG></TT> field.
+The value disappears.
+<LI>Type <TT>1</TT> and press <TT><STRONG>Enter</STRONG></TT> to set the
+new value.
+<LI>Repeat Steps 1 and 2 for <TT><STRONG>Minimum</STRONG></TT>, and change
+the value to <TT>.1</TT>.
+<LI>Repeat Steps 1 and 2 for <TT><STRONG>Global Increment</STRONG></TT> and
+change the value to <TT>.01</TT>.
+<LI>Repeat Steps 1 and 2 for <TT><STRONG>Decimal Places</STRONG></TT> and
+change the value to <TT>2</TT>.
+(You can also reset this value with the stepper buttons.)
+<LI>Click on <TT><STRONG>OK</STRONG></TT>.
+The dialog box closes.
+</OL>
+<P>
+When the minimum and maximum values are set, Data Explorer will prevent
+values outside that range from being entered.
+<P><B>Note: </B>As discussed in <A HREF="#HDRTDDINT">"Data-driven Tools"</A>,
+<I>data-driven</I>
+interactors derive their own minimum and maximum from the
+data itself.
+<P>
+<H4><U>Executing the program on change</U></H4>
+<OL COMPACT>
+<LI>Select <TT><STRONG>Execute On Change</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu of the
+VPE menu bar.
+<LI>Use the right-hand stepper arrowhead in the interactor to increase
+the isosurface value.
+As the value changes, so does the image in the Image window.
+<P><B>Notes: </B><OL COMPACT>
+<LI>You can also change the isosurface value by clicking on it, typing
+in a new value, and Pressing Enter.
+<LI>You can accelerate the value change by holding down the mouse
+button after selecting a stepper arrowhead.
+<LI>If you change values faster than Data Explorer can generate images, it
+will complete processing the current value and then "jump"
+to the one most recently specified, passing over any
+intermediate values.
+</OL>
+<LI>Click on the left-hand stepper arrow to decrease the value.
+Again, new images appear in the Image window.
+<LI>Select <TT><STRONG>End Execution</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu.
+</OL>
+<P>
+<H4><U>Changing the interactor style</U></H4>
+In this example, you will change the interactor <I>style</I> from
+"stepper" (as in the preceding example) to "slider."
+<OL COMPACT>
+<LI>Click on the scalar interactor <TT><STRONG>Isosurface value</STRONG></TT>
+if it is not already highlighted.
+<LI>Click on <TT><STRONG>Set Style</STRONG></TT> in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu of the
+control panel.
+Another pull-down menu appears.
+<LI>Click on <TT><STRONG>Slider</STRONG></TT>.
+The interactor changes appearance.
+<LI>Select <TT><STRONG>Execute On Change</STRONG></TT> as in the
+preceding example.
+<LI>Using the left mouse button, drag the slider tab to the right or
+left to increase or decrease the isosurface value.
+<LI>Release the mouse button to generate an image corresponding to
+the new value.
+<LI>Select <TT><STRONG>End Execution</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu.
+</OL>
+<P>
+<H4><U>Changing the interactor label</U></H4>
+<P>
+The default label of an interactor connected to a tool is the name
+of the tool followed by the name of the input parameter:
+in this case "Isosurface value."
+<P>
+<OL COMPACT>
+<LI>Click on the <TT><STRONG>Isosurface value</STRONG></TT> interactor if
+it is not already highlighted with a white border.
+<LI>Click on <TT><STRONG>Set Label...</STRONG></TT> in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+The <TT><STRONG>Set Interactor Label...</STRONG></TT> dialog box appears.
+<LI>Double click on the <TT><STRONG>Interactor Label</STRONG></TT> field or
+drag the mouse cursor over the text.
+<LI>Type in a new name and click on <TT><STRONG>OK</STRONG></TT>.
+The dialog box closes and the new interactor label appears in
+place of the previous one.
+<P><B>Note: </B>You may break the label into two or more lines by typing
+<TT>\n</TT> where you want the desired line break(s)
+to appear.
+</OL>
+<P>
+<H3><A NAME="HDRTANIMAT" ></A>Creating Animations
+</H3>
+<A NAME="IDX161"></A>
+<A NAME="IDX162"></A>
+<P>
+This example demonstrates a few ways of using a sequencer.
+<P>
+<OL COMPACT>
+<LI>Open (but do not execute) visual program
+<TT>.../Animate.net</TT>.
+<LI>Select <TT><STRONG>Sequencer</STRONG></TT> from the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu.
+Note that both the Loop and Palindrome buttons in the control panel
+are already activated (recessed).
+<LI>Click on the Forward button (&gt;): the visual
+program executes.
+The Image window opens and the image begins to run continuously
+through an "animation" sequence in which a data slice
+changes position.
+<LI>Click on the Stop button (&sqbul;).
+<LI>Disconnect the leftmost <TT><STRONG>AutoColor</STRONG></TT> icon from
+<TT><STRONG>Image</STRONG></TT> and connect the left output tab of the
+other <TT><STRONG>AutoColor</STRONG></TT> icon to
+<TT><STRONG>Image</STRONG></TT>.
+<LI>Click on the Forward button (&gt;) again.
+The animation sequence shows a set of streamlines growing longer and
+then shorter and then repeating the process.
+<LI>Disconnect <TT><STRONG>AutoColor</STRONG></TT> from
+<TT><STRONG>Image</STRONG></TT> and connect
+<TT><STRONG>Isosurface</STRONG></TT> to
+<TT><STRONG>Image</STRONG></TT>.
+<LI>Click on the Forward button (&gt;).
+The sequence is that of a continuously changing
+isosurface.
+<LI>Click on the Stop button (&sqbul;) to halt the sequence.
+</OL>
+<P>
+See Sequencer in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P><B>Note: </B>In this example, a transmitter and several receivers are used
+to make "invisible" connections between tools.
+The <I>frame</I> tool below the <TT><STRONG>Sequencer</STRONG></TT> icon
+is a transmitter.
+The other <I>frame</I> tools are receivers.
+Receivers and transmitters belong to the <TT><STRONG>Special</STRONG></TT>
+category of tools (see <I>IBM Visualization Data Explorer User&#39;s
+Reference</I>).
+<P>
+<H4><U>Changing the limits of the sequencer</U></H4>
+<OL COMPACT>
+<LI>If the sequence is still running, click on the Stop button
+(&sqbul;) to halt it.
+<LI>Click on the ellipsis button (<TT><STRONG>...</STRONG></TT>) in the
+<TT><STRONG>Sequence Control</STRONG></TT> panel to open the
+<TT><STRONG>Frame Control</STRONG></TT> dialog box.
+<LI>Click on the <TT><STRONG>Max</STRONG></TT> parameter field, type in
+"30," and then press Enter.
+<LI>Click on the Forward button (&gt;) to start the
+sequence.
+The isosurface sequence now proceeds to larger isovalues (smaller
+isosurfaces).
+<LI>Close both control panels by double clicking on the top left
+button of the <TT><STRONG>Sequence Control</STRONG></TT> box.
+</OL>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">For Future
+Reference</TH><TR><TD>
+<P>
+<TT><STRONG>Min</STRONG></TT> and <TT><STRONG>Max</STRONG></TT> control the
+minimum
+and maximum number of frames that a sequencer can generate.
+<TT><STRONG>Start</STRONG></TT> and <TT><STRONG>End</STRONG></TT> are set by
+default to the same values, but they can take any values in
+the range.
+The <TT><STRONG>Increment</STRONG></TT> parameter controls the difference
+between output values (frames).
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRTMACRO" ></A>Creating and Using Macros
+</H3>
+<A NAME="IDX163"></A>
+<A NAME="IDX164"></A>
+<P>
+Macros are collections of tools that can be represented by a single
+icon in the VPE canvas.
+Macros thus allow you not only to simplify the appearance of your
+visual program but also to share commonly used functions
+between programs.
+This section briefly introduces the basic concepts of creating and
+using macros.
+(The topic is treated in detail in <I>IBM Visualization Data Explorer User&#39;s
+Guide</I>.)
+The general procedure for creating a macro follows on the next page.
+<OL COMPACT>
+<LI>Decide how many inputs and outputs your macro will have.
+<LI>For each input, select <TT><STRONG>Special</STRONG></TT> in the categories
+palette
+and then <TT><STRONG>Input</STRONG></TT> in the tools palette.
+<LI>Position the mouse cursor in the VPE canvas and click once to
+generate an <TT><STRONG>Input</STRONG></TT> icon.
+<LI>Repeat Steps 2 and 3 for <TT><STRONG>Output</STRONG></TT>.
+<LI>Open the configuration dialog box for each tool to give it an
+appropriate name, description, and default value.
+<LI>Select any additional tools you want to include in the macro and
+place their icons on the canvas.
+<LI>Connect the <TT><STRONG>Input</STRONG></TT> and
+<TT><STRONG>Output</STRONG></TT> icons to the
+appropriate tools.
+<LI>Select <TT><STRONG>Macro Name</STRONG></TT> in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu
+and name the macro.
+<LI>Save the macro.
+</OL>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">For Future
+Reference</TH><TR><TD>
+<UL COMPACT>
+<LI>To use the new macro, you must first load it into Data Explorer:
+select <TT><STRONG>Load Macro</STRONG></TT> from the
+<TT><STRONG>File</STRONG></TT>
+pull-down menu.
+<P>
+Once loaded, the macro will be available
+from the tools palettes.
+Simply select it and place its icon on the canvas.
+<LI>For descriptions of the inputs and outputs specified when the macro
+was created, open its configuration dialog box.
+<LI>To see the component contents of the macro, click on the icon to
+highlight it and then select <TT><STRONG>Open Selected
+Macro</STRONG></TT> in the <TT><STRONG>Windows</STRONG></TT>
+pull-down menu.
+</UL>
+</TD></TR></TABLE>
+<P>
+The following example illustrates the use of a macro in a visual program.
+<OL COMPACT>
+<LI>Select <TT><STRONG>Load Macro</STRONG></TT> in the
+<TT><STRONG>File</STRONG></TT> pull-down menu.
+<LI>Type <TT>/usr/local/dx/samples/tutorial/SampleMacro.net</TT> in the
+<TT><STRONG>Filter</STRONG></TT> field at the top of the dialog box and
+press Enter.
+The name of the macro appears under <TT><STRONG>Files</STRONG></TT> on the
+right side of the dialog box.
+<LI>Click on the macro name to highlight it, and then click on
+<TT><STRONG>Load Macro</STRONG></TT> at the bottom of the
+dialog box.
+A new category appears in the categories palette:
+<TT><STRONG>Macros</STRONG></TT>.
+<LI>Select the new category.
+The name of the new macro appears in the tools palette.
+Now you can open a visual program that uses this macro.
+<LI>Open and execute visual program
+<TT>.../UseSampleMacro.net</TT>.
+<P>
+Although the visual program looks simple, the image it produces
+is quite elaborate.
+<LI>Click on the <TT><STRONG>SampleMacro</STRONG></TT> icon to highlight it
+and then select <TT><STRONG>Open Selected Macro</STRONG></TT> in the
+<TT><STRONG>Windows</STRONG></TT> pull-down menu.
+A new window appears, displaying the "network" of
+<TT><STRONG>SampleMacro</STRONG></TT>:
+This macro performs various operations on the output from three
+<TT><STRONG>Input</STRONG></TT> modules (top) and feeds
+the result to a single <TT><STRONG>Output</STRONG></TT>
+module (bottom).
+It is this output that is fed to the <TT><STRONG>Display</STRONG></TT> module
+in the visual program.
+</OL>
+<P>
+<H3><A NAME="HDRTDDINT" ></A>Data-driven Tools</H3>
+<A NAME="IDX165"></A>
+<A NAME="IDX166"></A>
+<P>
+Many of the tools in Data Explorer can be "data driven".
+That is, their attributes (e.g., limits) can be determined dynamically
+at run time from the data set being used.
+<P>
+<P><B>Note: </B>The attributes of data-driven tools become effective only
+<I>after</I> the first execution with the new data set.
+<P>
+<H4><U>Data-Driven Colormap Editor</U></H4>
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../DataDrivenColormap.net</TT>.
+The image is a color-mapped slice of data, with a color bar at the top
+of the Image window.
+<LI>Select <TT><STRONG>Open All Control Panels</STRONG></TT> in the
+<TT><STRONG>Windows</STRONG></TT> pull-down menu and change the
+<TT><STRONG>Selector</STRONG></TT> value to
+<TT><STRONG>wind</STRONG></TT>.
+<P>
+<LI>Reexecute the visual program.
+The color map changes to reflect the new data set.
+</OL>
+<P>
+See Colormap in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H4><U>Data-Driven scalar interactor</U></H4>
+<P>
+Scalar, integer, and vector interactors can all be data driven.
+The example here is that of a scalar interactor.
+<OL COMPACT>
+<LI>Open and execute visual program <TT>.../DataDrivenScalar.net</TT>.
+<LI>Select <TT><STRONG>Open All Control Panels</STRONG></TT> in the Windows
+pull-down menu and change <TT><STRONG>Format value</STRONG></TT> to
+<TT><STRONG>cloudwater</STRONG></TT>.
+<LI>Leave the control panel open and reexecute the visual
+program.
+The <TT><STRONG>Isosurface value</STRONG></TT> (along with the image) is
+updated to reflect the new data set.
+</OL>
+<P>
+See Scalar in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H4><U>Data-driven selector</U></H4>
+<P>
+In this example, the input from <TT><STRONG>Import</STRONG></TT> to the
+<TT><STRONG>Selector</STRONG></TT> interactor is a data group
+consisting of two fields.
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../DataDrivenSelector.net</TT>.
+The image is a temperature field.
+<LI>Select <TT><STRONG>Open All Control Panels</STRONG></TT> in the
+<TT><STRONG>Windows</STRONG></TT> pull-down menu.
+<LI>Select <TT><STRONG>wind&#95;velocity</STRONG></TT> in the control panel
+and reexecute the visual program.
+</OL>
+<P>
+The control-panel options <TT><STRONG>temperature</STRONG></TT> and
+<TT><STRONG>wind&#95;velocity</STRONG></TT> are derived from the
+field names of the imported data.
+<P>
+In this network, <TT><STRONG>Inquire</STRONG></TT> determines whether or not
+the data set is "vector" and, if so,
+<TT><STRONG>Include</STRONG></TT> excludes
+invalid data values.
+If the data is not vector, the path followed goes directly from
+<TT><STRONG>Select</STRONG></TT> to <TT><STRONG>Switch</STRONG></TT>.
+<P>
+See Selector in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H4><U>Data-driven sequencer</U></H4>
+<P>
+In this example, the limits for the <TT><STRONG>Sequencer</STRONG></TT> are
+set automatically according to the number of elements in the
+<TT>x</TT>-dimension of the data set (as  determined
+by the <TT><STRONG>Inquire</STRONG></TT> module).
+<OL COMPACT>
+<LI>Open (but do not execute) visual program
+<TT>.../DataDrivenSequencer.net</TT>.
+<LI>Select <TT><STRONG>Sequencer</STRONG></TT> from the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu.
+Note that both the Loop and Palindrome buttons in the control panel are
+already activated (recessed).
+<LI>Click on the Forward button (&gt;): the visual program
+executes.
+The Image window opens and the image begins to run continuously through
+an "animation" sequence of two dozen frames.
+<LI>Stop the animation sequence by:
+<UL COMPACT>
+<LI>Clicking on the Stop (&sqbul;) or Pause (<TT><STRONG>||</STRONG></TT>)
+button, <I>or</I>
+<LI>Clicking on the Loop and Palindrome buttons to deactivate them.
+</UL>
+</OL>
+<P>
+See Sequencer in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H3><A NAME="HDRTAUTCOL" ></A>Modules: Using AutoColor
+</H3>
+<A NAME="IDX167"></A>
+<A NAME="IDX168"></A>
+<A NAME="IDX169"></A>
+<A NAME="IDX170"></A>
+<P>
+The AutoColor module automatically colors data for you.
+By default, it colors data from blue (for minimum values) to red
+(for maximum values).
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../AutoColor.net</TT>.
+The image is a translucent isosurface and a colored plane.
+<LI>Select <TT><STRONG>Sequencer</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu and
+click on the Forward (&gt;) button in the
+<TT><STRONG>Sequence Control</STRONG></TT> panel.
+The colors represent wind data.
+<LI>Click on the Stop button (&sqbul;) before proceeding.
+</OL>
+<P>
+Because <TT><STRONG>AutoColor</STRONG></TT> colors each plane individually,
+the full blue-red range is used each time to represent the wind
+variation in a single plane.
+As a result, the same color in different planes can represent
+different data values and different colors can represent
+the same value.
+In order to make the color representation consistent from plane to
+plane:
+<OL COMPACT>
+<LI>Connect the output tab of the rightmost <TT><STRONG>Import</STRONG></TT>
+icon to the second (projecting) input tab of
+<TT><STRONG>AutoColor</STRONG></TT>
+("min").
+<LI>Click on the Forward button (&gt;) of the Sequencer
+again.
+<TT><STRONG>AutoColor</STRONG></TT> now applies the blue-red range to the
+entire data set, so that the same color values consistently
+represent the same data values in every plane.
+<LI>Open the <TT><STRONG>AutoColor</STRONG></TT> configuration dialog box and
+click on <TT><STRONG>Expand</STRONG></TT> to show the hidden parameters.
+(See <A HREF="#HDRTHIDPRM">"Displaying and hiding parameters"</A>.)
+<LI>Click on the <TT><STRONG>opacity</STRONG></TT> toggle button and change
+the value in the parameter field to ".3."
+<LI>Click on the Forward button (&gt;) of the Sequencer again and
+note the change in the plane.
+</OL>
+<P>
+See AutoColor in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H3><A NAME="HDRTCMPMOD" ></A>Modules: Using Compute
+</H3>
+<A NAME="IDX171"></A>
+<A NAME="IDX172"></A>
+<A NAME="IDX173"></A>
+<P>
+<TT><STRONG>Compute</STRONG></TT> is a general purpose module for performing
+algebraic, trigonometric, and logical operations on data.
+It can also extract components from vectors, create vectors
+from scalar components, and cast between different data types.
+<OL COMPACT>
+<LI>Open and execute visual program <TT>.../Compute.net</TT>.
+The image represents wind velocity over the surface of the
+earth.
+Color values are based on the magnitude of the wind velocity, and
+the small black squares and rectangles represent missing
+data.
+<LI>Disconnect <TT><STRONG>Include</STRONG></TT> from
+<TT><STRONG>AutoColor</STRONG></TT> and connect the
+output of <TT><STRONG>Compute</STRONG></TT> to
+<TT><STRONG>AutoColor</STRONG></TT> instead.
+<LI>Execute the visual program.
+Now the colors are based on the absolute value of the x-component
+of the wind velocity.
+<LI>Double click on the <TT><STRONG>Compute</STRONG></TT> icon to open the
+configuration dialog box.
+In this example the module has a single input (<TT><STRONG>wind</STRONG></TT>),
+and the operation to be performed is to determine the
+absolute value of its x-component.
+<LI>Change "abs(wind.x)" in the <TT><STRONG>Expression</STRONG></TT>
+field to "abs(wind.y)." and reexecute the visual program.
+The image changes accordingly.
+</OL>
+<P><B>Note: </B><TT><STRONG>Compute</STRONG></TT> is not limited to a single
+input, and
+input tabs can be added with the <TT><STRONG>Add Input Tab</STRONG></TT>
+function in the <TT><STRONG>Edit</STRONG></TT> pull-down menu (see
+<A HREF="#HDRTADTS">"Adding Input Tabs to Tool Icons"</A>).
+By default the inputs to <TT><STRONG>Compute</STRONG></TT> are labeled
+a, b, c,..., but you can rename them.
+<P>
+It is also possible to use <TT><STRONG>Compute</STRONG></TT> on components
+other than <TT><STRONG>data</STRONG></TT>.
+For example, suppose you wanted to display a regular 2-D grid of
+latitude and longitude on a spherical surface.
+You could use <TT><STRONG>Compute</STRONG></TT> to convert the x,y positions
+of latitude and longitude to x, y, and z positions of a
+spherical surface.
+For an example, open and execute visual program
+<TT>.../WarpedGrid.net</TT>, which generates two entirely different
+objects (in separate Image windows) from the same data.
+<P>
+See Compute in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H3><A NAME="HDRTMAPPNG" ></A>Modules: Using Map</H3>
+<A NAME="IDX174"></A>
+<A NAME="IDX175"></A>
+<A NAME="IDX176"></A>
+<P>
+The <TT><STRONG>Map</STRONG></TT> module maps one field of data onto
+another.
+The field to be mapped <I>to</I> is the first parameter; the field
+to be mapped <I>from</I>, the second parameter.
+In the most common use of this module, no other parameters are
+set:
+the positions of the first field are used as indices to the positions
+of the second; the associated data values from the second field
+are then mapped as new data values onto the first.
+<P>
+Components other than <TT><STRONG>positions</STRONG></TT> and
+<TT><STRONG>data</STRONG></TT> can also be mapped to
+one another.
+<P>
+<OL COMPACT>
+<LI>Open and execute visual program <TT>.../Map.net</TT>.
+In this example, wind values are mapped onto an isosurface of
+cloud-water quantity and the result is colored.
+In addition, wind values are mapped onto a probe point and displayed as
+text glyphs.
+<LI>Double click on the right-hand <TT><STRONG>Import</STRONG></TT> icon to
+open its configuration dialog box.
+The <TT><STRONG>name</STRONG></TT> parameter field contains a file name
+ending in "wind".
+<LI>Change "wind" to "temperature" and click on
+<TT><STRONG>OK</STRONG></TT>.
+<LI>Reexecute the visual program.
+The image is now a color map of temperatures on the
+isosurface.
+The number displayed is the data value of the probe point.
+<LI>To move the probe point, first select
+<TT><STRONG>View Control</STRONG></TT> in the
+<TT><STRONG>Options</STRONG></TT>
+pull-down menu.
+<LI>Next select <TT><STRONG>Cursors</STRONG></TT> in the
+<TT><STRONG>Mode</STRONG></TT> pull-down menu.
+The probe point appears as a small white square immediately to the left
+of the data value.
+<LI>Drag the probe point to reposition it, and then release the
+mouse button.
+The data value is updated and displayed next to the newly positioned
+probe point.
+</OL>
+<P>
+See Map and Probe in <I>IBM Visualization Data Explorer User&#39;s
+Reference</I>.
+<P>
+<H3><A NAME="HDRTPLOT" ></A>Modules: Using Plot</H3>
+<A NAME="IDX177"></A>
+<A NAME="IDX178"></A>
+<A NAME="IDX179"></A>
+<P>
+<TT><STRONG>Plot</STRONG></TT> creates a 2-dimensional plot from x,y data.
+(Data Explorer expects the "positions" component to contain the x-values,
+and the <TT><STRONG>data</STRONG></TT> component the y-values.
+You can pass (import) a group of such fields to <TT><STRONG>Plot</STRONG></TT>,
+which plots them as multiple lines.
+You can also add data-point markers to the lines.
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../Plot.net</TT>.
+Two Image windows appear: one a color map of elevation data for the
+southeastern United States; the other, a plot of the elevations
+along the purple line shown in the color map.
+(The <TT><STRONG>Slab</STRONG></TT> module extracts the elevation data along
+the line, but <TT><STRONG>Construct</STRONG></TT> could have been used
+to create the line and <TT><STRONG>Map</STRONG></TT> to map the
+elevation data onto the line.
+Note that <TT><STRONG>Compute</STRONG></TT> is used to extract only the
+x-component of the positions.)
+<LI>To animate the line:
+<OL COMPACT>
+<LI>Select <TT><STRONG>Special</STRONG></TT> and
+<TT><STRONG>Sequencer</STRONG></TT> in the
+palettes.
+<LI>Position the <TT><STRONG>Sequencer</STRONG></TT> icon above
+<TT><STRONG>Slab</STRONG></TT>.
+<LI>Double click on the icon to open the
+<TT><STRONG>Sequence Control</STRONG></TT>
+panel and then single-click on the ellipsis button
+(<TT><STRONG>...</STRONG></TT>) to open the
+<TT><STRONG>Frame Control</STRONG></TT>
+dialog box.
+<LI>Set <TT><STRONG>Min</STRONG></TT> to "0" and
+<TT><STRONG>Increment</STRONG></TT> to "5."
+<LI>Click on the ellipsis button again to close the <TT><STRONG>Frame
+Control</STRONG></TT> dialog box.
+<LI>Double click on <TT><STRONG>Slab</STRONG></TT> to open its configuration
+dialog box.
+<LI>Click on the <TT><STRONG>position</STRONG></TT> toggle button to
+deactivate it (the associated parameter field will read
+"(all)") and then on <TT><STRONG>OK</STRONG></TT>.
+<LI>Connect the <TT><STRONG>Sequencer</STRONG></TT> output tab to the third
+input tab of <TT><STRONG>Slab</STRONG></TT> ("position").
+<LI>Click on the Forward button (&gt;) in the <TT><STRONG>Sequence
+Control</STRONG></TT> panel.
+</OL>
+<LI>The limits of the plot change somewhat from frame to frame because
+they are based on the line given for each frame.
+To make the limits constant:
+<OL COMPACT>
+<LI>Double click on the <TT><STRONG>Plot</STRONG></TT> icon to open its
+configuration dialog box.
+<LI>Set the <TT><STRONG>corners</STRONG></TT> toggle button on and change the
+values in the parameter field to
+{&#91;260, -6000&#93;&#91;290, 2000&#93;}.
+<LI>Click on <TT><STRONG>Expand</STRONG></TT> (to show the hidden parameters)
+and then on the <TT><STRONG>font</STRONG></TT> toggle button (to change
+the font to "roman&#95;tser").
+<LI>Click on <TT><STRONG>OK</STRONG></TT> at the bottom of the dialog box.
+<LI>Click on the Forward button in the <TT><STRONG>Sequence
+Control</STRONG></TT> panel.
+</OL>
+<LI>To place data-point markers on the data plot:
+<OL COMPACT>
+<LI>Disconnect <TT><STRONG>Plot</STRONG></TT> from
+<TT><STRONG>Unmark</STRONG></TT>.
+<LI>Connect the <TT><STRONG>Options</STRONG></TT> output tab to the
+first
+("input") tab of <TT><STRONG>Plot</STRONG></TT>.
+<LI>Reexecute the visual program.
+The markers appear as small open circles.
+<LI>To see what options were specified, double click on the
+<TT><STRONG>Options</STRONG></TT> icon to open its configuration
+dialog box.
+In this example, the "mark" attribute is set to "circle"
+and the "mark every" attribute is set
+to "10."
+Thus every tenth data point is marked with a circle.
+</OL>
+</OL>
+<P>
+See Plot in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H3><A NAME="HDRTIMPROC" ></A>Processing Images</H3>
+<A NAME="IDX180"></A>
+<A NAME="IDX181"></A>
+<P>
+A variety of image processing functions are available with the
+<TT><STRONG>Compute</STRONG></TT>, <TT><STRONG>Filter</STRONG></TT>, and
+<TT><STRONG>Overlay</STRONG></TT> modules.
+A few of these functions are demonstrated in this example.
+<OL COMPACT>
+<LI>Open visual program <TT>.../ImageProcessing.net</TT>.
+<LI>Select <TT><STRONG>Open All Control Panels</STRONG></TT> in the
+<TT><STRONG>Windows</STRONG></TT> pull-down menu.
+The control panel displays two selector interactors:
+<UL COMPACT>
+<LI>The first specifies which of three filters is to be applied to
+the data.
+<LI>The second specifies which of four image-processing functions
+is to be performed.
+(Note that only the first two of these functions is affected by the
+options selected in the first interactor.)
+</UL>
+<LI>Select <TT><STRONG>Execute on Change</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu.
+You can now select these different functions and observe their effects.
+</OL>
+<P>
+<H3><A NAME="HDRTSANDP" ></A>Saving and Printing Images
+</H3>
+<A NAME="IDX182"></A>
+<A NAME="IDX183"></A>
+<A NAME="IDX184"></A>
+<A NAME="IDX185"></A>
+<P>
+Once you have created an image, you can save it to a file or send
+it to a printer.
+(See also <I>IBM Visualization Data Explorer User&#39;s Guide</I>.)
+<UL>
+<P><LI>If your visual program uses the <TT><STRONG>Image</STRONG></TT> tool
+(as the programs in this tutorial do), you can select
+<TT><STRONG>Save Image</STRONG></TT> and <TT><STRONG>Print
+Image</STRONG></TT> in the <TT><STRONG>File</STRONG></TT>
+pull-down menu of the Image window.
+<P>
+When saving an image, you can choose among several formats and specify
+the final image size or the resolution.
+Similarly, you can choose format and size or resolution before printing
+an image on your local printer (with a command such as:
+<TT>lpr -Pmy_postscript_printer</TT>).
+<P><LI>If you are not using Image, you should use the WriteImage tool
+(<TT><STRONG>Import and Export</STRONG></TT> category).
+<P>
+However, you will have to create the image with Render and display it
+with Display (both are from the <TT><STRONG>Rendering</STRONG></TT>
+category).
+<P>
+Connect the output of Render to the first input tab ("input") of
+WriteImage.
+Specify the format and size, using the parameters described under
+WriteImage in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+</UL>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

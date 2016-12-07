@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsso DXSetScreenObject #!N 
+#!N Function #!N #!N Sets the Object that a screen transform 
+is to be applied to. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> Screen DXSetScreenObject(Screen s, Object o) #!EF #!N #!N Functional Details 
+#!N #!N Replaces the Object the screen transformation is to be 
+applied to with Object  #!F-adobe-times-bold-r-normal--18*   o #!EF , given an existing 
+screen object  #!F-adobe-times-bold-r-normal--18*   s #!EF . #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   s #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code if  #!F-adobe-times-bold-r-normal--18*   s #!EF is not a 
+screen object. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgsi,dxall1265 h DXGetScreenInfo  #!EL  , 
+ #!Ldxnsn,dxall1325 h DXNewScreen  #!EL  #!EF #!N #!N  #!Lsncs,dxall1136 h Screen Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxssm,dxall1391 h DXSetSeriesMember  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

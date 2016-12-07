@@ -1,0 +1,37 @@
+.X.h: ${srcdir}/class.awk
+	rm -f $*.h
+	class_srcdir=${srcdir} srcdir=${srcdir} sh ${srcdir}/class -h ${srcdir}/$*.X >$*.h
+
+.X.c: ${srcdir}/class.awk
+	rm -f $*.c
+	class_srcdir=${srcdir} srcdir=${srcdir} sh ${srcdir}/class -c ${srcdir}/$*.X > $*.c
+
+buffer.c: ${srcdir}/buffer.Z
+	sed -e 's/[ 	][ 	]*\$$/ $$/' ${srcdir}/buffer.Z > __buffer.c
+	@CPP@ __buffer.c | tr -s "\044" "\012" | sed   -e '/^#/d' -e 's/INCLUDE2/#include/' -e 's/^pragma/#pragma/'  > buffer.c
+	rm -f __buffer.c
+
+lbshade.c: ${srcdir}/lbshade.Z
+	sed -e 's/[ 	][ 	]*\$$/ $$/' ${srcdir}/lbshade.Z > __lbshade_.c
+	@CPP@ __lbshade_.c  | tr -s "\044" "\012" | sed -e '/^#/d' -e 's/DEFINE2/#define/'   -e 's/INCLUDE2/#include/' -e 's/[^#]pragma/#pragma/' > lbshade.c
+	rm -f __lbshade_.c
+
+triangle.c: ${srcdir}/triangle.Z
+	sed -e 's/[ 	][ 	]*\$$/ $$/' ${srcdir}/triangle.Z > __triangle.c
+	@CPP@ -I${srcdir} -DPASS1 __triangle.c | sed -e '/^#/d' -e 's/INCLUDE1/#include/' | tr -s "\044" "\012" > triangle1.c
+	@CPP@ -I${srcdir} -DPASS2 triangle1.c | sed -e '/^#/d' -e 's/INCLUDE2/#include/' | tr -s "\044" "\012" > triangle2.c
+	@CPP@ -I${srcdir} -DPASS3 triangle2.c | tr -s "\044" "\012" | sed -e '/^#/d' -e 's/DEFINE3/#define/' -e 's/INCLUDE3/#include/' -e 's/[^#]pragma/#pragma/' > triangle.c
+	rm triangle1.c triangle2.c __triangle.c
+
+quad.c: ${srcdir}/quad.Z
+	sed -e 's/[ 	][ 	]*\$$/ $$/' ${srcdir}/quad.Z > __quad.c
+	@CPP@ -I${srcdir} -DPASS1 __quad.c | sed -e '/^#/d' -e 's/INCLUDE1/#include/' | tr -s "\044" "\012" > quad1.c
+	@CPP@ -I${srcdir} -DPASS2 quad1.c | sed -e '/^#/d' -e 's/INCLUDE2/#include/' | tr -s "\044" "\012" > quad2.c
+	@CPP@ -I${srcdir} -DPASS3 quad2.c | tr -s "\044" "\012" | sed -e '/^#/d' -e 's/DEFINE3/#define/' -e 's/INCLUDE3/#include/' -e 's/[^#]pragma/#pragma/' > quad.c
+	rm -f quad1.c quad2.c __quad.c
+
+plane.c: ${srcdir}/plane.Z
+	cp ${srcdir}/plane.Z _plane.c
+	@CPP@ _plane.c | tr -s "\044" "\012" | sed -e '/^#/d' -e 's/INCLUDE2/#include/' -e 's/[^#]pragma/#pragma/' > plane.c
+	rm -f _plane.c
+

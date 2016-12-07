@@ -1,0 +1,56 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rmltvrx6 Example 6. Deformed 
+(Warped) Regular Grid #!N #!EC #!N #!N A deformed regular grid 
+(sometimes referred to as a warped grid) is one in which 
+the positions are irregular but the connections are regular. In this 
+example the grid is 5 * 4. The data consists of 
+three records, the first two of which contain scalar data defined 
+on the grid. The third contains 2-vector values defining the grid 
+positions. The Data Prompter uses the reserved word  #!F-adobe-times-bold-r-normal--18*   locations #!EF 
+as a field name for the x,y values of the grid 
+positions. The data file contains no descriptive information. #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. In the Data Prompter initial 
+dialog box, click on  #!F-adobe-times-bold-r-normal--18*   Grid or Scattered File #!EF , 
+then on the button representing deformed data (third from the left) 
+in the row labeled  #!F-adobe-times-bold-r-normal--18*   Grid type #!EF . #!N #!I30 
+#!N 2. Set  #!F-adobe-times-bold-r-normal--18*   Number of variables #!EF to "2." #!N 
+#!I30 #!N 3. Step 1 automatically activates the  #!F-adobe-times-bold-r-normal--18*   Positions in 
+data file #!EF toggle button (the positions of warped regular data 
+are assumed to be listed in the data file) and displays 
+a  #!F-adobe-times-bold-r-normal--18*   Dimension #!EF stepper button. Set the  #!F-adobe-times-bold-r-normal--18*   Dimension #!EF 
+value to "2" for 2-dimensional (x,y) data. . #!N #!I30 #!N 
+4. For  #!F-adobe-times-bold-r-normal--18*   Data organization #!EF , confirm that the  #!F-adobe-times-bold-r-normal--18*   
+Block #!EF (i.e., record) toggle button is activated. #!N #!I30 #!N 
+5. Click on  #!F-adobe-times-bold-r-normal--18*   Data Prompter #!EF to bring up the 
+simplified data prompter. #!N #!I30 #!N 6. Enter the path name 
+of the data file in the  #!F-adobe-times-bold-r-normal--18*   Data file #!EF field: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /usr/lpp/dx/samples/data/record_deformed #!EF #!N #!N #!EC #!N 
+#!I30 #!N 7. Enter the values "5," and "4," in that 
+order, in the first two  #!F-adobe-times-bold-r-normal--18*   Grid size #!EF fields. #!N 
+#!I30 #!N 8. Confirm that  #!F-adobe-times-bold-r-normal--18*   Data format #!EF ,  #!F-adobe-times-bold-r-normal--18*   
+Data order #!EF , and  #!F-adobe-times-bold-r-normal--18*   Vector interleaving #!EF are set 
+respectively to Text, Row, and record-vector (X[0]Y[0], X[1]Y[1], ...). #!N #!I30 
+#!N 9. In the  #!F-adobe-times-bold-r-normal--18*   Field list #!EF , click on 
+"locations" and use the "Move field" stepper arrows to position it 
+after "field1" (i.e., at the bottom of the list). This change 
+is necessary to reflect the actual data file, where the two 
+scalar fields precede the x,y positions. (By default, the Data Prompter 
+lists "locations" as the first field.) #!N #!I30 #!N 10. Click 
+on "field0" in the list and then change the name to 
+"rainfall" in the  #!F-adobe-times-bold-r-normal--18*   Field name #!EF field. To confirm this 
+change, click on  #!F-adobe-times-bold-r-normal--18*   Modify #!EF at the bottom of the 
+dialog box (note the instruction there). #!N #!I30 #!N 11. Now 
+change "field1" to "temperature" and the  #!F-adobe-times-bold-r-normal--18*   Type #!EF option from 
+"float" to "int" (the temperature values are integers). These changes can 
+be confirmed together by clicking on  #!F-adobe-times-bold-r-normal--18*   Modify #!EF at the 
+bottom of the panel. #!N #!I30 #!N 12. Save the header 
+file (Step 10 of Example 1 in  #!Lex1a,dxall116 s To save the header file  #!EL  ), which should 
+look like: #!N #!I0 #!N #!EF #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N file = /usr/lpp/dx/samples/data/record_deformed #!N grid = 5 x 4 #!N 
+format = text #!N interleaving = record-vector #!N majority = row 
+#!N field = rainfall, temperature, locations #!N structure = scalar, scalar, 
+2-vector #!N type = float, int, float #!N dependency = positions, 
+positions, positions #!N #!N end #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall129,dxall130 h Example 7. Scattered Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

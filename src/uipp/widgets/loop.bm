@@ -1,0 +1,40 @@
+/*****************************************************************************/
+/*                         DX SOURCEFILE				     */
+/*****************************************************************************/
+
+/*
+ * $Header: /src/master/dx/src/uipp/widgets/loop.bm,v 1.1.1.1 1999/03/24 15:17:37 gda Exp $
+ * $Log: loop.bm,v $
+ * Revision 1.1.1.1  1999/03/24 15:17:37  gda
+ * Initial CVS Version
+ *
+ * Revision 1.1.1.1  1999/03/19 20:59:42  gda
+ * Initial CVS
+ *
+ * Revision 10.1  1999/02/24 13:25:13  gda
+ * OpenDX Baseline
+ *
+ * Revision 9.1  1997/05/22 18:52:22  svs
+ * Copy of release 3.1.4 code
+ *
+Revision 8.0  1995/10/03  18:52:45  nsc
+Copy of release 3.1 code
+
+Revision 7.1  1994/01/18  19:04:10  svs
+changes since release 2.0.1
+
+Revision 6.1  93/11/16  10:52:55  svs
+ship level code, release 2.0
+
+Revision 1.1  93/03/01  15:08:23  danz
+Initial revision
+
+ */
+
+#define loop_width 24
+#define loop_height 16
+static char loop_bits[] = {
+   0x00, 0x00, 0x00, 0xf0, 0xff, 0x0f, 0xfc, 0xff, 0x3f, 0x1e, 0x00, 0x78,
+   0x06, 0x00, 0x60, 0x07, 0x00, 0xe0, 0x03, 0x00, 0xc0, 0x03, 0x00, 0xc0,
+   0x03, 0x00, 0xc0, 0x07, 0x00, 0xe0, 0xc6, 0x00, 0x60, 0x9e, 0x03, 0x78,
+   0xfc, 0x0f, 0x3f, 0xf0, 0x0f, 0x0f, 0x80, 0x03, 0x00, 0xc0, 0x00, 0x00};

@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall656 Light Objects #!N #!EC #!N #!N A 
+Light Object is used to place a light in a scene 
+for the renderer. Lights can be either local or distant. Local 
+lights have a position and a color. Distant lights are at 
+infinity, and have a direction and a color. It is often 
+not necessary to specify a light in a scene because the 
+renderer has a default built-in light that is sufficient for most 
+purposes. For ambient lights, only  #!F-adobe-times-bold-r-normal--18*   color #!EF can be specified, 
+not  #!F-adobe-times-bold-r-normal--18*   direction #!EF or  #!F-adobe-times-bold-r-normal--18*   position #!EF . For  #!F-adobe-times-bold-r-normal--18*   
+distant #!EF lights, the  #!F-adobe-times-bold-r-normal--18*   direction #!EF can be absolute, or 
+it can be relative to the current location of the camera, 
+as specified in a  #!F-adobe-times-bold-r-normal--18*   'from camera' #!EF clause. #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!T,72,252 #!N  #!F-adobe-times-bold-r-normal--18*   object #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number #!EF 
+[  #!F-adobe-times-bold-r-normal--18*   class #!EF ]  #!F-adobe-times-bold-r-normal--18*   light #!EF [  #!F-adobe-times-bold-r-normal--18*   type 
+#!EF ] TAB  #!F-adobe-times-bold-r-normal--18*   distant #!EF #!N TAB "  #!F-adobe-times-bold-i-normal--18*   name 
+#!EF " TAB  #!F-adobe-times-bold-r-normal--18*   local #!EF #!T,252 #!N TAB  #!F-adobe-times-bold-r-normal--18*   ambient 
+#!EF #!T,72 #!N  #!F-adobe-times-bold-r-normal--18*   direction #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number number number 
+#!EF [  #!F-adobe-times-bold-r-normal--18*   from camera #!EF ] #!N  #!F-adobe-times-bold-r-normal--18*   position #!EF 
+TAB  #!F-adobe-times-bold-i-normal--18*   number number number #!EF #!N  #!F-adobe-times-bold-r-normal--18*   color #!EF TAB 
+ #!F-adobe-times-bold-i-normal--18*   number number number #!EF #!N TAB "  #!F-adobe-times-bold-i-normal--18*   color #!EF 
+" #!N  #!F-adobe-times-bold-r-normal--18*   position #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number number number #!EF 
+#!EF #!N #!N #!EC #!N Note: In the current release of 
+the Data Explorer, local lights are not supported. #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall657,dxall658 h Camera Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rgradien Gradient #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N 
+Function #!N #!N Computes the gradient of a scalar field. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   gradient #!EF = 
+Gradient(  #!F-adobe-times-bold-r-normal--18*   data, method #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!N #!N #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB data TAB scalar 
+field TAB none TAB field whose gradient is to be #!N 
+TAB - TAB - TAB - TAB computed #!N TAB method 
+TAB string TAB "manhattan" TAB method to use #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!N #!N 
+#!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF 
+#!N TAB gradient TAB vector field TAB gradient field #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 
+#!N is the scalar field. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   method 
+#!EF #!EF #!I50 #!N specifies how the gradient will be computed. 
+At present, the only method supported is "manhattan." #!I0 #!N #!N 
+#!N #!N Components #!N #!N Modifies the "data" component. All other 
+input components are propagated to the output. #!N #!N Example Visual 
+Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N ComputeOnData.net #!N Imide_potential.net #!N InvalidData.net 
+#!N UsingCompute2.net #!N UsingIsosurface.net #!N SIMPLE/Gradient.net #!EF #!N #!N #!EC #!N 
+#!N See Also #!N #!N  #!Ldivcurl,dxall827 h DivCurl  #!EL  ,  #!Lnormals,dxall897 h Normals  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lgrid,dxall858 h Grid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

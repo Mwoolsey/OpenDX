@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen  #!Rall560 Execution 
+Example #!N #!EC #!N #!N The macro  #!F-adobe-times-bold-r-normal--18*   sum3 #!EF in 
+the following example computes both the sum of its first two 
+arguments and the sum of all three of its arguments. When 
+the top-level assignment statement on line 7 is executed, the statements 
+in lines 3 and 4 are both executed, resulting in the 
+values 11 and 111 being assigned to the top-level variables  #!F-adobe-times-bold-i-normal--18*   
+x #!EF and  #!F-adobe-times-bold-i-normal--18*   y #!EF respectively. When the top-level assignment 
+statement on line 8 is executed, only the statement on line 
+3 is executed. Since the value in the output variable  #!F-adobe-times-bold-i-normal--18*   
+e #!EF is not assigned to anything in the calling environment, 
+the statement on line 4 need not be executed. #!N #!N 
+#!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro sum3 (a, b, c) -> (d, 
+e) // 1 #!N { // 2 #!N d = a 
++ b; // 3 #!N e = d + c; // 
+4 #!N } // 5 #!N // 6 #!N x, y 
+= sum3 (1, 10, 100); // 7 #!N x = sum3 
+(1, 10, 100); // 8 #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall561,dxall562 h Running .net files in script mode  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

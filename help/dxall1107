@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rpsvs Points and Vectors #!N 
+#!EC Points are represented by the  #!F-adobe-times-bold-r-normal--18*   Point #!EF structure. Data 
+Explorer provides a routine that constructs a point structure. Vectors are 
+represented by the same structure as points, but for the sake 
+of clarity they are defined as a separate type. #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct point { #!N float x, y, 
+z; #!N } Point, Vector; #!N #!N typedef int PointId; #!EF 
+#!N #!N #!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Point DXPt() #!EF #!N Point DXVec(); #!EF #!I50 #!N Construct a 
+Point or a Vector with the given coordinates. See  #!Ldxptvc,dxall1337 h DXPt, DXVec  #!EL  . 
+#!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lltqtc,dxall1108 h Lines, Triangles, Quadrilaterals, Tetrahedra, and Cubes  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

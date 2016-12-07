@@ -1,0 +1,86 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall334 
+Print Image Options #!N #!EC #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Allow Rerendering #!EF #!EF #!I50 #!N allows you to 
+specify whether or not the currently displayed image should be rerendered 
+at a new resolution or aspect ratio. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   
+Allow Rerendering #!EF is toggled off, then the  #!F-adobe-times-bold-r-normal--18*   Image Size 
+#!EF is completely determined by the resolution of the currently displayed 
+image.  #!F-adobe-times-bold-r-normal--18*   Image Size #!EF and  #!F-adobe-times-bold-r-normal--18*   Output PPI #!EF cannot 
+be independently controlled, and you can not change the aspect ratio 
+of the image from that of the currently displayed image. If 
+you attempt to change the aspect ratio of the image size 
+(e.g. by specifying a size of 8x8 when the original image 
+is not at an aspect ratio of 1:1), the new image 
+size will not be accepted by the  #!F-adobe-times-bold-r-normal--18*   Image Size #!EF 
+text field. If you change only one component of the image 
+size (e.g. by specifying "8 x"), then the other component of 
+the image size will be computed by comparing it to the 
+current aspect ratio, and  #!F-adobe-times-bold-r-normal--18*   Output PPI #!EF will be adjusted 
+such that the number of pixels of the image remains that 
+of the currently displayed image. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   Allow Rerendering 
+#!EF is toggled on, then the currently displayed image will be 
+rerendered at a new resolution based on the settings of  #!F-adobe-times-bold-r-normal--18*   
+Output PPI #!EF and  #!F-adobe-times-bold-r-normal--18*   Image Size #!EF , which can 
+now be independently controlled. You can use this option, for example, 
+to save or print an image at a much higher resolution 
+than is displayed on the screen. You can also specify the 
+number of pixels directly by setting the units of  #!F-adobe-times-bold-r-normal--18*   Image 
+Size #!EF to pixels (note that in this case it is 
+meaningless to set the Output PPI). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Gamma Correction #!EF #!EF #!I50 #!N Allows you to specify gamma 
+correction applied to the output image. The default is 2. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Delayed Colors #!EF #!EF #!I50 #!N For 
+TIFF, MIFF, and PostScript image formats, allows you to specify whether 
+the image is saved in an image-with-colormap format. For GIF image 
+format, this option is required by the format. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Format #!EF #!EF #!I50 #!N Allows you to choose 
+from the set of available image formats. #!I0 #!N #!N For 
+all formats other than the Postscript formats, the following field is 
+available: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Image Size 
+#!EF #!EF #!I50 #!N If the  #!F-adobe-times-bold-r-normal--18*   Allow Rerendering #!EF button 
+is set, this field allows you to set the resolution of 
+the output image to something other than that of the image 
+displayed to the screen. #!I0 #!N #!N If one of the 
+Postscript formats is selected then the following fields are displayed: #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Image Dimensions #!EF #!EF 
+#!I50 #!N Allows you to specify the size of the image 
+on the page (by default in inches). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Orientation #!EF #!EF #!I50 #!N Allows you to specify the 
+orientation of the image to portrait or landscape, or automatic, which 
+chooses the best for the given image. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Input Image Size #!EF #!EF #!I50 #!N Specifies the resolution 
+of the image to be printed. This field is enabled only 
+if the  #!F-adobe-times-bold-r-normal--18*   Allow Rerendering #!EF button is toggled on. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Page Dimensions #!EF #!EF #!I50 #!N Specifies 
+the size of the page. By default this is specified in 
+inches. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Output PPI #!EF #!EF #!I50 
+#!N Specifies the "pixels per inch" of the output image. Note: 
+Unless you specifically care to set the precise pixels per inch, 
+you do not typically need to set this. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Margin Width #!EF #!EF #!I50 #!N Specifies a margin 
+width of white space on the page. #!I0 #!N #!N For 
+PostScript formats, the printed image will, by default, fill the page 
+to within  #!F-adobe-times-bold-r-normal--18*   Margin Width #!EF of the edge of the 
+page. If  #!F-adobe-times-bold-r-normal--18*   Allow Rerendering #!EF is off, the pixels in 
+the image will be sized appropriately to scale the image to 
+fill the page, but the same number of pixels as in 
+the currently displayed image will be used. If this results in 
+a grainy image, set  #!F-adobe-times-bold-r-normal--18*   Allow Rerendering #!EF on, and enter 
+a different  #!F-adobe-times-bold-r-normal--18*   Input image size #!EF . For example, if 
+the displayed image is 640x480, and you want to double the 
+resolution, just enter 1280 in the  #!F-adobe-times-bold-r-normal--18*   Input image size #!EF 
+field and Data Explorer will recalculate the new value of y 
+(960) and the new (higher) value for  #!F-adobe-times-bold-r-normal--18*   Output PPI #!EF 
+. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Print command 
+#!EF #!EF #!I50 #!N Contains a text field where you can 
+enter a command to print the image, for example: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N lpr -P myPrinter #!EF #!N #!N #!EC #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Pushbuttons #!EF #!I50 #!N  #!F-adobe-times-bold-r-normal--18*   Apply #!EF Causes 
+the command specified by  #!F-adobe-times-bold-r-normal--18*   Print Command #!EF to be executed. 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   Restore #!EF Restores settings in the dialog to 
+what they were the last time that  #!F-adobe-times-bold-r-normal--18*   Apply #!EF was 
+depressed. #!N #!N  #!F-adobe-times-bold-r-normal--18*   Close #!EF Causes the dialog to be 
+closed without printing an image. #!I0 #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lusvpe,dxall336 h Using the VPE  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

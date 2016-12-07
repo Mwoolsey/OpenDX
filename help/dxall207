@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcolcom Colors, Front Colors, 
+and Back Colors Components #!N #!N #!N The "colors," "front colors," 
+and "back colors" components are a means of specifying another, specialized 
+type of dependent data. Specifically, the renderer requires that each object 
+in a scene have at least one of these components. The 
+"front colors" and "back colors" components specify colors to be associated 
+with the front and back sides, respectively, of a surface. The 
+"colors" component specifies colors to be associated with both sides of 
+a surface, or with a volume. If only "front colors" or 
+only "back colors" are specified, then only the "front" or "back" 
+sides, respectively, of the polygons are rendered. If present, "front colors" 
+or "back colors" override the specification of the "colors" component. #!N 
+#!N Each item of a color component Array consists of three 
+floating-point numbers specifying the red, green, and blue component of a 
+color respectively. The color components can use the entire floating-point range, 
+but by convention the range from 0 to 1 is mapped 
+onto the available range of the output device. Like the "data" 
+component, the color components can be position- or connection-dependent. #!N #!N 
+The front of a triangle is defined to be the side 
+such that the path traversing the vertices in the order that 
+they are listed for the triangle appears to go counterclockwise. The 
+front of a quad is the side from which the vertex 
+numbering appears (  #!Lcuboi24,dxall204 f Figure 24  #!EL  ). #!N #!N The interpretation of colors 
+differs between surfaces and volumes. For surfaces, the color values in 
+the range from 0 to 1 are mapped onto the range 
+of colors values possible for the display. For volumes, the interpretation 
+of colors follows the "dense emitter" model described in the next 
+section. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lopacom,dxall208 h Opacities Component  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

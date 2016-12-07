@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxptv DXPrint, DXPrintV #!N #!N Function #!N 
+#!N Print an Object according to specified formatting options. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXPrint(Object o, char *options, ...) 
+Error DXPrintV(Object o, char *options, char **components) #!EF #!N #!N Functional 
+Details #!N #!N In the case of  #!F-adobe-times-bold-r-normal--18*   DXPrint #!EF , 
+the arguments following  #!F-adobe-times-bold-r-normal--18*   options #!EF should consist of a  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF -terminated list of strings. These strings specify the components 
+of a Field to which the options should be applied. Alternatively, 
+the components may all be specified together in a  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF -terminated Array of strings and supplied as the  #!F-adobe-times-bold-r-normal--18*   components 
+#!EF argument to  #!F-adobe-times-bold-r-normal--18*   DXPrintV #!EF . #!N #!N If  #!F-adobe-times-bold-r-normal--18*   
+components #!EF is not specified or is  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , 
+the formatting options are applied to all components. #!N #!N If 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF is a Group or other Object capable of 
+containing another Object, then it is traversed in a depth-first order, 
+and the appropriate printing options are applied for the particular Object 
+currently being visited. If the Object being printed is not a 
+Field, then the specified component names are ignored. #!N #!N The 
+formatting options are: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o r - Recursively traverse the Object. #!N #!I30 #!N o 
+o - Print only the top level of the Object. #!N 
+#!I30 #!N o d - Print first and last 25 items 
+in Arrays, as well as headers. #!N #!I30 #!N o D 
+- Print all the items in Arrays as well as headers. 
+#!N #!I30 #!N o x - Print in expanded form rather 
+than compact form. #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   n #!EF - 
+Print Object to  #!F-adobe-times-medium-i-normal--18*   n #!EF levels. #!N #!I0 #!N #!EF 
+#!N #!N #!N See also  #!Lprint,dxall911 h Print  #!EL  in IBM Visualization Data Explorer 
+User's Reference. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK 
+#!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxts,dxall1403 h DXTypeSize, DXCategorySize  #!EL  ,  #!Ldxgte,dxall1270 h DXGetType  #!EL  #!EF 
+#!N #!N  #!Lty,dxall1101 h Setting Data Types  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxpa,dxall1332 h DXPrintAlloc  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

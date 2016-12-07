@@ -1,0 +1,49 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1011 Module Builder: Overall Module 
+Description #!N #!EC #!N #!N Use this section to specify the 
+following information. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Name 
+#!EF #!EF #!I50 #!N The name of the module. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Category #!EF #!EF #!I50 #!N The name of 
+the tool category to which the module is to be assigned. 
+This can be the name of an existing category or a 
+name of your choosing. Click on  #!F-adobe-times-bold-r-normal--18*   Existing #!EF (at the 
+right of the text field) for a list of existing categories. 
+If you then click on one of the categories in the 
+list, the category name is automatically inserted in the text field. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Description #!EF #!EF #!I50 #!N A 
+brief description of the module being defined. It appears in a 
+ #!F-adobe-times-bold-r-normal--18*   Description of... #!EF box when the  #!F-adobe-times-bold-r-normal--18*   Description... #!EF button 
+of the module's configuration dialog box is selected. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Number of inputs #!EF #!EF #!I50 #!N The number 
+of inputs to the module. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Number 
+of outputs #!EF #!EF #!I50 #!N The number of outputs from 
+the module. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Module Type #!EF #!EF 
+#!I50 #!N The type of module: inboard, outboard, or runtime-loadable. Specify 
+the type by activating the appropriate toggle button. The default is 
+"inboard." #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. Activating 
+the  #!F-adobe-times-bold-r-normal--18*   outboard #!EF toggle button makes available two associated text 
+fields (  #!F-adobe-times-bold-r-normal--18*   Executable Name #!EF and  #!F-adobe-times-bold-r-normal--18*   Outboard Host #!EF 
+) and one toggle button (  #!F-adobe-times-bold-r-normal--18*   Persistent #!EF ): #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Executable Name #!EF #!EF 
+#!I50 #!N Specifies the name of the module executable. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Outboard Host #!EF #!EF #!I50 #!N Specifies the 
+name of the host machine on which the outboard module is 
+to be run. This parameter defaults to "local host." #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Persistent #!EF #!EF #!I50 #!N Specifies that the 
+outboard module is not be terminated after it produces output. #!I0 
+#!N #!N For more information on outboard modules, see  #!Lclo2,dxall1051 h Compiling, Linking, and Debugging an Outboard Module  #!EL  . 
+#!N #!I30 #!N 2. Activating the  #!F-adobe-times-bold-r-normal--18*   runtime-loadable #!EF toggle button 
+makes available the  #!F-adobe-times-bold-r-normal--18*   Executable Name #!EF text field. For more 
+information, see  #!Lmodruns,dxall1059 h Compiling, Linking, and Debugging a Runtime-loadable Module  #!EL  . #!I0 #!N #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Executable name #!EF #!EF #!I50 #!N See  #!F-adobe-times-bold-r-normal--18*   Module Type 
+#!EF above. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Outboard Host #!EF #!EF 
+#!I50 #!N See  #!F-adobe-times-bold-r-normal--18*   Module Type #!EF above. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Persistent #!EF #!EF #!I50 #!N See  #!F-adobe-times-bold-r-normal--18*   Module Type 
+#!EF above. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Asynchronous #!EF #!EF #!I50 
+#!N The module may create data asynchronously, in response to events 
+outside of Data Explorer. See  #!Lasynmod,dxall1048 h Asynchronous Modules  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Include File Name #!EF #!EF #!I50 #!N The name of 
+an include file to be inserted in the worker routine. #!I0 
+#!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lall1012,dxall1013 h Module Builder: Individual Parameter Information Section  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

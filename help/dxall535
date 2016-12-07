@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen  #!Rall534 Expression Assignments #!N #!EC #!N #!N The values for 
+the  #!F-adobe-times-bold-i-normal--18*   right-side #!EF portion of an expression assignment statement consist 
+of a sequence of constant values, variables, arithmetic expressions, and the 
+value  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , separated by commas. The various values 
+need not be of the same kind, data type, or dimension. 
+#!N #!N The following examples all assign the value "A string" 
+to the variable  #!F-adobe-times-bold-i-normal--18*   a #!EF , the value 2.0 to 
+the variable  #!F-adobe-times-bold-i-normal--18*   b #!EF , and the value  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF to the variable  #!F-adobe-times-bold-i-normal--18*   c #!EF . #!N #!N #!CForestGreen 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N a = "A string"; // These 3 lines 
+#!N b := 2 * (2 - 1e0); // constitute a 
+single #!N c <- NULL; // example. #!N #!N #!N #!N 
+a, b, c = "A string", 2.0, NULL; #!N a, b, 
+c <- "A string", 5 / 2.5, NULL; #!N a, b, 
+c = "A string", 2.0; #!N a, b, c, d = 
+"A string", 2.0; #!N a, b, c, a = [[1 0][0 
+1]], 2.0, NULL, "A string", [1 2 3]; #!EF #!N #!N 
+#!EC #!N #!N The following example illustrates a simple way to 
+swap values: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N a = 2; #!N 
+b = 4; #!N c = 6; #!N d = 8; 
+#!N e = 10; #!N a, b = b, a; // 
+Values are swapped, so a = 4, b = 2 #!N 
+c, d, e = e, c, d; // c = 10, 
+d = 6, e = 8 #!EF #!N #!N #!EC #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lfuncall,dxall536 h Function Call Assignments  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

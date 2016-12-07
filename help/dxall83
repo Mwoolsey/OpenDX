@@ -1,0 +1,64 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtplot 
+Modules: Using Plot #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   Plot #!EF creates 
+a 2-dimensional plot from x,y data. (Data Explorer expects the "positions" 
+component to contain the x-values, and the  #!F-adobe-times-bold-r-normal--18*   data #!EF component 
+the y-values. You can pass (import) a group of such fields 
+to  #!F-adobe-times-bold-r-normal--18*   Plot #!EF , which plots them as multiple lines. 
+You can also add data-point markers to the lines. #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Open and execute visual 
+program .../Plot.net. Two Image windows appear: one a color map of 
+elevation data for the southeastern United States; the other, a plot 
+of the elevations along the purple line shown in the color 
+map. (The  #!F-adobe-times-bold-r-normal--18*   Slab #!EF module extracts the elevation data along 
+the line, but  #!F-adobe-times-bold-r-normal--18*   Construct #!EF could have been used to 
+create the line and  #!F-adobe-times-bold-r-normal--18*   Map #!EF to map the elevation 
+data onto the line. Note that  #!F-adobe-times-bold-r-normal--18*   Compute #!EF is used 
+to extract only the x-component of the positions.) #!N #!I30 #!N 
+2. To animate the line: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N a. Select  #!F-adobe-times-bold-r-normal--18*   Special #!EF and  #!F-adobe-times-bold-r-normal--18*   Sequencer #!EF 
+in the palettes. #!N #!I30 #!N b. Position the  #!F-adobe-times-bold-r-normal--18*   Sequencer 
+#!EF icon above  #!F-adobe-times-bold-r-normal--18*   Slab #!EF . #!N #!I30 #!N c. 
+Double click on the icon to open the  #!F-adobe-times-bold-r-normal--18*   Sequence Control 
+#!EF panel and then single-click on the ellipsis button (  #!F-adobe-times-bold-r-normal--18*   
+... #!EF ) to open the  #!F-adobe-times-bold-r-normal--18*   Frame Control #!EF dialog 
+box. #!N #!I30 #!N d. Set  #!F-adobe-times-bold-r-normal--18*   Min #!EF to "0" 
+and  #!F-adobe-times-bold-r-normal--18*   Increment #!EF to "5." #!N #!I30 #!N e. Click 
+on the ellipsis button again to close the  #!F-adobe-times-bold-r-normal--18*   Frame Control 
+#!EF dialog box. #!N #!I30 #!N f. Double click on  #!F-adobe-times-bold-r-normal--18*   
+Slab #!EF to open its configuration dialog box. #!N #!I30 #!N 
+g. Click on the  #!F-adobe-times-bold-r-normal--18*   position #!EF toggle button to deactivate 
+it (the associated parameter field will read "(all)") and then on 
+ #!F-adobe-times-bold-r-normal--18*   OK #!EF . #!N #!I30 #!N h. Connect the  #!F-adobe-times-bold-r-normal--18*   
+Sequencer #!EF output tab to the third input tab of  #!F-adobe-times-bold-r-normal--18*   
+Slab #!EF ("position"). #!N #!I30 #!N i. Click on the Forward 
+button (>) in the  #!F-adobe-times-bold-r-normal--18*   Sequence Control #!EF panel. #!N #!I0 
+#!N #!EF #!N #!N #!I30 #!N 3. The limits of the 
+plot change somewhat from frame to frame because they are based 
+on the line given for each frame. To make the limits 
+constant: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N a. Double 
+click on the  #!F-adobe-times-bold-r-normal--18*   Plot #!EF icon to open its configuration 
+dialog box. #!N #!I30 #!N b. Set the  #!F-adobe-times-bold-r-normal--18*   corners #!EF 
+toggle button on and change the values in the parameter field 
+to {[260, -6000][290, 2000]}. #!N #!I30 #!N c. Click on  #!F-adobe-times-bold-r-normal--18*   
+Expand #!EF (to show the hidden parameters) and then on the 
+ #!F-adobe-times-bold-r-normal--18*   font #!EF toggle button (to change the font to "roman_tser"). 
+#!N #!I30 #!N d. Click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF at the 
+bottom of the dialog box. #!N #!I30 #!N e. Click on 
+the Forward button in the  #!F-adobe-times-bold-r-normal--18*   Sequence Control #!EF panel. #!N 
+#!I0 #!N #!EF #!N #!N #!I30 #!N 4. To place data-point 
+markers on the data plot: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N a. Disconnect  #!F-adobe-times-bold-r-normal--18*   Plot #!EF from  #!F-adobe-times-bold-r-normal--18*   Unmark #!EF 
+. #!N #!I30 #!N b. Connect the  #!F-adobe-times-bold-r-normal--18*   Options #!EF output 
+tab to the first ("input") tab of  #!F-adobe-times-bold-r-normal--18*   Plot #!EF . 
+#!N #!I30 #!N c. Reexecute the visual program. The markers appear 
+as small open circles. #!N #!I30 #!N d. To see what 
+options were specified, double click on the  #!F-adobe-times-bold-r-normal--18*   Options #!EF icon 
+to open its configuration dialog box. In this example, the "mark" 
+attribute is set to "circle" and the "mark every" attribute is 
+set to "10." Thus every tenth data point is marked with 
+a circle. #!N #!I0 #!N #!EF #!N #!N #!I0 #!N #!EF 
+#!N #!N #!N See Plot in IBM Visualization Data Explorer User's 
+Reference. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltimproc,dxall84 h Processing Images  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

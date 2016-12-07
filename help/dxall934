@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rscale Scale #!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N 
+#!N Function #!N #!N Scales a specified object. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Scale(  #!F-adobe-times-bold-r-normal--18*   
+input, scaling #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB input TAB object TAB none TAB object 
+to be scaled #!N TAB scaling TAB scalar or vector TAB 
+[1 1 1] TAB scaling factor along x, y, and z 
+#!N TAB - TAB - TAB - TAB axes #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB output TAB object TAB object marked to be scaled #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module prepares a specified object for scaling along all 
+three axes. Note: A Transform object containing the specified transformation matrix 
+is inserted at the root of the object. This transform is 
+applied during rendering. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+input #!EF #!EF #!I50 #!N specifies the object to be scaled. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   scaling #!EF #!EF #!I50 #!N is 
+the scaling factor. If the parameter value is scalar, the object 
+is scaled by that amount along each axis. The default value 
+is [1 1 1], which produces no change in the input 
+object. Note: Scaling is relative to the origin of world-coordinate space. 
+#!I0 #!N #!N #!N #!N Components #!N #!N All input components 
+are propagated to the output. #!N #!N Example Visual Program #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AnnotationGlyphs.net #!EF #!N #!N #!EC #!N #!N 
+See Also #!N #!N  #!Lplot,dxall904 h Plot  #!EL  ,  #!Lrotate,dxall928 h Rotate  #!EL  ,  #!Ltransfo,dxall967 h Transform  #!EL  ,  #!Ltransla,dxall968 h Translate  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lscalscr,dxall935 h ScaleScreen  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

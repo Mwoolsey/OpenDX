@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Installation and Configuration
+Guide</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Installation and Configuration Guide">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Installation and Configuration Guide</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="insgu031.htm">Previous Page</A> &#124; <A HREF="insgu033.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="insgu029.htm#PToC9">Partial Table of Contents</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRNETLS" HREF="../insguide.htm#ToC_56">Chapter 15. Installing a NetLS
+License Server</A></H1>
+<P><A NAME="PToC10" HREF="../insguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_57" HREF="#Header_57">15.1 Introduction</A>
+<LI><A NAME="PToC_58" HREF="insgu033.htm#Header_58">15.2 IMPORTANT License
+Server information for concurrent licensees.</A>
+<LI><A NAME="PToC_59" HREF="insgu034.htm#HDRIBMLIC">15.3 Installing a License
+Server for pre-AIX 4.x IBM RISC System/6000</A>
+<MENU>
+<LI><A NAME="PToC_60" HREF="insgu034.htm#HDRIBMLITP">Installing a License Server
+for IBM RISC System/6000 from Tape</A>
+<LI><A NAME="PToC_61" HREF="insgu034.htm#HDRIBMLICD">Installing a License Server
+for IBM RISC System/6000 from CD-ROM</A>
+</MENU>
+<LI><A NAME="PToC_62" HREF="insgu035.htm#HDRHPLIC">15.4 Installing a License
+Server for an HP Workstation</A>
+<MENU>
+<LI><A NAME="PToC_63" HREF="insgu035.htm#HDRHPLIFL">Floating License Issues on
+an HP Workstation</A>
+<LI><A NAME="PToC_65" HREF="insgu035.htm#HDRHPLITP">Installing a License Server
+for HP Workstation from Tape</A>
+<LI><A NAME="PToC_66" HREF="insgu035.htm#HDRHPLICD">Installing a License Server
+for HP Workstation from CD-ROM</A>
+</MENU>
+<LI><A NAME="PToC_67" HREF="insgu036.htm#HDRSUNLIC">15.5 Installing a License
+Server for a Sun SPARCstation</A>
+<MENU>
+<LI><A NAME="PToC_68" HREF="insgu036.htm#HDRSUNLITP">Installing a License Server
+for Sun SPARCstation from Tape</A>
+<LI><A NAME="PToC_69" HREF="insgu036.htm#HDRSUNLICD">Installing a License Server
+for Sun SPARCstation from CD-ROM</A>
+</MENU>
+<LI><A NAME="PToC_70" HREF="insgu037.htm#HDRSGILIC">15.6 Installing a License
+Server for an SGI Workstation</A>
+<MENU>
+<LI><A NAME="PToC_71" HREF="insgu037.htm#HDRSGILITP">Installing a License Server
+for SGI Workstation from Tape</A>
+<LI><A NAME="PToC_72" HREF="insgu037.htm#HDRSGILICD">Installing a License Server
+for SGI Workstation from CD-ROM</A>
+</MENU>
+<LI><A NAME="PToC_73" HREF="insgu038.htm#HDRAVILIC">15.7 Installing a License
+Server for Data General AViiON</A>
+<MENU>
+<LI><A NAME="PToC_74" HREF="insgu038.htm#HDRAVILITP">Installing a License Server
+for Data General from Tape</A>
+<LI><A NAME="PToC_75" HREF="insgu038.htm#HDRAVILICD">Installing a License Server
+for Data General from CD-ROM</A>
+</MENU>
+<LI><A NAME="PToC_76" HREF="insgu039.htm#HDRDECLIC">15.8 Installing a License
+Server for DEC 3000 AXP</A>
+<MENU>
+<LI><A NAME="PToC_77" HREF="insgu039.htm#HDRDECLITP">Installing a License Server
+for DEC 3000 AXP from Tape</A>
+<LI><A NAME="PToC_78" HREF="insgu039.htm#HDRDECLICD">Installing a License Server
+for DEC 3000 AXP from CD-ROM</A>
+</MENU></MENU><HR><P>
+<HR>
+<H2><A NAME="Header_57" HREF="#PToC_57">15.1 Introduction</A></H2>
+<P>
+It is necessary for you to read this section only if you expect to use a
+floating (or concurrent use) license and you are NOT presently running a
+NetLS license server somewhere in your network. (Please note that
+node-locked licenses do NOT require the installation of a NetLS license
+server). The job of selecting and configuring a license server is best
+performed by someone knowledgeable in system administration tasks. The
+remainder of this section is designed to assist a system/network
+administrator in configuring a license server.
+<P>
+This section describes a basic installation in which the license server
+and all client nodes reside on the same network segment. It also assumes
+that you are not currently using the Network Computing System (NCS)
+local or global location broker daemons llbd and glbd. For more complex
+NetLS configurations it is recommended that you consult both Gradient's
+<CITE>Managing Software Products with the Network License System</CITE> and
+<CITE>Managing NCS Software</CITE> which is provided in PostScript format
+on the distribution media in the compressed file
+
+ncs_ps.Z.
+You need to decompress this file using the UNIX <TT>uncompress</TT>
+command before viewing or printing it..
+
+<P>
+NetLS uses NCS to provide location services through the use of global
+and local location broker daemons (glbd and llbd). Therefore you must
+install and configure a NCS "cell" before you can run the NetLS
+license server daemon (netlsd).
+<P>
+The basic setup described here will configure a default cell and install
+and start all three daemons on a single "License Server" machine and
+configure them to start automatically when the machine is re-booted. If
+you decide on a different setup for your network please keep in mind
+that you must:
+<P>
+Run a glbd on at least one node in your network
+<P>
+Run llbd's on the node running the netlsd and the node running the glbd.
+<P>
+To configure a basic license server installation you must first identify
+the node best suited to be your license server. This should be a node
+which is very stable (i.e. rarely goes down) as floating licenses will
+be unavailable when this machine is down. A file server machine would be
+a good choice. Once a machine has been selected you can proceed with the
+installation of the license server software.
+
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="insgu031.htm">Previous Page</A> &#124; <A HREF="insgu033.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC10">Partial Table of Contents</A> &#93;</B>
+<br><b>&#91;<a href="../allguide.htm">Data Explorer
+Documentation</a>&nbsp;&#124;&nbsp;<a href="../qikguide.htm">QuickStart
+Guide</a>&nbsp;&#124;&nbsp;<a href="../usrguide.htm">User&#39;s
+Guide</a>&nbsp;&#124;&nbsp;<a href="../refguide.htm">User&#39;s
+Reference</a>&nbsp;&#124;&nbsp;<a href="../proguide.htm">Programmer&#39;s
+Reference</a>&nbsp;&#124;&nbsp;<a href="../insguide.htm">Installation and
+Configuration Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Running .net files in script mode</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu057.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu059.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu050.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="Header_365" ></A>10.9 Running .net files in script mode
+</H2>
+		<P>When you create a visual program using the User Interface, the .net
+file saved is a script, so you can run it in script mode. (User
+Interface-specific information, such as placement of tools on the
+canvas, is saved as comments in the script.) If you have a sequencer in
+your visual program, the User Interface adds a "play" command as
+the last line of the .net file. Thus you can edit this line out and add
+your own options if you want to do something other than play forward
+through the sequence once (see <A
+HREF="usrgu056.htm#HDRVCRCOMM">"Sequencer"</A>). If you do not
+have a sequencer in your visual program, the User Interface adds a call
+to "main()", the main macro which is defined to be your top level
+visual program. If you do not want the program to automatically execute
+when you read it in as a script, remove or comment out the call to
+"main()".
+
+		<P>
+If your visual program uses macros, the user interface will add an
+"include" line so that the macros will be included when the visual
+program is run as a script. You can look at the top of the .net file to
+see which macros are referenced by the program.  Thus if you need to
+send a collection of visual programs and macros to another person, this
+can help you to make sure you have sent all the necessary tools.
+
+		<P>It is possible to pass in script commands from the command line without making the user use shell scripting tricks or build temp script files. This is done with the -scriptcmd command line option. For example:</P>
+		<PRE>   dx -script script_macros.scr -scriptcmd &quot;MyMacro(value1,value2)&quot;</PRE>
+		<PRE>   dx -scriptcmd 'data = Import(&quot;junk&quot;); Print(data);'</PRE>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

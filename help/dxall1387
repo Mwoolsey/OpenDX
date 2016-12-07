@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxspc DXSetPendingCmd #!N #!N Function #!N #!N Enters a task 
+into a list of tasks to be run at the end 
+of each graph (visual program) execution. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Error DXSetPendingCmd(char *major, char *minor, int(*task)(Private), Private data); #!EF 
+#!N #!N Functional Details #!N #!N The task to be run 
+(  #!F-adobe-times-bold-r-normal--18*   *task #!EF ) is identified by two character strings: 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   *major #!EF #!EF 
+#!I50 #!N typically contains the calling module's ID. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   *minor #!EF #!EF #!I50 #!N typically indicates which of 
+several discrete tasks the module has entered. #!I0 #!N #!N #!N 
+#!N When execution of the graph is completed, the tasks in 
+the list are executed in the order in which they are 
+received. (If tasks are entered by two different modules, the order 
+in which the modules run determines the order in which the 
+tasks are called.) #!N #!N When  #!F-adobe-times-bold-r-normal--18*   *task #!EF is called, 
+it is passed  #!F-adobe-times-bold-r-normal--18*   *data #!EF as a parameter. The specified 
+task is called at the end of each execution until it 
+is removed from the pending-task list. Removal can be achieved by 
+calling the routine again, with the same strings for  #!F-adobe-times-bold-r-normal--18*   *major 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   *minor #!EF , but setting  #!F-adobe-times-bold-r-normal--18*   *task #!EF 
+to NULL. #!N #!N Return Value #!N #!N Returns OK or 
+returns ERROR and sets and error code. #!N #!N See Also 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxgmid,dxall1250 h DXGetModuleId  #!EL  #!EF #!N #!N  #!Lpndcmd,dxall1103 h Pending Commands  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxspe,dxall1388 h DXSetPerspective, DXGetPerspective  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

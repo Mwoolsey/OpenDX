@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgsm DXGetSeriesMember #!N 
+#!N Function #!N #!N Returns an indexed member from a Series 
+Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGetSeriesMember(Series s, 
+int n, float *position) #!EF #!N #!N Functional Details #!N #!N 
+Retrieves the Object specified by the zero-based index  #!F-adobe-times-bold-r-normal--18*   n #!EF 
+from the Series  #!F-adobe-times-bold-r-normal--18*   s #!EF . If  #!F-adobe-times-bold-r-normal--18*   s #!EF 
+has an  #!F-adobe-times-bold-r-normal--18*   n #!EF th member, and  #!F-adobe-times-bold-r-normal--18*   position #!EF 
+is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , then the value of that 
+Object's position in the Series will be returned in  #!F-adobe-times-bold-r-normal--18*   *position 
+#!EF . #!N #!N A Series is intended to represent a 
+single Field sampled across some parameter, such as time or temperature. 
+ #!F-adobe-times-bold-r-normal--18*   position #!EF contains the value of this sampled parameter. #!N 
+#!N Series members cannot be retrieved by the Series  #!F-adobe-times-bold-r-normal--18*   position 
+#!EF value. They must be retrieved by index value  #!F-adobe-times-bold-r-normal--18*   n 
+#!EF . #!N #!N Return Value #!N #!N Returns the  #!F-adobe-times-bold-r-normal--18*   
+n #!EF th member or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF if  #!F-adobe-times-bold-r-normal--18*   
+n #!EF is out of range. Returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgem,dxall1234 h DXGetEnumeratedMember  #!EL  ,  #!Ldxgm,dxall1246 h DXGetMember  #!EL  ,  #!Ldxgmc,dxall1247 h DXGetMemberCount  #!EL  ,  #!Ldxns,dxall1326 h DXNewSeries  #!EL  ,  #!Ldxssm,dxall1391 h DXSetSeriesMember  #!EL  #!EF #!N 
+#!N  #!Lssgs,dxall1065 h Series Groups  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxgsg,dxall1267 h DXGetString  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

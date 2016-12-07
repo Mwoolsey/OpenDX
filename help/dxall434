@@ -1,0 +1,43 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rddinter Using Data-Driven Interactors #!N #!EC #!N #!N Most 
+of the interactor types may be  #!F-adobe-times-medium-i-normal--18*   data-driven #!EF , meaning 
+that their attributes, such as minimum, maximum, increment, and label, may 
+be set by connecting the output of a tool to the 
+input of the interactor stand-in in the VPE or by a 
+value typed into the interactor stand-in's Configuration dialog box, rather than 
+by using the  #!F-adobe-times-bold-r-normal--18*   Set Attributes #!EF dialog box for the 
+interactor. #!N #!N If an interactor is data-driven, then the information 
+transmitted via connections or set in the Configuration dialog box overrides 
+the values set via the  #!F-adobe-times-bold-r-normal--18*   Set Attributes #!EF dialog box 
+and causes the corresponding values in the  #!F-adobe-times-bold-r-normal--18*   Set Attributes #!EF 
+dialog box to be grayed out. #!N #!N Data-driven interactors allow 
+you to create visual programs that will work with a variety 
+of input data sets without the need to reset the interactor 
+attributes to be in a range appropriate for the data being 
+used. For example, a scalar interactor controlling an isosurface value can 
+be data-driven by connecting the input data field to it. The 
+interactor is then automatically set so that its minimum and maximum 
+span the range of the data. #!N #!N Data-driven interactors have 
+a data input to which an input data field may be 
+connected. In this case the interactor automatically chooses the minimum, maximum, 
+and increment. However, if you would like to have more control 
+over the exact values that are used, the interactors allow you 
+to specify them directly through other input tabs that are by 
+default hidden. For example, you may wish to set the minimum 
+and maximum for an interactor to go from the minimum of 
+the data values to the midpoint of the data values, rather 
+than to the maximum. In this case, you can use the 
+"min" and "max" input tabs of the interactor rather than the 
+"data" tab. #!N #!N The interactors that can be data-driven are 
+Integer, Scalar, Vector, IntegerList, ScalarList, VectorList, Selector, SelectorList, and Toggle. In 
+ #!Lfmd,dxall765 h Functional Modules  #!EL  in IBM Visualization Data Explorer User's Reference, the inputs for 
+each of these interactors are described on the manual page corresponding 
+to that interactor. #!N #!N Each time an input to a 
+data-driven interactor is changed (for example, by importing a new data 
+set) the interactor is reexecuted, updating its attributes. If the current 
+setting of the interactor lies within the new range allowed, the 
+interactor value does not change. If the current setting is outside 
+the new allowed range, the current setting is reset to the 
+midpoint of the new minimum and maximum. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lmacros,dxall435 h Creating and Using Macros  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

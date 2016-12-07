@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxic DXInvalidateConnections #!N #!N Function #!N #!N Propagates the validity of 
+positions. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXInvalidateConnections(Object object) 
+#!EF #!N #!N Functional Details Propagates the validity of positions within 
+the Fields of  #!F-adobe-times-bold-r-normal--18*   object #!EF to the connections, faces, or 
+polylines. The validity of the positions is determined from the contents 
+of the "invalid positions" component. A connections, faces, or polylines element 
+will be invalidated if any of its constituent positions are invalid. 
+An "invalid" connections, faces, or polylines component will be created if 
+necessary. If there is no "invalid positions" component, if none of 
+the positions are invalid, or if there is no "connections," "faces," 
+or "polylines," component, there will be no change to  #!F-adobe-times-bold-r-normal--18*   object 
+#!EF . #!N #!N To invalidate positions that become unreferenced because 
+of the action of  #!F-adobe-times-bold-r-normal--18*   DXInvalidateConnections #!EF , use  #!F-adobe-times-bold-r-normal--18*   DXInvalidateUnreferencedPositions 
+#!EF . To remove invalidated connections, faces, or polylines (and positions), 
+use  #!F-adobe-times-bold-r-normal--18*   DXCull #!EF . #!N #!N Return Value #!N #!N 
+Returns the updated Object or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets 
+an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcul,dxall1193 h DXCull  #!EL  
+,  #!Ldxiup,dxall1287 h DXInvalidateUnreferencedPositions  #!EL  #!EF #!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxidb,dxall1286 h DXInvalidateDupBoundary  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

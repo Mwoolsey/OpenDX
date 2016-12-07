@@ -1,0 +1,46 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxendf DXEndField #!N #!N Function 
+#!N #!N Creates the standard components "box" and "neighbors" that other 
+modules expect Field  #!F-adobe-times-bold-r-normal--18*   f #!EF to contain. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Field DXEndField(Field f) #!EF #!N #!N Functional 
+Details #!N #!N The "box" component defines the corners of an 
+n-dimensional box that contains all of the positions described by the 
+Field's "positions" component. The "neighbors" component contains information that provides a 
+mechanism for quick access to neighboring interpolation elements. #!N Note: A 
+"neighbors" component is not created for a Field with regular connections. 
+#!N #!N #!N In addition,  #!F-adobe-times-bold-r-normal--18*   DXEndField #!EF sets the "dep" 
+and "ref" attributes, if not already set, on the components listed 
+in  #!Lcat26,dxall1201 t Table 26  #!EL  .  #!Rcat26 #!T,1,91,106,196  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 26. Set 
+Attributes #!N TAB Component TAB Attribute| Value #!EF #!N TAB "positions" 
+TAB "dep" TAB "positions" #!N TAB "connections"| "ref" TAB "positions" #!N 
+TAB "data" TAB "dep" TAB "positions" #!N TAB "colors" TAB "dep" 
+TAB "positions" #!N TAB "front TAB "dep" TAB "positions" #!N TAB 
+colors" TAB - TAB #!N TAB "back TAB "dep" TAB "positions" 
+#!N TAB colors" TAB - TAB #!N TAB "opacities" TAB "dep" 
+TAB "positions" #!N TAB "tangents" TAB "dep" TAB "positions" #!N TAB 
+"normals" TAB "dep" TAB "positions" #!N TAB "binormals" TAB "dep" TAB 
+"positions" #!N #!N During this phase,  #!F-adobe-times-bold-r-normal--18*   DXEndField #!EF also checks 
+to make sure that the number of elements in a component 
+being set to depend on the "positions" component does actually match 
+the number of positions in the Field. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXEndField 
+#!EF also trims all of a Field's component Arrays to use 
+the amount of space actually containing data as specified by  #!F-adobe-times-bold-r-normal--18*   
+DXAddArrayData #!EF . Thus, for optimal performance,  #!F-adobe-times-bold-r-normal--18*   DXEndField #!EF should 
+be called just prior to returning a Field. Further, after a 
+call to  #!F-adobe-times-bold-r-normal--18*   DXEndField #!EF , pointers obtained by calls to 
+ #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF to data contained in Arrays that are components 
+of a Field cannot be assumed valid. #!N #!N If you 
+are creating a Group that contains several Fields, then  #!F-adobe-times-bold-r-normal--18*   DXEndObject 
+#!EF may be called instead on the Group structure. This will 
+parallelize the application of the  #!F-adobe-times-bold-r-normal--18*   DXEndField #!EF calls to the 
+member Fields on architectures that support parallelism. #!N #!N For a 
+more complete examination of a Field, including checks to ensure that 
+indices contained in components that refer to other components are correct, 
+see additional details of the  #!F-adobe-times-bold-r-normal--18*   Verify #!EF module in  #!Lmda,dxall750 h Data Explorer Tools  #!EL  
+in IBM Visualization Data Explorer User's Reference. #!N #!N Return Value 
+#!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   f #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxbb,dxall1176 h DXBoundingBox  #!EL  ,  #!Ldxccvs,dxall1178 h DXChangedComponentValues, DXChangedComponentStructure  #!EL  ,  #!Ldxemf,dxall1200 h DXEmptyField  #!EL  ,  #!Ldxeo,dxall1202 h DXEndObject  #!EL  ,  #!Ldxn,dxall1308 h DXNeighbors  #!EL  , 
+ #!Ldxs,dxall1396 h DXStatistics  #!EL  ,  #!Lverify,dxall979 h Verify  #!EL  #!EF #!N #!N  #!Lstdcs,dxall1086 h Standard Components  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxeo,dxall1202 h DXEndObject  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

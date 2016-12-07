@@ -1,0 +1,74 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall630 Example 6. Product Arrays 
+#!N #!EC #!N #!N The following examples show how to use 
+Product Arrays to define positions that are composed of products of 
+arrays. Such positions may be regular in one or more dimensions 
+and irregular in one or more dimensions. The resulting product array 
+is found as a product of all possible combinations of the 
+terms comprising the Array. #!N #!N The first data file defines 
+data that has irregular positions in the xy plane but regular 
+spacing in the z dimension. This file can be found in 
+ #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/data/product1.dx #!EF .  #!Lprodar109,dxall631 f Figure 109  #!EL  shows the resulting image. #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N # define a set of irregular points in 
+the xy plane #!N object 1 class array type float rank 
+1 shape 3 items 8 data follows #!T,43,86,129 #!N TAB 0.0 
+TAB 0.0 TAB 0.0 #!N TAB 0.0 TAB 1.1 TAB 0.0 
+#!N TAB 1.0 TAB 0.2 TAB 0.0 #!N TAB 1.1 TAB 
+1.3 TAB 0.0 #!N TAB 2.2 TAB 0.2 TAB 0.0 #!N 
+TAB 2.5 TAB 1.1 TAB 0.0 #!N TAB 3.5 TAB 0.1 
+TAB 0.0 #!N TAB 3.4 TAB 1.0 TAB 0.0 #!EF #!N 
+#!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # define a set 
+of regular points in the z direction #!N object 2 class 
+regulararray count 3 #!N origin TAB 0.0 TAB 0.0 TAB 0.0 
+#!N delta TAB 0.0 TAB 0.0 TAB 1.0 #!EF #!N #!N 
+#!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # create a product array 
+of the irregular points in the xy plane and #!N # 
+the regular points in the z direction #!N object 3 class 
+product array #!T,16,69,121,172,225,277,328,380 #!N TAB term 1 #!N TAB term 2 
+#!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # create 
+regular cube connections #!N object 4 class gridconnections counts 4 2 
+3 #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # 
+the data component #!N object 5 class array type float rank 
+0 items 24 data follows #!N TAB 1.0 TAB 2.1 TAB 
+2.0 TAB 1.0 TAB 4.5 TAB 6.7 TAB 8.1 TAB 2.0 
+#!N TAB -0.9 TAB -0.8 TAB 1.0 TAB 1.2 TAB 1.3 
+TAB 0.1 TAB 0.3 TAB 3.0 #!N TAB 1.2 TAB 3.2 
+TAB 4.1 TAB 0.9 TAB 2.0 TAB 1.0 TAB -0.9 TAB 
+2.0 #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N object 
+"field" class field #!N TAB component "positions" 3 #!N TAB component 
+"connections" 4 #!N TAB component "data" 5 #!N #!N end #!EF 
+#!N #!N #!EC #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rprodar109 #!N Graphics omitted from 
+Online Documentation. Please see the manual. #!N #!N Figure 109. Product 
+Array Example with Irregular Points in the XY Plane #!EF #!N 
+#!EC The next data file defines a regular grid that is 
+regular in the xy plane but has irregular positions in the 
+z direction. This file can be found in  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/data/product2.dx #!EF 
+.  #!Lprod110,dxall631 f Figure 110  #!EL  shows the resulting image. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+# define a set of regular points in the xy plane 
+#!N object 1 class gridpositions 4 2 1 #!N #!N # 
+define a set of irregular points in the z direction #!N 
+object 2 class array type float rank 1 shape 3 items 
+3 data follows #!N TAB 0.0 TAB 0.0 TAB 0.0 #!N 
+TAB 0.0 TAB 0.0 TAB 1.0 #!N TAB 0.0 TAB 0.0 
+TAB 3.0 #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+# create a product array of the regular points in the 
+xy plane and #!N # the irregular points in the z 
+direction #!N object 3 class product array #!N TAB term 1 
+#!N TAB term 2 #!EF #!N #!N #!EC #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N # create regular cube connections #!N object 4 class 
+gridconnections counts 4 2 3 #!EF #!N #!N #!EC #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!T,43,94,138,182,234,285,346,406 #!N # the data component #!N object 5 
+class array type float rank 0 items 24 data follows #!N 
+TAB 1.0 TAB 2.1 TAB 2.0 TAB 1.0 TAB 4.5 TAB 
+6.7 TAB 8.1 TAB 2.0 #!N TAB -0.9 TAB -0.8 TAB 
+1.0 TAB 1.2 TAB 1.3 TAB 0.1 TAB 0.3 TAB 3.0 
+#!N TAB 1.2 TAB 3.2 TAB 4.1 TAB 0.9 TAB 2.0 
+TAB 1.0 TAB -0.9 TAB 2.0 #!EF #!N #!N #!EC #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!T,43 #!N object "field" class field #!N TAB 
+component "positions" 3 #!N TAB component "connections" 4 #!N TAB component 
+"data" 5 #!N #!N end #!EF #!N #!N #!EC #!Cbrown #!N 
+ #!F-adobe-times-medium-r-normal--18*    #!Rprod110 #!N #!N Graphics omitted from Online Documentation. Please see 
+the manual. #!N Figure 110. Product Array Example with Irregular Points 
+in the Z Direction #!EF #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall631,dxall632 h Example 7. Series  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

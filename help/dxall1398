@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxtt 
+DXTraceTime #!N #!N Function #!N #!N Enables or disables the accumulation 
+of time marks. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> void 
+DXTraceTime(int t) #!EF #!N #!N Functional Details #!N #!N Enables ( 
+ #!F-adobe-times-bold-r-normal--18*   t #!EF is 1) or disables (  #!F-adobe-times-bold-r-normal--18*   t #!EF 
+is 0) the accumulation of time marks by  #!F-adobe-times-bold-r-normal--18*   DXMarkTime #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   DXMarkTimeLocal #!EF and the printing of timing messages by 
+ #!F-adobe-times-bold-r-normal--18*   DXPrintTimes #!EF . #!N #!N Return Value #!N #!N None. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgt,dxall1269 h DXGetTime  #!EL  ,  #!Ldxmt,dxall1306 h DXMarkTime, DXMarkTimeLocal  #!EL  , 
+ #!Ldxpt,dxall1333 h DXPrintTimes  #!EL  #!EF #!N #!N  #!Ltimg,dxall1095 h Timing  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxtpp,dxall1399 h DXTraversePickPath  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

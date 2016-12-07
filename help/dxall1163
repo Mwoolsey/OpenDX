@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxatg 
+DXAbortTaskGroup #!N #!N Function Aborts a task Group without executing it. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> 
+#!N #!N Error DXAbortTaskGroup() #!EF #!EF #!N #!N #!EC #!N #!N 
+Functional Details If the creation of a task Group must be 
+terminated before it can be completed,  #!F-adobe-times-bold-r-normal--18*   DXAbortTaskGroup #!EF should be 
+called to release the resources allocated to that Group and its 
+component tasks. After this call, the routine  #!F-adobe-times-bold-r-normal--18*   DXExecuteTaskGroup #!EF must 
+not be called until a new task Group has been created 
+(i.e., by  #!F-adobe-times-bold-r-normal--18*   DXCreateTaskGroup #!EF and  #!F-adobe-times-bold-r-normal--18*   DXAddTask #!EF ). #!N 
+#!N Return Value Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR 
+#!EF and sets an error code. #!N #!N See Also  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxat,dxall1170 h DXAddTask  #!EL  ,  #!Ldxctg,dxall1192 h DXCreateTaskGroup  #!EL  ,  #!Ldxetg,dxall1203 h DXExecuteTaskGroup  #!EL  #!EF #!N #!N  #!Lplsm,dxall1105 h Parallelism  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxaplus,dxall1164 h DXAdd, DXCross, DXDiv, DXDot, DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

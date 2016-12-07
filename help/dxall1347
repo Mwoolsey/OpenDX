@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqp DXQueryParameter #!N #!N Function 
+#!N #!N Determines whether an Object can be converted to a 
+specified value type. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object 
+DXQueryParameter(Object o, Type t, int dim, int *count) #!EF #!N #!N 
+Functional Details #!N #!N If the conversion can be performed, the 
+number of resulting elements is returned in  #!F-adobe-times-bold-r-normal--18*   *count #!EF if 
+it is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . #!N #!N For successful 
+conversion, Object  #!F-adobe-times-bold-r-normal--18*   o #!EF must be an Array or a 
+String. If  #!F-adobe-times-bold-r-normal--18*   o #!EF is an Array, then its Category 
+must be  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL #!EF , its rank must be either 
+0 or 1, and it must have at least 1 item 
+contained within. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   dim #!EF is greater than 
+1, then  #!F-adobe-times-bold-r-normal--18*   o #!EF 's rank must be 1 and 
+its shape must match  #!F-adobe-times-bold-r-normal--18*   dim #!EF in order for this 
+conversion to be successful. If  #!F-adobe-times-bold-r-normal--18*   dim #!EF is either 0 
+or 1, then both rank 0 and rank 1 shape 1 
+Arrays will match in size. #!N #!N Once it is known 
+that the sizes match, the Array's Type is examined to determine 
+whether it can be converted to the Type specified by  #!F-adobe-times-bold-r-normal--18*   
+t #!EF . In general, smaller types can be converted to 
+larger types in the following hierarchies:  #!F-adobe-times-bold-r-normal--18*   TYPE_BYTE, TYPE_SHORT, TYPE_INT, TYPE_FLOAT, 
+TYPE_DOUBLE, TYPE_UBYTE, TYPE_USHORT, TYPE_UINT #!EF . #!N #!N Signed and unsigned 
+types of the same size (e.g.,  #!F-adobe-times-bold-r-normal--18*   TYPE_BYTE #!EF and  #!F-adobe-times-bold-r-normal--18*   
+TYPE_UBYTE #!EF ) cannot be converted, nor can a signed type 
+ever be converted to an unsigned type. Unsigned types, however, can 
+be converted to larger signed types (e.g.,  #!F-adobe-times-bold-r-normal--18*   TYPE_UBYTE #!EF to 
+ #!F-adobe-times-bold-r-normal--18*   TYPE_SHORT #!EF ). #!N #!N If  #!F-adobe-times-bold-r-normal--18*   o #!EF is 
+a String,  #!F-adobe-times-bold-r-normal--18*   t #!EF must be  #!F-adobe-times-bold-r-normal--18*   TYPE_STRING #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   dim #!EF must be either 0 or 1. If  #!F-adobe-times-bold-r-normal--18*   
+dim #!EF is 0, the String contained in  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+must contain only a single character. #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF if the conversion can be made 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF without setting an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxef,dxall1207 h DXExtractFloat  #!EL  ,  #!Ldxei,dxall1208 h DXExtractInteger  #!EL  ,  #!Ldxens,dxall1209 h DXExtractNthString  #!EL  
+,  #!Ldxep,dxall1210 h DXExtractParameter  #!EL  ,  #!Ldxes,dxall1211 h DXExtractString  #!EL  ,  #!Ldxqacv,dxall1340 h DXQueryArrayConvert, DXQueryArrayConvertV  #!EL  #!EF #!N #!N  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxqpic,dxall1348 h DXQueryPickCount  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

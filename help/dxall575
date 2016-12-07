@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rtall575 Do Not Render Images #!N #!N #!N A common mistake 
+is to render image data (i.e. 2-dimensional grids) using Render, Image, 
+or Display with a camera input. This results in Data Explorer 
+interpreting the image as a very large number of quads, in 
+which case much memory and CPU is used. #!N #!N Instead, 
+one can AutoColor or Color the image and pass it directly 
+to Display (without a camera input), or for even more memory 
+savings, convert the data to unsigned bytes (see below) and AutoColor 
+or Color the data with delayed colors (see below). #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldlaycol,dxall576 h Delayed Colors  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

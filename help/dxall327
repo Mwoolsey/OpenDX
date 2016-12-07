@@ -1,0 +1,64 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rglopt Rendering Options... #!N #!EC #!N #!N You can 
+choose between software and hardware rendering if you are running Data 
+Explorer on a workstation with a graphics card that supports hardware 
+rendering. Approximations in both types of rendering help the user to 
+see the effect of rotation, roam, or navigation interactions before rendering 
+and display are complete. #!N #!N To set the rendering options, 
+select  #!F-adobe-times-bold-r-normal--18*   Rendering Options... #!EF in the  #!F-adobe-times-bold-r-normal--18*   Options #!EF pull-down 
+menu in the Image window. This causes the  #!F-adobe-times-bold-r-normal--18*   Rendering... #!EF 
+dialog box to appear, as illustrated in  #!Lrend62,dxall327 f Figure 62  #!EL  . #!Cbrown #!N 
+ #!F-adobe-times-medium-r-normal--18*    #!Rrend62 #!N #!N Graphics omitted from Online Documentation. Please see 
+the manual. #!N Figure 62. Rendering Options Dialog Box #!EF #!N 
+#!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   Rendering... #!EF dialog box allows you 
+to select the rendering mode with a toggle button. If you 
+select  #!F-adobe-times-bold-r-normal--18*   hardware #!EF , this means "use hardware if available" 
+at the time Data Explorer is run. If a graphics card 
+which supports hardware rendering is not available, software rendering will be 
+used instead. #!N #!N You can specify the approximation method that 
+Data Explorer uses for each of two execution states--button-up execution and 
+button-down execution. Button-down execution is applicable in execute-on-change mode and in 
+navigation. #!N #!N For example, you might specify  #!F-adobe-times-bold-r-normal--18*   None #!EF 
+for the approximation method for button-up execution, and  #!F-adobe-times-bold-r-normal--18*   Dots #!EF 
+for the approximation method for button-down execution. When holding the mouse 
+button down in  #!F-adobe-times-bold-r-normal--18*   Rotate #!EF mode (with  #!F-adobe-times-bold-r-normal--18*   Execute on 
+Change #!EF enabled), these rendering methods display a dot representation of 
+the object, giving you quick feedback on your camera position, until 
+you release the mouse button, at which point the object is 
+rendered normally. The following is a brief description of the rendering 
+methods you can specify with this dialog box. For detailed information 
+about the rendering options, see  #!Ldisplay,dxall807 h Display  #!EL  in IBM Visualization Data Explorer 
+User's Reference. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   None #!EF 
+#!I50 #!N No approximation method is specified, so a complete rendering 
+of the image is done. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Wireframe  #!F-adobe-times-medium-r-normal--18*   
+(available only with hardware rendering) #!EF #!EF #!I50 #!N Renders the 
+object as a wireframe, at the specified density. Surfaces are rendered 
+as wireframe meshes, while points and volumes are rendered as dots. 
+Wireframes are produced at full or fractional density. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Dots #!EF #!I50 #!N For hardware rendering, this approximation renders 
+all points, surfaces, and volumes as dots, at the specified density. 
+Lines are rendered as wireframe. Dots are produced at full or 
+fractional density. #!N #!N For software rendering, all points, surfaces, and 
+volumes are rendered as dots. You cannot specify the density for 
+software rendering. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Box #!EF #!I50 #!N Draws 
+the bounding box of each field in the object to be 
+rendered. #!I0 #!N #!N #!N #!N While the Dots or Wireframe 
+hardware rendering approximation methods are specified, the integer for  #!F-adobe-times-bold-r-normal--18*   Render 
+every #!EF controls the density of the rendering approximation. For the 
+Dots approximation, it means that every  #!F-adobe-times-medium-i-normal--18*   n #!EF th vertex 
+is rendered, where  #!F-adobe-times-medium-i-normal--18*   n #!EF is the integer specified. For 
+Wireframe approximation, the rendering depends on the type of connections. For 
+example, if the connections are triangles, it means that every  #!F-adobe-times-medium-i-normal--18*   
+n #!EF th triangle is rendered. You can use the  #!F-adobe-times-bold-r-normal--18*   
+Render every #!EF value to control the speed of your rendering; 
+the higher the value, the faster an object can be rendered. 
+The default value is 1 (meaning every dot and every wireframe 
+is rendered). #!N #!N The  #!F-adobe-times-bold-r-normal--18*   Render every #!EF box is 
+grayed out during software rendering, and during hardware rendering that is 
+not Dots or Wireframe approximations. Note: Do not use the Options 
+module to set hardware-rendering options if you intend to use the 
+ #!F-adobe-times-bold-r-normal--18*   Rendering... #!EF dialog box: options set by the Options module 
+are overridden by those set through the dialog box (see  #!Ldisplay,dxall807 h Display  #!EL  
+in IBM Visualization Data Explorer User's Reference. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Limdep,dxall328 h Image Depth  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

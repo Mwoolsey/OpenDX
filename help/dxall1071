@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rirreg Irregular Arrays #!N #!EC #!N #!N Irregular 
+Arrays are used for data that exhibit no particular regularity. They 
+may also be used to manage dynamically growing collections of data 
+whose size is not known in advance.  #!F-adobe-times-bold-r-normal--18*   DXNewArray() #!EF creates 
+an irregular Array with no items;  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData() #!EF adds data 
+to an irregular Array; and  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData() #!EF returns a pointer 
+to an irregular Array. Note: The routines listed in this subsection 
+apply only to irregular arrays. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXNewArray() #!EF #!N Array DXNewArrayV(); #!EF #!I50 #!N 
+Create an irregular Array Object. See  #!Ldxnav,dxall1310 h DXNewArray, DXNewArrayV  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXAddArrayData() #!EF #!EF #!I50 #!N Adds items to 
+an Array. See  #!Lun4,dxall1071 s Note on Use  #!EL  . See  #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXAllocateArray() #!EF #!EF #!I50 #!N Allocates space for 
+the data items of an Array. Although this routine is not 
+required, its use will make for more efficient management of memory. 
+See  #!Ldxaa,dxall1172 h DXAllocateArray  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXTrim() #!EF 
+#!EF #!I50 #!N Frees space previously allocated to an Array but 
+not needed for the number of items in that Array. See 
+ #!Ldxt,dxall1400 h DXTrim  #!EL  . #!I0 #!N #!N #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Note 
+on Use  #!Run4 There are four ways to add data to 
+irregular arrays. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. 
+Add the items one at a time:  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(a, i, 1, 
+item); #!EF #!N #!I30 #!N 2. Add the items in batches: 
+ #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(a, i, n, items); #!EF #!N #!I30 #!N 3. Add 
+the items all at once:  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(a, 0, n, items); #!EF 
+#!N #!I30 #!N 4. Allocate the memory as follows: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N a. call  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(a, 0, 
+n, NULL) #!EF #!N #!I30 #!N b. get a pointer to 
+the memory: #!N  #!F-adobe-times-bold-r-normal--18*   ptr = DXGetArrayData(a) #!EF #!N #!I30 #!N 
+c. put the items directly into global memory "by hand": set 
+the contents (pointed to by the pointer obtained in the preceding 
+step) to the data value. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N 
+ptr[i] = itemvalue; #!N #!EF #!EF #!N #!N #!EC In the 
+examples shown here: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+ #!F-adobe-times-bold-r-normal--18*   a #!EF is the array. #!N #!I30 #!N  #!F-adobe-times-bold-r-normal--18*   i 
+#!EF is the position at which to add an item. #!N 
+#!I30 #!N  #!F-adobe-times-bold-r-normal--18*   n #!EF is the number of items to 
+be added. #!N #!I30 #!N  #!F-adobe-times-bold-r-normal--18*   item(s) #!EF is the address 
+of the item(s) to be added. #!N #!I0 #!N #!EF #!N 
+#!N #!I0 #!N #!EF #!N #!N #!I0 #!N #!EF #!N #!N 
+#!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lstingl,dxall1072 h String List Routines  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

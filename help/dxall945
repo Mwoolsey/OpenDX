@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rshowcon ShowConnections #!N #!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  
+#!N #!N Function #!N #!N Draws the connective elements of a 
+field. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output 
+#!EF = ShowConnections(  #!F-adobe-times-bold-r-normal--18*   input #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB input TAB field TAB 
+none TAB field whose connection elements #!N TAB - TAB - 
+TAB - TAB are to be shown. #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB output 
+TAB color field TAB renderable connections of input field #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+This module creates a set of renderable lines representing the "connections" 
+component of a specified input. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N specifies the object whose 
+connection elements are to be shown. #!I0 #!N #!N #!N #!N 
+#!I0 #!N Notes: #!N #!I30 #!N 1. If the input object 
+lacks a "colors" component, the module adds a default color to 
+the output. #!N #!I30 #!N 2. Position-dependent color and data components 
+are passed to the output. Connection-dependent color and data components are 
+not passed to the output, because their values along a connection 
+line are ill defined. To make the data or colors position-dependent, 
+use the Post module. #!I0 #!N #!N #!N #!N Components #!N 
+#!N Creates a new "connections" component and adds a "colors" component 
+if the input does not already have one. Connection-dependent components are 
+not propagated to the output; all other components are. #!N #!N 
+Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N SIMPLE/Refine.net #!N ConnectingScatteredPoints.net 
+#!N ImportExternalFilter.net #!N PlotLine.net #!N Isolate.net #!N UsingStreakline.net #!EF #!N #!N 
+#!EC #!N #!N See Also #!N #!N  #!Lpost,dxall910 h Post  #!EL  ,  #!Lshowbou,dxall943 h ShowBoundary  #!EL  , 
+ #!Lshowbox,dxall944 h ShowBox  #!EL  ,  #!Lshowpos,dxall946 h ShowPositions  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lshowpos,dxall946 h ShowPositions  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

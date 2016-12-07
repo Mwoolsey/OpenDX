@@ -1,0 +1,81 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsupstat 
+SuperviseState #!N #!N Category #!N #!N  #!Lcatwin,dxall764 h Windows  #!EL  #!N #!N Function #!N 
+#!N Manages the object and/or camera associated with an image window 
+created using SuperviseWindow. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+ #!F-adobe-times-bold-r-normal--18*   object, camera, where, events #!EF = SuperviseState(  #!F-adobe-times-bold-r-normal--18*   where,defaultCamera, resetCamera, 
+#!N object, resetObject, size, #!N events, mode, args #!EF ); #!EF 
+#!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Default TAB Description #!EF #!N TAB where 
+TAB string TAB (none) TAB the window for which objects and 
+#!N TAB - TAB - TAB - TAB cameras are to 
+be manipulated #!N TAB defaultCamera TAB camera TAB (none) TAB initial 
+or default camera #!N TAB resetCamera TAB flag TAB 0 TAB 
+whether to reset camera to the #!N TAB - TAB - 
+TAB - TAB default #!N TAB object TAB object TAB (none) 
+TAB initial or default object #!N TAB resetObject TAB flag TAB 
+0 TAB whether to reset object to the #!N TAB - 
+TAB - TAB - TAB default #!N TAB size TAB vector 
+or integer list TAB (none) TAB size #!N TAB events TAB 
+object TAB (none) TAB mouse or keyboard events from #!N TAB 
+- TAB - TAB - TAB SuperviseWindow #!N TAB mode TAB 
+integer TAB (none) TAB specifies the mode, or which #!N TAB 
+- TAB - TAB - TAB UserInteractor to enable #!N TAB 
+args TAB object TAB (none) TAB interactor arguments #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N TAB 
+object TAB object TAB current object #!N TAB camera TAB camera 
+TAB current camera #!N TAB where TAB string TAB input where 
+#!N TAB events TAB string TAB unhandled events #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N Briefly, 
+this module allows a user to specify the particular action that 
+should be taken on mouse or keyboard events in a window 
+created using SuperviseWindow. The SuperviseState module is expected to be used 
+together with SuperviseWindow and Display to create and display a window. 
+These modules are used as an alternative to the Image tool. 
+See  #!Lsupwind,dxall961 h SuperviseWindow  #!EL  for a more complete discussion of the use of 
+the Supervise modules and the benefits one gets with respect to 
+the simple use of the Image tool. #!N #!N Actions are 
+specified using user-supplied routines called UserInteractors. A single UserInteractor is the 
+set of actions which take place for any mouse or keyboard 
+event for a given  #!F-adobe-times-bold-r-normal--18*   mode #!EF . For example, a 
+single  #!F-adobe-times-bold-r-normal--18*   mode #!EF may define different behaviors for left, middle, 
+and right mouse actions. An arbitrary number of different modes can 
+be defined, providing a limitless number of different user interactions with 
+the image. Note that this implies that different actions (for example 
+zoom and translate) can be implemented either as different modes using 
+the same mouse button, as the same mode with different mouse 
+buttons, or of course, different modes and different buttons. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   where #!EF #!EF #!I50 #!N 
+the window for which objects and cameras are to be manipulated. 
+This input should be supplied by the  #!F-adobe-times-bold-r-normal--18*   where #!EF output 
+of SuperviseWindow. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   defaultCamera #!EF #!EF #!I50 
+#!N is the initial or default camera. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   resetCamera #!EF #!EF #!I50 #!N indicates whether to reset camera 
+to the default #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF 
+#!I50 #!N is the initial or default object #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   resetObject #!EF #!EF #!I50 #!N indicates whether to reset 
+object to the default #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   size #!EF 
+#!EF #!I50 #!N is the current size of the image, and 
+should be supplied by the  #!F-adobe-times-bold-r-normal--18*   size #!EF output of SuperviseWindow 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   events #!EF #!EF #!I50 #!N mouse 
+or keyboard events. Should be supplied by the  #!F-adobe-times-bold-r-normal--18*   events #!EF 
+output of SuperviseWindow #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   mode #!EF #!EF 
+#!I50 #!N specifies the mode, (which UserInteractor to enable). The set 
+of user-defined UserInteractors is created as a table of callbacks. The 
+ #!F-adobe-times-bold-r-normal--18*   mode #!EF value specifies which entry in that table is 
+to be called. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   args #!EF #!EF 
+#!I50 #!N interactor arguments as required by a UserInteractor. #!I0 #!N 
+#!N #!N #!N The following are output parameters: #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N current 
+object; should be passed to the  #!F-adobe-times-bold-r-normal--18*   object #!EF input of 
+Display. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   camera #!EF #!EF #!I50 #!N 
+current camera; should be passed to the  #!F-adobe-times-bold-r-normal--18*   camera #!EF input 
+of Display #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   where #!EF #!EF #!I50 
+#!N Window where parameter; should be passed to the  #!F-adobe-times-bold-r-normal--18*   where 
+#!EF input of Display. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   events #!EF 
+#!EF #!I50 #!N are unhandled events, that is any mouse or 
+keyboard events that have been masked off within the routine InitMode, 
+described in UserInteractors. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall958,dxall959 h UserInteractors  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

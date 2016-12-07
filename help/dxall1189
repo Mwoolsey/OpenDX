@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcah DXCreateArrayHandle #!N #!N Function #!N #!N Creates a "handle" 
+to allow convenient access to the items in any Array class. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> ArrayHandle DXCreateArrayHandle(Array array) #!EF 
+#!N #!N Functional Details #!N #!N There are three different approaches 
+for writing functions that support all of the defined Array classes: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Use  #!F-adobe-times-bold-r-normal--18*   
+DXGetArrayClass #!EF to determine the specific Array class, and then use 
+the class-specific functions (e.g.,  #!F-adobe-times-bold-r-normal--18*   DXGetConstantArrayData #!EF ). The advantage of 
+this approach is it uses the most efficient method to access 
+the data stored in the Array. The disadvantage is that you 
+need to write different code for each Array class. #!N #!I30 
+#!N 2. Use  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF on all Arrays. The advantage 
+here is the simplicity; the disadvantage is that  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF 
+expands compact data, greatly increasing memory use. #!N #!I30 #!N 3. 
+Use the Array handling routines. The advantage is that they work 
+on Arrays of any class without expanding the compact data; the 
+disadvantage, that they are slightly less efficient for some Array classes. 
+#!N #!N The ArrayHandle created should be deleted with  #!F-adobe-times-bold-r-normal--18*   DXFreeArrayHandle 
+#!EF when the user no longer needs it. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . 
+#!N #!I0 #!N #!EF #!N #!N #!N Return Value #!N #!N 
+Returns an Array Handle or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets 
+an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxfah,dxall1214 h DXFreeArrayHandle  #!EL  
+,  #!Ldxgaey,dxall1221 h DXGetArrayEntry, DXGetArrayEntries  #!EL  ,  #!Ldxia,dxall1291 h DXIterateArray  #!EL  #!EF #!N #!N  #!Larhand,dxall1073 h Array Handling  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxch,dxall1190 h DXCreateHash  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

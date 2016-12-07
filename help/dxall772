@@ -1,0 +1,118 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rautocol AutoColor #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N 
+Function #!N #!N Automatically colors a field. #!N #!N Syntax #!N 
+#!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N mapped, colormap #!EF = AutoColor( 
+ #!F-adobe-times-bold-r-normal--18*   data, opacity, intensity, start, range, #!N saturation, min, max, delayed, 
+outofrange #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB data TAB data field TAB none TAB field 
+to be colored #!N TAB opacity TAB scalar TAB input dependent 
+TAB opacity, between 0 and 1 #!N TAB intensity TAB scalar 
+TAB 1.0 TAB color intensity #!N TAB start TAB scalar TAB 
+0.6666 TAB starting color (default = blue) #!N TAB range TAB 
+scalar TAB 0.6666 TAB range of color (default = blue to 
+#!N TAB - TAB - TAB - TAB red) #!N TAB 
+saturation TAB scalar TAB 1 TAB saturation, between 0 and 1 
+#!N TAB min TAB scalar or data field TAB min of 
+data TAB minimum of data to be colored #!N TAB max 
+TAB scalar or data field TAB max of data TAB maximum 
+of data to be colored #!N TAB delayed TAB flag TAB 
+0 TAB 0: apply maps #!N TAB - TAB - TAB 
+- TAB 1: delay applying color and #!N TAB - TAB 
+- TAB - TAB opacity maps (byte data only) #!N TAB 
+outofrange TAB vector list or string list TAB [.3 .3 .3] 
+TAB how to color out-of-range points #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Description #!EF #!N TAB mapped TAB 
+color field TAB color-mapped input field #!N TAB colormap TAB field 
+TAB RGB color map used #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N This module colors a 
+specified field (  #!F-adobe-times-bold-r-normal--18*   data #!EF ) by mapping hues to 
+data values. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data 
+#!EF #!EF #!I50 #!N is an input field with data. If 
+the input is a vector field, the colors are based on 
+the magnitude of the data. If the input consists of matrices, 
+the colors are based on the determinants. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   opacity #!EF #!EF #!I50 #!N specifies the opacity of the 
+resulting object. Allowed values range from 0 to 1. Its default 
+value is 1 for surfaces and 0.5 for volumes. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   intensity #!EF #!EF #!I50 #!N scales the amount 
+of color. For opaque surfaces, the parameter scales from black (0) 
+to full color (1). For volumes, it controls the brightness of 
+the object when viewed along its longest dimension. Values greater than 
+1 can be used to brighten translucent surfaces or volumes that 
+appear too dim. See also  #!Lcvolrnd,dxall820 h Coloring Objects for Volume Rendering  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   start #!EF and  #!F-adobe-times-bold-r-normal--18*   start #!EF - #!EF  #!F-adobe-times-bold-r-normal--18*   range 
+#!EF #!I50 #!N specify the colors applied to the minimum and 
+maximum data values mapped. By default, the minimum data value is 
+colored blue (0.6666), and the maximum is colored red (0 or 
+1; colors are defined cyclically from -<infinity> to <infinity>, so that 
+a  #!F-adobe-times-bold-r-normal--18*   start #!EF of -1 = 0 =1, and so 
+on). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   saturation #!EF #!EF #!I50 #!N 
+specifies the saturation of the colors used. This value must be 
+between 0 and 1. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   min #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   max #!EF #!EF #!I50 #!N specify the minimum and 
+maximum data values mapped. If neither is specified, the minimum and 
+maximum values of  #!F-adobe-times-bold-r-normal--18*   data #!EF are mapped. If  #!F-adobe-times-bold-r-normal--18*   min 
+#!EF is scalar, the minimum data value is mapped to that 
+value. If  #!F-adobe-times-bold-r-normal--18*   min #!EF is a data field, the minimum 
+data value of that field is used. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   
+max #!EF parameter is interpreted in corresponding fashion. If  #!F-adobe-times-bold-r-normal--18*   min 
+#!EF is a data field and  #!F-adobe-times-bold-r-normal--18*   max #!EF is unspecified, 
+the module uses the minimum and maximum values of that field. 
+#!N #!N For volumes, regions with values outside the  #!F-adobe-times-bold-r-normal--18*   min 
+#!EF -  #!F-adobe-times-bold-r-normal--18*   max #!EF range are invisible; for surfaces, such 
+regions are gray by default. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   delayed 
+#!EF #!EF #!I50 #!N determines whether "delayed colors" are created. Such 
+colors are available only for byte data and they use less 
+memory. #!N #!N When  #!F-adobe-times-bold-r-normal--18*   delayed #!EF = 1: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o The "colors" component is 
+a pointer to the "data" component, and a "color map" component 
+is created. (This component is a color lookup table with 256 
+entries, representing the appropriate color for each of the 256 possible 
+data values.) #!N #!I30 #!N o If  #!F-adobe-times-bold-r-normal--18*   opacity #!EF is 
+also specified, an opacity map is created with 256 entries, while 
+the "opacities" component is a copy of the "data" component. #!N 
+#!I30 #!N o The module adds a "direct color map" attribute 
+to the output object. (See  #!Ludcmps,dxall813 h Using Direct Color Maps  #!EL  .) #!N #!I0 #!N #!EF 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   outofrange #!EF #!EF #!I50 #!N 
+specifies the coloring of data that fall outside the  #!F-adobe-times-bold-r-normal--18*   min 
+#!EF -  #!F-adobe-times-bold-r-normal--18*   max #!EF range. This parameter applies only to 
+surfaces; out-of-range data values for volumes are always invisible. If the 
+parameter value is a single color (RGB vector or color-name string), 
+it is applied to both the upper and lower out-of-range points. 
+If it is a list of two colors, then it is 
+applied to the lower and upper out-of-range points, respectively. Color strings 
+can be any of the defined color-name strings (see  #!Lcolor,dxall792 h Color  #!EL  ) 
+or either of strings "color of min" and "color of max." 
+#!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 
+1. AutoColor adds colors to the "colors" component. For "front colors" 
+or "back colors," use the Rename module following AutoColor. (See  #!Lapc,dxall746 h Data Explorer Fonts  #!EL  
+, in IBM Visualization Data Explorer User's Guide.) #!N #!I30 #!N 
+2. This module also outputs the RGB color map used, in 
+the output  #!F-adobe-times-bold-r-normal--18*   colormap #!EF . The "positions" component contains the 
+data values, and the "data" component contains the corresponding RGB colors. 
+You can use this color map as an input to the 
+ColorBar module. For byte data, the color map always contains 256 
+entries for the 256 possible data values. If the input to 
+AutoColor is a group, then a different color map will be 
+constructed for each member of the group. In that case, the 
+ #!F-adobe-times-bold-r-normal--18*   colormap #!EF output of the module is a group of 
+color maps. Use the Select module to select the color map 
+you want to display using ColorBar. #!N #!I30 #!N 3. If 
+you AutoColor a group of volumes, you may find that the 
+resulting image is black because the renderer does not support coincident 
+volumes. #!I0 #!N #!N #!N #!N Components #!N #!N Adds a 
+"colors" component. An "opacities" component is added if  #!F-adobe-times-bold-r-normal--18*   opacity #!EF 
+is less than 1 or if the input data is a 
+volume. If  #!F-adobe-times-bold-r-normal--18*   delayed #!EF = 1, the "colors" component is 
+a copy of the "data" component and a "color map" component 
+is created. Similarly, an "opacity map" component is created if  #!F-adobe-times-bold-r-normal--18*   
+opacity #!EF is less than 1 or the input is a 
+volume. #!N #!N Example Visual Programs #!N #!N Many example visual 
+programs use AutoColor, including: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N 
+ContoursAndCaption.net #!N InvalidData.net #!N MappedIso.net #!N RubberTube.net #!N ThunderGlyphSheet.net #!N VolumeRendering.net 
+#!N SIMPLE/Autocolor.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lcolor,dxall792 h Color  #!EL  ,  #!Lcolorba,dxall793 h ColorBar  #!EL  ,  #!Lautogra,dxall777 h AutoGrayScale  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lautogly,dxall773 h AutoGlyph  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

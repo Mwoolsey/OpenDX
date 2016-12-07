@@ -1,0 +1,16 @@
+#!/bin/sh
+cat > foo << EOF
+EOF
+MSVC="/usr/Program Files/Microsoft Visual Studio"
+MSVC_INCLUDE=\"$MSVC/Vc98/Include\"
+MSVC_COMMON_INCLUDE=\"$MSVC/Common/Include\"
+eval makedepend -ffoo -Dintelnt -D_WIN32 -D_M_IX86=500 -Y -I$MSVC_INCLUDE -I$MSVC_COMMON_INCLUDE $1 2>/dev/null
+sed -e "/Microsoft/d" -e "/DO NOT DELETE/d" -e "/^$/d" -e "s/^.*://" < foo > bar
+if test `cat bar | wc -l` -eq 0 ; then
+	echo `echo $1 | sed "s/\.c/.o/"`: $1
+else
+	echo `echo $1 | sed "s/\.c/.o/"`: $1 "\\"
+	sed  -e '1,$s/$/ \\/' -e '$s/\\/ /' < bar
+fi
+rm foo
+exit 0

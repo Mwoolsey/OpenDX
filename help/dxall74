@@ -1,0 +1,63 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtmacro Creating and Using 
+Macros #!N #!EC #!N #!N Macros are collections of tools that 
+can be represented by a single icon in the VPE canvas. 
+Macros thus allow you not only to simplify the appearance of 
+your visual program but also to share commonly used functions between 
+programs. This section briefly introduces the basic concepts of creating and 
+using macros. (The topic is treated in detail in IBM Visualization 
+Data Explorer User's Guide.) The general procedure for creating a macro 
+follows on the next page. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N 1. Decide how many inputs and outputs your macro 
+will have. #!N #!I30 #!N 2. For each input, select  #!F-adobe-times-bold-r-normal--18*   
+Special #!EF in the categories palette and then  #!F-adobe-times-bold-r-normal--18*   Input #!EF 
+in the tools palette. #!N #!I30 #!N 3. Position the mouse 
+cursor in the VPE canvas and click once to generate an 
+ #!F-adobe-times-bold-r-normal--18*   Input #!EF icon. #!N #!I30 #!N 4. Repeat Steps 2 
+and 3 for  #!F-adobe-times-bold-r-normal--18*   Output #!EF . #!N #!I30 #!N 5. 
+Open the configuration dialog box for each tool to give it 
+an appropriate name, description, and default value. #!N #!I30 #!N 6. 
+Select any additional tools you want to include in the macro 
+and place their icons on the canvas. #!N #!I30 #!N 7. 
+Connect the  #!F-adobe-times-bold-r-normal--18*   Input #!EF and  #!F-adobe-times-bold-r-normal--18*   Output #!EF icons to 
+the appropriate tools. #!N #!I30 #!N 8. Select  #!F-adobe-times-bold-r-normal--18*   Macro Name 
+#!EF in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu and name the 
+macro. #!N #!I30 #!N 9. Save the macro. #!N #!I0 #!N 
+#!EF #!N #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   For Future Reference #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o To use the 
+new macro, you must first load it into Data Explorer: select 
+ #!F-adobe-times-bold-r-normal--18*   Load Macro #!EF from the  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu. 
+#!N #!N Once loaded, the macro will be available from the 
+tools palettes. Simply select it and place its icon on the 
+canvas. #!N #!I30 #!N o For descriptions of the inputs and 
+outputs specified when the macro was created, open its configuration dialog 
+box. #!N #!I30 #!N o To see the component contents of 
+the macro, click on the icon to highlight it and then 
+select  #!F-adobe-times-bold-r-normal--18*   Open Selected Macro #!EF in the  #!F-adobe-times-bold-r-normal--18*   Windows #!EF 
+pull-down menu. #!N #!I0 #!N #!EF #!N #!N #!N #!EC #!N 
+#!N The following example illustrates the use of a macro in 
+a visual program. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+1. Select  #!F-adobe-times-bold-r-normal--18*   Load Macro #!EF in the  #!F-adobe-times-bold-r-normal--18*   File #!EF 
+pull-down menu. #!N #!I30 #!N 2. Type /usr/lpp/dx/samples/tutorial/SampleMacro.net in the  #!F-adobe-times-bold-r-normal--18*   
+Filter #!EF field at the top of the dialog box and 
+press Enter. The name of the macro appears under  #!F-adobe-times-bold-r-normal--18*   Files 
+#!EF on the right side of the dialog box. #!N #!I30 
+#!N 3. Click on the macro name to highlight it, and 
+then click on  #!F-adobe-times-bold-r-normal--18*   Load Macro #!EF at the bottom of 
+the dialog box. A new category appears in the categories palette: 
+ #!F-adobe-times-bold-r-normal--18*   Macros #!EF . #!N #!I30 #!N 4. Select the new 
+category. The name of the new macro appears in the tools 
+palette. Now you can open a visual program that uses this 
+macro. #!N #!I30 #!N 5. Open and execute visual program .../UseSampleMacro.net. 
+#!N #!N Although the visual program looks simple, the image it 
+produces is quite elaborate. #!N #!I30 #!N 6. Click on the 
+ #!F-adobe-times-bold-r-normal--18*   SampleMacro #!EF icon to highlight it and then select  #!F-adobe-times-bold-r-normal--18*   
+Open Selected Macro #!EF in the  #!F-adobe-times-bold-r-normal--18*   Windows #!EF pull-down menu. 
+A new window appears, displaying the "network" of  #!F-adobe-times-bold-r-normal--18*   SampleMacro #!EF 
+: This macro performs various operations on the output from three 
+ #!F-adobe-times-bold-r-normal--18*   Input #!EF modules (top) and feeds the result to a 
+single  #!F-adobe-times-bold-r-normal--18*   Output #!EF module (bottom). It is this output that 
+is fed to the  #!F-adobe-times-bold-r-normal--18*   Display #!EF module in the visual 
+program. #!N #!I0 #!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ltddint,dxall75 h Data-driven Tools  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

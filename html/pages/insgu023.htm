@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Installation and Configuration
+Guide</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Installation and Configuration Guide">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Installation and Configuration Guide</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="insgu022.htm">Previous Page</A> &#124; <A HREF="insgu024.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="insgu020.htm#PToC6">Partial Table of Contents</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRAVIION" HREF="../insguide.htm#ToC_40">Chapter 11. Installing Data
+Explorer on a Data General AViiON</A></H1>
+<P><A NAME="PToC7" HREF="../insguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_41" HREF="#HDRAVITAPE">11.1 Installing on a Data General
+AViiON from Tape</A>
+<LI><A NAME="PToC_42" HREF="insgu024.htm#HDRAVICD">11.2 Installing on a Data
+General AViiON from CD-ROM</A>
+<LI><A NAME="PToC_43" HREF="insgu025.htm#HDRAVICFG">11.3 Configuring a Data
+Explorer License for a Data General AViiON</A>
+<MENU>
+<LI><A NAME="PToC_44" HREF="insgu025.htm#Header_44">Setting up a Node-locked
+License for a Data General AViiON</A>
+<LI><A NAME="PToC_45" HREF="insgu025.htm#Header_45">Setting up a Concurrent
+License for a Data General AViiON</A>
+</MENU></MENU><HR><P>
+Data Explorer is comprised of five subsystems as follows:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Base executables
+</B></TD><TD><P>contains all files needed to run Data Explorer.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Development environment
+</B></TD><TD><P>contains libraries, header files and other tools needed to
+build a custom executive.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Samples
+</B></TD><TD><P>example programs, scripts, tutorial, and makefiles.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Online help
+
+and HTML
+
+</B></TD><TD><P>online help available from the Data Explorer User Interface,
+
+and documentation in HTML format.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>PostScript and ASCII documentation
+</B></TD><TD><P>Documentation in PostScript format and for printing and in flat
+ASCII format for basic minimal viewing.
+
+</TD></TR></TABLE>
+<P>
+All subsystems are placed under a common directory (e.g.
+<TT>/usr/local/dx</TT>)
+which is referred to as the root of the Data Explorer installation tree.
+Architecture-specific executable and library files are placed in the
+directories
+<TT>bin_<I>ARCH</I></TT> and
+<TT>lib_<I>ARCH</I></TT> under the Data Explorer root, where
+<I>ARCH</I> is one
+of the supported architectures (alphax, aviion, hp700, ibm6000, sgi, solaris,
+sun4).
+As part of configuring Data Explorer, links and small files are
+placed in the public file system that reference files within the Data Explorer
+root
+directory. The default Data Explorer root directory is
+<TT>/usr/local/dx</TT>. In a networked
+environment, it is most convenient for users if all workstations have
+Data Explorer available through the same root directory. This makes it easier to
+run the User Interface on one machine and the server on another.
+<P>
+Data Explorer is a licensed software product and uses the NetLS
+licensing system to manage its licensing. Two types of licenses are
+supported: node-locked and floating (or concurrent-use). Node-locked
+licenses require a single configuration file containing an enabling
+password, while the floating license requires that a NetLS license
+server configured with at least one Data Explorer license is running somewhere
+within your network. If you expect to use a floating license and you do
+not have a NetLS license server running in your network you will need to
+install one (see <A HREF="insgu032.htm#HDRNETLS">Chapter 15. "Installing a NetLS
+License Server"</A>). Please note that node-locked
+licenses do not require the use or installation of a NetLS license
+server.
+<HR>
+<H2><A NAME="HDRAVITAPE" HREF="#PToC_41">11.1 Installing on a Data General
+AViiON from Tape</A></H2>
+<P>Tape distributions of Data Explorer contain three tar format files.
+The first contains two install scripts
+(installdx, install_lsk) and a PostScript file documenting Network
+Computing System (NCS) issues (ncs_ps.Z). The second contains the Data Explorer
+installation tree which contains Data Explorer for each of the supported
+architectures. The third file contains NetLS license server installation
+kits for each supported architecture. The NetLS license server is used
+to support the standard licensing mechanism for Data Explorer.
+<P>
+To install Data Explorer, log in as root, insert the tape in the drive, and
+type:
+<PRE>
+cd /tmp
+tar xvf &lt;device&gt; installdx
+&#46;/installdx &lt;platform&gt;
+</PRE>
+<P>
+&lt;device&gt; is the appropriate tape device for the operating system
+from which you run installdx.
+Example tape devices for DG/UX are:
+<PRE>
+/dev/rmt/0, ...
+</PRE>
+&lt;platform&gt; is used to indicate the platform for which the Data Explorer
+files will be extracted. The supported platforms are:
+<PRE>
+alphax, aviion, hp700, ibm6000, sgi, solaris, sun4
+</PRE>
+<P>
+This argument is optional and the default is the host platform
+(aviion).
+<P>
+The installation script will ask if you want to install or deinstall
+Data Explorer and then a series of questions related to the installation. You
+will be given the opportunity to set the installation directory and to
+select the Data Explorer subsystems to install.
+<P>
+When doing an installation for an architecture other than the current
+host, you may need to run the Configure script provided with Data Explorer on
+the
+workstations to which you expect to export the Data Explorer installation tree.
+See <A HREF="insgu029.htm#HDRCFGSCR">Chapter 13. "The Configure Script"</A>.
+<P>
+Please follow the instructions presented by installdx carefully. In
+particular, when asked to give the name of the tape device, be sure to
+give the name of the non-autorewinding tape drive, examples of which are
+provided by the script. Also, if at anytime during the tape installation
+you are asked to mount the next tape, just press the &lt;ENTER&gt; key
+to have the installation continue normally.
+<P>
+After installation and configuration is complete, which may take as much
+as 30 minutes, you will be provided with a unique workstation (node)
+identifier that must be provided to IBM to acquire the enabling license
+information. See <A HREF="insgu025.htm#HDRAVICFG">11.3 , "Configuring a Data
+Explorer License for a Data General AViiON"</A> for information
+on how to reacquire the identifier (if you lose it) and on how to use
+the node identifier to enable Data Explorer.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="insgu022.htm">Previous Page</A> &#124; <A HREF="insgu024.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC7">Partial Table of Contents</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

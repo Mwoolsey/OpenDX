@@ -1,0 +1,49 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen  #!Rall621 Example 3 #!N #!EC 
+#!N #!N suppose that the data file contains the following lines 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N xsize = 20 #!N ysize = 
+30 #!EF #!N #!N #!EC #!N #!N You could use the 
+statements #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N grid = marker "xsize =" 
+X marker "ysize =" #!EF #!N #!N #!EC or #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N grid = marker "xsize =",0,3 X lines 1,8,2 
+#!EF #!N #!N #!EC #!N #!N The first specifies that the 
+first dimension should be read following the marker "xsize =," and 
+the second dimension should be read following the marker "ysize =." 
+The second statement specifies that the first dimension should be read 
+from 3 characters, after skipping 0 characters following "xsize =," and 
+that the second dimension should be read from 2 characters after 
+skipping 1 line and 8 characters. #!N #!N The syntax for 
+the  #!F-adobe-times-bold-r-normal--18*   points #!EF keyword is (in addition to the syntax 
+given in  #!Lsydfgi,dxall139 h Header File Syntax: Keyword Statements  #!EL  in IBM Visualization Data Explorer QuickStart Guide): #!N 
+#!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N bytes n #!N points = 
+[format],[type]{ lines n , [skip, width] #!N marker string #!EF #!EF 
+#!N #!N #!EC #!N #!N where: #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   format #!EF #!EF #!I50 #!N is the format 
+in which the grid values will be found, and must be 
+one of the following:  #!F-adobe-times-bold-r-normal--18*   binary #!EF ,  #!F-adobe-times-bold-r-normal--18*   ieee #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   text #!EF , or  #!F-adobe-times-bold-r-normal--18*   ascii #!EF . The 
+first two parameters are synonymous, as are the second two. #!N 
+#!N For  #!F-adobe-times-bold-r-normal--18*   type #!EF and the other parameters, see the 
+preceding description of  #!F-adobe-times-bold-r-normal--18*   grid #!EF . #!I0 #!N #!N #!N 
+#!N The syntax for the  #!F-adobe-times-bold-r-normal--18*   positions #!EF keyword is (in 
+addition to the syntax given in  #!Lsydfgi,dxall139 h Header File Syntax: Keyword Statements  #!EL  in IBM Visualization Data 
+Explorer QuickStart Guide): #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N bytes n 
+#!N positions =[format],[type]{ lines n , [skip, width] | ?, ... 
+#!N marker string #!EF #!EF #!N #!N #!EC #!N #!N (This 
+syntax may be used only if you are specifying regular positions: 
+origin and delta pairs for each dimension. As described in IBM 
+Visualization Data Explorer QuickStart Guide, the origins and deltas are specified 
+as origin1, delta1, origin2, delta2, etc.) #!N #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   format #!EF #!EF #!I50 #!N is the 
+format in which the grid values will be found, and must 
+be one of the following:  #!F-adobe-times-bold-r-normal--18*   binary #!EF ,  #!F-adobe-times-bold-r-normal--18*   ieee 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   text #!EF , or  #!F-adobe-times-bold-r-normal--18*   ascii #!EF . 
+The first two parameters are synonymous, as are the second two. 
+#!N #!N For  #!F-adobe-times-bold-r-normal--18*   type #!EF and the other parameters, see 
+the description of  #!F-adobe-times-bold-r-normal--18*   grid #!EF above. A question mark (?) 
+signifies that the default should be used (origin=0 or delta=1) for 
+a particular origin or delta value. This would be used if 
+only the origins or only the deltas are to be found 
+in the file. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ledf,dxall623 h Data Explorer Native Files  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

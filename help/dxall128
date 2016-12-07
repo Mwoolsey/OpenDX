@@ -1,0 +1,58 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall127 Examples 
+4 and 5. Scalar and Vector Data #!N #!EC #!N #!N 
+This example uses the same grid as the previous 3, but 
+here the second data field (velocity) consists of 2-vectors. In Example 
+4, all the x-components of the 2-vectors are listed first, followed 
+by all the y-components. For example, the x- and y-components of 
+the first 2-vector are 34.81398 and 2.158719, respectively. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N Energy #!N 2.158719 1.45419 1.566509 1.551361 2.215095 1.726923 #!N 
+2.080461 1.418617 1.373206 2.231642 1.316575 1.445211 #!N 1.673182 1.445737 1.820333 2.167849 
+1.721611 1.554906 #!N 1.604594 2.061092 1.398391 2.062042 1.996196 1.509640 #!N Velocity 
+#!N 34.81398 18.81529 29.65139 42.499 22.96053 31.41604 #!N 19.92936 27.79935 26.34873 
+28.91081 21.17855 28.89354 #!N 6.320079 43.9068 6.597938 20.41342 14.83351 43.53309 #!N 
+16.36901 18.19812 4.628566 43.64742 44.99699 26.32183 #!N 2.158719 1.45419 1.566509 1.551361 
+2.215095 1.726923 #!N 2.080461 1.418617 1.373206 2.231642 1.316575 1.445211 #!N 1.673182 
+1.445737 1.820333 2.167849 1.721611 1.554906 #!N 1.604594 2.061092 1.398391 2.062042 1.996196 
+1.509640 #!N Temperature #!N 295.3329 302.5431 301.835 296.0127 297.8344 295.5451 #!N 
+301.6786 298.4496 302.0944 296.7458 296.3459 296.4179 #!N 303.1223 300.3094 297.9714 300.0774 
+299.1322 296.9368 #!N 302.0960 294.8137 300.662 299.5744 304.1986 302.4216 #!EF #!N 
+#!N #!EC #!N #!N The header file should look like: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/record_scalarvector1 #!N grid = 4 
+x 2 x 3 #!N format = text #!N interleaving = 
+record #!N majority = row #!N header = lines 1 #!N 
+field = Energy, Velocity, Temperature #!N structure = scalar, 2-vector, scalar 
+#!N recordseparator = lines 1, lines 0, lines 1 #!N #!N 
+end #!EF #!N #!N #!EC #!N #!N Note that the interleaving 
+specified for the vectors (line 4) is record (see  #!Lintrkwd,dxall148 h interleaving  #!EL  ) 
+and that the record separator (line 9) specifies: one (1) line 
+separating the Energy and Velocity data; no lines separating the records 
+containing the components of the Velocity data; and one (1) line 
+separating the Velocity and the Temperature data (see  #!Lrsepkwd,dxall151 h recordseparator  #!EL  ). #!N 
+#!N The data values in Example 5 are the same as 
+those in Example 4, but the components of each vector in 
+the Velocity field appear together (e.g., 34.813980 is followed by 2.158719 
+in the same row): #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Energy #!N 
+2.158719 1.454190 1.566509 1.551361 2.215095 1.726923 #!N 2.080461 1.418617 1.373206 2.231642 
+1.316575 1.445211 #!N 1.673182 1.445737 1.820333 2.167849 1.721611 1.554906 #!N 1.604594 
+2.061092 1.398391 2.062042 1.996196 1.509640 #!N Velocity #!N 34.813980 2.158719 18.815290 
+1.454190 29.651390 1.566509 #!N 42.499001 1.551361 22.960529 2.215095 31.416040 1.726923 #!N 
+19.929359 2.080461 27.799351 1.418617 26.348730 1.373206 #!N 28.910810 2.231642 21.178551 1.316575 
+28.893539 1.445211 #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+6.320079 1.673182 43.906799 1.445737 6.597938 1.820333 #!N 20.413420 2.167849 14.833510 1.721611 
+43.533089 1.554906 #!N 16.369011 1.604594 18.198120 2.061092 4.628566 1.398391 #!N 43.647419 
+2.062042 44.996990 1.996196 26.321831 1.509640 #!N Temperature #!N 295.332886 302.543091 301.834991 
+296.012695 297.834412 295.545105 #!N 301.678589 298.449585 302.094391 296.745789 296.345886 296.417908 #!N 
+303.122314 300.309387 297.971405 300.077393 299.132202 296.936798 #!N 302.096008 294.813690 300.661987 299.574402 
+304.198608 302.421600 #!EF #!N #!N #!EC #!N #!N The header file 
+should look like: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/record_scalarvector2 
+#!N grid = 4 x 2 x 3 #!N format = 
+text #!N interleaving = record-vector #!N majority = row #!N header 
+= lines 1 #!N structure = scalar, 2-vector, scalar #!N field 
+= Energy, Velocity, Temperature #!N recordseparator = lines 1 #!N #!N 
+end #!EF #!N #!N #!EC #!N #!N Note that the interleaving 
+specified for the vectors (line 4) has been changed to record-vector 
+and that the record separator (line 9) specifies one (1) line 
+separating successive records. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lmltvrx6,dxall129 h Example 6. Deformed (Warped) Regular Grid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

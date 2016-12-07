@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmark Mark #!N #!N Category #!N 
+#!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N Marks a component. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = 
+Mark(  #!F-adobe-times-bold-r-normal--18*   input, name #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB input TAB field TAB none 
+TAB the field with a component to be #!N TAB - 
+TAB - TAB - TAB marked #!N TAB name TAB string 
+TAB none TAB the component to be marked #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N TAB 
+output TAB field TAB the field with the named component marked 
+#!N TAB - TAB - TAB #!EF #!N #!N Functional Details 
+#!N #!N This module marks a specified component of a specified 
+input as "data" (without moving the "marked" component from its original 
+position). #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF 
+#!EF #!I50 #!N is the field that contains the component to 
+be marked. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF #!EF #!I50 
+#!N specifies the component to be marked. #!I0 #!N #!N #!N 
+#!N Once a component has been marked, all modules that operate 
+on the "data" component will now operate on the  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF component. If a "data" component already exists in  #!F-adobe-times-bold-r-normal--18*   input 
+#!EF , it is saved as the "saved data" component. If 
+a "saved data" component already exists, the module returns an error. 
+#!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. Many modules 
+operate only on the "data" component of a field. The functional 
+scope of such modules can be expanded by using the Mark 
+module to mark, for example, "positions" or "colors" components. #!N #!I30 
+#!N 2. Mark adds an attribute, called "marked component," that lists 
+the name of the component that was marked. The Unmark module 
+will use this attribute if no component is specified for unmarking. 
+#!I0 #!N #!N #!N #!N Components #!N #!N Moves the "data" 
+component to the "saved data" component and copies the  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF component to the "data" component. All other input components are 
+propagated to the output. #!N #!N Example Visual Programs #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N MakeLineMacro.net #!N PlotLine.net #!N PlotLine2.net #!N PlotTwoLines.net #!N 
+Sealevel.net #!N UsingMap.net #!N WarpingPositions.net #!N SIMPLE/MarkUnmark.net #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lcompute,dxall795 h Compute  #!EL  ,  #!Lextract,dxall845 h Extract  #!EL  ,  #!Loptions,dxall898 h Options  #!EL  
+,  #!Lrename,dxall922 h Rename  #!EL  ,  #!Lreplace,dxall925 h Replace  #!EL  ,  #!Lunmark,dxall972 h Unmark  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lmeasure,dxall894 h Measure  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

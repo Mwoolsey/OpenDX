@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rtcmpmod Modules: Using Compute #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   Compute 
+#!EF is a general purpose module for performing algebraic, trigonometric, and 
+logical operations on data. It can also extract components from vectors, 
+create vectors from scalar components, and cast between different data types. 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Open and 
+execute visual program .../Compute.net. The image represents wind velocity over the 
+surface of the earth. Color values are based on the magnitude 
+of the wind velocity, and the small black squares and rectangles 
+represent missing data. #!N #!I30 #!N 2. Disconnect  #!F-adobe-times-bold-r-normal--18*   Include #!EF 
+from  #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF and connect the output of  #!F-adobe-times-bold-r-normal--18*   Compute 
+#!EF to  #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF instead. #!N #!I30 #!N 3. Execute 
+the visual program. Now the colors are based on the absolute 
+value of the x-component of the wind velocity. #!N #!I30 #!N 
+4. Double click on the  #!F-adobe-times-bold-r-normal--18*   Compute #!EF icon to open 
+the configuration dialog box. In this example the module has a 
+single input (  #!F-adobe-times-bold-r-normal--18*   wind #!EF ), and the operation to 
+be performed is to determine the absolute value of its x-component. 
+#!N #!I30 #!N 5. Change "abs(wind.x)" in the  #!F-adobe-times-bold-r-normal--18*   Expression #!EF 
+field to "abs(wind.y)." and reexecute the visual program. The image changes 
+accordingly. #!N #!I0 #!N #!EF #!N Note:  #!F-adobe-times-bold-r-normal--18*   Compute #!EF is 
+not limited to a single input, and input tabs can be 
+added with the  #!F-adobe-times-bold-r-normal--18*   Add Input Tab #!EF function in the 
+ #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu (see  #!Ltadts,dxall58 h Adding Input Tabs to Tool Icons  #!EL  ). By default the 
+inputs to  #!F-adobe-times-bold-r-normal--18*   Compute #!EF are labeled a, b, c,..., but 
+you can rename them. #!N #!N It is also possible to 
+use  #!F-adobe-times-bold-r-normal--18*   Compute #!EF on components other than  #!F-adobe-times-bold-r-normal--18*   data #!EF 
+. For example, suppose you wanted to display a regular 2-D 
+grid of latitude and longitude on a spherical surface. You could 
+use  #!F-adobe-times-bold-r-normal--18*   Compute #!EF to convert the x,y positions of latitude 
+and longitude to x, y, and z positions of a spherical 
+surface. For an example, open and execute visual program .../WarpedGrid.net, which 
+generates two entirely different objects (in separate Image windows) from the 
+same data. #!N #!N See Compute in IBM Visualization Data Explorer 
+User's Reference. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ltmappng,dxall82 h Modules: Using Map  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

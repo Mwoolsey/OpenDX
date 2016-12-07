@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rprts Parts #!N #!EC 
+#!N #!N The Parts routines are provided to allow easier manipulation 
+of all Fields in a Group Object without having to explicitly 
+traverse the Object. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rao6afg1125 #!N Graphics omitted from 
+Online Documentation. Please see the manual. #!N #!N Figure 125. Parts 
+of a Group #!EF #!N #!EC #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXProcessParts() #!EF #!EF #!I50 #!N Applies a 
+function to every constituent Field (part) of a given Object. See 
+ #!Ldxpp,dxall1336 h DXProcessParts  #!EL  . #!I0 #!N #!N #!N Note:  #!F-adobe-times-bold-r-normal--18*   DXGetPart() #!EF , 
+ #!F-adobe-times-bold-r-normal--18*   DXGetPartClass() #!EF , and  #!F-adobe-times-bold-r-normal--18*   DXSetPart() #!EF are useful for 
+prototyping and in cases where convenience outweighs efficiency.  #!F-adobe-times-bold-r-normal--18*   DXProcessParts() #!EF 
+can often be used for the same purposes, and with greater 
+efficiency. #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field 
+DXGetPart() #!EF #!EF #!I50 #!N Returns the parts of an Object 
+by index. See  #!Ldxgp,dxall1256 h DXGetPart  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object 
+DXGetPartClass() #!EF #!EF #!I50 #!N Returns by index only those sub-members 
+of the given Group that are parts of a specified class. 
+Note that  #!F-adobe-times-bold-r-normal--18*   DXGetPart(o, n) #!EF is equivalent to  #!F-adobe-times-bold-r-normal--18*   DXGetPartClass(o, 
+n, CLASS_FIELD) #!EF . See  #!Ldxgpc,dxall1257 h DXGetPartClass  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Object DXSetPart() #!EF #!EF #!I50 #!N Sets a Field as 
+a part of an Object. See  #!Ldxsp,dxall1385 h DXSetPart  #!EL  . #!I0 #!N #!N 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Larraysc,dxall1069 h Array Class  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

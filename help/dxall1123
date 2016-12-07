@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rpies Pick-Assistance Routines #!N #!EC #!N #!N The pick 
+structure output of the Pick tool is a Field and the 
+picked points are listed in the "positions" component of that Field. 
+Other information may be accessed using the pick-assistance routines listed here. 
+These allow you to query the pick structure and to traverse 
+a picked Object. (See  #!Lshowp,dxall1041 h ShowPick Module Example--Using Color to Show a Picked Object  #!EL  .) #!N #!N It is recommended 
+that you use the pick-assistance routines to manipulate picked Objects and 
+pick structures, since the pick structure is undefined internally and may 
+change in future. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Error DXGetPickPoint() #!EF #!EF #!I50 #!N Returns the pick point in 
+world coordinates. See  #!Ldxgpp,dxall1260 h DXGetPickPoint  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error 
+DXQueryPickCount() #!EF #!EF #!I50 #!N Returns the number of picks resulting 
+from a poke. See  #!Lun99,dxall1124 h Example  #!EL  . See  #!Ldxqpic,dxall1348 h DXQueryPickCount  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXQueryPickPath() #!EF #!EF #!I50 #!N Returns information 
+about the pick path. See  #!Lun99,dxall1124 h Example  #!EL  . See  #!Ldxqpp,dxall1349 h DXQueryPickPath  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXQueryPokeCount() #!EF #!EF #!I50 #!N Returns 
+the number of pokes. See  #!Lun99,dxall1124 h Example  #!EL  . See  #!Ldxqpoc,dxall1350 h DXQueryPokeCount  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXTraversePickPath() #!EF #!EF #!I50 #!N Returns 
+the subObject of the current Object selected by a pick path. 
+See  #!Lun99,dxall1124 h Example  #!EL  . See  #!Ldxtpp,dxall1399 h DXTraversePickPath  #!EL  . #!I0 #!N #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lun99,dxall1124 h Example  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

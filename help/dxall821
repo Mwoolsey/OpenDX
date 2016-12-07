@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rshading Shading #!N #!N #!N Objects are shaded 
+when rendered only if a "normals" component is present. Many modules 
+(e.g. Isosurface) automatically add "normals," but the FaceNormals, Normals, and Shade 
+modules can also be used to add normals. Even if an 
+object has "normals," shading can be disabled by adding a  #!F-adobe-times-bold-r-normal--18*   
+shade #!EF with a value of 0 (the Shade module can 
+do this). #!N #!N #!T,1,216,356,641  #!F-adobe-times-bold-r-normal--18*   #!N TAB Attribute Name TAB 
+Values TAB Description #!EF #!N TAB shade TAB 0 or 1 
+TAB used to specify whether or not to shade when normals 
+#!N TAB - TAB - TAB are present #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lobjfuzz,dxall822 h Object fuzz  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

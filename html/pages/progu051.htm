@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu050.htm">Previous Page</A> &#124; <A HREF="progu052.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRMDEPS" HREF="progu044.htm#PToC_116">12.8 Extracting Module
+Parameters</A></H2>
+<A NAME="IDX692"></A>
+<A NAME="IDX693"></A>
+<A NAME="IDX694"></A>
+<A NAME="IDX695"></A>
+<P>
+This section describes routines that aid in the parsing of parameters
+to modules.  Inputs to modules that are simple items such as integers,
+floats, and character strings are packaged as Array Objects.  The
+following routines simplify the extraction of such values.  If the
+Object does not match (even if promoted as described in the following
+material), the
+routines return
+<TT><STRONG>
+NULL
+</STRONG></TT>
+but do not set the error code.  Otherwise they
+return the original Object and fill in the pointer to the item.
+<P>
+If a float is expected, a byte,
+short, int, or long can be promoted to float.
+If an integer is expected, a byte or
+short can be promoted.  If a float vector is
+expected, a byte, short, or
+integer vector can be promoted.  If a string is expected,
+either a String Object or an Array of characters is accepted.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXExtractInteger()</STRONG></TT>
+</B></TD><TD><P>Determines whether an Object can be converted to an integer and,
+if so, extracts it.
+See <A HREF="#SPTUN7">Note on Use</A>.
+See  <A HREF="progu143.htm#HDRDXEI">DXExtractInteger</A>.
+<A NAME="IDX696"></A>
+<A NAME="IDX697"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXExtractFloat()</STRONG></TT>
+</B></TD><TD><P>Determines whether an Object can be converted to a
+floating-point
+value and, if so, extracts it.
+See  <A HREF="progu142.htm#HDRDXEF">DXExtractFloat</A>.
+<A NAME="IDX698"></A>
+<A NAME="IDX699"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXExtractString()</STRONG></TT>
+</B></TD><TD><P>Determines whether an Object can be converted to a string
+and, if so, extracts it.
+See <A HREF="#SPTUN7">Note on Use</A>.
+See  <A HREF="progu146.htm#HDRDXES">DXExtractString</A>.
+<A NAME="IDX700"></A>
+<A NAME="IDX701"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXExtractNthString()</STRONG></TT>
+</B></TD><TD><P>Determines whether an Object can be converted to a list of
+strings
+and, if so, extracts
+the <I>n</I>th one from it.
+See  <A HREF="progu144.htm#HDRDXENS">DXExtractNthString</A>.
+<A NAME="IDX702"></A>
+<A NAME="IDX703"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXQueryParameter()</STRONG></TT>
+</B></TD><TD><P>Determines whether an Object can be converted to a specific
+value
+type.
+See  <A HREF="progu282.htm#HDRDXQP">DXQueryParameter</A>.
+<A NAME="IDX704"></A>
+<A NAME="IDX705"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXExtractParameter()</STRONG></TT>
+</B></TD><TD><P>Determines whether an Object can be converted to a specific
+value
+type and, if so, returns the value in the user-provided buffer.
+See  <A HREF="progu145.htm#HDRDXEP">DXExtractParameter</A>.
+<A NAME="IDX706"></A>
+<A NAME="IDX707"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXQueryArrayConvert()
+<BR>
+Error DXQueryArrayConvertV();</STRONG></TT>
+</B></TD><TD><P>Determine if the given Array can be converted to an Array
+with the given type, category, rank, and shape.
+See  <A HREF="progu275.htm#HDRDXQACV">DXQueryArrayConvert,
+DXQueryArrayConvertV</A>.
+<A NAME="IDX708"></A>
+<A NAME="IDX709"></A>
+<A NAME="IDX710"></A>
+<A NAME="IDX711"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXQueryArrayCommon()
+<BR>
+Error DXQueryArrayCommonV();</STRONG></TT>
+</B></TD><TD><P>Return a type, category, rank, and
+shape to which all of the arrays can be converted.
+See  <A HREF="progu274.htm#HDRDXQACVM">DXQueryArrayCommon,
+DXQueryArrayCommonV</A>.
+<A NAME="IDX712"></A>
+<A NAME="IDX713"></A>
+<A NAME="IDX714"></A>
+<A NAME="IDX715"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXArrayConvert()
+<BR>
+Error DXArrayConvertV();</STRONG></TT>
+</B></TD><TD><P>Create a new Array with a given type, category, rank, and shape
+from the data in the given Array.
+See  <A HREF="progu109.htm#HDRDXACV">DXArrayConvert, DXArrayConvertV</A>.
+<A NAME="IDX716"></A>
+<A NAME="IDX717"></A>
+<A NAME="IDX718"></A>
+<A NAME="IDX719"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXScalarConvert()</STRONG></TT>
+</B></TD><TD><P>Converts the contents of an Array into scalar floating-point
+values.
+See  <A HREF="progu299.htm#HDRDXSCT">DXScalarConvert</A>.
+<A NAME="IDX720"></A>
+<A NAME="IDX721"></A>
+</TD></TR></TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<A NAME="SPTUN7"></A>
+<A NAME="IDX722"></A>
+<P>
+If a routine expects either a character string or an integer, the
+following code would determine the case and return the value.
+<PRE>
+    Object o = input_object_to_check;
+    char *cp;
+    int i;
+    if (DXExtractInteger(o, &i))
+        x = i;
+    else if (DXExtractString(o, &cp))
+        strcpy(buffer, cp);
+    else
+        DXSetError(...);
+</PRE>
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu050.htm">Previous Page</A> &#124; <A HREF="progu052.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,57 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1143 Example 2: maptoplane.c #!N #!EC #!N 
+#!N The second example which we will discuss is maptoplane.c. This 
+sample program starts the Data Explorer user interface in  #!F-adobe-times-bold-r-normal--18*   -edit 
+#!EF mode, and then loads a visual program (see  #!Lmap2pla130,dxall1144 f Figure 130  #!EL  ). 
+#!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rmap2pla130 #!N #!N Graphics omitted from Online Documentation. 
+Please see the manual. #!N Figure 130. maptoplane.net #!EF #!N #!EC 
+The visual program contains two DXLInput tool which can receive values 
+from the DXLink program. One is named  #!F-adobe-times-bold-r-normal--18*   file_to_import #!EF , 
+and the other is named  #!F-adobe-times-bold-r-normal--18*   maptoplane_point #!EF . The DXLink 
+program sends the filename to  #!F-adobe-times-bold-r-normal--18*   file_to_import #!EF , and then 
+sends several different values to  #!F-adobe-times-bold-r-normal--18*   maptoplane_point #!EF . The program 
+is run and for each execution, statistics are computed on the 
+resulting MapToPlane. The maximum value on the plane is passed to 
+a DXLOutput tool labeled  #!F-adobe-times-bold-r-normal--18*   maptoplane_max #!EF . In maptoplane.c, a 
+handler has been installed for output coming from  #!F-adobe-times-bold-r-normal--18*   maptoplane_max #!EF 
+, and the handler simply prints the value to the terminal. 
+#!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #include <stdio.h> #!N #include "dx/dxl.h" 
+#!N #!N #ifndef BASE #!N #define BASE "/usr/lpp/dx" #!N #endif #!N 
+#!N #!N void SyncAfterExecute(DXLConnection *conn) #!N { #!N int status=1; #!N 
+#!N while (status) { #!N sleep(1); #!N if (DXLIsMessagePending(conn)) #!N DXLHandlePendingMessages(conn); 
+#!N DXLGetExecutionStatus(conn, &status); #!N } #!N } #!N #!N #!N /* 
+#!N * this routine simply prints the maximum value as received 
+from the #!N * DXLOutput tool #!N */ #!N void max_handler(DXLConnection 
+*conn, const char *name, const char *value, #!N void *data) #!N 
+{ #!N printf("max value = %s\n", value); #!N } #!N #!N 
+#!N #!N main(int argc, char *argv[]) #!N { #!N DXLConnection *conn 
+= NULL; #!N char result[100]; #!N int status; #!N #!N /* 
+#!N * Start Data explorer user interface in -edit mode, with 
+certain #!N * in -edit mode, with certain menus turned off. 
+#!N */ #!N conn = DXLStartDX("dx -edit -noExitOptions -noExecuteMenus -noConnectionMenus", #!N 
+NULL); #!N #!N #!N if (conn == NULL) #!N { #!N 
+fprintf(stderr,"Could not connect\n"); #!N perror("DXLStartDX"); #!N exit(1); #!N } #!N #!N 
+/* #!N * Set the handler for the DXLOutput tool which 
+is labelled #!N * "maptoplane_max" #!N */ #!N DXLSetValueHandler(conn, "maptoplane_max", max_handler, 
+NULL); #!N #!N #!N /* #!N * Load the visual program 
+to run. Set the value of the DXLInput #!N * tool 
+which is labelled "file_to_import". #!N * Also set the value of 
+the DXLInput tool which is labelled #!N * "maptoplane_point". #!N */ 
+#!N DXLLoadVisualProgram(conn, BASE"/samples/dxlink/maptoplane.net"); #!N DXLSetString(conn, "file_to_import","/usr/lpp/dx/samples/data/temperature"); #!N DXLSetValue(conn, "maptoplane_point", "[0 5000 
+5000]"); #!N #!N /* #!N * Execute the visual program and 
+check for input from maptoplane_max. #!N */ #!N DXLExecuteOnce(conn); #!N SyncAfterExecute(conn); 
+#!N #!N /* Change the value for the DXLInput tool labelled 
+"maptoplane_point #!N * and execute again. #!N */ #!N DXLSetValue(conn, "maptoplane_point", 
+"[10000 5000 5000]"); #!N DXLExecuteOnce(conn); #!N SyncAfterExecute(conn); #!N #!N /* Change 
+the value for the DXLInput tool labelled "maptoplane_point #!N * and 
+execute again. #!N */ #!N DXLSetValue(conn, "maptoplane_point", "[20000 5000 5000]"); #!N 
+DXLExecuteOnce(conn); #!N SyncAfterExecute(conn); #!N #!N /* Change the value for the 
+DXLInput tool labelled "maptoplane_point #!N * and execute again. #!N */ 
+#!N DXLSetValue(conn, "maptoplane_point", "[30000 5000 5000]"); #!N DXLExecuteOnce(conn); #!N SyncAfterExecute(conn); #!N 
+#!N /* Change the value for the DXLInput tool labelled "maptoplane_point 
+#!N * and execute again. #!N */ #!N DXLSetValue(conn, "maptoplane_point", "[50000 
+5000 5000]"); #!N DXLExecuteOnce(conn); #!N SyncAfterExecute(conn); #!N #!N printf("Hit return to 
+quit:"); #!N gets(result); #!N DXLExitDX(conn); #!N } #!EF #!N #!N #!EC 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1144,dxall1145 h Example 3: xapp.c  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

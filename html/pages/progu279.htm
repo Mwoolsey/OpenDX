@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu278.htm">Previous Page</A> &#124; <A HREF="progu280.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXQGP"
+HREF="progu097.htm#PToC_373">DXQueryGridPositions</A></H3>
+<A NAME="IDX1979"></A>
+<A NAME="IDX1980"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Returns information about a positions grid.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Array DXQueryGridPositions(Array a, int *n, int *counts,<BR>
+                           float *origin, float *deltas)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Returns <TT><STRONG>NULL</STRONG></TT> if <TT><STRONG>a</STRONG></TT> is not a
+regular grid of the sort constructed by
+<TT><STRONG>DXMakeGridPositions</STRONG></TT>
+(i.e. a Product Array containing n terms, each term being a
+<TT><STRONG>TYPE_FLOAT</STRONG></TT>, n-dimensional
+Regular Array).
+If <TT><STRONG>n</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, it returns
+the number of dimensions in the grid in
+<TT><STRONG>*n</STRONG></TT>.
+If <TT><STRONG>counts</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, it
+returns the number of points along each delta vector in
+the Array pointed to by <TT><STRONG>counts</STRONG></TT>.
+If <TT><STRONG>origin</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, it
+returns the <TT><STRONG>n</STRONG></TT>-dimensional origin in
+the Array pointed to by <TT><STRONG>origin</STRONG></TT>.
+If <TT><STRONG>deltas</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, it
+returns the <TT><STRONG>n</STRONG></TT>
+<TT><STRONG>n</STRONG></TT>-dimensional
+delta vectors in the Array
+pointed to by
+<TT><STRONG>deltas</STRONG></TT>.
+<P>
+This routine is commonly used to determine whether the "positions"
+components are fully regular and to provide an easy mechanism for
+accessing information that describes the
+regular-positions grid.
+The information returned by <TT><STRONG>DXQueryGridPositions</STRONG></TT>
+often makes it possible to process regular positions Arrays
+without explicit expansion.
+<P>
+Array handles provide a simple mechanism for accessing individual
+elements of a regular grid without expansion.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>a</STRONG></TT> (if <TT><STRONG>a</STRONG></TT> is a regular
+grid ) or <TT><STRONG>NULL</STRONG></TT> (if it is not) without setting
+an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu124.htm#HDRDXCAH">DXCreateArrayHandle</A>,
+<A HREF="progu232.htm#HDRDXMGCV">DXMakeGridConnections,
+DXMakeGridConnectionsV</A>,
+<A HREF="progu233.htm#HDRDXMGPV">DXMakeGridPositions, DXMakeGridPositionsV</A>,
+<A HREF="progu278.htm#HDRDXQGC">DXQueryGridConnections</A>
+</STRONG></TT>
+<P>
+<A HREF="progu046.htm#HDRCOTAS">"Creating Positions and Connections Grids"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu278.htm">Previous Page</A> &#124; <A HREF="progu280.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

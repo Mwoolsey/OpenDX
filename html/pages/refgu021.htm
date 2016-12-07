@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Camera</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu176.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu022.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRCAMERA" ></A>Camera</H3>
+		<A NAME="IDX392"></A><A NAME="IDX393"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREN">Rendering</A>
+<A NAME="IDX394"></A>
+<A NAME="IDX395"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Constructs a camera for viewing an object.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+camera</STRONG> = Camera(<STRONG>to, from, width, resolution, aspect, up,
+                perspective, angle, background</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>to</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;0 0 0&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">look-to point
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>from</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;0 0 1&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">position of camera
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>width</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">100
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">width of field of view
+(for orthographic projection)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>resolution</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">640
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">horizontal resolution of image
+(in pixels)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>aspect</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0.75
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">height/width
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>up</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;0 1 0&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">up direction
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>perspective</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: orthographic projection
+<BR>
+1: perspective projection
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>angle</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">30.0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">view angle (in degrees)
+(for perspective projection)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>background</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;black&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">image background color
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>camera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">resulting camera
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module differs from AutoCamera in that it specifies a
+"look-from" <I>point</I> for viewing an object
+(AutoCamera specifies a <I>direction</I> from
+which to view an object).
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>to</STRONG></TT>
+</B></TD><TD><P>specifies a point in the scene that appears at the center of the
+image;
+the default is the origin of world space.
+This parameter can also be specified as an object, in which case the
+center of the object serves as the look-to point.
+<P><B>Note: </B>This parameter cannot have the same value as
+<TT><STRONG>from</STRONG></TT> (see below).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>from</STRONG></TT>
+</B></TD><TD><P>specifies the location of the camera; the default is &#91;0 0
+1&#93;.
+This parameter can also be specified as an object, in which
+case its value is the center of the object&#39;s bounding box.
+<P><B>Note: </B>This parameter cannot have the same value as
+<TT><STRONG>to</STRONG></TT> (see above).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>width</STRONG></TT>
+</B></TD><TD><P>functions only for an orthographic projection (see
+<TT><STRONG>perspective</STRONG></TT> below).
+It specifies the width of the field of view, in world coordinates.
+If this parameter is specified as an object, the module uses a value
+that is slightly larger than the diagonal of the object&#39;s
+bounding box.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>resolution</STRONG></TT>
+</B></TD><TD><P>specifies the width of the image in pixels.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>aspect</STRONG></TT>
+</B></TD><TD><P>specifies the height-to-width ratio of the image.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>up</STRONG></TT>
+</B></TD><TD><P>specifies a vector that will be aligned with the vertical axis
+of
+the image.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>perspective</STRONG></TT>
+</B></TD><TD><P>specifies the method of projection used in rendering
+<TT><STRONG>object</STRONG></TT>: perspective (0) or orthographic (1).
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P>Perspective projection
+</TD><TD><P>This method produces a realistic rendering of objects, but does not
+preserve their exact shape and measurements (e.g., parallel lines
+usually do not project as being parallel).
+The camera is positioned at the vertex of the viewing angle (see
+<TT><STRONG>angle</STRONG></TT> below).
+The two end-points of that angle are the left and right sides of the
+image area.
+Thus the wider the angle, the greater the amount of object space that
+can be fitted into the viewing area.
+<P><B>Note: </B>The <TT><STRONG>width</STRONG></TT> parameter has no effect on
+perspective projection.
+</TD></TR><TR VALIGN="TOP"><TD><P>Orthographic projection
+<A NAME="IDX396"></A>
+</TD><TD><P>This method produces a somewhat artificial view of an object
+(the distance between the front and back of an object
+appears small compared to the distance between
+the object and the camera), but it preserves
+exact scale measurements and parallel lines.
+The size of the object can be changed only by <TT><STRONG>width</STRONG></TT>
+(the default is a field of view slightly greater than the width of
+the object).
+<P>
+The <TT><STRONG>angle</STRONG></TT> parameter has no effect on orthographic
+projection.
+<P>
+In orthographic projection, only the direction of the
+<TT><STRONG>from</STRONG></TT>-<TT><STRONG>to</STRONG></TT>
+vector is important, not its magnitude.
+The object&#39;s distance does not affect its size in the image,
+which can be changed only with the <TT><STRONG>width</STRONG></TT>
+parameter.
+In perspective projection, the object&#39;s size can be changed only
+by changing <TT><STRONG>from</STRONG></TT> or <TT><STRONG>angle</STRONG></TT>
+(because <TT><STRONG>width</STRONG></TT> is ignored).
+</TD></TR></TABLE>
+For more information on these projection methods, consult a text on
+computer graphics.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>angle</STRONG></TT>
+</B></TD><TD><P>specifies the viewing angle in degrees.
+The vertex of this angle is <TT><STRONG>to</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>background</STRONG></TT>
+</B></TD><TD><P>specifies the color of the image background as either an RGB
+color or a color-name string.
+The string can be any of the defined color-name strings (see
+<A HREF="refgu033.htm#HDRCOLOR">Color</A>).
+</TD></TR></TABLE>
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+FlyThrough.net (uses the macro InterpolatePositionsMacro.net)
+FlyThrough2.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu015.htm#HDRAUTOCAM">AutoCamera</A>,
+&nbsp;<A HREF="refgu016.htm#HDRAUTOCOL">AutoColor</A>,
+&nbsp;<A HREF="refgu047.htm#HDRDIRECT">Direction</A>,
+&nbsp;<A HREF="refgu118.htm#HDRRENDER">Render</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

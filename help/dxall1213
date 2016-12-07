@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxfadl DXFreeArrayDataLocal 
+#!N #!N Function #!N #!N Frees space previously allocated by  #!F-adobe-times-bold-r-normal--18*   
+DXGetArrayDataLocal #!EF . #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array 
+DXFreeArrayDataLocal(Array a, Pointer data) #!EF #!N #!N Functional Details #!N #!N 
+This routine must be called from the same task that called 
+ #!F-adobe-times-bold-r-normal--18*   DXGetArrayDataLocal #!EF if the program is running in parallel. If 
+called on a machine without processor local memory, it simply returns 
+without setting an error code. #!N #!N Return Value Returns  #!F-adobe-times-bold-r-normal--18*   
+a #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error 
+code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  ,  #!Ldxgadl,dxall1220 h DXGetArrayDataLocal  #!EL  
+#!EF #!N #!N  #!Larraysc,dxall1069 h Array Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxfah,dxall1214 h DXFreeArrayHandle  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

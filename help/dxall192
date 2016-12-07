@@ -1,0 +1,63 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall191 Connections and Interpolation 
+#!N #!EC #!N #!N In the cases just discussed, we made 
+the implicit assumption that there is a logical connectivity between adjacent 
+members of our 2-dimensional or 3-dimensional grid positions. The path connecting 
+grid positions is called a  #!F-adobe-times-medium-i-normal--18*   connection #!EF in Data Explorer. 
+For a surface (2- or 3-dimensional positions connected by 2-dimensional connections), 
+we could choose to make triangular or quadrilateral connections (i.e.,  #!F-adobe-times-medium-i-normal--18*   
+triangles #!EF or  #!F-adobe-times-medium-i-normal--18*   quads #!EF ). Quads require four positions 
+for each connection and triangles three. Data Explorer supports these  #!F-adobe-times-medium-i-normal--18*   
+element types #!EF as well as cubes, tetrahedra, and lines. #!N 
+#!N Suppose we first choose to link adjacent positions in the 
+botanist's sample area with  #!F-adobe-times-medium-i-normal--18*   line #!EF connections. The grid markers 
+were 1 meter on a side. Given a sampling area of 
+5 meters by 3 meters, the entire sample would be 15 
+meters square; there would be 24 positions (6 in X, and 
+4 in Y). On such a plot, we see that a 
+position located at [x=0,y=0] is connected to its neighbor at [x=1,y=0]. 
+We can imagine that it is meaningful to draw associations between 
+data values at adjacent grid positions considering that so many natural 
+phenomena are continuous rather than discrete. We assume that the grasses 
+are free to spread across the area and the wind is 
+free to blow in any direction over the area. #!N #!N 
+Previously, we assumed that samples were measured at the center of 
+each grid square; that is, the botanist used  #!F-adobe-times-medium-i-normal--18*   quad #!EF 
+connections to associate sets of four positions into 4-sided elements, then 
+measured data values at the center of each connection element, yielding 
+connection-dependent data. Now, assume that the botanist measures temperature values at 
+each grid  #!F-adobe-times-medium-i-normal--18*   position #!EF . Temperature would then be position-dependent 
+data. It's perfectly acceptable to have both kinds of data in 
+the same data set. We will see how this works when 
+we discuss  #!F-adobe-times-medium-i-normal--18*   Fields #!EF . #!N #!N Assume that the 
+first grid position (sampling point) lies precisely at the position coordinate 
+[x=0,y=0]. We take a measurement and record the value. Then we 
+measure the temperature at [x=1,y=0]. Later, we ask, what was the 
+temperature at [x=0.5,y=0]? Quite honestly, we do not know, because our 
+sampling resolution was not fine enough for us to give a 
+definitive answer. However, if we make the assumption (very often, a 
+perfectly reasonable assumption, but not always!) that our grid overlaid a 
+continuous set of values, we can derive the expected data value 
+by interpolation between known values. If we use  #!F-adobe-times-medium-i-normal--18*   line #!EF 
+connections to connect adjacent points, we realize by looking at our 
+mesh that a straight line connects the grid point [x=0,y=0] and 
+[x=1,y=0] and that halfway along this line lies the grid point 
+[x=0.5,y=0]. We can further assume that the data value at this 
+midpoint is the average of the data values at known sample 
+points bordering this location. By linear interpolation, we calculate a reasonable 
+value for the temperature at [x=0.5,y=0]. #!N #!N We need to 
+define polygonal connections over the 2-D grid if we wish to 
+find the value at the point [x=0.2,y=0.7]. With  #!F-adobe-times-medium-i-normal--18*   line #!EF 
+connections between adjacent pairs of grid points, we can only reasonably 
+perform interpolations along those linear boundaries but not into the middle 
+of our grid elements. By defining areas bounded by three or 
+more points, we can perform interpolation across the area (the polygon 
+surface) using weighting functions that take into account the data values 
+at all points surrounding the area. In fact, this is the 
+same process used by an image-rendering program: it interpolates from known 
+values (at the vertices) across the faces of polygons and computes 
+the appropriate color at all visible points on the surface, at 
+the resolution allowed by the output device (digital file, computer monitor, 
+etc.). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall192,dxall193 h Identifying Connections  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmultigr CollectMultiGrid #!N 
+#!N Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N Collects 
+objects together in a multigrid group. #!N #!N Syntax #!N #!N 
+#!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N multigrid #!EF = CollectMultiGrid(  #!F-adobe-times-bold-r-normal--18*   object, 
+name, object, name, ... #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB object TAB object TAB (no 
+default) TAB object to be collected #!N TAB name TAB string 
+TAB (no default) TAB name of object #!N TAB ... TAB 
+- TAB - TAB additional object-name pair(s) #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB multigrid 
+TAB group TAB the output multigrid #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N The CollectMultiGrid module 
+creates a Multigrid group from specified objects. The data and connection 
+types of each Field in the Multigrid must be the same. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF 
+#!I50 #!N is an object to be placed in the group. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF #!EF #!I50 #!N is 
+an optional parameter for specifying the name of an object in 
+the multigrid group. For example, the Select module could be used 
+to select a member by name. #!I0 #!N #!N #!N #!N 
+Data Explorer modules treat a Multigrid group as a single entity. 
+The positions may be disjoint or overlapping. If they overlap, the 
+"invalid positions" and "invalid connections" components can be used to identify 
+the valid positions in a given region (see  #!Linval,dxall211 h Invalid Positions and Invalid Connections Components  #!EL  in IBM 
+Visualization Data Explorer User's Guide.) #!N #!N A single CollectMultiGrid module 
+can collect up to 21 objects together in a group. In 
+the user interface, the default number of enabled parameter pairs (i.e., 
+ #!F-adobe-times-bold-r-normal--18*   object #!EF and  #!F-adobe-times-bold-r-normal--18*   name #!EF ) is two. Tabs 
+can be added to the module icon and removed with the 
+appropriate  #!F-adobe-times-bold-r-normal--18*   Input/Output Tab #!EF options in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF 
+pull-down menu of the VPE. #!N #!N Components #!N #!N All 
+components are propagated to the output. #!N #!N See Also #!N 
+#!N  #!Lappend,dxall767 h Append  #!EL  ,  #!Lmultigr,dxall789 h CollectMultiGrid  #!EL  ,  #!Lcollecn,dxall790 h CollectNamed  #!EL  ,  #!Lcollecs,dxall791 h CollectSeries  #!EL  ,  #!Lselect,dxall936 h Select  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcollecn,dxall790 h CollectNamed  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

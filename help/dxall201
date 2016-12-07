@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rstancom Standard Components #!N #!EC The 
+standard defined Field components are listed in  #!Lcompt2,dxall201 t Table 2  #!EL  , and further 
+described in the subsequent paragraphs.  #!Rcompt2 #!T,1,186,276,646  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 
+2. Standard Field Components #!N TAB Component TAB Type TAB Meaning 
+#!EF #!N TAB "data" TAB arbitrary TAB user's data (dependent variable) 
+#!N TAB "positions" TAB float[n] TAB n-space sample points #!N TAB 
+"invalid positions" TAB char TAB which sample points are invalid #!N 
+TAB "colors" TAB float[3] TAB surface or volume colors #!N TAB 
+"colors" TAB char TAB color index (see "color map") #!N TAB 
+"color map" TAB float[3] TAB color map indexed by "colors" component 
+#!N TAB "front colors" TAB float[3] TAB colors of front of 
+surface #!N TAB "back colors" TAB float[3] TAB colors of back 
+of surface #!N TAB "opacities" TAB float TAB opacity of surface 
+or volume #!N TAB "opacities" TAB char TAB opacity index (see 
+"opacity map") #!N TAB "opacity map" TAB float TAB opacity map 
+indexed by "opacities" component #!N TAB "tangents" TAB float[3] TAB curve 
+tangent #!N TAB "normals" TAB float[3] TAB curve or surface normal 
+#!N TAB "binormals" TAB float[3] TAB second curve normal #!N TAB 
+"connections" TAB int[k] TAB interpolation elements #!N TAB "invalid connections" TAB 
+char TAB which interpolation elements are invalid #!N TAB "faces" TAB 
+int TAB faces described as a collection of loops #!N TAB 
+"loops" TAB int TAB loops described as a series of edges 
+#!N TAB "edges" TAB int TAB edges described as a series 
+of points #!N TAB "pick" TAB - TAB picks #!N TAB 
+"paths" TAB - TAB paths #!N TAB "pickpaths" TAB - TAB 
+pickpaths #!N TAB "neighbors" TAB int[p] TAB pointers to connection neighbors 
+#!N TAB "box" TAB float[2(n)] TAB 2(n) corners of a bounding 
+box #!N TAB "data statistics" TAB - TAB statistics for data 
+component #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltall203,dxall203 h Positions Component  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

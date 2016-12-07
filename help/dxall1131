@@ -1,0 +1,61 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1130 Surface 
+Shading #!N #!EC #!N #!N Shading is the process of applying 
+lights to a surface according to shading parameters specified for the 
+surface and the scene. #!N #!N The shading process described here 
+is performed by the  #!F-adobe-times-bold-r-normal--18*   DXRender() #!EF function for surface objects 
+only; volumes are rendered directly, using the colors and opacities specified. 
+Lights are specified by light Objects (see  #!Llightsc,dxall1139 h Light Class  #!EL  ) contained in 
+the input Object. Shading is defined only for 2-dimensional connections (lines, 
+triangles, and quads) and is applied only if normals are present. 
+The shading process uses the following Field components: #!T,1,51,151  #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Componen| Meaning #!EF #!N TAB "positio|spoints #!N TAB "colors"| front 
+and back #!N TAB - TAB colors #!N TAB "front TAB 
+colors of front #!N TAB colors" TAB of face #!N TAB 
+"back TAB colors of back #!N TAB colors" TAB of face 
+#!N TAB "normals| surface normals #!N #!N A Field may have 
+both "colors" and "front colors" or both "colors" and "back colors," 
+in which case the "front colors" or "back colors" component overrides 
+the "colors" component for the specified side of the object. The 
+front and back of a surface are defined in  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in 
+IBM Visualization Data Explorer User's Guide. #!N #!N Shading parameters are 
+specified by a set of attributes of an input Object: #!T,1,51,151 
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Attribut| Meaning #!EF #!N TAB "ambient| ambient lighting 
+#!N TAB - TAB coefficient k[a] #!N TAB "diffuse| diffuse lighting 
+#!N TAB - TAB coefficient k[d] #!N TAB "specula|"specular #!N TAB 
+- TAB lighting #!N TAB - TAB coefficient k[s] #!N TAB 
+"shinine|sspecular #!N TAB - TAB lighting #!N TAB - TAB exponent 
+sp #!N #!N These parameters apply to both the front and 
+back of an object. In addition, for each shading parameter " 
+ #!F-adobe-times-medium-i-normal--18*   x #!EF ," there is also a "front  #!F-adobe-times-medium-i-normal--18*   x 
+#!EF " and a "back  #!F-adobe-times-medium-i-normal--18*   x #!EF " parameter that 
+apply only to the front and back of a surface respectively. 
+These parameters are used in the following shading model: #!N I 
+= k sub a A C + k sub d L 
+C ( #!EF n #!EF dot  #!F-adobe-times-bold-r-normal--18*   l #!EF ) + 
+k sub s L (  #!F-adobe-times-bold-r-normal--18*   n #!EF dot  #!F-adobe-times-bold-r-normal--18*   h 
+#!EF )**sp #!N #!N #!N where: #!N  #!F-adobe-times-medium-i-normal--18*   I #!EF = 
+apparent intensity of the object  #!F-adobe-times-medium-i-normal--18*   k #!EF = a lighting 
+coefficient  #!F-adobe-times-medium-i-normal--18*   A #!EF = an ambient light  #!F-adobe-times-bold-r-normal--18*   n #!EF 
+= the surface normal  #!F-adobe-times-medium-i-normal--18*   C #!EF = the color of 
+the object  #!F-adobe-times-bold-r-normal--18*   l #!EF = the direction to the light 
+ #!F-adobe-times-medium-i-normal--18*   L #!EF = a point or distant light  #!F-adobe-times-medium-i-normal--18*   sp 
+#!EF = specular lighting exponent  #!F-adobe-times-bold-r-normal--18*   h #!EF = a unit 
+vector halfway between the direction to the camera and the direction 
+to the light. #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Color, Opacity, and 
+Normals Dependencies #!N #!N Colors, opacities, and normals may be dependent 
+on the positions (when the corresponding components have a "dep" attribute 
+of "positions") or on connections or faces (when the corresponding components 
+have a "dep" attribute of "connections" or "faces"). #!N #!N Opacities 
+and normals, if present, must depend on the same component that 
+the colors depend upon, with one exception: if the colors are 
+dependent on the positions and the normals are dependent on the 
+connections, the face will be flat-shaded with the average color of 
+the face vertices. #!N #!N If the colors, opacities, and normals 
+are dependent on the positions, the color and opacity of each 
+face is linearly interpolated between the vertices (Gouraud shading). If they 
+are dependent on the connections or faces, the color and opacity 
+of each face is constant (flat shading). #!N #!N #!EC #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1131,dxall1132 h Tiling  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

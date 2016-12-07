@@ -1,0 +1,87 @@
+Open Visualization Data Explorer
+
+Thank you for all your support. Remember, open source is only as good
+its users and contributors. We're always looking for help--so please
+report bugs and support OpenDX in whatever way you can. Donations are
+accepted through OpenDX.org.
+
+There have been a lot of changes since the last release. Not only has
+a lot of OpenDX code changed, but even some of the building 
+mechanisms have been updated. OpenDX now uses libtool to build
+its libraries which allows it to build either static or dynamic
+libraries. This can speed up some run-time specifics, but will
+slow down the build-time. The default for compilation is to still
+build static libraries just like the previous version. If you want
+to build shared libraries, add the --enable-shared option when
+configuring. You may also wish to disable the static libraries using
+--disable-static.
+
+Build Instructions:
+  
+    OpenDX uses the AutoTools (AutoConf, AutoMake, Libtool) setup to 
+    assist in building. A quick set of steps to build are:
+
+    configure
+	make
+	make install (as root)
+
+    By default, the installation will be in /usr/local/dx; this can be
+changed using the --prefix= argument to configure:
+
+	configure --prefix=/usr/lpp
+	make
+	make install (as root)
+
+will install place the installation in /usr/lpp/dx
+
+    More arguments to configure can be set. For a list of the setable
+    arguments, type configure --help. For more help building with 
+    AutoTools, see the AutoConf manual at GNU.org 
+    <http://www.gnu.org/manual/autoconf/html_chapter/autoconf_13.html#SEC139>.
+    There is also more help with compiling available at 
+    OpenDX.org/compiling.html.
+
+Prerequisites:
+
+    Motif  	- The Motif widget set is required to build OpenDX. We 
+              recommend that users use OpenMotif <www.openmotif.org> or
+              a commercial Motif release. Lesstif <www.lesstif.org>, an 
+              LGPL Motif compatible set of widgets, works but exhibits
+              some odd behaviors--we recommend against using it.
+
+    OpenGL 	- OpenDX has a mode where hardware rendering can be used.
+              As such, some type of OpenGL libraries and headers must be
+              present at build time. If you cannot locate your OpenGL
+              libraries, Mesa3D <www.mesa3d.org>, an open source OpenGL
+              compatible software library, will work.
+
+    For Windows builds:
+	Cygwin  - If you're interested in building your own Window's version,
+	          it is possible. The easiest way would be to use the UNIX
+	          style environment known as Cygwin <sources.redhat.com/cygwin/>.
+
+    Not required, but nice:
+
+    CDF		- http://nssdc.gsfc.nasa.gov/cdf/cdf_home.html
+    HDF 4.1 - http://hdf.ncsa.uiuc.edu/
+    NetCDF	- http://www.unidata.ucar.edu/packages/netcdf/
+
+Hints:
+
+    If you are using Lesstif instead of Motif, you may need to create
+symbolic links in /usr/include to /usr/X11R6/include/Xm and /usr/X11R/X11.
+
+    If you are using Mesa3D instead of OpenGL, you will need symbolic links
+/usr/local/lib/libGL.a pointing to /usr/local/lib/libMesaGL.a and
+/usr/local/lib/libGLu.a pointing to /usr/local/lib/libMesaGLu.a
+
+    If you are using Lesstif, check include/dxconfig.h after you configure	
+to make sure USING_LESSTIF is set to 1
+
+
+Known Problems/Bugs:
+
+    Please check out the bug database for known bugs and problems at
+<http://www.opendx.org/bugs>. Before submitting a new bug, please review
+the current bugs and see if the one you are submitting already exists. 
+If you have a fix for a bug, please submit it to contribute@opendx.org.

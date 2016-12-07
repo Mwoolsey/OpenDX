@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rfldkwd field #!N 
+#!EC [  #!F-adobe-times-bold-r-normal--18*   field #!EF = name sub 1 , name 
+sub 2 , ..., name sub f ] #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Function: #!EF #!I50 #!N Specifies the name 
+and number of individual fields in a data file. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   Use: #!EF #!I50 #!N Optional. If this keyword is 
+not used, the number of fields is derived from other keywords 
+(e.g.,  #!F-adobe-times-bold-r-normal--18*   structure #!EF or  #!F-adobe-times-bold-r-normal--18*   type #!EF ). #!I0 #!N 
+#!N #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. The 
+values for the  #!F-adobe-times-bold-r-normal--18*   name #!EF parameter are strings separated by 
+commas and without quotation marks. #!N #!I30 #!N 2. You must 
+name all the fields in the data file. #!N #!I30 #!N 
+3. The field names can be used later to refer to 
+individual fields. For example, if you use the Import module to 
+import the data all at once, you can use the Select 
+module to separate out each field by name. Or you can 
+specify the names of the fields you want to import as 
+the  #!F-adobe-times-bold-r-normal--18*   variable #!EF parameter to the Import module. For more 
+information, see  #!Limport,dxall871 h Import  #!EL  and  #!Lselect,dxall936 h Select  #!EL  in IBM Visualization Data Explorer User's 
+Reference. #!N #!I30 #!N 4. If the position values are intermixed 
+with the data in a file, you must specify the positions 
+as a field (instead of using the  #!F-adobe-times-bold-r-normal--18*   positions #!EF keyword). 
+Use the reserved word  #!F-adobe-times-bold-r-normal--18*   locations #!EF for the field name. 
+The corresponding value for the  #!F-adobe-times-bold-r-normal--18*   structure #!EF keyword should specify 
+the dimensionality of the positions (e.g., "2-vector"). #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lformkwd,dxall146 h format  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

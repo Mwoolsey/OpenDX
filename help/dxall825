@@ -1,0 +1,45 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rhardsof Differences between Hardware 
+and Software Rendering #!N #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N 1. For hardware rendering, when specifying "dots" for "rendering approximation," 
+lines are drawn in their entirety, whereas for software rendering only 
+the line end points are drawn. The "render every" and "wire" 
+approximations are available only with hardware rendering. When the "box" approximation 
+is specified, hardware rendering will show the bounding box of each 
+field in the rendered object, while software rendering will show only 
+the bounding box of the entire object. #!N #!I30 #!N 2. 
+Some graphics adapters do not support clipping. On such adapters, "ClipBox" 
+and "ClipPlane" have no effect. #!N #!I30 #!N 3. For some 
+hardware platforms, surfaces specified with opacities are rendered by the hardware 
+as screen-door surfaces (i.e., every other pixel is drawn, letting the 
+background show through). This allows only one level of opacity and 
+completely obscures a semi-opaque surface that is behind another semi-opaque surface. 
+The transparency effect is hardware dependent, and can produce a completely 
+opaque or completely transparent appearance. True transparency is supported for OpenGL 
+platforms. #!N #!I30 #!N 4. The image displayed by the hardware 
+rendering can be different from the image produced by the software 
+rendering. This is a result of several differences in rendering techniques. 
+The hardware rendering does not provide gamma correction, causing images to 
+be slightly darker. Normals are not reversed when viewing the "inside" 
+of a surface, with the result that lighting effects are much 
+dimmer on the "inside" of a surface. Attributes applied to the 
+"inside" of a surface (e.g., "back colors") are ignored. #!N #!I30 
+#!N 5. When using hardware rendering, the  #!F-adobe-times-bold-r-normal--18*   where #!EF parameter 
+to Display cannot specify a host other than the one on 
+which the Display module is running. However, it can specify a 
+different display attached to the same host. #!N #!I30 #!N 6. 
+The hardware renderer does not duplicate the "dense emitter" model used 
+by the software renderer for rendering volumes. Only the data values 
+at the boundary of the volume are rendered, producing the appearance 
+of a transparent boundary of the volume. #!N #!I30 #!N 7. 
+For hardware rendering, a wireframe rendering approximation is not intended to 
+produce the same visual results as ShowConnections. #!N #!I30 #!N 8. 
+Hardware rendering handles colors between 0.0 and 1.0. If colors are 
+outside this range, each color channel is independently clamped, before lighting 
+is applied. In software rendering, clamping is done after lighting is 
+applied. #!N #!I30 #!N 9. Hardware rendering does not support view 
+angles of less than 0.001 degree. #!N #!I30 #!N 10. Anti-aliasing 
+and multiple pixels width lines is only available in hardware rendering. 
+#!N #!I0 #!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ltextmap,dxall826 h Texture Mapping  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

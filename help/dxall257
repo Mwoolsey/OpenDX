@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall256 
+Mesh Array #!N #!EC #!N #!N Encodes multidimensional regularity of connections. 
+It is a product of connection Arrays. The product is a 
+set of interpolation elements where the product has one interpolation element 
+for each pair of interpolation elements in the two multiplicands, and 
+the number of sample points in each interpolation element is the 
+product of the number of sample points in each of the 
+multiplicands' interpolation elements. An example of a Mesh Array is illustrated 
+in  #!Lmesha32,dxall257 f Figure 32  #!EL  . #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rmesha32 #!N #!N Graphics omitted 
+from Online Documentation. Please see the manual. #!N Figure 32. Example 
+of a Mesh Array #!EF #!N #!EC This example represents (in 
+compact form) the same information as the following irregular Array: #!T,1,261,651 
+#!N #!N An important special case of the more general Mesh 
+Array Object is the  #!F-adobe-times-medium-i-normal--18*   n #!EF -dimensional cuboidal connections of 
+a regular grid.  #!Lmeshx33,dxall257 f Figure 33  #!EL  is an example that shows a Mesh 
+Array composed of two Path Arrays. #!N #!N See  #!Limd,dxall618 h Importing Data: File Formats  #!EL  for 
+a detailed description of how to specify these compact Arrays. #!Cbrown 
+#!N  #!F-adobe-times-medium-r-normal--18*    #!Rmeshx33 #!N #!T,250 #!N The order of the specification 
+of the counts implicitly creates a list of position indices in 
+the order of "last index varies fastest." #!N #!N The location 
+in space of each vertex is determined by the value of 
+the position referred to by that index. #!N #!N This represents 
+(in compact form) the TAB This represents (in compact form) the 
+#!N same information as the following TAB same information as the 
+following #!N irregular Array: TAB irregular array: #!N #!N [0 1 
+3 4] TAB [0 1 5 6] #!N [1 2 4 
+5] TAB [1 2 6 7] #!N [3 4 6 7] 
+TAB [2 3 7 8] #!N . TAB . #!N . 
+TAB . #!N . TAB . #!N #!T,0 Figure 33. Mesh 
+Array of Two Path Arrays (with Regular Connections) #!EF #!N #!EC 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall257,dxall258 h Constant Array  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

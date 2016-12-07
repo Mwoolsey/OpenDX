@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall117 Example 3. Data with Header 
+information #!N #!EC #!N #!N A data file may contain descriptive 
+information in addition to the data to be imported. To import 
+only the data, therefore, it is necessary to "skip" such information 
+when the file is read. The  #!F-adobe-times-bold-r-normal--18*   header #!EF keyword statement 
+enables you to do just that, by specifying a number of 
+bytes or lines to be skipped or a string to be 
+searched for. For example, suppose the scalar data field of Example 
+1 had 3 lines of descriptive text preceding the data. #!N 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. As in 
+Example 2 (Steps 2 through 4), open the record_scalar header file. 
+#!N #!I30 #!N 2. Change the path name in the  #!F-adobe-times-bold-r-normal--18*   
+Data file #!EF field to: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /usr/lpp/dx/samples/data/record_withheader 
+#!EF #!N #!N #!EC #!N #!I30 #!N 3. Activate the  #!F-adobe-times-bold-r-normal--18*   
+Header #!EF toggle button and then click on the option button 
+just to the right of it. #!N #!I30 #!N 4. From 
+the list that appears, select  #!F-adobe-times-bold-r-normal--18*   # of lines #!EF and 
+enter the value "3" in the associated text field. #!N #!I30 
+#!N 5. Repeat Example 1, Step 10 (see  #!Lex1a,dxall116 s To save the header file  #!EL  ), to 
+save the header file, which should look like: #!N #!I0 #!N 
+#!EF #!N #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/record_withheader 
+#!N grid = 5 x 8 x 6 #!N format = 
+text #!N interleaving = record #!N majority = row #!N header 
+= lines 3 #!N field = field0 #!N structure = scalar 
+#!N type = float #!N dependency = positions #!N positions = 
+regular, regular, regular, 1, .5, 3, 1.0, 2.0, .75 #!N #!N 
+end #!EF #!N #!N #!EC #!N #!N Note the addition of 
+a  #!F-adobe-times-bold-r-normal--18*   header #!EF keyword statement (line 6). #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall118,dxall119 h Example 4. Naming a Field  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

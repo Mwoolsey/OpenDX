@@ -1,0 +1,70 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnca DXNewCamera #!N #!N Function #!N 
+#!N Creates a new Camera. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> Camera DXNewCamera() #!EF #!N #!N Functional Details #!N #!N Creates 
+a new Camera. A camera defines the position and orientation of 
+the viewer, the volume of interest of the object being viewed, 
+and the size of the image to contain the resulting view. 
+#!N #!N A summary of how to interpret a camera follows. 
+#!N #!N The position and orientation of the view are defined 
+by where the viewer is standing,  #!F-adobe-times-bold-r-normal--18*   from #!EF , where 
+the viewer is looking,  #!F-adobe-times-bold-r-normal--18*   to #!EF , and the tilt 
+of the viewer's head,  #!F-adobe-times-bold-r-normal--18*   up #!EF . #!N #!N The 
+volume of interest of the object being viewed depends on the 
+type of camera. An orthographic camera defines a box that is 
+centered on the  #!F-adobe-times-bold-r-normal--18*   to #!EF point and has an infinite 
+ #!F-adobe-times-bold-r-normal--18*   z #!EF axis lying along the  #!F-adobe-times-bold-r-normal--18*   to #!EF - 
+ #!F-adobe-times-bold-r-normal--18*   from #!EF vector. The  #!F-adobe-times-bold-r-normal--18*   y #!EF axis is perpendicular 
+to the  #!F-adobe-times-bold-r-normal--18*   to #!EF -  #!F-adobe-times-bold-r-normal--18*   from #!EF vector in 
+the direction of the  #!F-adobe-times-bold-r-normal--18*   up #!EF vector. The x- and 
+y-dimensions of the box are given by the  #!F-adobe-times-bold-r-normal--18*   width #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   aspect #!EF parameters of the camera, where  #!F-adobe-times-bold-r-normal--18*   aspect 
+#!EF is defined as the ratio of the height to width. 
+#!N #!N In orthographic projection, objects do not appear smaller as 
+they get more distant, and in fact, distance between the object 
+and the viewer has no effect on the appearance of the 
+object. The distance between the  #!F-adobe-times-bold-r-normal--18*   to #!EF and  #!F-adobe-times-bold-r-normal--18*   from 
+#!EF points is irrelevant; only the direction is important. #!N #!N 
+The volume of interest defined by a perspective camera is a 
+pyramid with an apex at the  #!F-adobe-times-bold-r-normal--18*   from #!EF position, and 
+a base at the  #!F-adobe-times-bold-r-normal--18*   to #!EF point perpendicular to the 
+ #!F-adobe-times-bold-r-normal--18*   to #!EF -  #!F-adobe-times-bold-r-normal--18*   from #!EF vector. The width of 
+the base is defined by the angle formed by the sides 
+of the pyramid at the apex and the distance between the 
+ #!F-adobe-times-bold-r-normal--18*   to #!EF and  #!F-adobe-times-bold-r-normal--18*   from #!EF points. The angle formed 
+by the sides of the pyramid is also known as the 
+"field of view" and is the  #!F-adobe-times-bold-r-normal--18*   fov #!EF parameter. #!N 
+#!N The  #!F-adobe-times-bold-r-normal--18*   fov #!EF is defined as twice the tangent 
+of half the angle (e.g., for a 90-degree sweep, the fov 
+is 2 * tan(45 degrees), or 2.0). The  #!F-adobe-times-bold-r-normal--18*   fov #!EF 
+can also be thought as the ratio of the width of 
+the base to the distance to the viewer (e.g., for a 
+20-meter wide area from a distance of 10 meters , set 
+the  #!F-adobe-times-bold-r-normal--18*   fov #!EF to 20/10, or 2.0). The base height 
+is defined by the resulting width times the  #!F-adobe-times-bold-r-normal--18*   aspect #!EF 
+. #!N #!N With a perspective camera, objects appear smaller with 
+increasing distance. When the perspective pyramid is projected onto the image, 
+the sides of the pyramid are made parallel, with a cross-section 
+equal to the base dimensions. This has the effect of widening 
+(in x and y) the objects in front of the pyramid 
+base and compressing (in x and y) the objects behind the 
+pyramid base. #!N #!N The Camera created can be deleted with 
+DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N The horizontal size of the 
+image containing the resulting view is defined as the  #!F-adobe-times-bold-r-normal--18*   resolution 
+#!EF in pixels, and the vertical size is determined by the 
+ #!F-adobe-times-bold-r-normal--18*   resolution #!EF *  #!F-adobe-times-bold-r-normal--18*   aspect #!EF . The same aspect 
+ratio is used for both the size of the image and 
+the volume of interest to prevent the object from being stretched 
+in one of the dimensions. The background color of the image 
+is also a parameter to the camera. #!N #!N By default, 
+the camera is orthographic, looking from the positive z axis toward 
+the origin; x and y each range from  #!F-adobe-times-medium-i-normal--18*   -1 #!EF 
+to  #!F-adobe-times-medium-i-normal--18*   +1 #!EF . The image is 640 by 480 
+pixels, with the origin at the center of the image. #!N 
+#!N Return Value #!N #!N Returns the Camera or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgcmp,dxall1225 h DXGetCameraMatrix, DXGetCameraRotation, DXGetCameraMatrixWithFuzz  #!EL  ,  #!Ldxrndr,dxall1357 h DXRender  #!EL  ,  #!Ldxsbc,dxall1368 h DXSetBackgroundColor, DXGetBackgroundColor  #!EL  ,  #!Ldxsoc,dxall1384 h DXSetOrthographic, DXGetOrthographic  #!EL  , 
+ #!Ldxspe,dxall1388 h DXSetPerspective, DXGetPerspective  #!EL  ,  #!Ldxsrn,dxall1389 h DXSetResolution, DXGetCameraResolution  #!EL  ,  #!Ldxsvw,dxall1393 h DXSetView, DXGetView  #!EL  #!EF #!N #!N  #!Lcamsec,dxall1138 h Camera Class  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxncd,dxall1312 h DXNewClipped  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

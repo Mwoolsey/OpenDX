@@ -1,0 +1,40 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rdxlap1 Data Explorer Data 
+Model Library: DXlite Routines #!N #!EC #!N #!N All Data Explorer 
+routines are included in the libraries libDXcallm.a and libDX.a. All routines 
+are described in  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  . A subset of those routines are 
+included in libDXlite.a, as shown in the list below. Outboard and 
+stand-alone modules can use the Data Explorer data model by linking 
+to this Library. You can create, query, and modify Data Explorer 
+Objects. For example, you can write an importer that reads data 
+in a particular file format and creates a Data Explorer Field 
+Object as its output. (Outboard and stand-alone programs may also link 
+to libDXcallm.a to access all of the routines described in  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  
+.) #!N #!N #!N DXComponentOpt DXGetCacheEntryV #!N DXComponentOptLoc DXGetCameraMatrix #!N DXImportDX 
+DXAbortTaskGroup DXComponentReq DXGetCameraMatrix- DXInitNextHashElement DXAdd DXComponentReqLoc WithFuzz DXInsert DXAddArrayData DXConcatenate DXGetCameraResolutiDXInsertHashElement 
+DXAddBackColor DXCopy DXGetCameraRotationDXInvert DXAddBackColors DXCopyAttributes DXGetClipBox #!N DXAddColor DXCreateArrayHandleDXGetClippedInfo #!N DXLength 
+DXAddColors DXCreateHash #!N DXLn DXAddFaceNormal DXCreateTaskGroup DXGetComponentValue #!N DXAddFaceNormals DXCross DXGetConnections 
+#!N DXMakeGridConnections DXAddFrontColor #!N DXGetConstantArrayDDXMakeGridConnectionsV DXAddFrontColors #!N DXDebug DXGetEnumeratedAttrDXMakeGridPositions DXAddLine #!N 
+DXDelete DXGetEnumerated- DXMakeGridPositionsV DXAddLines DXDeleteAttribute ComponentAttribDXMakeStringList DXAddMessage DXDeleteComponent DXGetEnumerated- DXMakeStringListV DXAddNormal 
+DXDeleteHashElement ComponentValue DXMarkTime DXAddNormals DXDestroyHash DXGetEnumeratedMembDXMarkTimeLocal DXAddOpacities DXDeterminant DXGetError DXMat DXAddOpacity 
+#!N DXDiv DXGetErrorMessage #!N DXMax DXAddPoint #!N DXDot DXGetFloatAttribute #!N DXMessage 
+DXAddPoints #!N DXGetGroupClass #!N DXMin DXAddQuad #!N #!N DXMul DXAddQuads DXEnableDebug 
+DXGetItemSize #!N DXAddTask DXEndField DXGetMember #!N DXNeg DXAddTetrahedra DXEndLongMessage DXGetMemberCount #!N 
+DXNeighbors DXAddTetrahedron DXEndObject DXGetMeshArrayInfo DXNewAmbientLight DXAddTriangle DXExecuteTaskGroup DXGetMeshOffsets DXNewArray DXAddTriangles DXExists 
+DXGetModuleId DXNewArrayV DXAdjointTranspose #!N DXExportDX DXGetNextHashElemenDXNewCamera DXAllocate DXExtract DXGetObjectClass DXNewClipped DXAllocateArray 
+DXExtractFloat DXGetObjectTag DXNewCompositeField DXAllocateLocal DXExtractInteger DXGetOrthographic DXNewConstantArray DXAllocateLocalOnlyDXExtractNthString DXGetPart DXNewConstantArrayV DXAllocateLocalOnlyDXExtractParameter 
+DXGetPartClass DXNewDistantLight DXAllocateLocalZeroDXExtractString DXGetPathArrayInfo DXNewField DXAllocateZero #!N DXGetPathOffset DXNewMeshArray DXApply #!N 
+DXGetPerspective DXNewMultiGrid DXArrayConvert DXFree DXGetPrivateData DXNewPathArray DXArrayConvertV DXFreeArrayDataLocaDXGetProductArrayInDXNewPrivate #!N DXFreeArrayHandle DXGetRegularArrayInDXNewProductArray 
+#!N DXBeginLongMDXFreeModuleId DXGetScreenInfo DXNewProductArrayV DXBoundingBox #!N DXGetSeriesMember DXNewRegularArray #!N #!N DXGetArrayClDXGetString 
+DXNewScreen #!N DXCategorySiDXGetArrayData DXGetStringAttributDXNewSeries DXChangedComponent-DXGetArrayDataLocalDXGetTime DXNewString Values DXGetArrayInfo DXGetType DXNewXform DXClipBox 
+DXGetAttribute DXGetVaidCount DXNormalize DXClipPlane DXGetBackgroundColoDXGetView #!N DXColorNameToRGB DXGetCacheEntry DXGetXformInfo #!N DXPartition 
+#!N DXPrint #!N DXSetComponentValueDXSetXformObject #!N DXPrintAlloc #!N DXReadyToRunDXSetConnections DXSub DXPrintTimes DXReAllocate 
+DXSetEnumeratedMembDXSwap DXPrintV DXReference DXSetError #!N DXProcessorId DXRegisterInputHandDXSetFloatAttribute #!N DXTetra DXProcessors DXRemove 
+DXSetGroupType DXTraceTime DXProcessParts DXRename DXSetGroupTypeV DXTranslate #!N DXPt DXReplace DXSetIntegerAttribuDXTranspose #!N 
+DXResetError DXSetMember #!N DXTri #!N DXQuad DXRotateX DXSetMeshOffsets #!N DXTrim DXQueryArrayCommon 
+DXRotateY DXSetObjectTag #!N DXTypeCheck DXQueryArrayCommonVDXRotateZ DXSetOrthographic DXTypeCheckV DXQueryArrayConvert #!N DXSetPart DXTypeSize 
+#!N DXScale DXSetPathOffset #!N DXQueryConstantArraDXSetAttribute DXSetPerspective #!N DXUnreference DXQueryDebug DXSetBackgroundColoDXSetResolution DXUnsetGroupType 
+DXQueryDistantLightDXSetCacheEntry DXSetScreenObject #!N DXQueryGridConnectiDXSetCacheEntryV DXSetSeriesMember #!N DXVec #!N DXQueryHashElement DXSetComponentAttriDXSetView #!N 
+DXWarning DXQueryParameter  #!Rspec #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,41 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxqosm DXQueryOriginalSizes, DXQueryOriginalMeshExtents #!N #!N Function #!N #!N Returns information about 
+the size of the original Field used as the input to 
+ #!F-adobe-times-bold-r-normal--18*   DXGrow #!EF . #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Field DXQueryOriginalSizes(Field f, int *positions, int *connections) Field DXQueryOriginalMeshExtents(Field f, int 
+*offsets, int *sizes) #!EF #!N #!N Functional Details #!N #!N Returns 
+information about the size of the original Field used as the 
+input to  #!F-adobe-times-bold-r-normal--18*   DXGrow #!EF . The parameter  #!F-adobe-times-bold-r-normal--18*   f #!EF 
+names a Field that was produced by  #!F-adobe-times-bold-r-normal--18*   DXGrow #!EF . 
+In the case of  #!F-adobe-times-bold-r-normal--18*   DXQueryOriginalSizes #!EF , if  #!F-adobe-times-bold-r-normal--18*   positions 
+#!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the number of positions 
+in the original Field is returned in  #!F-adobe-times-bold-r-normal--18*   *positions #!EF . 
+If  #!F-adobe-times-bold-r-normal--18*   connections #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the 
+number of interpolation elements in the original Field is returned in 
+ #!F-adobe-times-bold-r-normal--18*   *connections #!EF . This is particularly useful in the case 
+of irregular data. #!N #!N In the case of data defined 
+on a regular mesh of connections,  #!F-adobe-times-bold-r-normal--18*   DXQueryOriginalMeshExtents #!EF can be 
+used to obtain the offsets of the original Field relative to 
+the grown Field, and the sizes of the original Field. If 
+ #!F-adobe-times-bold-r-normal--18*   offsets #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the offset 
+in each dimension of the original Field is returned in the 
+Array pointed to by  #!F-adobe-times-bold-r-normal--18*   offsets #!EF ; if  #!F-adobe-times-bold-r-normal--18*   sizes 
+#!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the size in each 
+dimension of the original Field is returned in the Array pointed 
+to by  #!F-adobe-times-bold-r-normal--18*   offsets #!EF . #!N #!N Typically, data is 
+grown so that neighborhood information is available during the calculation of 
+a result for some original point (or connection) in the Field. 
+The information returned by these routines identifies the portion of the 
+grown Field that belonged to the original Field and that will 
+remain after a later call to  #!F-adobe-times-bold-r-normal--18*   DXShrink #!EF . Thus, 
+the caller can use this information to process only that portion 
+of the Field that will remain after a later call to 
+ #!F-adobe-times-bold-r-normal--18*   DXShrink #!EF . #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   f #!EF if it is a grown field or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF (without setting an error code) if it not; 
+otherwise, returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgrov,dxall1273 h DXGrow, DXGrowV  #!EL  ,  #!Ldxsk,dxall1395 h DXShrink  #!EL  #!EF #!N 
+#!N  #!Lgns,dxall1120 h Growing and Shrinking Partitioned Data  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxqp,dxall1347 h DXQueryParameter  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

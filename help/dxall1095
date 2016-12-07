@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rtimg Timing #!N #!EC #!N #!N The following 
+routines involve "time marks," used as the basis for measuring performance 
+characteristics of the system. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DXMarkTime() #!EF #!N void DXMarkTimeLocal(); #!EF #!I50 #!N Record the 
+times of various events in system operation (e.g., the beginning and 
+the end of module execution). Time marks are batched until  #!F-adobe-times-bold-r-normal--18*   
+DXPrintTimes() #!EF is called. See  #!Ldxmt,dxall1306 h DXMarkTime, DXMarkTimeLocal  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   void DXPrintTimes() #!EF #!EF #!I50 #!N Prints time marks. The 
+accumulation and printing of timing messages must be enabled by  #!F-adobe-times-bold-r-normal--18*   
+DXTraceTime() #!EF . See  #!Ldxpt,dxall1333 h DXPrintTimes  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+void DXTraceTime() #!EF #!EF #!I50 #!N Enables or disables the accumulation 
+of time marks. See  #!Ldxtt,dxall1398 h DXTraceTime  #!EL  . Note: For modules linked to 
+Data Explorer, the Trace module enables the recording and printing of 
+times (see  #!Lmda,dxall750 h Data Explorer Tools  #!EL  in IBM Visualization Data Explorer User's Reference). #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   double DXGetTime() #!EF #!EF #!I50 #!N Returns 
+the elapsed time (in seconds) since system initialization. See  #!Ldxgt,dxall1269 h DXGetTime  #!EL  . 
+#!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lstoral,dxall1096 h Memory Allocation  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

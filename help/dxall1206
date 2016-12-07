@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxext DXExtract #!N #!N Function #!N #!N Extracts a component from 
+a Field. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXExtract(Object 
+o, char *name) #!EF #!N #!N Functional Details #!N #!N For 
+each Field in Object  #!F-adobe-times-bold-r-normal--18*   o #!EF , the routine returns 
+the Object specified by  #!F-adobe-times-bold-r-normal--18*   name #!EF (typically an Array). Object 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF can be a simple Field or any Object 
+that can contain Fields (e.g., Groups or Series). #!N #!N If 
+Object  #!F-adobe-times-bold-r-normal--18*   o #!EF is a single Field, a single Object 
+is returned (typically an Array). If Object  #!F-adobe-times-bold-r-normal--18*   o #!EF is 
+anything else, the Object hierarchy is preserved, and each Field is 
+replaced by component  #!F-adobe-times-bold-r-normal--18*   name #!EF . #!N #!N Return Value 
+#!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. It is an error if no 
+component of the specified  #!F-adobe-times-bold-r-normal--18*   name #!EF is found in any 
+Field of  #!F-adobe-times-bold-r-normal--18*   o #!EF . #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxexi,dxall1204 h DXExists  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  ,  #!Ldxins,dxall1282 h DXInsert  #!EL  ,  #!Ldxrem,dxall1355 h DXRemove  #!EL  ,  #!Ldxren,dxall1356 h DXRename  #!EL  
+,  #!Ldxrep,dxall1358 h DXReplace  #!EL  ,  #!Ldxswp,dxall1397 h DXSwap  #!EL  #!EF #!N #!N  #!Lctmn,dxall1089 h Component Manipulation  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxef,dxall1207 h DXExtractFloat  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

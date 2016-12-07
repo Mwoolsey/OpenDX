@@ -1,0 +1,1044 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Data Explorer Tools</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu007.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu009.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu006.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A name="HDRMDA"></A>Chapter 1. Data Explorer Tools</H2>
+		<P><A NAME="PToC3" ></A>Partial Table-of-Contents
+		<MENU>
+<LI><A NAME="PToC_14" HREF="#HDRTOOLCAT">1.1 Tool Categories</A>
+<MENU>
+<LI><A NAME="PToC_15" HREF="#HDRCATANN">Annotation</A>
+<LI><A NAME="PToC_16" HREF="#HDRCATDXL">DXLink</A>
+<LI><A NAME="PToC_17" HREF="#HDRCATDBG">Debugging</A>
+<LI><A NAME="PToC_18" HREF="#HDRCATFLOW">Flow Control</A>
+<LI><A NAME="PToC_19" HREF="#HDRCATIAE">Import and Export</A>
+<LI><A NAME="PToC_20" HREF="#HDRCATINT">Interactor</A>
+<LI><A NAME="PToC_21" HREF="#HDRCATICTL">Interface Control</A>
+<LI><A NAME="PToC_22" HREF="#HDRCATREL">Realization</A>
+<LI><A NAME="PToC_23" HREF="#HDRCATREN">Rendering</A>
+<LI><A NAME="PToC_24" HREF="#HDRCATSPE">Special</A>
+<LI><A NAME="PToC_25" HREF="#HDRCATSTR">Structuring</A>
+<LI><A NAME="PToC_26" HREF="#HDRCATTRN">Transformation</A>
+<LI><A NAME="PToC_27" HREF="#HDRCATWIN">Windows</A>
+</MENU></MENU><HR><P>
+<P>
+Data Explorer tools (i.e., tool modules) perform a variety of functions to
+generate visual images.
+In the VPE window, their icons can be used as "building blocks"
+to create visual program <I>networks</I>, from which images are
+generated in the Image window.
+They can also be invoked from script-language programs or from the
+command line (when Data Explorer is in "script mode").
+And they can be grouped together in macros for greater efficiency.
+<P>
+Many modules are accessible through both the graphical user interface
+and the scripting language.
+Some, however, are available only through the user interface: the
+Interactors,
+the Color Editor, Image, Pick, Probe, Receiver, and Transmitter.
+Most have default values for parameter inputs, values that are (as
+much as possible) appropriate for the data involved.
+These defaults enable the new user to begin visualizing data with only
+a few connections and to customize a visualization program one
+step at a time.
+<P>Tools are divided into the categories listed in the tool palette of the VPE window:<UL COMPACT>
+<LI>Annotation
+<LI>DXLink
+<LI>Debugging
+<LI>Flow Control
+<LI>Import and Export
+<LI>Interactor
+<LI>Interface Control
+<LI>Realization
+<LI>Rendering
+<LI>Special
+<LI>Structuring
+<LI>Transformation
+
+<LI>Windows
+
+<LI>&#123;ALL&#125; (an alphabetic listing of all the tools).
+</UL>
+<P>
+The directory <TT><STRONG>/usr/local/dx/samples/programs</STRONG></TT> contains
+visual program examples that use these tools, along with a subdirectory
+(...<TT><STRONG>/SIMPLE</STRONG></TT>) of simpler examples.
+Use the <TT><STRONG>Open</STRONG></TT> file-selection dialog box to call up
+either directory (adding "/*.net" to the directory name when
+you enter it in the <TT><STRONG>Filter</STRONG></TT> text field).
+For a description of a visual program, either highlight the program name in the
+<TT><STRONG>Files</STRONG></TT> list of the dialog box and click on the
+<TT><STRONG>Comments</STRONG></TT> pushbutton or select the
+<TT><STRONG>Application Comment</STRONG></TT> option of the
+<TT><STRONG>Help</STRONG></TT> pull-down menu (after the
+visual program is loaded).
+<P>
+The directory <TT><STRONG>/usr/local/dx/samples/scripts</STRONG></TT> contains
+script examples for all of the modules.
+Descriptions are included as comments in the script files themselves.
+<P>
+The rest of this chapter summarizes the tool categories and the tools
+they contain.
+The order in which they appear is the same as that displayed in the
+palettes of the VPE window.
+For detailed descriptions of individual tools, see
+<A HREF="refgu009.htm#HDRFMD">Chapter 2. "Functional Modules"</A>.
+<P><B>Note: </B>Two modules that appear in <A HREF="refgu009.htm#HDRFMD">Chapter
+2. "Functional Modules"</A>
+are available only in script
+mode and so are not listed in any of the Visual Program Editor categories:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu055.htm#HDREXECTV">Executive</A>
+</B></TD><TD><P>Executes an executive command (see <A
+HREF="refgu055.htm#HDREXECTV">Executive</A>).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu082.htm#HDRKEYIN">KeyIn</A>
+</B></TD><TD><P>Waits for input from the system prompt in the window from which
+you
+invoked Data Explorer (see <A HREF="refgu082.htm#HDRKEYIN">KeyIn</A>).
+</TD></TR></TABLE>
+<HR>
+<H2><A NAME="HDRTOOLCAT" ></A>1.1 Tool Categories</H2>
+<P>
+		<H3><A NAME="IDX268"></A><A NAME="HDRCATANN" ></A>Annotation</H3>
+		<P>
+These tools add various kinds of information to a visualization.
+
+		<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>
+</B></TD><TD><P>Creates an axes box for a specified data set, using a specified
+camera.
+The camera is required so that the AutoAxes module can determine
+how to position the axes box and labels.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu017.htm#HDRAUTOGLY">AutoGlyph</A>
+</B></TD><TD><P>Produces glyphs (a representational figure, such as an arrow)
+for
+every data value in an input Field.
+The size and type of glyph are based on the data it receives.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu022.htm#HDRCAPTION">Caption</A>
+</B></TD><TD><P>Creates a caption for an image.
+The caption position specified in pixel- or viewport-relative
+coordinates.
+Captions always remain aligned to the screen.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu034.htm#HDRCOLORBA">ColorBar</A>
+</B></TD><TD><P>Creates a color bar to be displayed on the screen.
+It accepts a color map as input.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu065.htm#HDRFORMAT">Format</A>
+</B></TD><TD><P>Creates a string from numeric values.
+For example, you can create the string <TT>"Isosurface value =
+23.4"</TT>, where 23.4 is the output of an Interactor.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu068.htm#HDRGLYPH">Glyph</A>
+</B></TD><TD><P>Produces glyphs for every data value in an input Field.
+This module allows more precise control of glyph size than AutoGlyph
+does.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu083.htm#HDRLEGEND">Legend</A>
+</B></TD><TD><P>Produces a legend which associates a string with a color.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu101.htm#HDRPARSE">Parse</A>
+</B></TD><TD><P>Separates a string into its component parts (e.g., the string
+"data = 3.7" into "data", "=", and the floating
+point value "3.7").
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu104.htm#HDRPLOT">Plot</A>
+</B></TD><TD><P>Creates a 2-dimensional plot from a line.
+You can specify: customized labels for the axes; axes limits; y-axes on
+the left and right sides of the plot; and logarithmic or linear axes.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu122.htm#HDRRIBBON">Ribbon</A>
+</B></TD><TD><P>Produces a ribbon of specified width from an input line.
+If a "normals" component is present on the line (e.g., if the
+<TT><STRONG>curl</STRONG></TT> option was used to create a streamline
+or streakline), the twist of the ribbon will correspond to
+the direction of the "normals."
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu156.htm#HDRTEXT">Text</A>
+</B></TD><TD><P>Produces text that appears in the "space" occupied by the
+image.
+That is, unlike Caption, this module specifies the text position and
+size in the same coordinates as the data.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu163.htm#HDRTUBE">Tube</A>
+</B></TD><TD><P>Produces a tube of specified diameter and number of sides from
+an
+input line.
+If a "normals" component is present on the line (e.g., if the
+<TT><STRONG>curl</STRONG></TT> option was used to create a streamline
+or streakline), the twist of the tube will correspond to the
+direction of the "normals."
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX270"></A><A NAME="HDRCATDXL" ></A>DXLink</H3>
+		<P>
+These tools are used to control Data Explorer from a separate program.
+
+		<P><B>Note: </B>According to UNIX alphabetical convention, capital letters
+precede
+lower case.
+Thus DXLink precedes Debugging in the category pallet of the VPE,
+and the DXLink routines precede Direction in the tools pallet
+and in the routine descriptions in <A HREF="refgu009.htm#HDRFMD">Chapter 2.
+"Functional Modules"</A>.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu043.htm#HDRDXLINPT">DXLInput</A>
+</B></TD><TD><P>Enables a remote DXLink application to set a parameter value in
+a
+visual program.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu044.htm#HDRDXLINPN">DXLInputNamed</A>
+</B></TD><TD><P>Enables a remote DXLink application to set a parameter value in
+a
+visual program, but also allows the name of the variable to be set via a
+wire into the DXLInputNamed tool.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu045.htm#HDRDXLOUTP">DXLOutput</A>
+</B></TD><TD><P>Sends a value to a remote application.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX271"></A><A NAME="HDRCATDBG" ></A>Debugging</H3>
+		<P>
+These tools facilitate the analysis of a program&#39;s execution.
+
+		<TABLE CELLPADDING="3">
+
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu046.htm#HDRDESCRIB">Describe</A>
+</B></TD><TD><P>Presents information about any Data Explorer object in the
+Message window.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu051.htm#HDRECHO">Echo</A>
+</B></TD><TD><P>Echoes a message.
+It can also print simple Array Objects (e.g., output of the Statistics
+module).
+In the user interface this output appears in the Message window.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu095.htm#HDRMESSAGE">Message</A>
+</B></TD><TD><P>Displays a message to the user, either in the Message window or
+in
+a pop-up dialog box.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu106.htm#HDRPRINT">Print</A>
+</B></TD><TD><P>Prints information about an Object (e.g. a Field or a Camera).
+You can specify the level of detail.
+In the user interface the output appears in the Message window.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu155.htm#HDRSYSTEM">System</A>
+</B></TD><TD><P>Allows you to execute arbitrary operating-system commands.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu158.htm#HDRTRACE">Trace</A>
+</B></TD><TD><P>Enables the tracing of time spent in a module, tracing of
+memory, or
+the use of debugging flags or user-written modules.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu166.htm#HDRUSAGE">Usage</A>
+</B></TD><TD><P>Prints the amount of memory currently being used by Data
+Explorer.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu171.htm#HDRVERIFY">Verify</A>
+</B></TD><TD><P>Checks an Object for internal consistency.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu172.htm#HDRVISUOBJ">VisualObject</A>
+</B></TD><TD><P>Creates a renderable object representing an object&#39;s
+hierarchy.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX273"></A><A NAME="HDRCATFLOW" ></A>Flow Control</H3>
+		<P>
+These tools control the flow of execution in a visual program.
+
+		<P>
+For additional information,
+see <A HREF="usrgu026.htm#HDRXMOD">Chapter 4. "Data Explorer Execution
+Model"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu050.htm#HDRODONE">Done</A>
+</B></TD><TD><P>Specifies whether an executing loop should terminate.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu054.htm#HDREXECUTE">Execute</A>
+</B></TD><TD><P>Allows the user to change the execution state of a visual
+program
+without using the <TT><STRONG>Execute</STRONG></TT> pull-down menu in
+the user interface.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu062.htm#HDROFIRST">First</A>
+</B></TD><TD><P>Indicates whether the current iteration of the loop is the
+first.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu063.htm#HDRFOREMEM">ForEachMember</A>
+</B></TD><TD><P>Initiates a loop for each member of a group or item in an array.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu064.htm#HDRFOREN">ForEachN</A>
+</B></TD><TD><P>Iterates through a specified set of integers.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu066.htm#HDRGETGLO">GetGlobal</A>
+</B></TD><TD><P>Retrieves an object from the cache. Maintains state between
+executions.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu067.htm#HDRGETLOC">GetLocal</A>
+</B></TD><TD><P>Retrieves an object from the cache.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu124.htm#HDRROUTE">Route</A>
+</B></TD><TD><P>Routes an Object through selector-specified output paths.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu135.htm#HDRSETGLO">SetGlobal</A>
+</B></TD><TD><P>Places an object in the cache. Maintains state between
+executions.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu136.htm#HDRSETLOC">SetLocal</A>
+</B></TD><TD><P>Places an object in the cache.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu154.htm#HDRSWITCH">Switch</A>
+</B></TD><TD><P>Switches the output between a list of inputs.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX274"></A><A NAME="HDRCATIAE" ></A>Import and Export</H3>
+		<P>
+The first two tools listed, along with ReadImage and WriteImage, are
+concerned with the flow of data into and out of a
+visual program.
+The others typically process data immediately after it has been imported.
+
+		<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu056.htm#HDREXPORT">Export</A>
+</B></TD><TD><P>Exports Objects created in Data Explorer to an external data
+file (in Data Explorer
+file format).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu073.htm#HDRIMPORT">Import</A>
+</B></TD><TD><P>Brings data into Data Explorer from a specified file.
+If the file contains more than one variable or contains multiple frames
+of data, portions of the data can be specified for importation.
+
+Supported formats are native Data Explorer format, CDF, netCDF, HDF, and General
+Array format.
+
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu074.htm#HDRIMPSPSH">ImportSpreadsheet</A>
+</B></TD><TD><P>Brings data into Data Explorer from spreadsheet, or tabular,
+data file.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu075.htm#HDRINCLUDE">Include</A>
+</B></TD><TD><P>Includes (or excludes) points based on their data values (e.g.,
+removing all points with data values greater
+than 9.3).
+It can also be used to remove data marked as invalid.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu102.htm#HDRPARTITI">Partition</A>
+</B></TD><TD><P>Subdivides data to take advantage of parallelism for Data
+Explorer SMP.
+You can control the level of subdivision.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu110.htm#HDRREADIMA">ReadImage</A>
+</B></TD><TD><P>Reads an image from an external file.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu113.htm#HDRREDUCE">Reduce</A>
+</B></TD><TD><P>Reduces the resolution of a data set, filtering and resampling
+the
+set at a lower resolution.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu114.htm#HDRREFINE">Refine</A>
+</B></TD><TD><P>Increases the number of samples in a data set.
+This module interpolates data values or colors at the new positions
+from the data or color values at the original positions.
+It can also convert connections from quads or faces to triangles, and
+from cubes to tetrahedra.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu143.htm#HDRSLAB">Slab</A>
+</B></TD><TD><P>Takes a positional subset of a data set with regular connections
+(cubes, quads, and lines).  You can specify along which axis to
+take the subset, where the slab should begin, and how thick
+the slab is to be.
+The module performs no interpolation.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu144.htm#HDRSLICE">Slice</A>
+</B></TD><TD><P>Takes a positional subset of a data set with regular
+connections,
+like the Slab module.
+However, unlike the Slab module, it creates output with a dimensionality
+1 less than the dimensionality of the input.
+For example, you can import a data set as a 4-dimensional grid, with
+the fourth dimension representing time.
+You can then use the Slice module to create 3-dimensional slices of the
+data set.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu146.htm#HDRSTACK">Stack</A>
+</B></TD><TD><P>Stacks a series of <I>n</I>-dimensional Fields to form a single
+(<I>n</I>+1)-dimensional Field.
+This module can also be used to increase the dimensionality of a single
+Field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu162.htm#HDRTRANSPO">Transpose</A>
+</B></TD><TD><P>Transposes the positions of a Field.
+For example, it can interchange the <I>x</I> and <I>y</I> axes.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu173.htm#HDRWRITEIM">WriteImage</A>
+</B></TD><TD><P>Writes an image to an external file in a specified format.
+The same functionality is provided by the <TT><STRONG>SaveImage</STRONG></TT>
+option of the <TT><STRONG>File</STRONG></TT> pull-down menu of the
+Image window.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX275"></A><A NAME="HDRCATINT" ></A>Interactor</H3>
+		<P>
+These tools provide interactive control of inputs to other modules in
+visual programs.
+They can be used only with the user interface.
+
+		<P>
+For additional information,
+see <A HREF="usrgu043.htm#HDRBUICO">7.1 , "Using Control Panels and
+Interactors"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+Interactors are named after the type of data they control&#58;
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu060.htm#HDRFILESEL">FileSelector</A>
+</B></TD><TD><P>Presents a standard Motif file-selector dialog box.
+The output is a file name.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu078.htm#HDRINTEGER">Integer</A>
+</B></TD><TD><P>Presents a stepper, slider, dial, or text interactor.
+The output is a whole number.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu079.htm#HDRINTEGEL">IntegerList</A>
+</B></TD><TD><P>Presents a scrolled-list or text interactor.
+The output is a list of integers.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu121.htm#HDRRESET">Reset</A>
+</B></TD><TD><P>Presents a toggle button.
+The output is one value the first time it is run, and a different value
+on subsequent runs until the toggle is selected again.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu127.htm#HDRSCALAR">Scalar</A>
+</B></TD><TD><P>Presents a stepper, slider, dial, or text interactor.
+The output is a real number.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu128.htm#HDRSCALARL">ScalarList</A>
+</B></TD><TD><P>Presents a stepper, slider, dial, or text interactor.
+The output is list of scalar values.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu132.htm#HDRSELECTO">Selector</A>
+</B></TD><TD><P>Presents an option menu, a set of radio buttons, or a toggle
+button.
+The outputs are a value and a string, representing a choice from a
+selection.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu133.htm#HDRSELLIST">SelectorList</A>
+</B></TD><TD><P>Presents a selection list.
+The output is a list of values and a list of strings, representing a
+choice of one or more from many.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu150.htm#HDRSTRING">String</A>
+</B></TD><TD><P>Presents a text interactor.
+The output is a text string.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu151.htm#HDRSTRINGL">StringList</A>
+</B></TD><TD><P>Presents a scrolled-text list.
+The output is a list of strings.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu157.htm#HDRTOGGLE">Toggle</A>
+</B></TD><TD><P>Presents a toggle button.
+The output is one of two values (set or unset).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu167.htm#HDRVALUE">Value</A>
+</B></TD><TD><P>Presents a text interactor.
+The output is a value (scalar, vector, tensor, or matrix).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu168.htm#HDRVALUEL">ValueList</A>
+</B></TD><TD><P>Presents a scrolled list or text interactor.
+The output is a value list.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu169.htm#HDRVECTOR">Vector</A>
+</B></TD><TD><P>Presents a stepper or text interactor.
+The output is a vector.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu170.htm#HDRVECTORL">VectorList</A>
+</B></TD><TD><P>Presents a scrolled-list or text interactor.
+The output is a vector list.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX277"></A><A NAME="HDRCATICTL" ></A>Interface Control</H3>
+		<P>
+These tools are used to control Data Explorer tools from within a visual
+program.
+
+		<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu087.htm#HDRMNGCMPE">ManageColormapEditor</A>
+</B></TD><TD><P>Allows colormap editors to be opened and closed from within a
+visual program.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu088.htm#HDRMNGCNTP">ManageControlPanel</A>
+</B></TD><TD><P>Allows control panels to be opened and closed from within a
+visual program.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu089.htm#HDRMNGIMGW">ManageImageWindow</A>
+</B></TD><TD><P>Allows image windows to be opened and closed from within a
+visual program.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu090.htm#HDRMNGSEQ">ManageSequencer</A>
+</B></TD><TD><P>Determines whether the Sequence control panel is displayed or
+not.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX278"></A><A NAME="HDRCATREL" ></A>Realization</H3>
+		<P>
+These tools create structures for rendering and display (e.g., bands,
+triangle connections, isosurfaces, and boundary boxes).
+
+		<TABLE CELLPADDING="3">
+
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu019.htm#HDRAUTGRID">AutoGrid</A>
+</B></TD><TD><P>Maps a set of scattered points onto a grid. The grid will be
+created
+automatically by Data Explorer.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu020.htm#HDRBAND">Band</A>
+</B></TD><TD><P>Divides a Field into bands based on given division values.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu038.htm#HDRCONNECT">Connect</A>
+</B></TD><TD><P>Creates triangle
+connections for a Field of scattered positions.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu039.htm#HDRCONSTRU">Construct</A>
+</B></TD><TD><P>Constructs an arbitrary Field.
+You can specify the origin, the deltas, the counts in each dimension,
+and the data.
+You can also use Construct to create a Field containing a
+"positions" component with given position values
+(e.g., the output of the ProbeList tool).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu052.htm#HDRENUMER">Enumerate</A>
+</B></TD><TD><P>Generates a numeric list.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu070.htm#HDRGRID">Grid</A>
+</B></TD><TD><P>Produces a set of points on a grid.
+You can construct rectangles, ellipses, lines, crosshairs,
+and bricks.
+You can specify the size of the object and the number of points in the
+grid.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu080.htm#HDRISOLATE">Isolate</A>
+</B></TD><TD><P>Shrinks the connections elements of a Field so that they can be
+individually seen.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu081.htm#HDRISOSURF">Isosurface</A>
+</B></TD><TD><P>Creates surfaces or lines of constant value.
+For volumetric inputs, it creates isosurfaces; for surface inputs,
+contour lines.
+Use the ClipPlane module to display the interior of an isosurface.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu092.htm#HDRMAPTOPL">MapToPlane</A>
+</B></TD><TD><P>Maps a 3-dimensional data Field onto an
+arbitrary plane.
+You can specify a point and a normal to define the plane.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu115.htm#HDRREGRID">Regrid</A>
+</B></TD><TD><P>Maps a set of scattered points onto a specified grid.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu125.htm#HDRRUBBERS">RubberSheet</A>
+</B></TD><TD><P>Deforms a surface field (composed of triangles, quads, or lines)
+by an amount proportional to the data value at each point.
+You can use the Normals or FaceNormals module to add shading before
+rendering.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu126.htm#HDRSAMPLE">Sample</A>
+</B></TD><TD><P>Produces a set of points in an arbitrary field.
+For example, you can produce a set of approximately evenly spaced
+samples on an isosurface.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu138.htm#HDRSHOWBOU">ShowBoundary</A>
+</B></TD><TD><P>Creates a renderable object that is the boundary of a
+volumetric field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu139.htm#HDRSHOWBOX">ShowBox</A>
+</B></TD><TD><P>Creates a set of renderable lines that represent the bounding
+box
+of a field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu140.htm#HDRSHOWCON">ShowConnections</A>
+</B></TD><TD><P>Creates a set of renderable lines that represent the connections
+of
+elements in a field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu141.htm#HDRSHOWPOS">ShowPositions</A>
+</B></TD><TD><P>Creates a set of renderable points that represent the positions
+of
+a field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu148.htm#HDRSTREAKL">Streakline</A>
+</B></TD><TD><P>Computes a line that traces the path of a particle through a
+changing vector field.
+The data input to the module is a vector field series, or a single
+field that is a member of a vector field series.
+You can control the starting points of the streaklines, and can
+optionally provide a curl field to produce twist on any
+ribbons or tubes constructed from the streakline.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu149.htm#HDRSTREAML">Streamline</A>
+</B></TD><TD><P>Computes a line that traces the path of a particle through a
+constant vector field.
+The data input to the module is a vector field.
+You can control the starting points of the streamlines, and can
+optionally provide a curl field to produce twist on any
+ribbons or tubes constructed from the streamline.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX279"></A><A NAME="HDRCATREN" ></A>Rendering</H3>
+		<P>
+These tools create a displayable image from a renderable object or
+modify the visual characteristics of the object(s) being
+displayed.
+For example, Normals and FaceNormals could be used to add shading to a
+geometrical structure created with RubberSheet (Realization
+category), while Light and AmbientLight could be used to
+change its default lighting.
+
+		<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu010.htm#HDRAMBLIGH">AmbientLight</A>
+</B></TD><TD><P>Produces an ambient light.
+You can specify the color of the light.
+Ambient lights illuminate a surface equally, regardless of direction,
+so an object illuminated only with ambient light is not shaded.
+Note that it is not necessary to specify an ambient light, because a
+small amount of ambient light is built into the object model.
+However, explicitly specified lighting overrides the default lighting.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu012.htm#HDRARRANGE">Arrange</A>
+</B></TD><TD><P>Creates a single image from a collection of images.
+You can specify how many images to put in a row.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu015.htm#HDRAUTOCAM">AutoCamera</A>
+</B></TD><TD><P>This module produces an appropriate camera as input to the
+Render
+or Display module.
+Specifying a "look-from" direction changes this
+default camera.
+The width of the image in model units (orthographic projection) or
+the field of view (perspective projection), or the image size
+and aspect ratio can also be changed.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu021.htm#HDRCAMERA">Camera</A>
+</B></TD><TD><P>Produces a camera for input to the Render or Display
+module.
+You can specify the "look-to" point, the "look-from" point,
+the width of the image in units corresponding to those in the
+data, the image size, and the aspect ratio.
+Camera differs from AutoCamera in that it specifies a "look from"
+a <I>point</I> instead of a <I>direction</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu027.htm#HDRCLIPBOX">ClipBox</A>
+</B></TD><TD><P>Clips an object using a box.
+You can specify the box explicitly, as the two corners defining a box,
+or it can be the bounding box of an object.
+The module renders only that part of the object inside the box.
+The Render, Display, or Image tool actually performs the clipping.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu028.htm#HDRCLIPPLA">ClipPlane</A>
+</B></TD><TD><P>Clips an object by a plane.
+The user specifies the plane with a point and a normal.
+The side of the plane the normal projects into is the side that
+will be clipped (i.e., not displayed).
+The Render, Display, or Image tool performs the clipping.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu048.htm#HDRDISPLAY">Display</A>
+</B></TD><TD><P>Renders and/or displays an image to the screen.
+If a camera is not provided, the Display module expects the first
+input to be an image (e.g., the output of Render or Arrange).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu059.htm#HDRFACENOR">FaceNormals</A>
+</B></TD><TD><P>Computes normals on a surface.
+When you use the FaceNormals module, each face of the surface is
+flat-shaded.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu072.htm#HDRIMAGE">Image</A>
+<A NAME="IDX280"></A>
+</B></TD><TD><P>This tool renders and displays an image to the screen.
+It performs like the AutoCamera and Display modules combined.
+Using the Image tool to render an image enables many direct interactors
+that are not available when using AutoCamera and Display.
+These options are available in the <TT><STRONG>View Control</STRONG></TT>
+option of the <TT><STRONG>Options</STRONG></TT> pull-down menu in the
+Image window.
+For example,
+see <A HREF="usrgu040.htm#HDRCHAV">"Controlling the Image: View Control..."</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+The Image tool is available only in the graphical user interface.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu084.htm#HDRLIGHT">Light</A>
+</B></TD><TD><P>Produces a distant point light.
+You can specify the direction and color of the light.
+Note that it is not necessary to specify a light, because there is a
+default light built into the object model;
+however, explicitly specified lighting overrides the default lighting.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu097.htm#HDRNORMALS">Normals</A>
+</B></TD><TD><P>Computes point or face normals for shading a surface.
+For example, you can use this module to produce shading on rubbersheets
+and boundaries.
+However, shading on an isosurface is smoother if you use the gradient
+shading options built into the Isosurface module.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu100.htm#HDROVERLAY">Overlay</A>
+</B></TD><TD><P>Overlays two images.
+The result is a new image that can be displayed using the Display
+module.
+The new image is a pixel-by-pixel sum of the two images, where 1 &#45;
+<TT><STRONG>blend</STRONG></TT> attenuates the base-image pixels, and
+<TT><STRONG>blend</STRONG></TT> attenuates the overlay-image pixels,
+(<TT><STRONG>blend</STRONG></TT> is a value
+between 0 and 1).
+You can also perform chromakeying by specifying
+<TT><STRONG>blend</STRONG></TT> as an RGB color or
+as a string specifying a color.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu118.htm#HDRRENDER">Render</A>
+</B></TD><TD><P>Renders an object and creates an image.
+The object can be any combination of volumes, surfaces, lines, and
+points, and you can clip the object.
+You need to provide a camera to the Render module to specify the
+viewing direction.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu119.htm#HDRREORENT">Reorient</A>
+</B></TD><TD><P>Rotates or inverts an image or a group of images.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu123.htm#HDRROTATE">Rotate</A>
+</B></TD><TD><P>Rotates an object around specified axes.
+The Render, Display, or Image tool actually performs the rotation.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu129.htm#HDRSCALE">Scale</A>
+</B></TD><TD><P>Changes an object&#39;s dimensions along the <I>x</I>,
+<I>y</I>, and <I>z</I> axes.
+The scaling is actually performed in the Render, Display, or Image tool.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu130.htm#HDRSCALSCR">ScaleScreen</A>
+</B></TD><TD><P>Scales all screen objects (typically captions and color bars) by
+a specified amount.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu137.htm#HDRSHADE">Shade</A>
+</B></TD><TD><P>Allows you to specify object-shading parameters such as
+specularity.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu159.htm#HDRTRANSFO">Transform</A>
+</B></TD><TD><P>Moves, rotates, and resizes an object.
+The Render, Display, or Image tool actually performs the translation.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu160.htm#HDRTRANSLA">Translate</A>
+</B></TD><TD><P>Moves an object along the <I>x, y</I>, and <I>z</I>
+axes.
+The Render, Display, or Image tool actually performs the translation.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu165.htm#HDRUPDATCA">UpdateCamera</A>
+</B></TD><TD><P>Makes specified alterations to the input camera.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX281"></A><A NAME="HDRCATSPE" ></A>Special</H3>
+		<P>
+Tools in this category can be used in visual programs for a variety
+of purposes.
+
+		<P><B>Note: </B>For details, see the sections of the <I>IBM Visualization Data
+Explorer User&#39;s Guide</I> referred to in the
+following list.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu035.htm#HDRCOLRMAP">Colormap</A>
+</B></TD><TD><P>Presents an interactor tool for creating color maps.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu076.htm#HDRINPUT">Input</A>
+</B></TD><TD><P>Defines an input to a macro. See <A
+HREF="usrgu044.htm#HDRMACROS">7.2 , "Creating and Using Macros"</A> for
+information.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu099.htm#HDROUTPUT">Output</A>
+</B></TD><TD><P>Defines an output of a macro. See <A
+HREF="usrgu044.htm#HDRMACROS">7.2 , "Creating and Using Macros"</A> for
+information.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu103.htm#HDRPICK">Pick</A>
+</B></TD><TD><P>Allows the user to pick objects in a scene using the mouse.
+See <A HREF="usrgu040.htm#HDRPICKIN">"Using Pick"</A> for information.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu107.htm#HDRPROBE">Probe</A>
+</B></TD><TD><P>Allows the user to pick an xyz point in a scene using the mouse.
+See <A HREF="usrgu040.htm#HDRPROBES">"Using Probes (Cursors)"</A> for
+information.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu108.htm#HDRPROBELI">ProbeList</A>
+</B></TD><TD><P>Allows the user to pick multiple xyz points in a scene using the
+mouse. See <A HREF="usrgu040.htm#HDRPROBES">"Using Probes (Cursors)"</A> for
+information.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu112.htm#HDRRECEIVE">Receiver</A>
+</B></TD><TD><P>Receives the output of a transmitter for "wireless" connections.
+See <A HREF="usrgu041.htm#HDRTNR">"Using Transmitters and Receivers"</A> for
+information.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu134.htm#HDRSEQUENC">Sequencer</A>
+</B></TD><TD><P>Allows animation of a visual program.
+See <A HREF="usrgu039.htm#HDRSEQUEN">"Using the Sequencer"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I> for information.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu161.htm#HDRTRANSMI">Transmitter</A>
+</B></TD><TD><P>Outputs an Object for "wireless" connections.
+See <A HREF="usrgu041.htm#HDRTNR">"Using Transmitters and Receivers"</A> for
+information.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX282"></A><A NAME="HDRCATSTR" ></A>Structuring</H3>
+		<P>
+These tools manipulate Data Explorer data structures.
+Their functions include the creation of hierarchies, selection of
+elements in a hierarchy, allowing operations on components
+other than "data," manipulation of Field or Group
+components, and determining which branches of a
+visual program are to be executed.
+
+		<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu011.htm#HDRAPPEND">Append</A>
+</B></TD><TD><P>Adds Objects as members to an existing Group.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu013.htm#HDRATTRIB">Attribute</A>
+</B></TD><TD><P>Extracts an attribute from an Object.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu025.htm#HDRCHGGRME">ChangeGroupMember</A>
+</B></TD><TD><P>Inserts, renames, or deletes a member of an existing Group.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu026.htm#HDRCHGGRTY">ChangeGroupType</A>
+</B></TD><TD><P>Changes the type of a Group.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu029.htm#HDRCOLLECT">Collect</A>
+</B></TD><TD><P>Collects Objects into a Group.
+For example, you can use Collect to collect a streamline, an
+isosurface, and a light.
+You can then pass the collection to the Image tool.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu030.htm#HDRMULTIGR">CollectMultiGrid</A>
+</B></TD><TD><P>Collects Objects into a Multigrid (a Group that will be
+treated as a single data Object).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu031.htm#HDRCOLLECN">CollectNamed</A>
+</B></TD><TD><P>Collects Objects into a Group (like Collect) but
+allows each Object in the Group to be given a name.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu032.htm#HDRCOLLECS">CollectSeries</A>
+</B></TD><TD><P>Collects Objects into a Series.
+You give each element of the series a series position (e.g., a time tag).
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu041.htm#HDRCOPYCON">CopyContainer</A>
+</B></TD><TD><P>Copies the top container Object.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu057.htm#HDREXTRACT">Extract</A>
+</B></TD><TD><P>Extracts a component from a Field (e.g., the "colors"
+component).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu077.htm#HDRINQUIRE">Inquire</A>
+</B></TD><TD><P>Returns information about the input Object (e.g., data type,
+number of elements, etc.).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu085.htm#HDRLIST">List</A>
+</B></TD><TD><P>Concatenates several items into a single list.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu093.htm#HDRMARK">Mark</A>
+</B></TD><TD><P>Marks a specified component in a Field as the
+data component.
+Many modules operate only on the "data" component.
+Thus the Mark module allows modules to operate on components other than
+data (e.g., "positions" or "colors").
+If a "data" component already exists, it is preserved in a
+"saved data" component.
+You can restore it by using the Unmark module.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu098.htm#HDROPTIONS">Options</A>
+</B></TD><TD><P>Associates attributes with an Object.
+For example, plotting options such as marker type can be specified by
+adding attributes to the line.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu116.htm#HDRREMOVE">Remove</A>
+</B></TD><TD><P>Removes a specified component from a Field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu117.htm#HDRRENAME">Rename</A>
+</B></TD><TD><P>Renames a component in a Field.
+For example, you could rename the "colors" component to "front
+colors" to get only front-facing colors.
+You should be aware that component names have special meanings to
+modules using them.
+See <A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data
+Model"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu120.htm#HDRREPLACE">Replace</A>
+</B></TD><TD><P>Replaces a component in one Field with a component from another,
+or
+with an input Array.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu131.htm#HDRSELECT">Select</A>
+</B></TD><TD><P>Selects members out of a Group or elements from a list.
+two isosurfaces, a streamline, and a mapped plane.
+You could then use the
+<TT><STRONG>selector</STRONG></TT>
+input to the module to choose which of these is the output of the module.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu164.htm#HDRUNMARK">Unmark</A>
+</B></TD><TD><P>Undoes the action of the Mark module.
+It moves the "data" component back to the component you specify,
+and the "saved data" component is restored to the "data"
+component.
+</TD></TR></TABLE>
+<P>
+		<H3><A NAME="IDX283"></A><A NAME="HDRCATTRN" ></A>Transformation</H3>
+		<P>
+These tools generally modify or add to components of the input Field
+without changing its underlying positions and connections.
+For example, AutoColor creates a "colors" component based on the
+data values of a Field and Compute performs a mathematical operation
+on the "data" component of a Field.
+
+		<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu016.htm#HDRAUTOCOL">AutoColor</A>
+</B></TD><TD><P>Automatically colors a data Field.
+By default, the minimum data value is blue, the maximum data value is
+red, and data values between are blue to red through cyan, green,
+and yellow.
+You can control what subset of the data range to color and what portion
+of the color wheel to use.
+You can also control the opacity of the object and the intensity of the
+colors.
+AutoColor also chooses appropriate colors and opacities for volume
+rendering.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu018.htm#HDRAUTOGRA">AutoGrayScale</A>
+</B></TD><TD><P>Automatically colors a data field using a gray scale.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu023.htm#HDRCATEGOR">Categorize</A>
+</B></TD><TD><P>Categorizes data, creating an integer data component along with
+a
+lookup table into which the integers reference.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu024.htm#HDRCATEGST">CategoryStatistics</A>
+</B></TD><TD><P>Performs various statistics such as minimum, maximum, number of
+items, etc., on categorical data.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu033.htm#HDRCOLOR">Color</A>
+</B></TD><TD><P>Allows you more control over the coloring of an object than is
+possible with AutoColor.
+You can specify a string representing a color (e.g., "spring
+green"), an RGB color, or a color map (from the Colormap
+Editor, for example) to be applied to a data Field.
+You can also use the Color module to make objects (e.g., isosurfaces)
+translucent.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu036.htm#HDRCOMPUTE">Compute</A>
+</B></TD><TD><P>Performs point-by-point arithmetic on a Field or Fields.
+For example, it can add the "data" component of one Field to the
+tangent of the "data" component of another Field.
+You can also use the Compute module to select components from a vector
+data Field; construct a vector "data" component from a set of
+scalar input data Fields; or perform conditional operations.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu037.htm#HDRCOMPUT2">Compute2</A>
+</B></TD><TD><P>Differs from Compute in allowing the expression to be passed in
+by means of an input tab (e.g., from a Selector interactor).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu040.htm#HDRCONVERT">Convert</A>
+</B></TD><TD><P>Converts between hue, saturation, and value color space and red,
+green, and blue color space.
+You can convert either a single vector, a list of vectors, or a color
+map.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu042.htm#HDRDFT">DFT</A>
+</B></TD><TD><P>Performs a discrete Fourier transformation on a 2- or
+3-dimensional
+field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu047.htm#HDRDIRECT">Direction</A>
+</B></TD><TD><P>Converts azimuth, elevation, and distance to Cartesian
+coordinates (x, y, and z), which are useful for specifying
+camera viewing directions and for specifying
+ClipPlane or MapToPlane normal directions.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu049.htm#HDRDIVCURL">DivCurl</A>
+</B></TD><TD><P>Computes the divergence and the curl of a vector field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu053.htm#HDREQUALIZ">Equalize</A>
+</B></TD><TD><P>Applies histogram equalization to a field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu058.htm#HDRFFT">FFT</A>
+</B></TD><TD><P>Performs a fast Fourier transformation on a 2- or 3-dimensional
+field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu061.htm#HDRFILTER">Filter</A>
+</B></TD><TD><P>Filters a Field.
+You can specify a name describing a filter (e.g., "laplacian") or
+a filter matrix explicitly.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu069.htm#HDRGRADIEN">Gradient</A>
+</B></TD><TD><P>Computes the gradient of a scalar Field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu071.htm#HDRHISTOGR">Histogram</A>
+</B></TD><TD><P>Computes a histogram and the median of an input data Field.
+You can then use Plot to visualize the result as a 2-dimensional
+graph.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu086.htm#HDRLOOKUP">Lookup</A>
+</B></TD><TD><P>Uses one object to look up the value of another object in a
+field.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu091.htm#HDRMAP">Map</A>
+</B></TD><TD><P>Maps Fields onto one another.
+For example, you can map a data Field onto an isosurface or onto a tube
+that has been formed from a streamline.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu094.htm#HDRMEASURE">Measure</A>
+</B></TD><TD><P>Performs measurements (e.g., surface area or volume) on a data
+Object.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu096.htm#HDRMORPH">Morph</A>
+</B></TD><TD><P>Applies a binary morphological operator, such as erode or
+dilate.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu105.htm#HDRPOST">Post</A>
+</B></TD><TD><P>Changes the dependency of data (and other components)
+between positions and
+connections.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu109.htm#HDRQANTIMG">QuantizeImage</A>
+</B></TD><TD><P>Converts an image from a format containing (potentially) as many
+colors as pixels to a quantized image with a color map with a
+user-specified number of colors between 8 and 256.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A HREF="refgu145.htm#HDRSORT">Sort</A>
+</B></TD><TD><P>Sorts a list or Field based on values in the data component.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu147.htm#HDRSTATIST">Statistics</A>
+</B></TD><TD><P>Computes the statistics of a Field: the mean, standard
+deviation,
+variance, minimum, and maximum.
+You can use these statistics as input for other modules, or print them
+using the Echo or Print modules.
+</TD></TR></TABLE>
+
+<P>
+		<H3><A NAME="IDX284"></A><A NAME="HDRCATWIN" ></A>Windows</H3>
+		
+These tools create or supervise image windows.
+
+		<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><A HREF="refgu111.htm#HDRREADIMW">ReadImageWindow</A>
+</B></TD><TD><P>reads back an image (pixels) from an Image or Display window,
+for
+both hardware and software rendered images.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu152.htm#HDRSUPSTAT">SuperviseState</A>
+</B></TD><TD><P>watches for and acts on mouse and keyboard events in a Display
+window, based on user-defined callbacks.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><A
+HREF="refgu153.htm#HDRSUPWIND">SuperviseWindow</A>
+</B></TD><TD><P>creates a window which will be monitored by SuperviseState.
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

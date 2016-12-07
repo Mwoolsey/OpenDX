@@ -1,0 +1,66 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rall1057 Asynchronous Outboard Module: An Example #!N #!EC #!N #!N The 
+function of this example module is to monitor the status of 
+a given file. Whenever the file is modified, its data are 
+reimported. For example, this program could be used to monitor the 
+output of a simulation program. The data can be plotted as 
+they are created. #!N #!N This sample program is /usr/lpp/dx/samples/outboard/watchfile.c. The 
+same directory also holds the associated .mdf file (watchfile.mdf) and an 
+example (watchsocket.c) that listens for input over a socket. See /usr/lpp/dx/samples/Outboard/Readme 
+for more information abut sample modules. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+/* #!N * sample asynchronous outboard module. #!N * #!N * 
+uses a signal to ask to be woken after a certain 
+delay. #!N * if a given file has been changed, re-import 
+the data. #!N * #!N * see watchfile.mdf, which must be 
+loaded before this can be run. #!N * also see Makefile_architecture.name 
+for how to compile this. #!N */ #!N #!N #include <dx/dx.h> 
+#!N #include <unistd.h> #!N #include <signal.h> #!N #include <stdio.h> #!N #include 
+<sys/stat.h> #!N #!N #!N static Pointer id = NULL; #!N static 
+time_t lastchanged; #!N static int seconds; #!N static char filename[1024]; #!EF 
+#!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* #!N * 
+this routine is called each time the alarm signal is #!N 
+* issued. #!N */ #!N void signalcatch() #!N { #!N struct 
+stat Buffer; #!N time_t changed; #!N /* stat the file to 
+find out its last modification time */ #!N if (stat(filename, &Buffer) 
+== 0) #!N { #!N /* the last time the file 
+was changed */ #!N changed = Buffer.st_mtime; #!N #!N /* compare 
+to the last time the file was checked */ #!N if 
+(lastchanged != changed) #!N { #!N /* the file has changed. 
+Rerun the main program. */ #!N DXReadyToRun(id); #!N } #!EF #!N 
+#!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* else the file 
+hasn't changed since last time we checked */ #!N else #!N 
+{ #!N /* go back to sleep for some seconds, but 
+first reset the #!N * alarm */ #!N signal(SIGALRM, signalcatch); #!N 
+alarm(seconds); #!N } #!N } #!N } #!EF #!N #!N #!EC 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Error #!N m_WatchFile(Object *in, Object *out) 
+#!N { #!N struct stat Buffer; #!N char *file; #!N #!N 
+/* the first input is the filename to check */ #!N 
+if (!in[0]) #!N { #!N DXSetError(ERROR_MISSING_DATA,"missing filename"); #!N return ERROR; #!N 
+} #!N #!N if (!DXExtractString(in[0], &file)) #!N { #!N DXSetError(ERROR_BAD_PARAMETER,"filename must 
+be a string"); #!N return ERROR; #!N } #!EF #!N #!N 
+#!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* put the filename into 
+a static global variable */ #!N strcpy(filename,file); #!N #!N /* the 
+second input is the number of seconds to wait between checks 
+*/ #!N /* the default is 10 seconds */ #!N if 
+(!in[1]) #!N seconds = 10; #!N else #!N { #!N if 
+(!DXExtractInteger(in[1], &seconds)) #!N { #!N DXSetError(ERROR_BAD_PARAMETER,"seconds must be an integer"); #!N 
+return ERROR; #!N } #!N } #!EF #!N #!N #!EC #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* the first time through, get the 
+module id for the DXReadyToRun call */ #!N if (!id) { 
+#!N id = DXGetModuleId(); #!N if (!id) { #!N out[0] = 
+NULL; #!N return ERROR; #!N } #!N } #!N #!N #!N 
+/* get the last modification time of the file */ #!N 
+if (stat(filename, &Buffer) != 0) { #!N DXSetError(ERROR_BAD_PARAMETER,"file %s not found"); 
+#!N return ERROR; #!N } #!N #!N lastchanged = Buffer.st_mtime; #!EF 
+#!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* import the 
+data from the file */ #!N out[0] = DXImportDX(filename, NULL, NULL, 
+NULL, NULL); #!N #!N #!N /* set the alarm for the 
+next wakeup */ #!N signal(SIGALRM, signalcatch); #!N alarm(seconds); #!N #!N #!N 
+return OK; #!N } #!EF #!N #!N #!EC Note: If this 
+program were compiled and linked as an inboard module, the global 
+variables would have to be stored in the cache and associated 
+with the module ID. Otherwise, the global variables would be shared 
+among all calls to the module. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lmodruns,dxall1059 h Compiling, Linking, and Debugging a Runtime-loadable Module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

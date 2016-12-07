@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu014.htm">Previous Page</A> &#124; <A HREF="progu016.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu013.htm#PToC4">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRMBLDER" HREF="../proguide.htm#ToC_32">Chapter 3. Module
+Builder</A></H1>
+<P><A NAME="PToC5" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_33" HREF="#Header_33">3.1 Overview</A>
+<LI><A NAME="PToC_34" HREF="progu016.htm#Header_34">3.2 Creating a Module with
+the Module Builder: A Summary</A>
+<LI><A NAME="PToC_35" HREF="progu017.htm#HDRTMODBLD">3.3 Using the Module
+Builder: A Quick Walk Through</A>
+<LI><A NAME="PToC_36" HREF="progu018.htm#Header_36">3.4 Module Builder: Menu
+Bar</A>
+<MENU>
+<LI><A NAME="PToC_37" HREF="progu018.htm#HDRBLDFILE">File Options</A>
+<LI><A NAME="PToC_38" HREF="progu018.htm#HDRBLDEDIT">Edit Options</A>
+<LI><A NAME="PToC_39" HREF="progu018.htm#HDRBLDOPTS">Build Options</A>
+<LI><A NAME="PToC_40" HREF="progu018.htm#HDRBLDHELP">Help Options</A>
+</MENU>
+<LI><A NAME="PToC_41" HREF="progu019.htm#Header_41">3.5 Module Builder: Overall
+Module Description</A>
+<LI><A NAME="PToC_42" HREF="progu020.htm#Header_42">3.6 Module Builder:
+Individual Parameter Information Section</A>
+<LI><A NAME="PToC_43" HREF="progu021.htm#HDRMBWRKRT">3.7 Worker Routine</A>
+<MENU>
+<LI><A NAME="PToC_44" HREF="progu021.htm#Header_44">Positions Specification</A>
+<LI><A NAME="PToC_45" HREF="progu021.htm#Header_45">Connections
+Specification</A>
+<LI><A NAME="PToC_46" HREF="progu021.htm#Header_46">Input Data</A>
+<LI><A NAME="PToC_47" HREF="progu021.htm#Header_47">Output Data</A>
+<LI><A NAME="PToC_48" HREF="progu021.htm#Header_48">Implementing Default Input
+Parameters</A>
+<LI><A NAME="PToC_49" HREF="progu021.htm#HDRWRKRXMP">Worker Routine Examples</A>
+</MENU></MENU><HR><P>
+<P>
+The Module Builder is a point-and-click interface for creating
+a module from user-supplied information.
+<P>
+The next several sections describe the general structure of modules
+built with the Module Builder; its dialog box; and examples
+of the "worker routine"--the interface between a
+module and the user-supplied application code.
+<HR>
+<H2><A NAME="Header_33" HREF="#PToC_33">3.1 Overview</A></H2>
+<A NAME="IDX155"></A>
+From specifications supplied by the user, the Module Builder
+generates three files:
+<OL COMPACT>
+<LI>a module description file (with the extension
+<TT><STRONG>&#46;mdf</STRONG></TT>);
+<LI>a C-code framework file that implements the structure of the
+module; and
+<LI>a makefile.
+</OL>
+<P>
+<A NAME="IDX156"></A>
+<A NAME="IDX157"></A>
+<A NAME="IDX158"></A>
+<A NAME="IDX159"></A>
+<A NAME="IDX160"></A>
+<A NAME="IDX161"></A>
+<A NAME="IDX162"></A>
+<P>
+The C-code framework file itself consists of three major routines:
+<UL COMPACT>
+<LI>The first routine checks input parameters and creates output
+Objects.
+It is named by prefixing <TT><STRONG>m&#95;</STRONG></TT> to the module name
+(e.g., the entry point for a module named Example is
+<TT><STRONG>m&#95;Example</STRONG></TT>).
+<LI>The second routine traverses hierarchically defined
+data Objects.
+When this routine (<TT><STRONG>Traverse</STRONG></TT>) encounters a Data
+Explorer
+Field Object, it calls the third routine.
+<LI>The third routine (<TT><STRONG>doLeaf</STRONG></TT>) creates a "worker
+routine" as an interface to the user&#39;s application-specific
+code: it extracts the input arguments, sets up the outputs,
+and calls the user-supplied code.
+(See <A HREF="progu021.htm#HDRMBWRKRT">3.7 , "Worker Routine"</A> and <A
+HREF="progu021.htm#HDRWRKRXMP">"Worker Routine Examples"</A>.).
+The worker routine appears at the end of the C-code framework file.
+</UL>
+<P>
+To complete a customized module, the user need only:
+<DL COMPACT>
+<DD>add the application-specific code to the worker routine (after the
+line "User&#39;s code goes here" at the end of the C-code
+framework file) by:
+<DL COMPACT>
+<DD>using an "include" file, <I>or</I>
+<DD>adding the application code directly to the framework file.
+</DL>
+</DL>
+<P>
+Using an include file is recommended because (1) if you rerun the
+module builder, it will overwrite the <TT><STRONG>.c</STRONG></TT>
+file, and (2) it makes replacing your own code easy.
+<P><B>Notes: </B><OL COMPACT>
+<LI>The Module Builder is designed to accommodate the most common form
+of customized module, in which the output Object is a copy of
+the input, but the data component is modified.
+<LI>Other inputs can be constant parameters or other hierarchically
+defined data Objects
+(note that the hierarchy of the data Objects must match exactly).
+</OL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu014.htm">Previous Page</A> &#124; <A HREF="progu016.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

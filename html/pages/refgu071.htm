@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Histogram</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu070.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu072.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRHISTOGR" ></A>Histogram</H3>
+		<A NAME="IDX539"></A><A NAME="IDX540"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<P><STRONG>Function</STRONG>
+<P>
+Constructs a histogram from input data and computes the median.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>histogram, median</STRONG> = Histogram(<STRONG>data, bins, min, max, out);</STRONG>
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+
+or vector list
+
+or scalar field
+
+or vector field
+
+or series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">field to be operated on
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>bins</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+
+or vector
+
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">256 for bytes, 100 otherwise
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of bins in histogram
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>min</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or
+
+vector or
+
+field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">min. of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">minimum value to operate on
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>max</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or
+
+vector or
+
+field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">max. of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">maximum value to operate on
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>out</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+
+or vector
+
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: exclude out-of-range values
+<BR>
+1: include out-of-range values
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<P>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>histogram</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field or series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">the histogram
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>median</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">median of the input data
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The median is determined from an interpolation performed in the bin
+containing the median element (or elements, if there are an even
+number of samples).
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>is the data whose frequency distribution is to be computed and
+then
+represented in a histogram.
+
+<TT><STRONG>data</STRONG></TT> can consist of scalars, 2-vectors, or 3-vectors,
+with resulting one-dimensional, two-dimensional, or three-dimensional
+histograms, respectively.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>bins</STRONG></TT>
+</B></TD><TD><P>specifies the number of bins into which the range from
+<TT><STRONG>min</STRONG></TT> to <TT><STRONG>max</STRONG></TT> will
+be divided.
+
+If <TT><STRONG>data</STRONG></TT> consists of vectors, then
+<TT><STRONG>bins</STRONG></TT> can be a vector of the same length specifying
+the number of bins in each dimension.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>min</STRONG></TT>
+&nbsp;and&nbsp; <TT><STRONG>max</STRONG></TT>
+</B></TD><TD><P>specify the range of values for which the histogram is computed.
+<UL COMPACT>
+<LI>If neither parameter is specified, the values used are the minimum
+and maximum of the input data values.
+<LI>If <TT><STRONG>min</STRONG></TT> is a scalar value, it is the
+value used.
+<LI>If <TT><STRONG>min</STRONG></TT> is a data field, the minimum data value
+of that field is used.
+<LI><TT><STRONG>max</STRONG></TT> is similarly interpreted.
+<LI>If <TT><STRONG>min</STRONG></TT> is a data field and
+<TT><STRONG>max</STRONG></TT> is unspecified, the
+module uses the minimum and maximum values
+of that field.
+
+<LI>
+If <TT><STRONG>data</STRONG></TT> consists of vectors, then
+<TT><STRONG>min</STRONG></TT> and <TT><STRONG>max</STRONG></TT> may also consist
+of
+vectors of the same length to specify the range in each dimension.
+Otherwise, the values given for <TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT> will apply to each dimension.
+
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>out</STRONG></TT>
+</B></TD><TD><P>specifies whether the module ignores data values outside the
+range
+of <TT><STRONG>min</STRONG></TT> and <TT><STRONG>max</STRONG></TT> or includes
+them in the first and last bins respectively.
+
+If <TT><STRONG>data</STRONG></TT> consists of vectors, then
+<TT><STRONG>out</STRONG></TT> may be a vector of the same length specifying
+how to treat each dimension.
+
+</TD></TR></TABLE>
+<P><B>Notes: </B><OL>
+<P><LI>For the output, a "positions" component is constructed that
+consists of <TT><STRONG>bins</STRONG></TT> +1 points, corresponding
+to the boundaries between bins.
+<P><LI>A regular "connections" component is constructed that consists
+of a set of line segments connecting the end points.
+<P><LI>The "data" component, which is connection dependent, contains
+the counts for the corresponding bin.
+<P><LI>The interval for each bin is closed on the <TT><STRONG>min</STRONG></TT>
+side and open on the <TT><STRONG>max</STRONG></TT> side.
+To include the maximum data value:
+<UL COMPACT>
+<LI>set <TT><STRONG>out</STRONG></TT> to include outlying values
+<P>
+<I>or</I>
+<LI>set <TT><STRONG>max</STRONG></TT> to a value slightly larger than the
+maximum data value.
+</UL>
+</OL>
+<P>
+
+To see the results of Histogram for scalar data, pass its output to the
+Plot module. For 2-vector data, pass its output to the RubberSheet module
+with a scale factor of 1. For 3-vector data, use either the
+Isolate module or use Include followed by ShowBoundary.
+
+<P><STRONG>Components</STRONG>
+<P>
+Creates new "positions," "connections," and "data"
+components.
+The data, representing the number of items in each bin, is connections
+dependent.
+<P><STRONG>Example Visual Program</STRONG>
+<PRE>
+UsingEqualize.net
+SIMPLE/Histogram.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu053.htm#HDREQUALIZ">Equalize</A>,
+&nbsp;<A HREF="refgu104.htm#HDRPLOT">Plot</A>,
+&nbsp;<A HREF="refgu129.htm#HDRSCALE">Scale</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

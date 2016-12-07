@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxorgb DXOutputRGB #!N #!N 
+Function #!N #!N Writes an image to a file in RGB 
+format. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Field DXOutputRGB(Field i, 
+int fd) #!EF #!N #!N Functional Details The routine writes image 
+Field  #!F-adobe-times-bold-r-normal--18*   i #!EF to file descriptor  #!F-adobe-times-bold-r-normal--18*   fd #!EF as 
+three bytes (red, green, and blue) per pixel. #!N #!N The 
+values of the floating-point "colors" component (ranging from 0.0 to 1.0) 
+are converted into byte values from 0 to 255. Values below 
+0 and above 1 are changed to 0 and 255 respectively. 
+#!N #!N The image is written at the current byte offset 
+in the file.  #!F-adobe-times-bold-r-normal--18*   lseek() #!EF should be called first to 
+reposition the current read/write pointer to the desired location. #!N #!N 
+Return Value Returns  #!F-adobe-times-bold-r-normal--18*   i #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!Liefs,dxall1140 h Image Fields  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxpart,dxall1330 h DXPartition  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

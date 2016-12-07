@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu336.htm">Previous Page</A> &#124; <A HREF="progu338.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXTCV" HREF="progu097.htm#PToC_431">DXTypeCheck,
+DXTypeCheckV</A></H3>
+<A NAME="IDX2133"></A>
+<A NAME="IDX2134"></A>
+<A NAME="IDX2135"></A>
+<A NAME="IDX2136"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Check that an Array meets a set of specifications.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Array DXTypeCheck(Array a, Type type, Category category, int rank, ...)<BR>
+Array DXTypeCheckV(Array a, Type type, Category category, int rank, int
+*shape)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The routine returns <TT><STRONG>a</STRONG></TT> if that Array meets the
+specifications given by <TT><STRONG>type</STRONG></TT>,
+<TT><STRONG>category</STRONG></TT>,
+<TT><STRONG>rank</STRONG></TT>, and
+<TT><STRONG>shape</STRONG></TT>.
+Otherwise, it returns <TT><STRONG>NULL</STRONG></TT>.
+The shape is specified by <TT><STRONG>shape</STRONG></TT> for
+<TT><STRONG>DXTypeCheckV</STRONG></TT> or by the last
+<TT><STRONG>rank</STRONG></TT> arguments for
+<TT><STRONG>DXTypeCheck</STRONG></TT>.
+For <TT><STRONG>DXTypeCheckV</STRONG></TT>, if <TT><STRONG>shape</STRONG></TT>
+is
+<TT><STRONG>NULL</STRONG></TT>, the type, category, and rank are checked,
+but the shape is not.
+<P>
+<TT><STRONG>rank</STRONG></TT> specifies the rank of the items in the Array:
+Scalars have rank 0, vectors have rank 1, and so on.
+<P>
+<TT><STRONG>shape</STRONG></TT> has rank entries representing the list of
+dimensions of the structure.
+For rank 0 items (scalars) there is no shape.
+For rank 1 items (vectors) the shape is a single number corresponding
+to the number of dimensions.
+For rank 2 structures, the shape is two (2) numbers, and so on.
+<TT><STRONG>shape</STRONG></TT> specifies the rank of the items in the Array:
+the number of dimensions in each item of the Array.
+Shape has entries where each entry represents the size of the item in
+that dimension.
+<P>
+The type is one of the following:
+<PRE><STRONG>
+TYPE_BYTE            TYPE_HYPER        TYPE_SHORT
+TYPE_UBYTE           TYPE_INT          TYPE_USHORT
+TYPE_DOUBLE          TYPE_UINT         TYPE_STRING
+TYPE_FLOAT
+</STRONG>
+</PRE>
+<P>
+The category is either <TT><STRONG>CATEGORY_REAL</STRONG></TT> or
+<TT><STRONG>CATEGORY_COMPLEX</STRONG></TT>.
+<P>
+<P><STRONG>Return Value</STRONG>
+<P>
+Return <TT><STRONG>a</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+(e.g., if the type does not match).
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu157.htm#HDRDXGAI">DXGetArrayInfo</A>
+</STRONG></TT>
+<P>
+<A HREF="progu046.htm#HDRARRAYSC">12.3 , "Array Class"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu336.htm">Previous Page</A> &#124; <A HREF="progu338.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

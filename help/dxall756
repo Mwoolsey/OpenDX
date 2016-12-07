@@ -1,0 +1,54 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rcatiae 
+Import and Export #!N #!EC #!N #!N The first two tools 
+listed, along with ReadImage and WriteImage, are concerned with the flow 
+of data into and out of a visual program. The others 
+typically process data immediately after it has been imported. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lexport,dxall844 h Export  #!EL  #!EF #!I50 #!N Exports Objects 
+created in Data Explorer to an external data file (in Data 
+Explorer file format). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Limport,dxall871 h Import  #!EL  #!EF #!I50 #!N 
+Brings data into Data Explorer from a specified file. If the 
+file contains more than one variable or contains multiple frames of 
+data, portions of the data can be specified for importation. Supported 
+formats are native Data Explorer format, CDF, netCDF, HDF, and General 
+Array format. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Limpspsh,dxall872 h ImportSpreadsheet  #!EL  #!EF #!I50 #!N Brings 
+data into Data Explorer from spreadsheet, or tabular, data file. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Linclude,dxall873 h Include  #!EL  #!EF #!I50 #!N Includes (or excludes) points 
+based on their data values (e.g., removing all points with data 
+values greater than 9.3). It can also be used to remove 
+data marked as invalid. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lpartiti,dxall902 h Partition  #!EL  #!EF #!I50 
+#!N Subdivides data to take advantage of parallelism for Data Explorer 
+SMP. You can control the level of subdivision. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lreadima,dxall915 h ReadImage  #!EL  #!EF #!I50 #!N Reads an image from an external 
+file. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lreduce,dxall918 h Reduce  #!EL  #!EF #!I50 #!N Reduces the 
+resolution of a data set, filtering and resampling the set at 
+a lower resolution. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lrefine,dxall919 h Refine  #!EL  #!EF #!I50 #!N 
+Increases the number of samples in a data set. This module 
+interpolates data values or colors at the new positions from the 
+data or color values at the original positions. It can also 
+convert connections from quads or faces to triangles, and from cubes 
+to tetrahedra. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lslab,dxall949 h Slab  #!EL  #!EF #!I50 #!N Takes 
+a positional subset of a data set with regular connections (cubes, 
+quads, and lines). You can specify along which axis to take 
+the subset, where the slab should begin, and how thick the 
+slab is to be. The module performs no interpolation. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lslice,dxall950 h Slice  #!EL  #!EF #!I50 #!N Takes a positional subset of 
+a data set with regular connections, like the Slab module. However, 
+unlike the Slab module, it creates output with a dimensionality 1 
+less than the dimensionality of the input. For example, you can 
+import a data set as a 4-dimensional grid, with the fourth 
+dimension representing time. You can then use the Slice module to 
+create 3-dimensional slices of the data set. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lstack,dxall952 h Stack  #!EL  #!EF #!I50 #!N Stacks a series of  #!F-adobe-times-medium-i-normal--18*   n #!EF 
+-dimensional Fields to form a single (  #!F-adobe-times-medium-i-normal--18*   n #!EF +1)-dimensional 
+Field. This module can also be used to increase the dimensionality 
+of a single Field. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Ltranspo,dxall970 h Transpose  #!EL  #!EF #!I50 
+#!N Transposes the positions of a Field. For example, it can 
+interchange the  #!F-adobe-times-medium-i-normal--18*   x #!EF and  #!F-adobe-times-medium-i-normal--18*   y #!EF axes. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lwriteim,dxall981 h WriteImage  #!EL  #!EF #!I50 #!N Writes an image to 
+an external file in a specified format. The same functionality is 
+provided by the  #!F-adobe-times-bold-r-normal--18*   SaveImage #!EF option of the  #!F-adobe-times-bold-r-normal--18*   File 
+#!EF pull-down menu of the Image window. #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcatint,dxall757 h Interactor  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

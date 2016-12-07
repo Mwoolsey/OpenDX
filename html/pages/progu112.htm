@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu111.htm">Previous Page</A> &#124; <A HREF="progu113.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXCMPLU" HREF="progu097.htm#PToC_206">DXCallModule, DXModSet...,
+DXSetModule...</A></H3>
+<A NAME="IDX1562"></A>
+<A NAME="IDX1563"></A>
+<A NAME="IDX1564"></A>
+<A NAME="IDX1565"></A>
+<A NAME="IDX1566"></A>
+<A NAME="IDX1567"></A>
+<A NAME="IDX1568"></A>
+<A NAME="IDX1569"></A>
+<A NAME="IDX1570"></A>
+<A NAME="IDX1571"></A>
+<A NAME="IDX1572"></A>
+<A NAME="IDX1573"></A>
+<A NAME="IDX1574"></A>
+<A NAME="IDX1575"></A>
+<A NAME="IDX1576"></A>
+<A NAME="IDX1577"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Enable a routine to call a Data Explorer module.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+ Error DXCallModule(char *modname, int num_inputs, ModuleInput *listin,<BR>
+                                   int num_outputs, ModuleOutput *listout);<BR>
+<P><BR>
+Object DXModSetFloatInput(ModuleInput *in, char *name, int n);<BR>
+Object DXModSetIntegerInput(ModuleInput *in, char *name, int n);<BR>
+Object DXModSetStringInput(ModuleInput *in, char *name, char *s);<BR>
+  void DXModSetObjectInput(ModuleInput *in, char *name, Object obj);<BR>
+  void DXModSetObjectOutput(ModuleOutput *out, char *name, Object *obj);<BR>
+<P><BR>
+       DXSetModuleInput(ModuleInput in, char *name, Object *obj);<BR>
+       DXSetModuleOutput(ModuleOutput out, char *name, Object *obj);<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The five <TT><STRONG>DXModSet...</STRONG></TT> routines are auxiliary to
+<TT><STRONG>DXCallModule</STRONG></TT>, which makes the actual
+call to a specified module.
+<P><B>Notes: </B><OL>
+<P><LI>If you use <TT><STRONG>DXCallModule</STRONG></TT> in a stand-alone
+program or outboard module, you must call
+<TT><STRONG>DXInitModule</STRONG></TT> before
+making any calls to
+<TT><STRONG>DXCallModule</STRONG></TT>
+<P><LI>The two <TT><STRONG>DXSetModule...</STRONG></TT> routines are provided
+solely for backward compatibility.
+Their use is not recommended.
+<P><LI>The Get and Set modules cannot be called by DXCallModule.
+<P><LI>Objects passed as inputs to DXCallModule will be deleted when that
+module is finished.
+To use the Object after DXCallModule requires a call to DXReference
+first, and the responsibility for deleting the Object when you
+are finished with it is yours.
+</OL>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>modname</STRONG></TT>
+</B></TD><TD><P>specifies the name of the module being called.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>num_inputs</STRONG></TT>
+</B></TD><TD><P>specifies the number of inputs in
+<TT><STRONG>listin</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>listin</STRONG></TT>
+</B></TD><TD><P>is an Array of ModuleInput structures specifying the module
+inputs.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>num_outputs</STRONG></TT>
+</B></TD><TD><P>specifies the number of outputs in
+<TT><STRONG>listout</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>listout</STRONG></TT>
+</B></TD><TD><P>is an Array of ModuleOutput structures specifying the module
+outputs.
+</TD></TR></TABLE>
+<P>
+The four <TT><STRONG>DXModSet...Input</STRONG></TT> routines set the contents
+of <TT><STRONG>ModuleInput</STRONG></TT> structures.
+<TT><STRONG>DXModSetObjectOutput</STRONG></TT> sets the destination for
+module outputs.
+<UL COMPACT>
+<LI>If <TT><STRONG>name</STRONG></TT> is specified as
+<TT><STRONG>NULL</STRONG></TT>, the inputs and
+outputs set by these routines are
+considered positional.
+For example, the first values passed using one of the
+<TT><STRONG>DXModSet...Input</STRONG></TT> routines  will
+be assigned to the first parameter of the module,
+the second value to the second parameter of
+that module, and so on.
+<LI>If <TT><STRONG>name</STRONG></TT> is a valid string, then it specifies
+a parameter of the module specified by <TT><STRONG>modname</STRONG></TT>,
+and the passed value is assigned to that parameter.
+<LI>Positional parameters cannot follow named ones.
+</UL>
+<P>
+A <TT><STRONG>ModuleInput</STRONG></TT> is defined as follows:
+<BR>
+<TT><STRONG><BR>
+typedef struct {<BR>
+   char *name;<BR>
+   Object value;<BR>
+} ModuleInput;<BR>
+</STRONG></TT><BR>
+<P>
+A <TT><STRONG>ModuleOutput</STRONG></TT> is defined as follows:
+<BR>
+<TT><STRONG><BR>
+typedef struct {<BR>
+   char *name;<BR>
+   Object *value;<BR>
+} ModuleOutput;<BR>
+</STRONG></TT><BR>
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>NULL</STRONG></TT> or returns
+<TT><STRONG>ERROR</STRONG></TT>
+and sets an error code.
+<P><STRONG>See Also</STRONG>
+<PRE><STRONG>
+<A HREF="progu215.htm#HDRDXIMOD">DXInitModules</A>,
+<A HREF="progu171.htm#HDRDXGETEX">DXGetErrorExit</A>,
+<A HREF="progu313.htm#HDRDXSETEX">DXSetErrorExit</A>,
+
+<A HREF="progu114.htm#HDRDXCRIH">DXCheckRIH</A>
+
+</STRONG>
+</PRE>
+<P>
+<A HREF="progu064.htm#HDRMODACSS">13.10 , "Module Access"</A>.
+<P>
+
+<TT>Readme</TT> file in <TT>/usr/local/dx/samples/callmodule/Readme</TT>.
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu111.htm">Previous Page</A> &#124; <A HREF="progu113.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

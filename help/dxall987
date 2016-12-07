@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall986 Writing a Stand-alone Program Using Data Explorer 
+Modules #!N #!EC #!N #!N You may want to write a 
+stand-alone program which directly uses Data Explorer modules. You would link 
+to the libDXcallm.a library, and use DXCallModule to call individual Data 
+Explorer. In this case, as with the previous one, your stand-alone 
+program "owns main." Note that you can do complete visualization programs 
+in this way, from Import to Isosurface to Display from within 
+your own program. However, you will  #!F-adobe-helvetica-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   not #!EF #!EF 
+be getting the functionality of the Data Explorer Executive in this 
+case, including cache management, and control of execution order. You will, 
+in addition, be responsible for deleting objects when you are finished 
+using them. Note that with the SuperviseWindow and SuperviseState modules (see 
+ #!Lsupwind,dxall961 h SuperviseWindow  #!EL  and  #!Lsupstat,dxall958 h SuperviseState  #!EL  in IBM Visualization Data Explorer User's Reference), direct 
+manipulation within the Image window is available without the Image tool, 
+so that a program using DXCallModule can provide direct interaction with 
+objects. #!N #!N Examples of stand-alone programs including .c files and 
+makefiles which use the CallModule library can be found in /usr/lpp/dx/samples/callmodule. 
+Graphically, this is represented by the lower "User Program" in  #!Larch118,dxall984 f Figure 118  #!EL  
+, which embeds Data Explorer module routines into the user's program. 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall987,dxall988 h Controlling the Data Explorer Executive or User Interface from a Separate Program  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

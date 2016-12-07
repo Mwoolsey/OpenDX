@@ -1,0 +1,30 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdivcurl DivCurl #!N #!N Category 
+#!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N #!N Computes the divergence 
+and curl of a vector field. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N div, curl #!EF = DivCurl(  #!F-adobe-times-bold-r-normal--18*   data, 
+method #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB data TAB vector field TAB none TAB field 
+whose divergence and curl #!N TAB - TAB - TAB - 
+TAB are to be computed. #!N TAB method TAB string TAB 
+"manhattan" TAB method to use #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Description #!EF #!N TAB div TAB scalar 
+field TAB divergence field #!N TAB curl TAB vector field TAB 
+curl field #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+data #!EF #!EF #!I50 #!N is the vector field to be 
+operated on. The "data" component of the output fields (  #!F-adobe-times-bold-r-normal--18*   
+div #!EF and  #!F-adobe-times-bold-r-normal--18*   curl #!EF ) contains the divergence and 
+curl respectively. The other components of the original field remain unchanged 
+in the output fields. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   method #!EF 
+#!EF #!I50 #!N specifies the algorithm used to make the computation. 
+Currently, the only method supported is "manhattan." #!I0 #!N #!N #!N 
+#!N Components #!N #!N Modifies the "data" component for the outputs. 
+All other input components are propagated to the outputs. #!N #!N 
+Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N WindVorticity.net #!EF #!N 
+#!N #!EC #!N #!N See Also #!N #!N  #!Lgradien,dxall857 h Gradient  #!EL  ,  #!Lstreakl,dxall954 h Streakline  #!EL  
+,  #!Lstreaml,dxall955 h Streamline  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lodone,dxall828 h Done  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Importing Data</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu017.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu019.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu016.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>3.3 Importing Data</H2>
+		<A NAME="IDX102"></A><A NAME="IDX104"></A>
+<A NAME="IDX105"></A>
+<P>
+Of the data formats that Data Explorer can import, the General Array format is
+likely to be the most useful to a majority of users.
+Other formats are discussed
+
+in detail in <A HREF="usrgu067.htm#HDRIMD">Appendix B. "Importing Data: File
+Formats"</A>
+
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<P>
+The General Array format uses a simple header file to describe data
+characteristics such as grid dimensions, data type, and layout.
+The two examples here use the Data Explorer Data Prompter to create such header
+files
+for two simple data files.
+The Data Prompter is designed specifically for importing data in General
+Array format.
+(For details of format and the Data Prompter, see <A
+HREF="qikgu027.htm">Chapter 5. "Importing Data"</A>.)
+<P>
+<H3><A NAME="Header_48" ></A>Example 1</H3>
+This example illustrates the importation of a simple data set consisting
+of a single variable on a 5 &times; 5 &times; 5 grid.
+<OL COMPACT>
+<LI>First enter:
+<PRE>
+dx -prompter
+</PRE>
+
+You can also access the Data Prompter by choosing <TT><STRONG>Import
+Data</STRONG></TT> from the Data Explorer Startup window.
+
+<P>
+When the initial dialog box appears (see <A HREF="qikgu030.htm#FIGDP1">Figure
+15</A>),
+
+choose Grid or Scattered File, and then type the path name
+<TT>/usr/local/dx/samples/tutorial/external.data</TT>.
+into the <TT><STRONG>Data file name</STRONG></TT> field at the top of the
+dialog.
+<LI>Press the <TT><STRONG>Describe Data</STRONG></TT> button to bring up
+a window which allows you to describe the data.
+
+<LI>You can now view the file by clicking on the ellipsis button
+(<TT><STRONG>...</STRONG></TT>) to the right of the file-name field and
+selecting <TT><STRONG>Browser</STRONG></TT> from the
+pull-down menu.
+The <TT><STRONG>File Browser</STRONG></TT> window appears.
+(If necessary, move this window so that you can view it and the Data Prompter
+window at the same time.)
+
+It is also possible to browse the data file from the initial prompter
+window once the file name has been entered.
+
+<LI>The first three lines of the file may look like data, but they are
+header information, so click on the <TT><STRONG>Header</STRONG></TT>
+toggle button and then on <TT><STRONG># of bytes</STRONG></TT>
+to the right (now activated).
+<LI>Select <TT><STRONG># of lines</STRONG></TT> and enter the value "3"
+in the associated field.
+<LI>The first line of the header gives the grid dimensions as
+<TT>5 5 5</TT>, so enter these numbers in the first three
+<TT><STRONG>Grid size</STRONG></TT> fields.
+Note what happens in the <TT><STRONG>Grid positions</STRONG></TT> fields as
+each number is entered.
+(You can use the tab key or the mouse to move the cursor from one field
+to the next.)
+<LI>For <TT><STRONG>Data format</STRONG></TT>,
+
+ensure that <TT><STRONG>ASCII (text)</STRONG></TT> is selected.
+
+<LI>Next you need to specify whether the data is in row or column
+majority order.
+In this particular file, the data is in row majority, so select
+that button.
+<LI>Position the cursor in the first <TT><STRONG>origin, delta</STRONG></TT>
+field, hold down the left mouse button, and drag the cursor over
+the numbers there to highlight the field before releasing the
+mouse button.
+The default values and the highlight bar will disappear as soon as you
+start typing.
+<LI>The origin of the grid is &#91;1.0, 3.0, 2.0&#93; (second line of
+the header) and the corresponding deltas are .5, .3, and .8,
+respectively (third line).
+So enter the values:
+<PRE>
+      1, .5
+      3, .3
+      2, .8
+</PRE>
+in the three <TT><STRONG>origin, delta</STRONG></TT> fields.
+<LI>On the right side of the prompter window, you can change the name
+of the data variable (<TT>field0</TT> by default) and
+specify the data type and structure.
+For this example, the data are floating-point scalar, so you do not
+need to change the settings.
+<LI>You can now save the header file you have defined.
+Select <TT><STRONG>Save As...</STRONG></TT> from the
+<TT><STRONG>File</STRONG></TT>
+pull-down menu.
+Save the file under any name you choose.
+<P><B>Note: </B>The data can now be imported by specifying this file name to an
+<TT><STRONG>Import</STRONG></TT> module.
+However, if the extension is not "general," you must specify
+"general" in the "format" parameter field of the
+<TT><STRONG>Import</STRONG></TT> configuration dialog box
+(see <A HREF="qikgu023.htm#HDRTCNFGBX">"Controlling Inputs: Configuration Dialog
+Boxes"</A>).
+
+<LI>In the initial Data Prompter window, note that the <TT><STRONG>Test
+Import</STRONG></TT> and <TT><STRONG>Visualize Data</STRONG></TT> buttons are
+now
+enabled. First choose <TT><STRONG>Test Import</STRONG></TT>. A window appears,
+displaying a description of the imported data. Now choose <TT><STRONG>Test
+Import</STRONG></TT>. A general purpose visualization program will be run
+on this data set. To view the program, choose Open Visual Program Editor
+from the Windows menu of the Image window. You can also experiment with
+changing the interactor settings in the control panel.
+
+</OL>
+<P>
+<H3><A NAME="Header_49" ></A>Example 2</H3>
+<P>
+In this example, you will use the initial dialog box to customize the
+Data Prompter before importing a data file that contains scattered data
+values for two variables.
+The organization of the file is:
+<PRE>
+    x, y, data1, data2
+    x, y, data1, data2
+    . . .
+</PRE>
+where <TT>x, y</TT> define the positions (or locations) of the data.
+(See also "For Future Reference" later in this example.)
+<OL COMPACT>
+<LI>First, invoke the Data Prompter (as in Example 1,
+Step 1).
+When the initial dialog box appears, click on the
+
+<TT><STRONG>Grid or Scattered File</STRONG></TT> button for
+scattered data. Then
+
+click on the <TT><STRONG>Grid Type</STRONG></TT> button
+for scattered data (farthest right).
+<LI>Use a stepper button to set <TT><STRONG>Number of variables</STRONG></TT>
+to "2."
+<LI>The data positions are specified in the data file itself, so
+activate the <TT><STRONG>Positions in data file</STRONG></TT> toggle.
+<LI>The data positions are 2-dimensional (x,y), so use a stepper
+button to set <TT><STRONG>Dimension</STRONG></TT> to "2."
+<LI>Verify that the <TT><STRONG>Single time step</STRONG></TT> toggle is
+activated.
+<LI>Set <TT><STRONG>Data Organization</STRONG></TT> to
+
+<TT><STRONG>Columnar</STRONG></TT>.
+
+<LI>Click on
+
+<TT><STRONG>Describe Data</STRONG></TT>.
+
+The simplified prompter window appears.
+<LI>Position the mouse cursor in the <TT><STRONG>Data file</STRONG></TT> field
+at the top left and type in the path name
+<TT>/usr/local/dx/samples/tutorial/spreadsheet.data</TT>.
+<P>
+You can view the file by choosing <TT><STRONG>Browser</STRONG></TT> (as in
+Example 1).
+<LI>There is no header in this file.
+Set <TT><STRONG># of Points</STRONG></TT> to "49."
+<LI>To save the header file you have defined, select <TT><STRONG>Save
+As...</STRONG></TT> in the <TT><STRONG>File</STRONG></TT> pull-down menu.
+Save the file under any name you choose.
+
+<LI>The <TT><STRONG>Test Import</STRONG></TT> and <TT><STRONG>Visualize
+Data</STRONG></TT> buttons in the initial Data Prompter window are now
+enabled. Choose <TT><STRONG>Visualize Data</STRONG></TT> to see a
+visualization of this scattered data.
+
+</OL>
+<P>
+Many other examples of using the General Array format can be
+found in <A HREF="qikgu027.htm#HDRGAI">5.1 , "General Array Importer"</A>.
+Data Prompter options are described in <A HREF="qikgu030.htm">5.4 ,
+"Data Prompter"</A>.
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">For Future
+Reference</TH><TR><TD>
+<P>
+It is important to note that the top-to-bottom order of items in the
+<TT><STRONG>Field list</STRONG></TT> (right side of window) is the
+same as the left-to-right order of items in the
+data file itself:
+<P>
+<PRE>
+<STRONG>locations</STRONG>     x, y
+<STRONG>Field0</STRONG>        data1
+<STRONG>Field1</STRONG>        data2
+<STRONG>...</STRONG>           <STRONG>...</STRONG>
+</PRE>
+<P>
+("locations" is a General Array reserved word used to indicate
+when numbers in a data file are to be interpreted as
+"positions").
+<P>
+The order of the field list can be changed (with the <TT><STRONG>Move
+field</STRONG></TT> stepper buttons) to agree with the order
+in the data file.
+<P>
+If other information (e.g., descriptive text) is interspersed among the
+data values, you must use the layout options available in the full
+Data Prompter (see <A HREF="qikgu030.htm#SPTDPRLAYT">Layout</A>
+and <A HREF="qikgu029.htm#HDRLAYTKWD">"layout"</A>).
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

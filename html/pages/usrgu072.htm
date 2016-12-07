@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - HDF Files</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu071.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu073.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu067.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRHDF" ></A>B.6 HDF Files</H2>
+		<A NAME="IDX1029"></A>
+		<P>
+HDF is a multiobject file structure that is designed to facilitate the
+transfer of data between machines.
+HDF was created at the National Center for Supercomputing Applications
+(NCSA).
+<P>
+Data Explorer provides support for importing HDF files that contain a Scientific
+DataSet (SDS).
+A Scientific DataSet is an HDF set that stores rectangular gridded
+Arrays of data, together with the information about the data.
+
+<P><B>Note: </B>Scientific Data Sets should be created using the DFSD API and
+not
+the SD API.
+
+<P>
+To import HDF files, specify the filename as the <TT><STRONG>name</STRONG></TT>
+parameter.
+By default, all the datasets will be imported and collected into a
+Group.
+To import a particular dataset specify a number corresponding to that
+dataset as the <TT><STRONG>variable</STRONG></TT> parameter (0 corresponds to
+the first dataset).
+The <TT><STRONG>format</STRONG></TT> parameter must be "hdf".
+<P>
+If dimension scales are specified, Data Explorer uses these to construct
+positions; otherwise positions have an origin of 0.0 and
+deltas of 1.0 along each dimension.
+Data Explorer automatically constructs regular connections for either case.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

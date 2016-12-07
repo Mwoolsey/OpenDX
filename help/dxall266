@@ -1,0 +1,59 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall265 Conditional Execution: 
+Route and Switch #!N #!EC #!N #!N Two of Data Explorer's 
+mechanisms to control execution flow through a visual program are the 
+Switch and Route modules. Switch allows you to switch between one 
+or more inputs to drive a single output; Route is the 
+inverse of Switch, having a single input that can be routed 
+to zero, one, or more than one output. Switch is typically 
+used to choose between different paths in a visualization program; for 
+example, to pass an imported data field through either the Glyph 
+module or through Isosurface, depending on user choice or characteristics of 
+the data field itself. Route is typically used to turn off 
+portions of the visualization program; for example, to turn off WriteImage 
+or Export, or to prevent rendering to an image window unless 
+the user chooses to create an image. Switch can be thought 
+of as turning off portions of the visual program logically  #!F-adobe-times-medium-i-normal--18*   
+above #!EF Switch; Route can be thought of as turning off 
+portions of the visual program logically  #!F-adobe-times-medium-i-normal--18*   below #!EF Route. Note 
+that while Route turns off modules that receive its unused outputs, 
+the Collect module is an exception: it runs even if some 
+of its inputs have been turned off by Route. #!N #!N 
+ #!Lxmodx238,dxall265 f Figure 38  #!EL  shows an example of a Switch module controlling whether an 
+Isosurface or a MapToPlane is passed to Image. In a simple 
+data-flow execution model, this Switch module will be executed when its 
+inputs are available (i.e., the results of the Isosurface and MapToPlane 
+modules, and the value of the selector). On execution, the Switch 
+module chooses whether to pass the Isosurface or MapToPlane result to 
+the output based on the  #!F-adobe-times-bold-r-normal--18*   selection #!EF input to Switch. 
+In the case of a pure data-flow model both the Isosurface 
+and MapToPlane modules execute before the decision as to which will 
+actually be used is known. Since both operations can be computationally 
+expensive, the execution of both of them is very inefficient. #!N 
+#!N Again, this problem is handled in Data Explorer within the 
+simple data-flow execution module by an examination of the graph prior 
+to execution. If the  #!F-adobe-times-bold-r-normal--18*   selection #!EF value comes from an 
+external source (e.g., an interactor) and is known a priori, the 
+selection may be performed by a simple transformation of the graph: 
+excising the Switch module altogether, and substituting arcs from the selected 
+source (either Isosurface or MapToPlane) to each of the modules that, 
+in the original network, received the result of the Switch module. 
+This leaves the unselected module dangling. It and any of its 
+ancestors that are therefore made unnecessary will not be executed. #!N 
+#!N A different procedure is used if the controlling value is 
+not static (e.g., if it is determined elsewhere in the network), 
+as shown in  #!Lxmodx339,dxall266 f Figure 39  #!EL  . Suppose either an isosurface or a 
+set of vector glyphs is selected depending on whether the data 
+are scalar or vector. The determination of the type of the 
+data is made using the Inquire module (i.e. at run time). 
+In this case, the selection value for the Switch module cannot 
+be determined before the execution of the graph. Instead, the graph 
+must be evaluated in stages: 1) determine the selection value, 2) 
+determine the necessary input to the Switch module and 3) evaluate 
+the remainder of the graph. Since dynamic inputs may themselves be 
+descended from other non-static inputs (e.g., computed in the network), this 
+process may have to be performed repeatedly. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx339 
+#!N Graphics omitted from Online Documentation. Please see the manual. #!N 
+#!N Figure 39. Example 3 #!EF #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Literseq,dxall267 h Iteration using the Sequencer  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

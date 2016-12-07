@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rfselint 
+FileSelector Interactor #!N #!EC #!N #!N The FileSelector interactor can be 
+used to select a file from within the file system ( 
+ #!Lfselint92,dxall431 f Figure 92  #!EL  ). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rfselint92 #!N Graphics omitted from Online 
+Documentation. Please see the manual. #!N #!N Figure 92. FileSelector Interactor 
+#!EF #!N #!EC #!N #!N The interactor consists of a text 
+field containing a string and a button labelled with an ellipses. 
+Clicking on the button causes a file selection dialog box to 
+be opened. The file selection dialog box, illustrated in  #!Lfilesb93,dxall431 f Figure 93  #!EL  , 
+functions in a similar manner to other file selection dialog boxes 
+(for a description on how to use file selection dialog boxes 
+see  #!Lsavervp,dxall357 h Saving and Restoring a Visual Program  #!EL  ) with the exception of the buttons at the 
+bottom of the dialog box. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rfilesb93 #!N Graphics 
+omitted from Online Documentation. Please see the manual. #!N #!N Figure 
+93. File Selection Dialog Box #!EF #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+OK #!EF causes the file name in the Selection area to 
+be set in the text field of the FileSelector interactor and 
+closes the file selection dialog box.  #!F-adobe-times-bold-r-normal--18*   Filter #!EF applies the 
+filter string specified in the Filter area.  #!F-adobe-times-bold-r-normal--18*   Close #!EF closes 
+the file selection dialog box without any modification to the FileSelector 
+interactor text field.  #!F-adobe-times-bold-r-normal--18*   Apply #!EF causes the file name in 
+the Selection area to be set in the text field of 
+the FileSelector interactor and leaves the file selection dialog box open. 
+#!N #!N An alternate way of specifying or modifying a file 
+name in the FileSelector text field is to directly type into 
+the field. See  #!Ledtxt,dxall290 h Editing Text Fields  #!EL  on how to enter and modify text 
+in a text field. #!N #!N The FileSelector interactor produces two 
+outputs: the first output is the contents of the text field 
+(typically a fully qualified path name set from the file selection 
+dialog box). The second output is the name of the file 
+as it appears in the directory (that is, excluding any directory 
+name). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lrsetint,dxall432 h Reset Interactor  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

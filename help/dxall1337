@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxptvc 
+DXPt, DXVec #!N #!N Function #!N #!N Constructs a Point or 
+a Vector with the specified coordinates. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Point DXPt(double x, double y, double z) Point DXVec(double 
+x, double y, double z) #!EF #!N #!N Functional Details #!N 
+#!N A  #!F-adobe-times-bold-r-normal--18*   Point #!EF or  #!F-adobe-times-bold-r-normal--18*   Vector #!EF is defined 
+as #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct point { float x, y, z; 
+} Point, Vector; #!EF #!N #!N Return Value #!N #!N Return 
+the point or vector. #!N #!N See Also #!N #!N  #!Lpsvs,dxall1107 h Points and Vectors  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxqal,dxall1338 h DXQueryAmbientLight  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

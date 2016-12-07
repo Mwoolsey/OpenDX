@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall520 Integer #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Integers #!EF are the set of counting numbers, or 
+their negatives (e.g., 0, 1, 2,...). By virtue of their 32-bit 
+internal representation, integer values range from -2(31) to 2(31) - 1. 
+They can be prefixed with a minus sign (  #!F-adobe-times-bold-r-normal--18*   - 
+#!EF ) to represent a negative number. Integers in Data Explorer 
+can be represented in the following base systems: #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Decimal #!EF #!I50 #!N  #!F-adobe-times-medium-i-normal--18*   Decimal #!EF 
+notation (base 10) is the most common notation for integers. Decimal 
+numbers are constructed from sequences of numerals (0, 1, ..., 9). 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Octal #!EF #!I50 #!N When a sequence 
+of numerals begins with the numeral zero (0) followed by a 
+numeral from 0 to 7, Data Explorer treats it as an 
+ #!F-adobe-times-medium-i-normal--18*   octal #!EF , or base-8, number. If a numeric sequence 
+starts with a zero but contains either an 8 or 9, 
+then these digits are identified as invalid octal digits. They are, 
+however, correctly converted. For example, although the following octal numbers are 
+both converted to the decimal number 17, the first produces an 
+error message, but the second does not: #!N #!N #!CForestGreen #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N 019 #!N 021 #!EF #!N #!N #!EC #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Hexadecimal #!EF #!I50 #!N  #!F-adobe-times-medium-i-normal--18*   Hexadecimal #!EF , 
+or base 16, numbers can be constructed from both the numerals 
+(0 to 9) and the extended hex-digits (a to f, or 
+A to F). To differentiate them from decimal and octal integers, 
+hexadecimal numbers start with either the sequence  #!F-adobe-times-bold-r-normal--18*   0x #!EF or 
+the sequence  #!F-adobe-times-bold-r-normal--18*   0X #!EF (the numeral zero followed by the 
+letter X). #!I0 #!N #!N #!N #!N The following are examples 
+of valid integers, all of which have the value 95 base 
+10: #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 95 #!N 0137 #!N 
+0x5f #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ltall522,dxall522 h Floating Point  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

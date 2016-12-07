@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsvw 
+DXSetView, DXGetView #!N #!N Function #!N #!N Specify Camera position and 
+orientation. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Camera DXSetView(Camera c, 
+Point from, Point to, Vector up) Camera DXGetView(Camera c, Point *from, 
+Point *to, Vector *up) #!EF #!N #!N Functional Details #!N #!N 
+A camera defines the position and orientation of the viewer, the 
+volume of interest of the object being viewed, and the size 
+of the image to contain the resulting view. #!N #!N The 
+position and orientation of the view are defined by where the 
+viewer is standing, the  #!F-adobe-times-bold-r-normal--18*   from #!EF position, where the viewer 
+is looking, the  #!F-adobe-times-bold-r-normal--18*   to #!EF position, and the tilt of 
+the viewer's head, the  #!F-adobe-times-bold-r-normal--18*   up #!EF vector. #!N #!N The 
+image is always in a plane perpendicular to the  #!F-adobe-times-bold-r-normal--18*   from 
+#!EF -  #!F-adobe-times-bold-r-normal--18*   to #!EF vector. The  #!F-adobe-times-bold-r-normal--18*   up #!EF vector 
+is projected onto this plane and the Object and camera (the 
+ #!F-adobe-times-bold-r-normal--18*   up #!EF vector) are rotated around the  #!F-adobe-times-bold-r-normal--18*   from #!EF 
+-  #!F-adobe-times-bold-r-normal--18*   to #!EF vector until  #!F-adobe-times-bold-r-normal--18*   up #!EF is aligned 
+with the image  #!F-adobe-times-bold-r-normal--18*   y #!EF axis. It is not necessary 
+that the  #!F-adobe-times-bold-r-normal--18*   from #!EF -  #!F-adobe-times-bold-r-normal--18*   to #!EF vector and 
+the  #!F-adobe-times-bold-r-normal--18*   up #!EF vector be perpendicular; if they are coincident, 
+ #!F-adobe-times-bold-r-normal--18*   up #!EF becomes undefined and the  #!F-adobe-times-bold-r-normal--18*   top #!EF of 
+the object, relative to the image, becomes undefined. #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+DXSetView #!EF sets the parameters  #!F-adobe-times-bold-r-normal--18*   from #!EF ,  #!F-adobe-times-bold-r-normal--18*   to 
+#!EF , and  #!F-adobe-times-bold-r-normal--18*   up #!EF for camera  #!F-adobe-times-bold-r-normal--18*   c #!EF 
+. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXGetView #!EF , for camera  #!F-adobe-times-bold-r-normal--18*   c 
+#!EF , if  #!F-adobe-times-bold-r-normal--18*   from #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+, returns in  #!F-adobe-times-bold-r-normal--18*   from #!EF the from position. If  #!F-adobe-times-bold-r-normal--18*   
+to #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns in 
+ #!F-adobe-times-bold-r-normal--18*   to #!EF the to position. If  #!F-adobe-times-bold-r-normal--18*   up #!EF is 
+not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns in  #!F-adobe-times-bold-r-normal--18*   up #!EF 
+the up vector. #!N #!N Return Value #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXSetView 
+#!EF returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   DXGetView #!EF returns the camera parameters or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgcmp,dxall1225 h DXGetCameraMatrix, DXGetCameraRotation, DXGetCameraMatrixWithFuzz  #!EL  ,  #!Ldxnca,dxall1311 h DXNewCamera  #!EL  ,  #!Ldxrndr,dxall1357 h DXRender  #!EL  ,  #!Ldxsoc,dxall1384 h DXSetOrthographic, DXGetOrthographic  #!EL  , 
+ #!Ldxspe,dxall1388 h DXSetPerspective, DXGetPerspective  #!EL  ,  #!Ldxsrn,dxall1389 h DXSetResolution, DXGetCameraResolution  #!EL  #!EF #!N #!N  #!Lcamsec,dxall1138 h Camera Class  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxsxfo,dxall1394 h DXSetXformObject  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

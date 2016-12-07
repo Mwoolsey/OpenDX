@@ -1,0 +1,133 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsupwind SuperviseWindow #!N #!N Category #!N #!N  #!Lcatwin,dxall764 h Windows  #!EL  #!N #!N 
+Function #!N #!N Creates a Display window for an image and 
+captures mouse and keyboard events in that window. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   where, size, events #!EF = 
+SuperviseWindow(  #!F-adobe-times-bold-r-normal--18*   name, display, size, #!N offset, parent, depth, visibility, #!N 
+pick, sizeFlag, offsetFlag #!EF ); #!EF #!N #!N #!EC #!N #!N 
+Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default 
+TAB Description #!EF #!N TAB name TAB string TAB (none) TAB 
+unique name for the window #!N TAB display TAB string TAB 
+"local host" TAB display on which to create the #!N TAB 
+- TAB - TAB - TAB window #!N TAB size TAB 
+integer vector TAB [640,480] TAB x,y size of the window #!N 
+TAB offset TAB integer vector TAB [0,0] TAB offset of window 
+in parent #!N TAB parent TAB string TAB (root window) TAB 
+parent window #!N TAB depth TAB integer TAB 8 TAB depth 
+of window #!N TAB visibility TAB integer TAB 1 TAB visibility 
+of window #!N TAB pick TAB flag TAB 0 TAB whether 
+to consider only #!N TAB - TAB - TAB - TAB 
+button-down events #!N TAB sizeFlag TAB flag TAB 0 TAB whether 
+to force the size of an #!N TAB - TAB - 
+TAB - TAB already existing window #!N TAB offsetFlag TAB flag 
+TAB 0 TAB whether to force the offset of an #!N 
+TAB - TAB - TAB - TAB already existing window #!N 
+TAB - TAB - TAB - TAB #!EF #!N #!N Outputs 
+#!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF 
+#!N TAB where TAB string TAB where parameter for window #!N 
+TAB size TAB integer vector or integer list TAB window size 
+#!N TAB events TAB object TAB mouse or keyboard events #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N SuperviseWindow, along with the associated module SuperviseState, provides the user 
+with direct control over the effect of mouse and keyboard events 
+in a window containing an image. SuperviseWindow and SuperviseState are used 
+together with the Display tool, as an alternative to the Image 
+tool. #!N #!N When you include the Image tool in a 
+visual program, mouse and keyboard events are interpreted in a particular 
+way as described in  #!Luseimag,dxall299 h Using the Image Window  #!EL  in IBM Visualization Data Explorer User's 
+Guide. In contrast, when the Supervise modules and the Display tool 
+are used in a visual program, you are able to specify 
+how a particular mouse or keyboard event should affect either the 
+object being viewed or the camera used to view it. For 
+example, you could specify that right-mouse drags in a horizontal direction 
+should zoom in on an object, while right-mouse drags in a 
+vertical direction should zoom out. #!N #!N Not only does this 
+allow you to specify the particular action that should take place 
+given events in the display window, but it also allows your 
+interaction with the image to be separated completely from the Data 
+Explorer user interface. For example, a completely custom user interface could 
+be created with a commercial GUI builder, bypassing the Data Explorer 
+user interface entirely, but still allowing user-interaction with the image. #!N 
+#!N In order to specify custom interaction modes in a program, 
+it is necessary for you to provide routines which indicate what 
+action is to be taken for a given event. An action 
+can affect either the object (for example rotating it or coloring 
+it red), or the camera (for example zooming in), or both. 
+These sets of user-provided routines are called UserInteractors. UserInteractors let you 
+specify your own direct interactors by specifying a table of callbacks, 
+each implementing a custom interactor. #!N #!N To start Data Explorer 
+using custom UserInteractors, it is necessary to identify the user-written UserInteractor 
+routines to the Data Explorer executive. This is done by setting 
+the environment variable DX_USER_INTERACTOR_FILE before starting Data Explorer. (You can also 
+load UserInteractors after starting Data Explorer by using the Executive module 
+(  #!Lexectv,dxall833 h Executive  #!EL  in IBM Visualization Data Explorer User's Reference)). #!N #!N 
+If you do not set the DX_USER_INTERACTOR_FILE environment variable, a set 
+of default interactors are provided automatically by Data Explorer. These interactors 
+provide Rotate, Pan, and Zoom functions. #!N #!N See  #!Lsupstat,dxall958 h SuperviseState  #!EL  for 
+more detailed information on how to specify UserInteractors. SuperviseWindow and SuperviseState 
+should not be used in -image mode of Data Explorer. If 
+used in -image mode, they will compete for ownership of the 
+Image window with the User Interface. Use -edit or -menubar mode 
+instead. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF 
+#!EF #!I50 #!N is a unique name for the window. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   display #!EF #!EF #!I50 #!N is the 
+display on which to create the window and defaults to "local 
+host." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   size #!EF #!EF #!I50 #!N 
+is the x,y size of the window, and defaults to 640x480. 
+It can be specified either as an integer vector or as 
+an integer list. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   offset #!EF #!EF 
+#!I50 #!N is the offset of the window in the parent 
+window. By default,  #!F-adobe-times-bold-r-normal--18*   offset #!EF is [0,0]. It can be 
+specified either as an integer vector or as an integer list. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   parent #!EF #!EF #!I50 #!N is 
+the parent window "where" parameter;  #!F-adobe-times-bold-r-normal--18*   parent #!EF defaults to the 
+root window, but can also be an already created window if 
+nested windows are desired. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   depth #!EF 
+#!EF #!I50 #!N is the depth (in bits) of the window; 
+ #!F-adobe-times-bold-r-normal--18*   depth #!EF defaults to 8. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+visibility #!EF #!EF #!I50 #!N indicates the visibility of the window: 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   0 #!EF #!I50 #!N 
+window is closed #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   1 #!EF #!I50 #!N 
+window is open #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   2 #!EF #!I50 #!N 
+window is open and always on top #!I0 #!N #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   pick #!EF #!EF #!I50 #!N indicates whether 
+only button-down events should be considered. This is useful if the 
+user wants to implement picking in the Display window. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   sizeFlag #!EF #!EF #!I50 #!N indicates whether to 
+force the size of an already existing window. The default is 
+0 (false). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   offsetFlag #!EF #!EF #!I50 
+#!N indicates whether to force the offset of an already existing 
+window. The default is 0 (false). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+where #!EF #!EF #!I50 #!N identifies the window. This output must 
+be connected to the  #!F-adobe-times-bold-r-normal--18*   where #!EF parameter of the Display 
+tool. It would also be used, for example, if nested windows 
+are desired using a SuperviseWindow module with the  #!F-adobe-times-bold-r-normal--18*   parent #!EF 
+parameter set to something other than the root window. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   size #!EF #!EF #!I50 #!N is the current 
+size of the window, and may differ from the  #!F-adobe-times-bold-r-normal--18*   size 
+#!EF input if you resize the window. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   events #!EF #!EF #!I50 #!N encodes mouse or keyboard events. 
+It is an array of integer of integer 4-vectors, where the 
+four integers represent the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o event #!N #!I30 #!N o x #!N #!I30 
+#!N o y #!N #!I30 #!N o state or keypress, depending 
+on event #!N #!I0 #!N #!EF #!N  #!F-adobe-times-bold-r-normal--18*   event #!EF is 
+one of DXEVENT_LEFT, DXEVENT_MIDDLE, DXEVENT_RIGHT, or DXEVENT_KEYPRESS.  #!F-adobe-times-bold-r-normal--18*   x #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   y #!EF are the pixel locations of the event. For 
+ #!F-adobe-times-bold-r-normal--18*   event #!EF = DXEVENT_LEFT, DXEVENT_MIDDLE, DXEVENT_RIGHT, the final integer is 
+"state," which is one of BUTTON_UP, BUTTON_MOTION, or BUTTON_DOWN. For  #!F-adobe-times-bold-r-normal--18*   
+event #!EF = DXEVENT_KEYPRESS, the final integer is "keypress" which is 
+the character which was pressed. Note that #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N #define DXEVENT_LEFT 0x01 #!N #define DXEVENT_MIDDLE 0x02 #!N #define DXEVENT_RIGHT 
+0x04 #!N #define DXEVENT_KEYPRESS 0x08 #!N #define BUTTON_UP 1 #!N #define 
+BUTTON_DOWN 2 #!N #define BUTTON_MOTION 3 #!EF #!N #!N #!EC #!N 
+#!N For operations other than picking, the user simply passes  #!F-adobe-times-bold-r-normal--18*   
+events #!EF to the  #!F-adobe-times-bold-r-normal--18*   events #!EF input of SuperviseState, which 
+interprets the mouse or keyboard events and calls the appropriate user 
+routines. For picking, see  #!Lpicking,dxall960 h Doing Picking  #!EL  . #!I0 #!N #!N #!N #!N 
+Example Visual Programs #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N SIMPLE/Supervise.net #!N 
+Image_wo_UI.net #!N IndependentlyArrange.net #!N InsetImage.net #!EF #!N #!N #!EC Also see 
+the demonstrations of custom interactors in /usr/lpp/dx/samples/supervise. #!N #!N See Also 
+#!N #!N  #!Lsupstat,dxall958 h SuperviseState  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  ,  #!Limage,dxall860 h Image  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lswitch,dxall962 h Switch  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

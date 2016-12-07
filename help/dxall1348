@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqpic DXQueryPickCount #!N #!N Function #!N #!N Returns 
+the number of picks resulting from a poke. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXQueryPickCount(Field picks, int poke, int *pickCount) 
+#!EF #!N #!N Functional Details #!N #!N The input to the 
+routine is a Field (  #!F-adobe-times-bold-r-normal--18*   picks #!EF , containing pick 
+information) and a poke number (  #!F-adobe-times-bold-r-normal--18*   poke #!EF ). The 
+pick Field is created by the Pick tool. The pick count 
+is returned in (  #!F-adobe-times-bold-r-normal--18*   *pickCount #!EF ). #!N #!N Return 
+Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and sets an error code. Errors include requesting a pick 
+count for a nonexistent poke. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxgpp,dxall1260 h DXGetPickPoint  #!EL  ,  #!Ldxqpoc,dxall1350 h DXQueryPokeCount  #!EL  ,  #!Ldxqpp,dxall1349 h DXQueryPickPath  #!EL  ,  #!Ldxtpp,dxall1399 h DXTraversePickPath  #!EL  #!EF #!N #!N 
+ #!Lpies,dxall1123 h Pick-Assistance Routines  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxqpp,dxall1349 h DXQueryPickPath  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsetloc SetLocal #!N #!N Category #!N #!N  #!Lcatflow,dxall755 h Flow Control  #!EL  #!N 
+#!N Function #!N #!N Places an object in the cache. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N SetLocal(  #!F-adobe-times-bold-r-normal--18*   object, link 
+#!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB object TAB object TAB no default TAB object to 
+be cached #!N TAB link TAB string TAB no default TAB 
+link to corresponding GetLocal #!N TAB - TAB - TAB - 
+TAB module #!N TAB - TAB - TAB - TAB #!EF 
+#!N #!N Functional Details #!N #!N This module works with GetLocal 
+to place and retrieve objects from the cache: SetLocal places an 
+ #!F-adobe-times-bold-r-normal--18*   object #!EF in the cache, where GetLocal can retrieve it. 
+SetLocal should always be used with GetLocal, not with GetGlobal. Note: 
+The corresponding GetLocal module must be executed on the same machine 
+(i.e., it cannot be distributed to another machine). See  #!Lgetglo,dxall854 h GetGlobal  #!EL  and 
+ #!Lgetloc,dxall855 h GetLocal  #!EL  for a discussion of the differences between the Global Get/Set 
+pair and the Local Get/Set pair. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N is the object 
+to be placed in the cache. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+link #!EF #!EF #!I50 #!N specifies the GetLocal module that corresponds 
+to the SetLocal module. In the VPE, this link would be 
+created by dragging an arc from the  #!F-adobe-times-bold-r-normal--18*   link #!EF output 
+of GetLocal to the  #!F-adobe-times-bold-r-normal--18*   link #!EF input of SetLocal. #!I0 
+#!N #!N A detailed description of the behavior and use of 
+the GetLocal, GetGlobal, SetLocal, and SetGlobal modules can be found in 
+ #!Lstates,dxall269 h Preserving Explicit State  #!EL  in IBM Visualization Data Explorer User's Guide. #!N #!N Example 
+Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Accumulate.net #!N Bounce.net #!N 
+SimpleGetSetLoop.net #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Lgetloc,dxall855 h GetLocal  #!EL  ,  #!Lgetglo,dxall854 h GetGlobal  #!EL  ,  #!Lsetglo,dxall940 h SetGlobal  #!EL  #!N #!N  #!Lxmod,dxall263 h Data Explorer Execution Model  #!EL  in IBM Visualization 
+Data Explorer User's Guide. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lshade,dxall942 h Shade  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

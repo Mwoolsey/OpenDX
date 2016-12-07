@@ -1,0 +1,16 @@
+#!/bin/sh
+# Because Microsofts lib.exe doesn't append when /OUT is used
+# we have to use this shell script to make a new version of lib
+# that drops the /OUT when appending object files to the archive.
+
+if test $# -lt 2 ; then
+	echo "lib /OUT:libname objects"
+	exit
+fi
+libname=`echo $1 | sed -e 's?/[Oo][Uu][Tt]:??'`
+shift
+if test -r $libname ; then
+	lib.exe $libname $*
+else
+	lib.exe /OUT:$libname $*
+fi

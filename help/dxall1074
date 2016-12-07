@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rcotas Creating Positions 
+and Connections Grids #!N #!EC #!N #!N Compact Arrays allow compact 
+encoding of positions and connections. Four subclasses of Arrays represent 1- 
+and multidimensional regular positions and connections: #!T,1,216,431,646  #!F-adobe-times-bold-r-normal--18*   #!N TAB - 
+TAB positions TAB connections #!EF #!N TAB One-dimensional TAB RegularArray TAB 
+PathArray #!N TAB n-dimensional TAB ProductArray TAB MeshArray #!N #!N In 
+addition, the subclass Constant Array allows compact encoding of a constant 
+value of any type, category, rank, or shape. #!N #!N For 
+more information about compact Array Objects, see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in IBM Visualization 
+Data Explorer User's Guide. #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Note on 
+Use #!N #!N The generic routine  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData() #!EF expands the 
+data of a compact Array into an explicitly indexed array and 
+is the preferred means for this purpose. However, it is better 
+still to code your algorithm so that no expansion of the 
+Array is performed. #!N #!N #!EC #!N #!N In addition to 
+the low-level routines for creating various compact Arrays (described later), Data 
+Explorer provides the following higher-level routines for creating a regular grid 
+of positions or connections. These routines are to be preferred when 
+there is a choice, because most Data Explorer functions support regular 
+grids of positions or connections efficiently. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXMakeGridPositions() #!EF #!N Array DXMakeGridPositionsV(); #!EF #!I50 
+#!N Create an  #!F-adobe-times-medium-i-normal--18*   n #!EF -dimensional grid of regularly spaced 
+positions. See  #!Ldxmgpv,dxall1298 h DXMakeGridPositions, DXMakeGridPositionsV  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXQueryGridPositions() 
+#!EF #!EF #!I50 #!N Returns information about a regular positions grid. 
+See  #!Ldxqgp,dxall1344 h DXQueryGridPositions  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXMakeGridConnections() #!EF 
+#!N Array DXMakeGridConnectionsV(); #!EF #!I50 #!N Construct a grid of regular 
+connections. See  #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXQueryGridConnections() 
+#!EF #!EF #!I50 #!N Returns information about a regular connections grid. 
+See  #!Ldxqgc,dxall1343 h DXQueryGridConnections  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lrras,dxall1075 h Regular Arrays  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgxfi DXGetXformInfo #!N 
+#!N Function #!N #!N Extracts information from a Transform Object. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Xform DXGetXformInfo(Xform x, Object *o, 
+Matrix *m) #!EF #!N #!N Functional Details #!N #!N Extracts the 
+Object being transformed and the transformation matrix from a Transform Object 
+ #!F-adobe-times-bold-r-normal--18*   x #!EF . If  #!F-adobe-times-bold-r-normal--18*   o #!EF is not  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF , then the Object being transformed by the transformation 
+contained in  #!F-adobe-times-bold-r-normal--18*   t #!EF is returned in  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+. Similarly, if  #!F-adobe-times-bold-r-normal--18*   m #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+, then the transformation contained in  #!F-adobe-times-bold-r-normal--18*   t #!EF is returned 
+in  #!F-adobe-times-bold-r-normal--18*   m #!EF . #!N #!N Return Value #!N #!N 
+Returns  #!F-adobe-times-bold-r-normal--18*   t #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets 
+an error code if  #!F-adobe-times-bold-r-normal--18*   t #!EF is not a Transform. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxnxf,dxall1328 h DXNewXform  #!EL  ,  #!Ldxsxfo,dxall1394 h DXSetXformObject  #!EL  #!EF 
+#!N #!N  #!Lxformsc,dxall1135 h Xform Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxgrov,dxall1273 h DXGrow, DXGrowV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

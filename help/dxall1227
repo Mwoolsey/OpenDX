@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgca DXGetComponentAttribute #!N #!N Function #!N #!N 
+Returns a named attribute of a specified component of a Field. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGetComponentAttribute(Field f, char 
+*name, char *attribute) #!EF #!N #!N Functional Details #!N #!N The 
+routine first retrieves the component  #!F-adobe-times-bold-r-normal--18*   name #!EF from Field  #!F-adobe-times-bold-r-normal--18*   
+f #!EF . If the component exists, the attribute specified by 
+the string  #!F-adobe-times-bold-r-normal--18*   attribute #!EF associated with that component is returned. 
+#!N #!N Return Value #!N #!N Returns the Object associated with 
+ #!F-adobe-times-bold-r-normal--18*   attribute #!EF of component  #!F-adobe-times-bold-r-normal--18*   name #!EF or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF without setting an error code (unless  #!F-adobe-times-bold-r-normal--18*   f #!EF 
+is not a Field). #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxga,dxall1223 h DXGetAttribute  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  ,  #!Ldxgeca,dxall1232 h DXGetEnumeratedComponentAttribute  #!EL  ,  #!Ldxgfa,dxall1238 h DXGetFloatAttribute  #!EL  ,  #!Ldxgia,dxall1242 h DXGetIntegerAttribute  #!EL  ,  #!Ldxsca,dxall1371 h DXSetComponentAttribute  #!EL  
+#!EF #!N #!N  #!Lfieldsc,dxall1062 h Field Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

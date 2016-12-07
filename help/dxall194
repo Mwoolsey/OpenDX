@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rinvdat Invalid Data 
+#!N #!EC #!N #!N Sometimes in the process of collecting or 
+analyzing data, certain regions or positions have no data value associated 
+with them. For example, an instrument may have a "data drop-out" 
+or a simulation may (for whatever reason) produce an invalid entry. 
+Of course, if you are explicitly listing your positions or connections, 
+you can simply leave those positions out when you create your 
+data file. However, if you have a regular grid (for which 
+you simply list the origin of the grid and the delta 
+in each dimension), this is not convenient. Data Explorer has a 
+way to easily handle this situation, using "invalid positions" and "invalid 
+connections" components. These components are discussed in  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  , but briefly, 
+when present in a Field, they instruct any module processing that 
+Field to completely ignore any position or connection identified in that 
+component. For example, an "invalid positions" component may list the integers 
+0, 15, and 23. This instructs Data Explorer to ignore the 
+positions 0, 15, and 23 (and the data associated with those 
+positions). #!N #!N You can create these components in a Data 
+Explorer format file (see  #!Limd,dxall618 h Importing Data: File Formats  #!EL  ) or, often more easily, using 
+the Include module. For example, suppose in your data file drop-outs 
+are indicated with a data value of 9999, while all valid 
+data lies in the range 0-100. Then set the  #!F-adobe-times-bold-r-normal--18*   max 
+#!EF parameter of Include to 9998. Include will then remove or 
+invalidate all of the positions with the value 9999. Note that 
+it is usually preferable to set the  #!F-adobe-times-bold-r-normal--18*   cull #!EF flag 
+of Include to 0 so that the data values are invalidated 
+rather than actually removed (see Include in IBM Visualization Data Explorer 
+User's Reference). #!N #!N All Data Explorer modules know to ignore 
+invalid data. For example, Streamlines will stop when they reach an 
+invalid element, and Statistics will ignore data values associated with invalid 
+elements. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lfields,dxall195 h Fields  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

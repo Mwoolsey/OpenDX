@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rfuncall Function Call Assignments #!N #!EC #!N #!N 
+A function call can refer either to a function defined as 
+a module (a function compiled into the system), or to a 
+macro (a function defined in the scripting language itself). The values 
+for the  #!F-adobe-times-bold-i-normal--18*   right-side #!EF portion of a function call assignment 
+statement are the values returned by a single function call. #!N 
+#!N The Statistics function, which is used in the following examples, 
+returns five values: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o Mean of the data #!N #!I30 #!N o Standard deviation 
+of the data #!N #!I30 #!N o Variance of the data 
+#!N #!I30 #!N o The minimum value in the data #!N 
+#!I30 #!N o The maximum value in the data #!N #!I0 
+#!N #!EF #!N In the first example, all of these values 
+are assigned to variables for later use. In the second example, 
+the minimum and maximum values are ignored. In the third example, 
+only the minimum and maximum values are being saved for later 
+use. #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-medium-r-normal--18*   (1) #!EF mean, 
+sd, var, min, max = Statistics (data); #!N  #!F-adobe-times-medium-r-normal--18*   (2) #!EF 
+mean, sd, var = Statistics (data); #!N  #!F-adobe-times-medium-r-normal--18*   (3) #!EF min, 
+min, min, min, max = Statistics (data); #!EF #!N #!N #!EC 
+#!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lcallf,dxall537 h Invoking Data Explorer Macros and Modules  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxni DXNewInterpolator #!N #!N Function #!N #!N Creates 
+an Interpolator Object for interpolating in Object  #!F-adobe-times-bold-r-normal--18*   o #!EF . 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Interpolator DXNewInterpolator(Object o, enum 
+interp_init init, float fuzz) #!EF #!N #!N Functional Details #!N #!N 
+#!N Object  #!F-adobe-times-bold-r-normal--18*   o #!EF should be a Field or an 
+Object that contains Fields (e.g., a Group). An Interpolator builds and 
+stores the information about the Field or Fields to speed up 
+searching for and computing data values corresponding to any location enclosed 
+by the positions of the Object. This is particularly useful with 
+irregular meshes. #!N #!N The initialization type is specified by setting 
+the  #!F-adobe-times-bold-r-normal--18*   init #!EF argument to  #!F-adobe-times-bold-r-normal--18*   INTERP_INIT_DELAY #!EF ,  #!F-adobe-times-bold-r-normal--18*   
+INTERP_INIT_IMMEDIATE #!EF or  #!F-adobe-times-bold-r-normal--18*   INTERP_INIT_PARALLEL #!EF .  #!F-adobe-times-bold-r-normal--18*   INTERP_INIT_DELAY #!EF does 
+not initialize the Interpolator until the information is actually needed. This 
+is fastest if a small number of points will be interpolated. 
+ #!F-adobe-times-bold-r-normal--18*   INTERP_INIT_IMMEDIATE #!EF does all initialization before returning.  #!F-adobe-times-bold-r-normal--18*   INTERP_INIT_PARALLEL #!EF 
+does all initialization in parallel if running in a multiprocessor machine 
+before returning. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   fuzz #!EF value assigns a 
+fuzz factor to the interpolation process: any sample falling within this 
+distance of a valid primitive of the Object  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+is assumed to be inside that primitive. When this point lies 
+geometrically outside the primitive, an appropriate result is extrapolated. Any positive 
+or zero value is used as the fuzz factor; a negative 
+value indicates that the interpolator should determine its own fuzz factor. 
+#!N #!N Interpolators can be used with the  #!F-adobe-times-bold-r-normal--18*   DXMap #!EF 
+call. See  #!Ldxmp,dxall1303 h DXMap  #!EL  for additional details. #!N #!N The interpolator created 
+can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return 
+Value #!N #!N Returns the Interpolator or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxie,dxall1284 h DXInterpolate  #!EL  ,  #!Ldxmp,dxall1303 h DXMap  #!EL  ,  #!Ldxmpa,dxall1304 h DXMapArray  #!EL  #!EF #!N #!N  #!Linadmg,dxall1117 h Interpolation and Mapping  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxnmav,dxall1319 h DXNewMeshArray, DXNewMeshArrayV  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

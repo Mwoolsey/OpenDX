@@ -1,0 +1,220 @@
+//
+// time: Wed Mar  5 10:52:01 2003
+//
+// version: 3.2.0 (format), 4.2.0 (DX)
+//
+//
+// Begin MDF
+// MODULE ImageExport
+// DESCRIPTION Export Images for JavaDX
+// INPUT object; value list or string list or object; (none);  
+// INPUT base_name; value list or string; (none);  
+// INPUT originalCamera; camera; (no default);  
+// INPUT format; value list or string list or object; "gif";  Image Format
+// OUTPUT file_written; string;  
+// End MDF
+// page assignment: rerender	order=2, windowed=0, showing=1
+// workspace: width = 891, height = 612
+// layout: snap = 0, width = 50, height = 24, align = NN
+//
+macro ImageExport(
+ object
+,base_name
+,originalCamera
+,format
+) -> (
+ file_written
+) {
+    // 
+    // node Input[51]: x = 159, y = 10, inputs = 0, label = Input
+    // page group: rerender
+    // parameter: position = 4, name = 'format', value = '"gif"', descriptive = 1, description = ' Image Format', required = 0, visible = 1
+    //
+ImageExport_Input_51_out_1 = format;
+    // 
+    // node Inquire[56]: x = 125, y = 190, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null"
+    // page group: rerender
+    //
+ImageExport_Inquire_56_out_1[cache: 2] = 
+    Inquire(
+    ImageExport_Input_51_out_1,
+    "is null",
+    NULL
+    ) [instance: 56, cache: 1];
+    // 
+    // node Inquire[11]: x = 168, y = 100, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "string match"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "gif"
+    // page group: rerender
+    //
+ImageExport_Inquire_11_out_1[cache: 2] = 
+    Inquire(
+    ImageExport_Input_51_out_1,
+    "string match",
+    "gif"
+    ) [instance: 11, cache: 1];
+    // 
+    // node Inquire[54]: x = 212, y = 190, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "string match"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "jpg"
+    // page group: rerender
+    //
+ImageExport_Inquire_54_out_1[cache: 2] = 
+    Inquire(
+    ImageExport_Input_51_out_1,
+    "string match",
+    "jpg"
+    ) [instance: 54, cache: 1];
+    // 
+    // node Inquire[55]: x = 255, y = 100, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "string match"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "png"
+    // page group: rerender
+    //
+ImageExport_Inquire_55_out_1[cache: 2] = 
+    Inquire(
+    ImageExport_Input_51_out_1,
+    "string match",
+    "png"
+    ) [instance: 55, cache: 1];
+    // 
+    // node Compute[79]: x = 188, y = 280, inputs = 5, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "($0==1)?1:($1==1)?1:($2==1)?2:($3==1)?3:4"
+    // page group: rerender
+    // expression: value = (null==1)?1:(gif==1)?1:(jpg==1)?2:(png==1)?3:4
+    // name[2]: value = null
+    // name[3]: value = gif
+    // name[4]: value = jpg
+    // name[5]: value = png
+    //
+ImageExport_Compute_79_out_1 = 
+    Compute(
+    "($0==1)?1:($1==1)?1:($2==1)?2:($3==1)?3:4",
+    ImageExport_Inquire_56_out_1,
+    ImageExport_Inquire_11_out_1,
+    ImageExport_Inquire_54_out_1,
+    ImageExport_Inquire_55_out_1
+    ) [instance: 79, cache: 1];
+    // 
+    // node Input[6]: x = 167, y = 370, inputs = 0, label = Input
+    // page group: rerender
+    // parameter: position = 2, name = 'base_name', value = ' ', descriptive = 0, description = ' ', required = 1, visible = 1
+    //
+ImageExport_Input_6_out_1 = base_name;
+    // 
+    // node Switch[35]: x = 224, y = 370, inputs = 5, label = Switch
+    // input[2]: defaulting = 0, visible = 1, type = 16777248, value = {"gif"}
+    // input[3]: defaulting = 0, visible = 1, type = 16777248, value = {"jpg"}
+    // input[4]: defaulting = 0, visible = 1, type = 16777248, value = {"png"}
+    // page group: rerender
+    //
+ImageExport_Switch_35_out_1[cache: 2] = 
+    Switch(
+    ImageExport_Compute_79_out_1,
+    {"gif"},
+    {"jpg"},
+    {"png"},
+    ImageExport_Input_51_out_1
+    ) [instance: 35, cache: 1];
+    // 
+    // node Format[7]: x = 224, y = 460, inputs = 3, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "%s.%s"
+    // page group: rerender
+    //
+ImageExport_Format_7_out_1[cache: 2] = 
+    Format(
+    "%s.%s",
+    ImageExport_Input_6_out_1,
+    ImageExport_Switch_35_out_1
+    ) [instance: 7, cache: 1];
+    // 
+    // node Input[5]: x = 10, y = 280, inputs = 0, label = Input
+    // page group: rerender
+    // parameter: position = 1, name = 'object', value = ' ', descriptive = 0, description = ' ', required = 1, visible = 1
+    //
+ImageExport_Input_5_out_1 = object;
+    // 
+    // node Input[22]: x = 127, y = 280, inputs = 0, label = Input
+    // page group: rerender
+    // parameter: position = 3, name = 'originalCamera', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 1
+    //
+ImageExport_Input_22_out_1 = originalCamera;
+    // 
+    // node Inquire[8]: x = 19, y = 370, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is image + 1"
+    // page group: rerender
+    //
+ImageExport_Inquire_8_out_1[cache: 2] = 
+    Inquire(
+    ImageExport_Input_5_out_1,
+    "is image + 1",
+    NULL
+    ) [instance: 8, cache: 1];
+    // 
+    // node Output[3]: x = 233, y = 550, inputs = 1, label = Output
+    // page group: rerender
+    // parameter: position = 1, name = 'file_written', value = ' ', descriptive = 0, description = ' ', required = 0, visible = 1
+    //
+file_written = ImageExport_Format_7_out_1;
+    // 
+    // node Render[1]: x = 106, y = 370, inputs = 3, label = Render
+    // input[3]: defaulting = 0, visible = 0, type = 32, value = "DXByte"
+    // page group: rerender
+    //
+ImageExport_Render_1_out_1[cache: 2] = 
+    Render(
+    ImageExport_Input_5_out_1,
+    ImageExport_Input_22_out_1,
+    "DXByte"
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[9]: x = 98, y = 460, inputs = 3, label = Switch
+    // page group: rerender
+    //
+ImageExport_Switch_9_out_1[cache: 2] = 
+    Switch(
+    ImageExport_Inquire_8_out_1,
+    ImageExport_Render_1_out_1,
+    ImageExport_Input_5_out_1
+    ) [instance: 9, cache: 1];
+    // 
+    // node WriteImage[1]: x = 122, y = 550, inputs = 4, label = WriteImage
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "ImageMagick supported format"
+    // page group: rerender
+    //
+    WriteImage(
+    ImageExport_Switch_9_out_1,
+    ImageExport_Format_7_out_1,
+    "ImageMagick supported format",
+    NULL
+    ) [instance: 1, cache: 1];
+    //
+    // decorator Annotate	pos=(420,23) size=471x124 style(Label), value = <NULL>
+    // annotation user_begin: 516
+    // annotation user: When dxui saves a net in JavaDX format (that means the user has clicked on
+    // annotation user: the  'Add  Tools'  button  in  the vpe's 'Edit/Java' menu),  a special version of
+    // annotation user: the  image macro is  written into  the net. The special version uses 3 macros
+    // annotation user: in this directory to help it do its work.
+    // annotation user: <NULL>
+    // annotation user: This  macro has a ""  category  name  because there isn't any reason  why it
+    // annotation user: should ever  appear  in  dxui. There will  never be  areference  to  it  that will
+    // annotation user: enable  the  user  to  use the 'Windows/Open Selected  Macro'  button  on  it.
+    // annotation user_end: <NULL>
+    // page group: rerender
+// network: end of macro body
+}
+ImageExport_Input_51_out_1 = NULL;
+ImageExport_Inquire_56_out_1 = NULL;
+ImageExport_Inquire_11_out_1 = NULL;
+ImageExport_Inquire_54_out_1 = NULL;
+ImageExport_Inquire_55_out_1 = NULL;
+ImageExport_Compute_79_out_1 = NULL;
+ImageExport_Input_6_out_1 = NULL;
+ImageExport_Switch_35_out_1 = NULL;
+ImageExport_Format_7_out_1 = NULL;
+ImageExport_Input_5_out_1 = NULL;
+ImageExport_Input_22_out_1 = NULL;
+ImageExport_Inquire_8_out_1 = NULL;
+ImageExport_Render_1_out_1 = NULL;
+ImageExport_Switch_9_out_1 = NULL;

@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen  #!Rall546 Macro Examples #!N #!EC #!N #!N The first 
+example macro, Sum, takes two arguments. The macro computes and returns 
+their sum. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro Sum (arg1, arg2) 
+-> (sum) #!N { #!N sum = arg1 + arg2; #!N 
+} #!EF #!N #!N #!EC #!N #!N The second example macro, 
+PrintSum, also takes two arguments and computes their sum. However, unlike 
+the macro Sum, it does not return the computed value. Instead, 
+it prints out using the Echo module. This example illustrates a 
+function call (to Echo) that either does not return a value 
+or whose return values are ignored. #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N macro PrintSum (arg1, arg2) #!N { #!N sum = arg1 
++ arg2; #!N Echo (sum); #!N } #!EF #!N #!N #!EC 
+#!N #!N The third example macro, VectorManip, implements a function to 
+compute the cross product, dot product, and cosine of two 3-vectors. 
+Note that the returned values do not need to be computed 
+in the order in which they are declared. #!N #!N #!CForestGreen 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro VectorManip (vectlist1, vectlist2) -> (dot, cross, cos) 
+#!N { #!N cross = Compute("cross($0, $1)", vectlist1, vectlist2); #!N dot 
+= Compute("dot($0, $1)", vectlist1, vectlist2); #!N cos = Compute("$0/(mag($1)/mag($2))", dot, vectlist1, 
+vectlist2); #!N } #!EF #!N #!N #!EC #!N #!N Note that 
+the Data Explorer script language does not allow nested function calls. 
+The following example illustrates a syntactically invalid function call: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N Echo ( Sum (arg1, arg2) ); #!EF #!N 
+#!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lsdxsc,dxall548 h Using Data Explorer Script Commands  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

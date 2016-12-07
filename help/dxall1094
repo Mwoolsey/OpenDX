@@ -1,0 +1,85 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue 
+#!N  #!Rerrsec Error Handling and Messages #!N #!EC #!N #!N Most 
+Data Explorer library routines return either a pointer or an integer 
+error code. A non-  #!F-adobe-times-bold-r-normal--18*   NULL #!EF pointer or the nonzero 
+integer constant  #!F-adobe-times-bold-r-normal--18*   OK #!EF indicates success.  #!F-adobe-times-bold-r-normal--18*   NULL #!EF or 
+ #!F-adobe-times-bold-r-normal--18*   ERROR #!EF (defined as zero) indicates failure. #!N #!N If 
+a library routine fails, it may use  #!F-adobe-times-bold-r-normal--18*   DXSetError() #!EF to 
+set an error code. If it does, the (user-written) calling routine 
+should return  #!F-adobe-times-bold-r-normal--18*   NULL #!EF or  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF to propagate 
+the error back to the user. #!N #!N However, if the 
+library routine does not set an error code, the calling routine 
+should determine whether the  #!F-adobe-times-bold-r-normal--18*   NULL #!EF return indicates an error: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o If an 
+error is indicated, the calling routine should set an error code 
+(by calling  #!F-adobe-times-bold-r-normal--18*   DXSetError() #!EF ) and return  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+or  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF . #!N #!I30 #!N o If no 
+error is indicated, the calling routine should proceed. #!N #!I0 #!N 
+#!EF #!N #!N #!N For example,  #!F-adobe-times-bold-r-normal--18*   DXGetComponentValue() #!EF returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF if the specified component does not exist, but it 
+does not set an error code: the calling routine must determine 
+whether the absence of that component is an error. #!N #!N 
+How any one Data Explorer routine handles error codes is described 
+in the relevant entry in  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  . #!N #!N The error 
+codes are defined as follows: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef 
+enum errorcode { #!N ERROR_MIN, #!N ERROR_NONE, #!N ERROR_INTERNAL, #!N ERROR_UNEXPECTED, 
+#!N ERROR_ASSERTION, #!N ERROR_NOT_IMPLEMENTED, #!N ERROR_NO_MEMORY, #!N ERROR_BAD_CLASS, #!N ERROR_BAD_TYPE, #!N 
+ERROR_NO_CAMERA, #!N ERROR_MISSING_DATA, #!N ERROR_INVALID_DATA, #!N ERROR_BAD_PARAMETER, #!N ERROR_MAX #!N } 
+ErrorCode; #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef 
+int Error; #!N #define ERROR 0 #!N #define OK 1 #!N 
+typedef void *Pointer; #!N #undef NULL #!N #define NULL 0 #!EF 
+#!N #!N #!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Error DXSetError() #!EF #!N #define DXErrorReturn() #!N #define DXErrorGoto() #!N #define 
+DXASSERT() #!EF #!I50 #!N Set an error code and an explanatory 
+message. See  #!Lun,dxall1094 s Note on Use  #!EL  and  #!Ldxse,dxall1377 h DXSetError, DXErrorReturn, DXErrorGoto  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Error DXAddMessage() #!EF #!N #define DXMessageReturn() #!N #define DXMessageGoto() #!EF #!I50 
+#!N Append a message to the current error message. See  #!Lun,dxall1094 s Note on Use  #!EL  
+and  #!Ldxam,dxall1168 h DXAddMessage, DXMessageReturn, DXMessageGoto  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void DXWarning() #!EF 
+#!EF #!I50 #!N Presents a warning message to the user. See 
+ #!Ldxw,dxall1407 h DXWarning  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void DXMessage() #!EF #!EF 
+#!I50 #!N Presents an informational message to the user. See  #!Ldxmess,dxall1307 h DXMessage  #!EL  
+. #!I0 #!N #!N #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Note on 
+Use  #!Run #!N #!N When a function signals an error by 
+returning  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it should also set an error 
+code and an error message, using one of the following error 
+routines: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1.  #!F-adobe-times-bold-r-normal--18*   
+DXErrorReturn(errorcode, message); #!EF Sets an error code and an error message, 
+then returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF ; this function should be invoked 
+by the lowest-level routine that detects the error. #!N #!I30 #!N 
+2.  #!F-adobe-times-bold-r-normal--18*   DXMessageReturn(message); #!EF Appends its own message to the message 
+already recorded; this should be done by routines that: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Detect an error returned 
+by a lower-level routine that has already set an error code. 
+#!N #!I30 #!N o Contain useful information to add to the 
+message. #!N #!I0 #!N #!EF #!N #!N #!I30 #!N 3.  #!F-adobe-times-bold-r-normal--18*   
+return ERROR; #!EF Is used when an error return is detected 
+from a lower-level routine and the current routine has nothing useful 
+to add to the message. #!N #!I0 #!N #!EF #!N If 
+cleanup is required before return,  #!F-adobe-times-bold-r-normal--18*   DXErrorGoto() #!EF or  #!F-adobe-times-bold-r-normal--18*   DXMessageGoto() 
+#!EF may be used instead. Both routines require an  #!F-adobe-times-bold-r-normal--18*   error: 
+#!EF label, after which cleanup is performed and either  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF (as shown here) or  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF is returned. #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N error: #!N #!N ... cleanup goes here 
+... #!N return NULL; #!N #!EF #!N #!N #!EC #!N #!N 
+#!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   LESS COMMONLY USED ROUTINES #!EF __________________________________ #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   ErrorCode DXGetError() #!EF #!EF 
+#!I50 #!N Returns an error code for the last error that 
+occurred. See  #!Ldxge,dxall1235 h DXGetError  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   char *DXGetErrorMessage() 
+#!EF #!EF #!I50 #!N Returns the current error message. See  #!Ldxgerm,dxall1237 h DXGetErrorMessage  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void DXResetError() #!EF #!EF #!I50 
+#!N Resets the error state. See  #!Ldxre,dxall1359 h DXResetError  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void DXBeginLongMessage() #!EF #!N void DXEndLongMessage(); #!EF #!I50 #!N 
+Together create a single "long" message from multiple calls to  #!F-adobe-times-bold-r-normal--18*   
+DXMessage() #!EF . See  #!Ldxblm,dxall1175 h DXBeginLongMessage, DXEndLongMessage  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+void DXDebug() #!EF #!N void DXEnableDebug(); #!N int DXQueryDebug(); #!EF #!I50 
+#!N Operate on global debug keys. See  #!Ldxdb,dxall1194 h DXDebug, DXEnableDebug, DXQueryDebug  #!EL  . #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXDebug() #!EF compares an Array of keys to the global 
+debug keys and calls #!N  #!F-adobe-times-bold-r-normal--18*   DXMessage() #!EF if any are 
+common to both. #!N  #!F-adobe-times-bold-r-normal--18*   DXEnableDebug() #!EF enables or disables one 
+or more global debug keys. #!N  #!F-adobe-times-bold-r-normal--18*   DXQueryDebug() #!EF compares an 
+Array of keys to the global debug keys and #!N returns 
+"1" if any are common to both. #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltimg,dxall1095 h Timing  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

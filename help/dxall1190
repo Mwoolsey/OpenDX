@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxch DXCreateHash #!N #!N Function #!N #!N Creates a hash 
+table for storing elements. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+HashTable DXCreateHash(int elementSize, PseudoKey (*hashFunc)(), int (*cmpFunc)()) #!EF #!N #!N Functional 
+Details #!N #!N An element to be stored consists of a 
+key plus whatever data is to be associated with that key. 
+Its size, in bytes, is specified by  #!F-adobe-times-bold-r-normal--18*   elementSize #!EF . 
+in bytes. The parameter  #!F-adobe-times-bold-r-normal--18*   hashFunc #!EF points to the optional 
+hash function callback. Given an element,  #!F-adobe-times-bold-r-normal--18*   hashFunc #!EF should return 
+a uniformly distributed long integer pseudokey. If  #!F-adobe-times-bold-r-normal--18*   hashFunc #!EF is 
+not provided, then the first long integer word of each key 
+is assumed to be the pseudokey.  #!F-adobe-times-bold-r-normal--18*   cmpFunc #!EF is the 
+optional compare function callback. Given a search key and an element, 
+ #!F-adobe-times-bold-r-normal--18*   cmpFunc #!EF should return 0 if the key matches the 
+element. If no compare function is provided, any element matching the 
+pseudokey is assumed to match the search key. #!N #!N Optionally 
+provided by the calling application: #!N  #!F-adobe-times-bold-r-normal--18*   PseudoKey hashFunc (Key key); 
+#!EF #!N #!N Called on insertion and query to convert the 
+arbitrary-size search key into the long integer pseudokey used to store 
+the hash table-element. #!N  #!F-adobe-times-bold-r-normal--18*   int cmpFunc (Key searchKey, Element element); 
+#!EF #!N #!N Called on insertion and query when an element 
+from the table matches the pseudokey. Returns 0 if the search 
+key matches the key contained in the element found in the 
+table. #!N #!N See  #!Lhash,dxall1121 h Hashing  #!EL  for additional details on  #!F-adobe-times-bold-r-normal--18*   hashFunc 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   cmpFunc #!EF . The HashTable created should be 
+deleted with DXDestroy when it is no longer needed. See  #!Lmemng,dxall1023 h Memory Management  #!EL  
+. #!N #!N  #!F-adobe-times-bold-r-normal--18*   PseudoKey #!EF is defined as: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N typedef long PseudoKey; #!N #!N typedef Pointer 
+Key; #!EF #!EF #!N #!N #!EC #!N #!N Return Value #!N 
+#!N Returns the hash table or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxdhe,dxall1197 h DXDeleteHashElement  #!EL  ,  #!Ldxdhsh,dxall1198 h DXDestroyHash  #!EL  ,  #!Ldxgnhe,dxall1251 h DXGetNextHashElement  #!EL  ,  #!Ldxignhe,dxall1279 h DXInitGetNextHashElement  #!EL  ,  #!Ldxihe,dxall1283 h DXInsertHashElement  #!EL  ,  #!Ldxqhe,dxall1345 h DXQueryHashElement  #!EL  
+#!EF #!N #!N  #!Lhash,dxall1121 h Hashing  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxcich,dxall1191 h DXCreateInvalidComponentHandle  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

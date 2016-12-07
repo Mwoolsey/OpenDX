@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu029.htm">Previous Page</A> &#124; <A HREF="progu031.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu028.htm#PToC8">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRCONNEC" HREF="../proguide.htm#ToC_63">Chapter 7. Working with
+Connections</A></H1>
+<P><A NAME="PToC9" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_64" HREF="#HDREXAVGC">7.1 AverageCell Module Example--Average
+the Data Values of All Neighbors</A>
+</MENU><HR><P>
+<P>
+The module in this example manipulates both the data and the
+connections components of an input Field (the modules in
+<A HREF="progu025.htm#HDRMODEXSC">Chapter 5. "Working with Data"</A> and <A
+HREF="progu028.htm#HDRPOSIT">Chapter 6. "Working with Positions"</A>, did not
+require a
+connections component). Modules that perform interpolation need
+information about the interpolation elements (connections). For
+example, the Isosurface module uses different interpolation methods
+according to the type of connection.
+<HR>
+<H2><A NAME="HDREXAVGC" HREF="#PToC_64">7.1 AverageCell Module Example--Average
+the Data Values of All Neighbors</A></H2>
+<A NAME="IDX242"></A>
+<A NAME="IDX243"></A>
+<A NAME="IDX244"></A>
+<P>
+The AverageCell module computes, for each cell, the average of the data
+values of that cell and all its neighbors.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">This module works only on data that is cell-centered (i.e.,
+connection-dependent) and has connections of type
+"quads."
+</td></tr></table>
+<P>
+The AverageCell module takes one input: <TT><STRONG>input</STRONG></TT>,
+of type <TT><STRONG>field</STRONG></TT>, which has no
+default value.
+The module has one output: <TT><STRONG>output</STRONG></TT>, of type
+<TT><STRONG>field</STRONG></TT>.
+<P>
+<B><U>(1) Start the Module Builder</U></B> with the command:
+<PRE>
+  dx -builder
+</PRE>
+<P>
+The Module Builder dialog box appears.
+Note that the dialog box carries no information, since no module
+has been specified.
+(For a simple example of creating a module with the Module Builder,
+see <A HREF="progu017.htm#HDRTMODBLD">3.3 , "Using the Module Builder: A Quick
+Walk Through"</A>).
+<P>
+<B><U>(2) Select <TT><STRONG>Open</STRONG></TT></U></B> from the
+<TT><STRONG>File</STRONG></TT>
+pull-down menu.
+An <TT><STRONG>Open a Module Builder file...</STRONG></TT> dialog box appears.
+<P>
+<B><U>(3) Read in</U></B>
+<TT>/usr/local/dx/samples/program_guide/averagecell.mb</TT> as follows:
+<UL COMPACT>
+<LI>Type the full path name in the <TT><STRONG>Filter</STRONG></TT> field of the
+dialog box.
+<LI>Click on (in sequence):
+<UL COMPACT>
+<LI>the <TT><STRONG>Filter</STRONG></TT> button
+<LI>the name of the file in the <TT><STRONG>Files</STRONG></TT> field
+<LI>the <TT><STRONG>OK</STRONG></TT> button.
+</UL>
+Information describing the inputs and output of the module (extracted
+from the <TT>averagecell.mb</TT> file) appears in the
+Module Builder dialog box.
+</UL>
+<P>
+<B><U>(4) Save the .mb file</U></B> to a writable directory (use
+<TT><STRONG>Save As...</STRONG></TT> in the <TT><STRONG>File</STRONG></TT>
+pull-down menu).
+<P>
+<B><U>(5) Select</U></B> <TT><STRONG>Create All</STRONG></TT> from the
+<TT><STRONG>Build</STRONG></TT> pull-down menu of the dialog box.
+This option creates three files for the module: <TT>averagecell.c</TT>,
+<TT>averagecell.mdf</TT>, and <TT>averagecell.make</TT>,
+<P>
+<B><U>(6) Implement the AverageCell function</U></B>.
+<P>
+Use an editor to add the following lines after "User&#39;s code goes
+here" in the <TT>averagecell.c</TT> file:
+<PRE>
+   int *itemcounts = NULL, i, neighbor;
+   /* make scratch space to hold the number of items added for each element */
+   itemcounts = DXAllocate(input_knt*sizeof(int));
+   if (!itemcounts)
+      goto error;
+   /*
+    * first initialize the output data component to zero, and itemcounts to
+    * zero.
+    */
+   for (i=0; i&lt;input_knt; i++) {
+      output_data&#91;i&#93; = 0;
+      itemcounts&#91;i&#93;=0;
+   }
+</PRE>
+<PRE>
+   /* for each data value, add that value to the appropriate items in the
+    * output data array. Also increment itemcounts for those cells.
+    */
+   for (i=0; i&lt;input_knt; i++) {
+      /* first do itself */
+      output_data&#91;i&#93;+=input_data&#91;i&#93;;
+      itemcounts&#91;i&#93;++;
+      /* now do neighbors in fastest-varying dimension */
+      neighbor = i-1;
+      if (neighbor &gt;= 0 && ((i % (c_counts&#91;1&#93;-1)) != 0)) {
+         output_data&#91;neighbor&#93;+=input_data&#91;i&#93;;
+         itemcounts&#91;neighbor&#93;++;
+      }
+</PRE>
+<PRE>
+      neighbor = i+1;
+      if (neighbor &lt; input_knt &&(((i+1)%(c_counts&#91;1&#93;-1)) != 0)) {
+         output_data&#91;neighbor&#93;+=input_data&#91;i&#93;;
+         itemcounts&#91;neighbor&#93;++;
+      }
+      /* now do neighbors in the slowest-varying dimension */
+      neighbor = i - (c_counts&#91;1&#93;-1);
+      if (neighbor &gt;= 0) {
+         output_data&#91;neighbor&#93;+=input_data&#91;i&#93;;
+         itemcounts&#91;neighbor&#93;++;
+      }
+      neighbor = i + (c_counts&#91;1&#93;-1);
+      if (neighbor &lt; input_knt) {
+         output_data&#91;neighbor&#93;+=input_data&#91;i&#93;;
+         itemcounts&#91;neighbor&#93;++;
+      }
+   }
+</PRE>
+<PRE>
+   /* now divide by the number of items added for that cell */
+   for (i=0; i&lt; input_knt; i++)
+      output_data&#91;i&#93; = output_data&#91;i&#93;/itemcounts&#91;i&#93;;
+   DXFree((Pointer)itemcounts);
+   return OK;
+error:
+   DXFree((Pointer)itemcounts);
+   return ERROR;
+}
+</PRE>
+<P>
+The file <TT>/usr/local/dx/samples/program_guide/averagecell.c</TT>
+contains a completed version of this program.
+<P>
+<B><U>(7) To create a version of Data Explorer that includes</U></B> the
+AverageCell module, enter the command:
+<PRE>
+make -f averagecell.make dxexec
+</PRE>
+<P>
+(You have now created an executable that contains the
+AverageCell module.)
+<P>
+<B><U>(8) To invoke this version, enter&#58;</U></B>
+<PRE>
+dx  -mdf ./averagecell.mdf -exec ./dxexec
+</PRE>
+<P>
+This command starts Data Explorer (the <TT>averagecell.mdf</TT> file tells
+the graphical user interface about AverageCell and its inputs
+and outputs).
+The executable dxexec invoked here is the one created in Step 6.
+<P>
+<B><U>(9) With this version of Data Explorer</U></B> you can now run any visual
+program that uses the AverageCell module.
+One such program is
+<TT>/usr/local/dx/samples/program_guide/averagecell.net</TT>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu029.htm">Previous Page</A> &#124; <A HREF="progu031.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC9">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

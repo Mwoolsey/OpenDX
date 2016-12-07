@@ -1,0 +1,79 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rarrange Arrange #!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N 
+Function #!N #!N Arranges images for display. #!N #!N Syntax #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   image #!EF = Arrange(  #!F-adobe-times-bold-r-normal--18*   group, horizontal, 
+compact, position, size #!EF ); #!EF #!N #!N #!EC #!N #!N 
+Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default 
+TAB Description #!EF #!N TAB group TAB image group TAB none 
+TAB images to be displayed #!N TAB horizontal TAB integer TAB 
+infinity TAB number of images in horizontal #!N TAB - TAB 
+- TAB - TAB dimension #!N TAB compact TAB vector TAB 
+[0 0] TAB makes the image compact in x or in 
+#!N TAB - TAB - TAB - TAB y or in 
+both #!N TAB position TAB vector TAB [.5 .5] TAB position 
+of each image in its #!N TAB - TAB - TAB 
+- TAB frame #!N TAB size TAB vector TAB [0 0] 
+TAB force size of each frame to this #!N TAB - 
+TAB - TAB - TAB number of pixels #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N TAB 
+image TAB image TAB resulting image #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N This module is 
+useful for displaying a collection of images in an orderly arrangement. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   group #!EF #!EF 
+#!I50 #!N is a group of images (e.g., the output of 
+Collect). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   horizontal #!EF #!EF #!I50 #!N 
+specifies the number of images in the horizontal direction. If there 
+are more images in  #!F-adobe-times-bold-r-normal--18*   group #!EF than  #!F-adobe-times-bold-r-normal--18*   horizontal #!EF 
+, they are arranged in rows below the first, each of 
+length  #!F-adobe-times-bold-r-normal--18*   horizontal #!EF . #!I0 #!N #!N #!N #!N The 
+ #!F-adobe-times-bold-r-normal--18*   compact #!EF ,  #!F-adobe-times-bold-r-normal--18*   position #!EF , and  #!F-adobe-times-bold-r-normal--18*   size 
+#!EF parameters are useful when the images are of different sizes. 
+In constructing an output image, Arrange creates in effect a regular 
+arrangement of output blocks, in rows and columns, one original image 
+being placed in each block. The size of the blocks and 
+the placement of the original images in them is controlled by 
+these three parameters: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+compact #!EF #!EF #!I50 #!N specifies how the resulting image is 
+to be "compacted." #!N #!N If the first (width) component: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N = 0, the width 
+of each column is set to the width of the widest 
+image in the input group. #!N #!I30 #!N = 1, the 
+width of each column is set to the width of the 
+widest image in that column. #!N #!I0 #!N #!EF #!N #!N 
+#!N If the second (height) component: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N = 0, the height of each row is 
+set to the height of the tallest image in the input 
+group. #!N #!I30 #!N = 1, the height of each row 
+is set to the height of the tallest image in that 
+row. #!N #!I0 #!N #!EF #!N Thus a setting of [0, 
+0] will place each image in a box of the same 
+size, as determined by (1) the widest and tallest images present 
+in the input group or (2) by the value of  #!F-adobe-times-bold-r-normal--18*   
+size #!EF , if it is nonzero. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   position #!EF #!EF #!I50 #!N specifies the placement of an 
+image in an output block if the block is larger than 
+the image. A value of [0 0] would place it in 
+the lower left corner; [.5 .5], in the center; [1 0], 
+in the lower right corner; and so on. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   size #!EF #!EF #!I50 #!N specifies, in pixels, the 
+width or height of the block containing each input image in 
+the resulting image. This parameter overrides the setting of the corresponding 
+component of  #!F-adobe-times-bold-r-normal--18*   compact #!EF . #!N #!N If  #!F-adobe-times-bold-r-normal--18*   size 
+#!EF is less than the size of the  #!F-adobe-times-medium-i-normal--18*   largest #!EF 
+image, it will default to the size of the largest. That 
+is,  #!F-adobe-times-bold-r-normal--18*   size #!EF cannot shrink or crop an image. If 
+a component of  #!F-adobe-times-bold-r-normal--18*   size #!EF is set to zero, the 
+dimensions of the images in that row or column are used 
+to set the size of the output image blocks, depending on 
+the setting of  #!F-adobe-times-bold-r-normal--18*   compact #!EF . #!I0 #!N #!N #!N 
+#!N If you want to filter or reduce an image, you 
+must do so before arranging it together with another image. #!N 
+#!N Components #!N #!N All input components are propagated to the 
+output. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+PlotLine.net #!N UsingCompute.net #!N UsingFilter.net #!N SIMPLE/Arrange.net #!N #!N IndependentlyArrange.net #!N 
+#!EF #!N #!N #!EC IndependentlyArrange.net illustrates an interactive alternative to using 
+Arrange. #!N #!N See Also #!N #!N  #!Lcollect,dxall788 h Collect  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  , 
+ #!Loverlay,dxall900 h Overlay  #!EL  ,  #!Lrender,dxall923 h Render  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lattrib,dxall769 h Attribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

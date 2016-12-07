@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgsa DXGetStringAttribute 
+#!N #!N Function #!N #!N Retrieves a named attribute from an 
+Object, verifies that it contains a string, and returns a pointer 
+to that string. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object 
+DXGetStringAttribute(Object o, char *name, char **x) #!EF #!N #!N Functional Details 
+#!N #!N The attribute to be retrieved from Object  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF is specified by the string  #!F-adobe-times-bold-r-normal--18*   name #!EF . It 
+then verifies that the attribute contains a string value. If  #!F-adobe-times-bold-r-normal--18*   
+x #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , a pointer to 
+the string is returned in  #!F-adobe-times-bold-r-normal--18*   *x #!EF . #!N #!N 
+Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and does not set an error code. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxga,dxall1223 h DXGetAttribute  #!EL  ,  #!Ldxgea,dxall1231 h DXGetEnumeratedAttribute  #!EL  ,  #!Ldxgfa,dxall1238 h DXGetFloatAttribute  #!EL  ,  #!Ldxgia,dxall1242 h DXGetIntegerAttribute  #!EL  
+,  #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  ,  #!Ldxsfa,dxall1379 h DXSetFloatAttribute  #!EL  ,  #!Ldxsia,dxall1381 h DXSetIntegerAttribute  #!EL  ,  #!Ldxssa,dxall1392 h DXSetStringAttribute  #!EL  #!EF #!N #!N 
+ #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxgt,dxall1269 h DXGetTime  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

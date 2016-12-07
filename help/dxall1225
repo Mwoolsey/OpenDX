@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgcmp DXGetCameraMatrix, DXGetCameraRotation, DXGetCameraMatrixWithFuzz #!N #!N Function #!N #!N Return 
+matrices that represent stages of the viewing operation. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Matrix DXGetCameraMatrix(Camera c) Matrix DXGetCameraRotation(Camera c) Matrix 
+DXGetCameraMatrixWithFuzz(Camera c, float fuzz) #!EF #!N #!N Functional Details #!N #!N 
+A camera defines the position and orientation of the viewer, the 
+volume of interest of the object being viewed, and the size 
+of the image to contain the resulting view. #!N #!N Conceptually, 
+there are three steps to converting an object in 3-dimensional space 
+to an image in two-dimensional space: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N 1. Translate the Object and camera as a 
+unit so that  #!F-adobe-times-bold-r-normal--18*   From #!EF is at the center of 
+the image, rotate them until  #!F-adobe-times-bold-r-normal--18*   up #!EF is aligned with 
+the image  #!F-adobe-times-bold-r-normal--18*   y #!EF axis, and the  #!F-adobe-times-bold-r-normal--18*   from-to #!EF 
+vector is perpendicular to the image. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXGetCameraRotation #!EF 
+, given camera  #!F-adobe-times-bold-r-normal--18*   c #!EF , returns the matrix that 
+performs this series of transformations. #!N #!I30 #!N 2. Scale the 
+size of the volume of interest to the size of the 
+image. (For additional details, see  #!F-adobe-times-bold-r-normal--18*   DXSetPerspective #!EF and  #!F-adobe-times-bold-r-normal--18*   DXSetOrthographic 
+#!EF .) #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXGetCameraMatrix #!EF and  #!F-adobe-times-bold-r-normal--18*   DXGetCameraMatrixWithFuzz #!EF 
+, given camera  #!F-adobe-times-bold-r-normal--18*   c #!EF , return the matrices that 
+perform this step and the previous step.  #!F-adobe-times-bold-r-normal--18*   DXGetCameraMatrixWithFuzz #!EF returns 
+the matrix with a given  #!F-adobe-times-bold-r-normal--18*   fuzz #!EF applied. The  #!F-adobe-times-bold-r-normal--18*   
+fuzz #!EF allows an object that is coincident with a second 
+object, to be moved forward slightly to allow it to appear 
+in front of the second object. An example of this would 
+be displaying contour lines on a surface; a positive  #!F-adobe-times-bold-r-normal--18*   fuzz 
+#!EF applied to the lines make the lines appear displayed slightly 
+in front of the surface. #!N #!I30 #!N 3. For perspective 
+cameras only, make the walls of the volume interest parallel. (For 
+additional details, see  #!F-adobe-times-bold-r-normal--18*   DXSetPerspective #!EF .) #!N #!I0 #!N #!EF 
+#!N #!N #!N When these three steps are completed, the object 
+has the correct image x,y coordinates and can be rasterized. #!N 
+#!N Return Value #!N #!N Return the matrix. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxsrn,dxall1389 h DXSetResolution, DXGetCameraResolution  #!EL  ,  #!Ldxsvw,dxall1393 h DXSetView, DXGetView  #!EL  ,  #!Ldxnca,dxall1311 h DXNewCamera  #!EL  ,  #!Ldxsoc,dxall1384 h DXSetOrthographic, DXGetOrthographic  #!EL  
+,  #!Ldxspe,dxall1388 h DXSetPerspective, DXGetPerspective  #!EL  ,  #!Ldxrndr,dxall1357 h DXRender  #!EL  #!EF #!N #!N  #!Lcamsec,dxall1138 h Camera Class  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgci,dxall1226 h DXGetClippedInfo  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

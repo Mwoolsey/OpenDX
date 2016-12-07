@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall568 What is the Difference Between Image and Display? 
+#!N #!EC #!N #!N Image, Display, and Render all render an 
+object (i.e. create an image). #!N #!N Render, given an object 
+and a camera, creates as output an image. This image can 
+be sent directly to Display for display to the screen, sent 
+to WriteImage to be written to a file, or collected with 
+other images into a single window using Arrange. #!N #!N Display, 
+given an object and a camera, both renders the object (using 
+the camera) and displays it to the screen. #!N #!N Display, 
+given only an image, simply displays it to the screen. #!N 
+#!N Image, given an object, renders it and displays it to 
+the screen. The camera information is provided via direct interactors (rotate, 
+zoom, etc.) or through the camera mode option in the View 
+Control dialog box. Image has two outputs: the object to be 
+rendered (including any AutoAxes that may have been added via menu 
+choices) and the camera used. #!N #!N You would use Render 
+if you needed the image itself, for example, for the Arrange 
+or Filter modules, or if you wanted to use WriteImage. (For 
+the Image tool, the WriteImage function is available through the Save 
+Image and Print Image commands in the Image window, or through 
+the hidden recordEnable, recordFormat, and recordFile parameters to the Image tool). 
+#!N #!N You would use Display without a camera if your 
+object is already an image, and you simply want to display 
+it. You do not need (or want) to render it. You 
+would also use Display without a camera to display a set 
+of Arranged images. #!N #!N You would use Display with a 
+camera if you wanted to directly control the camera, for example, 
+for a computed fly-through path. You would also use Display if 
+you wanted to define your own direct interaction modes (see  #!Lsupwind,dxall961 h SuperviseWindow  #!EL  
+and  #!Lsupstat,dxall958 h SuperviseState  #!EL  in IBM Visualization Data Explorer User's Reference), rather than 
+using the predefined direct interaction modes of the Image tool. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall569,dxall570 h How do I get more information?  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

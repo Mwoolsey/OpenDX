@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxmp DXMap 
+#!N #!N Function #!N #!N Interpolates data values at sample points. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXMap(Object object, Object 
+map, char *src, char *dst) #!EF #!N #!N Functional Details #!N 
+#!N This function provides a simple generic tool for interpolation. Object 
+ #!F-adobe-times-bold-r-normal--18*   object #!EF may be either a Field, a Composite Field, 
+or an Array. In the first two cases, the component specified 
+by  #!F-adobe-times-bold-r-normal--18*   src #!EF is used to sample  #!F-adobe-times-bold-r-normal--18*   map #!EF 
+; the results of the interpolation are placed in the component 
+specified by  #!F-adobe-times-bold-r-normal--18*   dst #!EF , and  #!F-adobe-times-bold-r-normal--18*   object #!EF is 
+returned. If  #!F-adobe-times-bold-r-normal--18*   object #!EF is an Array, it is used 
+directly to interpolate  #!F-adobe-times-bold-r-normal--18*   map #!EF , and an Array containing 
+the interpolated values is returned; in this case, the  #!F-adobe-times-bold-r-normal--18*   src 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   dst #!EF parameters are ignored. #!N #!N If 
+ #!F-adobe-times-bold-r-normal--18*   map #!EF represents a data Field, it must be a 
+Field, a Composite Field, or an Interpolator. The  #!F-adobe-times-bold-r-normal--18*   src #!EF 
+component of this data Field is used to generate the values 
+at the sample points. #!N If  #!F-adobe-times-bold-r-normal--18*   map #!EF is an 
+Array, this routine creates a resulting Array that consists of the 
+appropriate number of copies of the contents of the  #!F-adobe-times-bold-r-normal--18*   map 
+#!EF Array (which must contain exactly one item). This result is 
+then handled as previously described: if  #!F-adobe-times-bold-r-normal--18*   object #!EF is a 
+Field or a Composite Field, the result Array is added to 
+the Field using the component name specified by  #!F-adobe-times-bold-r-normal--18*   dst #!EF 
+. Otherwise, the resulting Array is returned. This form is used 
+to create a constant data value at all sample points. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   DXMapCheck #!EF should be called before  #!F-adobe-times-bold-r-normal--18*   DXMap #!EF 
+to check the compatibility of the input  #!F-adobe-times-bold-r-normal--18*   object #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   map #!EF . #!N #!N Return Value #!N #!N Returns 
+an Object (see above) or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets 
+an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxie,dxall1284 h DXInterpolate  #!EL  
+,  #!Ldxmpa,dxall1304 h DXMapArray  #!EL  ,  #!Ldxmpc,dxall1305 h DXMapCheck  #!EL  ,  #!Ldxni,dxall1318 h DXNewInterpolator  #!EL  #!EF #!N #!N  #!Linadmg,dxall1117 h Interpolation and Mapping  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxmpa,dxall1304 h DXMapArray  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

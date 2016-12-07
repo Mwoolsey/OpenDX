@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Legend</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu082.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu084.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRLEGEND" ></A>Legend</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATANN">Annotation</A>
+<P><STRONG>Function</STRONG>
+<P>
+Creates a legend
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>legend</STRONG> = Legend(<STRONG>stringlist,colorlist, position, shape,
+                horizontal, label, colors, annotation, labelscale, font</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>stringlist</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">list of strings for legend
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>colorlist</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field, vector list, or string
+list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">list of colors for legend
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>position</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;0.95, 0.95&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the position of the color bar (in
+viewport-relative coordinates)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>shape</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;300 25&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">length and width of the color bar
+(in pixels)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>horizontal</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: vertical orientation
+<BR>
+1: horizontal orientation
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>label</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no defaults
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">label for color bar
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>color</STRONG></TT>s
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">colors for annotation
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>annotation</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;all&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">annotation objects to be colored
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>labelscale</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1.0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">scale factor for labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>font</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">standard
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">font for labels
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>legend</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">color field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">the legend
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module creates a legend associating a set of strings with a set of
+colors.
+The legend generated by this module can be collected with the rest
+of the objects in a scene (by using a Collect module) and incorporated
+into an image.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>stringlist</STRONG></TT>
+</B></TD><TD><P>is a list of strings for the legend
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>colorlist</STRONG></TT>
+</B></TD><TD><P>is a colormap,
+a list of rgb vectors, or a list of color name strings
+(see <A HREF="refgu033.htm#HDRCOLOR">Color</A> for a discussion of valid color
+name strings).
+If <TT><STRONG>colorlist</STRONG></TT> is a list of rgb vectors or a list
+of color name strings, then the
+length of <TT><STRONG>colorlist</STRONG></TT> must be
+the same as the length of <TT><STRONG>stringlist</STRONG></TT>. If
+<TT><STRONG>colorlist</STRONG></TT> is a colormap
+(see <A HREF="refgu033.htm#HDRCOLOR">Color</A> for a description
+of a color map), then the colors are taken to be the values in
+<TT><STRONG>colorlist</STRONG></TT> corresponding to
+the integers 0, ... n-1 where n is the number of items in
+<TT><STRONG>stringlist</STRONG></TT>. Thus, for example,
+AutoColor or Color can be applied to a categorized string data set
+(see <A HREF="refgu023.htm#HDRCATEGOR">Categorize</A>), and the
+colormap used can be directly passed to Legend to associate the
+appropriate colors with the categorized strings.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>position</STRONG></TT>
+</B></TD><TD><P>is a 2-dimensional vector (or a 3-dimensional vector whose
+<I>z</I>-component is ignored) indicating the position of
+the legend in the final image.
+In viewport-relative coordinates, &#91;0 0&#93; places the legend at
+the lower left, and &#91;1 1&#93; at the upper right.
+These same coordinates determine the reference point that is used to
+position the legend relative to its placement in the image (e.g., for
+<TT><STRONG>position</STRONG></TT> = &#91;0 0&#93;, the lower left
+corner of the legend is placed in the lower left corner of
+the image).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>shape</STRONG></TT>
+</B></TD><TD><P>is a 2-vector that specifies the length and width of the legend
+,
+in pixels.
+For both horizontal and vertical orientations, the first element of the
+vector is the length and the second is the width.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>horizontal</STRONG></TT>
+</B></TD><TD><P>determines whether the orientation of the legend is vertical (0)
+or horizontal (1).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>label</STRONG></TT>
+</B></TD><TD><P>specifies a user-supplied label for the legend.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>colors</STRONG></TT>
+&nbsp;and&nbsp;
+<TT><STRONG>annotation</STRONG></TT>
+</B></TD><TD><P>set the colors of certain components of the legend.
+<P>
+<TT><STRONG>colors</STRONG></TT> can be a single color (RGB vector or
+color-name string) or a list.
+The color-name string must be one of the defined color names (see
+<A HREF="refgu033.htm#HDRCOLOR">Color</A>).
+<P>
+<TT><STRONG>annotation</STRONG></TT> can be a single string or a list of
+strings, chosen from the following:
+"all," "frame," "labels," and "ticks."
+<P>
+If <TT><STRONG>annotation</STRONG></TT> is not specified or is
+"all"--<I>and</I> if <TT><STRONG>colors</STRONG></TT> is a
+single string--then <TT><STRONG>colors</STRONG></TT> is used for
+all color-bar annotation.
+Otherwise the number of colors must match the number of annotation
+strings exactly.
+The default frame color is "clear."
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>labelscale</STRONG></TT>
+</B></TD><TD><P>determines the size of the axes and tick-mark labels.
+For example, <TT><STRONG>labelscale</STRONG></TT> = 2.0 will display the
+labels at double their default size.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>font</STRONG></TT>
+</B></TD><TD><P>specifies the font used for axes and tick-mark labels.
+You can specify any of the defined fonts supplied with Data Explorer.
+These include a variable-width font ("variable", the
+default for axes labels) and a fixed-width font
+("fixed", the default for tick-marks
+labels).
+<PRE>
+area          gothicit_t       pitman                roman_ext
+cyril_d       greek_d          roman_d               script_d
+fixed         greek_s          roman_dser            script_s
+gothiceng_t   italic_d         roman_s               variable
+gothicger_t   italic_t         roman_tser
+</PRE>
+For more information,
+see <A HREF="usrgu076.htm#HDRAPC">Appendix E. "Data Explorer Fonts"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+</TD></TR></TABLE>
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+HomeOwn.net
+Legend.net
+SalesOnStates.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+<A HREF="refgu130.htm#HDRSCALSCR">ScaleScreen</A>,
+<A HREF="refgu033.htm#HDRCOLOR">Color</A>,
+<A HREF="refgu034.htm#HDRCOLORBA">ColorBar</A>,
+<A HREF="refgu023.htm#HDRCATEGOR">Categorize</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

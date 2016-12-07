@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxge DXGetError #!N #!N Function #!N #!N Returns 
+the error code for the last error that occurred. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> ErrorCode DXGetError() #!EF #!N #!N Functional 
+Details #!N #!N Returns the error code for the last error 
+that occurred, which is one of the following error codes: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N ERROR_ASSERTION ERROR_INTERNAL ERROR_NO_MEMORY #!N ERROR_BAD_CLASS ERROR_INVALID_DATA 
+ERROR_NO_NONE #!N ERROR_BAD_PARAMETER ERROR_MISSING_DATA ERROR_NOT_IMPLEMENTED #!N ERROR_BAD_TYPE ERROR_NO_CAMERA ERROR_UNEXPECTED #!EF #!EF 
+#!N #!N #!EC #!N #!N A return value of  #!F-adobe-times-bold-r-normal--18*   ERROR_NONE 
+#!EF signifies that no error code has been set. #!N Note: 
+This routine is not typically used by module writers. #!N #!N 
+#!N Return Value #!N #!N Returns the error code for the 
+most recent error or returns  #!F-adobe-times-bold-r-normal--18*   ERROR_NONE #!EF if no error 
+code has been set. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgerm,dxall1237 h DXGetErrorMessage  #!EL  ,  #!Ldxre,dxall1359 h DXResetError  #!EL  ,  #!Ldxse,dxall1377 h DXSetError, DXErrorReturn, DXErrorGoto  #!EL  #!EF #!N #!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgetex,dxall1236 h DXGetErrorExit  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

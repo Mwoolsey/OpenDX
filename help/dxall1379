@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsfa DXSetFloatAttribute #!N #!N Function #!N 
+#!N Adds a named attribute with a floating-point value to an 
+Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXSetFloatAttribute(Object o, 
+char *name, double x) #!EF #!N #!N Functional Details #!N #!N 
+Creates an Array containing the floating-point value  #!F-adobe-times-bold-r-normal--18*   x #!EF and 
+then adds an attribute/value pair to the Object  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+.  #!F-adobe-times-bold-r-normal--18*   name #!EF specifies the name of the attribute and 
+ #!F-adobe-times-bold-r-normal--18*   x #!EF represents its value. If  #!F-adobe-times-bold-r-normal--18*   name #!EF specifies 
+an attribute that the Object  #!F-adobe-times-bold-r-normal--18*   o #!EF already has, then 
+its previous value is replaced. #!N #!N Return Value #!N #!N 
+Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets 
+an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgfa,dxall1238 h DXGetFloatAttribute  #!EL  
+,  #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  ,  #!Ldxsca,dxall1371 h DXSetComponentAttribute  #!EL  ,  #!Ldxsia,dxall1381 h DXSetIntegerAttribute  #!EL  ,  #!Ldxssa,dxall1392 h DXSetStringAttribute  #!EL  #!EF #!N #!N 
+ #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxsgtv,dxall1380 h DXSetGroupType, DXSetGroupTypeV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

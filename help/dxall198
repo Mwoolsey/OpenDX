@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall197 Introduction to the 
+Data Model #!N #!EC #!N #!N The Data Explorer data model 
+supports various types of simulation and observational data. Data structures that 
+can be represented include: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o Data defined on a regular orthogonal grid #!N #!I30 
+#!N o Data defined on a deformed regular or curvilinear grid 
+#!N #!I30 #!N o Data defined on various irregular grids, such 
+as triangular, quadrilateral, and tetrahedral meshes #!N #!I30 #!N o Unstructured 
+data with no connections between the data samples. #!N #!I0 #!N 
+#!EF #!N The data samples can be defined over spaces of 
+any dimensionality, and, independently, can also be connected by primitives of 
+various dimensionalities (allowing, for example, triangular and quadrilateral meshes defined over 
+2- or 3-dimensional points). The data values can be associated either 
+with the sample points or with the connections between the sample 
+points. Available data types include: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o Real and complex data #!N #!I30 #!N o 
+Scalar, vector and tensor data #!N #!I30 #!N o Byte, short, 
+integer (signed and unsigned), and floating-point data #!N #!I0 #!N #!EF 
+#!N #!N #!N Data are stored in the form of  #!F-adobe-times-medium-i-normal--18*   
+Objects #!EF for use by Data Explorer modules. An Object is 
+a data structure stored in memory that contains an indication of 
+the Object's type, along with additional type-dependent information. The bulk of 
+the data is encapsulated in  #!F-adobe-times-medium-i-normal--18*   Array #!EF Objects. #!N #!N 
+The data model centers on the notion of a  #!F-adobe-times-medium-i-normal--18*   sampled 
+field #!EF . The next section describes the  #!F-adobe-times-medium-i-normal--18*   Field, Array, 
+#!EF and  #!F-adobe-times-medium-i-normal--18*   Group #!EF Objects that implement sampled fields in 
+Data Explorer. In addition to these basic Object types, other types 
+are used to construct models for rendering (e.g., Transforms, Clipped Objects, 
+Lights, and Cameras). These are described in  #!Ledf,dxall623 h Data Explorer Native Files  #!EL  and in IBM 
+Visualization Data Explorer Programmer's Reference. #!N #!N Data are also stored 
+in permanent file storage in the form of the same Objects. 
+Although Data Explorer supports the creation of Objects from data stored 
+in other file formats (such as netCDF), the Data Explorer file 
+format offers significant additional functionality and flexibility. #!N #!N Note that 
+the Data Explorer file format is versatile, allowing for future expansion 
+of the capabilities of the system without requiring changes to the 
+file format. It is possible to represent data types in a 
+Data Explorer file that cannot be processed by the current version 
+of Data Explorer. For example, in the current release of Data 
+Explorer, only single-precision floating-point positions are universally supported. Also, most modules 
+support only 1-, 2-, or 3-dimensional positions. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall198,dxall199 h Object Types  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

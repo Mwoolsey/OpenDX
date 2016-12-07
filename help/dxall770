@@ -1,0 +1,180 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rautoaxe AutoAxes #!N #!N Category #!N #!N  #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N Function 
+#!N #!N Generates an axes box to enclose an object in 
+the Image window. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+#!N axes #!EF = AutoAxes(  #!F-adobe-times-bold-r-normal--18*   input, camera, labels, ticks, corners, 
+frame, adjust, #!N cursor, grid, colors, annotation, labelscale, font, #!N xticklocations, 
+yticklocations, zticklocations, #!N xticklabels, yticklabels, zticklabels #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB input TAB object 
+TAB none TAB object to be enclosed #!N TAB camera TAB 
+camera TAB none TAB viewpoint #!N TAB labels TAB string list 
+TAB no labels TAB labels for axes #!N TAB ticks TAB 
+integer or integer list TAB 15 TAB the approximate number of 
+major #!N TAB - TAB - TAB - TAB tick marks 
+(0 to suppress) #!N TAB corners TAB vector list or object 
+TAB input object TAB bounds of axes #!N TAB frame TAB 
+flag TAB 0 TAB 0: only the frame of back faces 
+#!N TAB - TAB - TAB - TAB drawn #!N TAB 
+- TAB - TAB - TAB 1: entire frame drawn #!N 
+TAB adjust TAB flag TAB 1 TAB 0: end points not 
+adjusted #!N TAB - TAB - TAB - TAB 1: end 
+points adjusted to match #!N TAB - TAB - TAB - 
+TAB tick marks #!N TAB cursor TAB vector TAB no cursor 
+TAB cursor position #!N TAB grid TAB flag TAB 0 TAB 
+0: grid lines not drawn #!N TAB - TAB - TAB 
+- TAB 1: grid lines drawn #!N TAB colors TAB vector 
+list or string list TAB appropriate color(s) TAB color(s) for annotation 
+#!N TAB annotation TAB string list TAB "all" TAB annotation objects 
+to be colored #!N TAB labelscale TAB scalar TAB 1.0 TAB 
+scale factor for labels #!N TAB font TAB string TAB standard 
+TAB font for labels #!N TAB xticklocations TAB scalar list TAB 
+appropriate TAB set of x tick locations #!N TAB yticklocations TAB 
+scalar list TAB appropriate TAB set of y tick locations #!N 
+TAB zticklocations TAB scalar list TAB appropriate TAB set of z 
+tick locations #!N TAB xticklabels TAB string list TAB xticklocations TAB 
+x tick labels #!N TAB yticklabels TAB string list TAB yticklocations 
+TAB y tick labels #!N TAB zticklabels TAB string list TAB 
+zticklocations TAB z tick labels #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Description #!EF #!N TAB axes TAB color 
+field TAB the axes box plus the input #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N If 
+you are using the Image tool in the user interface, you 
+should use the  #!F-adobe-times-bold-r-normal--18*   AutoAxes #!EF option of the  #!F-adobe-times-bold-r-normal--18*   Options 
+#!EF pull-down menu in the Image window, rather than the AutoAxes 
+module. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF 
+#!EF #!I50 #!N is the object around which an axes box 
+is to be generated. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   camera #!EF 
+#!EF #!I50 #!N is the camera used to render the object 
+(using Display or Render). The viewpoint determines which of the box 
+edges AutoAxes creates and which way the labels face. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   labels #!EF #!EF #!I50 #!N specifies labels for 
+the  #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF , and  #!F-adobe-times-medium-i-normal--18*   
+z #!EF axes. If  #!F-adobe-times-bold-r-normal--18*   input #!EF has an "axis labels" 
+attribute, it is used as the default for  #!F-adobe-times-bold-r-normal--18*   labels #!EF 
+. This attribute can be imported with the original data or 
+it can be added using the Options module. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   ticks #!EF #!EF #!I50 #!N can be an integer 
+list, in which case it represents the approximate number of tick 
+marks to be used on each of the three axes. If 
+you specify  #!F-adobe-times-bold-r-normal--18*   ticks #!EF as a single integer, AutoAxes uses 
+approximately that many tick marks in total for all three axes. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   corners #!EF #!EF #!I50 #!N specifies 
+the extent of the axes. If this parameter is not specified, 
+the module automatically sizes the box to enclose the specified input 
+object. If it is specified as a list of two vectors, 
+the module uses the points specified rather than the bounds of 
+ #!F-adobe-times-bold-r-normal--18*   input #!EF to determine the extent of the axes. In 
+that case,  #!F-adobe-times-bold-r-normal--18*   corners #!EF specifies the end points of the 
+diagonal of the axes (e.g., [  #!F-adobe-times-medium-i-normal--18*   X #!EF min,  #!F-adobe-times-medium-i-normal--18*   
+Y #!EF min,  #!F-adobe-times-medium-i-normal--18*   Z #!EF min] and [  #!F-adobe-times-medium-i-normal--18*   X 
+#!EF max,  #!F-adobe-times-medium-i-normal--18*   Y #!EF max,  #!F-adobe-times-medium-i-normal--18*   Z #!EF max]). #!N 
+#!N Alternatively, you can specify  #!F-adobe-times-bold-r-normal--18*   corners #!EF as an object, 
+and the module uses the bounds of that object to determine 
+the size of the axes. This feature is useful, for example, 
+to enclose varying isosurfaces based on a given data field. You 
+can use the data field as the  #!F-adobe-times-bold-r-normal--18*   corners #!EF parameter 
+to keep the axes box a constant size, even when the 
+isosurface changes in size. #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   frame 
+#!EF #!EF #!I50 #!N specifies the kind of frame to be 
+placed around the object. By default (  #!F-adobe-times-bold-r-normal--18*   frame #!EF = 
+0), the three back faces of the box (from the viewpoint 
+of  #!F-adobe-times-bold-r-normal--18*   camera #!EF ) are opaque, serving as background. If 
+ #!F-adobe-times-bold-r-normal--18*   frame #!EF = 1, the module draws the outlines of 
+the other three faces of the box as well. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   adjust #!EF #!EF #!I50 #!N adjust the end 
+points of the axes to end exactly at the tick marks. 
+The default is no adjustment. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   cursor 
+#!EF #!EF #!I50 #!N specifies the position for the placement of 
+a cursor. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   grid #!EF #!EF #!I50 
+#!N specifies grid lines drawn from the major tick marks. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   colors #!EF #!EF #!I50 #!N specifies the 
+color(s) of one or more components of the axes. It can 
+be a single color (RGB vector or name string) or a 
+list of colors. Color names can be any of the defined 
+color-name strings (see  #!Lcolor,dxall792 h Color  #!EL  ). Its effects are partly determined by 
+the  #!F-adobe-times-bold-r-normal--18*   annotation #!EF parameter. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   color #!EF 
+is a single string and  #!F-adobe-times-bold-r-normal--18*   annotation #!EF is unspecified or 
+is "all," then the specified color is used for all axes 
+annotation. Otherwise, the number of colors in  #!F-adobe-times-bold-r-normal--18*   color #!EF s 
+must match the number of  #!F-adobe-times-bold-r-normal--18*   annotation #!EF strings exactly and 
+in a one-to-one correspondence. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   annotation #!EF 
+#!EF #!I50 #!N combines with  #!F-adobe-times-bold-r-normal--18*   color #!EF to specify the 
+color of one or more components of the axes. This parameter 
+can be a single string or a set of strings from 
+the following list: "all," "background," "grid," "labels," and "ticks." You may 
+remove the background by specifying "background" and setting  #!F-adobe-times-bold-r-normal--18*   color #!EF 
+to "clear." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   labelscale #!EF #!EF #!I50 
+#!N determines the size of the axes and tick-mark labels. For 
+example,  #!F-adobe-times-bold-r-normal--18*   labelscale #!EF = 2.0 will display the labels at 
+double their default size. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   font #!EF 
+#!EF #!I50 #!N specifies the font for axes and tick-mark labels. 
+The default for axes is a variable-width font ("variable"), and for 
+tick-marks a fixed-width font ("fixed"). #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N area 
+gothicit_t pitman roman_ext #!N cyril_d greek_d roman_d script_d #!N fixed greek_s 
+roman_dser script_s #!N gothiceng_t italic_d roman_s variable #!N gothicger_t italic_t roman_tser 
+#!EF #!N #!N #!EC For more information, see  #!Lapc,dxall746 h Data Explorer Fonts  #!EL  in the 
+IBM Visualization Data Explorer User's Guide. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+xticklocations #!EF #!EF #!I50 #!N list of explicit locations for tick 
+marks on the x-axis. If specified, overrides the value as determined 
+by the  #!F-adobe-times-bold-r-normal--18*   ticks #!EF parameter. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+yticklocations #!EF #!EF #!I50 #!N list of explicit locations for tick 
+marks on the y-axis. If specified, overrides the value as determined 
+by the  #!F-adobe-times-bold-r-normal--18*   ticks #!EF parameter. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+xticklocations #!EF #!EF #!I50 #!N list of explicit locations for tick 
+marks on the z-axis. If specified, overrides the value as determined 
+by the  #!F-adobe-times-bold-r-normal--18*   ticks #!EF parameter. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+xticklabels #!EF #!EF #!I50 #!N list of labels to be associated 
+with  #!F-adobe-times-bold-r-normal--18*   xticklocations #!EF . If  #!F-adobe-times-bold-r-normal--18*   xticklabels #!EF is specified, 
+and  #!F-adobe-times-bold-r-normal--18*   xticklocations #!EF is not specified, then  #!F-adobe-times-bold-r-normal--18*   xticklocations #!EF 
+defaults to the integers 0 to n-1 where n is the 
+number of items in  #!F-adobe-times-bold-r-normal--18*   xticklabels #!EF . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   yticklabels #!EF #!EF #!I50 #!N list of labels to 
+be associated with  #!F-adobe-times-bold-r-normal--18*   yticklocations #!EF . If  #!F-adobe-times-bold-r-normal--18*   yticklabels #!EF 
+is specified, and  #!F-adobe-times-bold-r-normal--18*   yticklocations #!EF is not specified, then  #!F-adobe-times-bold-r-normal--18*   
+yticklocations #!EF defaults to the integers 0 to n-1 where n 
+is the number of items in  #!F-adobe-times-bold-r-normal--18*   yticklabels #!EF . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   zticklabels #!EF #!EF #!I50 #!N list of 
+labels to be associated with  #!F-adobe-times-bold-r-normal--18*   zticklocations #!EF . If  #!F-adobe-times-bold-r-normal--18*   
+zticklabels #!EF is specified, and  #!F-adobe-times-bold-r-normal--18*   zticklocations #!EF is not specified, 
+then  #!F-adobe-times-bold-r-normal--18*   zticklocations #!EF defaults to the integers 0 to n-1 
+where n is the number of items in  #!F-adobe-times-bold-r-normal--18*   zticklabels #!EF 
+. #!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 
+#!N 1. If you have applied scaling to your object using 
+the Scale module, AutoAxes disregards that scaling when labeling the axes. 
+This allows you to display data conveniently with an aspect ratio 
+much different from 1, and still have correct labels on the 
+axes. AutoAxes only disregards the top-level transformation and does not disregard 
+the transformations of the Translate or Rotate module. (The macro AutoScaleMacro 
+in /usr/lpp/dx/samples/macros can be used just before Image or AutoAxes to 
+scale the object. See also  #!Lavoid,dxall776 s How to Avoid Stretching or Squashing Glyphs  #!EL  .) Because scaling is disregarded 
+if not done at the top level, you cannot have a 
+Collect module following the Scale module. For example, if you want 
+to Collect a caption with an object, you should use Scale 
+ #!F-adobe-times-medium-i-normal--18*   after #!EF the Collect of the object with the caption. 
+#!N #!I30 #!N 2. If you are setting the  #!F-adobe-times-bold-r-normal--18*   corners 
+#!EF parameter as a vector list, and the input  #!F-adobe-times-bold-r-normal--18*   object 
+#!EF is scaled,  #!F-adobe-times-bold-r-normal--18*   corners #!EF should be in units of 
+the scaled object. #!N #!I30 #!N 3. If  #!F-adobe-times-bold-r-normal--18*   corners #!EF 
+is more restrictive than the given  #!F-adobe-times-bold-r-normal--18*   ticklocations #!EF , then 
+the given locations outside the corners are not shown. #!N #!I30 
+#!N 4. If  #!F-adobe-times-bold-r-normal--18*   corners #!EF is less restrictive than the 
+given  #!F-adobe-times-bold-r-normal--18*   ticklocations #!EF , or if  #!F-adobe-times-bold-r-normal--18*   corners #!EF is 
+not specified, then all given tick locations are shown, whether or 
+not there is data there. #!N #!I30 #!N 5. If  #!F-adobe-times-bold-r-normal--18*   
+ticklocations #!EF is specified, then the data range determines the extent 
+of the axes, unless  #!F-adobe-times-bold-r-normal--18*   corners #!EF is specified, in which 
+case the given corners are used. #!N #!I30 #!N 6. You 
+can change the point at which a change is made from 
+fixed-format to scientific notation for tick labels by setting the DXAXESWIDTH 
+environment variable (see  #!Lmorevar,dxall695 h Other Environment Variables  #!EL  in IBM Visualization Data Explorer User's Guide). 
+#!I0 #!N #!N #!N #!N Example Visual Programs #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N #!N AutoAxesSpecifyTicks  #!F-adobe-times-medium-r-normal--18*   (as part of the Image tool) 
+#!EF #!N #!N GeneralImport1.net  #!F-adobe-times-medium-r-normal--18*   (as part of the Image tool) 
+#!EF #!N SIMPLE/AutoAxes.net #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lcollect,dxall788 h Collect  #!EL  ,  #!Lcolor,dxall792 h Color  #!EL  ,  #!Loptions,dxall898 h Options  #!EL  ,  #!Lplot,dxall904 h Plot  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lautocam,dxall771 h AutoCamera  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

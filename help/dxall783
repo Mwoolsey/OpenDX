@@ -1,0 +1,67 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcategst CategoryStatistics #!N #!N Category #!N #!N 
+ #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N #!N Calculate statistics on data associated 
+with a categorical component #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N  #!F-adobe-times-bold-r-normal--18*   statistics #!EF = CategoryStatistics(  #!F-adobe-times-bold-r-normal--18*   input, operation, category, data, 
+lookup #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB input TAB field TAB (none) TAB field for 
+which to compute #!N TAB - TAB - TAB - TAB 
+statistics #!N TAB operation TAB string TAB "count" TAB operation to 
+perform ("count," #!N TAB - TAB - TAB - TAB "mean," 
+"sd," "var," "min," #!N TAB - TAB - TAB - TAB 
+"max") #!N TAB category TAB string TAB "data" TAB component with 
+categorical values #!N TAB data TAB string TAB "data" TAB data 
+component for statistics #!N TAB lookup TAB integer, string, value list 
+TAB "category lookup" TAB lookup component #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Description #!EF #!N TAB statistics TAB 
+field TAB field with data containing the statistics and positions for 
+#!N TAB - TAB - TAB the category values #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 
+#!N field containing the categorical and data components #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   operation #!EF #!EF #!I50 #!N calculation to perform #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   category #!EF #!EF #!I50 #!N component with 
+categorical values. This component must be an integer type (int, ubyte, 
+...) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N 
+data component for statistics. This component must be scalar. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   lookup #!EF #!EF #!I50 #!N lookup component (optional) 
+#!I0 #!N #!N #!N #!N CategoryStatistics calculates statistics on a scalar 
+component associated with a categorical component. If the operation is "count," 
+the  #!F-adobe-times-bold-r-normal--18*   data #!EF component is ignored and the number of 
+counts in each category is calculated, corresponding to a histogram of 
+the unique values in the categorized component. #!N #!N For example, 
+if  #!F-adobe-times-bold-r-normal--18*   input #!EF is a Field with component "state" containing 
+the entries ¤1,0,1,2,3‡, component "state lookup" containing the entries ¤"CA," "NY," 
+"PA," "VA"‡, and a component "sales" containing the entries ¤1.2,1.0,1.4,1.7,1.8‡, then 
+CategoryStatistics(input,"mean," "state," "sales") will produce an output field where the "positions" 
+component will contain the indices ¤0,1,2,3‡ and the "data" component will 
+contain the mean value for sales for each state, that is 
+¤1.0,1.3,1.7,1.8‡. #!N #!N The output of CategoryStatistics is a field with 
+a "positions" component corresponding to the categorical indices, and a "data" 
+component corresponding to the requested statistics. The "positions" component will consist 
+of the integers 0 to N-1, where N can be determined 
+in a number of ways: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o If no  #!F-adobe-times-bold-r-normal--18*   lookup #!EF component is specified, 
+and if a "categoryname lookup" component is not found, (where "categoryname" 
+is the string specified by  #!F-adobe-times-bold-r-normal--18*   category #!EF ), then the 
+output field will simply have positions from 0 to MAX_N, where 
+MAX_N is the maximum integer found in the  #!F-adobe-times-bold-r-normal--18*   category #!EF 
+component. #!N #!I30 #!N o If, on the other hand, a 
+"categoryname lookup" component is found, or  #!F-adobe-times-bold-r-normal--18*   lookup #!EF is specified, 
+then the number of category bins will be the number of 
+items in  #!F-adobe-times-bold-r-normal--18*   lookup #!EF .  #!F-adobe-times-bold-r-normal--18*   lookup #!EF can also 
+simply be an integer specifying the number of category bins. #!N 
+#!I30 #!N o If a lookup table is provided, then for 
+convenience, a "categoryname lookup" component will be placed in the output 
+containing the values corresponding to the categorical indices. #!N #!I0 #!N 
+#!EF #!N #!N #!N Components #!N #!N Creates an output field 
+with a "positions" component representing the categorical indices, and a "data" 
+component containing the requested statistics. Creates a "categoryname lookup" component if 
+a lookup table is specified using the  #!F-adobe-times-bold-r-normal--18*   lookup #!EF parameter. 
+#!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Duplicates.net 
+#!N Zipcodes.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lcategor,dxall782 h Categorize  #!EL  ,  #!Lstatist,dxall953 h Statistics  #!EL  ,  #!Llookup,dxall886 h Lookup  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lchggrme,dxall784 h ChangeGroupMember  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

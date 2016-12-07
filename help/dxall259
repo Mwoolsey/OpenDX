@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall258 Groups #!N #!EC #!N #!N Fields can be 
+combined into  #!F-adobe-times-medium-i-normal--18*   Groups #!EF . A Group is a collection 
+of  #!F-adobe-times-medium-i-normal--18*   members #!EF that themselves may be Fields or other 
+Groups. A member can be referred to either by name or 
+by index. An example of a Group is given in  #!Lgroup35,dxall259 f Figure 35  #!EL  
+. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rgroup35 #!N #!N Graphics omitted from Online 
+Documentation. Please see the manual. #!N Figure 35. Example of a 
+Group #!EF #!N #!EC #!N #!N This example shows a Group 
+describing a visualization scene composed of two parts. The member named 
+"pressure" is a Field of volumetric data to be volume rendered, 
+representing pressure in an airflow around an airplane. The member named 
+"airplane" is a geometric model describing the surface of the airplane. 
+It, in turn, can be a Group, where each member is 
+one of the constituent parts of the airplane, such as "wing," 
+"fuselage," and so on. The top-level Group could then be passed 
+into the renderer to produce an image of the airplane combined 
+with a volume rendering of the pressure Field. #!N #!N Named 
+Group members can be retrieved by name or by index number; 
+the  #!F-adobe-times-medium-i-normal--18*   n #!EF members of a Group are numbered from 
+0 to  #!F-adobe-times-medium-i-normal--18*   n-1 #!EF . Group members can also be 
+stored by index number without a name, in which case they 
+can be retrieved only by index number. The members of a 
+Group are always numbered consecutively starting at 0, and gaps in 
+the numbering are not allowed. #!N #!N In addition to generic 
+Groups used to collect related information, there are three subclasses of 
+Group used to combine related Objects with additional semantics:  #!F-adobe-times-medium-i-normal--18*   Multigrid 
+#!EF Groups,  #!F-adobe-times-medium-i-normal--18*   Composite Field #!EF Groups, and  #!F-adobe-times-medium-i-normal--18*   Series #!EF 
+Groups. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall259,dxall260 h Multigrid Groups  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu259.htm">Previous Page</A> &#124; <A HREF="progu261.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXNSN" HREF="progu097.htm#PToC_354">DXNewScreen</A></H3>
+<A NAME="IDX1935"></A>
+<A NAME="IDX1936"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Creates a new Object
+aligned to the final screen.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Screen DXNewScreen(Object o, int position, int z)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+A Screen Object is an Object that maintains a size and alignment with
+the screen (output image) independent of the camera view and
+scaling transformations applied to it.
+<P>
+The
+<TT><STRONG>
+position
+</STRONG></TT>
+parameter specifies one of the three options for
+positioning of the Screen Object as explained in the following material;
+it must be one of
+<TT><STRONG>SCREEN_WORLD</STRONG></TT>,
+<TT><STRONG>
+SCREEN_PIXEL
+</STRONG></TT>
+or
+<TT><STRONG>SCREEN_VIEWPORT</STRONG></TT>.  The
+<TT><STRONG>
+z
+</STRONG></TT>
+parameter determines the relative depth of the Object, as described
+in the following text.
+<P>
+Three options are provided for the interpretation of translations
+applied to a Screen Object.  First, a translation applied to the
+Screen Object may specify a new position for the origin of the Screen
+Object in world space (<TT><STRONG>SCREEN_WORLD</STRONG></TT>).  Second,
+a translation applied to the Screen
+Object may specify a new location for the Screen Object in the image,
+measured in pixels, where (0,0) refers to the lower-left corner of the
+image (<TT><STRONG>SCREEN_PIXEL</STRONG></TT>).  Third,
+a translation applied to the Screen Object may specify
+a new location for the Screen Object in the image, measured in
+viewport-relative coordinates, where (0,0) refers to the lower-left
+corner of the image and (1,1) refers to the upper-right corner of the
+image (<TT><STRONG>SCREEN_VIEWPORT</STRONG></TT>).
+<P>
+The
+<TT><STRONG>
+z
+</STRONG></TT>
+parameter controls where the Screen Object is displayed relative to
+all other Objects in the scene.
+<I>-1</I> displays behind,
+0 is in the scene, and
+<I>+1</I> is in front of all other Objects.
+<P>
+The Object created can be deleted with DXDelete.
+See <A HREF="progu023.htm#HDRMEMNG">4.2 , "Memory Management"</A>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the Screen Object or returns <TT><STRONG>NULL</STRONG></TT> and
+sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu200.htm#HDRDXGSI">DXGetScreenInfo</A>,
+<A HREF="progu325.htm#HDRDXSSO">DXSetScreenObject</A>
+</STRONG></TT>
+<P>
+<A HREF="progu079.htm#HDRSNCS">16.5 , "Screen Class"</A>.
+<P><P>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu259.htm">Previous Page</A> &#124; <A HREF="progu261.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Design for Video Output</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu064.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu066.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu062.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="Header_406" ></A>A.4 Design for Video Output
+</H2>
+		<A NAME="IDX966"></A><A NAME="IDX967"></A>
+<P>
+Video production is only one useful output from a Data Explorer visual program.
+Videotape has the advantage of portability: you can send a video to
+almost anyone these days because of the proliferation of consumer
+VCRs.
+But video has the great disadvantage that you can no longer make
+interactive changes in the images: you cannot "explore"
+any more once you have committed your images to videotape.
+<P>
+Unfortunately, high-definition digital television is not widely
+available yet.
+It is very important to be aware of the technical limitations of
+standard analog television, especially as it differs from
+workstation monitors.
+<P>
+The two biggest problems encountered in moving images created on a
+high-resolution workstation to a consumer television (monitor or
+VCR) are the loss of resolution and the inability of consumer
+TV to accurately render color.
+(These remarks are basically true for both the American NTSC TV system
+and the European PAL system.
+This is not meant to be a technical description of either system.)
+<P>
+<H3><A NAME="Header_407" ></A>TV Line Resolution
+</H3>
+<A NAME="IDX968"></A>
+<P>
+Resolution losses are most evident if you use single-width lines.
+Workstations have both a higher number of vertical and horizontal lines
+on the screen, and a much higher "refresh" rate than
+consumer TV.
+However, on TV, the alternating lines (odd numbered, even numbered)
+are "refreshed" or painted on the monitor at slightly
+different times.
+As long as the scene contains objects that span more than one of these
+lines, our eye-brain system is fooled into believing that the entire
+object is always present, due to the phenomenon of "persistence
+of vision."
+But when you use single-line width horizontal lines, the lines will
+visibly flash, clearly showing that they are being drawn only half
+of the time.
+<P>
+Related to this problem is the condition in which you rotate a grid of
+single-width lines slightly away from horizontal.
+This will generate an optical effect called a "moire pattern",
+in which curved lines appear where none are actually present,
+and, this frequently causes colors to appear that are not
+in the original signal.
+Both of these effects can be very distracting.
+<P>
+Finally, single-width vertical lines will not have the same color!
+Because of the way consumer TV color phosphors are aligned, a vertical
+line at one location may be blue, but if you move it slightly it
+will become red.
+A grid with single-width vertical lines will appear to change color as
+you translate the grid in a horizontal direction.
+<P>So what is the solution to all these problems? Do not use single-width lines, ever. Data Explorer's Tube module is the easiest way to fix most of these problems. Tube generates cylinders around any kind of field with line connections. If you have created a mesh of lines with ShowConnections, for example, you can run this visual object through Tube to &quot;fatten&quot; up the lines. Tube permits you to choose a diameter that looks right. As long as you make the tubed lines bigger than one TV line width, you will have solved the problem. (For an important note on how Tube interacts with Scale, see Reference Guide entry for Tube.)<P>
+Be aware that single-width line text or captions will become virtually
+illegible on TV.
+To get better-looking results using the "stroke" fonts (originally
+designed for plotters), you can use Tube.
+Another technique is to use a multiple-line font, such as the
+"roman&#95;d" font supplied with Data Explorer.
+The best solution is to use an "area" font that is made up of
+characters containing polygonal faces rather than single lines.
+Data Explorer provides a font called "area", or "pitman", which uses
+polygonal faces.
+<P>
+Another tip about text is that due to the much lower resolution of TV,
+you must be careful to keep text large!
+Ideally, use a size that permits only about 30 to 40 characters to fit
+across the width of the screen.
+Fine detailed text annotations may look good on the workstation, but
+will become blurry little globs on TV, defeating the whole purpose
+of annotating your video for your viewers.
+Try making some text in different sizes, then dub to VHS videotape.
+Can you still read the text?
+If so, the size is probably sufficient for general use.
+If it is too mushy to read, increase the size.
+For best legibility use white or yellow colored text.
+<P>
+<H3><A NAME="Header_408" ></A>TV Color Resolution
+</H3>
+<A NAME="IDX969"></A>
+<P>
+Standard TV is simply not capable of correctly rendering fully
+saturated colors, like red (in particular) or blue.
+Large areas of fully saturated colors will pulse and "bleed";
+that is, they will smear to the right (due to the direction the TV
+raster scan is moving).
+This smears any sharp edges on your objects and will severely degrade
+the quality of your visualization.
+The color problem can best be dealt with by never using fully saturated
+colors.
+Instead, when building your color maps, lower the entire Saturation
+curve to about 0.8.
+Although this will look much more pastel than you might prefer, once
+you have converted the images to TV, these colors will brighten
+up again.
+What looks kind of pink on the RGB workstation monitor will usually be
+much redder on TV.
+Of course, if you are producing images for another medium, like a color
+printer, you can set the color saturations appropriately (fully
+saturated may be correct in that case: the tips in this
+section are to help you make better video recordings).
+<P>
+<H3><A NAME="Header_409" ></A>Animation and Frame Rates
+</H3>
+<A NAME="IDX970"></A>
+<A NAME="IDX971"></A>
+<P>
+In making animation for TV, you must be aware of "frame rate."
+Just like all the other references to sampling in the discussion above,
+TV "samples" time at 30 frames per second (25 in PAL).
+That means that at most you can have 30 time-step changes per second of
+video (unless you choose to skip some time steps in your data).
+Generally, you may want to show many fewer changes than that or the
+phenomenon may go by too quickly for the viewer to comprehend.
+On the other hand, when you rotate an object you want to make as many
+small changes as you can afford.
+The result will be smooth animation rather than jerky cartoon-like
+movement.
+One rule of thumb is to rotate no faster than 3 degrees per frame.
+That means that your object would rotate 90 degrees in one second, or
+360 degrees in 4 seconds.
+Like any rule of thumb, this can be adjusted depending on the case at
+hand.
+For example, it is often useful to record the rotation at more than one
+speed.
+The human visual system will detect different levels of detail in an
+object depending on its motion rate.
+This can be used to your advantage, to get double-duty out of your
+visualization.
+Record and play it at one rate, and viewers will see one aspect of your
+data;
+play it faster or slower, and different details will be noticed.
+And often, it is good practice to let an animation "loop" a few
+times, allowing the viewer to observe the entire process from
+beginning to end.
+<P>
+The Sequencer also can generate "palindromic" motion in which the
+object swings back and forth rather than jumping from the end of a
+series back to the beginning.
+Be sure that you use this feature in a meaningful way: time steps shown
+in reverse order imply time running backward.
+Annotation is definitely required in this case!
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

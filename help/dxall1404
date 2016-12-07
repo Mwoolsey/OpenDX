@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxuref DXUnreference #!N #!N Function 
+#!N #!N Removes a reference from an Object without deleting it. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXUnreference(Object o) #!EF 
+#!N #!N Functional Details #!N #!N This routine is not normally 
+used by module writers.  #!F-adobe-times-bold-r-normal--18*   DXDelete #!EF should be called to 
+remove a reference to an Object  #!F-adobe-times-bold-r-normal--18*   o #!EF . #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   DXUnreference #!EF allows an Object's reference count to be 
+decremented to 0 without releasing its memory, which is not desirable 
+under normal circumstances. (See  #!Lmemng,dxall1023 h Memory Management  #!EL  .) #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxdel,dxall1195 h DXDelete  #!EL  ,  #!Ldxref,dxall1353 h DXReference  #!EL  #!EF #!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxugt,dxall1405 h DXUnsetGroupType  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

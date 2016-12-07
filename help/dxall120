@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rdgrdinf Example 5. Deriving Grid Information from a Data File 
+#!N #!EC #!N #!N Being able to derive grid information directly 
+from a data file is particularly useful if you import data 
+with a standard format but with grid dimensions that vary from 
+data set to data set. For example, if the first line 
+of the data file is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dimensions 
+100 300 #!EF #!N #!N #!EC #!N #!N you can use 
+any of the following  #!F-adobe-times-bold-r-normal--18*   grid #!EF keyword statements to obtain 
+the grid dimensions from the data file. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o grid = lines 0, 11, 3, 
+1, 3 #!N #!N This statement says #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. Skip 0 (zero) lines of the 
+file. #!N #!I30 #!N 2. Skip 11 characters (the word "dimensions" 
+and one space). #!N #!I30 #!N 3. Read the first dimension 
+from 3 characters. #!N #!I30 #!N 4. Skip 1 character. #!N 
+#!I30 #!N 5. Read the second dimension from 3 characters. #!N 
+#!I0 #!N #!EF #!N #!N #!I30 #!N o grid = bytes 
+11 #!N #!N This statement says to skip 11 characters and 
+begin reading. #!N #!I30 #!N o grid = marker "dimensions" #!N 
+#!N This statement says to start reading after the string marker 
+"dimensions." #!N #!I0 #!N #!EF #!N #!N #!N See  #!Lgridkwd,dxall141 h grid  #!EL  . 
+See also  #!Lkwifdf,dxall619 h General Array Importer: Keyword Information from Data Files  #!EL  in IBM Visualization Data Explorer User's Guide. Note: 
+This derivation feature is not available with the Data Prompter. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lex6n7,dxall121 h Examples 6 and 7. Vector Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

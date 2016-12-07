@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Tutorial II: Editing and Creating Visual Programs</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu015.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu017.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu011.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>Chapter 3. Tutorial II: Editing and Creating Visual Programs</H2>
+		<P><A NAME="PToC4" ></A>Partial Table-of-Contents
+		<MENU>
+<LI><A NAME="PToC_37" HREF="#HDRTEDVP">3.1 Editing a Visual Program: The
+Basics</A>
+<LI><A NAME="PToC_44" HREF="qikgu017.htm">3.2 Creating a Visual
+Program: Two short examples</A>
+<MENU>
+<LI><A NAME="PToC_45" HREF="qikgu017.htm#Header_45">A simple two-dimensional
+field</A>
+<LI><A NAME="PToC_46" HREF="qikgu017.htm#Header_46">A simple three-dimensional
+field</A>
+</MENU>
+<LI><A NAME="PToC_47" HREF="qikgu018.htm">3.3 Importing Data</A>
+<MENU>
+<LI><A NAME="PToC_48" HREF="qikgu018.htm#Header_48">Example 1</A>
+<LI><A NAME="PToC_49" HREF="qikgu018.htm#Header_49">Example 2</A>
+</MENU>
+<LI><A NAME="PToC_50" HREF="qikgu019.htm">3.4 A thumbnail Sketch of
+the Data Prompter Choices</A>
+<LI><A NAME="PToC_51" HREF="qikgu020.htm">3.5 Importing Your Own
+Data</A>
+<LI><A NAME="PToC_52" HREF="qikgu021.htm">3.6 Visualizing
+2-Dimensional Data</A>
+<MENU>
+<LI><A NAME="PToC_53" HREF="qikgu021.htm#HDRTCOLOR">Colors</A>
+<LI><A NAME="PToC_54" HREF="qikgu021.htm#HDRTCNTLN">Contour Lines</A>
+<LI><A NAME="PToC_55" HREF="qikgu021.htm#HDRTSTMLN2">Streamlines</A>
+<LI><A NAME="PToC_56" HREF="qikgu021.htm#HDRTRBRSHT">RubberSheet</A>
+<LI><A NAME="PToC_57" HREF="qikgu021.htm#HDRT2DSGLY">2-D Scalar Glyphs</A>
+<LI><A NAME="PToC_58" HREF="qikgu021.htm#HDRT2DVGLY">2-D Vector Glyphs</A>
+</MENU>
+<LI><A NAME="PToC_59" HREF="qikgu022.htm">3.7 Visualizing
+3-Dimensional Data</A>
+<MENU>
+<LI><A NAME="PToC_60" HREF="qikgu022.htm#HDRTISOSRF">Isosurfaces</A>
+<LI><A NAME="PToC_61" HREF="qikgu022.htm#HDRTSLICE">Slices</A>
+<LI><A NAME="PToC_62" HREF="qikgu022.htm#HDRTSTMLN3">Streamlines</A>
+<LI><A NAME="PToC_63" HREF="qikgu022.htm#HDRT3DSGLY">3-D Scalar Glyphs</A>
+<LI><A NAME="PToC_64" HREF="qikgu022.htm#HDRT3DVGLY">3-D Vector Glyphs</A>
+<LI><A NAME="PToC_65" HREF="qikgu022.htm#HDRTVOLRND">Volume Rendering</A>
+</MENU>
+<LI><A NAME="PToC_66" HREF="qikgu023.htm">3.8 Tasks and Tools</A>
+<MENU>
+<LI><A NAME="PToC_67" HREF="qikgu023.htm#HDRTCAPS">Adding Captions</A>
+<LI><A NAME="PToC_68" HREF="qikgu023.htm#HDRTADTS">Adding Input Tabs to Tool
+Icons</A>
+<LI><A NAME="PToC_69" HREF="qikgu023.htm#HDRTSCDPS">Connecting Scattered Data
+Points</A>
+<LI><A NAME="PToC_70" HREF="qikgu023.htm#HDRTCNTXEC">Controlling Execution with
+Switch</A>
+<LI><A NAME="PToC_71" HREF="qikgu023.htm#HDRTCNFGBX">Controlling Inputs:
+Configuration Dialog Boxes</A>
+<LI><A NAME="PToC_74" HREF="qikgu023.htm#HDRTCONPAN">Controlling Inputs:
+Interactors</A>
+<LI><A NAME="PToC_82" HREF="qikgu023.htm#HDRTANIMAT">Creating Animations</A>
+<LI><A NAME="PToC_84" HREF="qikgu023.htm#HDRTMACRO">Creating and Using
+Macros</A>
+<LI><A NAME="PToC_85" HREF="qikgu023.htm#HDRTDDINT">Data-driven Tools</A>
+<LI><A NAME="PToC_90" HREF="qikgu023.htm#HDRTAUTCOL">Modules: Using
+AutoColor</A>
+<LI><A NAME="PToC_91" HREF="qikgu023.htm#HDRTCMPMOD">Modules: Using Compute</A>
+<LI><A NAME="PToC_92" HREF="qikgu023.htm#HDRTMAPPNG">Modules: Using Map</A>
+<LI><A NAME="PToC_93" HREF="qikgu023.htm#HDRTPLOT">Modules: Using Plot</A>
+<LI><A NAME="PToC_94" HREF="qikgu023.htm#HDRTIMPROC">Processing Images</A>
+<LI><A NAME="PToC_95" HREF="qikgu023.htm#HDRTSANDP">Saving and Printing
+Images</A>
+</MENU>
+<LI><A NAME="PToC_96" HREF="qikgu024.htm">3.9 Scripting Language</A>
+</MENU><HR><P>
+<A NAME="IDX87"></A>
+<P>
+This tutorial will show you how to modify existing visual programs and
+create new ones.
+In the process, it will also introduce you to a number of the most
+commonly used modules.
+As you become more experienced using Data Explorer, you can explore more of
+each module&#39;s many options.
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Tutorial II Visual
+Programs</TH><TR><TD>
+<UL COMPACT>
+<LI>Visual programs and files required for Tutorial II all reside in the
+same directory and therefore have the same path name except for
+file name and extension.
+Thus where a visual program is referred to only by its file name and
+extension (i.e., <TT>.../filename.ext</TT>), the full
+path name is easily derived if needed:
+<PRE>
+/usr/local/dx/samples/tutorial/<I>filename.ext</I>
+</PRE>
+<LI>The procedures you will be using most are:
+<UL COMPACT>
+            <LI><A HREF="qikgu014.htm">2.4 , "Opening and Executing a Visual Program"</A> 
+            <LI>selecting tools and placing their icons in the Visual Program
+Editor canvas (see <A HREF="#HDRTSTAPI">"Selecting tools and placing icons"</A>)
+<LI>opening and modifying a configuration dialog box (see <A
+HREF="#HDRCDB">"Specifying inputs: configuration dialog boxes"</A>
+and also <A HREF="qikgu023.htm#HDRTCNFGBX">"Controlling Inputs: Configuration
+Dialog Boxes"</A>).
+</UL>
+</UL>
+</TD></TR></TABLE>
+<HR>
+<H2><A NAME="HDRTEDVP" ></A>3.1 Editing a Visual Program: The Basics
+</H2>
+<A NAME="IDX88"></A>
+<A NAME="IDX89"></A>
+<A NAME="IDX90"></A>
+<P>
+When you open the Visual Program Editor (VPE) with the
+
+<TT>dx -edit</TT>
+
+command,
+
+or by choosing <TT><STRONG>New Visual Program</STRONG></TT> in the Startup
+window,
+
+you will see a large blank area (the "canvas")
+and two "palettes" to its left (see <A HREF="qikgu013.htm#FIGVPWNDW">Figure
+4</A>).
+<A NAME="IDX91"></A>
+The palette at top lists "categories" of tools
+(modules).
+The palette below it lists the tools in the currently selected
+(highlighted) category.
+<P>
+<H4><U><a name="HDRTSTAPI"></a>Selecting tools and placing icons</U></H4>
+<OL COMPACT>
+<LI>Click on a tool category (e.g., <TT><STRONG>Transformation</STRONG></TT>) in
+the
+upper palette.
+The tools in that category are now listed in the lower palette.
+<LI>Click on a tool in the lower palette (e.g.,
+<TT><STRONG>AutoColor</STRONG></TT>) to
+highlight it.
+<LI>Move the cursor into the canvas area.
+Note that it becomes an inverted "L."
+<LI>Position the cursor at the point where you want the tool icon to
+appear and click again to generate the icon.
+</OL>
+<P>
+<H4><U>Tool icons</U></H4>
+<P>
+Each tool icon has one or more tabs on top and bottom.
+These tabs represent, respectively, input(s) to the tool module and
+output(s) from it.
+<P>
+There are two ways to specify an input:
+<UL COMPACT>
+<LI>by specifying a value in the configuration dialog box associated
+with a particular tool
+<LI>with an arc, or line, connecting the output tab of one icon to the
+input tab of another.
+</UL>
+<P>
+<H4><U><a name="HDRCDB"></a>Specifying inputs: configuration dialog boxes</U></H4>
+<P>
+To open the configuration dialog box for a tool, either:
+<UL COMPACT>
+<LI>Double click on the tool icon in the canvas, <I>or</I>
+<LI>Single click on (highlight) the tool icon in the canvas and select
+"Configuration" from the <TT><STRONG>Edit</STRONG></TT> pull-down menu.
+</UL>
+In the case of interactors, color maps, the Image tool, and the
+Sequencer, the first procedure invokes a "control box"
+(another kind of dialog box).
+The second procedure always invokes a configuration
+dialog box.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Tabs and inputs to a tool module
+</B></TD><TD><P>Each input parameter in the configuration dialog box corresponds
+to an upper tab on the tool icon.
+The leftmost tab corresponds to the first parameter, and so on.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Visible versus hidden parameters
+</B></TD><TD><P>At the bottom of the dialog box are
+<TT><STRONG>Expand</STRONG></TT> and
+<TT><STRONG>Collapse</STRONG></TT> buttons.
+The first button "expands" the dialog box, displaying
+additional parameters.
+The second button "collapses" the dialog box, hiding every
+parameter whose "Hide" toggle button is activated.
+(When a tool has no hidden parameters, both buttons are disabled, as
+indicated by their gray labels.)
+</TD></TR></TABLE>
+<P>
+<H4><U>Specifying inputs: arcs and icons</U></H4>
+<P>
+A visual program is a "network" of interconnected
+tool modules.
+In the VPE window, this network is represented as a set of tool icons
+connected to one another by lines ("arcs") representing the data
+(<A HREF="qikgu013.htm#FIGVPWNDW">Figure 4</A> in Tutorial I shows such a
+network.)
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Connecting tool icons with arcs
+<A NAME="IDX93"></A>
+<A NAME="IDX94"></A>
+<A NAME="IDX97"></A>
+</B></TD><TD><P>
+<OL COMPACT>
+<LI>Position the cursor on an output tab of an icon and
+hold down the left mouse button:
+the cursor becomes a downward-pointing arrow, and a parameter or data
+name for that tab appears on the icon.
+<LI>Drag the cursor to another icon:
+the output tab remains connected to the cursor by a highlighted line
+(arc).
+If the connection is valid, the input tab(s) will be highlighted when
+the cursor arrow touches the icon.
+(If the connection is invalid, the tab(s) will not be highlighted, and
+an error message will appear.
+<LI>Release the mouse button to establish a connection to a valid
+input tab.
+<P><B>Notes: </B><OL COMPACT>
+<LI>If the "receiving" icon has two or more valid input tabs, if
+you release the mouse button when the cursor is on the main part
+of the icon, the connection to the first (leftmost) tab
+is automatic.
+To establish a connection to a different tab requires
+placing the cursor on that tab before releasing the
+mouse button.
+<LI>You can establish a connection starting with an input tab and
+dragging the arc to an output tab.
+</OL>
+</OL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Disconnecting or moving an arc
+</B></TD><TD><P>Click on the input tab to which the arc is connected
+(e.g., the input tab on Sequencer):
+a highlighted arc, connected to an (Import) output tab appears:
+<UL COMPACT>
+<LI>Disconnect the arc by dragging the cursor to an empty spot in the
+canvas and releasing the mouse button, <I>or</I>
+<LI>Move the arc by dragging it to another icon and releasing the
+mouse button to establish the new connection.
+</UL>
+</TD></TR></TABLE>
+<P>
+<H4><U>Deleting a tool icon</U></H4>
+<A NAME="IDX98"></A>
+<A NAME="IDX99"></A>
+<OL COMPACT>
+<LI>Highlight the tool icon by clicking on it.
+<LI>Select <TT><STRONG>Delete</STRONG></TT> in the
+<TT><STRONG>Edit</STRONG></TT>
+pull-down menu.      .
+</OL>
+<P>
+<H4><U>Moving a tool icon</U></H4>
+<A NAME="IDX100"></A>
+<A NAME="IDX101"></A>
+<P>
+Select a tool icon and drag it to the desired location before
+releasing the mouse button.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

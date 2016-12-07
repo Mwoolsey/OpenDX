@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rkeyin KeyIn  #!Lcatdbg,dxall754 h Debugging  #!EL  #!N #!N Function #!N #!N Waits for a 
+line of input from the terminal. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N KeyIn(  #!F-adobe-times-bold-r-normal--18*   prompt #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB prompt TAB string 
+TAB "Type <ENTER> to continue" TAB string printed #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module delays execution of a script until it receives 
+a line of input (as signaled by a return character) from 
+the workstation. If  #!F-adobe-times-bold-r-normal--18*   prompt #!EF is specified, it will be 
+printed. Otherwise the default string is printed. Note: KeyIn can be 
+used only in script mode, and the Data Explorer executive must 
+also be running on the local machine. #!N #!N Script Language 
+Example #!N #!N In this example, the first image is displayed. 
+The second image is computed, but Data Explorer does not display 
+it until you type the return character. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N electrondensity = Import("/usr/lpp/dx/samples/data/watermolecule"); #!N electrondensity = Partition(electrondensity); #!N isosurface = 
+Isosurface(electrondensity, 0.3); #!N camera = AutoCamera(isosurface); #!N Display(isosurface, camera); #!N isosurface 
+= Isosurface(electrondensity, 0.5); #!N camera = AutoCamera(isosurface); #!N KeyIn("press enter to 
+continue"); #!N Display(isosurface, camera); #!EF #!N #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Llegend,dxall883 h Legend  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

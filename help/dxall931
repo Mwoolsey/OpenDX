@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsample 
+Sample #!N #!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N 
+#!N Samples the points of a field (surface or volume). #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N samples #!EF = 
+Sample(  #!F-adobe-times-bold-r-normal--18*   manifold, density #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB manifold TAB field TAB none 
+TAB the surface or volume to be #!N TAB - TAB 
+- TAB - TAB sampled #!N TAB density TAB integer TAB 
+100 TAB approximate number of samples #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Description #!EF #!N TAB samples TAB 
+field TAB a set of samples of the field #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+This module samples a specified field at a set of more 
+or less uniformly spaced points. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   manifold #!EF #!EF #!I50 #!N is the field to 
+be sampled. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   density #!EF #!EF #!I50 
+#!N is the approximate number of output samples. #!I0 #!N #!N 
+Note: Any components in the original field (  #!F-adobe-times-bold-r-normal--18*   manifold #!EF 
+) that are position or connection dependent are mapped onto the 
+output samples. In either case, the component in the output field 
+will be position dependent ("dep" "positions"). (Because the output of Sample 
+is a set of unconnected positions, you cannot use mapped samples 
+as input to modules that need to interpolate values, such as 
+DivCurl or MapToPlane). #!N #!N Components #!N #!N Creates a new 
+"positions" component. All other components, except for "connections," are propagated to 
+the output. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N MappedIso.net #!N RubberTube.net #!N Streamline.net #!N UsingCompute2.net #!N UsingGlyphs.net #!EF 
+#!N #!N #!EC #!N #!N See Also #!N #!N  #!Lautogly,dxall773 h AutoGlyph  #!EL  , 
+ #!Lglyph,dxall856 h Glyph  #!EL  ,  #!Lmap,dxall891 h Map  #!EL  ,  #!Lstreakl,dxall954 h Streakline  #!EL  ,  #!Lstreaml,dxall955 h Streamline  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lscalar,dxall932 h Scalar  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

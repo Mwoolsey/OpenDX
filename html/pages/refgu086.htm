@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Lookup</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu085.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu087.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRLOOKUP" ></A>Lookup</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<P><STRONG>Function</STRONG>
+<P>
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>output</STRONG> = Lookup(<STRONG>input, table, data, lookup, value, destination, ignore, notFound</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field, string list, value, value
+list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object to lookup
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>table</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field, string, value list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(dataname lookup)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">lookup table
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">"data"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component of
+<TT><STRONG>input</STRONG></TT> to lookup
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>lookup</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">"positions"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component of
+<TT><STRONG>table</STRONG></TT> in which to look
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>value</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">"data"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component in
+<TT><STRONG>table</STRONG></TT> containing lookup results
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>destination</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">"lookedup"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component of
+<TT><STRONG>input</STRONG></TT> in which to put result
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>ignore</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(no default)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Properties to ignore in string
+lookup
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>notFound</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">value or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(zero or empty string)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">What to return for data values that were 
+not found.
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field or array
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">field or array with looked-up
+values
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>field containing the component to use as lookup
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>table</STRONG></TT>
+</B></TD><TD><P>field containing the lookup table components
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>component in input to use for looking up
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>lookup</STRONG></TT>
+</B></TD><TD><P>component in table that the data component is to match
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>value</STRONG></TT>
+</B></TD><TD><P>component in table to use as the looked up result
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>destination</STRONG></TT>
+</B></TD><TD><P>component of input in which to put the looked up results
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>ignore</STRONG></TT>
+</B></TD><TD><P>properties to ignore in string lookup.  Can be one of "case",
+"space", "lspace", "rspace",
+"lrspace", "punctuation".
+"case" means to ignore the case of the characters, "space"
+means to ignore all white
+space (spaces, tabs, ...),
+"lspace" means to ignore white space on the
+left side of the string, "rspace" means to ignore white space on
+the right side of the string, "lrspace" means to ignore white space
+on both the left and right sides (but not internal white space), and
+"punctuation" means to ignore all punctuation characters
+(anything other than alphabetic and numeric
+characters and white space). <TT><STRONG>ignore</STRONG></TT> can be a list of
+strings; for example, a commonly used combination
+is &#123;"space", "case", "punctuation"&#125;.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>notFound</STRONG></TT>
+</B></TD><TD><P>value to return when a given lookup value is not found. By default,
+Lookup returns 0 or "" for any item that is not found in the lookup table.
+This can be confounding, e.g., when returning "positions" to obtain
+indices: one cannot distinguish between not found and found in the 0-th position.
+Specifying <strong>notFound</strong> provides a means to disambiguate in these cases.
+</TD></TR></TABLE>
+<P>
+Lookup uses one component to find another by "looking up" the
+corresponding value in a lookup table.
+Lookup serves to convert a categorized component back to its original
+form, or more generally to provide arbitrary associations of unrelated
+object types. The lookup can occur entirely within the input field when
+it contains all components necessary to do the lookup, or alternatively
+the lookup table can be provided as a separate field in
+<TT><STRONG>table</STRONG></TT>.
+<P>
+If <TT><STRONG>table</STRONG></TT> is an array, Lookup treats it as if it has
+an implicit "positions" component with values from 0 to n-1, where
+n is the number of items in the array. Thus if the
+<TT><STRONG>data</STRONG></TT> component is integer, and
+<TT><STRONG>lookup</STRONG></TT> is an array of strings,
+<TT><STRONG>data</STRONG></TT> can be used to lookup a matching value in the
+implicit positions component and return the string. Alternatively, if
+<TT><STRONG>data</STRONG></TT> were also a string array, Lookup could lookup a
+matching value in the <TT><STRONG>table</STRONG></TT> array and return the
+corresponding implicit position.
+<P>
+<P><B>Note: </B>The lookup is done using a binary search of the lookup
+component.
+If this component is not already sorted, it will be internally sorted
+in order to perform the lookup. Connections are not used by this
+module. Since Data Explorer does not support string positions,
+if lookup is done using a string data type the table input must
+have a separate float positions component. If the lookup component
+has duplicate values, the value corresponding to the first one found
+will be used.
+<P><STRONG>Components</STRONG>
+<P>
+Adds a new component as specified by the <TT><STRONG>destination</STRONG></TT>
+parameter containing the looked-up values.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+Duplicates.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+<A HREF="refgu023.htm#HDRCATEGOR">Categorize</A>,
+<A HREF="refgu091.htm#HDRMAP">Map</A>,
+<A HREF="refgu024.htm#HDRCATEGST">CategoryStatistics</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

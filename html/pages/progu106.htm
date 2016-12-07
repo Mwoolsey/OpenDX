@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu105.htm">Previous Page</A> &#124; <A HREF="progu107.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXALP" HREF="progu097.htm#PToC_200">DXAllocate, DXAllocateZero,
+DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A></H3>
+<A NAME="IDX1536"></A>
+<A NAME="IDX1537"></A>
+<A NAME="IDX1538"></A>
+<A NAME="IDX1539"></A>
+<A NAME="IDX1540"></A>
+<A NAME="IDX1541"></A>
+<A NAME="IDX1542"></A>
+<A NAME="IDX1543"></A>
+<A NAME="IDX1544"></A>
+<A NAME="IDX1545"></A>
+<A NAME="IDX1546"></A>
+<A NAME="IDX1547"></A>
+<P><STRONG>Function</STRONG>
+Allocate global or local memory.
+<P>
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+&#35;include &lt;dx/dx.h&gt;
+Pointer DXAllocate(unsigned int n)
+Pointer DXAllocateZero(unsigned int n)
+Pointer DXAllocateLocal(unsigned int n)
+Pointer DXAllocateLocalZero(unsigned int n)
+Pointer DXAllocateLocalOnly(unsigned int n)
+Pointer DXAllocateLocalOnlyZero(unsigned int n)
+</STRONG>
+</PRE>.
+<P><STRONG>Functional Details</STRONG>
+For all of these routines, <TT><STRONG>n</STRONG></TT> must be greater than
+zero.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXAllocate</STRONG></TT>
+</B></TD><TD><P>Allocates <TT><STRONG>n</STRONG></TT> bytes of memory in global
+memory.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXAllocateZero</STRONG></TT>
+</B></TD><TD><P>Allocates and clears <TT><STRONG>n</STRONG></TT> bytes of global
+memory.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXAllocateLocal</STRONG></TT>
+</B></TD><TD><P>On platforms with per-processor local memory (such as
+multiprocessor workstations), allocates <TT><STRONG>n</STRONG></TT>
+bytes of memory in local memory.
+</TD></TR><TR
+VALIGN="TOP"><TD><P><B><TT><STRONG>DXAllocateLocalZero</STRONG></TT>
+</B></TD><TD><P>Allocates <TT><STRONG>n</STRONG></TT> bytes in local memory and
+zeros the
+allocated memory.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXAllocateLocal</STRONG></TT>,
+<TT><STRONG>DXAllocateLocalZero</STRONG></TT>
+</B></TD><TD><P>If <TT><STRONG>n</STRONG></TT> bytes of local memory are not
+available,
+allocate them from global memory.
+</TD></TR><TR
+VALIGN="TOP"><TD><P><B><TT><STRONG>DXAllocateLocalOnly</STRONG></TT>,
+<TT><STRONG>DXAllocateLocalOnlyZero</STRONG></TT>
+</B></TD><TD><P>Allocate local memory only.
+</TD></TR></TABLE>
+<P>
+On platforms without per-processor local memory (such as all currently
+supported workstations), <TT><STRONG>DXAllocateLocal</STRONG></TT>
+is identical to <TT><STRONG>DXAllocate</STRONG></TT>.
+<P>
+Although local is usually faster than global access, local memory should
+be used only for Objects within a task or for parts of a module not
+in a task Group:
+Objects in local memory cannot be shared between processors.
+Objects that are the output of a module must be in global memory.
+<P><B>Note: </B>Memory allocated by any routine listed here should be freed
+(with DXFree) when it is no longer needed.
+<P><STRONG>Return Value</STRONG>
+Returns a pointer to the allocated memory or returns
+<TT><STRONG>NULL</STRONG></TT> and sets an error code.
+<P><STRONG>See Also</STRONG>
+<TT><STRONG>
+<A HREF="progu098.htm#HDRDXATG">DXAbortTaskGroup</A>,
+<A HREF="progu105.htm#HDRDXAT">DXAddTask</A>,
+<A HREF="progu127.htm#HDRDXCTG">DXCreateTaskGroup</A>,
+<A HREF="progu138.htm#HDRDXETG">DXExecuteTaskGroup</A>,
+<A HREF="progu147.htm#HDRDXFRE">DXFree</A>,
+<A HREF="progu267.htm#HDRDXPA">DXPrintAlloc</A>,
+<A HREF="progu287.htm#HDRDXREA">DXReAllocate</A>
+</STRONG></TT>
+<P>
+<A HREF="progu057.htm#HDRSTORAL">13.3 , "Memory Allocation"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu105.htm">Previous Page</A> &#124; <A HREF="progu107.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

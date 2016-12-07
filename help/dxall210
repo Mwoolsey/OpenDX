@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall210 Color Map and Opacity Map Components #!N #!N #!N 
+There is an alternative to having the "colors" component and "opacities" 
+component explicitly list the color and opacity associated with each position 
+or connection element. If each element of the "colors" and "opacities" 
+components is a single byte, then it is interpreted as an 
+index into the "color map" or "opacity map" component. The "color 
+map" component is a 256-element table of three floating-point values (representing 
+red, green, and blue, typically with values between 0 and 1). 
+The "opacity map" component is a 256-element table of floating-point values 
+between 0 and 1. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Linval,dxall211 h Invalid Positions and Invalid Connections Components  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

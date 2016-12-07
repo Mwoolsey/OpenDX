@@ -1,0 +1,56 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rglyph Glyph #!N #!N Category 
+#!N #!N  #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N Function #!N #!N Creates a glyph 
+(visual representation) for each data value in a data field. #!N 
+#!N Syntax #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   glyphs #!EF = 
+Glyph(  #!F-adobe-times-bold-r-normal--18*   data, type, shape, scale, ratio, min, max #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+data TAB field TAB none TAB the set of points to 
+which glyphs #!N TAB - TAB - TAB - TAB will 
+be assigned #!N TAB type TAB scalar, string, field, or group 
+TAB input dependent TAB glyph type #!N TAB shape TAB scalar 
+TAB 1.0 TAB factor to describe the shape of #!N TAB 
+- TAB - TAB - TAB the glyph (must be greater 
+than 0) #!N TAB scale TAB scalar TAB input dependent TAB 
+scale factor for size of glyphs #!N TAB - TAB - 
+TAB - TAB (must be greater than 0) #!N TAB ratio 
+TAB scalar TAB 0.05 or 0 TAB ratio in size (scalars 
+or vectors) #!N TAB - TAB - TAB - TAB between 
+smallest and largest #!N TAB - TAB - TAB - TAB 
+glyphs #!N TAB min TAB scalar or field TAB min of 
+data or 0 TAB data value that gets the #!N TAB 
+- TAB - TAB - TAB minimum-size glyph #!N TAB max 
+TAB scalar or field TAB max of data TAB data value 
+that gets the #!N TAB - TAB - TAB - TAB 
+maximum-size glyph #!N TAB - TAB - TAB - TAB #!EF 
+#!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Description #!EF #!N TAB glyphs TAB color field TAB set 
+of glyphs #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N This module creates a glyph, or representation, 
+for each data value in a data field (  #!F-adobe-times-bold-r-normal--18*   data 
+#!EF ). For data that are dependent on positions, a glyph 
+is placed at the corresponding position. For data that are dependent 
+on connections, a glyph is placed at the center of the 
+corresponding connection element. #!N #!N The Glyph module differs from AutoGlyph 
+in its interpretation of the  #!F-adobe-times-bold-r-normal--18*   scale #!EF parameter. With Glyph, 
+you can specify a multiplication factor that is applied to each 
+data value to obtain the size of the glyph in world 
+units. With AutoGlyph, the scaling is relative to the default glyph 
+size. #!N #!N To create sphere glyphs with a radius equal 
+to the data value, set  #!F-adobe-times-bold-r-normal--18*   scale #!EF to 1 and 
+both  #!F-adobe-times-bold-r-normal--18*   ratio #!EF and  #!F-adobe-times-bold-r-normal--18*   min #!EF to 0. To 
+create arrow glyphs with length equal to the magnitude of the 
+data value, set  #!F-adobe-times-bold-r-normal--18*   scale #!EF to 1. #!N #!N For 
+descriptions of the parameters, see  #!Lautogly,dxall773 h AutoGlyph  #!EL  . #!N #!N Components #!N 
+#!N Creates new "positions" and "connections" components. In the case of 
+a 3-D glyph, a "normals" component is added for shading purposes. 
+All components that match the dependency of the "data" component are 
+propagated to the output, all others are not. If the input 
+has "binormals" and "tangent" components, they are not propagated to the 
+output. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+GeneralImport1.net #!N Imide_potential.net #!N PlotTwoLines.net #!N ProbeText.net #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lautogly,dxall773 h AutoGlyph  #!EL  ,  #!Lsample,dxall931 h Sample  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lgradien,dxall857 h Gradient  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

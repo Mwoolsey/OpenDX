@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxicdf DXImportCDF #!N #!N Function #!N #!N 
+Imports data from an CDF file. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Object DXImportCDF(char *filename, char **variable, int *start, int *end, 
+int *delta) #!EF #!N #!N Functional Details #!N #!N Imports data 
+from a CDF (Common Data Format)  #!F-adobe-times-bold-r-normal--18*   filename #!EF . If 
+ #!F-adobe-times-bold-r-normal--18*   variable #!EF is specified, only fields matching the list in 
+ #!F-adobe-times-bold-r-normal--18*   variable #!EF are imported. If  #!F-adobe-times-bold-r-normal--18*   variable #!EF is NULL, 
+all fields are read in and placed in a group. If 
+the CDF contains records, then a series is imported and  #!F-adobe-times-bold-r-normal--18*   
+start #!EF ,  #!F-adobe-times-bold-r-normal--18*   end #!EF , and  #!F-adobe-times-bold-r-normal--18*   delta #!EF 
+can be used to specify which records are imported. #!N #!N 
+For additional information on the CDF file format, see  #!Limd,dxall618 h Importing Data: File Formats  #!EL  in 
+IBM Visualization Data Explorer User's Guide. #!N #!N Return Value #!N 
+#!N Returns a pointer to the Object or returns NULL and 
+sets an error code. #!N #!N See Also  #!F-adobe-times-bold-r-normal--18*    #!Ldxinc,dxall1278 h DXImportNetCDF  #!EL  , 
+ #!Ldxidx,dxall1276 h DXImportDX  #!EL  ,  #!Ldxicm,dxall1275 h DXImportCM  #!EL  ,  #!Ldxihdf,dxall1277 h DXImportHDF  #!EL  #!EF #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxicm,dxall1275 h DXImportCM  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

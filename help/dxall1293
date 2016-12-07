@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxli DXLocalizeInterpolator #!N 
+#!N Function #!N #!N Copies an interpolator structure into local memory. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Interpolator DXLocalizeInterpolator(Interpolator interp) #!EF 
+#!N #!N Functional Details #!N #!N The interpolator structure (  #!F-adobe-times-bold-r-normal--18*   
+interp #!EF ) is copied from shared memory into local memory, 
+on multiprocessor machines with local memory. If the data being interpolated 
+are relatively small and repeatedly accessed, these structures may be copied 
+into local memory for faster access. #!N #!N The local copy 
+will automatically be freed when the interpolator is deleted. #!N #!N 
+Return Value Returns the localized interpolator or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxie,dxall1284 h DXInterpolate  #!EL  ,  #!Ldxni,dxall1318 h DXNewInterpolator  #!EL  #!EF #!N #!N  #!Linadmg,dxall1117 h Interpolation and Mapping  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxld,dxall1294 h DXLoopDone  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

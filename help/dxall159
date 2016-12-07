@@ -1,0 +1,76 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall158 Supported Formats #!N #!EC #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Data Explorer Format #!EF #!I50 
+#!N The Data Explorer format can be used to describe any 
+object which can be represented in Data Explorer. Objects can be 
+exported in the Data Explorer format using the Export module, and 
+often filters are written to convert from other formats to the 
+Data Explorer format. The Data Explorer format is described in detail 
+in  #!Ledf,dxall623 h Data Explorer Native Files  #!EL  in IBM Visualization Data Explorer User's Guide. #!N #!N 
+The Data Explorer format is supported directly by the Import module 
+(see  #!Limport,dxall871 h Import  #!EL  IBM Visualization Data Explorer User's Reference). To create visual 
+programs using data in this format, simply use the Import module, 
+specifying the file name, and the format as "dx." #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   CDF Format #!EF #!I50 #!N CDF is a standard 
+format, supported directly by the Import module. For more information on 
+the CDF format, see  #!Lcdf,dxall664 h CDF Files  #!EL  in IBM Visualization Data Explorer User's 
+Guide. To create visual programs using data in this format simply 
+use the Import module, specifying the cdf as the  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF parameter to Import, and specifying the format as "cdf." #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   netCDF Format #!EF #!I50 #!N netCDF is a 
+standard format, supported directly by the Import module. For more information 
+on the netCDF format, see  #!Lnetcdf,dxall665 h netCDF Files  #!EL  in IBM Visualization Data Explorer 
+User's Guide To create visual programs using data in this format 
+simply use the Import module, specifying the file name as the 
+ #!F-adobe-times-bold-r-normal--18*   name #!EF parameter to Import, and specifying the format as 
+"netCDF." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   HDF Format #!EF #!I50 #!N HDF 
+is a standard format, supported directly by the Import module. Data 
+Explorer supports HDF files that contain a Scientific Dataset (SDS). For 
+more information on the HDF format, see  #!Lhdf,dxall682 h HDF Files  #!EL  in IBM Visualization 
+Data Explorer User's Guide. To create visual programs using data in 
+this format simply use the Import module, specifying the file name 
+as the  #!F-adobe-times-bold-r-normal--18*   name #!EF parameter to Import, and specifying the 
+format as "hdf." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Image data #!EF #!I50 
+#!N Images in TIFF, MIFF, GIF, and RGB formats can be 
+directly imported by the ReadImage module (see  #!Lreadima,dxall915 h ReadImage  #!EL  in IBM Visualization 
+Data Explorer User's Reference). To see the image, you need only 
+to attach the output of ReadImage to first input of the 
+Display module. You can of course manipulate the image with any 
+of the appropriate Data Explorer modules. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Grid 
+or Scattered Data (General Array format) #!EF #!I50 #!N Data Explorer 
+can import a wide variety of gridded and scattered data using 
+the General Array format. The basic procedure is to create a 
+header file which describes the structure of the data (dimensionality, number 
+of variables, layout in the file, etc.). The General Array Importer 
+is described in detail in  #!Lgai,dxall110 h General Array Importer  #!EL  .  #!Lgaiexs,dxall114 h Importing Data: Header File Examples  #!EL  contains many examples 
+illustrating the wide variety of data that can be imported. #!N 
+#!N The Data Prompter greatly simplifies the task of creating a 
+header file, as it performs extensive error checking (disallowing conflicting keywords, 
+for example) and frees you from needing to know the exact 
+syntax of the General Array format. When you use the Data 
+Prompter to import this format, you will be asked to describe 
+your data in detail. You need to then save the header 
+file using  #!F-adobe-times-bold-r-normal--18*   Save As #!EF in the File menu of 
+the Data Prompter Full or Simplified window. The data can then 
+be visualized using one of the general purpose programs provided by 
+the Data Prompter. #!N #!N To create new visual programs using 
+data imported in this way, simply specify the name of the 
+header file to the Import module, specifying the format as "general" 
+(see  #!Limport,dxall871 h Import  #!EL  in IBM Visualization Data Explorer User's Reference). #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   Spreadsheet Data #!EF #!I50 #!N Spreadsheet data is typically 
+non-spatial data, arranged in columns. This type of data is supported 
+by the ImportSpreadsheet module (see  #!Limpspsh,dxall872 h ImportSpreadsheet  #!EL  in IBM Visualization Data Explorer 
+User's Reference). #!I0 #!N #!N Note: For the formats directly supported 
+by Import (Data Explorer, CDF, netCDF, HDF) or ImportSpreadsheet (spreadsheet data), 
+it is not necessary to use the Data Prompter to import 
+the data. You can simply use the Import or ImportSpreadsheet module 
+and then add whatever visualization modules you want to look at 
+the data. However, you can use the Data Prompter to give 
+you easy access to the general purpose programs which get you 
+"up and running" with a picture of your data. #!N #!N 
+If you are importing your data using the General Array format, 
+once you have created a header file (typically done by using 
+the Data Prompter), you can import the header file directly using 
+the Import module. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Linitdb,dxall160 h Initial Dialog Box  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgmc DXGetMemberCount #!N #!N 
+Function #!N #!N Retrieves the numerical count of members in a 
+Group. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Group DXGetMemberCount(Group g, 
+int *n) #!EF #!N #!N Functional Details #!N #!N Group  #!F-adobe-times-bold-r-normal--18*   
+g #!EF can be generic or a subclass of Group (such 
+as Series, MultiGrid, or Composite Field). #!N #!N Return Value #!N 
+#!N Returns a pointer to group  #!F-adobe-times-bold-r-normal--18*   g #!EF and (in 
+ #!F-adobe-times-bold-r-normal--18*   *n #!EF ) the number of members in Group  #!F-adobe-times-bold-r-normal--18*   
+g #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error 
+code if  #!F-adobe-times-bold-r-normal--18*   g #!EF is not a Group. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgem,dxall1234 h DXGetEnumeratedMember  #!EL  ,  #!Ldxgm,dxall1246 h DXGetMember  #!EL  ,  #!Ldxng,dxall1317 h DXNewGroup  #!EL  #!EF 
+#!N #!N  #!Lmbs,dxall1064 h Generic Operations  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxgmai,dxall1248 h DXGetMeshArrayInfo  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

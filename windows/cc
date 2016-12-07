@@ -1,0 +1,247 @@
+#!/bin/sh
+#export PATH="$PATH:`cygpath \"$MSDEV\"`/bin:`cygpath \"$MSCOM\"`/bin"
+#export INCLUDE="$INCLUDE:$MSDEV/INCLUDE;XDKDEV/Include"
+export INCLUDE="$INCLUDE;XDKDEV/Include"
+#export LIB="$LIB;$MSDEV/LIB;$XDKDEV/Lib"
+export LIB="$LIB;$XDKDEV/Lib"
+
+BINMODEDIR="$MSDEV\Lib"
+
+stdout=/tmp/stdo$$
+stderr=/tmp/stde$$
+
+args=
+libpath=
+libs=
+incpath="$INCPATH"
+incpath="$incpath /I\"$XDKDEV\Include\""
+
+defs='/D "WIN32" /D "CONSOLE" /D "MOTIFAPP"'
+linkopts="/subsystem:console"
+
+# defs for optimized
+optdefs='/Ox /Gs /D "NDEBUG"'
+#optdefs='/Gs /Zi /GF /D "NDEBUG"'
+optlinkopts="/incremental:yes"
+
+#defs for debugged
+debugdefs='/GX- /Gi /Ox /Zi /D "_DEBUG"'
+debuglinkopts="/DEBUG /incremental:yes"
+
+undefs=
+cfiles=
+map=
+mounts=
+echo=0
+tmp="$MSDEV\Lib"
+oname=
+
+prelibs="$prelibs wsock32.lib"
+deflibs="$deflibs kernel32.lib"
+deflibs="$deflibs user32.lib"
+deflibs="$deflibs Advapi32.lib"
+deflibs="$deflibs OLEAUT32.lib"
+deflibs="$deflibs GDI32.lib"
+deflibs="$deflibs /NODEFAULTLIB:LIBC"
+
+#deflibs="$deflibs user32.lib gdi32.lib winspool.lib"
+#deflibs="$deflibs comdlg32.lib advapi32.lib shell32.lib"
+#deflibs="$deflibs uuid.lib odbc32.lib odbccp32.lib"
+#deflibs="$deflibs /NODEFAULTLIB:LIBCMT /NODEFAULTLIB:LIBC"
+
+link=1
+compile=1
+mkdep=0
+dllflag=/MD
+dlllib=
+binmode=
+linkmodule=
+deffile=
+mkdll=0
+entryPt=DXEntry
+
+touch $stdout
+touch $stderr
+
+cleanup() { 
+        if test -f $stdout ; then
+                rm $stdout
+        fi
+        if test -f $stderr ; then
+                rm $stderr
+        fi
+        if test -f foo$$ ; then
+                rm foo$$
+        fi
+        if test -f bar$$ ; then
+                rm bar$$
+        fi
+	if test -f tmp.def$$ ; then
+		rm tmp.def$$
+	fi
+        if test -f foobar$$ ; then
+                rm foobar$$
+        fi
+}
+
+trap 'cleanup; exit 1' 1 2 15
+
+while test ! "$1" = "" ; do
+	i=$1
+	case $i in 
+		-e)      shift
+			 if test "$1" = "" ; then
+			     echo "-e requires entry point argument"
+			     exit 1
+			 fi
+			 entryPt=$1;;
+		-shared) mkdll=1
+			 linkopts="$linkopts /dll" ;;
+		-staticRunTime)
+			 dlllib="libcmt.lib"
+			 dllflag="$dllflag /MT" ;;
+		-dllRunTime)
+			 dlllib="msvcrt.lib"
+			 dllflag="$dllflag /MD" ;;
+                -o)      shift
+		         oname=$1
+                         args="$args /Fe$1" ;;
+		-map)	 map="/MAP" ;;
+		-Wp*)    dfile=`echo $i | sed "s/^.*\(.deps.*\)/ \1/"`
+			 mkdep=1 ;;
+		-M)	 compile=0
+			 dfile=
+			 mkdep=1 ;;
+		-g) 	 defs="$defs $debugdefs" 
+			 linkopts="$linkopts $debuglinkopts" ;;
+		-O2)	 defs="$defs $optdefs" 
+			 linkopts="$linkopts $optlinkopts" ;;
+		-mount*) mounts="$mounts $i" ;;
+		-D*)     defs="$defs `echo $i | sed 's?-D?/D?'`" ;; 
+		-U*)     undefs="$undefs `echo $i | sed 's?-U?/U?'`" ;;
+                -I*)     tmp=`echo $i | sed "s/-I//"`
+                         tmp2=`cygpath -a --windows "$tmp"`
+                         if test -n "$tmp2" ; then
+			   incpath="$incpath /I\"$tmp2\"" 
+			 fi  ;; 
+                -L*)     tmp=`echo $i | sed "s/-L//"`
+                         tmp2=`cygpath -w -s $tmp`
+			 if test -n "$tmp2" ; then
+                           libpath="$libpath /libpath:\"$tmp2\"" 
+			 fi ;;
+		-l*)     libs="$libs `echo $i | sed 's?-l??'`.lib" ;;
+		-echo)   echo=1 ;;
+		*.c)     cfiles="$cfiles $i" ;;
+		-c)      link=0
+			 args="$args $i" ;;
+		-E) 	 link=0
+			 args="$args /E" ;;
+		-B)	 LIB="$LIB;$BINMODEDIR" 
+			 binmode="BINMODE.OBJ" ;;
+		-def)	 shift
+			 if test "$1" = ""; then
+			     echo "-def requires def file name argument"
+			     exit 1
+			 fi
+			 deffile=/DEF:\"$1\" ;;
+		-module) dllflag="$dllflag /LD"
+			 linkmodule="/DLL /EXPORT:DXEntry" ;;
+                 *)      args="$args $i" ;;
+
+
+	esac
+	shift
+done
+
+#tmp=`cygpath -a --windows "$MSDEV/Include"`
+#msincs="/I\"$tmp\""
+#incpath="$incpath $msincs"
+
+if test $mkdep = 1; then
+    if test -e foo$$ ; then
+	rm foo$$
+    fi
+    touch foo$$
+    MSVC_INCLUDE=\"$MSVC/Vc98/Include\"
+    MSVC_COMMON_INCLUDE=\"$MSVC/Common/Include\"
+    MSVC_DEFINES="-Dintelnt -D_WIN32 -D_M_IX86=500 -Y"
+    makedepend -ffoo$$ $MSVC_DEFINES -I$MSVC_INCLUDE -I$MSVC_COMMON_INCLUDE $cfiles 2>/dev/null
+    sed -e "/Microsoft/d"\
+	-e "/DO NOT DELETE/d" \
+	-e "/^$/d" -e "s/^.*://" \
+		 < foo$$ > bar$$
+    if test -e foo$$ ; then
+	rm foo$$
+    fi
+    if test `cat bar$$ | wc -l` -eq 0 ; then
+	echo `echo $cfiles | sed "s/\.c/.o/"`: $cfiles > foobar$$
+    else
+	echo `echo $cfiles | sed "s/\.c/.o/"`: $cfiles "\\" > foobar$$ 
+	sed  -e '1,$s/$/ \\/' -e '$s/\\/ /' < bar$$ >> foobar$$
+    fi
+    if test "$dfile" != "" 
+    then
+	mv foobar$$ $dfile
+    else
+	cat foobar$$
+    fi
+    err=0
+fi
+
+if test $compile = 1 ; then
+    
+    if test $mkdll = 1 ; then
+	if test ! X"$deffile" = X"" ; then
+	    echo "cannot specify both a def file and a DLL entry point"
+	    exit 1
+	fi
+	echo EXPORTS > tmp.def$$
+	echo $entryPt >> tmp.def$$
+        deffile=/DEF:tmp.def$$
+    fi
+
+    if test $link = 1 ; then
+	cmd="cl -nologo $incpath $msincs $defs $undefs $args $cfiles $dllflag /link $libpath $prelibs $libs $deflibs $dlllib $map $binmode $linkopts $linkmodule $deffile /MAP /MAPINFO:LINES /MAPINFO:EXPORTS" 
+    else
+	cmd="cl $dllflag -nologo $incpath $defs $undefs $args $cfiles"
+    fi
+
+    for i in $mounts foo ; do
+	if test ! "$i" = foo ; then
+	    src=`echo $i | sed -e "s/-mount://" | sed -e "s/=.*//"`
+	    dst=`echo $i | sed -e "s/-mount.*=//"`
+	    cmd=`echo $cmd | sed "s?$src?$dst?g"`
+	fi
+    done
+
+    if test $echo = 1 ; then
+	echo $cmd
+    fi
+
+    if eval $cmd 1> $stdout 2> $stderr ; then
+	s=`cat $stdout $stderr | grep "error C[0-9].*:"`
+	if test "$s" = "" ; then
+	    err=0;
+	else
+	    err=1;
+	fi
+    else
+	err=1
+    fi
+
+    if test $mkdll = 1 -a -f ${oname}.exe ; then
+	mv ${oname}.exe ${oname}.dll
+    fi
+
+    if test $link = 1 ; then
+	cat $stdout | grep -v "object file assumed" >&1
+	cat $stderr | grep -v "object file assumed" >&2
+    else
+	cat $stdout | sed "1d" >&1
+	cat $stderr | sed "1d" >&2
+    fi
+fi
+
+cleanup 
+exit $err
+

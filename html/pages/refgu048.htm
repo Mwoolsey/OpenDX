@@ -1,0 +1,519 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML>
+
+	<HEAD>
+		<TITLE>User's Reference - Display</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD>
+
+	<BODY BGCOLOR="#FFFFFF" LINK="#00004b" VLINK="#4b004b">
+		<TABLE WIDTH=510 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD COLSPAN=9><IMG SRC="../images/flcgh_01.gif" WIDTH=510 HEIGHT=24 ALT="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD COLSPAN=2><A HREF="../allguide.htm"><IMG SRC="../images/flcgh_02.gif" WIDTH=129 HEIGHT=25 BORDER="0" ALT="Full Contents"></A></TD>
+				<TD COLSPAN=3><A HREF="../qikguide.htm"><IMG SRC="../images/flcgh_03.gif" WIDTH=127 HEIGHT=25 BORDER="0" ALT="QuickStart Guide"></A></TD>
+				<TD><A HREF="../usrguide.htm"><IMG SRC="../images/flcgh_04.gif" WIDTH=127 HEIGHT=25 BORDER="0" ALT="User's Guide"></A></TD>
+				<TD COLSPAN=3><B><A HREF="../refguide.htm"><IMG SRC="../images/flcgh_05d.gif" WIDTH=127 HEIGHT=25 BORDER="0" ALT="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A HREF="refgu047.htm"><IMG SRC="../images/flcgh_06.gif" WIDTH=80 HEIGHT=17 BORDER="0" ALT="Previous Page"></A></TD>
+				<TD COLSPAN=2><A HREF="refgu049.htm"><IMG SRC="../images/flcgh_07.gif" WIDTH=73 HEIGHT=17 BORDER="0" ALT="Next Page"></A></TD>
+				<TD><A HREF="../refguide.htm"><IMG SRC="../images/flcgh_08.gif" WIDTH=100 HEIGHT=17 BORDER="0" ALT="Table of Contents"></A></TD>
+				<TD COLSPAN=3><A HREF="refgu009.htm"><IMG SRC="../images/flcgh_09.gif" WIDTH=136 HEIGHT=17 BORDER="0" ALT="Partial Table of Contents"></A></TD>
+				<TD><A HREF="refgu175.htm"><IMG SRC="../images/flcgh_10.gif" WIDTH=50 HEIGHT=17 BORDER="0" ALT="Index"></A></TD>
+				<TD><A HREF="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" WIDTH=71 HEIGHT=17 BORDER="0" ALT="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A NAME="HDRDISPLAY"></A>Display</H3>
+		<A NAME="IDX448"></A><A NAME="IDX449"></A>
+		<P><STRONG>Category</STRONG></P>
+		<P><A HREF="refgu008.htm#HDRCATREN">Rendering</A></P>
+		<P><STRONG>Function</STRONG></P>
+		<P>Displays an image or renders a scene and displays an image.</P>
+		<P><STRONG>Syntax</STRONG></P>
+		<PRE>
+
+<TT><STRONG>where</STRONG></TT> = Display(<STRONG>object, camera, where, throttle</STRONG>);
+
+</PRE>
+		<P><STRONG>Inputs</STRONG><BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>object</STRONG></TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object to render or image to display</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>camera</STRONG></TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">camera</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">camera if rendering is required</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>where</STRONG></TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">window or string</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">the user's terminal</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">host and window for display</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>throttle</STRONG></TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">minimum time between image frames (in seconds)</TD>
+			</TR>
+		</TABLE>
+		<P><STRONG>Outputs</STRONG><BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>where</STRONG></TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">window</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">window identifier for Display window</TD>
+			</TR>
+		</TABLE>
+		<P><STRONG>Functional Details</STRONG></P>
+		<P></P>
+		<TABLE CELLPADDING="3">
+			<TR VALIGN="TOP">
+				<TD>
+					<P><B><TT><STRONG>object</STRONG></TT> </B></P>
+				</TD>
+				<TD>
+					<P>is the object to be displayed or to be rendered and displayed.</P>
+				</TD>
+			</TR>
+			<TR VALIGN="TOP">
+				<TD>
+					<P><B><TT><STRONG>camera</STRONG></TT> </B></P>
+				</TD>
+				<TD>
+					<P>is the camera to be used to render <TT><STRONG>object</STRONG></TT>. If <TT><STRONG>camera</STRONG></TT> is not specified, the system assumes that <TT><STRONG>object</STRONG></TT> is an image to be displayed (e.g., the output of the Render module).</P>
+					<P><B>Note: </B>A transformed camera cannot be used for this parameter.</P>
+				</TD>
+			</TR>
+			<TR VALIGN="TOP">
+				<TD>
+					<P><B><TT><STRONG>where</STRONG></TT> </B></P>
+				</TD>
+				<TD>
+					<P>specifies the host and window for displaying the image. On a workstation, the format of the parameter string is:<BR>
+						<TT><STRONG>X</STRONG></TT>, <VAR>display, window</VAR><BR>
+						where <TT><STRONG>X</STRONG></TT> refers to the X Window System; <VAR>display</VAR> is an X server name (e.g., host:0); and <VAR>window</VAR> is a window name (and must not begin with two #-characters). As a rule, it is not necessary to set this parameter. But when it is set, the resulting Image window is not controlled by the user interface (e.g., it has no menu options). The function of this parameter is to specify another workstation on which to display an image (e.g., by setting it to &quot;<I>X,</I><TT>workstationname</TT><I>:0,</I> <TT>message</TT>&quot;). Using the Image tool, you can display the same image to another workstation simply by connecting the module's two outputs to the two inputs of Display and setting <TT><STRONG>where</STRONG></TT>.</P>
+					<P>If you are using SuperviseState or SuperviseWindow to control user interactions in the Display window, then <TT><STRONG>where</STRONG></TT> should be set with the <TT><STRONG>where</STRONG></TT> output of SuperviseWindow.</P>
+					<P><B>Note: </B>If you are using the <TT><STRONG>where</STRONG></TT> parameter, it is important to set its value <I>before</I> the first execution of Display.</P>
+				</TD>
+			</TR>
+			<TR VALIGN="TOP">
+				<TD>
+					<P><B><TT><STRONG>throttle</STRONG></TT> </B></P>
+				</TD>
+				<TD>
+					<P>specifies a minimum interval between successive image displays. The default is 0 (no delay).</P>
+				</TD>
+			</TR>
+			<TR VALIGN="TOP">
+				<TD>
+					<P><B><TT><STRONG>where</STRONG></TT> </B></P>
+				</TD>
+				<TD>
+					<P>The output can be used, for example, by ReadImageWindow to retrieve the pixels of an image after Display has run.</P>
+				</TD>
+			</TR>
+		</TABLE>
+		<P><B>Notes: </B></P>
+		<OL>
+			<P></P>
+			<LI>In the user interface, you must use the Image tool rather than Display if you want to use many of the interactive image-manipulation functions provided by Data Explorer. For more information, see <A HREF="usrgu040.htm#HDRCHAV">&quot;Controlling the Image: View Control...&quot;</A> in <I>IBM Visualization Data Explorer User's Guide</I>. However, see <A HREF="refgu153.htm#HDRSUPWIND">SuperviseWindow</A> and <A HREF="refgu152.htm#HDRSUPSTAT">SuperviseState</A> for a discussion of how to create your own interaction modes when using the Display window.
+			<P></P>
+			<LI>The Display module can render surfaces, volumes, and arbitrary combinations of surfaces and volumes. (However, the current volume-rendering algorithm does not support coincident or perspective volumes.) To render an object, that object must contain a &quot;colors&quot; component. Many modules add a default color. In addition, volume rendering (e.g., of cubes, as opposed to lines) requires an &quot;opacities&quot; component. all surfaces, the lack of an &quot;opacities&quot; component implies an opaque surface.
+			<P></P>
+			<LI>Choosing appropriate color and opacity maps for volume rendering can be difficult. The AutoColor, AutoGrayScale, and Color modules use heuristics to generate good values; as a rule of thumb, the opacity should be &approx;0.7/T, and the color value &approx;1.4/T (where T is the thickness of the object in user units). See also <A HREF="#HDRCVOLRND">&quot;Coloring Objects for Volume Rendering&quot;</A>.
+		</OL>
+		<P></P>
+		<H5><A NAME="Header_71"></A>Changing the Resolution of an Image</H5>
+		<P>If you are using Display without a camera to simply display an image, you can increase or decrease the resolution of the image by using Refine or Reduce, respectively, on the image before passing it to Display (see <A HREF="refgu114.htm#HDRREFINE">Refine</A> and <A HREF="refgu113.htm#HDRREDUCE">Reduce</A>).</P>
+		<P></P>
+		<H5><A NAME="Header_72"></a>Pasting Images Together</H5>
+		<P>The Arrange module can be used before Display to lay out images side by side, or one above the other (see <A HREF="refgu012.htm#HDRARRANGE">Arrange</A>).</P>
+		<P></P>
+		<H5><A NAME="HDRDLACOOP"></a>Delayed Colors and Opacities (Color and Opacity Lookup Tables)</H5>
+		Delayed colors are a way of compactly storing color and opacity information. By default, whenever you use one of the coloring modules (AutoColor, AutoGrayScale, Color), the colors and opacities are stored one-per-data value as a floating point RGB 3-vector or floating point value, respectively, ranging from 0 to 1. However, if you have unsigned byte data, then it is much more efficient to use &quot;delayed colors&quot; and &quot;delayed opacities&quot;. When you use delayed colors or opacities, the &quot;colors&quot; or &quot;opacities&quot; component is simply a copy of (actually a reference to) the &quot;data&quot; component. When rendering occurs, these components are interpreted as indices with which to look up a color or opacity value in a table.
+		<P>If you specify the <TT><STRONG>delayed</STRONG></TT> parameter as 1 to any of the coloring modules, they will automatically perform this &quot;copy&quot; of the &quot;data&quot; component, and will attach a &quot;color map&quot; or &quot;opacity map&quot; component which contains 256 RGB colors, or 256 opacities. If you already have a color or opacity map, either imported or created using the Colormap Editor, and wish to use delayed colors or delayed opacities, you can pass your color map or opacity map to the Color module as the <TT><STRONG>color</STRONG></TT> or <TT><STRONG>opacity</STRONG></TT> parameter, and set the <TT><STRONG>delayed</STRONG></TT> parameter to Color as 1.</P>
+		<P>The structure of a color map or opacity map is described in <A HREF="refgu033.htm#HDRCOLOR">Color</A>. The Colormap Editor produces as its two outputs well-formed color maps and opacity maps. Alternatively, if you already have a simple list of 3-vectors or list of scalar values, and want to create a color map or opacity map, you can do this using Construct. The first parameter to Construct should be [0], the second should be [1], and the third should be 256. This will create a &quot;positions&quot; component with positions from 0 to 255. The last parameter to Construct should be your list of 256 colors or opacities.</P>
+		<P>If you are reading a stored image using ReadImage, and the image is stored with a colormap, you can specify that the image should be stored internally in Data Explorer with delayed colors by using the <TT><STRONG>delayed</STRONG></TT> parameter to ReadImage.</P>
+		<P>You can also convert an image (or object) to a delayed colors version by using QuantizeImage.</P>
+		<P></P>
+		<H5><A NAME="HDRUDCMPS"></a>Using Direct Color Maps</H5>
+		<A NAME="IDX450"></A><A NAME="IDX451"></A><A NAME="IDX452"></A>
+		<P>If you are using delayed colors (see <A HREF="#HDRDLACOOP">&quot;Delayed Colors and Opacities (Color and Opacity Lookup Tables)&quot;</A> and <A HREF="refgu110.htm#HDRREADIMA">ReadImage</A>) and displaying images directly (i.e. you are not providing a camera), Display will use the provided color map directly instead of dithering the image. (Depending on your X server, you may need to use the mouse to select the Image or Display window in order for the correct color to appear.) If you do not want Display to use the color map directly, use the Options module to set a &quot;direct color map&quot; attribute with a value of 0 (zero).<BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Attribute Name</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="22%">Value</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">direct color map</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="22%">0 or 1</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">whether or not to use a direct color map</TD>
+			</TR>
+		</TABLE>
+		<P></P>
+		<H5><A NAME="HDRUDFCMPS"></a>Using Default Color Maps</H5>
+		<A NAME="IDX453"></A><A NAME="IDX454"></A><A NAME="IDX455"></A>
+		<P>When displaying non-delayed color images in 8-bit windows, Display assumes that it can specify 225 individual colors. If this number is not currently available in the shared color map, Display will find the best approximations available. However, this may lead to a visible degradation of image quality. Display may instead use a private color map. This decision is based on the worst-case approximation that it must use with the default color map. If this approximation exceeds a threshold, a private color map will be used. The approximation quality is measured as Euclidean distance between the desired color and the best approximation for that color, in an RGB unit cube.</P>
+		<P>An environment variable, DX8BITCMAP, sets the level at which the change to using a private color map is made. The value of DX8BITCMAP should be a number between 0 (zero) and 1 (one), and it represents the Euclidean distance in RGB color space, normalized to 1, for the maximum allowed discrepancy. If you set DX8BITCMAP to 1, then a private color map will never be used. On the other hand, if you set DX8BITCMAP to -1, then a private color map will always be used. The default is 0.1. See also the <TT>-8bitcmap</TT> command line option for Data Explorer in <A HREF="usrgu074.htm#TBLCLOPTS">Table 5</A> in <I>IBM Visualization Data Explorer User's Guide</I>.</P>
+		<P></P>
+		<H5><A NAME="HDRGAMMACO"></a>Gamma Correction</H5>
+		<A NAME="IDX456"></A>
+		<P>Displayed images generated by Display or Image are gamma corrected. Gamma correction adjusts for the fact that for many display devices a doubling of the digital value of an image's brightness does not necessarily produce a doubling of the actual screen brightness. Thus, before displaying to the screen, the pixel values are adjusted non-linearly to produce a more accurate appearance.</P>
+		<P>The environment variables DXGAMMA_8BIT, DXGAMMA_12BIT, and DXGAMMA_24BIT are used to specify values for gamma of 8-, 12-, and 24-bit windows, respectively. If the appropriate DXGAMMA_<I>n</I>BIT environment variable is not set, the value of the environment variable DXGAMMA will be used if one is defined. Otherwise, the module uses the system default, which depends on the machine architecture and window depth. This default is always 2 (two) except for 8-bit sgi windows, for which it is 1 (one). Note that the default depends on the machine on which the software renderer is running, not on the machine that displays the image.</P>
+		<P></P>
+		<H5><A NAME="Header_77"></a>Obtaining a WYSIWYG image of a higher resolution</H5>
+		<P>If you wish to render a displayed image at a higher resolution (for example to write to an output file), you can usually simply use Render on the same object as <TT><STRONG>object</STRONG></TT>, with a new camera (see <A HREF="refgu015.htm#HDRAUTOCAM">AutoCamera</A> or <A HREF="refgu021.htm#HDRCAMERA">Camera</A>). However, if <TT><STRONG>object</STRONG></TT> contains screen objects (captions and color bars), the new image will not be WYSIWYG (What You See Is What You Get), with respect to the displayed image, because the sizes of captions and color bars are specified in pixels rather than in screen-relative units. The ScaleScreen module (see <A HREF="refgu130.htm#HDRSCALSCR">ScaleScreen</A>) allows you to modify the size of screen objects before rendering.</P>
+		<P></P>
+		<H5><A NAME="HDRIMGCACH"></a>Image Caching</H5>
+		<A NAME="IDX457"></A>
+		<P>When given a <TT><STRONG>camera</STRONG></TT> input, the Display module (or Image tool) caches rendered images by default. The result is faster redisplay if the same object and camera are later passed to the module.</P>
+		<P>To turn off this automatic caching, use the Options module to attach a &quot;cache&quot; attribute (set to 0) to <TT><STRONG>object</STRONG></TT>.</P>
+		<P>It is important to remember that this caching is separate from the caching of module outputs, which is controlled by the <TT>-cache</TT> command-line option to <TT>dx</TT>.</P>
+		<P></P>
+		<H5><A NAME="HDRCHRNDPR"></a>Changing Rendering Properties</H5>
+		<A NAME="IDX458"></A><A NAME="IDX459"></A><A NAME="IDX460"></A>
+		<P>You can change the rendering properties of an object by using the Options module. The following table lists the shading attributes that can be set by the Options module for interpretation by the Display tool. (See the section on surface shading in <I>IBM Visualization Data Explorer Programmer's Reference</I> for more information.)<BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Attribute</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Type</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Default</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%"><TT>&quot;ambient&quot;</TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">scalar</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">1</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">coefficient of ambient light <I>k<SUB>a</SUB></I></TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%"><TT>&quot;diffuse&quot;</TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">scalar</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">.7</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">coefficient of diffuse reflection <I>k<SUB>d</SUB></I></TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%"><TT>&quot;specular&quot;</TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">scalar</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">.5</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">coefficient of specular reflection <I>k<SUB>s</SUB></I></TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%"><TT>&quot;shininess&quot;</TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">integer</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">10</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">exponent of specular reflection <I>sp</I></TD>
+			</TR>
+		</TABLE>
+		<P>As a rule of thumb, except for purposes of special effects, <I>k<SUB>a</SUB></I> should be <I>1</I> and <I>k<SUB>d</SUB> + k<SUB>s</SUB></I> should be about 1. The larger <I>k<SUB>s</SUB></I>, the brighter the highlight, and the larger <I>e</I>, the sharper the highlight. The Shade module provides a shortcut for setting rendering properties.</P>
+		<P>The attributes listed above apply to both the front and back of an object. In addition, for each attribute &quot;<I>x</I>&quot; there is also a &quot;front <I>x</I>&quot; and a &quot;back <I>x</I>&quot; attribute that applies only to the front and back of the surface, respectively. So, for example, to disable specular reflections from the back surfaces of an object, use the Options module to set the &quot;back specular&quot; attribute of the object to 0.</P>
+		<P>The determination of which faces are &quot;front&quot; and which are &quot;back&quot; depends on the way in which the &quot;connections&quot; component of the faces is defined. &quot;Front colors&quot; applies to clockwise faces, and &quot;back colors&quot; applies to counterclockwise faces.</P>
+		<P></P>
+		<H5><A NAME="HDRCVOLRND"></a>Coloring Objects for Volume Rendering</H5>
+		<P>The volume renderer interprets colors and opacities as values per unit distance. Thus the amount of color and degree of attenuation seen in an image object is determined in part by the extent of the object's volume. The Color, AutoColor, and AutoGrayScale modules attach &quot;color multiplier&quot; and &quot;opacity multiplier&quot; attributes to the object so that colors and opacities will be appropriate to the volume, while maintaining &quot;color&quot; and &quot;opacity&quot; components that range from 0 to 1 (so that objects derived from the colored volume, such as glyphs and boundaries, are colored correctly). See <A HREF="progu077.htm#HDRRENDMDL">&quot;Rendering Model&quot;</A> in <I>IBM Visualization Data Explorer Programmer's Reference</I>.</P>
+		<P>These attributes adjust the colors and opacities to values that should be &quot;appropriate&quot; for the object being colored. However, if the simple heuristics used by these modules to compute the attribute values are not producing the desired colors and opacities, you have two alternatives.</P>
+		<UL COMPACT>
+			<LI>One is to modify the result by changing the multiplier values of the color and opacity attributes:
+			<OL COMPACT>
+				<LI>extract the &quot;color multiplier&quot; and &quot;opacity multiplier&quot; with the Attribute module;
+				<LI>modify them with the Compute module; and
+				<LI>replace them in the object with the Options module.
+			</OL>
+			<LI>A second is to multiply the values in the &quot;color&quot; or &quot;opacities&quot; component:
+			<OL COMPACT>
+				<LI>mark the component (&quot;colors&quot; or &quot;opacities&quot;) with the Mark module;
+				<LI>modify the values with the Compute module; and
+				<LI>&quot;unmark&quot; them with the Unmark module to return them to the appropriate component.
+			</OL>
+		</UL>
+		<P>Only the first of these methods should be used for &quot;delayed&quot; colors.</P>
+		<P>Finally, if you color a group of volumes and the resulting image is black, the reason is that the current renderer does not support coincident volumes.</P>
+		<P><BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Attribute</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">color multiplier</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">scalar</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Multiplies values in the &quot;color&quot; component</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">opacity multiplier</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">scalar</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Multiplies values in the &quot;opacity&quot; component</TD>
+			</TR>
+		</TABLE>
+		<P></P>
+		<H5><A NAME="HDRSHADING"></a>Shading</H5>
+		<P>Objects are shaded when rendered only if a &quot;normals&quot; component is present. Many modules (e.g. Isosurface) automatically add &quot;normals&quot;, but the FaceNormals, Normals, and Shade modules can also be used to add normals. Even if an object has &quot;normals&quot;, shading can be disabled by adding a <TT><STRONG>shade</STRONG></TT> with a value of 0 (the Shade module can do this).</P>
+		<P><BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Attribute Name</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="22%">Values</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">shade</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="22%">0 or 1</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">used to specify whether or not to shade when normals are present</TD>
+			</TR>
+		</TABLE>
+		<P></P>
+		<H5><A NAME="HDROBJFUZZ"></a>Object fuzz</H5>
+		<P><I>Object fuzz</I> is a method of resolving conflicts between objects at the same distance from the camera. For example, it may be desirable to define a set of lines coincident with a plane. Normally it will be unclear which object is to be displayed in front. In addition, single-pixel lines are inherently inaccurate (i.e. they deviate from the actual geometric line) by as much as one-half pixel; when displayed against a sloping surface, this <I>x</I> or <I>y</I> inaccuracy is equivalent to a <I>z</I> inaccuracy related to the slope of the surface. The &quot;fuzz&quot; attribute specifies a <I>z</I> value that will be added to the object before it is compared with other objects in the scene, thus resolving this problem. The fuzz value is specified in pixels. For example, a fuzz value of one pixel can compensate for the described half-pixel inaccuracy when the line is displayed against a surface with a slope of two.</P>
+		<P><BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Attribute</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">fuzz</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">scalar</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">object fuzz</TD>
+			</TR>
+		</TABLE>
+		<P>To add fuzz to an object, pass the object through the Options module, specifying the attribute as <TT><STRONG>fuzz</STRONG></TT> and the value of the attribute as the number of pixels (typically a small integer).</P>
+		<P></P>
+		<H5><A NAME="HDRANTIALI"></a>Anti-aliasing and Multiple Pixel Width Lines</H5>
+		<P>Hardware rendered images can be made to anti-alias lines, or draw lines as multiple pixels wide. Note that these options are <I>not</I> available in software rendering. To specify anti-aliasing of lines, use the Options module to set an attribute on the object passed to Display of <TT><STRONG>antialias</STRONG></TT> with the value of &quot;lines&quot;. To specify multiple pixel width lines, use the Options module to set an attribute of <TT><STRONG>line width</STRONG></TT> with a value of the number of pixels wide you want the line to be.<BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Attribute</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Values</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">antialias</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&quot;lines&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">causes lines to be anti-aliased</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">line width</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">n</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">causes lines to be drawn with a width of n pixels</TD>
+			</TR>
+		</TABLE>
+		<P></P>
+		<H5><A NAME="HDRHARDREN"></a>Rendering Approximations</H5>
+		<A NAME="IDX461"></A>
+		<P>Data Explorer provides access to the hardware accelerators on the workstation, in addition to the default software rendering techniques. The hardware enhancements are available only on workstations that are equipped with 3-D graphic adapters. On systems without such adapters, only the software rendering options are available. This enhancement is intended to provide increased interactivity, especially in operations that involve only the rendering process.</P>
+		<P>Data Explorer can also provide accelerated rendering by approximating the rendering using points, lines, and opaque surfaces. Such geometric elements are often sufficient to approximate the appearance of the desired image, and thus are useful for preliminary visualizations of the data.</P>
+		<P>The approximations fall into three main categories: bounding box, dots, and wireframe. Wireframe is available only as a hardware rendering technique.</P>
+		<P>If you are using the graphical user interface and the Image tool, you can access the rendering options by using the <TT><STRONG>Rendering Options</STRONG></TT> option on the <TT><STRONG>Options</STRONG></TT> pull-down menu in the Image window. This option invokes a dialog box that allows you to set the rendering approximations for continuous and one-time execution. (For more information, see <A HREF="usrgu040.htm#HDRGLOPT">&quot;Rendering Options...&quot;</A> in <I>IBM Visualization Data Explorer User's Guide</I>.)</P>
+		<P>If you are not using the Image tool, then you must use the Options module to set various attributes that control the rendering approximations. The following table lists the attributes that control rendering approximations, together with the permissible values for each attribute.<BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Attribute Name</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="22%">Values</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&quot;rendering mode&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="22%">&quot;software&quot;<BR>
+					&quot;hardware&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">use software rendering<BR>
+					use hardware rendering</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&quot;rendering approximation&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="22%">&quot;none&quot; &quot;box&quot; &quot;dots&quot; &quot;wireframe&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">complete rendering object<BR>
+					bounding box only<BR>
+					dot approximation to object<BR>
+					wireframe approximation to object</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&quot;render every&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="22%"><I>n</I></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="44%">render every <I>n</I>th primitive<BR>
+					render everything (default)</TD>
+			</TR>
+		</TABLE>
+		<P><B>Note: </B>If you do not pass a camera to Display (i.e., if <TT><STRONG>object</STRONG></TT> is already an image), Display will always use software to display the image, regardless of the setting of any rendering options using the Options tool.</P>
+		<P></P>
+		<H5><A NAME="HDRHARDSOF"></a>Differences between Hardware and Software Rendering</H5>
+		<A NAME="IDX462"></A><A NAME="IDX463"></A><A NAME="IDX464"></A><A NAME="IDX465"></A>
+		<OL>
+			<LI>For hardware rendering, when specifying &quot;dots&quot; for &quot;rendering approximation,&quot; lines are drawn in their entirety, whereas for software rendering only the line end points are drawn. The &quot;render every&quot; and &quot;wire&quot; approximations are available only with hardware rendering. When the &quot;box&quot; approximation is specified, hardware rendering will show the bounding box of each field in the rendered object, while software rendering will show only the bounding box of the entire object.
+			<P></P>
+			<LI>Some graphics adapters do not support clipping. On such adapters, &quot;ClipBox&quot; and &quot;ClipPlane&quot; have no effect.
+			<P></P>
+			<LI>For some hardware platforms, surfaces specified with opacities are rendered by the hardware as screen-door surfaces (i.e., every other pixel is drawn, letting the background show through). This allows only one level of opacity and completely obscures a semi-opaque surface that is behind another semi-opaque surface. The transparency effect is hardware dependent, and can produce a completely opaque or completely transparent appearance. True transparency is supported for OpenGL platforms.
+			<P></P>
+			<LI>The image displayed by the hardware rendering can be different from the image produced by the software rendering. This is a result of several differences in rendering techniques. The hardware rendering does not provide gamma correction, causing images to be slightly darker. Normals are not reversed when viewing the &quot;inside&quot; of a surface, with the result that lighting effects are much dimmer on the &quot;inside&quot; of a surface. Attributes applied to the &quot;inside&quot; of a surface (e.g., &quot;back colors&quot;) are ignored.
+			<P></P>
+			<LI>When using hardware rendering, the <TT><STRONG>where</STRONG></TT> parameter to Display cannot specify a host other than the one on which the Display module is running. However, it can specify a different display attached to the same host.
+			<P></P>
+			<LI>The hardware renderer does not duplicate the &quot;dense emitter&quot; model used by the software renderer for rendering volumes. Only the data values at the boundary of the volume are rendered, producing the appearance of a transparent boundary of the volume.
+			<P></P>
+			<LI>For hardware rendering, a wireframe rendering approximation is not intended to produce the same visual results as ShowConnections.
+			<P></P>
+			<LI>Hardware rendering handles colors between 0.0 and 1.0. If colors are outside this range, each color channel is independently clamped, before lighting is applied. In software rendering, clamping is done after lighting is applied.
+			<P></P>
+			<LI>Hardware rendering does not support view angles of less than 0.001 degree.
+			<P></P>
+			<LI>Anti-aliasing and multiple pixels width lines is only available in hardware rendering.
+		</OL>
+		<P></P>
+		<H5><A NAME="HDRTEXTMAP"></a>Texture Mapping</H5>
+		<A NAME="IDX466"></A><A NAME="IDX467"></A>
+		<P>If the machine on which Data Explorer is running supports OpenGL or GL, then texture mapping is available using hardware rendering. Texture mapping is the process of mapping an image (a field with 2-dimensional positions, quad connections, and colors) onto a geometry field with 2-dimensional connections and, typically, 3-dimensional positions (e.g., a color image mapped onto a rubbersheeted height field). The advantage of texture mapping over the use of Map, for example, is that the resulting image may have much greater resolution than the height map.</P>
+		<P>The geometry field must have 2-D connections (triangles or quads) and must also have a component, with the name &quot;uv,&quot; that is dependent on positions and provides the mapping between the image and the positions of the geometry field. This component consists of 2-vectors. The origin of the image will be mapped to the uv value [0 0], and the opposite corner to the uv value [1 1].</P>
+		<P>The texture map should be attached to the geometry field as an attribute, with the attribute name &quot;texture&quot;, which can be done with the Options module. A texture-mapped image can be retrieved from the Display window using <A HREF="refgu111.htm">ReadImageWindow</A> and then written to a file using <A HREF="refgu173.htm">WriteImage</A>.</P>
+		<P>Translucent textures are represented as image fields with opacities components&#150;either float opacities, or ubyte opacities and a float opacity map. As with opacities objects, translucent textured objects aren't meshed, but are tossed into the translucent sort-list, sorted by depth, and rendered. Translucent textures can be impored into DX with the <A HREF="refgu110.htm">ReadImage</A> module, as long as ImageMagick support was included, using image formats that support opacity masks.</P>
+		<P>Mipmapping is the process of creating a set of filtered texture maps of decreasing resolution generated from a single high resolution texture and used to improve accuracy during texture mapping. This filtering process allows OpenGL to apply an appropriate level of detail to an object depending on the objects viewable size, reducing aliasing and flickering. The filter to apply to a texture can be set with the attributes &quot;texture min filter&quot; and &quot;texture mag filter&quot;.</P>
+		<P>
+		</P>
+		<TABLE BORDER CELLSPACING="2" CELLPADDING="3">
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Attribute Name</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Value</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">texture</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">a texture map</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">specifies a texture map</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">texture wrap s</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">&quot;clamp to border&quot;, &quot;clamp&quot;, &quot;repeat&quot;, or &quot;clamp to edge&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">specifies how to apply the texture in the texture's <I>s</I> (horizontal) direction </TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">texture wrap t</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">&quot;clamp to border&quot;, &quot;clamp&quot;, &quot;repeat&quot;, or &quot;clamp to edge&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">specifies how to apply the texture in the texture's <I>t</I> (vertical) direction </TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">cull face</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">&quot;off&quot;, &quot;front&quot;, &quot;back&quot;, or &quot;front and back&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">specify which polygons should be drawn. culling basically turns off drawing of a polygon (increases rendering speed).</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">light model</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">&quot;one side&quot; or &quot;two side&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">two sided lighting specifies that calculations are computed for both the inside and the outside sides of polygons. Two sided is particularly useful when polygons have no normals or where the auto-computed normals bear no resemblence to the outside of the rendered object</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">texture min filter</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">&quot;nearest&quot; or &quot;linear&quot;, &quot;nearest_mipmap_nearest&quot;, &quot;nearest_mipmap_linear&quot;, &quot;linear_mipmap_nearest&quot; or &quot;linear_mipmap_linear&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">specifies the filter to use to generate the set of mipmapped textures when the texture is rendered smaller than its actual size</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">texture mag filter</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">&quot;nearest&quot; or &quot;linear&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">specifies the filter to use to generate the set of mipmapped textures when the texture is rendered larger than its actual size</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">texture function</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">&quot;decal&quot;, &quot;replace&quot;, &quot;modulate&quot; or &quot;blend&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">specifies the texture mode. In decal mode with a three-component (RGB) the texture's colors replace the object's colors. With modulate, blend or with a four-component texture, the final color is a combination of the texture's and the object's colors. You use decal mode in situations where you want to apply an opaque texture to an object - if you were drawing a soup can with an opaque label, for example. For modulation, the object's color is modulated by the contents of the texture map. You need to use modulation to create a texture that responds to lighting conditions. Blending mode makes sense only for one- (A) or two-(LA) component textures.The replace function substitutes the object's color with the incoming texture color.</TD>
+			</TR>
+		</TABLE>
+		<P></P>
+		<P><STRONG>Components</STRONG></P>
+		<P>The <TT><STRONG>object</STRONG></TT> input must have a &quot;colors,&quot; &quot;front colors,&quot; or &quot;back colors&quot; component.</P>
+		<P><STRONG>Script Language Examples</STRONG></P>
+		<OL>
+			<P></P>
+			<LI>This example renders two views of the object and displays them in two separate windows, as specified by the <TT><STRONG>where</STRONG></TT> parameter.
+			<PRE>
+electrondensity = Import(&quot;/usr/local/dx/samples/data/watermolecule&quot;);
+isosurface = Isosurface(electrondensity, 0.3);
+camera1 = AutoCamera(isosurface, &quot;front&quot;, resolution=300);
+camera2 = AutoCamera(isosurface, &quot;top&quot;, resolution=300);
+image1 = Render(isosurface, camera1);
+image2 = Render(isosurface, camera2);
+Display(image1,where=&quot;X, localhost:0, view from front&quot;);
+Display(image2,where=&quot;X, localhost:0, view from top&quot;);
+</PRE>
+			<P></P>
+			<LI>This example sets the rendering mode to &quot;hardware&quot; with the approximation method of &quot;dots.&quot;
+			<PRE>
+electrondensity = Import(&quot;/usr/local/dx/samples/data/watermolecule&quot;);
+isosurface = Isosurface(electrondensity, 0.3);
+from = Direction(65, 5, 10);
+camera = AutoCamera(isosurface, from);
+isosurface=Options(isosurface, &quot;rendering mode&quot;, &quot;hardware&quot;,
+                  &quot;rendering approximation&quot;, &quot;dots&quot;);
+Display(isosurface,camera);
+</PRE>
+		</OL>
+		<P><STRONG>Example Visual Programs</STRONG></P>
+		<PRE>
+MovingCamera.net
+PlotLine.net
+PlotTwoLines.net
+ReadImage.net
+
+ScaleScreen.net
+
+TextureMapOpenGL.net
+UsingCompute.net
+UsingMorph.net
+</PRE>
+		<P><STRONG>See Also</STRONG></P>
+		<P>&nbsp;<A HREF="refgu012.htm#HDRARRANGE">Arrange</A>, &nbsp;<A HREF="refgu029.htm#HDRCOLLECT">Collect</A>, &nbsp;<A HREF="refgu061.htm#HDRFILTER">Filter</A>, &nbsp;<A HREF="refgu072.htm#HDRIMAGE">Image</A>, &nbsp;<A HREF="refgu118.htm#HDRRENDER">Render</A>, &nbsp;<A HREF="refgu113.htm#HDRREDUCE">Reduce</A>, &nbsp;<A HREF="refgu114.htm#HDRREFINE">Refine</A>, &nbsp;<A HREF="refgu130.htm#HDRSCALSCR">ScaleScreen</A>, &nbsp;<A HREF="refgu097.htm#HDRNORMALS">Normals</A>, &nbsp;<A HREF="refgu059.htm#HDRFACENOR">FaceNormals</A>, &nbsp;<A HREF="refgu153.htm#HDRSUPWIND">SuperviseWindow</A>, &nbsp;<A HREF="refgu152.htm#HDRSUPSTAT">SuperviseState</A>, &nbsp;<A HREF="refgu111.htm#HDRREADIMW">ReadImageWindow</A>, &nbsp;<A HREF="refgu098.htm#HDROPTIONS">Options</A></P>
+		<P></P>
+		<HR>
+		<DIV ALIGN="center">
+			<P><A HREF="../allguide.htm"><IMG SRC="../images/foot-fc.gif" WIDTH="94" HEIGHT="18" BORDER="0" ALT="Full Contents"></A> <A HREF="../qikguide.htm"><IMG SRC="../images/foot-qs.gif" WIDTH="94" HEIGHT="18" BORDER="0" ALT="QuickStart Guide"></A> <A HREF="../usrguide.htm"><IMG SRC="../images/foot-ug.gif" WIDTH="94" HEIGHT="18" BORDER="0" ALT="User's Guide"></A> <A HREF="../refguide.htm"><IMG SRC="../images/foot-ur.gif" WIDTH="94" HEIGHT="18" BORDER="0" ALT="User's Reference"></A></P>
+		</DIV>
+		<DIV ALIGN="center">
+			<P><FONT SIZE="-1">[ <A HREF="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A HREF="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY>
+
+</HTML>

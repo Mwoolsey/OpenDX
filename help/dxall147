@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rhdrkwd header #!N #!EC #!T,75 #!N TAB  #!F-adobe-times-bold-r-normal--18*   
+bytes #!EF n #!N [  #!F-adobe-times-bold-r-normal--18*   header #!EF = TAB  #!F-adobe-times-bold-r-normal--18*   
+lines #!EF n #!N TAB  #!F-adobe-times-bold-r-normal--18*   marker #!EF "string" ] #!N 
+#!T,0 #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Function: #!EF #!I50 
+#!N Specifies how much material the Importer must skip before it 
+begins reading data from a data file. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Use: #!EF #!I50 #!N Optional. By default, the Importer assumes that 
+the data begin at the start of the file. #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   bytes #!EF  #!F-adobe-times-medium-i-normal--18*   
+n #!EF : the Importer will pass over  #!F-adobe-times-medium-i-normal--18*   n #!EF 
+bytes (in a binary file) or  #!F-adobe-times-medium-i-normal--18*   n #!EF characters (in 
+an ASCII file) before it begins to read data. #!N #!I30 
+#!N o  #!F-adobe-times-bold-r-normal--18*   lines #!EF  #!F-adobe-times-medium-i-normal--18*   n #!EF : the Importer 
+will pass over  #!F-adobe-times-medium-i-normal--18*   n #!EF lines before it begins to 
+read data. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   marker #!EF "  #!F-adobe-times-medium-i-normal--18*   
+string #!EF " : the Importer will begin at the first 
+character after the specified string. Quotation marks are required for a 
+string containing blank spaces or commas. #!N #!I0 #!N #!EF #!N 
+#!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 
+1. If the data begins on the line following a marker, 
+be sure to specify a new-line character ("\n") as part of 
+the string. Note also that the spacing between the marker and 
+the new-line character must be the same as that in the 
+actual file. This spacing is easily determined in the Data Browser 
+by placing the cursor at the end of the marker and 
+then at the end of the line and reading the corresponding 
+offset values (see  #!Ldp618,dxall170 f Figure 18  #!EL  ). #!N #!I30 #!N 2. If the 
+marker itself contains quotation marks or special characters, use the escape 
+character ("\") to indicate them, as shown in the following table. 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N backslash \ \\ #!N backspace BS 
+\b #!N bit pattern ddd ddd #!N carriage return CR \r 
+#!N double quote " \" #!N form feed FF \f #!N 
+horizontal tab HT \t #!N newline NL (LF) \n #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   Note: #!EF An octal value (ddd) can be used to 
+specify special #!N characters other than those shown here. #!EF #!N 
+#!N #!EC #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lintrkwd,dxall148 h interleaving  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

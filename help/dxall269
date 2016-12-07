@@ -1,0 +1,127 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Rstates Preserving Explicit State #!N #!EC #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx641 #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N #!N 
+Figure 41. Example 5 #!EF #!N #!EC #!N #!N Some visualization 
+applications require the retention of state from one execution to the 
+next, which as discussed earlier, cannot be supported within the context 
+of pure data flow. Consider, for example, the creation of a 
+plot of data values at a given point while sequencing through 
+a time series. The state of the plot from the prior 
+execution is retrieved. It is updated by appending the new time-step 
+information, and the result is then preserved by resaving the state 
+of the plot for the next execution. Data Explorer provides two 
+sets of tools for preserving state depending on whether the state 
+needs to be preserved over one execution of the network or 
+over multiple executions of the network. The tools for preserving state 
+are GetLocal, SetLocal, GetGlobal, and SetGlobal. The Set tools enable you 
+to save an object (in Data Explorer's cache) for access in 
+a subsequent execution or iteration. The Get tools enable you to 
+retrieve the object saved by the Set tools. #!N #!N You 
+pair a GetLocal and SetLocal in a visual program by creating 
+an arc from GetLocal's  #!F-adobe-times-bold-r-normal--18*   link #!EF output parameter to SetLocal's 
+ #!F-adobe-times-bold-r-normal--18*   link #!EF input parameter. In a visual program a GetLocal 
+typically appears logically above a SetLocal. When GetLocal runs, it checks 
+if an object has been saved in the cache. If no 
+object was saved (as would be the case if SetLocal has 
+not yet run) or the  #!F-adobe-times-bold-r-normal--18*   reset #!EF parameter to GetLocal 
+is set, GetLocal outputs an initial value that you can set 
+using the  #!F-adobe-times-bold-r-normal--18*   initial #!EF parameter. Otherwise, GetLocal retrieves the saved 
+object from the cache and outputs it. When SetLocal runs, it 
+saves its input object in the cache and then indicates that 
+its paired GetLocal should simply be scheduled during the next iteration 
+of a loop or the next time an execution is called 
+for. (Note that if GetLocal is inside a macro, it will 
+be executed only if the macro needs to be executed; that 
+is, if the macro's inputs have changed or there is a 
+side effect module in the macro.) #!N #!N GetGlobal and SetGlobal 
+are paired in the same way as GetLocal and SetLocal. They 
+also save and retrieve items from the cache. The main difference 
+is that GetGlobal and SetGlobal will preserve state over more than 
+one execution of a program. (However, recall that a complete loop 
+takes place within a  #!F-adobe-times-medium-i-normal--18*   single #!EF execution.) #!N #!N Using 
+GetGlobal and SetGlobal is comparable to using a static variable in 
+C-language programming. GetLocal and SetLocal are good for saving state inside 
+of a looping construct. Once the loop is terminated, the state 
+is reset for the next execution of the loop. To save 
+state in a program that uses a Sequencer module, you should 
+use GetGlobal and SetGlobal, since each iteration of the Sequencer is 
+a separate execution of the program as described in  #!Lloop,dxall268 h Iteration using Looping  #!EL  . 
+#!N #!N #!N #!N Illustrated in  #!Lxmodx641,dxall269 f Figure 41  #!EL  is a simple macro 
+that sums the numbers from 1 to N, where N is 
+an input parameter. The  #!F-adobe-times-bold-r-normal--18*   start #!EF parameter to ForEachN has 
+been set to 1. GetLocal and SetLocal are used to accumulate 
+the sum. Sum is a trivial macro consisting of a Compute 
+where the expression is "a+b." On the first iteration of the 
+loop, GetLocal will output its  #!F-adobe-times-bold-r-normal--18*   initial #!EF value, which has 
+been set to 0. On subsequent iterations GetLocal will output the 
+accumulated value SetLocal saved during the previous iteration. When the loop 
+terminates the final accumulated value is the output of the macro. 
+This macro is roughly equivalent to the following C-language statements: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N b = 0; #!N for (a=1; a<=10; 
+a++) #!N b = b+a; #!EF #!N #!N #!EC #!N #!N 
+If the macro were run again, on the first iteration of 
+the loop GetLocal would again output its  #!F-adobe-times-bold-r-normal--18*   initial #!EF value. 
+(Note that the macro will only run again if the input 
+to the macro changes or the output of the macro has 
+been removed from cache.) #!N #!N If you replaced the GetLocal 
+and SetLocal in  #!Lxmodx641,dxall269 f Figure 41  #!EL  with GetGlobal and SetGlobal it would be 
+equivalent to the following C-language statements: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+int a; #!N static int b = 0; #!N for (a=1; 
+a<=10; a++) #!N b = b+a; #!EF #!N #!N #!EC While 
+when SetLocal is used, the sum is reset each time the 
+macro is run, if SetGlobal is used, the sum of a 
+previous execution is added to the sum of the current execution. 
+For example, let macro_local be the macro shown in  #!Lxmodx641,dxall269 f Figure 41  #!EL  and 
+macro_global be the same macro but with SetGlobal and GetGlobal substituted 
+for SetLocal and GetLocal. If the input to both macros is 
+10 then both macros will output 55 (the sum of numbers 
+1 to 10) the first time they are run. If an 
+execution takes place without the input to the macros changing then 
+neither macro will run again and the value 55 will be 
+used as the output again. If you change the input to 
+3 then macro_local will output 6 and macro_global will output 61 
+(55+6). #!N #!N Illustrated in  #!Lxmodx742,dxall269 f Figure 42  #!EL  is a macro that returns 
+the accumulated volumes of the members of a group and the 
+number of members in the group. ForEachMember is used to iterate 
+through the group. Measure is used to determine the volume of 
+a member and the GetLocal and SetLocal pair on the left 
+side of the macro is used to accumulate the volumes. For 
+illustrative purposes, a loop containing GetLocal, SetLocal, and Increment is used 
+to count the number of members in the group. (Inquire also 
+provides this function, as does the  #!F-adobe-times-bold-r-normal--18*   index #!EF output of 
+ForEachMember.) Increment is a trivial macro consisting of a Compute where 
+the expression is set to "a+1." The  #!F-adobe-times-bold-r-normal--18*   initial #!EF values 
+to both GetLocal tools are 0. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx742 #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N #!N 
+Figure 42. Example 6 #!EF #!N #!EC #!N #!N Illustrated in 
+ #!Lxmodx1343,dxall269 f Figure 43  #!EL  is a visual program that saves the current camera settings 
+for use in the next execution of the program. The initial 
+value of GetGlobal is NULL. The Inquire module checks to see 
+that the output of GetGlobal is a valid camera object. If 
+it's not a camera object, then Route is used to ensure 
+that the Display module is not scheduled to run. When a 
+new camera is chosen (for example by rotating the object in 
+the Image window) the Display window will show the image using 
+the previous execution's camera settings. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx1343 #!N Graphics 
+omitted from Online Documentation. Please see the manual. #!N #!N Figure 
+43. Example 7 #!EF #!N #!EC #!N #!N As mentioned previously, 
+in a true data-flow implementation, all modules are pure functions (i.e. 
+their outputs are fully defined by their inputs). Hence, processes are 
+stateless with no side effects. A macro in Data Explorer is 
+considered to be a function, with its outputs being fully defined 
+by its inputs. This is no longer true when a GetGlobal 
+module is added to a macro. GetLocal maintains state information only 
+within one execution of the macro. GetGlobal maintains state information between 
+executions, and therefore the outputs of a macro containing GetGlobal are 
+no longer entirely defined by the inputs. The outputs from macros 
+with state (containing a GetGlobal module) are guaranteed to stay in 
+the cache until the inputs for that macro change. At that 
+point, the results of the previous execution are discarded to make 
+room for the new results. This is equivalent to setting the 
+cache attribute of the macro to  #!F-adobe-times-bold-r-normal--18*   cache last #!EF for 
+each of the outputs. These cache settings cannot be overwritten by 
+the user. This guarantees coherency when executing macros with state. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall269,dxall270 h Advanced Looping Constructs  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

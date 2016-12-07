@@ -1,0 +1,60 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall629 Example 5. Header and Data 
+in Separate Files #!N #!EC #!N #!N The following example uses 
+a header file that contains no data. Instead, it refers to 
+another file,  #!F-adobe-times-bold-r-normal--18*   irregirreg2.bin #!EF , that contains the data in 
+binary format. This example contains the same information as  #!Lex4,dxall629 h Example 4. An Irregular Grid  #!EL  , 
+but the data is stored in a file separate from the 
+header. If you use this sample header file in a script, 
+the results are the same as in  #!Lirreg108,dxall629 f Figure 108  #!EL  . This file 
+can be found in  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/data/irregirreg2.dx #!EF . #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N object 1 class array type float rank 1 shape 
+3 items 24 msb binary #!N data file irregirreg2.bin,0 #!N attribute 
+"dep" string "positions" #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N object 2 class array type int rank 1 shape 4 
+items 30 msb binary #!N data file irregirreg2.bin,288 #!N attribute "element 
+type" string "tetrahedra" #!N attribute "ref" string "positions" #!EF #!N #!N 
+#!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N object 3 class array type 
+float rank 0 items 24 msb binary #!N data file irregirreg2.bin,768 
+#!N attribute "dep" string "positions" #!EF #!N #!N #!EC #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N object "irreg positions irreg connections binary file" class 
+field #!N component "positions" value 1 #!N component "connections" value 2 
+#!N component "data" value 3 #!N #!N end #!EF #!N #!N 
+#!EC #!N #!N Often, you can use this method to point 
+to existing data files. To do this, your header file must: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Describe the 
+coordinate system of the data. #!N #!I30 #!N o Indicate how 
+many data values there are in the data file. #!N #!I30 
+#!N o Indicate the type of data values (float, byte, scalar, 
+vector, and so on). #!N #!I0 #!N #!EF #!N #!N #!N 
+For example, suppose you have an existing data file written in 
+the IEEE floating point format. It has the following characteristics: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o It is on 
+a regular grid, 100 x 100 x 15, and the delta 
+in the  #!F-adobe-times-medium-i-normal--18*   z #!EF direction is 2, while the deltas 
+in the  #!F-adobe-times-medium-i-normal--18*   x #!EF and  #!F-adobe-times-medium-i-normal--18*   y #!EF directions are 
+1. #!N #!I30 #!N o The origin of the grid is 
+at [50 100 10]. #!N #!I30 #!N o The first three 
+bytes of the file are the number of elements in the 
+ #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF , and  #!F-adobe-times-medium-i-normal--18*   z 
+#!EF directions. #!N #!I30 #!N o The data values are listed 
+in an order such that  #!F-adobe-times-medium-i-normal--18*   z #!EF varies fastest. #!N 
+#!I0 #!N #!EF #!N #!N #!N Given all these conditions, the 
+following Data Explorer header file imports the data (substituting the data 
+file name for  #!F-adobe-times-medium-i-normal--18*   data_file_name #!EF ): #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N object 1 class gridpositions counts 100 100 15 #!T,69,112,156 #!N 
+origin TAB 50 TAB 100 TAB 10 #!N delta TAB 1 
+TAB 0 TAB 0 #!N delta TAB 0 TAB 1 TAB 
+0 #!N delta TAB 0 TAB 0 TAB 2 #!EF #!N 
+#!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N object 2 class gridconnections 
+counts 100 100 15 #!N attribute "element type" string "cubes" #!N 
+attribute "ref" string "positions" #!EF #!N #!N #!EC #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N # It skips the first three bytes before reading 
+the data values #!N object 3 class array type float rank 
+0 items 150000 #!N ieee data file  #!F-adobe-times-bold-i-normal--18*   data_file_name #!EF ,3 
+#!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N object "field" 
+class field #!N component "positions" value 1 #!N component "connections" value 
+2 #!N component "data" value 3 #!N #!N end #!EF #!N 
+#!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lall630,dxall631 h Example 6. Product Arrays  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

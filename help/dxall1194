@@ -1,0 +1,41 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxdb DXDebug, 
+DXEnableDebug, DXQueryDebug #!N #!N Function #!N #!N Perform operations on global 
+debug keys. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> void DXDebug(char 
+*classes, char *message, ...) void DXEnableDebug(char *classes, int enable) int DXQueryDebug(char 
+*classes) #!EF #!N #!N Functional Details #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXDebug #!EF 
+compares the array of 1-character keys in  #!F-adobe-times-bold-r-normal--18*   classes #!EF to 
+the set of keys that have been enabled with  #!F-adobe-times-bold-r-normal--18*   DXEnableDebug 
+#!EF . If it finds a match,  #!F-adobe-times-bold-r-normal--18*   DXDebug #!EF calls 
+ #!F-adobe-times-bold-r-normal--18*   DXMessage #!EF with  #!F-adobe-times-bold-r-normal--18*   message #!EF and any parameters that 
+follow  #!F-adobe-times-bold-r-normal--18*   message #!EF . #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXEnableDebug #!EF enables 
+or disables (  #!F-adobe-times-bold-r-normal--18*   enable #!EF = 1 or 0, respectively) 
+the global key corresponding to each key in the array of 
+1-character  #!F-adobe-times-bold-r-normal--18*   keys #!EF . Usually, this routine is not called 
+directly but is accessed at run time by calling the  #!F-adobe-times-bold-r-normal--18*   
+Trace #!EF module (see IBM Visualization Data Explorer User's Reference). #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   DXQueryDebug #!EF compares the array of 1-character  #!F-adobe-times-bold-r-normal--18*   keys 
+#!EF to the set of keys that have been enabled with 
+ #!F-adobe-times-bold-r-normal--18*   DXEnableDebug #!EF . It returns 1 if any key matches; 
+otherwise, it returns 0. #!N Note: The upper-case letters A-Z and 
+the numbers 0-9 are reserved for system use. Module writers may 
+use the lowercase letters a-z. #!N #!N #!N Example: If the 
+module code for  #!F-adobe-times-bold-r-normal--18*   MyModule() #!EF contained the following lines: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N DXDebug("aqr", "the value of the index is 
+%d",i); #!N DXDebug("ar", "the last value was %d", last); #!N DXDebug("asq", 
+"entering for loop"); #!N DXDebug("a", "function foo() returned an error "); 
+#!EF #!N #!N #!EC #!N #!N Then after executing the following 
+modules: #!N Trace("q",1); MyModule(); #!N #!N Messages 1 and 3 would 
+be printed. #!N #!N If the following modules are then executed: 
+#!N Trace("r",1); MyModule(); #!N #!N Messages 1, 2, and 3 would 
+be printed, since both "q" and "r" are now enabled. #!N 
+#!N If the following modules were then executed: #!N Trace("qr",0); MyModule(); 
+#!N #!N None of the messages would be printed, as "a," 
+"q," "s," and "r" are now all disabled. #!N #!N Messages 
+are printed using the  #!F-adobe-times-bold-r-normal--18*   DXMessage #!EF function (see  #!Ldxmess,dxall1307 h DXMessage  #!EL  ). 
+#!N #!N Return Value #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXDebug #!EF and  #!F-adobe-times-bold-r-normal--18*   
+DXEnableDebug #!EF have no return value.  #!F-adobe-times-bold-r-normal--18*   DXQueryDebug #!EF returns 0 
+or 1. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxmess,dxall1307 h DXMessage  #!EL  #!EF 
+#!N #!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxdel,dxall1195 h DXDelete  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

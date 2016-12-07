@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Using the Message Window</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu045.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu047.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu045.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A name="HDRDEBUG" ></A>8.2 Using the Message Window</H2>
+		<A NAME="IDX855"></A>
+		<P>
+The Message window allows you to monitor the progress of a visual program as it
+executes.
+It displays information, warning and error messages from the executive
+and output from the Print and Echo modules (if you include them in
+your visual program).
+<P>
+You can use the Print module, for example, to print the contents
+of an object.
+See Print in <I>IBM Visualization Data Explorer User&#39;s Reference</I> for
+more information.
+You can use the Echo module to print values or strings.
+See Echo in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+To open the Message window, select the <TT><STRONG>Open Message
+Window</STRONG></TT>
+option from the <TT><STRONG>Windows</STRONG></TT> pull-down menu of either the
+Image window or the VPE window.
+The Message window
+consists of a text window and various pull-down menus.
+When a visual program is running, any information, warnings, or errors sent by
+the server to the user interface are shown in the display area.
+(See also <A HREF="usrgu039.htm#HDRERMSGS">"Error Messages"</A>.)
+<P>
+The Message window allows users to save the contents of the text window
+in two different ways.
+The <TT><STRONG>Save As...</STRONG></TT> command of the Message window&#39;s
+<TT><STRONG>File</STRONG></TT> menu brings up a File Selection dialog box that
+allows the user to designate a file to which the current
+contents of text window are to be saved.
+Alternatively, the <TT><STRONG>Log...</STRONG></TT> command of the
+<TT><STRONG>File</STRONG></TT>
+menu brings up a File Selection dialog box that allows the user to
+designate a file that will receive all subsequent messages
+displayed in the text window.
+<P>
+The Message window provides a number of techniques to help the user
+locate the source of errors and warnings.
+Before each successful execution of the visual program, the string
+"Begin execution" is placed in the text window.
+This allows the user to more easily determine whether messages are the
+result of the most recent execution.
+Also, any line in the text window can be highlighted before execution.
+Highlighted lines remain highlighted over executions, making it easy
+to locate a marker indicating the beginning of execution.
+This technique is particularly useful when a large amount of information
+(from Print or Echo) is being displayed in the Message window.
+Alternatively, the contents of the text window can be removed with the
+<TT><STRONG>Clear</STRONG></TT> option of the Message window&#39;s
+<TT><STRONG>Edit</STRONG></TT>
+menu.
+<P>
+When an error occurs during the execution of a module, the errant module
+can be located in the VPE by double-clicking on the line in the
+Message window&#39;s text window containing the error message.
+This selection causes the VPE&#39;s canvas to shift so that the
+indicated module is within the canvas&#39;s scrolled viewing
+area.
+Errors for the last execution can also be located using the <TT><STRONG>Next
+Error</STRONG></TT> and <TT><STRONG>Previous Error</STRONG></TT> commands of the
+Message
+window&#39;s <TT><STRONG>Edit</STRONG></TT> menu.
+These commands expose and highlight errors that occurred before or
+after the currently highlighted error.
+If no error is currently highlighted, then <TT><STRONG>Previous
+Error</STRONG></TT>
+indicates the last error during execution and <TT><STRONG>Next
+Error</STRONG></TT> indicates the first error.
+<P>
+The Message window can be configured so that it does not display certain
+message types in the text window (by using the <TT><STRONG>Error
+Messages</STRONG></TT>, <TT><STRONG>Warning Messages</STRONG></TT>, and
+<TT><STRONG>Information Messages</STRONG></TT> buttons in the
+Message window&#39;s <TT><STRONG>Options</STRONG></TT>
+pull-down menu).
+If a toggle button is activated (colored), the corresponding message
+type is displayed.
+The default behavior is to display all error, warning, and information
+messages.
+You can change this default behavior with the <TT>infoEnabled</TT>,
+<TT>warningEnabled</TT>, and <TT>errorEnabled</TT>
+configuration options described in
+<A HREF="usrgu075.htm#HDRAPF">Appendix D. "User Interface Configuration"</A>.
+By default, the Message window pops up when an error is displayed in
+the text window and does not automatically pop up when
+information or warning messages are displayed.
+You can also change this default behavior with the
+<TT>infoOpensMessage</TT>,
+<TT>warningOpensMessage</TT>, and
+<TT>errorOpensMessage</TT>
+configuration options described in <A HREF="usrgu075.htm#HDRAPF">Appendix D.
+"User Interface Configuration"</A>.
+<P>
+Lastly, when connected to the server, the <TT><STRONG>Execute Script
+Command...</STRONG></TT> command of the Message window&#39;s
+<TT><STRONG>Options</STRONG></TT> menu allows commands to be issued
+directly to the server.
+However, only advanced users should use this feature, as the results of
+the commands entered can upset the state of the visual program.
+This command brings up the <TT><STRONG>Execute Script Command</STRONG></TT>
+dialog box, which will accept a single command in a 1-line text window.
+Any messages that result from this command appear in the Message
+window&#39;s text window.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

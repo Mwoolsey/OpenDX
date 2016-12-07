@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu210.htm">Previous Page</A> &#124; <A HREF="progu212.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXIDX" HREF="progu097.htm#PToC_305">DXImportDX</A></H3>
+<A NAME="IDX1814"></A>
+<A NAME="IDX1815"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Imports data from a Data Explorer file.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXImportDX(char *filename, char **variable, int *start, int *end,<BR>
+                  int *delta)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Imports data from a Data Explorer file specified by the
+<TT><STRONG>
+filename
+</STRONG></TT>
+parameter.  The
+<TT><STRONG>
+variable
+</STRONG></TT>
+parameter specifies a
+<TT><STRONG>NULL</STRONG></TT>-terminated
+list of strings that identify which variables to import.  This
+parameter identifies Objects in the file that have the names specified
+by
+<TT><STRONG>variable</STRONG></TT>.  If more than one
+variable is specified, the Objects are collected
+together and a Group is returned.
+<P>
+For Series data,
+<TT><STRONG>
+*start,
+*end,
+</STRONG></TT>
+and
+<TT><STRONG>
+*delta
+</STRONG></TT>
+are used
+to control which indexed Series members are read in.  If
+<TT><STRONG>
+start
+</STRONG></TT>
+is
+<TT><STRONG>NULL</STRONG></TT>,
+it defaults to the beginning of the series; if
+<TT><STRONG>
+end
+</STRONG></TT>
+is
+<TT><STRONG>NULL</STRONG></TT>,
+it
+defaults to the end of the series; if
+<TT><STRONG>
+delta
+</STRONG></TT>
+is
+<TT><STRONG>NULL</STRONG></TT>,
+it defaults
+to one.
+<P>
+For additional information on the Data Explorer file format,
+see <A HREF="usrgu067.htm#HDRIMD">Appendix B. "Importing Data: File
+Formats"</A>.
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns a pointer to the Object or returns <TT><STRONG>NULL</STRONG></TT>
+and sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu212.htm#HDRDXIHDF">DXImportHDF</A>,
+<A HREF="progu213.htm#HDRDXINC">DXImportNetCDF</A>,
+
+<A HREF="progu212.htm#HDRDXIHDF">DXImportHDF</A>,
+<A HREF="progu210.htm#HDRDXICM">DXImportCM</A>,
+<A HREF="progu209.htm#HDRDXICDF">DXImportCDF</A>
+
+</STRONG></TT>
+<P>
+<A HREF="progu054.htm#HDRDEF">"Data Explorer Format Files"</A>.
+
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu210.htm">Previous Page</A> &#124; <A HREF="progu212.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

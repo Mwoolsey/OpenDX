@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rvcrcomm Sequencer #!N #!EC 
+Data Explorer provides the following commands that allow you to control 
+the Sequencer. You can use these commands in a script or 
+by typing them to the executive. #!N #!I0 #!N #!N #!Cnavy 
+#!N #!I0 #!N sequence #!EC #!N #!I50 #!N The sequence command 
+defines the frames that you specify in the Sequencer variables using 
+the images supplied by a function call or expression. The following 
+table defines the Sequencer variables: #!N #!N #!T,1,141,211,281,631  #!F-adobe-times-bold-r-normal--18*   TAB Name 
+TAB Read Only TAB Read/ Write TAB Description #!EF TAB @deltaframe 
+TAB - TAB x TAB The number of steps between frames. 
+TAB @endframe TAB - TAB x TAB The index of the 
+last frame. TAB @frame TAB x TAB - TAB The index 
+of the current frame. TAB @nextframe TAB - TAB x TAB 
+The index of the next frame. TAB @startframe TAB - TAB 
+x TAB The index of the first frame. #!N #!T,0 #!N 
+#!N In the following example, the sequence command defines eleven frames 
+for the Sequencer. These frames can be displayed using other Sequencer 
+commands. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N . . . #!N @startframe=0; 
+#!N @endframe=10; #!N @nextframe=@startframe; #!N sequence displayobject(20*@frame); #!N . . . 
+#!EF #!N #!N #!EC #!Cnavy #!N #!I0 #!N play #!EC #!N 
+#!I50 #!N This command begins execution on the frames that have 
+been defined with the  #!F-adobe-times-bold-r-normal--18*   sequence #!EF command. #!Cnavy #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   pause #!EF #!EC #!N #!I50 #!N This command stops 
+the sequence at the current frame. #!Cnavy #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+step #!EF #!EC #!N #!I50 #!N This command displays the next 
+frame in the current sequence direction. #!Cnavy #!N #!I0 #!N #!EC 
+ #!F-adobe-times-bold-r-normal--18*   stop #!EF #!N #!I50 #!N This command stops the sequence 
+display and returns to the first frame in the sequence. #!Cnavy 
+#!N #!I0 #!N #!EC  #!F-adobe-times-bold-r-normal--18*   forward #!EF #!N #!I50 #!N This 
+command sets the forward direction of the sequence. #!Cnavy #!N #!I0 
+#!N #!EC  #!F-adobe-times-bold-r-normal--18*   backward #!EF #!N #!I50 #!N This command sets 
+the backward direction of the sequence. #!Cnavy #!N #!I0 #!N #!EC 
+ #!F-adobe-times-bold-r-normal--18*   'palindrome on' #!EF  #!F-adobe-times-bold-r-normal--18*   off #!EF #!N #!I50 #!N The 
+palindrome command with its parameters sets or unsets the palindrome mode. 
+When you display frames in the palindrome mode, the current direction 
+changes at the first or last frame in the series. #!Cnavy 
+#!N #!I0 #!N #!EC  #!F-adobe-times-bold-r-normal--18*   'loop on' #!EF  #!F-adobe-times-bold-r-normal--18*   off #!EF 
+#!N #!I50 #!N The loop command with its parameters sets or 
+unsets the loop mode. When you display frames in the loop 
+mode, the series of frames repeats using the settings of the 
+forward, backward, and palindrome commands. #!I0 #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lfilincl,dxall550 h File Inclusion  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

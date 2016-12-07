@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxiev DXIsElementValid, DXIsElementInvalid #!N #!N Function #!N #!N 
+Returns the validity of a specified element of an invalid-component handle. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> int DXIsElementValid(InvalidComponentHandle handle, int 
+index) int DXIsElementInvalid(InvalidComponentHandle handle, int index) #!EF #!N #!N Functional Details 
+#!N #!N The result reflects both the initial conditions of  #!F-adobe-times-bold-r-normal--18*   
+handle #!EF when  #!F-adobe-times-bold-r-normal--18*   handle #!EF was created using  #!F-adobe-times-bold-r-normal--18*   DXCreateInvalidComponentHandle 
+#!EF , plus any effects of any calls to  #!F-adobe-times-bold-r-normal--18*   DXSetElementInvalid 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   DXSetElementValid #!EF ,  #!F-adobe-times-bold-r-normal--18*   DXInvertValidity #!EF ,  #!F-adobe-times-bold-r-normal--18*   
+DXSetAllValid #!EF , and  #!F-adobe-times-bold-r-normal--18*   DXSetAllInvalid #!EF . #!N #!N Return 
+Value #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXIsElementInvalid #!EF returns TRUE (1) if element 
+ #!F-adobe-times-bold-r-normal--18*   index #!EF in the invalid-component handle  #!F-adobe-times-bold-r-normal--18*   handle #!EF is 
+invalid, and returns FALSE (0) otherwise. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXIsElementValid #!EF 
+returns TRUE (1) if element  #!F-adobe-times-bold-r-normal--18*   index #!EF in the invalid-component 
+handle  #!F-adobe-times-bold-r-normal--18*   handle #!EF is valid, and returns FALSE (0) otherwise. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcich,dxall1191 h DXCreateInvalidComponentHandle  #!EL  ,  #!Ldxfich,dxall1215 h DXFreeInvalidComponentHandle  #!EL  #!EF 
+#!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxievs,dxall1290 h DXIsElementValidSequential, DXIsElementInvalidSequential  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

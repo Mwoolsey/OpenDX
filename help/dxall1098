@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rall1097 Type Definitions #!N #!EC #!N #!N An Object is 
+represented by a pointer to a C structure stored in global 
+memory. The content of the structure is private to the implementation. 
+A  #!F-adobe-times-bold-r-normal--18*   typedef #!EF is provided for each class of Object: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct object *Object; #!N typedef 
+struct string *String; #!N typedef struct private *Private; #!N typedef struct 
+field *Field; #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+typedef struct group *Group; #!N typedef struct multigrid *Multigrid #!N typedef 
+struct series *Series; #!N typedef struct compositefield *CompositeField; #!EF #!N #!N 
+#!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct array *Array; #!N 
+typedef struct regulararray *RegularArray; #!N typedef struct patharray *PathArray; #!N typedef 
+struct productarray *ProductArray; #!N typedef struct mesharray *MeshArray; #!EF #!N #!N 
+#!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct interpolator *Interpolator; #!EF 
+#!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct xform 
+*Xform; #!N typedef struct screen *Screen; #!N typedef struct clipped *Clipped; 
+#!N typedef struct camera *Camera; #!N typedef struct light *Light; #!EF 
+#!N #!N #!EC #!N #!N An  #!F-adobe-times-bold-r-normal--18*   enum #!EF provides a 
+number for each class and subclass: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+typedef enum { #!N CLASS_MIN, #!N CLASS_OBJECT, #!N CLASS_PRIVATE, #!N CLASS_STRING, 
+#!N CLASS_FIELD, #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+CLASS_GROUP, #!N CLASS_MULTIGRID, #!N CLASS_SERIES, #!N CLASS_COMPOSITEFIELD, #!EF #!N #!N #!EC 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N CLASS_ARRAY, #!N CLASS_REGULARARRAY, #!N CLASS_PATHARRAY, #!N 
+CLASS_PRODUCTARRAY, #!N CLASS_MESHARRAY, #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N CLASS_INTERPOLATOR, #!N CLASS_FIELDINTERPOLATOR, #!N CLASS_GROUPINTERPOLATOR, #!N CLASS_LINESRR1DINTERPOLATOR, #!N CLASS_LINESRI1DINTERPOLATOR, #!N 
+CLASS_QUADSRR2DINTERPOLATOR, #!N CLASS_QUADSII2DINTERPOLATOR, #!N CLASS_TRISRI2DINTERPOLATOR, #!N CLASS_CUBESRRINTERPOLATOR, #!N CLASS_CUBESIIINTERPOLATOR, #!N CLASS_TETRASINTERPOLATOR, 
+#!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N CLASS_GROUPITERATOR, #!N 
+CLASS_ITEMITERATOR, #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N CLASS_XFORM, 
+#!N CLASS_SCREEN, #!N CLASS_CLIPPED, #!N CLASS_CAMERA, #!N CLASS_LIGHT, #!N CLASS_MAX, #!N 
+CLASS_DELETED #!N } Class; #!EF #!N #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1098,dxall1099 h Classes and Subclasses  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rtsclang Scripting Language 
+#!N #!EC #!N #!N Sometimes it may be more convenient to 
+use the Data Explorer scripting language instead of the Visual Program 
+Editor to create visualizations. A common instance is that of using 
+Data Explorer scripts in overnight batch jobs to create visualizations and 
+save them to disk for analysis the next day. #!N #!N 
+A simple script that computes a series of isosurfaces and exports 
+them to disk is /usr/lpp/dx/samples/tutorial/batch_script (this is not a visual program, 
+so you cannot read it into the Visual Program Editor): #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N data = Import("/usr/lpp/dx/samples/data/watermolecule"); #!N counter = 1; 
+#!N #!N macro create_iso(isovalue,counter)->(counter) #!N { #!N isosurface = Isosurface(data,isovalue); #!N 
+filename = Format("iso%d", counter); #!N counter++; #!N Export(isosurface, filename); #!N } 
+#!EF #!N #!N #!EC (continued on the next page) #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N counter=create_iso(0.1, counter); #!N counter=create_iso(0.2, counter); #!N counter=create_iso(0.3, counter); 
+#!N counter=create_iso(0.4, counter); #!N counter=create_iso(0.5, counter); #!N counter=create_iso(0.6, counter); #!N #!N 
+# (end of script) #!EF #!N #!N #!EC This script first 
+imports data from a file called watermolecule. It then defines a 
+macro that takes two parameters: an isovalue and a counter. The 
+macro returns the counter as an output. It then computes an 
+isosurface, creates a filename (using the counter as part of the 
+name), and exports the isosurface to that filename. The counter is 
+also incremented. Finally the macro is called six times, with six 
+different isovalues. #!N #!N To run this script, first copy /usr/lpp/dx/samples/tutorial/batch_script 
+to the directory being used. Then enter the command: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -script < batch_script #!EF #!N #!N #!EC 
+ #!F-adobe-times-medium-i-normal--18*   or #!EF #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -script #!EF 
+#!N #!N #!EC and at the dx> prompt: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N include "batch_script" #!EF #!N #!N #!EC #!N #!N If 
+you want to view the exported isosurfaces, you can use visual 
+program /usr/lpp/dx/samples/tutorial/view_isosurfaces.net. #!N #!N Note: Visual programs are also scripts. However, 
+if a visual program uses a macro, you must include that 
+macro before including the visual program. For example: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N dx> include "my_macro.net" #!N dx> include "program.net" #!EF #!N 
+#!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lsamples,dxall87 h Sample Visual Programs and Sample Macros  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

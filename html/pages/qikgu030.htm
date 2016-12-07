@@ -1,0 +1,902 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Data Prompter</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu029.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu031.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu027.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>5.4 Data Prompter</H2>
+		<A NAME="IDX353"></A>
+		<P>
+The Data Explorer Data Prompter is a stand-alone, Motif-based user interface for
+importing data.
+It consists of three dialog boxes:
+<UL COMPACT>
+<LI>Initial Dialog Box (see <A HREF="#FIGDP1">Figure 15</A>)
+<LI>Simplified Data Prompter (see <A HREF="#FIGDP2">Figure 16</A>)
+<LI>Full Data Prompter (see <A HREF="#FIGDP3">Figure 17</A>).
+</UL>
+
+The Data Prompter imports a variety of different formats. It also gives
+you access to some general purpose visualization programs which can
+visualize a wide variety of different types of data (e.g.
+two-dimensional, three-dimensional, scalar, vector, series, etc.)
+<P>
+<H3><A NAME="Header_168" ></A>For Future Reference
+</H3>
+<P>The general purpose programs used by the Data Prompter may be found in
+<TT>/usr/local/dx/ui</TT>, with names denoting the type of data they
+visualize. You may find these programs useful on their own (apart from
+their use in the Data Prompter).
+<P>
+<H3><A NAME="Header_169" ></A>Supported Formats</H3>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Data Explorer Format
+</B></TD><TD><P>The Data Explorer format can be used to describe any object
+which can be
+represented in Data Explorer. Objects can be exported in the Data Explorer
+format
+using the Export module, and often filters are written to convert from other
+formats to the Data Explorer format.
+The Data Explorer format is described in detail in <A
+HREF="usrgu068.htm#HDREDF">B.2 , "Data Explorer Native Files"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I>.
+<P>
+The Data Explorer format is supported directly by the Import module (see
+<A HREF="refgu073.htm#HDRIMPORT">Import</A> <I>IBM Visualization Data Explorer
+User&#39;s Reference</I>). To create visual programs using data
+in this format, simply use the Import module, specifying the file name,
+and the format as "dx".
+</TD></TR><TR VALIGN="TOP"><TD><P><B>CDF Format
+</B></TD><TD><P>CDF is a standard format, supported directly by the Import
+module.
+For more information on the CDF format, see <A HREF="usrgu069.htm#HDRCDF">B.3 ,
+"CDF Files"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>. To create visual
+programs using data in this format simply
+use the Import module, specifying the cdf as the
+<TT><STRONG>name</STRONG></TT> parameter to Import, and specifying the format
+as "cdf".
+</TD></TR><TR VALIGN="TOP"><TD><P><B>netCDF Format
+</B></TD><TD><P>netCDF is a standard format, supported directly by the Import
+module. For more information on the netCDF format, see
+<A HREF="usrgu070.htm#HDRNETCDF">B.4 , "netCDF Files"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I> To create visual programs using
+data
+in this format simply use the Import module, specifying the file name as
+the <TT><STRONG>name</STRONG></TT> parameter to Import, and specifying the
+format as "netCDF".
+</TD></TR><TR VALIGN="TOP"><TD><P><B>HDF Format
+</B></TD><TD><P>HDF is a standard format, supported directly by the Import
+module.
+Data Explorer supports HDF files that contain a Scientific Dataset (SDS). For
+more information on the HDF format, see <A HREF="usrgu072.htm#HDRHDF">B.6 , "HDF
+Files"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+To create visual programs using data in this format simply use the
+Import module, specifying the file name as the <TT><STRONG>name</STRONG></TT>
+parameter to Import, and specifying the format as "hdf".
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Image data
+</B></TD><TD><P>Images in TIFF, MIFF, GIF, and RGB formats can be directly
+imported
+by the ReadImage module (see <A HREF="refgu110.htm#HDRREADIMA">ReadImage</A> in
+<I>IBM Visualization Data Explorer User&#39;s Reference</I>). To
+see the image, you need only to attach the output of ReadImage to first
+input of the Display module. You can of course manipulate the image
+with any of the appropriate Data Explorer modules.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Grid or Scattered Data (General Array
+format)
+</B></TD><TD>
+      <P>Data Explorer can import a wide variety of gridded and scattered data 
+        using the General Array format. The basic procedure is to create a header 
+        file which describes the structure of the data (dimensionality, number 
+        of variables, layout in the file, etc.). The General Array Importer is 
+        described in detail in <A HREF="qikgu027.htm#HDRGAI">5.1 , "General Array 
+        Importer"</A>. <A HREF="qikgu028.htm">5.2 , "Importing Data: Header File 
+        Examples"</A> contains many examples illustrating the wide variety of 
+        data that can be imported. 
+      <P>
+The Data Prompter greatly simplifies the task of creating a header file,
+as it performs extensive error checking (disallowing conflicting
+keywords, for example) and frees you from needing to know the exact
+syntax of the General Array format. When you use the Data Prompter to
+import this format, you will be asked to describe your data in detail.
+You need to then save the header file using <TT><STRONG>Save As</STRONG></TT>
+in the File menu of the Data Prompter Full or Simplified window. The
+data can then be visualized using one of the general purpose programs
+provided by the Data Prompter.
+<P>
+To create new visual programs using data imported in this way, simply
+specify the name of the header file to the Import module, specifying the
+format as "general" (see <A HREF="refgu073.htm#HDRIMPORT">Import</A> in <I>IBM
+Visualization Data Explorer User&#39;s Reference</I>).
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Spreadsheet Data
+</B></TD><TD><P>Spreadsheet data is typically non-spatial data, arranged in
+columns.
+This type of data is supported by the ImportSpreadsheet module (see
+<A HREF="refgu074.htm#HDRIMPSPSH">ImportSpreadsheet</A> in <I>IBM Visualization
+Data Explorer User&#39;s Reference</I>).
+</TD></TR></TABLE>
+<P><B>Note: </B>For the formats directly supported by Import (Data Explorer,
+CDF, netCDF,
+HDF) or ImportSpreadsheet (spreadsheet data), it is not necessary to use
+the Data Prompter to import the data. You can simply use the Import or
+ImportSpreadsheet module and then add whatever visualization modules you
+want to look at the data. However, you can use the Data Prompter to give
+you easy access to the general purpose programs which get you "up and
+running" with a picture of your data.
+<P>
+If you are importing your data using the General Array format, once you
+have created a header file (typically done by using the Data Prompter),
+you can import the header file directly using the Import module.
+
+<P>
+<H3><A NAME="HDRINITDB" ></A>Initial Dialog Box</H3>
+<A NAME="IDX355"></A>
+<A NAME="IDX356"></A>
+<P>
+To start the Data Prompter, type:
+<PRE>
+dx -prompter
+</PRE>
+
+or choose <TT><STRONG>Import Data</STRONG></TT> from the Data Explorer Startup
+window.
+The initial dialog box appears (see <A HREF="#FIGDP1">Figure 15</A>).
+<P><B><A NAME="FIGDP1" HREF="../qikguide.htm#FT_FIGDP1">Figure 15. Initial Data
+Prompter window</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/datapr1.gif" ALT="Figure datapr1 not
+displayed."></CENTER><BR></B><BR>
+<P>
+At the top of the Data Prompter initial dialog is a text field into
+which you can enter the data file to be imported. If you press the
+<TT><STRONG>...</STRONG></TT> button to the right of the field, a list
+of directories is presented. This list of directories is taken from your
+<TT>DXDATA</TT> environment variable, if set (see <A
+HREF="usrgu073.htm#HDRENVVAR">C.1 , "Environment Variables"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+Then a file selection dialog is presented, initialized to the directory
+chosen from the <TT><STRONG>...</STRONG></TT> button.
+You can also access the file selection dialog directly by choosing
+<TT><STRONG>Select Data File</STRONG></TT> from the
+<TT><STRONG>File</STRONG></TT>
+menu.
+<P>
+The dialog also allows you
+to specify the type of data file you wish to import. The choices are:
+<UL COMPACT>
+<LI>Data Explorer file
+<LI>CDF format
+<LI>netCDF format file
+<LI>HDF format
+<LI>Image file
+<LI>Grid or Scattered file
+<LI>Spreadsheet format
+</UL>
+For the Data Explorer, CDF, netCDF, and HDF formats, all you need to do is make
+the selection of the format and specify the file name at the top of the
+dialog. Each of these formats is supported directly by Data Explorer and no
+further description by you is necessary. Then you can choose to browse
+the data file, have Data Explorer test the import of the data file and print
+some
+characteristics of it, or have Data Explorer visualize the data automatically
+using a general purpose visual program.
+<P>
+If you choose <TT><STRONG>Image file</STRONG></TT>, the dialog will expand,
+allowing you to choose the type of image format, and you can then have
+Data Explorer automatically read and display your image file.
+<P>
+If you choose <TT><STRONG>Spreadsheet format</STRONG></TT>, the dialog will
+expand, allowing you to specify whether to import the data as a table or
+a matrix. Spreadsheet data consists of columns of related data,
+typically non-spatial. If imported as a table, then the data will be
+treated as a single Field of data, with each column placed in the field
+as a named component. Each component will contain scalar or string data.
+If imported as a matrix, then it is implicitly assumed to be a
+two-dimensional grid, with the rows and columns specifying the two
+dimensions. In this case the data in each column must be of the same
+type (i.e. you cannot have mixed strings and numbers). The
+<TT><STRONG>Spreadsheet format</STRONG></TT> option also allows you to specify
+a column delimiter. For example, to specify tab-separated columns,
+specify "&#92;t" as the delimiter. See <A
+HREF="refgu074.htm#HDRIMPSPSH">ImportSpreadsheet</A> in
+<I>IBM Visualization Data Explorer User&#39;s Reference</I> for more
+information.
+<P>
+If you choose <TT><STRONG>Grid or Scattered File (General Array
+Format)</STRONG></TT>, which allows you to import a wide variety of data
+formats, you will need to tell Data Explorer more about the file. If you choose
+this option,
+
+the dialog box that appears allows you to
+identify for the Data Prompter five important characteristics of the
+data you want to import:
+<UL COMPACT>
+<LI>Grid type
+<LI>Number of variables
+<LI>Positions in data file
+<LI>Single time step
+<LI>Data organization.
+</UL>
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Grid type
+</B></TD><TD><P>Four grid-selection buttons display patterns representing
+different types of data.
+Reading from left to right, they are:
+<UL COMPACT>
+<LI><I>Regular grid</I>: the data-point positions can be specified
+by origin-and-delta pairs (one pair for each dimension).
+<LI><I>Partly regular grid</I>: one or more of the dimensions
+cannot be described by a simple origin-delta pair.
+<LI><I>Warped regular grid</I>: each position must be explicitly
+specified, but there is still a grid structure to the
+connections between data points.
+<LI><I>Scattered data</I>: there are no connections between
+data points.
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Number of variables
+</B></TD><TD><P>The stepper button allows you to specify the number of variables
+in
+the data file to be imported.
+For example, if the file contains data values for temperature and
+velocity (and for nothing else), the stepper button should be
+set to 2.
+(The default is 1, and the allowed range is 1-100.)
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Positions in data file
+</B></TD><TD><P>This option is available only with the selection of warped
+regular grid or scattered points.
+It is not meant for files that "describe" data positions by
+reference to origin-delta pairs.
+For example, if the data are organized as:
+<PRE>
+         x1, y1, data1
+         x2, y2, data2
+         . . .
+</PRE>
+<P>
+the toggle should be activated.
+<P>
+Selecting the regular or partly regular grid automatically deactivates
+the toggle: the label is grayed out, and the button cannot be
+activated.
+<P>
+Selecting the third button (warped grid) automatically activates the
+toggle, and a stepper button appears for setting the number of
+dimensions (e.g., set the stepper to 3 for x,y,z points).
+Once the warped grid is selected, however, the toggle cannot be reset
+(i.e., the position specifications are assumed to be in the file).
+<P>
+Selecting the fourth button (scattered points) does not activate the
+toggle, but it allows you to do so, and to deactivate it even
+after setting the number of dimensions.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Single time step
+</B></TD><TD><P>This toggle button allows you to specify whether your data
+consists of a single time step or not.
+By default, the toggle is activated.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Data organization
+</B></TD><TD><P>The data organization can be characterized as block or
+spreadsheet.
+For example, given a regular grid containing two variables (say
+temperature and pressure), block style lists one set
+of values first, followed by the other:
+<PRE>
+     t<SUB>1</SUB>, t<SUB>2</SUB>, ..., t<SUB>n</SUB>, p<SUB>1</SUB>, p<SUB>2</SUB>, ..., p<SUB>n</SUB>
+</PRE>
+<P>
+Spreadsheet style alternates the two (one pair per line):
+<PRE>
+     t<SUB>1</SUB>, p<SUB>1</SUB>
+     t<SUB>2</SUB>, p<SUB>2</SUB>
+     ...
+     t<SUB>n</SUB>, p<SUB>n</SUB>
+</PRE>
+</TD></TR></TABLE>
+<P>
+Once you have specified the five characteristics in the initial dialog
+box, click on
+
+<TT><STRONG>Data Prompter</STRONG></TT>.
+
+The simplified Data Prompter that appears is "customized," containing
+only those options appropriate to the data you have described
+in the dialog box (see <A HREF="#HDRSIMPDP">"Simplified Data Prompter"</A>).
+<P>
+
+For Future Reference: Once you have opened and modified either the
+simplified or full data prompter, if you then close the simplified or
+full window, you should not use the <TT><STRONG>Describe Data</STRONG></TT>
+button
+to reopen the window, as the <TT><STRONG>Describe Data</STRONG></TT> button
+opens a
+brand new window. Instead, use <TT><STRONG>Open General Array
+Importer</STRONG></TT> from the <TT><STRONG>Options</STRONG></TT> menu of the
+initial dialog.
+
+<P>
+<H3><A NAME="HDRSIMPDP" ></A>Simplified Data Prompter
+</H3>
+<A NAME="IDX357"></A>
+<A NAME="IDX358"></A>
+<A NAME="IDX359"></A>
+<A NAME="IDX361"></A>
+<P>
+The simplified Data Prompter (<A HREF="#FIGDP2">Figure 16</A>) is just what its
+name
+implies: a smaller version of the full Data Prompter
+(<A HREF="#FIGDP3">Figure 17</A>).
+It displays a subset of the buttons, parameters, and fields contained
+in the larger version.
+Since these are identical in both versions, they are described in the
+
+section on the full Data Prompter (see <A HREF="#HDRFULLDPR">"Full Data
+Prompter"</A>).
+<P>
+This section instead describes only the menu bar and its options, which
+are also identical in both the simplified and full prompters.
+<P><B><A NAME="FIGDP2" HREF="../qikguide.htm#FT_FIGDP2">Figure 16. Simplified Data
+Prompter</A></B>. This window contains a subset of the buttons, parameter, and
+fields available in the full Data Prompter (see <A HREF="#FIGDP3">Figure
+17</A>). The Options pull-down menu can be used to call up the full prompter or
+to return to the initial dialog box.<BR>
+<B><BR><CENTER><IMG SRC="../images/simfdp.gif" ALT="Figure simfdp not
+displayed."></CENTER><BR></B><BR>
+<P>
+The Data Prompter menu bar displays four options:
+<TT><STRONG>File</STRONG></TT>, <TT><STRONG>Edit</STRONG></TT>,
+<TT><STRONG>Options</STRONG></TT>, and
+<TT><STRONG>Help</STRONG></TT>.
+<P>
+<H4><A NAME="HDRDPFLEMN"></A><U>Data Prompter File Pull-down Menu</U></H4>
+<A NAME="IDX362"></A>
+<P>
+The following functions are available in this pull-down menu:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>New
+</B></TD><TD><P>Resets the Data Prompter by setting all fields to their default
+values.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Open...
+</B></TD><TD><P>Invokes a standard Motif file-selection dialog box that prompts
+for a choice of file.
+You can read in an existing General Array Importer header file, whether
+or not it was created with the Data Prompter.
+However, the Data Prompter does <I>not</I> support header files containing
+the data to be imported: the data is assumed to exist in a
+separate file.
+To read an existing header from a file that also contains the data to
+be visualized, the header should be written out to a separate file.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Save
+</B></TD><TD><P>Writes the Data Prompter header file out, using the current
+file name.
+The current file name is set by opening a file or by executing the
+<TT><STRONG>Save As...</STRONG></TT> command.
+The Data Prompter will check the correctness of most aspects of the header
+file to be saved.
+Any problems are reported and the <TT><STRONG>Save</STRONG></TT> operation is
+terminated.
+You may then correct the indicated problem and save the header file
+again.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Save As...
+</B></TD><TD><P>Is the same as <TT><STRONG>Save</STRONG></TT> except that you
+must specify a
+name for the header file.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Quit
+</B></TD><TD><P>Terminates the Data Prompter application.
+It also gives you the option of saving any changes not already saved.
+</TD></TR></TABLE>
+<P>
+<H4><A NAME="HDRDPEDTMN"></A><U>Data Prompter Edit Pull-down Menu</U></H4>
+<P>
+<TT><STRONG>Edit</STRONG></TT> has one option: the
+<TT><STRONG>Comment</STRONG></TT> dialog
+box.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Comment...
+</B></TD><TD><P>Displays a text dialog box for entering comments about a
+header file.
+These comments are stored with the file and are ignored by the General
+Array Importer.
+Any comments it contains are displayed in the <TT><STRONG>Header
+Comment</STRONG></TT> dialog box.
+</TD></TR></TABLE>
+<P>
+<H4><A NAME="HDRDPOPTMN"></A><U>Data Prompter Options Pull-down Menu</U></H4>
+<P>
+The following options are available in this pull-down menu:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Full prompter
+</B></TD><TD><P>Invokes the most detailed prompter dialog box (<A
+HREF="#FIGDP3">Figure 17</A>).
+It can also be invoked from the command line:
+<TT>dx -prompter -full</TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Simplified prompter
+</B></TD><TD><P>Invokes a prompter dialog box (<A HREF="#FIGDP2">Figure 16</A>)
+that is less
+detailed than the full Data Prompter.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Initial dialog
+</B></TD><TD><P>Invokes the initial dialog box (<A HREF="#FIGDP1">Figure
+15</A>).
+It can also be invoked from the command line:
+<TT>dx -prompter</TT>.
+</TD></TR></TABLE>
+<P>
+<H4><A NAME="HDRDPHLPMN"></A><U>Data Prompter Help Pull-down Menu</U></H4>
+<P>
+This pull-down menu contains one option not available in the
+corresponding pull-down menus of the VPE window, the
+Image window, and the Data Browser:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>On General Array Format...
+</B></TD><TD><P>Displays the online documentation of the General Array Importer
+format.
+</TD></TR></TABLE>
+For details of the other menu options, see <I>IBM Visualization Data Explorer
+User&#39;s Guide</I>.
+<P>
+<H3><A NAME="HDRFULLDPR" ></A>Full Data Prompter
+</H3>
+<A NAME="IDX363"></A>
+<A NAME="IDX364"></A>
+<P>
+The full Data Prompter dialog box is divided into halves, the left half
+describing features of both the data file and the data,
+and the right half describing the data field(s)
+(see <A HREF="#FIGDP3">Figure 17</A>).
+The order of descriptions in this section follows that of the dialog
+box: from top to bottom in the left half and then top to bottom
+in the right half.
+<P><B>Note: </B>If you used the initial dialog box to describe your data and
+then selected <TT><STRONG>OK</STRONG></TT> instead of
+<TT><STRONG>Full</STRONG></TT>, you are in the
+simplified Data Prompter and some options may not be
+presented.
+However, you can invoke the full prompter at any time by selecting
+it in the <TT><STRONG>Options</STRONG></TT> pull-down menu.
+<P>
+<H4><U><a name="HDRDFNDINF"></a>Data File and Data Information</U></H4>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Data file
+</B></TD><TD>
+      <P>The first information the General Array Importer requires is the path 
+        name of the data file to be imported. This name can be entered directly 
+        in the text field to the right of the <TT><STRONG>Data file</STRONG></TT> 
+        label. Alternatively, you can click on the ellipsis button (<TT><STRONG>...</STRONG></TT>) 
+        to the right of the text field. If you select <TT><STRONG>File Selection 
+        Dialog...</STRONG></TT> from the pop-up menu, you can select a file from 
+        the dialog list. Note that using the <TT><STRONG>File Selection</STRONG></TT> 
+        dialog list is simply a shortcut for typing in the path name. The <TT><STRONG>Browser</STRONG></TT> 
+        option on the ellipsis pop-up is discussed in <A HREF="qikgu031.htm">5.5 
+        , "Data Prompter Browser"</A>. 
+      <P>
+See also <A HREF="qikgu029.htm#HDRFILKWD">"file"</A>.
+<P><B><A NAME="FIGDP3" HREF="../qikguide.htm#FT_FIGDP3">Figure 17. Full Data
+Prompter</A></B>. The two halves of this dialog box are described in separate
+sections in the text (see <A HREF="#HDRDFNDINF">"Data File and Data
+Information"</A> and <A HREF="#HDRDFLDINF">"Data Fields Information"</A>).<BR>
+<B><BR><CENTER><IMG SRC="../images/fulldp.gif" ALT="Figure fulldp not
+displayed."></CENTER><BR></B><BR>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Header
+<A NAME="SPTDPRHDR"></A>
+</B></TD><TD><P>If your data file has a header (an initial section that must not
+be imported with the data), activate the <TT><STRONG>Header</STRONG></TT>
+toggle button.
+Clicking on the button immediately to the right of the toggle will
+generate a pop-up menu of three options for specifying where
+the header stops and the data begins:
+<UL COMPACT>
+<LI><TT><STRONG>&#35; of bytes</STRONG></TT> (from the beginning of the
+file)
+<LI><TT><STRONG>&#35; of lines</STRONG></TT> (from the top of the file)
+<LI><TT><STRONG>string marker</STRONG></TT>
+</UL>
+Click on one and enter the appropriate information in the associated
+text field to the right.
+The appropriate offset or string can be determined by browsing the
+data file.
+(See Notes in <A HREF="qikgu029.htm#HDRHDRKWD">"header"</A>.
+As earlier examples demonstrate, this information ultimately appears in a
+<TT><STRONG>header</STRONG></TT> keyword statement in a header file.)
+<P>
+See also <A HREF="qikgu029.htm#HDRHDRKWD">"header"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Grid Size versus &#35; of Points
+</B></TD><TD><P>Located below the <TT><STRONG>Header</STRONG></TT> toggle button
+are two
+buttons labeled <TT><STRONG>Grid Size</STRONG></TT> and <TT><STRONG>&#35; of
+Points</STRONG></TT>.
+<P>
+If the data has connections that are gridded, click on the <TT><STRONG>Grid
+size</STRONG></TT> button.
+Specify the dimensions of the grid in the associated text fields (e.g.,
+if the data are 2-dimensional, enter the sizes in the first
+two fields and leave the last two blank).
+<P>
+If the data consist of unconnected points, click on the <TT><STRONG>&#35;
+of Points</STRONG></TT> associated button, and enter the appropriate
+number in the associated text field.
+<P>
+Notice that these choices affect other aspects of the Data Prompter.
+The choice of points deactivates the <TT><STRONG>Data order</STRONG></TT>
+buttons and all but the first origin-delta field in the
+<TT><STRONG>Positions</STRONG></TT> section at the bottom.
+<P>
+See also <A HREF="qikgu029.htm#HDRGRIDKWD">"grid"</A> and <A
+HREF="qikgu029.htm#HDRPNTKWD">"points"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Data Format
+</B></TD><TD><P>The format of the data can be ASCII/Text or Binary/IEEE.
+The selection of <TT><STRONG>Binary/IEEE</STRONG></TT>) activates the
+<TT><STRONG>Significant Byte First</STRONG></TT> option button
+immediately to the right.
+You may then select Most Significant Byte First (MSB) or Least
+Significant Byte First (LSB).
+For ASCII (or Text) format, this option button is inactivated.
+<P>
+See also <A HREF="qikgu029.htm#HDRFORMKWD">"format"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Data Order
+</B></TD><TD><P>This option specifies the layout of multidimensional
+arrays.
+<A NAME="IDX365"></A>
+<A NAME="IDX366"></A>
+<A NAME="IDX367"></A>
+<A NAME="IDX368"></A>
+<TT><STRONG>Row</STRONG></TT> (majority) means that the last index of a
+multidimensional array varies fastest (as in C language).
+<TT><STRONG>Column</STRONG></TT> (majority) means that the first index varies
+fastest (as in FORTRAN).
+<P>
+See also <A HREF="qikgu029.htm#HDRMAJKWD">"majority"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Field Interleaving
+<A NAME="IDX369"></A>
+<A NAME="IDX370"></A>
+</B></TD><TD><P>The data to be visualized must be organized in one of two
+general
+styles:
+
+block or columnar.
+
+For data laid out in blocks, select <TT><STRONG>Block</STRONG></TT> from the
+<TT><STRONG>Field Interleaving</STRONG></TT> option menu.
+For columnar style, select <TT><STRONG>Columnar</STRONG></TT>.
+<P>
+Note that when <TT><STRONG>Columnar</STRONG></TT> is selected, both
+<TT><STRONG>Vector
+Interleaving</STRONG></TT> and <TT><STRONG>Series Interleaving</STRONG></TT>
+are grayed out.
+(See <A HREF="qikgu027.htm#HDRGAINTS">"Some Notes on General Array Importer
+Format"</A> for more information about the block and
+columnar styles.)
+<P>
+See also <A HREF="qikgu029.htm#HDRINTRKWD">"interleaving"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Vector Interleaving
+</B></TD><TD><P>The interpretation of vector data organized in records (blocks)
+is
+specified by the <TT><STRONG>Vector Interleaving</STRONG></TT>
+option button.
+The two choices in the associated option menu are&#58;
+<BR>
+<TT><BR>
+X<SUB>0</SUB>Y<SUB>0</SUB>, X<SUB>1</SUB>Y<SUB>1</SUB>,...,
+X<SUB>n</SUB>Y<SUB>n</SUB></TT>                   "Vectors together"<BR>
+<P><BR>
+and<BR>
+<P><BR>
+<TT><BR>
+X<SUB>0</SUB>, X<SUB>1</SUB>,..., X<SUB>n</SUB>, Y<SUB>0</SUB>,
+Y<SUB>1</SUB>,..., Y<SUB>n</SUB></TT>    "Components together"<BR>
+<P>
+"Vectors together" means that all of the components of one vector
+are written together, then all the components of the next
+vector, and so on.
+"Components together" means that all of the x-components are
+written together, then all the y-components, and so on.
+<P>
+See also <A HREF="qikgu029.htm#HDRINTRKWD">"interleaving"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Series
+</B></TD><TD><P>For data consisting of a sequence of fields, click on the
+<TT><STRONG>Series</STRONG></TT> toggle button, activating the three
+text fields to the right:
+<UL COMPACT>
+<LI><TT><STRONG>n</STRONG></TT> specifies the number of series members in the
+data file.
+<LI><TT><STRONG>start</STRONG></TT> specifies the series value for the first
+series member.
+<LI><TT><STRONG>delta</STRONG></TT> specifies the difference in position
+between successive series members.
+</UL>
+<P>
+See also <A HREF="qikgu029.htm#HDRSERSKWD">"series"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Series Interleaving
+<A NAME="IDX372"></A>
+</B></TD><TD><P>Activating the <TT><STRONG>Series</STRONG></TT> toggle button
+also
+activates the <TT><STRONG>Series Interleaving</STRONG></TT> option
+menu if <TT><STRONG>Field Interleaving</STRONG></TT> is set to
+<TT><STRONG>Record</STRONG></TT>.
+The option menu contains two choices&#58;
+<BR>
+<TT>F1</TT><SUP>s0</SUP><TT>, F2</TT><SUP>s0</SUP><TT>,
+F1</TT><SUP>s1</SUP><TT>, F2</TT><SUP>s1</SUP><TT>,...,
+F1</TT><SUP>sn</SUP><TT>,
+F2</TT><SUP>sn</SUP>  "Series members together"
+<BR>
+and
+<BR>
+<TT>F1</TT><SUP>s0</SUP><TT>, F1</TT><SUP>s1</SUP><TT>,
+F2</TT><SUP>s0</SUP><TT>, F2</TT><SUP>s1</SUP><TT>,...,
+Fn</TT><SUP>s0</SUP><TT>,
+Fn</TT><SUP>s1</SUP>  "Fields together"
+<P>
+This feature is useful for series that consist of more than one
+field.
+"Series members together" means that the data for each field of
+series member zero (s0) are followed by all the data for each
+field for series member one (s1), and so on.
+"Fields together" means that all the series members for field 1
+(F1) are followed by all the series members for field 2 (F2),
+and so on.
+<P>
+See also <A HREF="qikgu029.htm#HDRINTRKWD">"interleaving"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Series Separator
+<A NAME="IDX374"></A>
+<A NAME="IDX375"></A>
+</B></TD><TD><P>This feature is required only if the data for series members are
+separated from one another by non-data (e.g., comments).
+The specification is identical to that of the <TT><STRONG>Header</STRONG></TT>
+keyword (see <A HREF="#SPTDPRHDR">Header</A>).
+<P>
+See also <A HREF="qikgu029.htm#HDRSERSKWD">"series"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Grid Positions
+</B></TD><TD><P>This feature is required for gridded data if you have not
+specified
+that the positions are stored in the file (by naming one of the
+fields with the reserved word "locations").
+<P>
+The entire section is grayed out if the "locations" reserved word
+is used.
+If the data consist of unconnected points (and are so specified in the
+initial dialog box or by the <TT><STRONG># of points</STRONG></TT>
+toggle), all but one of the origin-delta fields is
+grayed out.
+See also <A HREF="qikgu029.htm#HDRPOSKWD">"positions"</A>.
+<P>
+The option button just to the right of the
+<TT><STRONG>Grid positions</STRONG></TT>
+
+(or <TT><STRONG>Point positions</STRONG></TT>)
+
+title offers the following choices:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><B><TT><STRONG>Completely regular</STRONG></TT>
+</B></TD><TD>The dimensions of the grid are all regular.
+This selection fixes the regular/irregular option button to the left of
+each dimension field at "regular" (i.e., "irregular"
+cannot be selected for any dimension).
+
+There will be as many origin/delta fields enabled as there are
+dimensions as specified by <TT><STRONG>Grid size</STRONG></TT>, or one if
+<TT><STRONG># of Points</STRONG></TT> is chosen.
+
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Partially regular</STRONG></TT>
+
+</B></TD><TD>Each dimension of the grid can be either regular or irregular.
+This selection specifies a product of arrays. Thus, for example, the
+grid may be spaced equally in one dimension, but have an explicit list
+of positions in another dimension. For each dimension, you can set the
+<TT><STRONG>regular</STRONG></TT>/<TT><STRONG>irregular</STRONG></TT> option
+menu to
+the appropriate choice, and then enter either the origin, delta pair for
+that dimension or the explicit list of positions for that dimension.
+
+<P><B>Notes: </B><OL COMPACT>
+<LI>A regular dimension is specified completely by an origin and a
+delta (the number of positions in the dimension is specified
+in the grid section).
+<LI>Specification of an irregular dimension requires an explicit and
+complete list of values (the number of items in the list must
+exactly equal the number of positions in the dimension).
+</OL>
+
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Explicit position
+list</STRONG></TT>
+</B></TD><TD>The positions are completely irregular and must be explicitly
+specified. If this option is chosen, then a single field is enabled for
+you to enter the position list. The number of items in the list should
+be equal to the total number of positions x the dimensionality of the
+positions.
+
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+<P>
+<H4><U><a name="HDRDFLDINF"></a>Data Fields Information</U></H4>
+<P><B>Note: </B>A change made in any option in this part of the dialog box
+generates an instruction to save (confirm) the change by
+clicking on the <TT><STRONG>Modify</STRONG></TT> button
+at the bottom of the panel.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Field List
+</B></TD><TD><P>This list (at the top right of the Data Prompter) displays the
+names of the
+fields that are currently defined for a header file.
+<P>
+If the list contains more than one field, their order must match that
+of the fields in the data file.
+To change the order of the fields, use the <TT><STRONG>Move field</STRONG></TT>
+arrows, after first selecting (highlighting) the field name
+to be moved.
+<P>
+Note that the settings of the various buttons and associated text
+fields below the field list are updated whenever a field is
+selected.
+<P>
+See also <A HREF="qikgu029.htm#HDRFLDKWD">"field"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Field name
+</B></TD><TD><P>The text field immediately below <TT><STRONG>Field
+List</STRONG></TT>
+displays the name of the current (selected) field.
+Field names must be unique.
+Default field names take the form "field<I>n</I>", where
+<I>n</I> is an integer.
+<P>
+You can change a name and then click on the <TT><STRONG>Modify</STRONG></TT>
+button (near the bottom of the Data Prompter) to
+confirm the change.
+(Similarly you can add, insert, or delete a field.
+See <TT><STRONG>Field List Buttons</STRONG></TT> at the end of this section.)
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Type
+</B></TD><TD><P>For each field in the list, select the appropriate data
+<TT><STRONG>Type</STRONG></TT> with the associated option
+button.
+The type must match that of the data in the field.
+The supported types are&#58;
+<PRE>
+double     byte             int             short
+float      signed byte      signed int      signed short
+string     unsigned byte    unsigned int    unsigned short
+</PRE>
+<P>
+Note that:
+<UL COMPACT>
+<UL COMPACT>
+<LI>byte is equivalent to unsigned byte
+<LI>int is equivalent to signed int
+<LI>short is equivalent to signed short.
+</UL>
+</UL>
+<P>
+Specifying <TT>string</TT> enables "string size," which should
+contain the length of the longest string.
+<P>
+See also <A HREF="qikgu029.htm#HDRTYPKWD">"type"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Structure
+</B></TD><TD><P>For each field in the list, select the appropriate
+<TT><STRONG>Structure</STRONG></TT> with the associated
+option button.
+Accepted values are <TT><STRONG>scalar</STRONG></TT> and
+<TT><STRONG>2-vector, ..., 9-vector</STRONG></TT>.
+However, <TT><STRONG>5-vector, ..., 9-vector</STRONG></TT> cannot be
+specified for column-majority arrays.
+<P>
+See also <A HREF="qikgu029.htm#HDRSTRCKWD">"structure"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Dependency
+</B></TD><TD><P>For each field in the list, select the appropriate
+<TT><STRONG>Dependency</STRONG></TT> with the associated
+option button.
+The default setting of this option is "positions" (one data item
+per position).
+If the data in the field are cell-centered (connection dependent)
+select "connections".
+<P>
+See also <A HREF="qikgu029.htm#HDRDEPKWD">"dependency"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Layout
+<A NAME="SPTDPRLAYT"></A>
+</B></TD><TD><P>This option is automatically activated when the data in the
+current
+field are field-interleaved (columnar) ASCII (Text).
+It specifies the locations of data items in a line of text.
+<DL>
+<DD><P><TT><STRONG>skip</STRONG></TT> specifies the number of characters the
+Importer must skip before it begins reading
+data in this field.
+<DD><P><TT><STRONG>width</STRONG></TT> specifies the "width"
+(including blanks) of the field from which the data
+is to be read.
+</DL>
+<P>
+See also <A HREF="qikgu029.htm#HDRLAYTKWD">"layout"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Block
+<A NAME="SPTDPRBLOK"></A>
+</B></TD><TD><P>This option is automatically enabled when the data in the
+current
+field are record-interleaved (block) ASCII (Text).
+It specifies the locations of data items in a line or field of text.
+<DL>
+<DD><P><TT><STRONG>skip</STRONG></TT> specifies the number of characters the
+Importer must skip before it begins reading data in
+this field.
+<DD><P><TT><STRONG>&#35; elem</STRONG></TT> specifies the number of data
+elements to be read after a
+<TT><STRONG>skip</STRONG></TT>.
+<DD><P><TT><STRONG>width</STRONG></TT> specifies the "width"
+(including blanks) of the data component.
+</DL>
+<P>
+See also <A HREF="qikgu029.htm#HDRBLOKWD">"block"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Field List Buttons
+</B></TD><TD><P>Four buttons at the bottom of the Data Prompter operate on the
+fields list:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Add
+</B></TD><TD><P>Adds the field specified in <TT><STRONG>Field name</STRONG></TT>
+to the
+field list, placing it immediately <I>after</I> the current
+(highlighted) field.
+The settings for the new field are those current at the time of the
+addition.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Insert
+</B></TD><TD><P>Inserts the field specified in <TT><STRONG>Field
+name</STRONG></TT> in
+the field list, placing it immediately <I>before</I> the
+current (highlighted) field.
+The settings for the new field are those current at the time of the
+insertion.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Modify
+</B></TD><TD><P>Saves any change(s) to the settings of the current (selected)
+field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Delete
+</B></TD><TD><P>Removes the selected (highlighted) field from the field list.
+</TD></TR></TABLE>
+<P><B>Note: </B><TT><STRONG>Modify</STRONG></TT> and
+<TT><STRONG>Delete</STRONG></TT> are
+grayed out if there is no selected item in the field list.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Record Separator
+</B></TD><TD><P>This option is enabled only when <TT><STRONG>Block</STRONG></TT>
+field
+interleaving is selected. It allows you to specify a separator between
+blocks, or records, in the data file, when there are more than one.
+You can specify the same separator for between each record, or a
+different separator between each record. Depending on the setting of
+<TT><STRONG>Vector interleaving</STRONG></TT> button, separators may be
+specified between each field, or between each component of each vector
+in each field.
+
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

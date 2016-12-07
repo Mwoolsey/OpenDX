@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu325.htm">Previous Page</A> &#124; <A HREF="progu327.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXSSM" HREF="progu097.htm#PToC_420">DXSetSeriesMember</A></H3>
+<A NAME="IDX2108"></A>
+<A NAME="IDX2109"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Adds an indexed member to a Series Object.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Series DXSetSeriesMember(Series s, int n, double position, Object o)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Adds the Object <TT><STRONG>o</STRONG></TT> as the
+<TT><STRONG>n</STRONG></TT>th member (as specified
+by the zero-based index
+<TT><STRONG>n</STRONG></TT>)
+to the Series
+<TT><STRONG>s</STRONG></TT>.
+It also sets the Series position to the floating-point value
+<TT><STRONG>position</STRONG></TT>.
+A Series is intended to represent a single Field sampled across some
+parameter, such as time or temperature (<TT><STRONG>position</STRONG></TT>
+contains the value of this sampled parameter).
+<P>
+Generally, members of a Series <TT><STRONG>s</STRONG></TT> must be added
+sequentially, with indices starting at 0.
+If, however, an already existing index is given in <TT><STRONG>n</STRONG></TT>,
+then that member in <TT><STRONG>s</STRONG></TT> will be replaced by the
+Object <TT><STRONG>o</STRONG></TT>.
+The type of a Series is set the first time a typed member is added;
+subsequent members are required to match this type.
+<P>
+The index <TT><STRONG>n</STRONG></TT> provides a convenient mechanism for
+indexing the members of a Series.  The position value is actually a
+piece of metadata to be associated with each member of the Series,
+which when used with the values associated with the other members,
+provides a means of generating intermember data (e.g., when
+using the Streakline module).
+<P>
+<TT><STRONG>DXSetSeriesMember</STRONG></TT> does not enforce any restrictions
+on the Series <TT><STRONG>position</STRONG></TT> value; duplicate or
+non-monotonic values can be set.  However, many Realization modules
+require the position values to form a monotonic sequence, and if the
+value does represent time, some modules also require the values to
+be positive.
+<P>
+For an example of one use of Series,
+see <A HREF="refgu148.htm#HDRSTREAKL">Streakline</A> in <I>IBM Visualization
+Data Explorer User&#39;s Reference</I>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>NULL</STRONG></TT> and sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu182.htm#HDRDXGMC">DXGetMemberCount</A>,
+<A HREF="progu201.htm#HDRDXGSM">DXGetSeriesMember</A>,
+<A HREF="progu261.htm#HDRDXNS">DXNewSeries</A>,
+<A HREF="progu311.htm#HDRDXSEM">DXSetEnumeratedMember</A>,
+<A HREF="progu317.htm#HDRDXSM">DXSetMember</A>
+<P>
+<A HREF="refgu148.htm#HDRSTREAKL">Streakline</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>
+</STRONG></TT>
+<P>
+<A HREF="progu045.htm#HDRSSGS">"Series Groups"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu325.htm">Previous Page</A> &#124; <A HREF="progu327.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

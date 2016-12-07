@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall868 Getting the Output Image #!N #!N 
+#!N If you want to extract the rendered image so that, 
+for example, you can filter it or arrange it with other 
+images (see  #!Lfilter,dxall849 h Filter  #!EL  ), then simply pass the first and second 
+outputs of Image to the first and second inputs of Render. 
+Alternatively, pass the  #!F-adobe-times-bold-r-normal--18*   where #!EF output to the ReadImageWindow module. 
+Using the ReadImageWindow module allows you to capture the pixels from 
+a hardware-rendered image. Note however, that for some platforms, if the 
+image window is obscured (by another window for example) the obscured 
+pixels may not be present in the captured image. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltall870,dxall870 h Tracking the Image window with another window  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

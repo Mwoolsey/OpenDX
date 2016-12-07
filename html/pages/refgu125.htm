@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - RubberSheet</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu124.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu126.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRRUBBERS" ></A>RubberSheet</H3>
+		<A NAME="IDX667"></A><A NAME="IDX668"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREL">Realization</A>
+<P><STRONG>Function</STRONG>
+<P>
+Deforms a surface, using the data values of that surface.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+graph</STRONG> = RubberSheet(<STRONG>data, scale, min, max</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the field defining the surface
+to be deformed.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>scale</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">displacement scaling
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>min</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0.0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">offset to be applied to the
+surface data values
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>max</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">maximum data value
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">value used for setting the
+maximum displacement
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">
+<TT><STRONG>graph</STRONG></TT>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">scalar field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">the deformed field
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module takes a specified scalar surface or line field and
+displaces each point by an amount based on the data value
+at that point, as follows:
+<PRE>
+displacement = <TT><STRONG>scale</STRONG></TT> &times; (<TT><STRONG>data</STRONG></TT> &#45; <TT><STRONG>min</STRONG></TT>)
+</PRE>
+<P>
+(see parameter descriptions).
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>specifies the surface to be deformed.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>scale</STRONG></TT>
+</B></TD><TD><P>is the scale factor used in calculating the displacement.
+<P>
+If this parameter is not specified, the module provides a scale factor
+calculated as follows:
+<PRE>
+scale =  (0.1 * diagonal of <STRONG>data</STRONG> boundary box) &divide; (<STRONG>max</STRONG> &#45; <STRONG>min</STRONG>)
+</PRE>
+If <TT><STRONG>min</STRONG></TT> is a field, the value used is the minimum
+data value of that field.
+<P>
+The resulting scale factor is attached to the output object as a
+"RubberSheet scale" attribute (which can be extracted
+with the Attribute module).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>min</STRONG></TT>
+</B></TD><TD><P>is the offset applied to the data values before they are scaled.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>max</STRONG></TT>
+</B></TD><TD><P>is used to determine a scale factor according to the formula
+shown
+above, if <TT><STRONG>scale</STRONG></TT> is not specified.
+</TD></TR></TABLE>
+<P><B>Notes: </B><OL>
+<P><LI>If the input data have no "normals" component (e.g., the
+output of Slab), the perpendicular to the first element is
+used as the displacement direction.
+In that case, for a positive scale factor and a positive data value,
+the surface is displaced in the direction given by the right-hand
+rule applied to the connections at the surface
+(i.e., with the thumb representing the direction of displacement and
+the fingers following the order of points in the connections).
+<P><LI>If the input does have a "normals" component, the displacement
+at the surface is determined by the dependencies of the data and of
+the normals:
+<UL COMPACT>
+<LI>If both the data and the normals are position dependent, the surface
+is displaced in the direction of the normal at each point.
+<LI>If both are connection dependent, each face of the input is
+displaced as a whole in the direction indicated by the normal
+for that face.
+The amount of displacement is proportional to the data value for that
+face.
+Additional sides are added to each displaced face to complete the
+"box"; box sides are not shared between neighboring
+faces.
+<LI>If the data are position dependent and the normals are connection
+dependent, each face is displaced in the direction indicated by
+the normal for that face, but the amount of displacement varies
+across the face in proportion to the data value.
+Additional sides are added to each displaced face to complete the
+"box"; box sides are not shared between neighboring faces.
+<LI>If the data are dependent on connections and the normals are
+dependent on positions, the displaced faces will be parallel
+to the original faces, displaced by an amount proportional
+to the data value for that face.
+Additional sides are added to each displaced face to complete the
+"box"; box sides of neighboring faces are coincident.
+</UL>
+<P><LI>If the input data are 1- or 2-dimensional, an additional dimension
+is added in the resulting graph.
+<P><LI>If no colors are present, the module adds a default color.
+<P><LI>
+
+RubberSheet automatically adds shading to the output
+<TT><STRONG>graph</STRONG></TT>.
+
+</OL>
+<P><STRONG>Components</STRONG>
+<P>
+Creates new "positions" and "connections" components.
+All other components, with the exception of "normals,"
+are propagated to the output.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+AlternateVisualizations.net
+RubberTube.net
+ThunderGlyphSheet.net
+UsingSwitchAndRoute.net
+SIMPLE/Rubbersheet.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu059.htm#HDRFACENOR">FaceNormals</A>,
+&nbsp;<A HREF="refgu092.htm#HDRMAPTOPL">MapToPlane</A>,
+&nbsp;<A HREF="refgu097.htm#HDRNORMALS">Normals</A>,
+&nbsp;<A HREF="refgu143.htm#HDRSLAB">Slab</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

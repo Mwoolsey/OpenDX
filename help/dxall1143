@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1142 
+Example 1: sealevel.c #!N #!EC #!N #!N The first example which 
+we will discuss is sealevel.c. This sample program starts the Data 
+Explorer user interface in  #!F-adobe-times-bold-r-normal--18*   -image #!EF mode, and then loads 
+a visual program (see  #!Lsealvl129,dxall1143 f Figure 129  #!EL  ). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rsealvl129 #!N 
+#!N Graphics omitted from Online Documentation. Please see the manual. #!N 
+Figure 129. sealevel.net #!EF #!N #!EC The visual program contains a 
+DXLInput tool which can receive values from the DXLink program. It 
+is named  #!F-adobe-times-bold-r-normal--18*   contour_line_value #!EF . The DXLink program sends several 
+different values to this DXLInput tool, and the resulting image is 
+displayed to the user. #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #include 
+<stdio.h> #!N #include "dx/dxl.h" #!N #!N #ifndef BASE #!N #define BASE 
+"/usr/lpp/dx" #!N #endif #!N #!N #!N /* #!N * define an 
+error handler #!N */ #!N void ErrorHandler(DXLConnection *conn, const char *msg, 
+void *data) #!N { #!N printf("DXL Error: %s\n", msg); #!N } 
+#!N #!N #!N #!N main(int argc, char *argv[]) #!N { #!N 
+DXLConnection *conn = NULL; #!N char result[100]; #!N #!N #!N /* 
+#!N * Start Data Explorer in -image mode with certain menus 
+disabled. #!N */ #!N conn = DXLStartDX( #!N "dx -image -noExitOptions 
+-noExecuteMenus -noConnectionMenus", #!N NULL); #!N #!N if (conn == NULL) #!N 
+{ #!N fprintf(stderr,"Could not connect\n"); #!N perror("DXLStartDX"); #!N exit(1); #!N } 
+#!N #!N #!N /* #!N * Set the error handler #!N 
+*/ #!N DXLSetErrorHandler(conn, ErrorHandler, NULL); #!N #!N #!N /* #!N * 
+Load the visual program to run #!N */ #!N DXLLoadVisualProgram(conn, BASE"/samples/dxlink/sealevel.net"); 
+#!N #!N /* #!N * Set the value of the DXLInput 
+tool which is labelled #!N * "contour_line_value" and execute. #!N */ 
+#!N DXLSetValue(conn, "contour_line_value", "0"); #!N DXLExecuteOnce(conn); #!N #!N #!N /* #!N 
+* Set the value of the DXLInput tool which is labelled 
+#!N * "contour_line_value" and execute. #!N */ #!N DXLSetValue(conn, "contour_line_value", "2"); 
+#!N DXLExecuteOnce(conn); #!N #!N /* #!N * Set the value of 
+the DXLInput tool which is labelled #!N * "contour_line_value" and execute. 
+#!N */ #!N DXLSetValue(conn, "contour_line_value", "5"); #!N DXLExecuteOnce(conn); #!N #!N /* 
+#!N * Set the value of the DXLInput tool which is 
+labelled #!N * "contour_line_value" and execute. #!N */ #!N DXLSetValue(conn, "contour_line_value", 
+"20"); #!N DXLExecuteOnce(conn); #!N #!N /* #!N * Set the value 
+of the DXLInput tool which is labelled #!N * "contour_line_value" and 
+execute. #!N */ #!N DXLSetValue(conn, "contour_line_value", "50"); #!N DXLExecuteOnce(conn); #!N #!N 
+printf("An image window will appear\n"); #!N printf("and a sequence of images 
+will be created.\n"); #!N printf("When you are finished, hit return to 
+quit:"); #!N gets(result); #!N DXLExitDX(conn); #!N } #!EF #!N #!N #!EC 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1143,dxall1144 h Example 2: maptoplane.c  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

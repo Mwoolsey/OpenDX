@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgoc DXGetObjectClass #!N 
+#!N Function #!N #!N Returns the class of an Object. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Class DXGetObjectClass(Object o) #!EF #!N 
+#!N Functional Details #!N #!N The class of Object  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF is one of the following: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+#!N CLASS_ARRAY CLASS_INTERPOLATOR CLASS_PRODUCTARRAY #!N CLASS_CAMERA CLASS_LIGHT CLASS_REGULARRAY #!N CLASS_CLIPPED CLASS_MESHARRAY 
+CLASS_SCREEN #!N CLASS_COMPOSITEFIELD CLASS_MULTIGRID CLASS_SERIES #!N CLASS_CONSTANTARRAY CLASS_OBJECT CLASS_STRING #!N CLASS_FIELD 
+CLASS_PATHARRAY CLASS_XFORM #!N CLASS_GROUP CLASS_PRIVATE #!EF #!EF #!N #!N #!EC #!N 
+#!N All valid Objects have a class that identifies what kind 
+of information the Object contains and what Data Explorer library functions 
+can be called using this Object. #!N #!N For Objects of 
+ #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF and  #!F-adobe-times-bold-r-normal--18*   CLASS_ARRAY #!EF , they are further 
+categorized into subclasses. See the  #!F-adobe-times-bold-r-normal--18*   DXGetGroupClass #!EF and  #!F-adobe-times-bold-r-normal--18*   DXGetArrayClass 
+#!EF routines for additional details. #!N #!N Return Value #!N #!N 
+Returns the class of an Object. Invalid Objects return  #!F-adobe-times-bold-r-normal--18*   CLASS_MIN 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   CLASS_MAX #!EF , or  #!F-adobe-times-bold-r-normal--18*   CLASS_DELETED #!EF . 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgac,dxall1218 h DXGetArrayClass  #!EL  ,  #!Ldxggc,dxall1240 h DXGetGroupClass  #!EL  #!EF 
+#!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxgsot,dxall1255 h DXGetObjectTag, DXSetObjectTag  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

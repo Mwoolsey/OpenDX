@@ -1,0 +1,60 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rexmkx2 MakeXEfficient Module Example--Create New Positions 
+#!N #!EC #!N #!N The preceding example module, MakeX, manipulates regular 
+(compactly encoded) positions less efficiently than it might. Note that the 
+first call to  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF in the file makex.c expands 
+the compact coding of regular positions. MakeXEfficient eliminates this expansion. #!N 
+#!N MakeXEfficient has the same two inputs as MakeX:  #!F-adobe-times-bold-r-normal--18*   data 
+#!EF , is of type  #!F-adobe-times-bold-r-normal--18*   field #!EF and has no 
+default value;  #!F-adobe-times-bold-r-normal--18*   addend #!EF , is of type  #!F-adobe-times-bold-r-normal--18*   size 
+#!EF , and has a default value of 1. #!N #!N 
+MakeXEfficient has the same output as MakeX:  #!F-adobe-times-bold-r-normal--18*   result #!EF is 
+of type  #!F-adobe-times-bold-r-normal--18*   field #!EF . #!N #!N  #!F-adobe-times-bold-r-normal--18*   REPEAT STEPS 
+(1) THROUGH (5) #!EF of the preceding example (see  #!Lmakex,dxall1032 h MakeX Module __________________________________ Example--Create New Positions  #!EL  ), 
+using the file name "makexeff" in place of "makex." Step (5) 
+will produce files makexeff.c, makexeff.mdf, and makexeff.make. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (6) 
+IMPLEMENT THE MAKEXEFFICIENT FUNCTION #!EF . MakeXEfficient uses Array-handling routines like 
+those described _______________________________________________ in  #!Larhand,dxall1073 h Array Handling  #!EL  . But the main differences from 
+MakeX are a handle for manipulating the input-positions Array, and a 
+scratch buffer to hold the coordinates of a single position (three 
+floating-point numbers in this example). Note that there is no call 
+to DXGetArrayData for a pointer to the input-positions Array, thereby avoiding 
+inefficiencies by not expanding regular positions. #!N #!N Edit the makexeff.c 
+file and replace the line #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N p_positions 
+= (float*) DXGetArrayData(array) #!EF #!N #!N #!EC with the following: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N if (!(handle = DXCreateArrayHandle(array))) #!N goto error; 
+#!N #!N scratch = DXAllocate(3*sizeof(float)); #!N if (!scratch) #!N goto error; 
+#!EF #!N #!N #!EC #!N #!N Another necessary code change is 
+one inside the loop labeled "Now "draw" the x's" in the 
+ #!F-adobe-times-bold-r-normal--18*   .c #!EF file--a call to the DXIterateArray routine to access 
+the current position. Add the following pair of lines after the 
+comment in the loop: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N in_ptr = 
+(float *)DXIterateArray(handle, i, in_ptr, scratch); #!N inpoint = DXPt(in_ptr[0], in_ptr[1], in_ptr[2]); 
+#!EF #!N #!N #!EC #!N #!N Of course, the handle and 
+the scratch buffer have to be freed at some point. Add 
+the following lines before the MakeXEfficient_worker code near the end of 
+the file: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* Delete scratch and 
+handle */ #!N DXFree((Pointer)scratch); #!N DXFreeArrayHandle(handle); #!N #!N /* return */ 
+#!N return OK; #!N error: #!N #!N /* Delete scratch and 
+handle */ #!N DXFree((Pointer)scratch); #!N DXFreeArrayHandle(handle); #!N return ERROR; #!EF #!N 
+#!N #!EC #!N #!N Add the following lines after the first 
+block of code in the doLeaf routine: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N /* User-added declarations */ #!N float *scratch, *in_ptr, size; #!N 
+Point inpoint, *out_pos_ptr; #!N ArrayHandle handle; #!N Array connections; #!N Line 
+*conn_ptr; #!EF #!N #!N #!EC #!N #!N The file /usr/lpp/dx/samples/program_guide/makexeff.c contains 
+a completed version of this program. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (7) TO 
+CREATE A VERSION OF DATA EXPLORER THAT INCLUDES #!EF the MakeXEfficient 
+module, enter the command: ____________________________________________________________ #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N make 
+-f makexeff.make dxexec #!EF #!N #!N #!EC #!N #!N (You have 
+now created an executable that contains the MakeX module.) #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   (8) TO INVOKE THIS VERSION, ENTER: #!EF _________________________________________ #!N #!N 
+#!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf ./makexeff.mdf -exec ./dxexec #!EF 
+#!N #!N #!EC #!N #!N This command starts Data Explorer (the 
+ #!F-adobe-times-bold-r-normal--18*   makexeff.mdf #!EF file tells the graphical user interface about MakeX 
+and its inputs and outputs). The executable dxexec invoked here is 
+the one created in Step 6. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (9) WITH 
+THIS VERSION OF DATA EXPLORER #!EF you can now run any 
+visual program that uses the MakeXEfficient ____________________________________________ module. One such program 
+is /usr/lpp/dx/samples/program_guide/makex_efficient.net #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lconnec,dxall1034 h Working with Connections  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

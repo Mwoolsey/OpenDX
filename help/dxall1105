@@ -1,0 +1,40 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rplsm Parallelism 
+#!N #!EC #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Note on Use #!N 
+#!N Modules used exclusively in a uniprocessor environment do not require 
+any of the routines described in this section. However, modules that 
+use these routines on a parallel processor can also be run 
+on a uniprocessor without changing any code. #!N #!N #!EC #!N 
+#!N Task Groups constitute a mechanism for specifying a collection of 
+tasks to be performed in parallel on a multiprocessor. The task 
+model provides simple fork/join semantics, suitable for coarse-grain parallelism: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Begin a collection of 
+tasks to be executed in parallel (with  #!F-adobe-times-bold-r-normal--18*   DXCreateTaskGroup() #!EF ) 
+#!N #!I30 #!N 2. Specify each task (with  #!F-adobe-times-bold-r-normal--18*   DXAddTask() #!EF 
+) #!N #!I30 #!N 3. Complete the task Group and begin 
+execution (with  #!F-adobe-times-bold-r-normal--18*   DXExecuteTaskGroup() #!EF ). Creating all the tasks first 
+simplifies the model and allows optimal scheduling on the basis of 
+estimated task-completion times. #!N #!I0 #!N #!EF #!N #!CIndianRed #!N #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   Notes on Use #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o It is important that all information required by 
+parallel tasks be in global memory. This condition is generally met 
+by passing Objects to tasks, since all Objects are in global 
+memory. #!N #!I30 #!N o Tasks must not attempt to modify 
+the same data structures simultaneously, with the exception of adding members 
+to an existing Group (using  #!F-adobe-times-bold-r-normal--18*   DXSetGroupMember() #!EF ). #!N #!I0 
+#!N #!EF #!N #!N #!N #!EC #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXCreateTaskGroup() #!EF #!EF #!I50 #!N Starts a 
+new Group of tasks to be run in parallel. See  #!Ldxctg,dxall1192 h DXCreateTaskGroup  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXAddTask() #!EF #!EF #!I50 
+#!N Adds a task to be run later, in parallel if 
+possible. See  #!Ldxat,dxall1170 h DXAddTask  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXAbortTaskGroup() 
+#!EF #!EF #!I50 #!N Aborts a task group without executing it. 
+See  #!Ldxatg,dxall1163 h DXAbortTaskGroup  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXExecuteTaskGroup() #!EF 
+#!EF #!I50 #!N Runs the Group of tasks in the current 
+Group in parallel, if possible. See  #!Ldxetg,dxall1203 h DXExecuteTaskGroup  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int DXProcessors() #!EF #!EF #!I50 #!N Returns the number 
+of processors. See  #!Ldxproc,dxall1335 h DXProcessors  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int 
+DXProcessorId() #!EF #!EF #!I50 #!N Returns the current processor identifier. See 
+ #!Ldxproi,dxall1334 h DXProcessorId  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall1105,dxall1106 h Basic Data Types  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

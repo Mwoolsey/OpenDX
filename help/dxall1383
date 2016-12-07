@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsmo DXSetMeshOffsets #!N #!N Function 
+#!N #!N Sets the offset of a partition within the original 
+Field after partitioning. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> MeshArray 
+DXSetMeshOffsets(MeshArray a, int *offsets) #!EF #!N #!N Functional Details #!N #!N 
+In the case where a Mesh Array is used to define 
+a regular grid of connections that is a part of a 
+partitioned Field, it is useful to know the offset of the 
+partition within the original Field. This routine sets the offset values 
+to  #!F-adobe-times-bold-r-normal--18*   offsets #!EF along each dimension of the mesh  #!F-adobe-times-bold-r-normal--18*   
+a #!EF . For  #!F-adobe-times-bold-r-normal--18*   DXSetMeshOffsets #!EF , the parameter is 
+a pointer to an Array of integers, one for each dimension 
+of the mesh, specifying the offset along that dimension of this 
+partition within the original Field.  #!F-adobe-times-bold-r-normal--18*   DXSetMeshOffsets #!EF should be called 
+by the partitioning process. #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   a #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgmai,dxall1248 h DXGetMeshArrayInfo  #!EL  , 
+ #!Ldxgpo,dxall1259 h DXGetPathOffset  #!EL  ,  #!Ldxnmav,dxall1319 h DXNewMeshArray, DXNewMeshArrayV  #!EL  #!EF #!N #!N  #!Lmarray,dxall1078 h Mesh Arrays  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxsoc,dxall1384 h DXSetOrthographic, DXGetOrthographic  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall638 
+Header Section #!N #!EC #!N #!N The header section of a 
+Data Explorer file consists of a sequence of Object definitions. Each 
+Object definition consists of a sequence of clauses, beginning with an 
+ #!F-adobe-times-bold-r-normal--18*   object #!EF clause. The clauses defining an Object can be 
+in any order, except that the type and size information for 
+an Array must be specified before the data if the data 
+are imbedded in the header. A clause consists of a sequence 
+of words separated by one or more blank spaces or new 
+lines. Line breaks are not significant (except after the  #!F-adobe-times-bold-r-normal--18*   follows 
+#!EF keyword, when data must follow on the next line). Multiple 
+clauses can occur on one line, and a single clause can 
+be split across lines. The following sections describe each of the 
+types of Objects that can be defined. In these descriptions, the 
+ #!F-adobe-times-bold-r-normal--18*   monospace #!EF font specifies literals;  #!F-adobe-times-medium-i-normal--18*   italics #!EF , non-literals; 
+square brackets [ ], optional items; and a vertical list, alternatives. 
+#!N #!N In the header section (and text data sections),  #!F-adobe-times-bold-r-normal--18*   
+# #!EF is the comment character. All text from  #!F-adobe-times-bold-r-normal--18*   # 
+#!EF to the end of the line is ignored. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall639,dxall640 h Data Section  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

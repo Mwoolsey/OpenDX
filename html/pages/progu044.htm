@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu043.htm">Previous Page</A> &#124; <A HREF="progu045.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRDATACHP" HREF="../proguide.htm#ToC_90">Chapter 12. Working with
+Data Model Objects</A></H1>
+<P><A NAME="PToC14" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_91" HREF="#HDRFIELDSC">12.1 Field Class</A>
+<LI><A NAME="PToC_92" HREF="progu045.htm#Header_92">12.2 Group Class</A>
+<MENU>
+<LI><A NAME="PToC_93" HREF="progu045.htm#HDRMBS">Generic Operations</A>
+<LI><A NAME="PToC_94" HREF="progu045.htm#HDRSSGS">Series Groups</A>
+<LI><A NAME="PToC_95" HREF="progu045.htm#HDRMIGD">MultiGrid Groups</A>
+<LI><A NAME="PToC_96" HREF="progu045.htm#HDRCEFD">Composite Fields</A>
+<LI><A NAME="PToC_97" HREF="progu045.htm#HDRPRTS">Parts</A>
+</MENU>
+<LI><A NAME="PToC_98" HREF="progu046.htm#HDRARRAYSC">12.3 Array Class</A>
+<MENU>
+<LI><A NAME="PToC_99" HREF="progu046.htm#Header_99">Generic Operations</A>
+<LI><A NAME="PToC_100" HREF="progu046.htm#HDRIRREG">Irregular Arrays</A>
+<LI><A NAME="PToC_101" HREF="progu046.htm#HDRSTINGL">String List Routines</A>
+<LI><A NAME="PToC_102" HREF="progu046.htm#HDRARHAND">Array Handling</A>
+<LI><A NAME="PToC_103" HREF="progu046.htm#HDRCOTAS">Creating Positions and
+Connections Grids</A>
+<LI><A NAME="PToC_104" HREF="progu046.htm#HDRRRAS">Regular Arrays</A>
+<LI><A NAME="PToC_105" HREF="progu046.htm#HDRPHAS">Path Arrays</A>
+<LI><A NAME="PToC_106" HREF="progu046.htm#HDRPTAS">Product Arrays</A>
+<LI><A NAME="PToC_107" HREF="progu046.htm#HDRMARRAY">Mesh Arrays</A>
+<LI><A NAME="PToC_108" HREF="progu046.htm#HDRCTAS">Constant Arrays</A>
+</MENU>
+<LI><A NAME="PToC_109" HREF="progu047.htm#HDRSGOS">12.4 String Class</A>
+<LI><A NAME="PToC_110" HREF="progu048.htm#HDRPRIVSEC">12.5 Private Class</A>
+<LI><A NAME="PToC_111" HREF="progu049.htm#Header_111">12.6 Printing Objects</A>
+<LI><A NAME="PToC_112" HREF="progu050.htm#Header_112">12.7 Field
+Construction</A>
+<MENU>
+<LI><A NAME="PToC_113" HREF="progu050.htm#HDRPPOINTS">Points and Dependent
+Data</A>
+<LI><A NAME="PToC_114" HREF="progu050.htm#HDRCNN">Connections</A>
+<LI><A NAME="PToC_115" HREF="progu050.htm#HDRSTDCS">Standard Components</A>
+</MENU>
+<LI><A NAME="PToC_116" HREF="progu051.htm#HDRMDEPS">12.8 Extracting Module
+Parameters</A>
+<LI><A NAME="PToC_117" HREF="progu052.htm#HDRCRTDXOS">12.9 Creating Simple Data
+Explorer Objects</A>
+<LI><A NAME="PToC_118" HREF="progu053.htm#HDRCTMN">12.10 Component
+Manipulation</A>
+<LI><A NAME="PToC_119" HREF="progu054.htm#HDRDIDE">12.11 Data Import and
+Export</A>
+<MENU>
+<LI><A NAME="PToC_120" HREF="progu054.htm#HDRDEF">Data Explorer Format Files</A>
+<LI><A NAME="PToC_121" HREF="progu054.htm#HDRNCD">netCDF Data</A>
+</MENU></MENU><HR><P>
+<P>
+This chapter describes the programming interface for creating and
+manipulating the basic Objects of the Data Explorer data model (some
+Objects are discussed in later chapters).
+For a brief summary of the data model, see <A
+HREF="progu009.htm#HDRPROGCHP">Chapter 1. "Overview"</A>.
+For a detailed description, see <A HREF="usrgu024.htm#HDRDATMOD">Chapter 3.
+"Understanding the Data Model"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<A NAME="IDX387"></A>
+<P>
+Data Explorer is an object-oriented graphical application.
+Its objects are data structures in global memory, they are passed by
+reference, and their contents are private to the
+implementation.
+See <A HREF="#TBLCL">Table 1</A>.
+<A NAME="IDX388"></A>
+<A NAME="IDX389"></A>
+<A NAME="IDX390"></A>
+<A NAME="IDX391"></A>
+<BR>
+<P><B><A NAME="TBLCL" HREF="progu002.htm#FT_TBLCL">Table 1. Data Explorer
+Objects</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="3">The first column shows the
+hierarchical relationship of the
+Objects to one another.
+For subclasses &nbsp;Field&nbsp; through &nbsp;Private&nbsp;, see
+<A HREF="#HDRFIELDSC">12.1 , "Field Class"</A> through <A
+HREF="progu048.htm#HDRPRIVSEC">12.5 , "Private Class"</A> in this chapter;
+for &nbsp;Interpolator&nbsp;, see <A HREF="progu066.htm#HDRPROCHAP">Chapter 14.
+"Data Processing"</A>; and for the
+remainder, see <A HREF="progu075.htm#HDRRENDCHP">Chapter 16. "Rendering"</A>.
+</TD></TR><TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Description
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Class
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>Object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Object Class
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;OBJECT
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Field</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Data sampled on a regular or
+irregular grid
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;FIELD
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Group</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Collections of Objects
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;GROUP
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;&nbsp;&nbsp;&nbsp;Series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Time (or other) series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;SERIES
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;&nbsp;&nbsp;&nbsp;Multigrid
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Group of Fields to be treated as
+one Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;MULTIGRID
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;&nbsp;&nbsp;&nbsp;Composite
+Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Group of Fields to be treated as
+one Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;COMPOSITEFIELD
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Array</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Dynamic Arrays of data such as
+points
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;ARRAY
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;&nbsp;&nbsp;&nbsp;Regular Array
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">One-dimensional series of evenly
+spaced points
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;REGULARARRAY
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;&nbsp;&nbsp;&nbsp;Path Array
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">One-dimensional series of
+connected line segments
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;PATHARRAY
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;&nbsp;&nbsp;&nbsp;Product Array
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Regular or semi-regular grid
+positions
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;PRODUCTARRAY
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;&nbsp;&nbsp;&nbsp;Mesh Array
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Regular or semi-regular grid
+connections
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;MESHARRAY
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;&nbsp;&nbsp;&nbsp;Constant Array
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Array with a constant value
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;CONSTANTARRAY
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>String</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Object containing a string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;STRING
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Private</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Object pointing to private user
+data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;PRIVATE
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Interpolator</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Used to query Fields for data
+values
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;INTERPOLATOR
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Xform</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Transformation matrix applied to
+an Object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;FORM
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Screen</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Object aligned to the screen
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;SCREEN
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Clipped</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">One Object clipped by another
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;CLIPPED
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Camera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Viewpoint, viewport, resolution
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;CAMERA
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%">&nbsp;&nbsp;<TT><STRONG>Light</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Lights
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CLASS&#95;LIGHT
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="3"><B>Note&#58; </B>
+Any Group other than the three types listed here is a generic Group.
+<BR>
+Any Array other than the five types listed here is an irregular Array.
+</TD></TR></TABLE>
+<HR>
+<H2><A NAME="HDRFIELDSC" HREF="#PToC_91">12.1 Field Class</A></H2>
+<A NAME="IDX393"></A>
+<A NAME="IDX394"></A>
+<A NAME="IDX395"></A>
+<P>
+Each Field has some number of named components.
+Each component has a value (usually an Array) and some
+number of attributes, whose values are often strings or numbers.
+However, in the data model both components and attributes can be any
+Object.
+The defined components and attributes are listed in
+<A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data Model"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field DXNewField()</STRONG></TT>
+<A NAME="IDX396"></A>
+<A NAME="IDX397"></A>
+</B></TD><TD><P>Creates a new Field Object.
+See <A HREF="#SPTUN1">Note on Use</A>, and
+ <A HREF="progu251.htm#HDRDXNF">DXNewField</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field
+DXSetComponentValue()</STRONG></TT>
+<A NAME="IDX398"></A>
+<A NAME="IDX399"></A>
+</B></TD><TD><P>Adds a component to a Field.
+See <A HREF="#SPTUN1">Note on Use</A>, and
+ <A HREF="progu307.htm#HDRDXSCV">DXSetComponentValue</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field
+DXSetComponentAttribute()</STRONG></TT>
+<A NAME="IDX400"></A>
+<A NAME="IDX401"></A>
+</B></TD><TD><P>Adds or removes a named attribute from a component of a Field.
+See  <A HREF="progu306.htm#HDRDXSCA">DXSetComponentAttribute</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetComponentValue()</STRONG></TT>
+<A NAME="IDX402"></A>
+<A NAME="IDX403"></A>
+</B></TD><TD><P>Returns a specified component of a Field.
+See <A HREF="#SPTUN1">Note on Use</A>
+See  <A HREF="progu163.htm#HDRDXGCV">DXGetComponentValue</A>.
+</TD></TR></TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<A NAME="SPTUN1"></A>
+<A NAME="IDX404"></A>
+<P>
+The following code segment illustrates how to make a component of one
+Field also a component of another Field:
+<PRE>
+    f = DXNewField();
+    if (!f)
+       return ERROR;
+    c = DXGetComponentValue(oldfield, "positions");
+    if (!DXSetComponentValue(f, "positions", c))
+       return ERROR;
+</PRE>
+</TD></TR></TABLE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetComponentAttribute()</STRONG></TT>
+<A NAME="IDX405"></A>
+<A NAME="IDX406"></A>
+</B></TD><TD><P>Returns a named attribute of a specified component of a Field.
+See  <A HREF="progu162.htm#HDRDXGCA">DXGetComponentAttribute</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetEnumeratedComponentValue()
+<BR>
+Object DXGetEnumeratedComponentAttribute()</STRONG></TT>
+<A NAME="IDX407"></A>
+<A NAME="IDX408"></A>
+<A NAME="IDX409"></A>
+<A NAME="IDX410"></A>
+</B></TD><TD><P>Return a component or component attribute by index.
+These routines can be used to retrieve the components or component
+attributes when their names are not known.
+See  <A HREF="progu168.htm#HDRDXGECV">DXGetEnumeratedComponentValue</A> and
+ <A HREF="progu167.htm#HDRDXGECA">DXGetEnumeratedComponentAttribute</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field
+DXDeleteComponent()</STRONG></TT>
+<A NAME="IDX411"></A>
+<A NAME="IDX412"></A>
+</B></TD><TD><P>Deletes a named component from a Field.
+See  <A HREF="progu131.htm#HDRDXDC">DXDeleteComponent</A>.
+</TD></TR></TABLE>
+<P><B><U>Less Commonly Used Routines</U></B>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXComponentReq()
+<BR>
+Error DXComponentOpt();
+<BR>
+Error DXComponentReqLoc();
+<BR>
+Error DXComponentOptLoc();</STRONG></TT>
+<A NAME="IDX413"></A>
+<A NAME="IDX414"></A>
+<A NAME="IDX415"></A>
+<A NAME="IDX416"></A>
+<A NAME="IDX417"></A>
+<A NAME="IDX418"></A>
+<A NAME="IDX419"></A>
+<A NAME="IDX420"></A>
+</B></TD><TD><P>Access or type-check a component in a Field.
+See <A HREF="#SPTUN2">Note on Use</A>.
+See also  <A HREF="progu119.htm#HDRDXCMANY">DXComponentReq, DXComponentOpt,
+DXComponentReqLoc, DXComponentOptLoc</A>.
+</TD></TR></TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<A NAME="SPTUN2"></A>
+<A NAME="IDX421"></A>
+<P>
+An example of the expected use of <TT><STRONG>DXComponentReq()</STRONG></TT>
+follows:
+<PRE>
+    a = DXGetComponentValue(f, "positions");
+    if (!DXComponentReq(a, &points, &npoints, 0, TYPE_FLOAT, 3))
+        return NULL;
+    a = DXGetComponentValue(f, "colors");
+    if (!DXComponentOpt(a, &colors, NULL, npoints, TYPE_FLOAT, 3))
+        return NULL;
+    if (colors) ...
+</PRE>
+<P>
+The first two statements check and retrieve a required "positions"
+component, while the next two check and retrieve an optional
+"colors" component that must have the same
+number of elements.
+Since the second call uses <TT><STRONG>DXComponentOpt()</STRONG></TT>, the
+program must check <TT><STRONG>colors</STRONG></TT> for
+<TT><STRONG>NULL</STRONG></TT> to determine whether
+the colors were present.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu043.htm">Previous Page</A> &#124; <A HREF="progu045.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

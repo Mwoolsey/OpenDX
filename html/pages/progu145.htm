@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu144.htm">Previous Page</A> &#124; <A HREF="progu146.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXEP" HREF="progu097.htm#PToC_239">DXExtractParameter</A></H3>
+<A NAME="IDX1670"></A>
+<A NAME="IDX1671"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Determines whether an Object can be converted to a specific value
+type and, if so, returns the value in the user-provided buffer.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXExtractParameter(Object o, Type t, int dim, int count, Pointer p)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+If Object <TT><STRONG>o</STRONG></TT> can be converted to Type
+<TT><STRONG>t</STRONG></TT> with dimensionality <TT><STRONG>dim</STRONG></TT>
+and
+<TT><STRONG>count</STRONG></TT> elements, this routine performs the
+conversion and returns the data in the buffer pointed to
+by <TT><STRONG>p</STRONG></TT>.
+<P>
+For a successful conversion, Object <TT><STRONG>o</STRONG></TT> must be
+either an Array or a String.
+If <TT><STRONG>o</STRONG></TT> is an Array, then its Category must be
+<TT><STRONG>CATEGORY_REAL</STRONG></TT>, its rank must be either 0 or 1, and
+it must have
+<TT><STRONG>count</STRONG></TT>
+items contained within.
+<P>
+If <TT><STRONG>dim</STRONG></TT> is greater than 1, then
+<TT><STRONG>o</STRONG></TT>&#39;s rank must be 1 and its shape must match
+<TT><STRONG>dim</STRONG></TT> in order for this conversion to be
+successful.  If
+<TT><STRONG>dim</STRONG></TT> is either 0 or 1, then both rank 0 and rank
+1 shape 1 Arrays will match in size.
+<P>
+Once it is known that the sizes match, the Array&#39;s
+Type is examined
+to determine whether it can be converted to the Type specified by
+<TT><STRONG>t</STRONG></TT>.
+In general, smaller signed (or unsigned) types can be converted to
+larger signed (or unsigned) types as follows:
+<P>
+<TT><STRONG>
+TYPE_BYTE &#61;&gt;
+TYPE_SHORT &#61;&gt;
+TYPE_INT &#61;&gt;
+TYPE_FLOAT &#61;&gt;
+TYPE_DOUBLE
+</STRONG></TT>
+<P>
+and
+<P>
+<TT><STRONG>
+TYPE_UBYTE &#61;&gt;
+TYPE_USHORT &#61;&gt;
+TYPE_UINT
+</STRONG></TT>
+<P>
+Signed and unsigned versions of the same type cannot be converted
+between each other
+(e.g., <TT><STRONG>TYPE_BYTE</STRONG></TT> and
+<TT><STRONG>TYPE_UBYTE</STRONG></TT>).
+However, unsigned types can be converted to larger signed types (e.g.,
+<TT><STRONG>TYPE_UBYTE</STRONG></TT> &#61;&gt;
+<TT><STRONG>TYPE_SHORT</STRONG></TT>).
+<P>
+If the Types are identical, the data contained in <TT><STRONG>o</STRONG></TT>
+is copied to the buffer pointed to by <TT><STRONG>p</STRONG></TT>.
+If (without violating any of the rules just given) <TT><STRONG>o</STRONG></TT>
+can be converted to the Type specified in <TT><STRONG>t</STRONG></TT>,
+it is, and the converted data is copied to the buffer
+(<TT><STRONG>p</STRONG></TT>).
+<P>
+If <TT><STRONG>o</STRONG></TT> is a String, then <TT><STRONG>t</STRONG></TT>
+must
+be <TT><STRONG>TYPE_STRING</STRONG></TT> and <TT><STRONG>dim</STRONG></TT>
+must be either 0 or 1.
+If <TT><STRONG>dim</STRONG></TT> is 0, then the string contained in
+<TT><STRONG>o</STRONG></TT> must consist only of a single
+character.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>o</STRONG></TT> if the conversion is valid;
+otherwise, returns <TT><STRONG>NULL</STRONG></TT> without setting an
+error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu142.htm#HDRDXEF">DXExtractFloat</A>,
+<A HREF="progu143.htm#HDRDXEI">DXExtractInteger</A>,
+<A HREF="progu144.htm#HDRDXENS">DXExtractNthString</A>,
+<A HREF="progu146.htm#HDRDXES">DXExtractString</A>,
+<A HREF="progu275.htm#HDRDXQACV">DXQueryArrayConvert, DXQueryArrayConvertV</A>,
+<A HREF="progu282.htm#HDRDXQP">DXQueryParameter</A>
+</STRONG></TT>
+<P>
+<A HREF="progu051.htm#HDRMDEPS">12.8 , "Extracting Module Parameters"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu144.htm">Previous Page</A> &#124; <A HREF="progu146.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

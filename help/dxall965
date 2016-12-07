@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtoggle Toggle #!N 
+#!N Category #!N #!N  #!Lcatint,dxall757 h Interactor  #!EL  #!N #!N Function #!N #!N Selects 
+between two possible outputs. #!N #!N Syntax #!N #!N Available only 
+through the user interface. #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+setval TAB value, string TAB 1 TAB output value when set 
+#!N TAB unsetval TAB value, string TAB 0 TAB output value 
+when set #!N TAB label TAB string TAB no default TAB 
+interactor label #!N TAB - TAB - TAB - TAB #!EF 
+#!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Description #!EF #!N TAB output TAB value, string TAB selected 
+toggle value #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N This interactor allows the user to interactively 
+choose between two different outputs. Through inputs to the module (outputs 
+from other tools or values set in its configuration dialog box) 
+the interactor can be "data driven." #!N #!N If the interactor 
+is not data driven, its attributes (i.e., the two possible output 
+values) are taken from its  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box 
+(accessed from the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu in the Control 
+Panel). Note: The module's control panel is invoked by double-clicking on 
+its icon in the VPE window. Its configuration dialog box is 
+accessed from the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu in the same 
+window. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   setval #!EF 
+#!EF #!I50 #!N is the value put out when the toggle 
+is set. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   unsetval #!EF #!EF #!I50 
+#!N is the value put out when the toggle is not 
+set. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   label #!EF #!EF #!I50 #!N 
+is the global label of all instances of the corresponding interactor 
+stand-in. An interactors instance's local label (set from the Control Panel) 
+overrides a global label. If not specified, the global label is 
+set by the user interface. #!I0 #!N #!N #!N #!N Example 
+Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingSwitchAndRoute.net #!EF #!N #!N 
+#!EC #!N #!N See Also  #!Lselecto,dxall937 h Selector  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ltrace,dxall966 h Trace  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

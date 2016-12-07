@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen  #!Rvarsv Variables 
+as Right-Side Values #!N #!EC #!N #!N The values of variables 
+used in a macro in expressions and as function arguments are 
+found according to standard dynamic scoping rules. If the variable exists 
+in the macro's local environment, then its value is used. Otherwise, 
+the enclosing environments, all the way to the top-level environment, are 
+searched to locate the variable. The value used is the value 
+associated with the first instance of the variable. If the variable 
+is not found in any environment, then the value  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF is used. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lall558,dxall559 h Example  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

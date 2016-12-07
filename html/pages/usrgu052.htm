@@ -1,0 +1,593 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Language Delimeters</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu051.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu053.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu050.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="Header_320" ></A>10.3 Language Delimiters
+</H2>
+		<P>
+As the preceding examples show, the Data Explorer scripting language resembles
+a conventional programming language.
+Unlike some programming languages that treat all characters as uppercase,
+the scripting language is case sensitive.
+Also, you can type statements beginning at any column in the line.
+This allows you to indent sections to clarify the program structure.
+
+		<P>
+Data Explorer uses the following characters to separate or delimit elements of
+the scripting language&#58;
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>&#59;</STRONG></TT>
+</TD><TD><P>A semicolon terminates a script statement.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>,</STRONG></TT>
+</TD><TD><P>A comma separates keywords, arguments, lists, or vectors.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>&#91; &#93;</STRONG></TT>
+</TD><TD><P>Brackets enclose vectors, matrices, and tensors.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>&#123; &#125;</STRONG></TT>
+</TD><TD><P>Braces enclose lists and blocks of statements in macros.
+</TD></TR></TABLE>
+In some places, one or more blank spaces can be used in place of a
+comma (e.g., in separating elements of a vector).
+<P>
+<H3><A NAME="Header_321" ></A>Commenting Scripts
+</H3>
+<A NAME="IDX880"></A>
+<P>
+A <I>comment</I> is defined as two slashes (//) followed by a
+sequence of characters and terminated by the end of the line.
+Comments have no effect on the script other than to enhance its
+readability.
+For example:
+<P>
+<PRE>
+// This is a valid comment
+</PRE>
+<P>
+<H3><A NAME="Header_322" ></A>Naming Variables and Macros
+</H3>
+<A NAME="IDX881"></A>
+<P>
+You can name the variables and macros with <I>identifiers</I>.
+Identifiers are sequences of characters selected from the following:
+<UL COMPACT>
+<LI>Uppercase alphabetic characters (<TT><STRONG>A-Z</STRONG></TT>)
+<LI>Lowercase alphabetic characters (<TT><STRONG>a-z</STRONG></TT>)
+<LI>Numerals (<TT><STRONG>0-9</STRONG></TT>)
+<LI>Special characters&#58;
+<UL COMPACT>
+<LI>Underscore (<TT><STRONG>&#95;</STRONG></TT>)
+<LI>Single quote (<TT><STRONG>&#39;</STRONG></TT>)
+<LI>"At" sign (<TT><STRONG>&#64;</STRONG></TT>)
+</UL>
+</UL>
+All identifiers must start with either an alphabetic character, an
+underscore (_), or an "at" sign (@).
+Remember that the Data Explorer script language is case sensitive: identifiers
+that differ in the case of at least one character are considered
+to be different identifiers.
+Identifiers are currently limited to a length of 200 characters.
+<A NAME="IDX882"></A>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">IBM reserves the definition and use of most identifiers that begin
+with &#64;.
+However, there are some built-in &#64; variables that you can set;
+these are discussed in <A HREF="usrgu056.htm#HDRSDXSC">10.7 , "Using Data
+Explorer Script Commands"</A>.
+</td></tr></table>
+		<P>
+The following are valid, unique identifiers&#58;
+
+		<PRE>
+ComputeSine
+Compute_Sine
+c0mpute_sine
+compute_s1ne
+compute_sine'
+</PRE>
+		<P>
+Identifiers can be used as&#58;
+<UL COMPACT>
+<LI>variable names
+<LI>function names.
+</UL>
+<P>
+Some identifiers are reserved and cannot be used as a variable or a
+function name.
+Every other identifier can be used both as a variable and as a function
+name.
+The proper use of the identifier is determined by its context.
+<P>
+<P>
+<H4><U>Reserved Words</U></H4>
+<A NAME="IDX883"></A>
+<P>
+The identifiers in the following list cannot be used for variable or
+function names.
+Those marked with asterisks are reserved for use in future releases.
+<BR>
+<TABLE>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>and*<BR>
+backward<BR>
+cancel*<BR>
+else*<BR>
+false*<BR>
+for*<BR>
+forward<BR>
+if*<BR>
+include</STRONG></TT><BR>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>loop<BR>
+macro<BR>
+not*<BR>
+off<BR>
+on<BR>
+palindrome<BR>
+pause<BR>
+play<BR>
+quit</STRONG></TT><BR>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>repeat*<BR>
+or*<BR>
+sequence<BR>
+step<BR>
+stop<BR>
+then*<BR>
+true*<BR>
+until*<BR>
+while*</STRONG></TT><BR>
+</TD></TR></TABLE>
+<P>
+The identifier <TT><STRONG>NULL</STRONG></TT> is a reserved variable
+name.
+It can be used to initialize other variables or function arguments to
+have no value assigned to them.
+
+		<P>The keyword $sync forces all pending assignments/definitions are processed by the executive before continuing.</P>
+		<P>
+<H3><A NAME="Header_324" ></A>Specifying Values in a Script
+</H3>
+<P>
+You can specify values in a Data Explorer script as any of the following:
+<UL COMPACT>
+<LI>String constants
+<LI>Scalar numeric constants
+<LI>Vectors, matrices, and tensors
+<LI>Lists
+</UL>
+<P>
+You can use any of the formats described in the following sections
+to specify values to Data Explorer.
+To have Data Explorer use a particular format to echo these values to you, you
+must first format a string with the Format module (as described in
+<A HREF="refgu065.htm#HDRFORMAT">Format</A>), and then echo the string using the
+Echo module.
+<P>
+<H4><U>String Constants</U></H4>
+<A NAME="IDX884"></A>
+<A NAME="IDX885"></A>
+String constants consist of a sequence of any characters delimited by
+the double quote character (<TT>"</TT>).
+However, a null character in a string delimited by double quotation
+marks (for example, "str\0ing") causes the string to be
+terminated at the null character.
+<P>
+String constants have the following characteristics&#58;
+<UL>
+<P><LI>They are delimited with double quotes.
+<P><LI>They can be up to 4000 characters long.
+<P><LI>They may extend over multiple lines, providing that the last
+character on each line (except for the last line) is a
+backslash.
+For example, the following lines,
+<PRE>
+a = "123\
+456";
+</PRE>
+are equivalent to
+<PRE>
+a = "123456";
+</PRE>
+</UL>
+<P>
+You can use the following escape sequences to include special
+characters in a string constant:
+<BR>
+<TABLE>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Description
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Character
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Escape Sequence
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">newline
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">NL (LF)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>&#92;n</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">horizontal tab
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">HT
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>&#92;t</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">vertical tab
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">VT
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>&#92;v</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">backspace
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">BS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>&#92;b</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">carriage return
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CR
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>&#92;r</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">formfeed
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">FF
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>&#92;f</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">audible alert
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">BEL
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>&#92;a</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">backslash
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&#92;
+</TD><TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%"><TT><STRONG>&#92;&#92;</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">question mark
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>&#92;?</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">single quote
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&#39;
+</TD><TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%"><TT><STRONG>&#92;&#39;</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">double quote
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%"><TT><STRONG>&#92;&quot;</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">octal number (<VAR>ooo</VAR>)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%"><TT><STRONG>&#92;</STRONG></TT><VAR>ooo</VAR>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">hex number (<VAR>hh</VAR>)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%"><TT><STRONG>&#92;x</STRONG></TT><VAR>hh</VAR>
+</TD></TR></TABLE>
+<P>
+The following are examples of valid string constants:
+<BLOCKQUOTE>
+<PRE>
+""           // an empty string
+"this a string:  &#126;!@#$%&#94;()_+"
+</PRE>
+</BLOCKQUOTE>
+<P>
+<H4><U>Scalar Numeric Constants</U></H4>
+<A NAME="IDX886"></A>
+<A NAME="IDX887"></A>
+Scalar numeric constants are sequences of numeric characters that can
+be used in two ways:
+<UL COMPACT>
+<LI>As values themselves
+<LI>As components of a vector, matrix, tensor, or list.
+</UL>
+There are two kinds of scalar numeric constants:
+<UL COMPACT>
+<LI>Integer
+<LI>Floating point
+</UL>
+<P>
+The following sections describe these constants.
+<P>
+<H5><U>Integer</U></H5>
+<P>
+<I>Integers</I> are the set of counting numbers, or their negatives
+(e.g., 0, 1, 2,...).
+By virtue of their 32-bit internal representation, integer values range
+from &#45;2<SUP>31</SUP> to 2<SUP>31</SUP> &#45; 1.
+They can be prefixed with a minus sign (<TT><STRONG>&#45;</STRONG></TT>) to
+represent a negative number.
+Integers in Data Explorer can be represented in the following base systems:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Decimal
+<A NAME="IDX888"></A>
+<A NAME="IDX889"></A>
+</B></TD><TD><P>
+<I>Decimal</I> notation (base 10) is the most common notation for
+integers.
+Decimal numbers are constructed from sequences of numerals
+(0, 1, ..., 9).
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Octal
+<A NAME="IDX890"></A>
+<A NAME="IDX891"></A>
+</B></TD><TD><P>When a sequence of numerals begins with the numeral zero (0)
+followed by a numeral from 0 to 7, Data Explorer treats it as an
+<I>octal</I>, or base-8, number.
+If a numeric sequence starts with a zero but contains either an 8 or 9,
+then these digits are identified as invalid octal digits.
+They are, however,
+correctly converted.
+For example, although the following octal numbers are both converted to
+the decimal number 17, the first produces an error message, but the
+second does not:
+<P>
+<PRE>
+019
+021
+</PRE>
+<P>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Hexadecimal
+<A NAME="IDX892"></A>
+<A NAME="IDX893"></A>
+</B></TD><TD><P><I>Hexadecimal</I>, or base 16, numbers can be constructed from
+both the numerals (0 to 9) and the extended hex-digits (a to f, or
+A to F).
+To differentiate them from decimal and octal integers, hexadecimal
+numbers start with  either the sequence <TT><STRONG>0x</STRONG></TT>
+or the sequence <TT><STRONG>0X</STRONG></TT>
+(the numeral zero followed by the letter X).
+</TD></TR></TABLE>
+<P>
+The following are examples of valid integers, all of which have the
+value 95&nbsp;base&nbsp;10:
+<P>
+<PRE>
+  95
+0137
+0x5f
+</PRE>
+<P>
+<H5><U>Floating Point</U></H5>
+<P>
+<I>Floating-point</I> numbers are used to represent the set of real
+numbers.
+These numbers encompass both rational and irrational numbers.
+By virtue of their 32-bit, IEEE single-precision internal
+representation, they lie in the range of &plusmn;3.4028 x
+10<SUP>38</SUP>.
+The smallest step between values is &plusmn;1.1754 x 10<SUP>&#45;38</SUP>.
+Like integers, floating-point numbers can be prefixed by a minus sign
+(<TT><STRONG>&#45;</STRONG></TT>) to represent a negative number.
+Floating-point numbers can be expressed in two ways:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Standard representation
+<A NAME="IDX894"></A>
+</B></TD><TD><P>The <I>standard representation</I> of a floating-point
+number consists of a decimal number followed by a decimal
+point (<TT><STRONG>.</STRONG></TT>), followed by another
+decimal number.
+The first decimal number represents the whole part of the floating-point
+number.
+The second represents the fractional part.
+Either the first or the second of the numbers surrounding the decimal
+point can be omitted, but not both.
+If the first is omitted, then the number is purely fractional.
+If the second is omitted, then the number does not contain a fractional
+part.
+This second alternative is useful for representing integer values that
+lie outside of the range representable by the integer format.
+<P>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Scientific notation
+<A NAME="IDX895"></A>
+<A NAME="IDX896"></A>
+</B></TD><TD><P><I>Scientific notation</I> is an alternative means of
+representing floating-point numbers.
+A number in scientific notation has the form <I>x</I>e<I>y</I>
+(or <I>x</I>E<I>y</I>).
+The number <I>x</I> can be either a standard floating-point number
+or a decimal integer.
+The number <I>y</I> must be a decimal integer.
+It can be prefixed by a minus sign.
+This scientific notation is simply shorthand for writing
+<I>x&times;10<SUP>y</SUP></I>.
+The effect of the decimal value <I>y</I> is to specify the number of
+places the decimal point should be shifted to the right, or if
+<I>y</I> is negative, to the left.
+</TD></TR></TABLE>
+<P>
+The following are examples of valid floating-point numbers, all of
+which have the value 95.0&#58;
+<P>
+<PRE>
+95.
+95.0
+95e0
+9.5E1
+950e&#45;1
+9.50e&#43;1
+</PRE>
+<P>
+<H4><U>Vectors, Matrices, and Tensors</U></H4>
+<P>
+<I>Vectors</I>, <I>matrices</I>, and <I>tensors</I> are
+higher dimensional mathematical entities that are used for the
+representation of specific kinds of data.
+<P>
+<H5><U>Vectors</U></H5>
+<A NAME="IDX897"></A>
+<P>
+A vector is a quantity that has both magnitude and direction in
+<I>n</I>-dimensional space.
+It corresponds to a directed line segment whose length represents the
+magnitude of the vector and whose orientation corresponds to its
+direction.
+<P>
+Vectors are composed of a sequence of scalar values enclosed by square
+brackets <TT><STRONG>&#91;&nbsp;&#93;</STRONG></TT>.
+The scalar values can be separated by commas if desired, although this
+is not necessary.
+If the elements of a vector are not homogeneous, (e.g., if they are both
+integer and floating-point elements), then the integer elements
+are converted to floating point.
+The following are all valid vectors:
+<P>
+<PRE>
+&#91;0.0 0.0 0.0&#93;              // the origin of a 3-D space
+&#91;0, 0, 1&#93;                  // an axis in a 3-D coordinate system
+&#91;1, 1.0  1, 1.0  1&#93;        // a vector in a 5-D space
+</PRE>
+<P>
+<H5><U>Matrices</U></H5>
+<A NAME="IDX898"></A>
+<P>
+Matrices are 2-dimensional collections of scalars.
+They are used to represent, among other things, the coefficients of a
+set of simultaneous equations or a transformation of a vector.
+<P>
+Matrices are constructed from a sequence of vectors enclosed by square
+brackets.
+Each of the vectors contained in a matrix must have the same length as
+all of the others.
+The following are all valid matrices:
+<PRE>
+&#91;&#91;1 0 0 0&#93;&#91;0 1 0 0&#93;&#91;0 0 1 0&#93;&#91;0 0 0 1&#93;&#93;          // a 4x4 identity matrix
+&#91;&#91; 0.707 0.707 0.000&#93;          // a 45-degree rotation
+ &#91;&#45;0.707 0.707 0.000&#93;          //     about the Z axis
+ &#91; 0.000 0.000 1.000&#93;&#93;
+&#91;&#91;1 1 1 1&#93;&#91;2 2 2 2&#93;&#93;           // a 2x4 matrix
+</PRE>
+<P>
+<H5><U>Tensors</U></H5>
+<A NAME="IDX899"></A>
+<P>
+Tensors are a generalization of the concept of vectors.
+On one hand, the elements in a tensor have meanings that are independent
+of the coordinate system in which they are embedded.
+On the other hand, one can associate certain metrics to them that vary
+among coordinate systems.
+<P>
+In general, a rank <I>n</I> tensor can be formed by surrounding
+<I>k</I> rank <I>n</I>&#45;1 tensors with square
+brackets.
+(Note that scalars, vectors, and matrices are rank 0, 1, and 2
+tensors, respectively.)
+As with the matrices, all of the subtensors must have the same shape.
+<P>
+The following are valid tensors:
+<P>
+<PRE>
+&#91;&#91;&#91;&#91;&#91;0xabcd&#93;&#93;&#93;&#93;&#93;           // a 1x1x1x1x1 rank 5 tensor
+&#91;&#91;&#91;1 0 0&#93;                 // a 3x3x3 rank 3 tensor with
+  &#91;0 0 0&#93;                 //        1&#39;s on the diagonal
+  &#91;0 0 0&#93;&#93;
+ &#91;&#91;0 0 0&#93;
+  &#91;0 1 0&#93;
+  &#91;0 0 0&#93;&#93;
+ &#91;&#91;0 0 0&#93;
+  &#91;0 0 0&#93;
+  &#91;0 0 1&#93;&#93;&#93;
+</PRE>
+<P>
+<H4><U>Lists</U></H4>
+<A NAME="IDX900"></A>
+<P>
+Unlike the vector, matrix, and tensor constructions that aggregate
+several lower dimensional data elements into a single higher one;
+the <I>list</I> construction collects several homogeneous
+elements together so that they can be handled as a single
+entity while still retaining their individuality.
+<P>
+Lists are constructed by enclosing a sequence of scalars, vectors,
+matrices, rank <I>n</I> tensors, or string constants in
+braces (<TT><STRONG>&#123; &#125;</STRONG></TT>).
+The elements of a list can be separated by commas, although they need
+not be.
+In Data Explorer, a list is the same as an Array (see <A
+HREF="usrgu025.htm#HDRARRAYS">"Arrays"</A>).
+<P>
+The following are examples of valid lists:
+<P>
+<PRE>
+&#123;1.0 2.0 3.0&#125;             // 3 scalar values (for isovalues)
+&#123;&#91;0.0 0.0 0.0&#93;,           // 4 vector values for use as
+ &#91;1.0 0.0 0.0&#93;,           //     streamline seed points
+ &#91;2.0 0.0 0.0&#93;,
+ &#91;3.0 0.0 0.0&#93;&#125;
+<P>
+&#123;"a" "list" "of" "string"
+"constants"&#125;
+</PRE>
+<P>
+Lists of scalars can also be defined with a convenient shorthand
+notation that specifies the following&#58;
+<UL COMPACT>
+<LI>The list&#39;s starting value
+<LI>The list&#39;s ending value
+<LI>A <I>stepping increment</I> (optional).
+</UL>
+If you do not specify a stepping increment, then the default is 1.
+If any of the values in the list constructor (including the stepping
+increment) are specified as floating point numbers, then the
+generated list contains floating-point numbers;
+otherwise, it contains integers.
+If the starting value is smaller than the ending value, the list
+elements are generated in increasing order;
+otherwise they are generated in decreasing order.
+Also, only the magnitude of the stepping increment is important, not the
+sign.
+A negative stepping increment produces the same results as a positive
+one.
+<P>
+The values included in the list are generated by continually adding
+the value of the stepping increment to the starting value until
+the resultant value passes the ending value.
+Each of the following produces the same list:
+<P>
+<PRE>
+&#123;-1 1 3 5 7 9&#125;
+&#123;-1 .. 9 &#58; 2&#125;
+&#123;-1 .. 9 &#58; -2&#125;
+&#123;-1 .. 10 &#58; 2&#125;
+</PRE>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Spaces are required around the &#46;&#46;
+operator.</td></tr></table>
+<P>
+Lists specified using this notation will be represented as a
+<I>Regular Array</I> of 1-vectors.
+See <A HREF="usrgu025.htm#HDRARRAYS">"Arrays"</A> for a discussion of Array
+types.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

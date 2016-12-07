@@ -1,0 +1,66 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rwrkrxmp Worker Routine Examples #!N #!EC #!Cbrown 
+#!N  #!F-adobe-times-medium-r-normal--18*    #!Rex1122 #!N Figure 122. Worker Routine: Example1_worker. This routine 
+requests no positions or connections. #!EF #!N #!EC #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N int #!N Example1_worker( #!N int inputObject_knt, float *inputObject_data, #!N 
+int inputArgument_knt, float *inputArgument_data, #!N int outputObject_knt, float *outputObject_data) #!EF #!N 
+#!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N { #!N /* #!N 
+* The arguments to this routine are: #!N * #!EF #!N 
+#!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N * The following are 
+inputs and therefore read-only. The default #!N * values are given 
+and should be used if knt is 0. #!N * #!N 
+* inputObject_knt, inputObject_data: count and pointer for input "inputObject" #!N * 
+no default value given. #!N * inputArgument_knt, inputArgument_data: count and pointer 
+for input "inputArgument" #!N * nondescriptive default value is "1.0" #!N 
+* #!N * The following are outputs and therefore writable. #!N 
+* #!N * outputObject_knt, outputObject_data: count and pointer for output "outputObject" 
+#!N */ #!N #!N /* #!N * User's code goes here. 
+#!N */ #!N #!N } #!EF #!N #!N #!EC #!Cbrown #!N 
+ #!F-adobe-times-medium-r-normal--18*    #!Rex2123 #!N Figure 123. Worker Routine. Example2_worker. This routine requests 
+regular positions and connections. #!EF #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N int #!N Example2_worker( #!N int p_knt, int p_dim, int *p_counts, 
+float *p_origin, float *p_deltas, #!N int c_knt, int c_nv, int *c_counts, 
+#!N int inputObject_knt, float *inputObject_data, #!N int inputArgument_knt, float *inputArgument_data, #!N 
+int outputObject_knt, float *outputObject_data) #!EF #!N #!N #!EC #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N { #!N /* #!N * The arguments to this 
+routine are: #!N * #!N * p_knt: total count of input 
+positions #!N * p_dim: dimensionality of input positions #!N * p_counts: 
+count along each axis of regular positions grid #!N * p_origin: 
+origin of regular positions grid #!N * p_deltas: regular positions delta 
+vectors #!N * c_knt: total count of input connections elements #!N 
+* c_nv: number of vertices per element #!N * c_counts: vertex 
+count along each axis of regular positions grid #!N * #!EF 
+#!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N * The following 
+are inputs and therefore read-only. The default #!N * values are 
+given and should be used if knt is 0. #!N * 
+#!N * inputObject_knt, inputObject_data: count and pointer for input "inputObject" #!N 
+* no default value given. #!N * inputArgument_knt, inputArgument_data: count and 
+pointer for input "inputArgument" #!N * nondescriptive default value is "1.0" 
+#!N * #!N * The following are outputs and therefore writable. 
+#!N * #!N * outputObject_knt, outputObject_data: count and pointer for output 
+"outputObject" #!N */ #!N #!N /* #!N * User's code goes 
+here. #!N */ #!N #!N } #!EF #!N #!N #!EC #!Cbrown 
+#!N  #!F-adobe-times-medium-r-normal--18*    #!Rex3124 #!N Figure 124. Worker Routine. Example3_worker. This routine 
+requests irregular positions and connections. #!EF #!N #!EC #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N int #!N Example3_worker( #!N int p_knt, int p_dim, float 
+*p_positions, #!N int c_knt, int c_nv, int *c_connections, #!N int inputObject_knt, 
+float *inputObject_data, #!N int inputArgument_knt, float *inputArgument_data, #!N int outputObject_knt, float 
+*outputObject_data) #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N { 
+#!N /* #!N * The arguments to this routine are: #!N 
+* #!N * p_knt: total count of input positions #!N * 
+p_dim: dimensionality of input positions #!N * p_positions: pointer to positions 
+list #!N * c_knt: total count of input connections elements #!N 
+* c_nv: number of vertices per element #!N * c_connections: pointer 
+to connections list #!N * #!N * The following are inputs 
+and therefore read-only. The default #!N * values are given and 
+should be used if knt is 0. #!N * #!N * 
+inputObject_knt, inputObject_data: count and pointer for input "inputObject" #!N * no 
+default value given #!N * inputArgument_knt, inputArgument_data: count and pointer for 
+input "inputArgument" #!N * nondescriptive default value is "1.0" #!N * 
+#!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N * The 
+following are outputs and therefore writable. #!N * #!N * outputObject_knt, 
+outputObject_data: count and pointer for output "outputObject" #!N */ #!N #!N 
+/* #!N * User's code goes here. #!N */ #!N #!N 
+} #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lneedmod,dxall1021 h What you need to know about Data Explorer to write a Module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

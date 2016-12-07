@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgea DXGetEnumeratedAttribute 
+#!N #!N Function #!N #!N Retrieves the  #!F-adobe-times-bold-r-normal--18*   n #!EF th 
+attribute from an Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Object DXGetEnumeratedAttribute(Object o, int n, char **name) #!EF #!N #!N Functional 
+Details #!N #!N The attribute to be retrieved from Object  #!F-adobe-times-bold-r-normal--18*   
+o #!EF is specified by the zero-based index  #!F-adobe-times-bold-r-normal--18*   n #!EF 
+. If  #!F-adobe-times-bold-r-normal--18*   o #!EF has an  #!F-adobe-times-bold-r-normal--18*   n #!EF th 
+attribute, and  #!F-adobe-times-bold-r-normal--18*   name #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , 
+the string associated with the  #!F-adobe-times-bold-r-normal--18*   n #!EF th attribute will 
+be returned in  #!F-adobe-times-bold-r-normal--18*   name #!EF . #!N #!N Return Value 
+#!N #!N Returns the Object associated with the index  #!F-adobe-times-bold-r-normal--18*   n 
+#!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF without setting an error code. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxga,dxall1223 h DXGetAttribute  #!EL  ,  #!Ldxgfa,dxall1238 h DXGetFloatAttribute  #!EL  , 
+ #!Ldxgia,dxall1242 h DXGetIntegerAttribute  #!EL  ,  #!Ldxgsa,dxall1268 h DXGetStringAttribute  #!EL  ,  #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  ,  #!Ldxsfa,dxall1379 h DXSetFloatAttribute  #!EL  ,  #!Ldxsia,dxall1381 h DXSetIntegerAttribute  #!EL  ,  #!Ldxssa,dxall1392 h DXSetStringAttribute  #!EL  
+#!EF #!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxgeca,dxall1232 h DXGetEnumeratedComponentAttribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

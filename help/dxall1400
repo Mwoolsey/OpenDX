@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxt DXTrim #!N #!N Function #!N #!N 
+Frees space allocated in an Array beyond that required for the 
+number of items in the Array. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Array DXTrim(Array a) #!EF #!N #!N Functional Details #!N 
+#!N Under some circumstances, more space than is necessary to hold 
+the items added to  #!F-adobe-times-bold-r-normal--18*   a #!EF may have been allocated. 
+This can happen if you have called  #!F-adobe-times-bold-r-normal--18*   DXAllocateArray #!EF . 
+It can also happen when you call  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData #!EF . 
+This extra space can be freed by calling  #!F-adobe-times-bold-r-normal--18*   DXTrim #!EF 
+. The  #!F-adobe-times-bold-r-normal--18*   DXEndField #!EF routine automatically calls  #!F-adobe-times-bold-r-normal--18*   DXTrim #!EF 
+on all components of a Field. #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  ,  #!Ldxaa,dxall1172 h DXAllocateArray  #!EL  ,  #!Ldxendf,dxall1201 h DXEndField  #!EL  #!EF #!N #!N  #!Lirreg,dxall1071 h Irregular Arrays  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxtbe,dxall1401 h DXTube  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

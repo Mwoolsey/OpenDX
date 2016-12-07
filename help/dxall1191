@@ -1,0 +1,30 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcich DXCreateInvalidComponentHandle #!N 
+#!N Function #!N #!N Creates an invalid-component handle. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> InvalidComponentHandle DXCreateInvalidComponentHandle(Object object, Array array, char *name) 
+#!EF #!N #!N Functional Details #!N #!N The invalid-component handle is 
+necessary in order to use the other invalid-component routines. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N 
+specifies: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o a 
+Field for which an invalid-component Array is to be created;  #!F-adobe-times-medium-i-normal--18*   
+or #!EF #!N #!I30 #!N o one of the following kinds 
+of array: "positions," "connections," "face," or "polylines." #!N #!I0 #!N #!EF 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   array #!EF #!EF #!I50 #!N 
+allows an initial "invalid positions" or "invalid connections" component to be 
+passed in to initialize the handle. #!N Note: If  #!F-adobe-times-bold-r-normal--18*   object 
+#!EF is a Field, it is not necessary to specify  #!F-adobe-times-bold-r-normal--18*   
+array #!EF , since the initial invalid component will be found 
+in the Field. However, if  #!F-adobe-times-bold-r-normal--18*   object #!EF is a Field 
+and  #!F-adobe-times-bold-r-normal--18*   array #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , then 
+ #!F-adobe-times-bold-r-normal--18*   array #!EF supersedes the invalid Array in the Field. #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF #!EF #!I50 #!N Specifies 
+the component referred to by the invalid component: "positions," "connections.," "faces," 
+or "polylines." #!I0 #!N #!N #!N #!N When you have finished 
+using it, delete the invalid-component handle with  #!F-adobe-times-bold-r-normal--18*   DXFreeInvalidComponentHandle #!EF . 
+#!N #!N Return Value #!N #!N Returns the invalid-component handle or 
+returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxfich,dxall1215 h DXFreeInvalidComponentHandle  #!EL  ,  #!Ldxgic,dxall1244 h DXGetInvalidCount  #!EL  ,  #!Ldxgvc,dxall1271 h DXGetValidCount  #!EL  , 
+ #!Ldxiv,dxall1288 h DXInvertValidity  #!EL  ,  #!Ldxiev,dxall1289 h DXIsElementValid, DXIsElementInvalid  #!EL  ,  #!Ldxsic,dxall1363 h DXSaveInvalidComponent  #!EL  ,  #!Ldxsai,dxall1365 h DXSetAllInvalid  #!EL  ,  #!Ldxsav,dxall1366 h DXSetAllValid  #!EL  ,  #!Ldxsei,dxall1374 h DXSetElementInvalid  #!EL  
+,  #!Ldxsev,dxall1375 h DXSetElementValid  #!EL  #!EF #!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxctg,dxall1192 h DXCreateTaskGroup  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

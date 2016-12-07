@@ -1,0 +1,40 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall274 Starting Data 
+Explorer #!N #!EC #!N #!N To run Data Explorer using a 
+workstation, you must have: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o An account on the workstation #!N #!I30 #!N o 
+If the executive portion of Data Explorer is to be executed 
+on a remote workstation, then a  #!F-adobe-times-bold-r-normal--18*   . #!EF rhosts file 
+in your home directory should contain the name of the machine 
+on which the user interface will run. The permissions for the 
+ #!F-adobe-times-bold-r-normal--18*   . #!EF rhosts file should be set to 600 (read 
+and write only by the owner). #!N #!I0 #!N #!EF #!N 
+#!N #!N You can start Data Explorer in any of several 
+modes. In all cases, you must first do the following: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Log on to 
+your workstation. #!N #!I30 #!N 2. Start an X Window System 
+running with the Motif or the appropriate window manager. #!N #!I0 
+#!N #!EF #!N #!N #!N If you are going to create, 
+modify, and execute visual programs, start Data Explorer initially in the 
+Visual Program Editor and connect to the executive (server) by typing: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N dx -edit [  #!F-adobe-times-bold-i-normal--18*   program 
+#!EF ] #!N #!EF #!N #!N #!EC where  #!F-adobe-times-bold-i-normal--18*   program #!EF 
+(which is optional) names an existing visual program. #!N #!N If 
+you plan to execute a previously created visual program, start Data 
+Explorer initially in the Image window and connect to the executive 
+(server) by typing: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -image  #!F-adobe-times-bold-i-normal--18*   
+program #!EF #!EF #!N #!N #!EC  #!F-adobe-times-medium-i-normal--18*   or #!EF #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -menubar  #!F-adobe-times-bold-i-normal--18*   program #!EF #!EF #!N #!N 
+#!EC where  #!F-adobe-times-bold-i-normal--18*   program #!EF is the name of an existing 
+visual program. #!N #!N You may want to start the user 
+interface without connecting to the executive. For example, you may want 
+to work on a visual program or macro, but may not 
+plan to execute it until some later time. In that case, 
+you can start Data Explorer with the following command: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N dx -edit -uionly #!N #!EF #!N #!N 
+#!EC Once the user interface is started, you can connect to 
+the executive portion of Data Explorer by following the procedures described 
+in  #!Lconserv,dxall493 h Connecting to the Server  #!EL  . #!N #!N All of the command line options 
+for Data Explorer are described in  #!Lcmdlopt,dxall744 h Command Line Options  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lenvar,dxall276 h Using Environment Variables  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

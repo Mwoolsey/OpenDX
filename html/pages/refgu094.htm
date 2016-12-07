@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Measure</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu093.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu095.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRMEASURE" ></A>Measure</H3>
+		<A NAME="IDX589"></A><A NAME="IDX590"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<A NAME="IDX591"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Performs length, area, and volume measurements on an input object.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+output</STRONG> = Measure(<STRONG>input, what</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">data to be measured
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>what</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">measurement to be performed
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">value
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">result of the measurement
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is the field to be measured.
+It is expected to have a "connections" component consisting of
+lines, surfaces, or volumes.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>what</STRONG></TT>
+</B></TD><TD><P>specifies the type of measurement to be performed.
+<UL COMPACT>
+<LI>Unless the parameter value is "element," the module performs a
+measurements of the field as a whole.
+The structure of the output is identical to that of the input, with
+each field (or composite field) replaced by an array containing a
+simple scalar floating-point measurement of that field.
+<P>
+The default value of <TT><STRONG>what</STRONG></TT> is determined by the
+"connections"-component element type.
+If the connections element type is:
+<DL COMPACT>
+<DD>"lines," the parameter defaults to "length."
+<DD>"triangles" or "quads," the parameter defaults to
+"area."
+<DD>is "cubes" or "tetrahedra," the parameter defaults to
+"volume."
+</DL>
+<LI>If <TT><STRONG>what</STRONG></TT> is "element," the module performs
+element-by-element measurement on <TT><STRONG>input,</STRONG></TT>
+replacing the "data" component with scalar arrays
+that are connection dependent and contain the
+measurement of each
+connection element.
+If the connections element type is:
+<DL COMPACT>
+<DD>"lines," the resulting "data" component will contain
+the length of each line segment.
+<DD>"triangles" or "quads," the resulting "data"
+component will contain the area of each triangle or quad.
+<DD>is "cubes" or "tetrahedra," the resulting "data"
+component will contain the volume of each cube or tetrahedron.
+</DL>
+</UL>
+</TD></TR></TABLE>
+<P>
+The options for <TT><STRONG>what</STRONG></TT> are shown in the following
+table:
+<BR>
+<P><B><A NAME="Table_7" HREF="refgu002.htm#FT_Table_7">Table 7. Options for
+Measure's What Parameter</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="BOTTOM">Connection element
+</TH><TH ALIGN="LEFT" VALIGN="BOTTOM">What
+</TH><TH ALIGN="LEFT" VALIGN="BOTTOM">Measurement
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" ROWSPAN="3">lines
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> "length"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> total length of line segments
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP"> "element"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> length of each line segment
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP"> "area"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> 2-D area enclosed by connected line
+segments.
+If a series of segments is not closed, a segment connecting the first
+and final points of the sequence is added.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" ROWSPAN="2">faces
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> "area"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> total area of all faces
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP"> "element"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> area of each face
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" ROWSPAN="3">triangles, quads
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> "area"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> total area of all surface elements
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP"> "element"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> area of each surface element
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP"> "volume"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> 3-D volume enclosed by connected sets of
+surface elements.
+If a connected set of surface elements is not closed, the approximate
+closing surface(s) is(are) found by triangulating the openings in
+the surface (defined by loops of unshared edges).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" ROWSPAN="2">polylines
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> "length"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> total length of all lines
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP"> "element"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> length of each line
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" ROWSPAN="2"> tetrahedra, cubes
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> "element"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> volume of each 3-D element
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP"> "volume"
+</TD><TD ALIGN="LEFT" VALIGN="TOP"> total volume of all 3-D elements
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="3"><B>Notes&#58; </B>
+<OL>
+<P><LI>The default value for lines and polylines is "length";
+"area" is the default for triangles, quads, and faces;
+and "volume" is the default for tetrahedra
+and cubes.
+<P><LI>All sequences of line segments are handled independently when
+measuring area.
+Sequences are defined by following exactly identical coordinate points,
+rather than by following identical point indices.
+Overlapping volumes are not detected.
+Similarly for volumes enclosed by surface elements, a volume is defined
+by triangles consisting of identical vertex positions, rather
+than by triangles consisting of identical point indices.
+Overlapping volume is not detected.
+<P><LI>Be aware of the following:
+Curves are closed by straight lines regardless of the geometry from
+which they were derived.
+The surfaces added to close volumes are triangulated as if planar.
+This module ignores any transforms in the object.
+For example, if the object is scaled by 2 (with the Scale module), the
+volume will <I>not</I> increase.
+</OL>
+</TD></TR></TABLE>
+<P><STRONG>Example Visual Program</STRONG>
+<PRE>
+ThunderGlyphSheet.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu036.htm#HDRCOMPUTE">Compute</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

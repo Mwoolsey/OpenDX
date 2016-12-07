@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - ScaleScreen</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu129.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu131.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRSCALSCR" ></A>ScaleScreen</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATREN">Rendering</A>
+<P><STRONG>Function</STRONG>
+<P>Increases or decreases size of all screen objects (e.g. captions and
+colorbars) by specified factor.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>output, newcamera</STRONG> = ScaleScreen(<STRONG>object, scalefactor,
+                                finalres, currentcamera</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object to scale
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>scalefactor</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">scale factor for screen objects
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>finalres</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">final (x) resolution of desired
+image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>currentcamera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">current camera used to view
+object
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">object with screen objects scaled
+as specified
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>newcamera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">current camera updated by
+specified scale factors
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The ScaleScreen module is used to scale all the screen objects within
+<TT><STRONG>object</STRONG></TT> by a specified amount. It does not
+affect the size of any other
+objects in the input <TT><STRONG>object</STRONG></TT>. A typical use of
+ScaleScreen is when you
+have created an image for display using Render, and you wish to
+re-render it at a higher resolution for printing, for example. You would
+need to use ScaleScreen to increase the pixel size of any screen objects
+(such as captions and color bars) in the object before re-rendering. Note
+that ScaleScreen is called implicitly when you use the
+"Allow Rerendering"
+option of the Save/Print Image dialogs of the Image window, so you do
+not need to use it. You would only need to use ScaleScreen if you are
+doing the re-rendering yourself using Render or Display.
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>object</STRONG></TT>
+</B></TD><TD><P>specifies the object containing screen objects to be scaled.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>scalefactor</STRONG></TT>
+</B></TD><TD><P>specifies the scale factor you intend to use on re-rendering;
+for
+example <TT><STRONG>scalefactor</STRONG></TT>
+should be set to 2 if you want the re-rendered
+image to be twice as large.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>finalres</STRONG></TT>
+</B></TD><TD><P>is used as an alternative to
+<TT><STRONG>scalefactor</STRONG></TT>,
+if, for example, you know that you want your final resolution of your
+image to be 1000 pixels. If you specify <TT><STRONG>final_res</STRONG></TT>,
+you must also provide the <TT><STRONG>currentcamera</STRONG></TT> input.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>currentcamera</STRONG></TT>
+</B></TD><TD><P>is the camera you are currently using to view your
+object.
+This can be the output of AutoCamera or Camera, or the
+<TT><STRONG>camera</STRONG></TT> output of Image.
+</TD></TR></TABLE>
+<P>
+The output <TT><STRONG>output</STRONG></TT> is the object with all screen
+objects scaled. If you specify <TT><STRONG>currentcamera</STRONG></TT>, then
+the module will, in addition, output <TT><STRONG>newcamera</STRONG></TT>, which
+is a new camera for you to use with Render or Display.
+<P><STRONG>Components</STRONG>
+<P>All components in the input are propagated to the output. Only
+screen objects are modified.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+SIMPLE/ScaleScreen.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+<A HREF="refgu118.htm#HDRRENDER">Render</A>,
+<A HREF="refgu015.htm#HDRAUTOCAM">AutoCamera</A>,
+<A HREF="refgu021.htm#HDRCAMERA">Camera</A>,
+<A HREF="refgu072.htm#HDRIMAGE">Image</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

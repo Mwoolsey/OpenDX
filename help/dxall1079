@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rctas Constant 
+Arrays #!N #!EC #!N #!N Constant Arrays define Arrays that contain 
+a number of items with the same value. These items may 
+be of any type, category, rank, and shape. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   ConstantArray DXNewConstantArray() #!EF #!N ConstantArray DXNewConstantArrayV(); 
+#!EF #!I50 #!N Create an Array containing constant data. See  #!Ldxncav,dxall1314 h DXNewConstantArray, DXNewConstantArrayV  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXQueryConstantArray() #!EF #!EF #!I50 
+#!N Determines if an Array contains constant data and, if so, 
+returns number of items and data value. See  #!Ldxqca,dxall1341 h DXQueryConstantArray  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Pointer DXGetConstantArrayData() #!EF #!EF #!I50 #!N Returns 
+a pointer to the value stored in a Constant Array. See 
+ #!Ldxgcad,dxall1230 h DXGetConstantArrayData  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lsgos,dxall1080 h String Class  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

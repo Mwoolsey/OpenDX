@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Appendix B. Importing Data: File Formats</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu066.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu068.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu062.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRIMD" ></A>Appendix B. Importing Data: File Formats
+</H2>
+		<P><A NAME="PToC15" HREF="../usrguide.htm">Partial Table-of-Contents</A>
+		<MENU>
+<LI><A NAME="PToC_412" HREF="#HDRKWIFDF">B.1 General Array Importer: Keyword
+Information from Data Files</A>
+<LI><A NAME="PToC_416" HREF="usrgu068.htm#HDREDF">B.2 Data Explorer Native
+Files</A>
+<MENU>
+<LI><A NAME="PToC_417" HREF="usrgu068.htm#Header_417">Overview of the Native
+File Format</A>
+<LI><A NAME="PToC_418" HREF="usrgu068.htm#HDRXMPLES">Examples</A>
+<LI><A NAME="PToC_431" HREF="usrgu068.htm#HDRSYNFF">Syntax of the Native File
+Format</A>
+<LI><A NAME="PToC_434" HREF="usrgu068.htm#HDROBJ">Objects</A>
+<LI><A NAME="PToC_435" HREF="usrgu068.htm#Header_435">Group Objects</A>
+<LI><A NAME="PToC_436" HREF="usrgu068.htm#Header_436">Series Objects</A>
+<LI><A NAME="PToC_437" HREF="usrgu068.htm#Header_437">Multigrid Objects</A>
+<LI><A NAME="PToC_438" HREF="usrgu068.htm#Header_438">Composite Field
+Objects</A>
+<LI><A NAME="PToC_439" HREF="usrgu068.htm#Header_439">Field Objects</A>
+<LI><A NAME="PToC_440" HREF="usrgu068.htm#Header_440">Array Objects</A>
+<LI><A NAME="PToC_441" HREF="usrgu068.htm#Header_441">Constant Array Objects</A>
+<LI><A NAME="PToC_442" HREF="usrgu068.htm#Header_442">gridpositions Keyword</A>
+<LI><A NAME="PToC_443" HREF="usrgu068.htm#Header_443">Regular Array Objects</A>
+<LI><A NAME="PToC_444" HREF="usrgu068.htm#Header_444">Product Array Objects</A>
+<LI><A NAME="PToC_445" HREF="usrgu068.htm#Header_445">gridconnections
+Keyword</A>
+<LI><A NAME="PToC_446" HREF="usrgu068.htm#Header_446">Path Array Objects</A>
+<LI><A NAME="PToC_447" HREF="usrgu068.htm#Header_447">Mesh Array Objects</A>
+<LI><A NAME="PToC_448" HREF="usrgu068.htm#Header_448">Xform Objects</A>
+<LI><A NAME="PToC_449" HREF="usrgu068.htm#Header_449">String Objects</A>
+<LI><A NAME="PToC_450" HREF="usrgu068.htm#Header_450">Light Objects</A>
+<LI><A NAME="PToC_451" HREF="usrgu068.htm#Header_451">Camera Objects</A>
+<LI><A NAME="PToC_452" HREF="usrgu068.htm#Header_452">Clipped Objects</A>
+<LI><A NAME="PToC_453" HREF="usrgu068.htm#Header_453">Screen Objects</A>
+<LI><A NAME="PToC_454" HREF="usrgu068.htm#HDRDATMODC">Data Mode Clause</A>
+<LI><A NAME="PToC_455" HREF="usrgu068.htm#Header_455">Default Clause</A>
+<LI><A NAME="PToC_456" HREF="usrgu068.htm#Header_456">End Clause</A>
+</MENU>
+<LI><A NAME="PToC_457" HREF="usrgu069.htm#HDRCDF">B.3 CDF Files</A>
+<LI><A NAME="PToC_458" HREF="usrgu070.htm#HDRNETCDF">B.4 netCDF Files</A>
+<MENU>
+<LI><A NAME="PToC_459" HREF="usrgu070.htm#Header_459">Regular Grids</A>
+</MENU>
+<LI><A NAME="PToC_461" HREF="usrgu071.htm#HDRAPE">B.5 netCDF Files: Complex
+Fields</A>
+<MENU>
+<LI><A NAME="PToC_462" HREF="usrgu071.htm#Header_462">Irregular Arrays</A>
+<LI><A NAME="PToC_467" HREF="usrgu071.htm#Header_467">Series Data</A>
+<LI><A NAME="PToC_471" HREF="usrgu071.htm#Header_471">Examples</A>
+</MENU>
+<LI><A NAME="PToC_475" HREF="usrgu072.htm#HDRHDF">B.6 HDF Files</A>
+</MENU><HR><P>
+<A NAME="IDX974"></A>
+<P>
+Importing your data into Data Explorer will be the first step in creating a
+visualization of that data.
+In order to take this step you should have some understanding of the
+Data Explorer data model and a working knowledge of a Field.
+An informal description of a Field is provided in
+<A HREF="usrgu022.htm#HDRVIS">Chapter 2. "Introduction to Visualization"</A>.
+A formal description is given in <A HREF="usrgu024.htm#HDRDATMOD">Chapter 3.
+"Understanding the Data Model"</A>.
+<P>
+A number of methods for importing data are available for use with
+Data Explorer: the General Array Importer, Data Explorer native file format,
+netCDF, CDF, and HDF.
+<HR>
+<H2><A NAME="HDRKWIFDF" ></A>B.1 General Array Importer: Keyword Information from Data Files
+</H2>
+<P>
+In addition to the syntaxes for the grid, points, and positions
+keywords described in <I>IBM Visualization Data Explorer QuickStart Guide</I>,
+it is also
+possible to derive information for these keywords directly from
+the data file. This allows you to write "filters" for specific
+applications that output their data in a set format which includes the
+grid size within the file.
+<P>
+The syntax for the grid keyword is (in addition to the
+syntax given in <A HREF="qikgu029.htm">5.3 , "Header File Syntax:
+Keyword Statements"</A> in <I>IBM Visualization Data Explorer QuickStart
+Guide</I>):
+<PRE><STRONG>
+                        bytes n                                      bytes n
+grid =  &#91;format&#93;,&#91;type&#93;{lines n   , &#91;skip, width&#93; &#91;skip, width&#93;,..  {lines n, ...
+                        marker string                                marker string
+</STRONG>
+</PRE>
+<P>
+where:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>format</STRONG></TT>
+</B></TD><TD><P>is the format in which the grid values will be found, and must
+be
+one of the following:
+<TT><STRONG>binary</STRONG></TT>,
+<TT><STRONG>ieee</STRONG></TT>,
+<TT><STRONG>text</STRONG></TT>, or
+<TT><STRONG>ascii</STRONG></TT>.
+The first two parameters are synonymous, as are the second two.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>type</STRONG></TT>
+</B></TD><TD><P>is the type of the values, and should be one of the following:
+<PRE><STRONG>
+byte               int               short
+unsigned byte      signed int        signed short
+signed byte        unsigned int      unsigned short
+</STRONG>
+</PRE>
+Note that in each of the three groupings shown here, the first and
+second (reading down) are equivalent to each other.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>bytes</STRONG></TT>,
+<TT><STRONG>lines</STRONG></TT>, and
+<TT><STRONG>marker</STRONG></TT>
+</B></TD><TD><P>specify where to begin reading the grid values.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>skip</STRONG></TT>, and
+<TT><STRONG>width</STRONG></TT>
+</B></TD><TD><P>are optional and should be used when two pieces of information
+are
+on the same line with other information separating them
+(see Example 2).
+If necessary, different portions of the grid specification can be read
+separately by repeating the bytes, lines, or marker specification
+(see Example 3).
+</TD></TR></TABLE>
+<P>
+<P>
+<H4><U>Example 1</U></H4>
+Suppose that the data file contains the following first line:
+<PRE>
+   dimensions 100 300
+</PRE>
+<P>
+You can specify that this information is to be derived from the
+data file by the following statement:
+<PRE>
+   grid = lines 0, 11, 3, 1, 3
+</PRE>
+This specifies that 0 lines are to be skipped. Then 11 characters are
+skipped, and the first grid dimension is read from 3 characters. Then 1
+character is skipped, and the second grid dimension is read from 3
+characters.
+<P>
+You could also have used the statement
+<PRE>
+   grid = bytes 11
+</PRE>
+<P>
+which simply specifies that the grid information will be found after
+skipping 11 bytes in the file.
+<P>
+<P>
+<H4><U>Example 2</U></H4>
+<P>
+Suppose the that data file contains the following line (not at the
+top of the file)
+<PRE>
+  xdim = 5 ydim = 20
+</PRE>
+<P>
+You could use the statement
+<P>
+<PRE>
+  grid = marker "xdim =", 0, 2, 8, 2
+</PRE>
+<P>
+This specifies that one should start reading after "xdim =," read
+the first dimension from 2 characters, skip 8 characters, then read
+the second dimension from 2 characters.
+<P>
+<P>
+<H4><U>Example 3</U></H4>
+<P>
+suppose that the data file contains the following lines
+<PRE>
+  xsize = 20
+  ysize = 30
+</PRE>
+<P>
+You could use the statements
+<PRE>
+  grid = marker "xsize =" X marker "ysize ="
+</PRE>
+or
+<PRE>
+  grid = marker "xsize =",0,3 X lines 1,8,2
+</PRE>
+<P>
+The first specifies that the first dimension should be read following
+the marker "xsize =," and the second dimension should be read
+following
+the marker "ysize =."
+The second statement specifies that
+the first dimension should be read from 3 characters, after skipping
+0 characters following "xsize =," and that the second dimension
+should be read from 2 characters after skipping 1 line
+and 8 characters.
+<P>
+The syntax for the
+<TT><STRONG>points
+</STRONG></TT>
+keyword is (in addition to the
+syntax given in <A HREF="qikgu029.htm">5.3 , "Header File Syntax:
+Keyword Statements"</A> in <I>IBM Visualization Data Explorer QuickStart
+Guide</I>):
+<P>
+<PRE><STRONG>
+                           bytes n
+points =  &#91;format&#93;,&#91;type&#93;{ lines n   , &#91;skip, width&#93;
+                           marker string
+</STRONG>
+</PRE>
+<P>
+where:
+
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>format</STRONG></TT>
+</B></TD><TD><P>is the format in which the grid values will be found, and must
+be
+one of the following:
+<TT><STRONG>binary</STRONG></TT>,
+<TT><STRONG>ieee</STRONG></TT>,
+<TT><STRONG>text</STRONG></TT>, or
+<TT><STRONG>ascii</STRONG></TT>.
+The first two parameters are synonymous, as are the second two.
+<P>
+For <TT><STRONG>type </STRONG></TT> and the other parameters, see the
+preceding description of <TT><STRONG>grid</STRONG></TT>.
+</TD></TR></TABLE>
+<P>
+The syntax for the
+<TT><STRONG>positions
+</STRONG></TT>
+keyword is (in addition to the
+syntax given in <A HREF="qikgu029.htm">5.3 , "Header File Syntax:
+Keyword Statements"</A> in <I>IBM Visualization Data Explorer QuickStart
+Guide</I>):
+<PRE><STRONG>
+                            bytes n
+positions =&#91;format&#93;,&#91;type&#93;{ lines n   , &#91;skip, width&#93;  | ?, ...
+                            marker string
+</STRONG>
+</PRE>
+<P>
+(This syntax may be used only if you are
+specifying regular positions: origin and delta pairs for
+each dimension.
+As described in <I>IBM Visualization Data Explorer QuickStart Guide</I>, the
+origins and deltas are
+specified as origin1, delta1, origin2, delta2, etc.)
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>format</STRONG></TT>
+</B></TD><TD><P>is the format in which the grid values will be found, and must
+be
+one of the following:
+<TT><STRONG>binary</STRONG></TT>,
+<TT><STRONG>ieee</STRONG></TT>,
+<TT><STRONG>text</STRONG></TT>, or
+<TT><STRONG>ascii</STRONG></TT>.
+The first two parameters are synonymous, as are the second two.
+<P>
+For <TT><STRONG>type </STRONG></TT> and the other parameters, see the
+description of <TT><STRONG>grid</STRONG></TT> above.
+A question mark (?) signifies that the default should be used
+(origin=0 or delta=1) for a particular origin or delta value.
+This would be used if only the origins or only the deltas are to be
+found in the file.
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

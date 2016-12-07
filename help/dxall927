@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rribbon Ribbon #!N #!N Category 
+#!N #!N  #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N Function #!N #!N Produces a ribbon 
+of specified width from a specified line. #!N #!N Syntax  #!F-adobe-times-bold-r-normal--18*   
+ribbon #!EF = Ribbon(  #!F-adobe-times-bold-r-normal--18*   line, width #!EF ); #!N #!N 
+Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default 
+TAB Description #!EF #!N TAB line TAB field TAB none TAB 
+line to be drawn as a ribbon #!N TAB width TAB 
+scalar TAB input dependent TAB ribbon width #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB ribbon 
+TAB field TAB the line turned into a ribbon #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+This module is intended for use with any module that creates 
+lines. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   line #!EF 
+#!EF #!I50 #!N specifies a line to be turned into a 
+ribbon. If this line has a "normals" component (as would occur, 
+for example, if the input field  #!F-adobe-times-bold-r-normal--18*   curl #!EF were used 
+with Streamline), the resulting ribbon shows a twist corresponding to this 
+component (at each point of the input line, the ribbon is 
+oriented in the direction pointed to by the normal). #!N #!N 
+If a "normals" component is not found but the input contains 
+a "binormals" component, normals are derived by crossing the binormals with 
+the approximated tangents. #!N #!N If no "normals" component is present, 
+the ribbon's orientation is based on the path of the line. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   width #!EF #!EF #!I50 #!N specifies 
+the width of the ribbon in the same units as those 
+of the original space. If this parameter is not specified, the 
+system provides an appropriate value (1/50 of the diagonal of the 
+bounding box of  #!F-adobe-times-bold-r-normal--18*   line #!EF ). #!N #!N The value 
+used is attached to the output object as a "Ribbon width" 
+attribute (which can be extracted with the Attribute module). #!I0 #!N 
+#!N Note: Different colors can be specified for the two sides 
+of the ribbon. Use the Color module and specify "front colors" 
+and "back colors." #!N #!N Components #!N #!N Creates new "positions," 
+"connections," and "normals" components. All other components are propagated to the 
+output. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+ThunderStreamlines.net #!N UsingStreakline.net #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lcolor,dxall792 h Color  #!EL  ,  #!Lstreakl,dxall954 h Streakline  #!EL  ,  #!Lstreaml,dxall955 h Streamline  #!EL  ,  #!Ltube,dxall971 h Tube  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lrotate,dxall928 h Rotate  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

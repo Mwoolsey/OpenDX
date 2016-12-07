@@ -1,0 +1,41 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall130 Example 8. Using the 
+Block Keyword #!N #!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   block #!EF keyword 
+is used with record-style, fixed-format ASCII data to skip information in 
+a block of data. For example, consider the following data file: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N row 1 temperature 39 29 33 
+56 32 #!N row 2 temperature 32 33 25 33 22 
+#!N row 3 temperature 31 23 41 53 19 #!N row 
+4 temperature 43 59 43 21 28 #!N row 5 temperature 
+23 19 35 46 32 #!EF #!N #!N #!EC #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. In the Data Prompter 
+initial dialog box, select  #!F-adobe-times-bold-r-normal--18*   Grid or Scattered File #!EF , 
+then ensure that the leftmost button in the row labeled  #!F-adobe-times-bold-r-normal--18*   
+Grid type #!EF is selected. #!N #!I30 #!N 2. Click on 
+ #!F-adobe-times-bold-r-normal--18*   Data Prompter #!EF to bring up the simplified prompter. #!N 
+#!I30 #!N 3. Enter the path name of the data file 
+in the  #!F-adobe-times-bold-r-normal--18*   data file #!EF field: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N /usr/lpp/dx/samples/data/block_example.data #!EF #!N #!N #!EC #!N #!I30 #!N 4. Activate 
+the  #!F-adobe-times-bold-r-normal--18*   header #!EF toggle button, reset  #!F-adobe-times-bold-r-normal--18*   # of bytes 
+#!EF to  #!F-adobe-times-bold-r-normal--18*   # of lines #!EF , and type 1 
+in the associated field. #!N #!I30 #!N 5. Set  #!F-adobe-times-bold-r-normal--18*   Grid 
+size #!EF to 5 * 5. #!N #!I30 #!N 6. Now 
+click on  #!F-adobe-times-bold-r-normal--18*   Full prompter #!EF in the  #!F-adobe-times-bold-r-normal--18*   Options #!EF 
+pull-down menu. #!N #!I30 #!N 7. Activate the  #!F-adobe-times-bold-r-normal--18*   Block #!EF 
+toggle button (right-hand panel). #!N #!I30 #!N 8. Set  #!F-adobe-times-bold-r-normal--18*   skip 
+#!EF to 17,  #!F-adobe-times-bold-r-normal--18*   # elem #!EF to 5, and  #!F-adobe-times-bold-r-normal--18*   
+width #!EF to 3. #!N #!I30 #!N 9. Repeat Example 1, 
+Step 10 (  #!Lex1a,dxall116 s To save the header file  #!EL  ), to save the header file, which 
+should look like: #!N #!I0 #!N #!EF #!N #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/block_example.data #!N grid = 5 x 5 
+#!N format = text #!N interleaving = record #!N majority = 
+row #!N header = lines 1 #!N field = field0 #!N 
+structure = scalar #!N type = int #!N dependency = positions 
+#!N block = 17, 5, 3 #!N positions = regular, regular, 
+0, 1, 0, 1 #!N #!N end #!EF #!N #!N #!EC 
+#!N #!N The  #!F-adobe-times-bold-r-normal--18*   block #!EF statement instructs the importer to 
+skip 17 characters and read 5 (temperature) values (per line in 
+this case), reading each value from a field of three characters. 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall131,dxall132 h Columnar Style  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxetg DXExecuteTaskGroup #!N #!N Function 
+#!N #!N Runs the group of tasks in the current group 
+in parallel, if possible. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Error DXExecuteTaskGroup() #!EF #!N #!N Functional Details #!N #!N Begins executing 
+the tasks belonging to the current task group.  #!F-adobe-times-bold-r-normal--18*   DXCreateTaskGroup #!EF 
+waits for the completion of all tasks in this task group. 
+The tasks are started in decreasing order of the work estimate 
+given in  #!F-adobe-times-bold-r-normal--18*   DXAddTask #!EF . #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF if all tasks in the task 
+group complete without error; otherwise, returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF . Any 
+error code returned is set by the task involved. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxat,dxall1170 h DXAddTask  #!EL  ,  #!Ldxctg,dxall1192 h DXCreateTaskGroup  #!EL  #!EF #!N #!N 
+ #!Lplsm,dxall1105 h Parallelism  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxexi,dxall1204 h DXExists  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

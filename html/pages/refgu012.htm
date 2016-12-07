@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Arrange</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu011.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu013.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A NAME="HDRARRANGE" ></A>Arrange</H3>
+		<A NAME="IDX358"></A><A NAME="IDX359"></A>
+<A NAME="IDX360"></A>
+<A NAME="IDX361"></A>
+<A NAME="IDX362"></A>
+<A NAME="IDX363"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREN">Rendering</A>
+<P><STRONG>Function</STRONG>
+<P>
+Arranges images for display.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>image</STRONG> = Arrange(<STRONG>group, horizontal, compact, position, size</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>group</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">image group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">images to be displayed
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>horizontal</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">infinity
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of images in horizontal
+dimension
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>compact</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;0 0&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">makes the image compact in x or
+in y or in both
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>position</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;.5 .5&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">position of each image in its
+frame
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>size</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;0 0&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">force size of each frame to this
+number of pixels
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>image</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">image
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">resulting image
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module is useful for displaying a collection of images in an
+orderly arrangement.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>group</STRONG></TT>
+</B></TD><TD><P>is a group of images (e.g., the output of Collect).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>horizontal</STRONG></TT>
+</B></TD><TD><P>specifies the number of images in the horizontal direction.
+If there are more images in <TT><STRONG>group</STRONG></TT> than
+<TT><STRONG>horizontal</STRONG></TT>, they are arranged in
+rows below the first, each of length
+<TT><STRONG>horizontal</STRONG></TT>.
+</TD></TR></TABLE>
+<P>
+The <TT><STRONG>compact</STRONG></TT>, <TT><STRONG>position</STRONG></TT>, and
+<TT><STRONG>size</STRONG></TT> parameters are useful when the images
+are of different sizes.
+In constructing an output image, Arrange creates in effect a regular
+arrangement of output blocks, in rows and columns,
+one original image being placed in each block.
+The size of the blocks and the placement of the original images in
+them is controlled by these three parameters:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>compact</STRONG></TT>
+</B></TD><TD><P>specifies how the resulting image is to be "compacted."
+<P>
+If the first (width) component:
+<DL COMPACT>
+<DD>= 0, the width of each column is set to the width of the widest
+image in the input group.
+<DD>= 1, the width of each column is set to the width of the widest
+image in that column.
+</DL>
+<P>
+If the second (height) component:
+<DL COMPACT>
+<DD>= 0, the height of each row is set to the height of the tallest
+image in the input group.
+<DD>= 1, the height of each row is set to the height of the tallest
+image in that row.
+</DL>
+Thus a setting of &#91;0, 0&#93; will place each image in a box of the
+same size, as determined by (1) the widest and tallest images present
+in the input group or (2) by the value of <TT><STRONG>size</STRONG></TT>,
+if it is nonzero.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>position</STRONG></TT>
+</B></TD><TD><P>specifies the placement of an image in an output block if the
+block
+is larger than the image.
+A value of  &#91;0 0&#93; would place it in the lower left corner;
+&#91;.5 .5&#93;, in the center;
+&#91;1 0&#93;, in the lower right corner; and so on.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>size</STRONG></TT>
+</B></TD><TD><P>specifies, in pixels, the width or height of the block
+containing
+each input image in the resulting image.
+This parameter overrides the setting of the corresponding component
+of <TT><STRONG>compact</STRONG></TT>.
+<P>
+If <TT><STRONG>size</STRONG></TT> is less than the size of the
+<I>largest</I> image, it will default to the size
+of the largest.
+That is, <TT><STRONG>size</STRONG></TT> cannot shrink or crop an image.
+If a component of <TT><STRONG>size</STRONG></TT> is set to zero, the
+dimensions of the images in that row or column are used
+to set the size of the output image blocks, depending
+on the setting of <TT><STRONG>compact</STRONG></TT>.
+</TD></TR></TABLE>
+<P>
+If you want to filter or reduce an image, you must do so before
+arranging it together with another image.
+<P><STRONG>Components</STRONG>
+<P>
+All input components are propagated to the output.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+PlotLine.net
+UsingCompute.net
+UsingFilter.net
+SIMPLE/Arrange.net
+
+IndependentlyArrange.net
+
+</PRE>
+
+IndependentlyArrange.net illustrates an interactive alternative to using
+Arrange.
+
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu029.htm#HDRCOLLECT">Collect</A>,
+&nbsp;<A HREF="refgu048.htm#HDRDISPLAY">Display</A>,
+&nbsp;<A HREF="refgu100.htm#HDROVERLAY">Overlay</A>,
+&nbsp;<A HREF="refgu118.htm#HDRRENDER">Render</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

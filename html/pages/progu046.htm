@@ -1,0 +1,596 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu045.htm">Previous Page</A> &#124; <A HREF="progu047.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRARRAYSC" HREF="progu044.htm#PToC_98">12.3 Array Class</A></H2>
+<A NAME="IDX477"></A>
+<A NAME="IDX478"></A>
+<A NAME="IDX479"></A>
+<P>
+Array Objects store user data, positions, connections, and
+photometric information (e.g., color or opacity).
+<P>
+Arrays may use explicit lists or one of several compact-coding schemes
+to store information.
+This section first describes the generic operations that are applicable
+to all Arrays, then operations specific to irregular Arrays, and
+finally operations specific to compact Arrays (i.e., regular,
+path, product, mesh, constant).
+For more information about Arrays, see
+<A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data Model"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<P>
+<H3><A NAME="Header_99" HREF="progu044.htm#PToC_99">Generic Operations</A></H3>
+<A NAME="IDX480"></A>
+<P>
+Each Array <TT><STRONG>a</STRONG></TT> contains some number of items
+<I>n</I> (numbered <I>0</I> to <I>n-1</I>).
+Each item consists of a fixed number of elements of one type, specified
+when the array is created (see  <A HREF="progu058.htm#SPTTIPES">reference
+#11</A> for
+the constants used to specify types).
+<P><B>Note: </B>The routines listed in this subsection apply to both compact and
+irregular Arrays.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Class DXGetArrayClass()</STRONG></TT>
+<A NAME="IDX481"></A>
+<A NAME="IDX482"></A>
+</B></TD><TD><P>Returns the subclass of an Array Object.
+See  <A HREF="progu153.htm#HDRDXGAC">DXGetArrayClass</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXGetArrayInfo()</STRONG></TT>
+<A NAME="IDX483"></A>
+<A NAME="IDX484"></A>
+</B></TD><TD><P>Returns the number of items, type, category, rank, and shape of
+an
+Array.
+See  <A HREF="progu157.htm#HDRDXGAI">DXGetArrayInfo</A>.
+(For information on rank and shape, see <A
+HREF="usrgu025.htm#HDRARRAYS">"Arrays"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array DXTypeCheck()
+<BR>
+Array DXTypeCheckV();</STRONG></TT>
+</B></TD><TD><P>Check that an Array matches a set of specifications.
+See  <A HREF="progu337.htm#HDRDXTCV">DXTypeCheck, DXTypeCheckV</A>.
+<A NAME="IDX485"></A>
+<A NAME="IDX486"></A>
+<A NAME="IDX487"></A>
+<A NAME="IDX488"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer
+DXGetArrayData()</STRONG></TT>
+<A NAME="SPTPGDXGAD"><I>(Ref #6.)</I></A>
+</B></TD><TD><P>Returns a pointer to the start of a global memory area
+containing
+the items constituting the data stored in an Array.
+See  <A HREF="progu154.htm#HDRDXGAD">DXGetArrayData</A>.
+<A NAME="IDX489"></A>
+<A NAME="IDX490"></A>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP"> To reduce memory requirements, it is preferable, where possible,
+to recognize compact arrays with
+<TT><STRONG>DXGetArrayClass()</STRONG></TT>, and not to expand them by
+calling <TT><STRONG>DXGetArrayData()</STRONG></TT>.
+An alternative is the set of Array-handling routines described in
+<A HREF="#HDRARHAND">"Array Handling"</A>.
+</td></tr></table>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>int
+DXGetItemSize()</STRONG></TT>
+</B></TD><TD><P>Returns the size in bytes of each individual item of an Array.
+See  <A HREF="progu180.htm#HDRDXGIS">DXGetItemSize</A>.
+<A NAME="IDX491"></A>
+<A NAME="IDX492"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer
+DXGetArrayDataLocal()</STRONG></TT>
+</B></TD><TD><P>Returns a pointer to the start of memory of a local copy of the
+data stored in an Array.
+See  <A HREF="progu155.htm#HDRDXGADL">DXGetArrayDataLocal</A>.
+<A NAME="IDX493"></A>
+<A NAME="IDX494"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXFreeArrayDataLocal()</STRONG></TT>
+</B></TD><TD><P>Frees space allocated by
+<TT><STRONG>DXGetArrayDataLocal()</STRONG></TT>.
+See  <A HREF="progu148.htm#HDRDXFADL">DXFreeArrayDataLocal</A>.
+<A NAME="IDX495"></A>
+<A NAME="IDX496"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRIRREG" HREF="progu044.htm#PToC_100">Irregular Arrays</A></H3>
+<A NAME="IDX497"></A>
+<A NAME="IDX498"></A>
+<P>
+Irregular Arrays are used for data that exhibit no particular
+regularity.
+They may also be used to manage dynamically growing collections of
+data whose size is not known in advance.
+<TT><STRONG>DXNewArray()</STRONG></TT> creates an irregular Array with no
+items;
+<TT><STRONG>DXAddArrayData()</STRONG></TT> adds data to an irregular Array;
+and <TT><STRONG>DXGetArrayData()</STRONG></TT> returns a pointer to an
+irregular Array.
+<P><B>Note: </B>The routines listed in this subsection apply only to irregular
+arrays.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array DXNewArray()
+<BR>
+Array DXNewArrayV();</STRONG></TT>
+<A NAME="IDX499"></A>
+<A NAME="IDX500"></A>
+<A NAME="IDX501"></A>
+<A NAME="IDX502"></A>
+</B></TD><TD><P>Create an irregular Array Object.
+See  <A HREF="progu245.htm#HDRDXNAV">DXNewArray, DXNewArrayV</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXAddArrayData()</STRONG></TT>
+<A NAME="IDX503"></A>
+<A NAME="IDX504"></A>
+</B></TD><TD><P>Adds items to an Array.
+See <A HREF="#SPTUN4">Note on Use</A>.
+See  <A HREF="progu100.htm#HDRDXAAD">DXAddArrayData</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXAllocateArray()</STRONG></TT>
+<A NAME="IDX505"></A>
+<A NAME="IDX506"></A>
+</B></TD><TD><P>Allocates space for the data items of an Array.
+Although this routine is not required, its use will make for more
+efficient management of memory.
+See  <A HREF="progu107.htm#HDRDXAA">DXAllocateArray</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array DXTrim()</STRONG></TT>
+</B></TD><TD><P>Frees space <A NAME="Anchor-previously-49575"></A>previously allocated to an Array but not needed for the number of items in that Array. See <A HREF="progu335.htm#HDRDXT">DXTrim</A>.
+<A NAME="IDX507"></A>
+<A NAME="IDX508"></A>
+</TD></TR>
+			<TR VALIGN="TOP">
+				<TD><B><TT><STRONG>Array DXTrimItems()</STRONG></TT>
+<A NAME="IDX5075"></A></B></TD>
+				<TD>Removes items from an Array and free the space previously allocated.</TD>
+			</TR>
+		</TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<A NAME="SPTUN4"></A>
+<A NAME="IDX509"></A>
+There are four ways to add data to irregular arrays.
+<OL COMPACT>
+<LI>Add the items one at a time:
+<TT><STRONG>DXAddArrayData(a, i, 1, item);</STRONG></TT>
+<LI>Add the items in batches:
+<TT><STRONG>DXAddArrayData(a, i, n, items);</STRONG></TT>
+<LI>Add the items all at once:
+<TT><STRONG>DXAddArrayData(a, 0, n, items);</STRONG></TT>
+<LI>Allocate the memory as follows:
+<OL COMPACT>
+<LI>call <TT><STRONG>DXAddArrayData(a, 0, n, NULL)</STRONG></TT>
+<LI>get a pointer to the memory:
+<BR>
+<TT><STRONG>ptr = DXGetArrayData(a)</STRONG></TT>
+<LI>put the items directly into global memory "by hand":
+set the contents (pointed to by the pointer obtained in
+the preceding step) to the data value.
+<PRE><STRONG>
+   ptr&#91;i&#93; = itemvalue;
+</STRONG>
+</PRE>
+In the examples shown here:
+<DL COMPACT>
+<DD><TT><STRONG>a</STRONG></TT> is the array.
+<DD><TT><STRONG>i</STRONG></TT> is the position at which to add an item.
+<DD><TT><STRONG>n</STRONG></TT> is the number of items to be added.
+<DD><TT><STRONG>item(s)</STRONG></TT> is the address of the item(s) to be
+added.
+</DL>
+</OL>
+</OL>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRSTINGL" HREF="progu044.htm#PToC_101">String List
+Routines</A></H3>
+<A NAME="IDX510"></A>
+<A NAME="IDX511"></A>
+<A NAME="IDX512"></A>
+<P>
+String lists are implemented as arrays of type <TT><STRONG>TYPE_STRING,
+rank 1,</STRONG></TT> and <TT><STRONG>shape max_string_length+1</STRONG></TT>.
+Each item should be a <TT><STRONG>NULL</STRONG></TT>-terminated character
+string.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array DXMakeStringList()
+<BR>
+Array DXMakeStringListV();</STRONG></TT>
+</B></TD><TD><P>Create a String list from a given list of strings.
+See  <A HREF="progu237.htm#HDRDXMSLV">DXMakeStringList, DXMakeStringListV</A>.
+<A NAME="IDX513"></A>
+<A NAME="IDX514"></A>
+<A NAME="IDX515"></A>
+<A NAME="IDX516"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRARHAND" HREF="progu044.htm#PToC_102">Array Handling</A></H3>
+<A NAME="IDX517"></A>
+<A NAME="IDX518"></A>
+<P>
+Modules may have to handle a variety of different types of Arrays,
+such as constant, compact (e.g., regular or product),
+
+and irregular. <TT><STRONG>DXGetArrayData()</STRONG></TT> can be used on any of
+these types. However,
+
+if the original Array was compact,
+memory use is increased, sometimes dramatically.
+<P>
+The Array-handling routines simplify the task of dealing with the
+different types of Arrays at a cost in efficiency.
+Because it operates on a case-by-case basis, incremental methods
+available to <TT><STRONG>DXGetArrayData()</STRONG></TT> cannot
+be used.
+In addition, each element must be recomputed for each reference to
+that element.
+Therefore, multiple references to the same element will pay a penalty
+in execution time.
+However, if the array is irregular or constant, this interface can be
+substituted for the standard
+<TT><STRONG>DXGetArrayData()</STRONG></TT> with little degradation of
+performance.
+<P>
+The basic approach is to use <TT><STRONG>DXCreateArrayHandle()</STRONG></TT>
+for a given array, and then to retrieve the values of elements
+in that array, using either <TT><STRONG>DXIterateArray()</STRONG></TT>,
+<TT><STRONG>DXGetArrayEntry()</STRONG></TT>, or
+<TT><STRONG>DXGetArrayEntries()</STRONG></TT>.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXCreateArrayHandle()</STRONG></TT>
+</B></TD><TD><P>Creates a "handle" to allow convenient access to the items
+in any Array class.
+See  <A HREF="progu124.htm#HDRDXCAH">DXCreateArrayHandle</A>.
+<A NAME="IDX519"></A>
+<A NAME="IDX520"></A>
+<A NAME="IDX521"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error
+DXFreeArrayHandle()</STRONG></TT>
+</B></TD><TD><P>Frees the memory allocated for an Array handle.
+See  <A HREF="progu149.htm#HDRDXFAH">DXFreeArrayHandle</A>.
+<A NAME="IDX522"></A>
+<A NAME="IDX523"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer
+DXGetArrayEntry()</STRONG></TT>
+</B></TD><TD><P>Returns a specified item from an Array.
+See  <A HREF="progu156.htm#HDRDXGAEY">DXGetArrayEntry, DXGetArrayEntries</A>.
+<A NAME="IDX524"></A>
+<A NAME="IDX525"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void
+DXGetArrayEntries()</STRONG></TT>
+</B></TD><TD><P>Returns specified items from an Array.
+See  <A HREF="progu156.htm#HDRDXGAEY">DXGetArrayEntry, DXGetArrayEntries</A>.
+<A NAME="IDX526"></A>
+<A NAME="IDX527"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer
+DXIterateArray()</STRONG></TT>
+</B></TD><TD><P>Iterates through an Array.
+See  <A HREF="progu226.htm#HDRDXIA">DXIterateArray</A>.
+<A NAME="IDX528"></A>
+<A NAME="IDX529"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRCOTAS" HREF="progu044.htm#PToC_103">Creating Positions and
+Connections Grids</A></H3>
+<A NAME="IDX530"></A>
+<A NAME="IDX531"></A>
+<A NAME="IDX532"></A>
+<A NAME="IDX533"></A>
+<P>
+Compact Arrays allow compact encoding of positions and
+connections.
+Four subclasses of Arrays represent 1- and multidimensional regular
+positions and connections:
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">positions
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">connections
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">One-dimensional
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">RegularArray
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">PathArray
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><I>n</I>-dimensional
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">ProductArray
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">MeshArray
+</TD></TR></TABLE>
+<P>
+In addition, the subclass Constant Array allows compact encoding of
+a constant value of any type, category, rank, or shape.
+<P>
+For more information about compact Array Objects, see
+<A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data Model"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<P>
+The generic routine <TT><STRONG>DXGetArrayData()</STRONG></TT> expands the
+data of a compact Array into an explicitly indexed array and
+is the preferred means for this purpose.
+However, it is better still to code your algorithm so that no expansion
+of the Array is performed.
+</TD></TR></TABLE>
+<P>
+In addition to the low-level routines for creating various compact
+Arrays (described later), Data Explorer provides the following
+higher-level routines for creating a regular grid
+of positions or connections.
+These routines are to be preferred when there is a choice, because
+most Data Explorer functions support regular grids of positions or
+connections efficiently.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array DXMakeGridPositions()
+<BR>
+Array DXMakeGridPositionsV();</STRONG></TT>
+<A NAME="IDX534"></A>
+<A NAME="IDX535"></A>
+<A NAME="IDX536"></A>
+<A NAME="IDX537"></A>
+</B></TD><TD><P>Create an <I>n</I>-dimensional grid of regularly spaced
+positions.
+See  <A HREF="progu233.htm#HDRDXMGPV">DXMakeGridPositions,
+DXMakeGridPositionsV</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXQueryGridPositions()</STRONG></TT>
+</B></TD><TD><P>Returns information about a regular positions grid.
+See  <A HREF="progu279.htm#HDRDXQGP">DXQueryGridPositions</A>.
+<A NAME="IDX538"></A>
+<A NAME="IDX539"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array DXMakeGridConnections()
+<BR>
+Array DXMakeGridConnectionsV();</STRONG></TT>
+</B></TD><TD><P>Construct a grid of regular connections.
+See  <A HREF="progu232.htm#HDRDXMGCV">DXMakeGridConnections,
+DXMakeGridConnectionsV</A>.
+<A NAME="IDX540"></A>
+<A NAME="IDX541"></A>
+<A NAME="IDX542"></A>
+<A NAME="IDX543"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXQueryGridConnections()</STRONG></TT>
+</B></TD><TD><P>Returns information about a regular connections grid.
+See  <A HREF="progu278.htm#HDRDXQGC">DXQueryGridConnections</A>.
+<A NAME="IDX544"></A>
+<A NAME="IDX545"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRRRAS" HREF="progu044.htm#PToC_104">Regular Arrays</A></H3>
+<A NAME="IDX546"></A>
+<A NAME="IDX547"></A>
+Regular Arrays encode linear regularity.
+A regular array is a set of <I>n</I> points lying on a line with a
+constant spacing between them, representing 1-dimensional
+regular positions.
+(The points themselves may be in a higher-dimensional space, but they
+must lie on a line.)
+All regular Arrays must be category real (as opposed to complex) and
+rank 1;
+the shape is then the dimensionality of the space in which the points
+are imbedded.
+(For information on rank and shape, see
+<A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data Model"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>RegularArray
+DXNewRegularArray()</STRONG></TT>
+</B></TD><TD><P>Creates an Array containing evenly spaced data.
+See  <A HREF="progu259.htm#HDRDXNRA">DXNewRegularArray</A>.
+<A NAME="IDX548"></A>
+<A NAME="IDX549"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>RegularArray
+DXGetRegularArrayInfo()</STRONG></TT>
+</B></TD><TD><P>Returns the number of items, the origin, and the delta of a
+regular
+Array.
+See  <A HREF="progu199.htm#HDRDXGRAI">DXGetRegularArrayInfo</A>.
+<A NAME="IDX550"></A>
+<A NAME="IDX551"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRPHAS" HREF="progu044.htm#PToC_105">Path Arrays</A></H3>
+<A NAME="IDX552"></A>
+<A NAME="IDX553"></A>
+Path arrays encode linear regularity of connections.
+A path array is a set of <I>n-1</I> line segments, where the
+<I>i</I>th line segment joins points <I>i</I> and
+<I>i+1</I>.
+All path arrays have type integer, category real, rank 1, and shape 2.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>PathArray DXNewPathArray()</STRONG></TT>
+</B></TD><TD><P>Creates an Array describing the connections between a set of
+points.
+See  <A HREF="progu256.htm#HDRDXNPA">DXNewPathArray</A>.
+<A NAME="IDX554"></A>
+<A NAME="IDX555"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>PathArray
+DXGetPathArrayInfo()</STRONG></TT>
+</B></TD><TD><P>Returns the number of points referred to in a path Array.
+See  <A HREF="progu193.htm#HDRDXGPAI">DXGetPathArrayInfo</A>.
+<A NAME="IDX556"></A>
+<A NAME="IDX557"></A>
+</TD></TR></TABLE>
+<P><B><U>Less Commonly Used Routines</U></B>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>PathArray DXSetPathOffset()
+<BR>
+PathArray DXGetPathOffset();</STRONG></TT>
+</B></TD><TD><P>Set and retrieve the offset value for the direction of the
+grid represented by this path.
+In the case where a path Array is used to define a regular grid of
+connections that is a part of a partitioned Field, it is useful to
+know the offset of the partition within the original Field.
+See  <A HREF="progu321.htm#HDRDXSPO">DXSetPathOffset</A> and
+ <A HREF="progu194.htm#HDRDXGPO">DXGetPathOffset</A>.
+<A NAME="IDX558"></A>
+<A NAME="IDX559"></A>
+<A NAME="IDX560"></A>
+<A NAME="IDX561"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRPTAS" HREF="progu044.htm#PToC_106">Product Arrays</A></H3>
+<A NAME="IDX562"></A>
+<A NAME="IDX563"></A>
+<P>
+A product Array encodes higher-dimension Arrays as a Cartesian product
+of lower-dimension Arrays.
+The resulting set of positions constitutes an <I>n</I>-dimensional
+"grid" (i.e., a Cartesian product) derived from
+combining <I>n</I> Arrays.
+<P>
+Since each term is either regular or explicitly indexed, the
+resulting multidimensional positions are either completely
+or partially regular.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>ProductArray DXNewProductArray()
+<BR>
+ProductArray DXNewProductArrayV();</STRONG></TT>
+</B></TD><TD><P>Create an Array that is the Cartesian product of a set of
+regular
+or irregular position Arrays.
+See  <A HREF="progu258.htm#HDRDXNPAV">DXNewProductArray, DXNewProductArrayV</A>.
+<A NAME="IDX564"></A>
+<A NAME="IDX565"></A>
+<A NAME="IDX566"></A>
+<A NAME="IDX567"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>ProductArray
+DXGetProductArrayInfo()</STRONG></TT>
+</B></TD><TD><P>Returns the number of terms and the terms of a product Array.
+See  <A HREF="progu198.htm#HDRDXGPRAI">DXGetProductArrayInfo</A>.
+<A NAME="IDX568"></A>
+<A NAME="IDX569"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRMARRAY" HREF="progu044.htm#PToC_107">Mesh Arrays</A></H3>
+<A NAME="IDX570"></A>
+<A NAME="IDX571"></A>
+<P>
+Mesh Arrays encode multidimensional regularity of connections.
+A mesh Array is a product of a set of connections Arrays.
+The product is a set of interpolation elements where the product has
+one interpolation element for each pair of interpolation elements
+in the two multiplicands, and the number of sample points
+in each interpolation element is the product of the
+number of sample points in each of the
+multiplicands&#39; interpolation
+elements.
+This represents multidimensional regular connections.
+Each term may be either regular or not, resulting in either completely
+regular (for example, cubes) or partially regular (for example,
+prisms) multidimensional connections.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>MeshArray DXNewMeshArray()
+<BR>
+MeshArray DXNewMeshArrayV();</STRONG></TT>
+</B></TD><TD><P>Create an Array that is the product of a set of regular or
+irregular connection Arrays.
+See  <A HREF="progu254.htm#HDRDXNMAV">DXNewMeshArray, DXNewMeshArrayV</A>.
+<A NAME="IDX572"></A>
+<A NAME="IDX573"></A>
+<A NAME="IDX574"></A>
+<A NAME="IDX575"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>MeshArray
+DXGetMeshArrayInfo()</STRONG></TT>
+</B></TD><TD><P>Returns the number of terms and the terms of a mesh Array.
+See  <A HREF="progu183.htm#HDRDXGMAI">DXGetMeshArrayInfo</A>.
+<A NAME="IDX576"></A>
+<A NAME="IDX577"></A>
+</TD></TR></TABLE>
+<P><B><U>Less Commonly Used Routines</U></B>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>MeshArray DXSetMeshOffsets()
+<BR>
+MeshArray DXGetMeshOffsets();</STRONG></TT>
+</B></TD><TD><P>
+Set and retrieve the offset values along each dimension of a
+mesh.
+When a Mesh Array is used to define a regular grid of
+connections that is a part of a partitioned Field, it is useful to
+know the offset of the partition within the original Field.
+See  <A HREF="progu318.htm#HDRDXSMO">DXSetMeshOffsets</A>
+and  <A HREF="progu184.htm#HDRDXGMO">DXGetMeshOffsets</A>.
+<A NAME="IDX578"></A>
+<A NAME="IDX579"></A>
+<A NAME="IDX580"></A>
+<A NAME="IDX581"></A>
+<A NAME="IDX582"></A>
+<A NAME="IDX583"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRCTAS" HREF="progu044.htm#PToC_108">Constant Arrays</A></H3>
+<A NAME="IDX584"></A>
+<P>
+Constant Arrays define Arrays that contain a number of items with
+the same value. These items may be of any type, category, rank, and
+shape.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>ConstantArray DXNewConstantArray()
+<BR>
+ConstantArray DXNewConstantArrayV();</STRONG></TT>
+</B></TD><TD><P>Create an Array containing constant data.
+See  <A HREF="progu249.htm#HDRDXNCAV">DXNewConstantArray,
+DXNewConstantArrayV</A>.
+<A NAME="IDX585"></A>
+<A NAME="IDX586"></A>
+<A NAME="IDX587"></A>
+<A NAME="IDX588"></A>
+<A NAME="IDX589"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXQueryConstantArray()</STRONG></TT>
+</B></TD><TD><P>Determines if an Array contains constant data and, if so,
+returns
+number of items and data value.
+See  <A HREF="progu276.htm#HDRDXQCA">DXQueryConstantArray</A>.
+<A NAME="IDX590"></A>
+<A NAME="IDX591"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer
+DXGetConstantArrayData()</STRONG></TT>
+</B></TD><TD><P>Returns a pointer to the value stored in a Constant Array.
+See  <A HREF="progu165.htm#HDRDXGCAD">DXGetConstantArrayData</A>.
+<A NAME="IDX592"></A>
+<A NAME="IDX593"></A>
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu045.htm">Previous Page</A> &#124; <A HREF="progu047.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

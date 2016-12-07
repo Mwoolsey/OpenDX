@@ -1,0 +1,97 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rgns Growing and Shrinking Partitioned 
+Data #!N #!EC #!N #!N The routines listed at the end 
+of this section are necessary for processing Composite Fields. #!N #!N 
+Some modules (e.g., filters) require information from the neighborhood of each 
+point. Since partitioning divides data into spatially disjoint subsets for independent 
+processing, a neighborhood may be divided among different partitions: for example, 
+a filter kernel may overlap the boundary between two partitions. In 
+such cases, processing one partition requires information that resides in the 
+other. #!N #!N In order to facilitate such information sharing, Data 
+Explorer includes routines that support temporarily overlapping partitions.  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF 
+modifies its input Field and adds to each partition information from 
+the partition's neighbor(s). #!N #!N Because  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF modifies its 
+input, the calling routine must use  #!F-adobe-times-bold-r-normal--18*   DXCopy() #!EF to copy 
+the input structure if that structure is not to be modified. 
+After this boundary information has been accrued, the processing of the 
+partition may be handled independently since all information required to produce 
+correct results for the original partition is available in it. For 
+example, in the case of filtering, boundary information is added so 
+that wherever a filter kernel is placed in the original partition, 
+the kernel does not extend outside the grown partition, producing correct 
+results in the original partition. After processing the Field produced by 
+ #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF ,  #!F-adobe-times-bold-r-normal--18*   DXShrink() #!EF must be called to 
+shrink any components that have not been shrunk by the caller, 
+and to remove extra references to the original components that were 
+put in the Field by  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF . #!N #!N 
+When  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF is called, the depth of an overlap 
+region is specified by specifying the number of  #!F-adobe-times-medium-i-normal--18*   rings #!EF 
+to be accrued. An element is said to be in the 
+ #!F-adobe-times-medium-i-normal--18*   k #!EF th ring if it has at least one 
+vertex in the  #!F-adobe-times-medium-i-normal--18*   k #!EF th ring. A vertex is 
+in the 0th ring if it exists both in the partition 
+and the neighbor, and is in the  #!F-adobe-times-medium-i-normal--18*   k #!EF th 
+ring if it is not in a lower ring and an 
+element in ring  #!F-adobe-times-medium-i-normal--18*   k-1 #!EF is incident upon it. Most 
+frequently, such modules produce results for each vertex on the basis 
+of the elements incident on that vertex; this is achieved by 
+requesting that  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF include 1 ring: those elements from 
+neighboring partitions that are incident on vertices that exist in both 
+partitions. #!N The treatment of the exterior boundary of regular grid 
+data is specified by a parameter to  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF . 
+You may specify that the Field not be expanded beyond its 
+boundary (i.e., that the exterior partitions not be expanded except on 
+the sides that border other partitions). Alternatively you may specify that 
+the Field be expanded beyond its original boundaries, with the new 
+data being filled in one of three ways: with a constant 
+value; with the replicated value from the nearest edge point in 
+the original Field; or with nothing, only reserving space for the 
+new data but leaving its contents undefined. #!N #!N While it 
+is necessary that the footprint of a filter kernel, placed anywhere 
+in the original partition, not extend past the grown partition boundary, 
+it is probably not necessary to apply the filter in the 
+boundary regions accrued from neighbors; these regions are properly handled during 
+the processing of the neighboring partition. Data Explorer also includes routines 
+that query the original number of positions and connections (in the 
+case of irregular grids) or the offset relative to the grown 
+partition and size of the original partition. #!N #!N Frequently, modules 
+do not require all components of a Field that are dependent 
+on the positions to be grown. To avoid accruing information that 
+will not be required during processing,  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF requires the 
+calling application to specify which components, in addition to positions and 
+connections, will be required. #!N #!N Modules using  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF 
+have the option of producing results corresponding to the positions of 
+the larger grown Field or, more efficiently, producing results corresponding only 
+to positions of the original smaller Field. Even though the former 
+method is less efficient, involving more data movement and perhaps more 
+calculation, it is sometimes more convenient. Therefore, the  #!F-adobe-times-bold-r-normal--18*   DXShrink() #!EF 
+function is provided to shrink all components that depend on or 
+reference positions or connections back to their original size. If the 
+user has already shrunk the positions,  #!F-adobe-times-bold-r-normal--18*   DXShrink() #!EF will leave 
+them unmodified. In any case, the  #!F-adobe-times-bold-r-normal--18*   DXShrink() #!EF function must 
+be called after operating on a grown Field in order to 
+remove references to the "original" components that were placed in the 
+Field by  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF for later use by  #!F-adobe-times-bold-r-normal--18*   DXShrink() 
+#!EF . #!N #!N For each component specified in the component 
+list passed to  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF , a component named "original 
+ #!F-adobe-times-medium-i-normal--18*   componentname #!EF " is created.  #!F-adobe-times-bold-r-normal--18*   DXShrink() #!EF will rename 
+each of these to its original name. Therefore, for components you 
+have modified (e.g., data), you should remove the corresponding original component 
+("original data" in this example) before calling  #!F-adobe-times-bold-r-normal--18*   DXShrink() #!EF . 
+#!N Both  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF and  #!F-adobe-times-bold-r-normal--18*   DXShrink() #!EF operate in 
+parallel on Composite Fields. For that reason,  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF must 
+be called prior to any subtasking invoked explicitly by the calling 
+application;  #!F-adobe-times-bold-r-normal--18*   DXShrink() #!EF must be called after any such subtasking 
+has been completed. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #define GROW_NONE NULL 
+#!N #define GROW_REPLICATE ((Pointer)1) #!N #define GROW_NOFILL ((Pointer)2) #!EF #!N #!N 
+#!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXGrow() 
+#!EF #!N Object DXGrowV(); #!EF #!I50 #!N Add information from neighboring 
+partitions to a Composite Field. See  #!Ldxgrov,dxall1273 h DXGrow, DXGrowV  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXQueryOriginalSizes() #!EF #!N Field DXQueryOriginalMeshExtents(); #!EF #!I50 #!N 
+Return information about the size of the original Field used as 
+the input to  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF . See  #!Ldxqosm,dxall1346 h DXQueryOriginalSizes, DXQueryOriginalMeshExtents  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXShrink() #!EF #!EF #!I50 #!N Removes 
+information added to an Object by  #!F-adobe-times-bold-r-normal--18*   DXGrow() #!EF . See 
+ #!Ldxsk,dxall1395 h DXShrink  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lhash,dxall1121 h Hashing  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

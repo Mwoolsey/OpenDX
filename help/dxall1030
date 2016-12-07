@@ -1,0 +1,62 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Radd2i Add2Invalid Module Example--Manipulate Invalid Data #!N #!EC #!N #!N The 
+Data Explorer data model makes it possible to identify invalid input 
+(position and connections elements) and mark the resulting output as "invalid." 
+(see  #!Linvdata,dxall1118 h Invalid Data  #!EL  ). Invalid elements (and the data associated with them) 
+are ignored by Data Explorer modules. #!N #!N In the example 
+given here, the Add2Invalid module processes two input data components. If 
+either of the two data values is invalid, the resulting sum 
+is treated as invalid. The routines that support this function check 
+for matching data types, matching dependencies, missing Fields, and so on. 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   REPEAT STEPS (1) THROUGH (5) #!EF of the 
+first example (see  #!Laddmodx,dxall1028 h Add Module Example--Add a __________________________________ Number to Every Data Value  #!EL  ), using the file name "add2invalid" instead 
+of "add." Step (5) will produce files add2invalid.c, add2invalid.mdf, and add2invalid.make. 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   (6) IMPLEMENT THE ADD2INVALID FUNCTION. #!EF  #!Rimpad2i Because 
+this module uses routines _______________________________________________ for handling invalid data, the necessary 
+modifications of the  #!F-adobe-times-bold-r-normal--18*   .c #!EF file are more extensive than 
+those required for the preceding examples. #!N #!N As written, the 
+add2_invalid.c file passes only the data component to the lowest-level routine 
+(Add2Invalid_worker); it does not pass information about the data's validity. The 
+solution is to modify the doLeaf routine, rather than the worker 
+routine. The doLeaf routine has access to all the components of 
+an input or output Field and not to just the data 
+component. #!N #!N In the routine doLeaf, starting at the comment 
+"Call the user's routine. Check the return code." insert the following: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* create invalid component handles for 
+each input field */ #!N inv_handle1 = DXCreateInvalidComponentHandle(in[0], NULL, #!N src_dependency); 
+#!N inv_handle2 = DXCreateInvalidComponentHandle(in[1], NULL, #!N src_dependency); #!N #!N /* the 
+loop that actually adds the data components. #!N * if either 
+of the two input data values is invalid, then the #!N 
+* output is marked invalid, and set to the value 0 
+#!N */ #!N out_ptr = (float *)out_data[0]; #!N in1_ptr = (float 
+*)in_data[0]; #!N in2_ptr = (float *)in_data[1]; #!N for (i=0; i<out_knt[0]; i++) 
+{ #!N if (DXIsElementValid(inv_handle1, i) && #!N DXIsElementValid(inv_handle2, i)) { #!N 
+*out_ptr = *in1_ptr + *in2_ptr; #!N } #!N else { #!N 
+*out_ptr = 0.0; #!N DXSetElementInvalid(inv_handle1, i); #!N } #!N out_ptr++; #!N 
+in1_ptr++; #!N in2_ptr++; #!N } #!N #!N /* the invalid-component-handle information 
+is added to the output field */ #!N if (!DXSaveInvalidComponent((Field)out[0], inv_handle1)) 
+#!N goto error; #!N DXFreeInvalidComponentHandle(inv_handle1); #!N DXFreeInvalidComponentHandle(inv_handle2); #!N #!N return OK; 
+#!N #!N error: #!N return ERROR; #!EF #!N #!N #!EC #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   (7) REMOVE THE CALL TO ADD2INVALID_WORKER: #!EF it is 
+not needed. All of the data processing code has been added 
+________________________________________________ to doLeaf. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (8) INSERT THE FOLLOWING DECLARATIONS 
+#!EF at the top of the routine doLeaf: ___________________________________________ #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N InvalidComponentHandle inv_handle1, inv_handle2; #!N float *out_ptr, *in1_ptr, *in2_ptr; 
+#!EF #!N #!N #!EC #!N #!N The file /usr/lpp/dx/samples/program_guide/add2invalid.c contains a 
+completed version of this program. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (9) TO CREATE 
+A VERSION OF DATA EXPLORER THAT INCLUDES #!EF the Add2Invalid module, 
+enter the command: ____________________________________________________________ #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N make -f 
+add2invalid.make dxexec #!EF #!N #!N #!EC #!N #!N (You have now 
+created an executable that contains the Add2Invalid module.) #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+(10) TO INVOKE THIS VERSION, ENTER: #!EF __________________________________________ #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf ./add2invalid.mdf -exec ./dxexec #!EF #!N #!N 
+#!EC #!N #!N This command starts Data Explorer (the  #!F-adobe-times-bold-r-normal--18*   add2invalid.mdf 
+#!EF file tells the graphical user interface about Add2Invalid and its 
+inputs and outputs). The executable dxexec invoked here is the one 
+created in Step 8. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (11) WITH THIS VERSION 
+OF DATA EXPLORER #!EF you can now run any visual program 
+that uses the Add2Invalid module. _____________________________________________ One such program is /usr/lpp/dx/samples/program_guide/add2_invalid.net 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lposit,dxall1031 h Working with Positions  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

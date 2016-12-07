@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Overview</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu019.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu021.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu010.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDROVE" ></A>Chapter 1. Overview</H2>
+		
+<P><A NAME="PToC4" HREF="../usrguide.htm">Partial Table-of-Contents</A> 
+<MENU>
+<LI><A NAME="PToC_33" HREF="#HDROVEDX">1.1 Overview of Data Explorer</A>
+<LI><A NAME="PToC_34" HREF="usrgu021.htm#HDRC11">1.2 System Structure</A>
+<MENU>
+<LI><A NAME="PToC_35" HREF="usrgu021.htm#Header_35">Graphical User Interface</A>
+<LI><A NAME="PToC_36" HREF="usrgu021.htm#Header_36">Executive</A>
+<LI><A NAME="PToC_37" HREF="usrgu021.htm#Header_37">Modules</A>
+<LI><A NAME="PToC_38" HREF="usrgu021.htm#HDRDAM">Data Management</A>
+<LI><A NAME="PToC_39" HREF="usrgu021.htm#Header_39">How the Data Model
+Facilitates Interoperability</A>
+</MENU></MENU><HR><P>
+<A NAME="IDX473"></A>
+<P>
+This book describes the IBM Visualization Data
+Explorer<TT><STRONG>*</STRONG></TT>,
+which you can use in a
+workstation environment.
+Data Explorer is a visualization system that can be used in many application
+areas and with a variety of data representations to extract
+useful information from complex data.
+<HR>
+<H2><A NAME="HDROVEDX" ></A>1.1 Overview of Data Explorer</H2>
+<P>
+The Data Explorer graphical user interface allows end users to perform
+tasks at various levels of sophistication.
+For example, a user can use the user interface to apply data and adjust
+input values to an existing visualization process.
+A slightly more advanced user can construct a new visualization process,
+called a visual program,
+by connecting a network of Data Explorer&#39;s modules.
+An expert programmer can create new modules, using C or FORTRAN, for
+use with the system modules.
+Besides the user interface, Data Explorer also provides a scripting language
+interface, for users who want to build their own visualization
+functions in a more traditional programming style.
+<P>
+Data Explorer&#39;s graphical user interface provides an integrated online
+help facility.
+This facility provides users with online access to the Data Explorer user
+manuals, as well as with context-sensitive help information.
+In addition to the help information provided with Data Explorer, the online
+help facility allows users to document various aspects of
+their particular visual programs.
+Other users of these visual programs then have online access to this
+program-specific documentation.
+<P>
+Data Explorer provides an extensive set of modules that you can use to visualize
+your data.
+For example, the Isosurface, Streamline, and AutoColor modules perform
+the standard visualization functions of creating constant-value
+surfaces, tracing particle paths through velocity fields,
+and coloring objects based on a data value,
+respectively.
+<P>
+In addition to these expected functions, Data Explorer also provides tools to
+perform more sophisticated manipulation of data.
+The Map module is a general purpose module that can map a data field
+onto an arbitrary object--whether it is a streamline,
+an isosurface, or even another data field&#39;s
+computational mesh.
+The Compute module can perform arithmetic or trigonometric operations
+point-by-point not only on your data but also on the grid
+itself.
+Thus warping a grid, for example, is a simple matter of entering an
+expression.
+<P>
+Even standard tools, such as Isosurface, operate on multiple types
+of input grids.
+For example, if the input field to Isosurface is 2-dimensional, the
+module automatically creates contour lines.
+<P>
+The Data Explorer renderer can handle opaque or translucent surfaces,
+translucent volumes, and opaque or translucent lines or
+points--all in the same image.
+In addition, data on different computational or observational grids
+can be visualized together,
+allowing you to correlate disparate data fields without requiring you
+to force the data onto the same grid.
+<P>
+The power and interoperability of the modules is possible because
+of the underlying data model, which is capable of describing a
+wide variety of types of input data.
+Because the data itself is self-describing, modules can be flexible in
+the types of data they accept, and can perform their actions
+appropriately based on their input.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

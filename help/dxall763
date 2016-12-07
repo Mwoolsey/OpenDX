@@ -1,0 +1,78 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rcattrn Transformation #!N #!EC #!N #!N These tools generally modify or 
+add to components of the input Field without changing its underlying 
+positions and connections. For example, AutoColor creates a "colors" component based 
+on the data values of a Field and Compute performs a 
+mathematical operation on the "data" component of a Field. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lautocol,dxall772 h AutoColor  #!EL  #!EF #!I50 #!N Automatically colors 
+a data Field. By default, the minimum data value is blue, 
+the maximum data value is red, and data values between are 
+blue to red through cyan, green, and yellow. You can control 
+what subset of the data range to color and what portion 
+of the color wheel to use. You can also control the 
+opacity of the object and the intensity of the colors. AutoColor 
+also chooses appropriate colors and opacities for volume rendering. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lautogra,dxall777 h AutoGrayScale  #!EL  #!EF #!I50 #!N Automatically colors a data field 
+using a gray scale. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lcategor,dxall782 h Categorize  #!EL  #!EF #!I50 
+#!N Categorizes data, creating an integer data component along with a 
+lookup table into which the integers reference. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lcategst,dxall783 h CategoryStatistics  #!EL  #!EF #!I50 #!N Performs various statistics such as minimum, maximum, 
+number of items, etc., on categorical data. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lcolor,dxall792 h Color  #!EL  #!EF #!I50 #!N Allows you more control over the coloring 
+of an object than is possible with AutoColor. You can specify 
+a string representing a color (e.g., "spring green"), an RGB color, 
+or a color map (from the Colormap Editor, for example) to 
+be applied to a data Field. You can also use the 
+Color module to make objects (e.g., isosurfaces) translucent. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lcompute,dxall795 h Compute  #!EL  #!EF #!I50 #!N Performs point-by-point arithmetic on a Field 
+or Fields. For example, it can add the "data" component of 
+one Field to the tangent of the "data" component of another 
+Field. You can also use the Compute module to select components 
+from a vector data Field; construct a vector "data" component from 
+a set of scalar input data Fields; or perform conditional operations. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lcomput2,dxall796 h Compute2  #!EL  #!EF #!I50 #!N Differs from Compute 
+in allowing the expression to be passed in by means of 
+an input tab (e.g., from a Selector interactor). #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lconvert,dxall799 h Convert  #!EL  #!EF #!I50 #!N Converts between hue, saturation, and value 
+color space and red, green, and blue color space. You can 
+convert either a single vector, a list of vectors, or a 
+color map. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldft,dxall801 h DFT  #!EL  #!EF #!I50 #!N Performs 
+a discrete Fourier transformation on a 2- or 3-dimensional field. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldirect,dxall806 h Direction  #!EL  #!EF #!I50 #!N Converts azimuth, elevation, and 
+distance to Cartesian coordinates (x, y, and z), which are useful 
+for specifying camera viewing directions and for specifying ClipPlane or MapToPlane 
+normal directions. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldivcurl,dxall827 h DivCurl  #!EL  #!EF #!I50 #!N Computes 
+the divergence and the curl of a vector field. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lequaliz,dxall831 h Equalize  #!EL  #!EF #!I50 #!N Applies histogram equalization to a 
+field. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lfft,dxall846 h FFT  #!EL  #!EF #!I50 #!N Performs a 
+fast Fourier transformation on a 2- or 3-dimensional field. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lfilter,dxall849 h Filter  #!EL  #!EF #!I50 #!N Filters a Field. You can 
+specify a name describing a filter (e.g., "laplacian") or a filter 
+matrix explicitly. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lgradien,dxall857 h Gradient  #!EL  #!EF #!I50 #!N Computes 
+the gradient of a scalar Field. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lhistogr,dxall859 h Histogram  #!EL  
+#!EF #!I50 #!N Computes a histogram and the median of an 
+input data Field. You can then use Plot to visualize the 
+result as a 2-dimensional graph. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Llookup,dxall886 h Lookup  #!EL  #!EF 
+#!I50 #!N Uses one object to look up the value of 
+another object in a field. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lmap,dxall891 h Map  #!EL  #!EF 
+#!I50 #!N Maps Fields onto one another. For example, you can 
+map a data Field onto an isosurface or onto a tube 
+that has been formed from a streamline. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lmeasure,dxall894 h Measure  #!EL  #!EF #!I50 #!N Performs measurements (e.g., surface area or volume) 
+on a data Object. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lmorph,dxall896 h Morph  #!EL  #!EF #!I50 
+#!N Applies a binary morphological operator, such as erode or dilate. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lpost,dxall910 h Post  #!EL  #!EF #!I50 #!N Changes the dependency 
+of data (and other components) between positions and connections. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lqantimg,dxall914 h QuantizeImage  #!EL  #!EF #!I50 #!N Converts an image from a 
+format containing (potentially) as many colors as pixels to a quantized 
+image with a color map with a user-specified number of colors 
+between 8 and 256. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lsort,dxall951 h Sort  #!EL  #!EF #!I50 
+#!N Sorts a list or Field based on values in the 
+data component. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lstatist,dxall953 h Statistics  #!EL  #!EF #!I50 #!N Computes 
+the statistics of a Field: the mean, standard deviation, variance, minimum, 
+and maximum. You can use these statistics as input for other 
+modules, or print them using the Echo or Print modules. #!I0 
+#!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lcatwin,dxall764 h Windows  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

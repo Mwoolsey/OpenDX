@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rrsepkwd recordseparator #!N #!EC #!T,100,210 
+#!N TAB  #!F-adobe-times-bold-r-normal--18*   bytes #!EF n TAB  #!F-adobe-times-bold-r-normal--18*   bytes #!EF n 
+#!N  #!F-adobe-times-bold-r-normal--18*   [ recseparator #!EF = TAB  #!F-adobe-times-bold-r-normal--18*   lines #!EF n 
+, TAB  #!F-adobe-times-bold-r-normal--18*   lines #!EF n ... #!N TAB  #!F-adobe-times-bold-r-normal--18*   marker 
+#!EF "string" TAB  #!F-adobe-times-bold-r-normal--18*   marker #!EF "string" ] #!N #!T,0 #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Function: #!EF #!I50 #!N Specifies 
+the separation between records. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Use: #!EF #!I50 
+#!N Optional. This keyword applies only to record and record-vector interleaving. 
+#!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 
+1. With differences to be noted here, the specification of separation 
+is very much like that of the  #!F-adobe-times-bold-r-normal--18*   header #!EF keyword 
+(see  #!Lhdrkwd,dxall147 h header  #!EL  ). #!N #!I30 #!N 2. If all records are 
+separated by the same amount, a single separator value should be 
+specified. For example, if each pair of successive records is separated 
+by two lines, then #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N recordseparator = 
+lines 2 #!EF #!N #!N #!EC #!N #!I30 #!N 3. If 
+the records are separated by different amounts, a value must be 
+specified for each of the separators: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o For record-vector data the number of separator 
+values must equal the number of  #!F-adobe-times-medium-i-normal--18*   fields #!EF minus one. 
+For example, if #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N structure = scalar, 
+scalar, 2-vector #!EF #!N #!N #!EC then two separator values must 
+be specified: one between the two scalar fields and one between 
+the second scalar field and the vector field. #!N #!I30 #!N 
+o For record data, the number of separator values must equal 
+the number of  #!F-adobe-times-medium-i-normal--18*   dimensions #!EF minus one. For the preceding 
+example, three separator values must be specified: the first between the 
+two scalar fields; the second between the second scalar and the 
+first vector component; and the third between the two vector components. 
+#!N #!I0 #!N #!EF #!N #!I0 #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lserskwd,dxall152 h series  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

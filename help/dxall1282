@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxins DXInsert #!N #!N Function #!N 
+#!N Adds a component to a Field. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXInsert(Object o, Object add, char *name) #!EF 
+#!N #!N Functional Details #!N #!N For each Field in Object 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF , add Object  #!F-adobe-times-bold-r-normal--18*   add #!EF as component 
+ #!F-adobe-times-bold-r-normal--18*   name #!EF . Object  #!F-adobe-times-bold-r-normal--18*   o #!EF can be a 
+single Field, or any Object that can contain Fields (e.g., Groups 
+or Series). If Object  #!F-adobe-times-bold-r-normal--18*   o #!EF is a single Field, 
+Object  #!F-adobe-times-bold-r-normal--18*   add #!EF must be a single Object, usually an 
+Array. If Object  #!F-adobe-times-bold-r-normal--18*   o #!EF is anything else, the Object 
+hierarchy of  #!F-adobe-times-bold-r-normal--18*   o #!EF must match that of  #!F-adobe-times-bold-r-normal--18*   add 
+#!EF , where each Field of  #!F-adobe-times-bold-r-normal--18*   o #!EF matches an 
+Array in  #!F-adobe-times-bold-r-normal--18*   add #!EF . If the Field already contains 
+a  #!F-adobe-times-bold-r-normal--18*   name #!EF component, it is replaced. #!N #!N Return 
+Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and sets an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxexi,dxall1204 h DXExists  #!EL  ,  #!Ldxext,dxall1206 h DXExtract  #!EL  ,  #!Ldxrem,dxall1355 h DXRemove  #!EL  ,  #!Ldxren,dxall1356 h DXRename  #!EL  ,  #!Ldxrep,dxall1358 h DXReplace  #!EL  
+,  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  ,  #!Ldxswp,dxall1397 h DXSwap  #!EL  #!EF #!N #!N  #!Lctmn,dxall1089 h Component Manipulation  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxihe,dxall1283 h DXInsertHashElement  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

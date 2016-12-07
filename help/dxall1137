@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue 
+#!N  #!Rcdcs Clipped Class #!N #!EC #!N #!N A Clipped Object 
+is one Object clipped by another. The first Object is actually 
+rendered; the second represents a region to which the first Object 
+is clipped. The clipping Object is expected to be a closed 
+convex surface. The portion of the first Object that is within 
+the clipping Object is rendered. If the clipping Object is not 
+a closed convex surface, the results are undefined. The clipping is 
+performed by the renderer during the rendering process. Thus clipping is 
+provided as a data structure for representing the Clipped Object to 
+the renderer, rather than as an explicit operation. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Clipped DXNewClipped() #!EF #!EF #!I50 #!N 
+Creates a new Clipped Object. See  #!Ldxncd,dxall1312 h DXNewClipped  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Clipped DXGetClippedInfo() #!EF #!EF #!I50 #!N Returns the Object 
+to be rendered and the clipping Object. See  #!Ldxgci,dxall1226 h DXGetClippedInfo  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Clipped DXSetClippedObjects() #!EF #!EF #!I50 #!N Sets 
+the Object to be rendered and the Object to clip it 
+with during the rendering process. See  #!Ldxsco,dxall1370 h DXSetClippedObjects  #!EL  . #!I0 #!N #!N 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcamsec,dxall1138 h Camera Class  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

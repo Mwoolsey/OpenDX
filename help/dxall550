@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rfilincl File Inclusion #!N #!EC #!N #!I0 #!N #!N #!Cnavy #!N 
+#!I0 #!N #!EC  #!F-adobe-times-bold-r-normal--18*   include #!EF #!N #!I50 #!N The  #!F-adobe-times-bold-r-normal--18*   
+include #!EF command is used to interpose the contents of a 
+file into the input stream being sent to Data Explorer. The 
+file being included can contain both scripting language constructs and executive 
+commands. This means an included file can, in turn, include other 
+files. #!N #!N There is currently a limit of 32 nested 
+levels of inclusion, after which the  #!F-adobe-times-bold-r-normal--18*   include #!EF commands are 
+ignored. #!N #!N To include the file my.script, issue the following 
+command: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N include "my.script" #!EF #!N #!N 
+#!EC #!I0 #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lall550,dxall551 h Prompts  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

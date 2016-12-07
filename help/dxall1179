@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcrih DXCheckRIH #!N #!N Function #!N #!N Checks registered 
+input handlers. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> int DXCheckRIH(int 
+block); #!EF #!N #!N Functional Details #!N #!N This routine must 
+be called periodically in a stand-alone program if the  #!F-adobe-times-bold-r-normal--18*   DXRegisterInputHandler 
+#!EF routine is used to define an input handler. (The executive 
+provides this function automatically for built-in Data Explorer routines.) #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXCheckRIH #!EF determines whether any input handlers need to be 
+called and, if so, calls them before returning. The valid arguments 
+for  #!F-adobe-times-bold-r-normal--18*   block #!EF are: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N 0 = Check whether any events need handling. If 
+not, return. Otherwise, handle the event(s) and return. #!N #!I30 #!N 
+1 = Do not return until an event that requires handling 
+occurs. #!N #!I0 #!N #!EF #!N #!N #!N If the Display 
+module is part of your stand-alone program, this routine must be 
+called, since Display uses an input handler to deal with external 
+events (e.g., repainting window contents after they have been obscured). #!N 
+#!N If the SuperviseState module (  #!Lsupstat,dxall958 h SuperviseState  #!EL  in IBM Visualization Data 
+Explorer User's Reference) is being used in conjunction with Display to 
+implement direct interaction,  #!F-adobe-times-bold-r-normal--18*   DXCheckRIH #!EF must not be called between 
+SuperviseState and Display. This will ensure that SuperviseState passes up-to-date state 
+information into Display. #!N #!N Return Value #!N #!N Returns 1 
+if an event required handling; otherwise return 0. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxregih,dxall1354 h DXRegisterInputHandler  #!EL  #!EF #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxcb,dxall1180 h DXClipBox  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

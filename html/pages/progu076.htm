@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu075.htm">Previous Page</A> &#124; <A HREF="progu077.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu075.htm#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="Header_160" HREF="progu075.htm#PToC_160">16.2 Surface
+Shading</A></H2>
+<A NAME="IDX1224"></A>
+<A NAME="IDX1225"></A>
+<A NAME="IDX1226"></A>
+<P>
+Shading is the process of applying lights to a surface according to
+shading parameters specified for the surface and the scene.
+<P>
+The shading process described here is performed by the
+<TT><STRONG>DXRender()</STRONG></TT> function for surface
+objects only;
+volumes are rendered directly, using the colors and opacities
+specified.
+Lights are specified by light Objects (see <A
+HREF="progu082.htm#HDRLIGHTSC">16.8 , "Light Class"</A>)
+contained in the input Object.
+Shading is defined only for 2-dimensional connections (lines, triangles,
+and quads) and is applied only if normals are present.
+The shading process uses the following
+Field components:
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Component
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Meaning
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"positions"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">points
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"colors"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">front and back colors
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"front colors"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">colors of front of face
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"back colors"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">colors of back of face
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"normals"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">surface normals
+</TD></TR></TABLE>
+<P>
+A Field may have both "colors" and "front colors" or both
+"colors" and "back colors," in which case the
+"front colors" or "back colors"
+component overrides the "colors"
+component for the specified side
+of the object.
+The front and back of a surface are defined in
+<A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data Model"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<P>
+Shading parameters are specified by a set of attributes of an
+input Object:
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Attribute
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Meaning
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"ambient"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">ambient lighting coefficient
+<I>k<SUB>a</SUB></I>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"diffuse"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">diffuse lighting coefficient
+<I>k<SUB>d</SUB></I>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"specular"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">specular lighting coefficient
+<I>k<SUB>s</SUB></I>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"shininess"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">specular lighting exponent
+<I>sp</I>
+</TD></TR></TABLE>
+<P>
+These parameters apply to both the front and back of an object.
+In addition, for each shading parameter "<I>x</I>," there is
+also a "front <I>x</I>" and a "back <I>x</I>"
+parameter that apply only to the front and back of a surface
+respectively.
+These parameters are used in the following shading model:
+I % = % k sub a A C plus k sub d L C % ("n" % % dot % "l") plus k sub s L
+% ( "n" % % dot % "h" ) sup sp
+<P>
+where:
+<BR>
+ <I>I</I> = apparent intensity of the object     <I>k</I> = a lighting
+coefficient<BR>
+<I>A</I> = an ambient light                         <TT><STRONG>n</STRONG></TT>
+= the surface normal<BR>
+<I>C</I> = the color of the object                 <TT><STRONG>l</STRONG></TT> =
+the direction to the light<BR>
+<I>L</I> = a point or distant light                <I>sp</I> = specular lighting
+exponent<BR>
+<TT><STRONG>h</STRONG></TT> = a unit vector halfway between the direction to the
+camera<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and the direction to the light.<BR>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Color, Opacity, and Normals
+Dependencies</TH><TR><TD>
+<A NAME="IDX1227"></A>
+<A NAME="IDX1228"></A>
+<A NAME="IDX1229"></A>
+<A NAME="IDX1230"></A>
+<A NAME="IDX1231"></A>
+<A NAME="IDX1232"></A>
+<P>
+Colors, opacities, and normals may be dependent on the positions
+(when the corresponding components have a "dep" attribute
+of "positions") or on connections or faces (when the
+corresponding components have a "dep" attribute of
+"connections" or "faces").
+<P>
+Opacities and normals, if present, must depend on the same
+component that the colors depend upon, with one exception: if the
+colors are dependent on the positions and the normals are dependent on
+the connections, the face will be flat-shaded with the
+average color of the face vertices.
+<P>
+If the colors, opacities, and normals are dependent on the positions,
+the color and opacity of each face is linearly interpolated between
+the vertices (Gouraud shading).
+If they are dependent on the connections or faces, the color and
+opacity of each face is constant (flat shading).
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu075.htm">Previous Page</A> &#124; <A HREF="progu077.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu075.htm#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

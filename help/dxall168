@@ -1,0 +1,94 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rdfldinf Data Fields Information #!N #!EC Note: A 
+change made in any option in this part of the dialog 
+box generates an instruction to save (confirm) the change by clicking 
+on the  #!F-adobe-times-bold-r-normal--18*   Modify #!EF button at the bottom of the 
+panel. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Field List #!EF 
+#!I50 #!N This list (at the top right of the Data 
+Prompter) displays the names of the fields that are currently defined 
+for a header file. #!N #!N If the list contains more 
+than one field, their order must match that of the fields 
+in the data file. To change the order of the fields, 
+use the  #!F-adobe-times-bold-r-normal--18*   Move field #!EF arrows, after first selecting (highlighting) 
+the field name to be moved. #!N #!N Note that the 
+settings of the various buttons and associated text fields below the 
+field list are updated whenever a field is selected. #!N #!N 
+See also  #!Lfldkwd,dxall145 h field  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Field name #!EF 
+#!I50 #!N The text field immediately below  #!F-adobe-times-bold-r-normal--18*   Field List #!EF 
+displays the name of the current (selected) field. Field names must 
+be unique. Default field names take the form "field  #!F-adobe-times-medium-i-normal--18*   n 
+#!EF ," where  #!F-adobe-times-medium-i-normal--18*   n #!EF is an integer. #!N #!N 
+You can change a name and then click on the  #!F-adobe-times-bold-r-normal--18*   
+Modify #!EF button (near the bottom of the Data Prompter) to 
+confirm the change. (Similarly you can add, insert, or delete a 
+field. See  #!F-adobe-times-bold-r-normal--18*   Field List Buttons #!EF at the end of 
+this section.) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Type #!EF #!I50 #!N For 
+each field in the list, select the appropriate data  #!F-adobe-times-bold-r-normal--18*   Type 
+#!EF with the associated option button. The type must match that 
+of the data in the field. The supported types are: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N double byte int short #!N float signed 
+byte signed int signed short #!N string unsigned byte unsigned int 
+unsigned short #!EF #!N #!N #!EC #!N #!N Note that: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N - byte is equivalent to unsigned byte #!N #!I30 #!N 
+- int is equivalent to signed int #!N #!I30 #!N - 
+short is equivalent to signed short. #!N #!I0 #!N #!EF #!N 
+#!N #!I0 #!N #!EF #!N #!N #!N Specifying string enables "string 
+size," which should contain the length of the longest string. #!N 
+#!N See also  #!Ltypkwd,dxall154 h type  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Structure #!EF 
+#!I50 #!N For each field in the list, select the appropriate 
+ #!F-adobe-times-bold-r-normal--18*   Structure #!EF with the associated option button. Accepted values are 
+ #!F-adobe-times-bold-r-normal--18*   scalar #!EF and  #!F-adobe-times-bold-r-normal--18*   2-vector, ..., 9-vector #!EF . However, 
+ #!F-adobe-times-bold-r-normal--18*   5-vector, ..., 9-vector #!EF cannot be specified for column-majority arrays. 
+#!N #!N See also  #!Lstrckwd,dxall153 h structure  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Dependency 
+#!EF #!I50 #!N For each field in the list, select the 
+appropriate  #!F-adobe-times-bold-r-normal--18*   Dependency #!EF with the associated option button. The default 
+setting of this option is "positions" (one data item per position). 
+If the data in the field are cell-centered (connection dependent) select 
+"connections." #!N #!N See also  #!Ldepkwd,dxall144 h dependency  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Layout #!EF  #!Rdprlayt #!I50 #!N This option is automatically activated when 
+the data in the current field are field-interleaved (columnar) ASCII (Text). 
+It specifies the locations of data items in a line of 
+text. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N  #!F-adobe-times-bold-r-normal--18*   skip 
+#!EF specifies the number of characters the Importer must skip before 
+it begins reading data in this field. #!N #!I30 #!N  #!F-adobe-times-bold-r-normal--18*   
+width #!EF specifies the "width" (including blanks) of the field from 
+which the data is to be read. #!N #!I0 #!N #!EF 
+#!N #!N #!N See also  #!Llaytkwd,dxall149 h layout  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Block #!EF  #!Rdprblok #!I50 #!N This option is automatically enabled when 
+the data in the current field are record-interleaved (block) ASCII (Text). 
+It specifies the locations of data items in a line or 
+field of text. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+ #!F-adobe-times-bold-r-normal--18*   skip #!EF specifies the number of characters the Importer must 
+skip before it begins reading data in this field. #!N #!I30 
+#!N  #!F-adobe-times-bold-r-normal--18*   # elem #!EF specifies the number of data elements 
+to be read after a  #!F-adobe-times-bold-r-normal--18*   skip #!EF . #!N #!I30 
+#!N  #!F-adobe-times-bold-r-normal--18*   width #!EF specifies the "width" (including blanks) of the 
+data component. #!N #!I0 #!N #!EF #!N #!N #!N See also 
+ #!Lblokwd,dxall143 h block  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Field List Buttons #!EF #!I50 
+#!N Four buttons at the bottom of the Data Prompter operate 
+on the fields list: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Add #!EF #!I50 #!N Adds the field specified in  #!F-adobe-times-bold-r-normal--18*   Field 
+name #!EF to the field list, placing it immediately  #!F-adobe-times-medium-i-normal--18*   after 
+#!EF the current (highlighted) field. The settings for the new field 
+are those current at the time of the addition. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   Insert #!EF #!I50 #!N Inserts the field specified in 
+ #!F-adobe-times-bold-r-normal--18*   Field name #!EF in the field list, placing it immediately 
+ #!F-adobe-times-medium-i-normal--18*   before #!EF the current (highlighted) field. The settings for the 
+new field are those current at the time of the insertion. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Modify #!EF #!I50 #!N Saves any change(s) 
+to the settings of the current (selected) field. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Delete #!EF #!I50 #!N Removes the selected (highlighted) field from 
+the field list. #!I0 #!N #!N Note:  #!F-adobe-times-bold-r-normal--18*   Modify #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   Delete #!EF are grayed out if there is no selected 
+item in the field list. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Record Separator 
+#!EF #!I50 #!N This option is enabled only when  #!F-adobe-times-bold-r-normal--18*   Block 
+#!EF field interleaving is selected. It allows you to specify a 
+separator between blocks, or records, in the data file, when there 
+are more than one. You can specify the same separator for 
+between each record, or a different separator between each record. Depending 
+on the setting of  #!F-adobe-times-bold-r-normal--18*   Vector interleaving #!EF button, separators may 
+be specified between each field, or between each component of each 
+vector in each field. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lbrowse,dxall169 h Data Prompter Browser  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

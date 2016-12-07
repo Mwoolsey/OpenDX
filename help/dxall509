@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N 
+ #!Rall508 Example 3. Using a Macro #!N #!EC #!N #!N It 
+is possible to create and use macros in the scripting language. 
+A macro is defined using the keyword "macro," as in the 
+following example. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro make_iso(data, isovalue) -> 
+(isosurface) #!N { #!N isosurface = Isosurface(data, isovalue); #!N } #!EF 
+#!N #!N #!EC To use the macro, simply call it with 
+the required parameters: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N iso1 = make_iso(data, 
+0.1); #!N iso2 = make_iso(data, 0.2); #!N ... #!EF #!N #!N 
+#!EC #!N #!N A macro can have as many inputs or 
+outputs as desired. Note that it is not necessary to pass 
+parameters into a macro; the parameters will be found in the 
+environment outside of the macro if necessary. However, it  #!F-adobe-times-medium-i-normal--18*   is 
+#!EF necessary to pass any parameters  #!F-adobe-times-medium-i-normal--18*   out #!EF of the 
+macro that are intended to be used outside of the macro. 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall509,dxall510 h Example 4. Using Route in the Script Language  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

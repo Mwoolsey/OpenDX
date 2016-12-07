@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgpc DXGetPartClass #!N #!N Function #!N #!N Returns by 
+index only those parts belonging to the specified class. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGetPartClass(Object o, int n, Class 
+class) #!EF #!N #!N Functional Details #!N #!N Performs a depth-first 
+traversal of the Object  #!F-adobe-times-bold-r-normal--18*   o #!EF and returns a reference 
+to the  #!F-adobe-times-bold-r-normal--18*   n #!EF th (  #!F-adobe-times-bold-r-normal--18*   n #!EF >= 
+0) occurrence of a subObject with the requested  #!F-adobe-times-bold-r-normal--18*   class #!EF 
+. The parts of a group may be enumerated by calling 
+ #!F-adobe-times-bold-r-normal--18*   DXGetPartClass #!EF with successive values of  #!F-adobe-times-bold-r-normal--18*   n #!EF starting 
+at 0 until  #!F-adobe-times-bold-r-normal--18*   NULL #!EF is returned. #!N #!N For 
+applying a function to every Field in a Group,  #!F-adobe-times-bold-r-normal--18*   DXProcessParts 
+#!EF is a more efficient interface. #!N #!N Return Value Returns 
+the  #!F-adobe-times-bold-r-normal--18*   n #!EF th subObject of the requested class or 
+returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxgp,dxall1256 h DXGetPart  #!EL  ,  #!Ldxpp,dxall1336 h DXProcessParts  #!EL  ,  #!Ldxsp,dxall1385 h DXSetPart  #!EL  #!EF #!N #!N  #!Lprts,dxall1068 h Parts  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgpai,dxall1258 h DXGetPathArrayInfo  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,74 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rdatam Data 
+Explorer Data Model #!N #!EC #!N #!N  #!F-adobe-times-medium-i-normal--18*   Fields #!EF are 
+the fundamental informational entities in Data Explorer. A Field contains the 
+components that carry the actual numbers. The "positions" component, for instance, 
+contains the positions of a data set, while the "data" component 
+contains the data values (e.g., temperatures). Groups are higher-level structures and 
+may consist of Fields or other Groups (see  #!Lcl23,dxall1061 t Table 23  #!EL  ). #!N 
+#!N Generally, a component consists of an Array of data, information 
+describing the data (i.e., its type, dimensionality, or both), and a 
+name associated with the component. Standard components include "positions," "data," and 
+"colors." The name of a component does not usually imply anything 
+about its characteristics (e.g., its data type or dimensionality). In addition, 
+components typically carry attributes which indicate other characteristics of the component. 
+#!N #!N For example, a "data" component should always have a 
+"dep" attribute with a value of either "positions" or "connections." This 
+attribute tells modules operating on the field whether the data are 
+position-dependent or connection-dependent. Position-dependent data are associated one-to-one with the "positions" 
+of a field, and data values can be interpolated at other 
+positions in the field using the "connections" component if present. Connection-dependent 
+data are associated one-to-one with the "connections" of a field, and 
+data values are assumed constant within each connection. #!N #!N Another 
+example of a required attribute is that the "connections" component have 
+a "ref" attribute of "positions." This indicates to Data Explorer that 
+the items in the connections component are to be interpreted as 
+indices into the "positions" component. In addition, the "connections" component must 
+have an "element type" attribute indicated the type of the connection 
+(e.g. "triangles," "quads," etc.). For more information on component attributes, see 
+ #!Lcompatt3,dxall223 t Table 3  #!EL  in IBM Visualization Data Explorer User's Guide. #!N #!N Module 
+operations typically take place at the Field level and involve changing 
+or creating components. For example: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o The Compute module may create an output Field 
+whose data component is the sum of the "data" components of 
+two input Fields. #!N #!I30 #!N o The AutoColor module creates 
+an output Object whose "colors" component is based on the "data" 
+component of the input Field. #!N #!I30 #!N o The Isosurface 
+module creates an output Object whose "positions" and "connections" components describe 
+a surface of constant value in the input Object's data Field. 
+#!N #!I0 #!N #!EF #!N #!N #!N Modules in Data Explorer 
+are generally required to be pure functions and they must not 
+modify their inputs. Instead, to modify the "data" component of an 
+input Object, a module must first make a copy of the 
+Object. Note that the data model allows the module to copy 
+the structure without copying the data. Some modules (e.g., Isosurface) create 
+a completely new Object for the output (as will be illustrated 
+in later chapters). #!N #!N Because a module typically works by 
+manipulating the components of a Field, and because its input may 
+be a more complicated Object consisting of Groups, it must often 
+operate recursively. In particular, the efficient use of multiple processors requires 
+that a parallel module must be able to traverse Groups, since 
+partitioning creates a special type of Group called a Composite Field. 
+#!N #!N For example, a module designed to add a number 
+to every data value in each data component of an input 
+Object first makes a copy of the input Object on which 
+it is to operate. This copy duplicates the structure of the 
+input Object (the hierarchy of Groups and Fields) but not the 
+Arrays containing the values in the components of the Fields. In 
+the worker part of the routine, a new "data" component is 
+created to hold the modified data values (the other components can 
+be shared with the input Object, since they will not be 
+modified). #!N #!N The worker part of the routine first queries 
+the Object to determine whether it is a Field or a 
+Group: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o If 
+it is a Field, the routine extracts the "data" component of 
+the input Object, creates a new "data" component, places it in 
+the output Object, computes the sum, puts the result in the 
+new component, and returns. #!N #!I30 #!N o If it is 
+a Group, the routine extracts each of the group's children and 
+recursively calls itself for each child to determine whether that child 
+is a Field or a Group, and so on. (See  #!Lmodexsc,dxall1027 h Working with Data  #!EL  
+for an illustration of how a module performs this procedure on 
+an input Object.) #!N #!I0 #!N #!EF #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmemng,dxall1023 h Memory Management  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

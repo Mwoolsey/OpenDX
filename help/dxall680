@@ -1,0 +1,46 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rcdfser Partially Regular Grids and Time 
+Series #!N #!EC #!N #!N This example describes an ocean circulation 
+model that consists of a time series of four three-dimensional scalars 
+ #!F-adobe-times-bold-r-normal--18*   (temp #!EF ,  #!F-adobe-times-bold-r-normal--18*   sali #!EF ,  #!F-adobe-times-bold-r-normal--18*   wata #!EF 
+, and  #!F-adobe-times-bold-r-normal--18*   conv) #!EF and one three-dimensional 3-vector  #!F-adobe-times-bold-r-normal--18*   (vel) 
+#!EF . netCDF typically requires seven variables, all scalars (the vector 
+counting as three scalars). The coordinate system for the velocity vectors 
+corresponds to that of the grid (that is, +u implies north, 
++v implies east, and +w implies down). #!N #!N These grids 
+are partially regular in that the  #!F-adobe-times-bold-r-normal--18*   time #!EF ,  #!F-adobe-times-bold-r-normal--18*   
+tlat #!EF , and  #!F-adobe-times-bold-r-normal--18*   tlon #!EF portions (three out of 
+the four dimensions) are all regularly spaced.  #!F-adobe-times-bold-r-normal--18*   time #!EF is 
+to be mapped to members of a series group. The fourth 
+dimension,  #!F-adobe-times-bold-r-normal--18*   tlvl #!EF , is irregularly spaced. The compact notation 
+can be used for the regular notation, while the all values 
+along the irregular dimension must be specified; a product is formed 
+from the dimensions. #!N #!N Here is the specification in netCDL 
+notation: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dimensions: #!N time = UNLIMITED; 
+#!N tlat = 30; #!N tlon = 50; #!N tlvl = 
+30; #!N vsize = 3; // At each grid cell for 
+variable vel, there are #!N // three floats for the u, 
+v, and w components of the #!N // vector field. #!N 
+naxes = 3; #!N ndeltas = 2; #!N #!N variables: #!N 
+float lat_axis(ndeltas, naxes); #!N float lon_axis(ndeltas, naxes); #!N float level_axis(tlvl, naxes); 
+#!N #!N float temp(time, tlat, tlon, tlvl); #!N temp:field = "temperature, 
+scalar, series"; #!N temp:positions = "lat_axis, product, compact; lon_axis, #!N product, 
+compact; level_axis, product"; #!N #!N float sali(time, tlat, tlon, tlvl); #!N 
+sali:field = "salinity, scalar, series"; #!N sali:positions = "lat_axis, product, compact; 
+lon_axis, #!N product, compact; level_axis, product"; #!N #!N float wata(time, tlat, 
+tlon, tlvl); #!N wata:field = "water parage, scalar, series"; #!N wata:positions 
+= "lat_axis, product, compact; lon_axis, #!N product, compact; level_axis, product"; #!N 
+#!N float conv(time, tlat, tlon, tlvl); #!N conv:field = "covective index, 
+scalar, series"; #!N conv:positions = "lat_axis, product, compact; lon_axis, #!N product, 
+compact; level_axis, product"; #!N #!N float vel(time, tlat, tlon, tlvl, vsize); 
+#!N vel:field = "velocity, vector, series"; #!N vel:positions = "lat_axis, product, 
+compact; lon_axis, #!N product, compact; level_axis, product"; #!N #!N data: #!N 
+lat_axis = -14.667, 0., 0., #!N 0.333, 0., 0.; #!N lon_axis 
+= 0.0, -99.8, 0.0, #!N 0.0, 0.5, 0.0; #!N level_axis = 
+0.0, 0.0, 17.5, #!N 0.0, 0.0, 53.425, #!N . #!N : 
+#!N 0.0, 0.0, 5374.98; #!N temp = ... ; #!N sali 
+= ... ; #!N wata = ... ; #!N conv = 
+... ; #!N vel = ... ; #!EF #!N #!N #!EC 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall680,dxall681 h Irregular Surface  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

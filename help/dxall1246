@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgm DXGetMember #!N #!N Function #!N 
+#!N Gets a named member of a Group. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGetMember(Group g, char *name) #!EF #!N 
+#!N Functional Details #!N #!N The routine returns the member of 
+Group  #!F-adobe-times-bold-r-normal--18*   g #!EF that has been assigned the name  #!F-adobe-times-bold-r-normal--18*   
+name #!EF . Because the attribute is optional, a name may 
+not have been assigned to a given Group member. In that 
+case, the member can be retrieved by index with  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedMember 
+#!EF . #!N #!N Return Value #!N #!N Returns the member 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF but does not set an error 
+code if the member does not exist. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgem,dxall1234 h DXGetEnumeratedMember  #!EL  ,  #!Ldxgmc,dxall1247 h DXGetMemberCount  #!EL  ,  #!Ldxng,dxall1317 h DXNewGroup  #!EL  ,  #!Ldxsm,dxall1382 h DXSetMember  #!EL  #!EF 
+#!N #!N  #!Lmbs,dxall1064 h Generic Operations  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxgmc,dxall1247 h DXGetMemberCount  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

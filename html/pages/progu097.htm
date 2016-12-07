@@ -1,0 +1,656 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu096.htm">Previous Page</A> &#124; <A HREF="progu098.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRALLR" HREF="../proguide.htm#ToC_191">Appendix C. Data Explorer
+Library Routines</A></H1>
+<P><A NAME="PToC20" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU><MENU>
+<LI><A NAME="PToC_192" HREF="progu098.htm#HDRDXATG">DXAbortTaskGroup</A>
+<LI><A NAME="PToC_193" HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv,
+DXDot, DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>
+<LI><A NAME="PToC_194" HREF="progu100.htm#HDRDXAAD">DXAddArrayData</A>
+<LI><A NAME="PToC_195" HREF="progu101.htm#HDRDXAFNS">DXAddFaceNormal,
+DXAddFaceNormals</A>
+<LI><A NAME="PToC_196" HREF="progu102.htm#HDRDXALS">DXAddLine, ...Triangle,
+...Quad, ...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra</A>
+<LI><A NAME="PToC_197" HREF="progu103.htm#HDRDXAM">DXAddMessage,
+DXMessageReturn, DXMessageGoto</A>
+<LI><A NAME="PToC_198" HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color,
+...FrontColor, ...BackColor, ...Opacity, ...Normal,</A>
+<LI><A NAME="PToC_199" HREF="progu105.htm#HDRDXAT">DXAddTask</A>
+<LI><A NAME="PToC_200" HREF="progu106.htm#HDRDXALP">DXAllocate, DXAllocateZero,
+DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A>
+<LI><A NAME="PToC_201" HREF="progu107.htm#HDRDXAA">DXAllocateArray</A>
+<LI><A NAME="PToC_202" HREF="progu108.htm#HDRDXATM">DXApplyTransform</A>
+<LI><A NAME="PToC_203" HREF="progu109.htm#HDRDXACV">DXArrayConvert,
+DXArrayConvertV</A>
+<LI><A NAME="PToC_204" HREF="progu110.htm#HDRDXBLM">DXBeginLongMessage,
+DXEndLongMessage</A>
+<LI><A NAME="PToC_205" HREF="progu111.htm#HDRDXBB">DXBoundingBox</A>
+<LI><A NAME="PToC_206" HREF="progu112.htm#HDRDXCMPLU">DXCallModule, DXModSet...,
+DXSetModule...</A>
+<LI><A NAME="PToC_207" HREF="progu113.htm#HDRDXCCVS">DXChangedComponentValues,
+DXChangedComponentStructure</A>
+<LI><A NAME="PToC_208" HREF="progu114.htm#HDRDXCRIH">DXCheckRIH</A>
+<LI><A NAME="PToC_209" HREF="progu115.htm#HDRDXCB">DXClipBox</A>
+<LI><A NAME="PToC_210" HREF="progu116.htm#HDRDXCP">DXClipPlane</A>
+<LI><A NAME="PToC_211" HREF="progu117.htm#HDRDXCNTR">DXColorNameToRGB</A>
+<LI><A NAME="PToC_212" HREF="progu118.htm#HDRDXCMPMI">DXCompareModuleId</A>
+<LI><A NAME="PToC_213" HREF="progu119.htm#HDRDXCMANY">DXComponentReq,
+DXComponentOpt, DXComponentReqLoc, DXComponentOptLoc</A>
+<LI><A NAME="PToC_214" HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert,
+DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply</A>
+<LI><A NAME="PToC_215" HREF="progu121.htm#HDRDXC">DXCopy</A>
+<LI><A NAME="PToC_216" HREF="progu122.htm#HDRDXCA">DXCopyAttributes</A>
+<LI><A NAME="PToC_217" HREF="progu123.htm#HDRDXCPMI">DXCopyModuleId</A>
+<LI><A NAME="PToC_218" HREF="progu124.htm#HDRDXCAH">DXCreateArrayHandle</A>
+<LI><A NAME="PToC_219" HREF="progu125.htm#HDRDXCH">DXCreateHash</A>
+<LI><A NAME="PToC_220"
+HREF="progu126.htm#HDRDXCICH">DXCreateInvalidComponentHandle</A>
+<LI><A NAME="PToC_221" HREF="progu127.htm#HDRDXCTG">DXCreateTaskGroup</A>
+<LI><A NAME="PToC_222" HREF="progu128.htm#HDRDXCUL">DXCull</A>
+<LI><A NAME="PToC_223" HREF="progu129.htm#HDRDXDB">DXDebug, DXEnableDebug,
+DXQueryDebug</A>
+<LI><A NAME="PToC_224" HREF="progu130.htm#HDRDXDEL">DXDelete</A>
+<LI><A NAME="PToC_225" HREF="progu131.htm#HDRDXDC">DXDeleteComponent</A>
+<LI><A NAME="PToC_226" HREF="progu132.htm#HDRDXDHE">DXDeleteHashElement</A>
+<LI><A NAME="PToC_227" HREF="progu133.htm#HDRDXDHSH">DXDestroyHash</A>
+<LI><A NAME="PToC_228" HREF="progu134.htm#HDRDXDXS">DXDisplayX, DXDisplayX8,
+DXDisplayX12, DXDisplayX24</A>
+<LI><A NAME="PToC_229" HREF="progu135.htm#HDRDXEMF">DXEmptyField</A>
+<LI><A NAME="PToC_230" HREF="progu136.htm#HDRDXENDF">DXEndField</A>
+<LI><A NAME="PToC_231" HREF="progu137.htm#HDRDXEO">DXEndObject</A>
+<LI><A NAME="PToC_232" HREF="progu138.htm#HDRDXETG">DXExecuteTaskGroup</A>
+<LI><A NAME="PToC_233" HREF="progu139.htm#HDRDXEXI">DXExists</A>
+<LI><A NAME="PToC_234" HREF="progu140.htm#HDRDXEDX">DXExportDX</A>
+<LI><A NAME="PToC_235" HREF="progu141.htm#HDRDXEXT">DXExtract</A>
+<LI><A NAME="PToC_236" HREF="progu142.htm#HDRDXEF">DXExtractFloat</A>
+<LI><A NAME="PToC_237" HREF="progu143.htm#HDRDXEI">DXExtractInteger</A>
+<LI><A NAME="PToC_238" HREF="progu144.htm#HDRDXENS">DXExtractNthString</A>
+<LI><A NAME="PToC_239" HREF="progu145.htm#HDRDXEP">DXExtractParameter</A>
+<LI><A NAME="PToC_240" HREF="progu146.htm#HDRDXES">DXExtractString</A>
+<LI><A NAME="PToC_241" HREF="progu147.htm#HDRDXFRE">DXFree</A>
+<LI><A NAME="PToC_242" HREF="progu148.htm#HDRDXFADL">DXFreeArrayDataLocal</A>
+<LI><A NAME="PToC_243" HREF="progu149.htm#HDRDXFAH">DXFreeArrayHandle</A>
+<LI><A NAME="PToC_244"
+HREF="progu150.htm#HDRDXFICH">DXFreeInvalidComponentHandle</A>
+<LI><A NAME="PToC_245" HREF="progu151.htm#HDRDXFMID">DXFreeModuleId</A>
+<LI><A NAME="PToC_246" HREF="progu152.htm#HDRDXGTT">DXGeometricText</A>
+<LI><A NAME="PToC_247" HREF="progu153.htm#HDRDXGAC">DXGetArrayClass</A>
+<LI><A NAME="PToC_248" HREF="progu154.htm#HDRDXGAD">DXGetArrayData</A>
+<LI><A NAME="PToC_249" HREF="progu155.htm#HDRDXGADL">DXGetArrayDataLocal</A>
+<LI><A NAME="PToC_250" HREF="progu156.htm#HDRDXGAEY">DXGetArrayEntry,
+DXGetArrayEntries</A>
+<LI><A NAME="PToC_251" HREF="progu157.htm#HDRDXGAI">DXGetArrayInfo</A>
+<LI><A NAME="PToC_252" HREF="progu158.htm#HDRDXGA">DXGetAttribute</A>
+<LI><A NAME="PToC_253" HREF="progu159.htm#HDRDXGCEV">DXGetCacheEntry,
+DXGetCacheEntryV</A>
+<LI><A NAME="PToC_254" HREF="progu160.htm#HDRDXGCMP">DXGetCameraMatrix,
+DXGetCameraRotation, DXGetCameraMatrixWithFuzz</A>
+<LI><A NAME="PToC_255" HREF="progu161.htm#HDRDXGCI">DXGetClippedInfo</A>
+<LI><A NAME="PToC_256" HREF="progu162.htm#HDRDXGCA">DXGetComponentAttribute</A>
+<LI><A NAME="PToC_257" HREF="progu163.htm#HDRDXGCV">DXGetComponentValue</A>
+<LI><A NAME="PToC_258" HREF="progu164.htm#HDRDXGC">DXGetConnections</A>
+<LI><A NAME="PToC_259" HREF="progu165.htm#HDRDXGCAD">DXGetConstantArrayData</A>
+<LI><A NAME="PToC_260" HREF="progu166.htm#HDRDXGEA">DXGetEnumeratedAttribute</A>
+<LI><A NAME="PToC_261"
+HREF="progu167.htm#HDRDXGECA">DXGetEnumeratedComponentAttribute</A>
+<LI><A NAME="PToC_262"
+HREF="progu168.htm#HDRDXGECV">DXGetEnumeratedComponentValue</A>
+<LI><A NAME="PToC_263" HREF="progu169.htm#HDRDXGEM">DXGetEnumeratedMember</A>
+<LI><A NAME="PToC_264" HREF="progu170.htm#HDRDXGE">DXGetError</A>
+<LI><A NAME="PToC_265" HREF="progu171.htm#HDRDXGETEX">DXGetErrorExit</A>
+<LI><A NAME="PToC_266" HREF="progu172.htm#HDRDXGERM">DXGetErrorMessage</A>
+<LI><A NAME="PToC_267" HREF="progu173.htm#HDRDXGFA">DXGetFloatAttribute</A>
+<LI><A NAME="PToC_268" HREF="progu174.htm#HDRDXGFT">DXGetFont</A>
+<LI><A NAME="PToC_269" HREF="progu175.htm#HDRDXGGC">DXGetGroupClass</A>
+<LI><A NAME="PToC_270" HREF="progu176.htm#HDRDXGISB">DXGetImageSize,
+DXGetImageBounds</A>
+<LI><A NAME="PToC_271" HREF="progu177.htm#HDRDXGIA">DXGetIntegerAttribute</A>
+<LI><A NAME="PToC_272"
+HREF="progu178.htm#HDRDXGICA">DXGetInvalidComponentArray</A>
+<LI><A NAME="PToC_273" HREF="progu179.htm#HDRDXGIC">DXGetInvalidCount</A>
+<LI><A NAME="PToC_274" HREF="progu180.htm#HDRDXGIS">DXGetItemSize</A>
+<LI><A NAME="PToC_275" HREF="progu181.htm#HDRDXGM">DXGetMember</A>
+<LI><A NAME="PToC_276" HREF="progu182.htm#HDRDXGMC">DXGetMemberCount</A>
+<LI><A NAME="PToC_277" HREF="progu183.htm#HDRDXGMAI">DXGetMeshArrayInfo</A>
+<LI><A NAME="PToC_278" HREF="progu184.htm#HDRDXGMO">DXGetMeshOffsets</A>
+<LI><A NAME="PToC_279" HREF="progu185.htm#HDRDXGMID">DXGetModuleId</A>
+<LI><A NAME="PToC_280" HREF="progu186.htm#HDRDXGNHE">DXGetNextHashElement</A>
+<LI><A NAME="PToC_281"
+HREF="progu187.htm#HDRDXGNIEI">DXGetNextInvalidElementIndex</A>
+<LI><A NAME="PToC_282"
+HREF="progu188.htm#HDRDXGNVEI">DXGetNextValidElementIndex</A>
+<LI><A NAME="PToC_283" HREF="progu189.htm#HDRDXGOC">DXGetObjectClass</A>
+<LI><A NAME="PToC_284" HREF="progu190.htm#HDRDXGSOT">DXGetObjectTag,
+DXSetObjectTag</A>
+<LI><A NAME="PToC_285" HREF="progu191.htm#HDRDXGP">DXGetPart</A>
+<LI><A NAME="PToC_286" HREF="progu192.htm#HDRDXGPC">DXGetPartClass</A>
+<LI><A NAME="PToC_287" HREF="progu193.htm#HDRDXGPAI">DXGetPathArrayInfo</A>
+<LI><A NAME="PToC_288" HREF="progu194.htm#HDRDXGPO">DXGetPathOffset</A>
+<LI><A NAME="PToC_289" HREF="progu195.htm#HDRDXGPP">DXGetPickPoint</A>
+<LI><A NAME="PToC_290" HREF="progu196.htm#HDRDXGPX">DXGetPixels</A>
+<LI><A NAME="PToC_291" HREF="progu197.htm#HDRDXGPD">DXGetPrivateData</A>
+<LI><A NAME="PToC_292" HREF="progu198.htm#HDRDXGPRAI">DXGetProductArrayInfo</A>
+<LI><A NAME="PToC_293" HREF="progu199.htm#HDRDXGRAI">DXGetRegularArrayInfo</A>
+<LI><A NAME="PToC_294" HREF="progu200.htm#HDRDXGSI">DXGetScreenInfo</A>
+<LI><A NAME="PToC_295" HREF="progu201.htm#HDRDXGSM">DXGetSeriesMember</A>
+<LI><A NAME="PToC_296" HREF="progu202.htm#HDRDXGSG">DXGetString</A>
+<LI><A NAME="PToC_297" HREF="progu203.htm#HDRDXGSA">DXGetStringAttribute</A>
+<LI><A NAME="PToC_298" HREF="progu204.htm#HDRDXGT">DXGetTime</A>
+<LI><A NAME="PToC_299" HREF="progu205.htm#HDRDXGTE">DXGetType</A>
+<LI><A NAME="PToC_300" HREF="progu206.htm#HDRDXGVC">DXGetValidCount</A>
+<LI><A NAME="PToC_301" HREF="progu207.htm#HDRDXGXFI">DXGetXformInfo</A>
+<LI><A NAME="PToC_302" HREF="progu208.htm#HDRDXGROV">DXGrow, DXGrowV</A>
+<LI><A NAME="PToC_303" HREF="progu209.htm#HDRDXICDF">DXImportCDF</A>
+<LI><A NAME="PToC_304" HREF="progu210.htm#HDRDXICM">DXImportCM</A>
+<LI><A NAME="PToC_305" HREF="progu211.htm#HDRDXIDX">DXImportDX</A>
+<LI><A NAME="PToC_306" HREF="progu212.htm#HDRDXIHDF">DXImportHDF</A>
+<LI><A NAME="PToC_307" HREF="progu213.htm#HDRDXINC">DXImportNetCDF</A>
+<LI><A NAME="PToC_308"
+HREF="progu214.htm#HDRDXIGNHE">DXInitGetNextHashElement</A>
+<LI><A NAME="PToC_309" HREF="progu215.htm#HDRDXIMOD">DXInitModules</A>
+<LI><A NAME="PToC_310"
+HREF="progu216.htm#HDRDXIGNIE">DXInitGetNextInvalidElementIndex,
+DXInitGetNextValidElementIndex</A>
+<LI><A NAME="PToC_311" HREF="progu217.htm#HDRDXINS">DXInsert</A>
+<LI><A NAME="PToC_312" HREF="progu218.htm#HDRDXIHE">DXInsertHashElement</A>
+<LI><A NAME="PToC_313" HREF="progu219.htm#HDRDXIE">DXInterpolate</A>
+<LI><A NAME="PToC_314" HREF="progu220.htm#HDRDXIC">DXInvalidateConnections</A>
+<LI><A NAME="PToC_315" HREF="progu221.htm#HDRDXIDB">DXInvalidateDupBoundary</A>
+<LI><A NAME="PToC_316"
+HREF="progu222.htm#HDRDXIUP">DXInvalidateUnreferencedPositions</A>
+<LI><A NAME="PToC_317" HREF="progu223.htm#HDRDXIV">DXInvertValidity</A>
+<LI><A NAME="PToC_318" HREF="progu224.htm#HDRDXIEV">DXIsElementValid,
+DXIsElementInvalid</A>
+<LI><A NAME="PToC_319" HREF="progu225.htm#HDRDXIEVS">DXIsElementValidSequential,
+DXIsElementInvalidSequential</A>
+<LI><A NAME="PToC_320" HREF="progu226.htm#HDRDXIA">DXIterateArray</A>
+<LI><A NAME="PToC_321" HREF="progu227.htm#HDRDXLTQT">DXLn, DXTri, DXQuad,
+DXTetra</A>
+<LI><A NAME="PToC_322" HREF="progu228.htm#HDRDXLI">DXLocalizeInterpolator</A>
+<LI><A NAME="PToC_323" HREF="progu229.htm#HDRDXLD">DXLoopDone</A>
+<LI><A NAME="PToC_324" HREF="progu230.htm#HDRDXLF">DXLoopFirst</A>
+<LI><A NAME="PToC_325" HREF="progu231.htm#HDRDXMAKF">DXMakeFloat</A>
+<LI><A NAME="PToC_326" HREF="progu232.htm#HDRDXMGCV">DXMakeGridConnections,
+DXMakeGridConnectionsV</A>
+<LI><A NAME="PToC_327" HREF="progu233.htm#HDRDXMGPV">DXMakeGridPositions,
+DXMakeGridPositionsV</A>
+<LI><A NAME="PToC_328" HREF="progu234.htm#HDRDXMI">DXMakeImage</A>
+<LI><A NAME="PToC_329" HREF="progu235.htm#HDRDXMAKI">DXMakeInteger</A>
+<LI><A NAME="PToC_330" HREF="progu236.htm#HDRDXMAKS">DXMakeString</A>
+<LI><A NAME="PToC_331" HREF="progu237.htm#HDRDXMSLV">DXMakeStringList,
+DXMakeStringListV</A>
+<LI><A NAME="PToC_332" HREF="progu238.htm#HDRDXMP">DXMap</A>
+<LI><A NAME="PToC_333" HREF="progu239.htm#HDRDXMPA">DXMapArray</A>
+<LI><A NAME="PToC_334" HREF="progu240.htm#HDRDXMPC">DXMapCheck</A>
+<LI><A NAME="PToC_335" HREF="progu241.htm#HDRDXMT">DXMarkTime,
+DXMarkTimeLocal</A>
+<LI><A NAME="PToC_336" HREF="progu242.htm#HDRDXMESS">DXMessage</A>
+<LI><A NAME="PToC_337" HREF="progu243.htm#HDRDXN">DXNeighbors</A>
+<LI><A NAME="PToC_338" HREF="progu244.htm#HDRDXNAL">DXNewAmbientLight</A>
+<LI><A NAME="PToC_339" HREF="progu245.htm#HDRDXNAV">DXNewArray, DXNewArrayV</A>
+<LI><A NAME="PToC_340" HREF="progu246.htm#HDRDXNCA">DXNewCamera</A>
+<LI><A NAME="PToC_341" HREF="progu247.htm#HDRDXNCD">DXNewClipped</A>
+<LI><A NAME="PToC_342" HREF="progu248.htm#HDRDXNCF">DXNewCompositeField</A>
+<LI><A NAME="PToC_343" HREF="progu249.htm#HDRDXNCAV">DXNewConstantArray,
+DXNewConstantArrayV</A>
+<LI><A NAME="PToC_344" HREF="progu250.htm#HDRDXNDL">DXNewDistantLight</A>
+<LI><A NAME="PToC_345" HREF="progu251.htm#HDRDXNF">DXNewField</A>
+<LI><A NAME="PToC_346" HREF="progu252.htm#HDRDXNG">DXNewGroup</A>
+<LI><A NAME="PToC_347" HREF="progu253.htm#HDRDXNI">DXNewInterpolator</A>
+<LI><A NAME="PToC_348" HREF="progu254.htm#HDRDXNMAV">DXNewMeshArray,
+DXNewMeshArrayV</A>
+<LI><A NAME="PToC_349" HREF="progu255.htm#HDRDXNMG">DXNewMultiGrid</A>
+<LI><A NAME="PToC_350" HREF="progu256.htm#HDRDXNPA">DXNewPathArray</A>
+<LI><A NAME="PToC_351" HREF="progu257.htm#HDRDXNP">DXNewPrivate</A>
+<LI><A NAME="PToC_352" HREF="progu258.htm#HDRDXNPAV">DXNewProductArray,
+DXNewProductArrayV</A>
+<LI><A NAME="PToC_353" HREF="progu259.htm#HDRDXNRA">DXNewRegularArray</A>
+<LI><A NAME="PToC_354" HREF="progu260.htm#HDRDXNSN">DXNewScreen</A>
+<LI><A NAME="PToC_355" HREF="progu261.htm#HDRDXNS">DXNewSeries</A>
+<LI><A NAME="PToC_356" HREF="progu262.htm#HDRDXNSG">DXNewString</A>
+<LI><A NAME="PToC_357" HREF="progu263.htm#HDRDXNXF">DXNewXform</A>
+<LI><A NAME="PToC_358" HREF="progu264.htm#HDRDXORGB">DXOutputRGB</A>
+<LI><A NAME="PToC_359" HREF="progu265.htm#HDRDXPART">DXPartition</A>
+<LI><A NAME="PToC_360" HREF="progu266.htm#HDRDXPTV">DXPrint, DXPrintV</A>
+<LI><A NAME="PToC_361" HREF="progu267.htm#HDRDXPA">DXPrintAlloc</A>
+<LI><A NAME="PToC_362" HREF="progu268.htm#HDRDXPT">DXPrintTimes</A>
+<LI><A NAME="PToC_363" HREF="progu269.htm#HDRDXPROI">DXProcessorId</A>
+<LI><A NAME="PToC_364" HREF="progu270.htm#HDRDXPROC">DXProcessors</A>
+<LI><A NAME="PToC_365" HREF="progu271.htm#HDRDXPP">DXProcessParts</A>
+<LI><A NAME="PToC_366" HREF="progu272.htm#HDRDXPTVC">DXPt, DXVec</A>
+<LI><A NAME="PToC_367" HREF="progu273.htm#HDRDXQAL">DXQueryAmbientLight</A>
+<LI><A NAME="PToC_368" HREF="progu274.htm#HDRDXQACVM">DXQueryArrayCommon,
+DXQueryArrayCommonV</A>
+<LI><A NAME="PToC_369" HREF="progu275.htm#HDRDXQACV">DXQueryArrayConvert,
+DXQueryArrayConvertV</A>
+<LI><A NAME="PToC_370" HREF="progu276.htm#HDRDXQCA">DXQueryConstantArray</A>
+<LI><A NAME="PToC_371" HREF="progu277.htm#HDRDXQDL">DXQueryDistantLight</A>
+<LI><A NAME="PToC_372" HREF="progu278.htm#HDRDXQGC">DXQueryGridConnections</A>
+<LI><A NAME="PToC_373" HREF="progu279.htm#HDRDXQGP">DXQueryGridPositions</A>
+<LI><A NAME="PToC_374" HREF="progu280.htm#HDRDXQHE">DXQueryHashElement</A>
+<LI><A NAME="PToC_375" HREF="progu281.htm#HDRDXQOSM">DXQueryOriginalSizes,
+DXQueryOriginalMeshExtents</A>
+<LI><A NAME="PToC_376" HREF="progu282.htm#HDRDXQP">DXQueryParameter</A>
+<LI><A NAME="PToC_377" HREF="progu283.htm#HDRDXQPIC">DXQueryPickCount</A>
+<LI><A NAME="PToC_378" HREF="progu284.htm#HDRDXQPP">DXQueryPickPath</A>
+<LI><A NAME="PToC_379" HREF="progu285.htm#HDRDXQPOC">DXQueryPokeCount</A>
+<LI><A NAME="PToC_380" HREF="progu286.htm#HDRDXRTR">DXReadyToRun</A>
+<LI><A NAME="PToC_381" HREF="progu287.htm#HDRDXREA">DXReAllocate</A>
+<LI><A NAME="PToC_382" HREF="progu288.htm#HDRDXREF">DXReference</A>
+<LI><A NAME="PToC_383" HREF="progu289.htm#HDRDXREGIH">DXRegisterInputHandler</A>
+<LI><A NAME="PToC_384" HREF="progu290.htm#HDRDXREM">DXRemove</A>
+<LI><A NAME="PToC_385" HREF="progu291.htm#HDRDXREN">DXRename</A>
+<LI><A NAME="PToC_386" HREF="progu292.htm#HDRDXRNDR">DXRender</A>
+<LI><A NAME="PToC_387" HREF="progu293.htm#HDRDXREP">DXReplace</A>
+<LI><A NAME="PToC_388" HREF="progu294.htm#HDRDXRE">DXResetError</A>
+<LI><A NAME="PToC_389" HREF="progu295.htm#HDRDXRCOL">DXRGB</A>
+<LI><A NAME="PToC_390" HREF="progu296.htm#HDRDXRIB">DXRibbon</A>
+<LI><A NAME="PToC_391" HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY,
+DXRotateZ, DXScale, DXTranslate, DXMat</A>
+<LI><A NAME="PToC_392" HREF="progu298.htm#HDRDXSIC">DXSaveInvalidComponent</A>
+<LI><A NAME="PToC_393" HREF="progu299.htm#HDRDXSCT">DXScalarConvert</A>
+<LI><A NAME="PToC_394" HREF="progu300.htm#HDRDXSAI">DXSetAllInvalid</A>
+<LI><A NAME="PToC_395" HREF="progu301.htm#HDRDXSAV">DXSetAllValid</A>
+<LI><A NAME="PToC_396" HREF="progu302.htm#HDRDXSETA">DXSetAttribute,
+DXDeleteAttribute</A>
+<LI><A NAME="PToC_397" HREF="progu303.htm#HDRDXSBC">DXSetBackgroundColor,
+DXGetBackgroundColor</A>
+<LI><A NAME="PToC_398" HREF="progu304.htm#HDRDXSCEV">DXSetCacheEntry,
+DXSetCacheEntryV</A>
+<LI><A NAME="PToC_399" HREF="progu305.htm#HDRDXSCO">DXSetClippedObjects</A>
+<LI><A NAME="PToC_400" HREF="progu306.htm#HDRDXSCA">DXSetComponentAttribute</A>
+<LI><A NAME="PToC_401" HREF="progu307.htm#HDRDXSCV">DXSetComponentValue</A>
+<LI><A NAME="PToC_402" HREF="progu308.htm#HDRDXSC">DXSetConnections</A>
+<LI><A NAME="PToC_403" HREF="progu309.htm#HDRDXSEI">DXSetElementInvalid</A>
+<LI><A NAME="PToC_404" HREF="progu310.htm#HDRDXSEV">DXSetElementValid</A>
+<LI><A NAME="PToC_405" HREF="progu311.htm#HDRDXSEM">DXSetEnumeratedMember</A>
+<LI><A NAME="PToC_406" HREF="progu312.htm#HDRDXSE">DXSetError, DXErrorReturn,
+DXErrorGoto</A>
+<LI><A NAME="PToC_407" HREF="progu313.htm#HDRDXSETEX">DXSetErrorExit</A>
+<LI><A NAME="PToC_408" HREF="progu314.htm#HDRDXSFA">DXSetFloatAttribute</A>
+<LI><A NAME="PToC_409" HREF="progu315.htm#HDRDXSGTV">DXSetGroupType,
+DXSetGroupTypeV</A>
+<LI><A NAME="PToC_410" HREF="progu316.htm#HDRDXSIA">DXSetIntegerAttribute</A>
+<LI><A NAME="PToC_411" HREF="progu317.htm#HDRDXSM">DXSetMember</A>
+<LI><A NAME="PToC_412" HREF="progu318.htm#HDRDXSMO">DXSetMeshOffsets</A>
+<LI><A NAME="PToC_413" HREF="progu319.htm#HDRDXSOC">DXSetOrthographic,
+DXGetOrthographic</A>
+<LI><A NAME="PToC_414" HREF="progu320.htm#HDRDXSP">DXSetPart</A>
+<LI><A NAME="PToC_415" HREF="progu321.htm#HDRDXSPO">DXSetPathOffset</A>
+<LI><A NAME="PToC_416" HREF="progu322.htm#HDRDXSPC">DXSetPendingCmd</A>
+<LI><A NAME="PToC_417" HREF="progu323.htm#HDRDXSPE">DXSetPerspective,
+DXGetPerspective</A>
+<LI><A NAME="PToC_418" HREF="progu324.htm#HDRDXSRN">DXSetResolution,
+DXGetCameraResolution</A>
+<LI><A NAME="PToC_419" HREF="progu325.htm#HDRDXSSO">DXSetScreenObject</A>
+<LI><A NAME="PToC_420" HREF="progu326.htm#HDRDXSSM">DXSetSeriesMember</A>
+<LI><A NAME="PToC_421" HREF="progu327.htm#HDRDXSSA">DXSetStringAttribute</A>
+<LI><A NAME="PToC_422" HREF="progu328.htm#HDRDXSVW">DXSetView, DXGetView</A>
+<LI><A NAME="PToC_423" HREF="progu329.htm#HDRDXSXFO">DXSetXformObject</A>
+<LI><A NAME="PToC_424" HREF="progu330.htm#HDRDXSK">DXShrink</A>
+<LI><A NAME="PToC_425" HREF="progu331.htm#HDRDXS">DXStatistics</A>
+<LI><A NAME="PToC_426" HREF="progu332.htm#HDRDXSWP">DXSwap</A>
+<LI><A NAME="PToC_427" HREF="progu333.htm#HDRDXTT">DXTraceTime</A>
+<LI><A NAME="PToC_428" HREF="progu334.htm#HDRDXTPP">DXTraversePickPath</A>
+<LI><A NAME="PToC_429" HREF="progu335.htm#HDRDXT">DXTrim</A>
+				<LI><A HREF="progu335.htm#HDRDTI">DXTrimItems</A>
+				<LI><A NAME="PToC_430" HREF="progu336.htm#HDRDXTBE">DXTube</A>
+<LI><A NAME="PToC_431" HREF="progu337.htm#HDRDXTCV">DXTypeCheck,
+DXTypeCheckV</A>
+<LI><A NAME="PToC_432" HREF="progu338.htm#HDRDXTS">DXTypeSize,
+DXCategorySize</A>
+<LI><A NAME="PToC_433" HREF="progu339.htm#HDRDXUREF">DXUnreference</A>
+<LI><A NAME="PToC_434" HREF="progu340.htm#HDRDXUGT">DXUnsetGroupType</A>
+<LI><A NAME="PToC_435"
+HREF="progu341.htm#HDRDXVPBB">DXValidPositionsBoundaryBox</A>
+<LI><A NAME="PToC_436" HREF="progu342.htm#HDRDXW">DXWarning</A>
+</MENU></MENU><HR><P>
+<P>
+The descriptions of routines begin after the list below, are sorted
+alphabetically by the name of the (first) routine, and contain
+the following information:
+<UL COMPACT>
+<LI>General function
+<LI>Syntax
+<LI>Functional details
+<LI>Return value(s)
+<LI>Related routine(s) and information.
+</UL>
+<P>
+In entries that describe more than one routine, the second and any
+subsequent routines are not listed in the expected
+alphabetical order in the appendix.
+Their names, along with the page numbers of the entries in which they
+appear, are listed here.
+<P>
+A name ending in "(s)" signifies that the relevant entry describes
+both a "singular" and a "plural" version of a routine.
+<P>
+<BR>
+DXAddBackColor(s) (<A HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color,
+...FrontColor, ...BackColor, ...Opacity, ...Normal,</A>)
+<BR>
+DXAddColor(s) (<A HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color,
+...FrontColor, ...BackColor, ...Opacity, ...Normal,</A>)
+<BR>
+DXAddFaceNormals (<A HREF="progu101.htm#HDRDXAFNS">DXAddFaceNormal,
+DXAddFaceNormals</A>)
+<BR>
+DXAddFrontColor(s) (<A HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color,
+...FrontColor, ...BackColor, ...Opacity, ...Normal,</A>)
+<BR>
+DXAddLine(s) (<A HREF="progu102.htm#HDRDXALS">DXAddLine, ...Triangle, ...Quad,
+...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra</A>)
+<BR>
+DXAddNormal(s) (<A HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color,
+...FrontColor, ...BackColor, ...Opacity, ...Normal,</A>)
+<BR>
+DXAddOpacities (<A HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color,
+...FrontColor, ...BackColor, ...Opacity, ...Normal,</A>)
+<BR>
+DXAddOpacity (<A HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color,
+...FrontColor, ...BackColor, ...Opacity, ...Normal,</A>)
+<BR>
+DXAddPoint(s) (<A HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color,
+...FrontColor, ...BackColor, ...Opacity, ...Normal,</A>)
+<BR>
+DXAddQuad(s) (<A HREF="progu102.htm#HDRDXALS">DXAddLine, ...Triangle, ...Quad,
+...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra</A>)
+<BR>
+DXAddTetrahedra (<A HREF="progu102.htm#HDRDXALS">DXAddLine, ...Triangle,
+...Quad, ...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra</A>)
+<BR>
+DXAddTetrahedron (<A HREF="progu102.htm#HDRDXALS">DXAddLine, ...Triangle,
+...Quad, ...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra</A>)
+<BR>
+DXAddTriangle(s) (<A HREF="progu102.htm#HDRDXALS">DXAddLine, ...Triangle,
+...Quad, ...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra</A>)
+<BR>
+DXAdjointTranspose (<A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert,
+DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply</A>)
+<BR>
+DXAllocateLocal (<A HREF="progu106.htm#HDRDXALP">DXAllocate, DXAllocateZero,
+DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A>)
+<BR>
+DXAllocateLocalOnly (<A HREF="progu106.htm#HDRDXALP">DXAllocate, DXAllocateZero,
+DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A>)
+<BR>
+DXAllocateLocalOnlyZero (<A HREF="progu106.htm#HDRDXALP">DXAllocate,
+DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A>)
+<BR>
+DXAllocateLocalZero (<A HREF="progu106.htm#HDRDXALP">DXAllocate, DXAllocateZero,
+DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A>)
+<BR>
+DXAllocateZero (<A HREF="progu106.htm#HDRDXALP">DXAllocate, DXAllocateZero,
+DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A>)
+<BR>
+DXApply (<A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert, DXTranspose,
+DXAdjointTranspose, DXDeterminant, DXApply</A>)
+<BR>
+DXArrayConvertV (<A HREF="progu109.htm#HDRDXACV">DXArrayConvert,
+DXArrayConvertV</A>)
+<BR>
+DXASSERT (<A HREF="progu312.htm#HDRDXSE">DXSetError, DXErrorReturn,
+DXErrorGoto</A>)
+<P>
+DXCategorySize (<A HREF="progu338.htm#HDRDXTS">DXTypeSize, DXCategorySize</A>)
+<BR>
+DXChangedComponentStructure (<A
+HREF="progu113.htm#HDRDXCCVS">DXChangedComponentValues,
+DXChangedComponentStructure</A>)
+<BR>
+DXComponentOpt (<A HREF="progu119.htm#HDRDXCMANY">DXComponentReq,
+DXComponentOpt, DXComponentReqLoc, DXComponentOptLoc</A>)
+<BR>
+DXComponentOptLoc (<A HREF="progu119.htm#HDRDXCMANY">DXComponentReq,
+DXComponentOpt, DXComponentReqLoc, DXComponentOptLoc</A>)
+<BR>
+DXComponentReqLoc (<A HREF="progu119.htm#HDRDXCMANY">DXComponentReq,
+DXComponentOpt, DXComponentReqLoc, DXComponentOptLoc</A>)
+<BR>
+DXCross (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot,
+DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<P>
+DXDeleteAttribute (<A HREF="progu302.htm#HDRDXSETA">DXSetAttribute,
+DXDeleteAttribute</A>)
+<BR>
+DXDeterminant (<A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert,
+DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply</A>)
+<BR>
+DXDisplayX(8, 12, 24) (<A HREF="progu134.htm#HDRDXDXS">DXDisplayX, DXDisplayX8,
+DXDisplayX12, DXDisplayX24</A>)
+<BR>
+DXDiv (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<BR>
+DXDot (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<P>
+DXEnableDebug (<A HREF="progu129.htm#HDRDXDB">DXDebug, DXEnableDebug,
+DXQueryDebug</A>)
+<BR>
+DXEndLongMessage (<A HREF="progu110.htm#HDRDXBLM">DXBeginLongMessage,
+DXEndLongMessage</A>)
+<BR>
+DXErrorGoto (<A HREF="progu312.htm#HDRDXSE">DXSetError, DXErrorReturn,
+DXErrorGoto</A>)
+<BR>
+DXErrorReturn (<A HREF="progu312.htm#HDRDXSE">DXSetError, DXErrorReturn,
+DXErrorGoto</A>)
+<P>
+DXGetArrayEntries (<A HREF="progu156.htm#HDRDXGAEY">DXGetArrayEntry,
+DXGetArrayEntries</A>)
+<BR>
+DXGetBackgroundColor (<A HREF="progu303.htm#HDRDXSBC">DXSetBackgroundColor,
+DXGetBackgroundColor</A>)
+<BR>
+DXGetCacheEntryV (<A HREF="progu159.htm#HDRDXGCEV">DXGetCacheEntry,
+DXGetCacheEntryV</A>)
+<BR>
+DXGetCameraMatrixWithFuzz (<A HREF="progu160.htm#HDRDXGCMP">DXGetCameraMatrix,
+DXGetCameraRotation, DXGetCameraMatrixWithFuzz</A>)
+<BR>
+DXGetCameraResolution (<A HREF="progu324.htm#HDRDXSRN">DXSetResolution,
+DXGetCameraResolution</A>)
+<BR>
+DXGetCameraRotation (<A HREF="progu160.htm#HDRDXGCMP">DXGetCameraMatrix,
+DXGetCameraRotation, DXGetCameraMatrixWithFuzz</A>)
+<BR>
+DXGetImageBounds (<A HREF="progu176.htm#HDRDXGISB">DXGetImageSize,
+DXGetImageBounds</A>)
+<BR>
+DXGetOrthographic (<A HREF="progu319.htm#HDRDXSOC">DXSetOrthographic,
+DXGetOrthographic</A>)
+<BR>
+DXGetPerspective (<A HREF="progu323.htm#HDRDXSPE">DXSetPerspective,
+DXGetPerspective</A>)
+<BR>
+DXGetView (<A HREF="progu328.htm#HDRDXSVW">DXSetView, DXGetView</A>)
+<BR>
+DXGrowV (<A HREF="progu208.htm#HDRDXGROV">DXGrow, DXGrowV</A>)
+<P>
+DXInitGetNextValidElementIndex (<A
+HREF="progu216.htm#HDRDXIGNIE">DXInitGetNextInvalidElementIndex,
+DXInitGetNextValidElementIndex</A>)
+<BR>
+DXInvert (<A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert,
+DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply</A>)
+<BR>
+DXIsElementInvalid (<A HREF="progu224.htm#HDRDXIEV">DXIsElementValid,
+DXIsElementInvalid</A>)
+<BR>
+DXIsElementInvalidSequential (<A
+HREF="progu225.htm#HDRDXIEVS">DXIsElementValidSequential,
+DXIsElementInvalidSequential</A>)
+<P>
+DXLength (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot,
+DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<P>
+DXMakeGridConnectionsV (<A HREF="progu232.htm#HDRDXMGCV">DXMakeGridConnections,
+DXMakeGridConnectionsV</A>)
+<BR>
+DXMakeGridPositionsV (<A HREF="progu233.htm#HDRDXMGPV">DXMakeGridPositions,
+DXMakeGridPositionsV</A>)
+<BR>
+DXMakeStringListV (<A HREF="progu237.htm#HDRDXMSLV">DXMakeStringList,
+DXMakeStringListV</A>)
+<BR>
+DXMarkTimeLocal (<A HREF="progu241.htm#HDRDXMT">DXMarkTime, DXMarkTimeLocal</A>)
+<BR>
+DXMat (<A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY, DXRotateZ,
+DXScale, DXTranslate, DXMat</A>)
+<BR>
+DXMax (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<BR>
+DXMessageGoto (<A HREF="progu103.htm#HDRDXAM">DXAddMessage, DXMessageReturn,
+DXMessageGoto</A>)
+<BR>
+DXMessageReturn (<A HREF="progu103.htm#HDRDXAM">DXAddMessage, DXMessageReturn,
+DXMessageGoto</A>)
+<BR>
+DXMin (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<BR>
+DXModSetFloatInput (<A HREF="progu112.htm#HDRDXCMPLU">DXCallModule, DXModSet...,
+DXSetModule...</A>)
+<BR>
+DXModSetIntegerInput (<A HREF="progu112.htm#HDRDXCMPLU">DXCallModule,
+DXModSet..., DXSetModule...</A>)
+<BR>
+DXModSetObjectInput (<A HREF="progu112.htm#HDRDXCMPLU">DXCallModule,
+DXModSet..., DXSetModule...</A>)
+<BR>
+DXModSetObjectOutput (<A HREF="progu112.htm#HDRDXCMPLU">DXCallModule,
+DXModSet..., DXSetModule...</A>)
+<BR>
+DXModSetStringInput (<A HREF="progu112.htm#HDRDXCMPLU">DXCallModule,
+DXModSet..., DXSetModule...</A>)
+<BR>
+DXMul (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<P>
+DXNeg (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<BR>
+DXNewArrayV (<A HREF="progu245.htm#HDRDXNAV">DXNewArray, DXNewArrayV</A>)
+<BR>
+DXNewConstantArrayV (<A HREF="progu249.htm#HDRDXNCAV">DXNewConstantArray,
+DXNewConstantArrayV</A>)
+<BR>
+DXNewMeshArrayV (<A HREF="progu254.htm#HDRDXNMAV">DXNewMeshArray,
+DXNewMeshArrayV</A>)
+<BR>
+DXNewProductArrayV (<A HREF="progu258.htm#HDRDXNPAV">DXNewProductArray,
+DXNewProductArrayV</A>)
+<BR>
+DXNormalize (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot,
+DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<P>
+DXPrintV (<A HREF="progu266.htm#HDRDXPTV">DXPrint, DXPrintV</A>)
+<P>
+DXQuad (<A HREF="progu227.htm#HDRDXLTQT">DXLn, DXTri, DXQuad, DXTetra</A>)
+<BR>
+DXQueryArrayCommonV (<A HREF="progu274.htm#HDRDXQACVM">DXQueryArrayCommon,
+DXQueryArrayCommonV</A>)
+<BR>
+DXQueryArrayConvertV (<A HREF="progu275.htm#HDRDXQACV">DXQueryArrayConvert,
+DXQueryArrayConvertV</A>)
+<BR>
+DXQueryDebug (<A HREF="progu129.htm#HDRDXDB">DXDebug, DXEnableDebug,
+DXQueryDebug</A>)
+<BR>
+DXQueryOriginalMeshExtents (<A
+HREF="progu281.htm#HDRDXQOSM">DXQueryOriginalSizes,
+DXQueryOriginalMeshExtents</A>)
+<P>
+DXRotate(Y, Z) (<A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY,
+DXRotateZ, DXScale, DXTranslate, DXMat</A>)
+<P>
+DXScale (<A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY, DXRotateZ,
+DXScale, DXTranslate, DXMat</A>)
+<BR>
+DXSetCacheEntryV (<A HREF="progu304.htm#HDRDXSCEV">DXSetCacheEntry,
+DXSetCacheEntryV</A>)
+<BR>
+DXSetGroupTypeV (<A HREF="progu315.htm#HDRDXSGTV">DXSetGroupType,
+DXSetGroupTypeV</A>)
+<BR>
+DXSetModuleInput (<A HREF="progu112.htm#HDRDXCMPLU">DXCallModule, DXModSet...,
+DXSetModule...</A>)
+<BR>
+DXSetModuleOutput (<A HREF="progu112.htm#HDRDXCMPLU">DXCallModule, DXModSet...,
+DXSetModule...</A>)
+<BR>
+DXSetObjectTag (<A HREF="progu190.htm#HDRDXGSOT">DXGetObjectTag,
+DXSetObjectTag</A>)
+<BR>
+DXSub (<A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>)
+<P>
+DXTetra (<A HREF="progu227.htm#HDRDXLTQT">DXLn, DXTri, DXQuad, DXTetra</A>)
+<BR>
+DXTranslate (<A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY, DXRotateZ,
+DXScale, DXTranslate, DXMat</A>)
+<BR>
+DXTranspose (<A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert,
+DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply</A>)
+<BR>
+DXTri (<A HREF="progu227.htm#HDRDXLTQT">DXLn, DXTri, DXQuad, DXTetra</A>)
+<BR>
+DXTypeCheckV (<A HREF="progu337.htm#HDRDXTCV">DXTypeCheck, DXTypeCheckV</A>)
+<P>
+DXVec (<A HREF="progu272.htm#HDRDXPTVC">DXPt, DXVec</A>)
+<BR>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu096.htm">Previous Page</A> &#124; <A HREF="progu098.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

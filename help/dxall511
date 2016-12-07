@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rall510 Example 5. Using the Sequencer #!N #!EC #!N #!N 
+You can use the Sequencer in script mode. The special variables 
+you use are: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   @startframe 
+#!EF #!I50 #!N the starting integer of the sequence #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   @endframe #!EF #!I50 #!N the ending integer of the 
+sequence #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   @deltaframe #!EF #!I50 #!N the increment 
+between frames (default = 1) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   @frame #!EF 
+#!I50 #!N contains the sequence number of the current frame. #!I0 
+#!N #!N The keyword "sequence" identifies the macro that will be 
+run each time @frame is incremented, and the keyword "play" will 
+start the sequence. #!N #!N The following script will call the 
+macro "doit" with the values 0, 2, 4, 6, 8, 10: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N @startframe =0; #!N @endframe =10; #!N 
+@deltaframe =2; #!N macro doit(i) #!N { #!N Echo(i); #!N } 
+#!N sequence doit(@frame); #!N play; #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall511,dxall512 h Language Delimiters  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

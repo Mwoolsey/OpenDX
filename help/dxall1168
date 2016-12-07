@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxam DXAddMessage, DXMessageReturn, DXMessageGoto 
+#!N #!N Function Concatenates a message with the current error message. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> 
+#!N #!N Error DXAddMessage(char *message, ...) #!N #define DXMessageReturn(s) {DXAddMessage(s); return 
+ERROR;} #!N #define DXMessageGoto(s) {DXAddMessage(s); goto error;} #!EF #!EF . #!N 
+#!N #!EC #!N #!N Functional Details This routine can provide more 
+information about an error originally detected in a low-level routine. The 
+contents of  #!F-adobe-times-bold-r-normal--18*   message #!EF may be a  #!F-adobe-times-bold-r-normal--18*   printf #!EF 
+format string, in which case additional arguments required by the format 
+string must be specified. #!N #!N Return Value Always returns  #!F-adobe-times-bold-r-normal--18*   
+ERROR #!EF . #!N #!N See Also  #!F-adobe-times-bold-r-normal--18*    #!Ldxse,dxall1377 h DXSetError, DXErrorReturn, DXErrorGoto  #!EL  #!EF #!N 
+#!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxaddm,dxall1169 h DXAddPoint, ...Color, ...FrontColor, ...BackColor, ...Opacity, ...Normal, DXAddPoints, ...Colors, ...FrontColors, ...BackColors, ...Opacities, ...Normals  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

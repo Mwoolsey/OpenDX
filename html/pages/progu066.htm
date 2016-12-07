@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu065.htm">Previous Page</A> &#124; <A HREF="progu067.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRPROCHAP" HREF="../proguide.htm#ToC_144">Chapter 14. Data
+Processing</A></H1>
+<P><A NAME="PToC16" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_145" HREF="#HDRPTTG">14.1 Data Partitioning</A>
+<LI><A NAME="PToC_146" HREF="progu067.htm#HDRINADMG">14.2 Interpolation and
+Mapping</A>
+<LI><A NAME="PToC_147" HREF="progu068.htm#HDRINVDATA">14.3 Invalid Data</A>
+<MENU>
+<LI><A NAME="PToC_148" HREF="progu068.htm#HDRUN9">Examples</A>
+</MENU>
+<LI><A NAME="PToC_149" HREF="progu069.htm#HDRGNS">14.4 Growing and Shrinking
+Partitioned Data</A>
+<LI><A NAME="PToC_150" HREF="progu070.htm#HDRHASH">14.5 Hashing</A>
+<MENU>
+<LI><A NAME="PToC_151" HREF="progu070.htm#HDRUN10">Examples</A>
+</MENU>
+<LI><A NAME="PToC_152" HREF="progu071.htm#HDRPIES">14.6 Pick-Assistance
+Routines</A>
+<MENU>
+<LI><A NAME="PToC_153" HREF="progu071.htm#HDRUN99">Example</A>
+</MENU></MENU><HR><P>
+<P>
+The higher-level processing functions available in Data Explorer include:
+data partitioning, interpolation and mapping, invalid-data
+handling, growing and shrinking partitioned data,
+hashing, and picking.
+<P>
+<HR>
+<H2><A NAME="HDRPTTG" HREF="#PToC_145">14.1 Data Partitioning</A></H2>
+<A NAME="IDX1064"></A>
+<A NAME="IDX1065"></A>
+<P>
+Partitioning is the process of dividing a Field into spatially disjoint
+subsets called "partitions."
+The result is a <I>Composite Field</I>, whose members are
+partitions.
+Partitioning is particularly useful for parallel processing.
+<P>
+Since each interpolation element of an input Field is assigned to one
+and only one partition, the resulting partitions cover precisely
+the same region of space as the original
+input Field did without overlap.
+However, because the input elements cover the same region of space, the
+bounding boxes of the resulting partitions may overlap.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>Group DXPartition()</STRONG></TT>
+</TD><TD><P>Divides a Field into partitions.
+See  <A HREF="progu265.htm#HDRDXPART">DXPartition</A>.
+<A NAME="IDX1066"></A>
+<A NAME="IDX1067"></A>
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu065.htm">Previous Page</A> &#124; <A HREF="progu067.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

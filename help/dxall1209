@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxens DXExtractNthString #!N #!N Function #!N 
+#!N Determines whether an Object can be converted to a list 
+of strings and, if so, extracts the  #!F-adobe-times-bold-r-normal--18*   n #!EF th 
+one from it. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object 
+DXExtractNthString(Object o, int n, char **cp) #!EF #!N #!N Functional Details 
+#!N #!N If Object  #!F-adobe-times-bold-r-normal--18*   o #!EF contains at least an 
+ #!F-adobe-times-bold-r-normal--18*   n #!EF th string (where  #!F-adobe-times-bold-r-normal--18*   n #!EF is a 
+zero-based index), this routine extracts it and places a pointer to 
+its first character in  #!F-adobe-times-bold-r-normal--18*   *cp #!EF . #!N #!N Strings 
+may be extracted from: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o String Objects (if  #!F-adobe-times-bold-r-normal--18*   n #!EF is 0) #!N 
+#!I30 #!N o String lists (e.g., those created by  #!F-adobe-times-bold-r-normal--18*   DXMakeStringList 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   DXMakeStringListV #!EF ). #!N #!I0 #!N #!EF #!N 
+#!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF and 
+sets  #!F-adobe-times-bold-r-normal--18*   cp #!EF if the  #!F-adobe-times-bold-r-normal--18*   n #!EF th string 
+can be extracted from  #!F-adobe-times-bold-r-normal--18*   o #!EF ; otherwise, returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF without setting an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxef,dxall1207 h DXExtractFloat  #!EL  ,  #!Ldxei,dxall1208 h DXExtractInteger  #!EL  ,  #!Ldxep,dxall1210 h DXExtractParameter  #!EL  ,  #!Ldxes,dxall1211 h DXExtractString  #!EL  , 
+ #!Ldxmslv,dxall1302 h DXMakeStringList, DXMakeStringListV  #!EL  ,  #!Ldxqacv,dxall1340 h DXQueryArrayConvert, DXQueryArrayConvertV  #!EL  ,  #!Ldxqp,dxall1347 h DXQueryParameter  #!EL  #!EF #!N #!N  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxep,dxall1210 h DXExtractParameter  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

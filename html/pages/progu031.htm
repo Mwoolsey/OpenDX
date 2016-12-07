@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu030.htm">Previous Page</A> &#124; <A HREF="progu032.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu030.htm#PToC9">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRIMPTD" HREF="../proguide.htm#ToC_65">Chapter 8. Importing
+Data</A></H1>
+<P><A NAME="PToC10" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_66" HREF="#Header_66">8.1 Writing a Filter</A>
+<LI><A NAME="PToC_67" HREF="progu032.htm#HDRWRIMP">8.2 Writing an Import
+Module</A>
+</MENU><HR><P>
+<A NAME="IDX245"></A>
+<A NAME="IDX246"></A>
+<P>
+If you want to import data that is not in a format supported by
+Data Explorer, you have three options:
+<UL COMPACT>
+<LI>Write an import filter to convert the data to Data Explorer or
+General Array importer format on disk.
+<LI>Write an import filter to convert the data to Data Explorer or General
+Array header format on standard output, and use the external
+filter option of Import to import the data.
+(See <A HREF="refgu073.htm#HDRIMPORT">Import</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>.)
+<LI>Write your own import module to read the data and create a Data Explorer
+Object as its output (e.g., a Field Object).
+</UL>
+<P><B>Notes: </B><OL COMPACT>
+<LI>The following examples illustrate the conversion of data from
+Hierarchical Data Format (HDF) to Data Explorer file format.
+Understanding the examples does not require any familiarity with HDF.
+<A NAME="IDX247"></A>
+<LI>HDF libraries are not distributed with Data Explorer and no makefiles are
+provided for the programs used.
+If you have the HDF libraries, you can use the same compilation and
+linking procedures as you do for other programs requiring
+those libraries.
+<LI>The Import module will import HDF data.
+The example in <A HREF="progu032.htm#HDRWRIMP">8.2 , "Writing an Import
+Module"</A> is for
+illustration only.
+</OL>
+<HR>
+<H2><A NAME="Header_66" HREF="#PToC_66">8.1 Writing a Filter</A></H2>
+<A NAME="IDX248"></A>
+<A NAME="IDX249"></A>
+<A NAME="IDX250"></A>
+<P>
+The filters used to create a Data Explorer format file on disk and on standard
+output are essentially the same.
+<P>
+Assume a single data set of scalar data stored in an HDF file.
+All HDF files are gridded.
+The dimensionality and size of the grid are to be determined from
+queries to the data set.
+<P>
+The following C program requires the HDF file name as an argument.
+It is found in
+<TT><STRONG>/usr/local/dx/samples/program_guide/simpleimportfilter.c</STRONG>
+</TT>.
+<PRE>
+01
+02
+03  #include &lt;stdio.h&gt;
+</PRE>
+<P>
+<TT><STRONG>df.h</STRONG></TT> is a necessary include file for HDF library
+routines.
+<PRE>
+04  #include &lt;df.h&gt;
+05
+06  #define MAXRANK 3
+07
+08  main(argc, argv)
+09    char *argv&#91;&#93;;
+10  {
+11    FILE *in;
+12    char filename&#91;80&#93;;
+13    int dims, counts&#91;MAXRANK&#93;, numelements, i, j;
+14    float deltas&#91;MAXRANK*MAXRANK&#93;, origins&#91;MAXRANK&#93;, *databuf=NULL;
+15
+</PRE>
+<P>
+Check that the user has supplied the name of the file to be opened.
+<PRE>
+16    if (argc &lt; 2) {
+17      fprintf(stderr,"Usage: simpleimportfilter &lt;filename&gt; \n");
+18      return 0;
+19    }
+20
+21    strcpy(filename, argv&#91;1&#93;);
+22    }
+</PRE>
+<P>
+The HDF library routine <TT><STRONG>DFishdf</STRONG></TT> checks the file
+for accessibility and for the correct (HDF) format.
+If the file is not accessible or is not an HDF file, the routine
+generates an error message.
+<PRE>
+23  if (DFishdf(filename) != 0) {
+24      fprintf(stderr,
+25              "file \"%s\" is not accessible, or is not an hdf file\n",
+26              filename);
+27    return 0;
+28  }
+</PRE>
+<P>
+Initialize the HDF library.
+<PRE>
+29  DFSDrestart();
+</PRE>
+<P>
+The HDF library routine <TT><STRONG>DFSDgetdims</STRONG></TT> returns the
+dimensionality of the grid (1D, 2D, etc.) in
+<TT><STRONG>dims</STRONG></TT>.
+The number of positions in each dimension is returned in the Array
+<TT><STRONG>counts</STRONG></TT>.
+<PRE>
+30   DFSDgetdims(filename, &dims, counts, MAXRANK);
+</PRE>
+<P>
+Determine the number of elements in the data Array.
+<PRE>
+31   numelements=1;
+32   for (i=0; i&lt;dims; i++)  {
+33      numelements= numelements * counts&#91;i&#93;;
+34   }
+</PRE>
+<P>
+Create a buffer for the data.
+<PRE>
+35   databuf = (float *)malloc(numelements*sizeof(float));
+36   if (!databuf) {
+37     fprintf(stderr,"out of memory\n");
+38     return 0;
+39   }
+</PRE>
+<P>
+The HDF library routine <TT><STRONG>DFSDgetdata</STRONG></TT> reads the data
+from the HDF file to the data Array.
+<PRE>
+40   DFSDgetdata(filename, dims, counts, databuf);
+</PRE>
+<P>
+Write the Data Explorer file format description of the data Array on standard
+output.
+<PRE>
+41   printf("object 1 class array type float rank 0 items %d data follows\n",
+42          numelements);
+43   for (i=0; i&lt;numelements; i++)
+44      printf(" %f\n ", databuf&#91;i&#93;);
+</PRE>
+<P>
+Set the dependency of the data to "positions."
+<PRE>
+45   printf("attribute \"dep\" string \"positions\"\n ");
+</PRE>
+<P>
+Now create the position origin and deltas (origin 0 and deltas 1 in each
+dimension).
+<PRE>
+46   for (i=0; i&lt;dims; i++) {
+47      origins&#91;i&#93; = 0.0;
+48      for (j=0; j&lt;dims; j++) {
+49        if (i==j)
+50          deltas&#91;i*dims + j&#93; = 1.0;
+51        else
+52          deltas&#91;i*dims + j&#93; = 0.0;
+53      }
+54   }
+</PRE>
+<P>
+Write out the connections and positions.
+<PRE>
+55   switch (dims) {
+56     case (1):
+57      printf("object 2 class gridconnections counts %d\n", counts&#91;0&#93;);
+58      printf("object 3 class gridpositions counts %d\n", counts&#91;0&#93;);
+59      printf(" origin %f\n", origins&#91;0&#93;);
+60      printf(" delta  %f\n", deltas&#91;0&#93;);
+61      break;
+62     case (2):
+63      printf("object 2 class gridconnections counts %d %d\n",
+64              counts&#91;0&#93;, counts&#91;1&#93;);
+65      printf("object 3 class gridpositions counts %d %d\n",
+66              counts&#91;0&#93;, counts&#91;1&#93;);
+67      printf(" origin %f %f\n", origins&#91;0&#93;, origins&#91;1&#93;);
+68      printf(" delta  %f %f\n", deltas&#91;0&#93;, deltas&#91;1&#93;);
+69      printf(" delta  %f %f\n", deltas&#91;2&#93;, deltas&#91;3&#93;);
+70      break;
+71     case (3):
+72      printf("object 2 class gridconnections counts %d %d %d\n",
+73              counts&#91;0&#93;, counts&#91;1&#93;, counts&#91;2&#93;);
+74      printf("object 3 class gridpositions counts %d %d %d\n",
+75              counts&#91;0&#93;, counts&#91;1&#93;, counts&#91;2&#93;);
+76      printf(" origin %f %f %f\n", origins&#91;0&#93;, origins&#91;1&#93;, origins&#91;2&#93;);
+77      printf(" delta  %f %f %f\n", deltas&#91;0&#93;, deltas&#91;1&#93;, deltas&#91;2&#93;);
+78      printf(" delta  %f %f %f\n", deltas&#91;3&#93;, deltas&#91;4&#93;, deltas&#91;5&#93;);
+79      printf(" delta  %f %f %f\n", deltas&#91;6&#93;, deltas&#91;7&#93;, deltas&#91;8&#93;);
+80      break;
+81     default:
+82      printf(stderr,"dimensionality must be 1D, 2D, or 3D");
+83      return 0;
+84   }
+</PRE>
+<P>
+Write out the description of the Field.
+<PRE>
+85   printf("object 4 class field\n");
+86   printf("  component \"data\" value 1\n");
+87   printf("  component \"connections\" value 2\n");
+88   printf("  component \"positions\" value 3\n");
+89
+90   return 1;
+91
+</PRE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu030.htm">Previous Page</A> &#124; <A HREF="progu032.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC10">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

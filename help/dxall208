@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Ropacom Opacities Component #!N #!N #!N The 
+"opacities" component plays a role similar to that of colors components, 
+except that it specifies a floating-point opacity for rendering. Its interpretation 
+differs depending on whether the connections represent a surface (triangles or 
+quads), or a volume (tetrahedra, cubes, and so on). In the 
+surface case, the opacity is a number from 0 to 1 
+specifying the opacity of the surface. In the volume case, the 
+opacity represents the instantaneous attenuation of light per unit distance traveled. 
+Like the colors components, it can be position- or connection-dependent. #!N 
+#!N The interpretation of "colors" and "opacities" differs between surfaces and 
+volumes. For surfaces, a surface of color  #!F-adobe-times-medium-i-normal--18*   c[f] #!EF and 
+opacity  #!F-adobe-times-medium-i-normal--18*   o #!EF is combined with the color  #!F-adobe-times-medium-i-normal--18*   c[b] 
+#!EF of the objects behind it resulting in a combined color 
+ #!F-adobe-times-medium-i-normal--18*   c[f]o + c[b](1 - o) #!EF . #!N #!N For 
+volumes, the "dense emitter" model is used, in which the opacity 
+represents the instantaneous rate of absorption of light passing through the 
+volume per unit thickness, and the color represents the instantaneous rate 
+of light emission per unit thickness. If  #!F-adobe-times-medium-i-normal--18*   c(z) #!EF represents 
+the color of the object at  #!F-adobe-times-medium-i-normal--18*   z #!EF and  #!F-adobe-times-medium-i-normal--18*   
+o(z) #!EF represents its opacity at  #!F-adobe-times-medium-i-normal--18*   z #!EF , then 
+the total color of a ray passing through the volume is 
+given by: #!N c = integral to infinity from - infinity 
+c ( z ) 'exp' (- integral to z from - 
+infinity o ( zeta ) d zeta) dz #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltall210,dxall210 h Color Map and Opacity Map Components  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

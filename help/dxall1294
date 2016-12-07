@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxld DXLoopDone #!N #!N Function #!N #!N Terminates a loop 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> void DXLoopDone(int done) #!EF 
+#!N #!N Functional Details #!N #!N If this routine is called 
+with a value of  #!F-adobe-times-bold-r-normal--18*   done #!EF =1, then any currently 
+executing loop within the macro containing the module calling DXLoopDone will 
+terminate. In this way it acts much like the Done module. 
+Note that if you call DXLoopDone with a value of 1, 
+and then later call it with a value of 0, the 
+loop will still terminate. #!N #!N Return Value Does not return 
+a value. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxlf,dxall1295 h DXLoopFirst  #!EL  #!EF 
+#!N #!N  #!Llooping,dxall1104 h Looping Support  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxlf,dxall1295 h DXLoopFirst  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

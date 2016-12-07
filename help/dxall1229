@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgc DXGetConnections #!N #!N 
+Function #!N #!N Gets the "connections" component of a Field and 
+checks to see if it has a specified "element type" attribute. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXGetConnections(Field f, char 
+*type) #!EF #!N #!N Functional Details This routine combines the functions 
+of  #!F-adobe-times-bold-r-normal--18*   DXGetComponentValue #!EF and  #!F-adobe-times-bold-r-normal--18*   DXGetComponentAttribute #!EF . #!N #!N 
+Return Value #!N #!N Returns the connections Array or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF without setting an error code if (1) no "connections" 
+component is present or (2) if the "element type" attribute does 
+not match. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgca,dxall1227 h DXGetComponentAttribute  #!EL  , 
+ #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  ,  #!Ldxsc,dxall1373 h DXSetConnections  #!EL  #!EF #!N #!N  #!Lcnn,dxall1085 h Connections  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgcad,dxall1230 h DXGetConstantArrayData  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

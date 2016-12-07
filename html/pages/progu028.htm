@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu027.htm">Previous Page</A> &#124; <A HREF="progu029.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu025.htm#PToC7">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRPOSIT" HREF="../proguide.htm#ToC_60">Chapter 6. Working with
+Positions</A></H1>
+<P><A NAME="PToC8" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_61" HREF="#HDRMAKEX">6.1 MakeX Module Example--Create New
+Positions</A>
+<LI><A NAME="PToC_62" HREF="progu029.htm#HDREXMKX2">6.2 MakeXEfficient Module
+Example--Create New Positions</A>
+</MENU><HR><P>
+<P>
+The following examples illustrate the manipulation of the
+"positions" component of a data Field.
+In these examples it is not necessary to access the "data"
+component:
+the data value at a particular position has no effect on the
+output of the module.
+This example conforms to the general principle,
+that the only components of a Field that need to be
+accessed are those required for the module&#39;s
+function.
+<HR>
+<H2><A NAME="HDRMAKEX" HREF="#PToC_61">6.1 MakeX Module Example--Create New
+Positions</A></H2>
+<A NAME="IDX236"></A>
+<A NAME="IDX237"></A>
+<A NAME="IDX238"></A>
+<P>
+The MakeX module places an "x" at every position in an input
+Field.
+MakeX differs from the Add module (see <A HREF="progu025.htm#HDRADDMODX">5.1 ,
+"Add Module Example--Add a Number to Every Data Value"</A>)
+in that, instead of
+simply modifying a component of the input Field, it creates new
+positions and connections components.
+<P>
+The MakeX module takes two inputs: the first, <TT><STRONG>data</STRONG></TT>,
+is of type <TT><STRONG>field</STRONG></TT> and has no default value;
+the second, <TT><STRONG>size</STRONG></TT>, is of type
+<TT><STRONG>float</STRONG></TT>, and has a default
+value of 1.
+<P>
+The MakeX module has one output: <TT><STRONG>result</STRONG></TT>, of type
+<TT><STRONG>field</STRONG></TT>.
+<P>
+<B><U>(1) Start the Module Builder</U></B> with the command:
+<PRE>
+  dx -builder
+</PRE>
+<P>
+The Module Builder dialog box appears.
+Note that the dialog box carries no information, since no module
+has been specified.
+(For a simple example of creating a module with the Module Builder,
+see <A HREF="progu017.htm#HDRTMODBLD">3.3 , "Using the Module Builder: A Quick
+Walk Through"</A>)
+<P>
+<B><U>(2) Select <TT><STRONG>Open</STRONG></TT></U></B> from the
+<TT><STRONG>File</STRONG></TT> pull-down menu.
+An <TT><STRONG>Open a Module Builder file...</STRONG></TT>
+dialog box appears.
+<P>
+<B><U>(3) Read in</U></B>
+<TT>/usr/local/dx/samples/program_guide/makex.mb</TT> as follows:
+<UL COMPACT>
+<LI>Type the full path name in the <TT><STRONG>Filter</STRONG></TT> field of
+the dialog box.
+<LI>Click on (in sequence):
+<UL COMPACT>
+<LI>the <TT><STRONG>Filter</STRONG></TT> button
+<LI>the name of the file in the <TT><STRONG>Files</STRONG></TT> field
+<LI>the <TT><STRONG>OK</STRONG></TT> button.
+</UL>
+Information describing the inputs and output of the module (extracted
+from the <TT>makex.mb</TT> file) appears in the Module Builder
+dialog box.
+</UL>
+<P>
+<B><U>(4) Save the .mb file</U></B> to a writable directory (use
+<TT><STRONG>Save As...</STRONG></TT> in the <TT><STRONG>File</STRONG></TT>
+pull-down menu).
+<P>
+<B><U>(5) Select Create All</U></B> from the <TT><STRONG>Build</STRONG></TT>
+pull-down menu of the dialog box.
+This option creates three files for the module:
+<TT>makex.make</TT>, <TT>makex.c</TT>, and <TT>makex.mdf</TT>.
+<P>
+<B><U>(6) Implement the MakeX function.</U></B>
+As in the example of Add2Invalid (see <A HREF="progu027.htm#HDRADD2I">5.3 ,
+"Add2Invalid Module Example--Manipulate Invalid Data"</A>),
+the MakeX module needs access to the
+input Object at a higher level than that provided by the
+MakeX_worker routine.
+Consequently, the addition of new user code includes a modification
+of the routine doLeaf as well.
+<P>
+Use an editor to add the following lines (after extracting the positions
+Array with <TT><STRONG>DXGetArrayData</STRONG></TT>):
+<PRE>
+   . . .
+   p_position = (float *)DXGetArrayData(array);
+   if (! positions)
+      goto error;
+ }
+/* New User code starts here */
+</PRE>
+<P>
+<PRE>
+/*
+ * Make the new positions array for the output. The positions are
+ * 3-dimensional.
+ */
+   positions = DXNewArray(TYPE_FLOAT, CATEGORY_REAL, 1, 3);
+   if (! positions)
+      goto error;
+/*
+ * Check that the input positions are 3-dimensional:
+ */
+   if (p_dim != 3) {
+      DXSetError(ERROR_INVALID_DATA,"input positions must be 3-dimensional");
+      goto error;
+   }
+</PRE>
+<PRE>
+/*
+ * Allocate space to the new positions array. Four positions are needed
+ * for every input position (the four points making up the "x").
+ */
+   if (! DXAddArrayData(positions, 0, 4*p_knt, NULL))
+      goto error;
+/* Get a pointer to the output positions. */
+   out_pos_ptr  = (Point *)DXGetArrayData(positions);
+/* Make a connections component for the output. The connections are
+ * 2-dimensional (lines).
+ */
+   connections = DXNewArray(TYPE_INT, CATEGORY_REAL, 1, 2);
+</PRE>
+<PRE>
+/* Allocate space to the new connections array. There are two lines for
+ * each input position.
+ */
+   if (! DXAddArrayData(connections, 0, 2*p_knt, NULL))
+      goto error;
+   DXSetAttribute((Object)connections, "element type",
+                  (Object)DXNewString("lines"));
+/* Get a pointer to the new connections. */
+   conn_ptr = (Line *)DXGetArrayData(connections);
+/* Get the size of the "x" */
+   DXExtractFloat(in&#91;1&#93;, &size);
+</PRE>
+<PRE>
+/* Now "draw" the x's */
+   for (i=0; i&lt; p_knt; i++) {
+       inpoint = DXPt(p_positions&#91;3*i&#93;, p_positions&#91;3*i+1&#93;, p_positions&#91;3*i+2&#93;);
+       out_pos_ptr&#91;4*i&#93;   = DXPt(inpoint.x - size, inpoint.y, inpoint.z);
+       out_pos_ptr&#91;4*i+1&#93; = DXPt(inpoint.x + size, inpoint.y, inpoint.z);
+       out_pos_ptr&#91;4*i+2&#93; = DXPt(inpoint.x, inpoint.y - size, inpoint.z);
+       out_pos_ptr&#91;4*i+3&#93; = DXPt(inpoint.x, inpoint.y + size, inpoint.z);
+       conn_ptr&#91;2*i&#93; = DXLn(4*i, 4*i+1);
+       conn_ptr&#91;2*i+1&#93; = DXLn(4*i+2, 4*i+3);
+   }
+</PRE>
+<PRE>
+/* Clean up; we're about to significantly modify the positions and connections
+ */
+   DXChangedComponentStructure((Field)out&#91;0&#93;,"positions");
+   DXChangedComponentStructure((Field)out&#91;0&#93;,"connections");
+/* Now place the new positions and connections in the output field */
+   DXSetComponentValue((Field)out&#91;0&#93;, "positions", (Object)positions);
+   positions = NULL;
+   DXSetComponentValue((Field)out&#91;0&#93;, "connections", (Object)connections);
+   connections = NULL;
+/* Finalize the field */
+   DXEndField((Field)out&#91;0&#93;);
+/* return */
+   return OK;
+error:
+   DXDelete((Object)positions);
+   DXDelete((Object)connections);
+   return ERROR;
+</PRE>
+<P>
+<B><U>(7) Remove the call to MakeX_worker:</U></B> it is not needed.
+All of the data processing code has been added to
+doLeaf (Step 5).
+<P>
+<B><U>(8) Insert the following declarations</U></B> after the first block
+of code in the doLeaf routine:
+<PRE>
+  /* User added declarations */
+  Point *out_pos_ptr, inpoint;
+  Array connections=NULL, positions=NULL;
+  Line *conn_ptr;
+  float size;
+</PRE>
+<P>
+The file <TT>/usr/local/dx/samples/program_guide/makex.c</TT>
+contains a completed version of this program.
+<P>
+<B><U>(9) To create a version of Data Explorer that includes</U></B> the
+MakeX module, enter the command:
+<PRE>
+make -f makex.make dxexec
+</PRE>
+<P>
+(You have now created an executable that contains the MakeX
+module.)
+<P>
+<B><U>(10) To invoke this version, enter&#58;</U></B>
+<PRE>
+dx  -mdf ./makex.mdf -exec ./dxexec
+</PRE>
+<P>
+This command starts Data Explorer (the <TT><STRONG>makex.mdf</STRONG></TT> file
+tells the graphical user interface about MakeX and its
+inputs and outputs).
+The executable dxexec invoked here is the one created in Step 8.
+<P>
+<B><U>(11) With this version of Data Explorer</U></B> you can now run any visual
+program that uses the MakeX module.
+One such program is
+<TT>/usr/local/dx/samples/program_guide/makex.net</TT>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu027.htm">Previous Page</A> &#124; <A HREF="progu029.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC8">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

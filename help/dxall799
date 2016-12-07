@@ -1,0 +1,57 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rconvert Convert #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N 
+Function #!N #!N Converts between RGB and HSV color spaces. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   Output #!EF = 
+Convert(  #!F-adobe-times-bold-r-normal--18*   data, incolorspace, outcolorspace, addpoints #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB data TAB vector 
+list or field TAB none TAB input colors or color map 
+#!N TAB incolorspace TAB string TAB "hsv" TAB color space of 
+input #!N TAB outcolorspace TAB string TAB "rgb" TAB color space 
+of output #!N TAB addpoints TAB integer TAB input dependent TAB 
+add positions to ensure valid #!N TAB - TAB - TAB 
+- TAB color transformations #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB output TAB vector list 
+or field TAB output colors or color map #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N 
+specifies the value(s) to be converted. If the parameter value is 
+a vector or list of vectors, the output is a vector 
+or list of vectors. These must be of 3-vectors, representing hue, 
+saturation, and value (HSV) or red, green, and blue (RGB). #!N 
+#!N If the parameter value is a field, the module converts 
+the "data" component of that field (which must consist of 3-vectors) 
+from one color space to the other. #!N #!N The range 
+of hues is 0 (red) to 1 (red); 0.3333 = green 
+and 0.6666 = blue. Values outside this range simply "wrap." That 
+is, a hue of 0 = a hue of 1 = 
+a hue of 2, and so on. #!N #!N The range 
+of saturation is 0 (white) to 1 (pure color). #!N #!N 
+The range of value is 0 (black) to 1 (full intensity). 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   incolorspace #!EF #!EF #!I50 #!N is 
+the color space of the input (  #!F-adobe-times-bold-r-normal--18*   data #!EF ) 
+and must be "rgb" or "hsv." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+outcolorspace #!EF #!EF #!I50 #!N is the color space of the 
+output and must be "rgb" or "hsv." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   addpoints #!EF #!EF #!I50 #!N specifies whether points are to 
+be added to the resulting output: #!N #!N If  #!F-adobe-times-bold-r-normal--18*   data 
+#!EF is a color map (i.e., if it has 1-D positions 
+and 3-D data), the default value (1) specifies that points will 
+be added to the "positions" component of the map so that 
+the conversion between color spaces (which is nonlinear) remains valid. A 
+parameter value of 0 (zero) specifies that no points are to 
+be added. #!N #!N A parameter value of 1 (one) is 
+valid  #!F-adobe-times-medium-i-normal--18*   only #!EF if the input is a color map. 
+If the input object is  #!F-adobe-times-medium-i-normal--18*   not #!EF a color map 
+(i.e., if it has positions of dimensionality greater than 1), the 
+default value is 0 (zero) and the "data" component is converted 
+as specified by  #!F-adobe-times-bold-r-normal--18*   incolorspace #!EF and  #!F-adobe-times-bold-r-normal--18*   outcolorspace #!EF in 
+one-to-one fashion. #!I0 #!N #!N #!N #!N Components #!N #!N Modifies 
+the "data" component and may modify the "positions" component. All other 
+input components are propagated to the output. #!N #!N Example Visual 
+Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N UsingCompute.net #!EF #!N 
+#!N #!EC #!N #!N See Also #!N #!N  #!Lcolor,dxall792 h Color  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcopycon,dxall800 h CopyContainer  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

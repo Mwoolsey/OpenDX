@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>Installation and Configuration Guide</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Installation and Configuration Guide">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+<A NAME="Top_Of_Page"></A><IMG SRC="images/dxdawn.gif" ALT="" align="right">
+		<H2>IBM Visualization Data Explorer Installation and Configuration Guide</H2>
+		<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="pages/insgu002.htm">Next Page</A> &#93;</B>
+		<HR><P>
+IBM Visualization Data Explorer<BR>
+Installation and Configuration Guide<BR>
+<P>Version 3 Release 1 Modification 4
+<P>USEM-EM42-C8
+<HR>
+<H2><A NAME="ToC"></A>Table of Contents</H2>
+<B><A NAME="ToC_1" HREF="#HDRNTCS">Notices</A></B><BR>
+<B><A NAME="ToC_5" HREF="pages/insgu004.htm#Header_5">Chapter 1. Trademarks and
+Service Marks</A></B><BR>
+<B><A NAME="ToC_6" HREF="pages/insgu005.htm#Header_6">Chapter 2. About this
+Document</A></B><BR>
+<B><A NAME="ToC_7" HREF="pages/insgu006.htm#Header_7">Chapter 3. About This
+Guide</A></B><BR>
+<B><A NAME="ToC_8" HREF="pages/insgu007.htm#HDRTECHSUP">Chapter 4. Technical
+Support</A></B><BR>
+<B><A NAME="ToC_11" HREF="pages/insgu009.htm#HDRDISKREQ">Chapter 5. Disk Space
+Requirements and Tape Specifications</A></B><BR>
+<B><A NAME="ToC_12" HREF="pages/insgu010.htm#HDRUPGRADE">Chapter 6. Special Notes for
+Upgrade Installations</A></B><BR>
+<B><A NAME="ToC_13" HREF="pages/insgu011.htm#HDRIBM6000">Chapter 7. Installing Data
+Explorer or Data Explorer SMP on an IBM RISC System/6000</A></B><BR>
+<B><A NAME="ToC_20" HREF="pages/insgu014.htm#HDRHP700">Chapter 8. Installing Data
+Explorer on an HP Workstation</A></B><BR>
+<B><A NAME="ToC_26" HREF="pages/insgu017.htm#HDRSUN">Chapter 9. Installing Data
+Explorer or Data Explorer SMP on a Sun SPARCstation</A></B><BR>
+<B><A NAME="ToC_33" HREF="pages/insgu020.htm#HDRSGI">Chapter 10. Installing Data
+Explorer or Data Explorer SMP on an SGI Workstation</A></B><BR>
+<B><A NAME="ToC_40" HREF="pages/insgu023.htm#HDRAVIION">Chapter 11. Installing Data
+Explorer on a Data General AViiON</A></B><BR>
+<B><A NAME="ToC_46" HREF="pages/insgu026.htm#HDRDEC">Chapter 12. Installing Data
+Explorer on a DEC 3000 AXP</A></B><BR>
+<B><A NAME="ToC_52" HREF="pages/insgu029.htm#HDRCFGSCR">Chapter 13. The Configure
+Script</A></B><BR>
+<B><A NAME="ToC_55" HREF="pages/insgu031.htm#HDRTRBLSHT">Chapter 14. Troubleshooting
+the Data Explorer Installation</A></B><BR>
+<B><A NAME="ToC_56" HREF="pages/insgu032.htm#HDRNETLS">Chapter 15. Installing a NetLS
+License Server</A></B><BR>
+<HR>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note!</TH><TR><TD>
+<P>Before using this information and the product it supports, be
+sure to read the general information under
+<A HREF="#HDRNTCS">"Notices"</A>.
+</TD></TR></TABLE>
+<P><B>Second Edition (12 Feb 1998)</B>
+<P>
+This edition applies to IBM Visualization Data Explorer Version  3.1.4, to IBM
+Visualization Data Explorer SMP
+Version 3.1.4, and to all subsequent releases and modifications
+thereof until otherwise indicated in new editions.
+Make sure you are using the correct edition for the level of
+the product.
+Order publications through your IBM representative or the
+IBM branch office serving your locality.
+Publications are not stocked at the address given below.
+<P>
+A form for readers&#39; comments appears at the back of this
+publication.
+If the form has been removed, address your comments to&#58;
+<DL COMPACT>
+<DD>IBM Corporation
+<DD>Thomas J. Watson Research Center/Hawthorne
+<DD>Data Explorer Development
+<DD>P.O. Box 704
+<DD>Yorktown Heights, NY 10598-0704
+<DD>USA
+</DL>
+<P>
+If you send information to IBM, you grant IBM a nonexclusive right to
+use or distribute that information, in any way it believes
+appropriate, without incurring any obligation to you.
+<P><B>&copy; Copyright International Business Machines Corporation 1991-1997.
+All rights reserved. </B> <BR>Note to U.S. Government Users -- Documentation
+related to restricted rights -- Use, duplication or disclosure is subject to
+restrictions set forth in GSA ADP Schedule contract with IBM Corp.
+
+		<P>
+		<H2><A name="HDRNTCS"></A>Notices</H2>
+		<P><A NAME="PToC1" HREF="#ToC">Partial Table-of-Contents</A>
+		<MENU>
+<LI><A NAME="PToC_2" HREF="#HDRPPS">Products, Programs, and Services</A>
+<LI><A NAME="PToC_3" HREF="pages/insgu002.htm#Header_3">Trademarks and Service
+Marks</A>
+<LI><A NAME="PToC_4" HREF="pages/insgu003.htm#Header_4">Copyright notices</A>
+</MENU>
+<HR>
+<HR>
+<H2><A name="HDRPPS"></A>Products, Programs, and Services</H2>
+References in this publication to IBM<SUP>*</SUP> products, programs,
+or services do not imply that IBM intends to make these available in
+all countries in which it operates. Any reference to an IBM product,
+program, or service is not intended to state or imply that only
+IBM&#39;s product, program, or service may be used. Any functionally
+equivalent product, program, or service that does not infringe any of
+IBM&#39;s intellectual property rights may be used instead. Evaluation
+and verification of operation in conjunction with other products, except
+those expressly designated by IBM, is the user&#39;s responsibility.
+<P>
+IBM may have patents or pending patent applications covering subject
+matter in this document.
+The furnishing of this document does not give the user any license to
+those patents.
+License inquiries should be sent, in writing, to:
+
+<P><ADDRESS>
+International Business Machines Corporation<BR>
+IBM Director of Licensing<BR>
+500 Columbus Avenue<BR>
+Thornwood, New York 10594<BR>
+USA<BR>
+</ADDRESS>
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="pages/insgu002.htm">Next Page</A> &#93;</B> <br><b>&#91;<a
+href="allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

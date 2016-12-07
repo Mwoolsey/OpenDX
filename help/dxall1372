@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxscv DXSetComponentValue #!N #!N Function #!N #!N Adds a component 
+to a Field. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Field 
+DXSetComponentValue(Field f, char *name, Object value) #!EF #!N #!N Functional Details 
+#!N #!N Sets the  #!F-adobe-times-bold-r-normal--18*   name #!EF component of Field  #!F-adobe-times-bold-r-normal--18*   
+f #!EF to  #!F-adobe-times-bold-r-normal--18*   value #!EF . If  #!F-adobe-times-bold-r-normal--18*   name #!EF 
+is  #!F-adobe-times-bold-r-normal--18*   NULL #!EF ,  #!F-adobe-times-bold-r-normal--18*   value #!EF can be accessed 
+only by  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedComponentValue #!EF . If  #!F-adobe-times-bold-r-normal--18*   value #!EF is 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the  #!F-adobe-times-bold-r-normal--18*   name #!EF component will be 
+deleted. #!N #!N When  #!F-adobe-times-bold-r-normal--18*   DXSetComponentValue #!EF overwrites an existing component, 
+all attributes associated with the prior value are copied to the 
+new  #!F-adobe-times-bold-r-normal--18*   value #!EF and they supersede any attributes already attached 
+to the new  #!F-adobe-times-bold-r-normal--18*   value #!EF . If this result is 
+not the one desired, the earlier component value should be removed 
+prior to setting the new one. #!N #!N Components of Fields 
+are typically Arrays and contain geometrical and topological information and associated 
+data. These components are interrelated (e.g., an association of data with 
+either the points defined in the "positions" component or the elements 
+defined in the "connections" component). Their relationships are specified through attributes, 
+which should be set as the components are inserted into the 
+Field. After all components are inserted, call  #!F-adobe-times-bold-r-normal--18*   DXEndField #!EF , 
+which will add any additional attributes (and ancillary components) that are 
+necessary. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   f #!EF 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxdc,dxall1196 h DXDeleteComponent  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  ,  #!Ldxgecv,dxall1233 h DXGetEnumeratedComponentValue  #!EL  
+,  #!Ldxnf,dxall1316 h DXNewField  #!EL  ,  #!Ldxsca,dxall1371 h DXSetComponentAttribute  #!EL  #!EF #!N #!N  #!Lfieldsc,dxall1062 h Field Class  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxsc,dxall1373 h DXSetConnections  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

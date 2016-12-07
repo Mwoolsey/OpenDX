@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - System Structure</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu020.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu022.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu020.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRC11" ></A>1.2 System Structure</H2>
+		<A NAME="IDX474"></A>
+		<P>
+Data Explorer is designed as a client-server model.
+The Data Explorer client-server architecture incorporates system components
+such as TCP/IP, sockets, X Window System, and Motif.
+<P>
+In this client-server model, the user interface is the
+client.
+The executive, modules, and data management components, often
+referred to collectively as the executive,
+make up the server portion.
+The user interface client can be on a different platform from the
+<A NAME="IDX475"></A>
+server (executive), and the executive can run on multiple
+platforms simultaneously (distributed processing).
+Data Explorer allows you to switch among servers running on different
+hardware platforms.
+<P>
+The Data Explorer system can be thought of as consisting of four "layers,"
+each with its own defined interface.
+These layers are described in the order in which you are likely to
+encounter them:
+<UL COMPACT>
+<LI>Graphical user interface
+<LI>Executive
+<LI>Modules
+<LI>Data management.
+</UL>
+<P>
+<H3><A NAME="Header_35" ></A>Graphical User Interface
+</H3>
+<P>
+The graphical user interface is built upon the X Window and Motif
+standards.
+These tools manage multiple application windows that allow a user to
+create and control the visualization process easily and
+effectively.
+The graphical user interface provides two levels of service.
+First, non-programmers or users with fixed requirements can execute
+previously created visual programs.
+These visual programs may consist of various menus, dials, sliders, and other
+interactors that provide fixed functions.
+Second, programmers can create customized visualizations by using the
+interface to interconnect modules in flexible ways, and to create
+new combinations of modules in the form of macros.
+<P>
+The Data Explorer graphical user interface lets you create or work with a visual
+program
+to easily realize sample, select, and transform data during
+visualization.
+You can use the Visual Program Editor (VPE) to create new scenarios by simply
+connecting
+module icons on the screen in any logical sequence.
+<P>
+Data Explorer provides the following primary windows&#58;
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Visual Program Editor
+</B></TD><TD><P>Lets you create and alter visual programs.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Control Panel
+</B></TD><TD><P>Lets you set and control the variable input parameters of the
+tools used in a visual program.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Image Window
+</B></TD><TD><P>Displays the image created by a visual program and allows direct
+interaction with the visualized image.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Help Window
+</B></TD><TD><P>Provides online access to the Data Explorer user manual and
+context-sensitive help information.
+</TD></TR></TABLE>
+<P>Data Explorer provides a Colormap Editor window that lets you map colors to
+specified data values and display the results in the visual
+image.
+The system also provides a Sequencer window, which has many uses, including
+controlling how a sequence of images is displayed (with forward
+and backward direction, repetition, and so on).
+<P>
+These windows are discussed in detail in <A
+HREF="usrgu036.htm#HDRUNDUSE">Chapter 5. "Graphical User Interface: Basics"</A>.
+In addition, Data Explorer provides two stand-alone utilities:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><B><TT><STRONG>Data Prompter&#58;</STRONG></TT>
+</B></TD><TD>a point-and-click interface for describing a data set for
+importing.
+(See <I>IBM Visualization Data Explorer QuickStart Guide</I>.)
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Module Builder&#58;</STRONG></TT>
+</B></TD><TD>a point-and-click interface for describing the interface to a
+user-written module.
+The Module Builder creates the necessary makefiles and a template
+<TT><STRONG>.c</STRONG></TT> file for the module.
+(See <I>IBM Visualization Data Explorer Programmer&#39;s Reference</I>.)
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="Header_36" ></A>Executive</H3>
+<P>
+The executive is the component of the system that manages
+the execution of the modules specified in the scripting language.
+This scripting language is generated by the graphical user interface to
+invoke visualization functions for visual programs.
+Users can also use the scripting language to write their own programs,
+as described in <A HREF="usrgu050.htm#HDRUSL">Chapter 10. "Data Explorer
+Scripting Language"</A>.
+<P>
+<H3><A NAME="Header_37" ></A>Modules</H3>
+<P>
+Data Explorer provides an extensive, powerful set of highly interoperable
+visualization modules.
+The modules used for visualization functions are available&#58;
+<UL>
+<P><LI>As nodes, through the use of their icons in a visual programming
+network.
+<P><LI>As function calls, available in the scripting language interface
+provided by the executive layer.
+<P><LI>For integrated applications, as part of the visualization library
+programming interface.
+(See <A HREF="progu064.htm#HDRMODACSS">13.10 , "Module Access"</A> in <I>IBM
+Visualization Data Explorer Programmer&#39;s Reference</I> for information on
+this use of
+modules.)
+</UL>
+<P>
+<H3><A NAME="HDRDAM" ></A>Data Management</H3>
+<P>
+The data management layer is the portion of the programming interface
+that provides modules with access to the data model, which is
+discussed in <A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data
+Model"</A>.
+This layer includes general system services as well as routines for
+creating and managing the set of data objects.
+The data management layer also provides an application programming
+interface (API) for adding new modules to Data Explorer and for
+accessing the power and flexibility of the data
+model.
+<P>
+Detailed information on this API can be found in <I>IBM Visualization Data
+Explorer Programmer&#39;s Reference</I>.
+<P>
+<H3><A NAME="Header_39" ></A>How the Data Model Facilitates Interoperability</H3>
+<P>
+The Data Explorer data model is not simply a convenient
+way to represent data objects. It also allows Data Explorer
+tools to be more powerful than they would be otherwise.
+<P>
+Tools can be used in multiple ways, because the components
+of the data set are described using a common structure.
+There is no distinction between "data," "positions," and
+"colors" in how they are represented within a Data Explorer
+field object.
+(For more information on Data Explorer fields, see <A
+HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data Model"</A>.)
+For example, you can use the Compute module to operate on the data to
+extract the magnitude, or x component of a vector (e.g., operate on
+the positions of a grid to warp the grid or on the colors
+of a field to negate an image).
+This also means that the user has the capability of modifying or
+inspecting all aspects of a data object.
+<P>
+Tools can be used on any object in Data Explorer; there is
+no distinction between "data objects" and "geometry objects."
+An isosurface or an image is represented in the same way in
+which an imported data field is represented.
+So for example,
+you can:
+<UL COMPACT>
+<LI>create an isosurface (contour lines) of a mapped isosurface
+<LI>create an isosurface from an image
+<LI>map onto glyphs, streamlines, isosurfaces, etc.
+</UL>
+The Data Model also ensures that the fidelity of the original
+data is maintained throughout the visualization process. In
+particular, all of the following are preserved throughout:
+<UL COMPACT>
+<LI>the original coordinate space of the data
+<LI>the original range of data values (not scaled to 0 to 255, for
+example)
+<LI>attributes of the data (dependency on positions or connections)
+<LI>the presence of missing or invalid data.
+</UL>
+Finally, the data model ensures that Data Explorer users and developers can
+add new components or new attributes without modifying
+current modules.
+
+		<P></P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+		</DIV>
+	</BODY></HTML>

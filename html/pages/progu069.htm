@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu068.htm">Previous Page</A> &#124; <A HREF="progu070.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRGNS" HREF="progu066.htm#PToC_149">14.4 Growing and Shrinking
+Partitioned Data</A></H2>
+<A NAME="IDX1138"></A>
+<A NAME="IDX1139"></A>
+<A NAME="IDX1140"></A>
+<A NAME="IDX1141"></A>
+<A NAME="IDX1142"></A>
+<A NAME="IDX1143"></A>
+<A NAME="IDX1144"></A>
+<A NAME="IDX1145"></A>
+<A NAME="IDX1146"></A>
+<P>
+The routines listed at the end of this section are necessary for
+processing Composite Fields.
+<P>
+Some modules (e.g., filters) require information from the neighborhood
+of each point.
+Since partitioning divides data into spatially disjoint subsets for
+independent processing, a neighborhood may be divided
+among different partitions: for example,
+a filter kernel may overlap the boundary between two partitions.
+In such cases, processing one partition requires information that
+resides in the other.
+<P>
+In order to facilitate such information sharing, Data Explorer includes routines
+that support temporarily overlapping partitions.
+<TT><STRONG>DXGrow()</STRONG></TT> modifies its input Field and adds to each
+partition information from the partition&#39;s neighbor(s).
+<P>
+Because <TT><STRONG>DXGrow()</STRONG></TT> modifies its input, the calling
+routine must use <TT><STRONG>DXCopy()</STRONG></TT> to copy the input
+structure if that structure is not to be modified.
+After this boundary information has been accrued, the processing of the
+partition may be handled independently since all information
+required to produce correct results for the original
+partition is available in it.
+For example, in the case of filtering, boundary information is added so
+that wherever a filter kernel is placed in the original partition,
+the kernel does not extend outside the grown partition, producing
+correct results in the original partition.
+After processing the Field produced by <TT><STRONG>DXGrow()</STRONG></TT>,
+<TT><STRONG>DXShrink()</STRONG></TT> must be called to shrink any
+components that have not been shrunk by the caller,
+and to remove extra references to the original
+components that were put in the Field by
+<TT><STRONG>DXGrow()</STRONG></TT>.
+<P>
+When <TT><STRONG>DXGrow()</STRONG></TT> is called, the depth of an overlap
+region is specified by specifying the number of <I>rings</I>
+to be accrued.
+An element is said to be in the <I>k</I>th ring if it has at least
+one vertex in the <I>k</I>th ring.
+A vertex is in the 0th ring if it exists both in the partition and the
+neighbor, and is in the <I>k</I>th ring if it is not
+in a lower ring and an element in ring <I>k-1</I>
+is incident upon it.
+Most frequently, such modules produce results for each vertex on the
+basis of the elements incident on that vertex; this is achieved by
+requesting that <TT><STRONG>DXGrow()</STRONG></TT> include
+1 ring:
+those elements from neighboring partitions that are incident on
+vertices that exist in both partitions.
+<P>
+
+The treatment of the exterior boundary of regular grid data is
+specified by a parameter to <TT><STRONG>DXGrow()</STRONG></TT>.
+You may specify that the Field not be expanded beyond its boundary
+(i.e., that the exterior partitions not be expanded except on
+the sides that border other partitions).
+Alternatively you may specify that the Field be expanded beyond its
+original boundaries, with the new data being filled in one of
+three ways:
+with a constant value; with the replicated value from the nearest edge
+point in the original Field; or with nothing, only reserving space
+for the new data but leaving its contents undefined.
+<P>
+While it is necessary that the footprint of a filter kernel, placed
+anywhere in the original partition, not extend past the grown
+partition boundary, it is probably not necessary to apply
+the filter in the boundary regions accrued from
+neighbors;
+these regions are properly handled during the processing of the
+neighboring partition.
+Data Explorer also includes routines that query the original number of positions
+and connections (in the case of irregular grids) or the offset
+relative to the grown partition and size of the original
+partition.
+<P>
+Frequently, modules do not require all components of a Field that are
+dependent on the positions to be grown.
+To avoid accruing information that will not be required during
+processing, <TT><STRONG>DXGrow()</STRONG></TT> requires the
+calling application to specify which components, in
+addition to positions and connections,
+will be required.
+<P>
+Modules using <TT><STRONG>DXGrow()</STRONG></TT> have the option of producing
+results corresponding to the positions of the larger grown Field
+or, more efficiently, producing results corresponding only to
+positions of the original smaller Field.
+Even though the former method is less efficient, involving more data
+movement and perhaps more calculation, it is sometimes more
+convenient.
+Therefore, the <TT><STRONG>DXShrink()</STRONG></TT> function is provided to
+shrink all components that depend on or reference positions or
+connections back to their original size.
+If the user has already shrunk the positions,
+<TT><STRONG>DXShrink()</STRONG></TT> will leave
+them unmodified.
+In any case, the <TT><STRONG>DXShrink()</STRONG></TT> function must be called
+after operating on a grown Field in order to remove references to
+the "original" components that were placed in the Field by
+<TT><STRONG>DXGrow()</STRONG></TT> for later use by
+<TT><STRONG>DXShrink()</STRONG></TT>.
+<P>
+For each component specified in the component list passed to
+<TT><STRONG>DXGrow()</STRONG></TT>, a component named
+"original <I>componentname</I>" is
+created.
+<TT><STRONG>DXShrink()</STRONG></TT> will rename each of these to its
+original name.
+Therefore, for components you have modified (e.g., data), you should
+remove the corresponding original component ("original data"
+in this example) before calling <TT><STRONG>DXShrink()</STRONG></TT>.
+<P>
+Both <TT><STRONG>DXGrow()</STRONG></TT> and <TT><STRONG>DXShrink()</STRONG></TT>
+operate in parallel on Composite Fields.
+For that reason, <TT><STRONG>DXGrow()</STRONG></TT> must be called prior to
+any subtasking invoked explicitly by the calling application;
+<TT><STRONG>DXShrink()</STRONG></TT> must be called after any
+such subtasking has been completed.
+<PRE>
+#define GROW_NONE      NULL
+#define GROW_REPLICATE ((Pointer)1)
+#define GROW_NOFILL    ((Pointer)2)
+</PRE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>Object DXGrow()
+<BR>
+Object DXGrowV();</STRONG></TT>
+</TD><TD><P>Add information from neighboring partitions to a Composite Field.
+<A NAME="IDX1147"></A>
+<A NAME="IDX1148"></A>
+<A NAME="IDX1149"></A>
+<A NAME="IDX1150"></A>
+<A NAME="IDX1151"></A>
+<A NAME="IDX1152"></A>
+See  <A HREF="progu208.htm#HDRDXGROV">DXGrow, DXGrowV</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Field DXQueryOriginalSizes()
+<BR>
+Field DXQueryOriginalMeshExtents();</STRONG></TT>
+</TD><TD><P>Return information about the size of the original Field used as
+the input to <TT><STRONG>DXGrow()</STRONG></TT>.
+<A NAME="IDX1153"></A>
+<A NAME="IDX1154"></A>
+<A NAME="IDX1155"></A>
+<A NAME="IDX1156"></A>
+<A NAME="IDX1157"></A>
+<A NAME="IDX1158"></A>
+See  <A HREF="progu281.htm#HDRDXQOSM">DXQueryOriginalSizes,
+DXQueryOriginalMeshExtents</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Object DXShrink()</STRONG></TT>
+</TD><TD><P>Removes information added to an Object by
+<TT><STRONG>DXGrow()</STRONG></TT>.
+<A NAME="IDX1159"></A>
+<A NAME="IDX1160"></A>
+<A NAME="IDX1161"></A>
+See  <A HREF="progu330.htm#HDRDXSK">DXShrink</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu068.htm">Previous Page</A> &#124; <A HREF="progu070.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

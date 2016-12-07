@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall632 Example 8. Two-dimensional Grid, Cell-centered 
+Data #!N #!EC #!N #!N This example describes a regular 2-dimensional 
+grid. In this example, unlike other examples presented here, the data 
+are dependent on (in a one-to-one correspondence with) the "connections" rather 
+than the "positions" component. Data Explorer interprets this as implying that 
+the data value within each connection element is the constant given 
+by the corresponding data value. For example, if you used AutoColor 
+and rendered this Field, you would see blocks of constant color. 
+#!N #!N You can use the following script to render this 
+Object: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N data = Import("/usr/lpp/samples/data/datadepconnections.dx", format="dx"); #!N 
+colored = AutoColor(data); #!N camera = AutoCamera(colored); #!N Display(colored, camera); #!EF 
+#!N #!N #!EC #!N #!N The data file is located in 
+ #!F-adobe-times-bold-r-normal--18*   /usr/lpp/samples/data/datadepconnections.dx #!EF . #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # object 
+1 is the regular positions. The grid is 4x4. The origin 
+is #!N # at [0 0], and the deltas are 1 
+in the first dimension, and #!N # 2 in the second 
+dimension #!N object 1 class gridpositions counts 4 4 #!N origin 
+TAB 0 TAB 0 #!N delta TAB 1 TAB 0 #!N 
+delta TAB 0 TAB 2 #!EF #!N #!N #!EC #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N # object 2 is the regular connections, quads, 
+connecting the positions #!N object 2 class gridconnections counts 4 4 
+#!N #!N # object 3 is the data, which are in 
+a one-to-one correspondence with #!N # the connections ("dep" on connections) 
+#!N object 3 class array type float rank 0 items 9 
+data follows #!T,61,129,216,294 #!N TAB 1 TAB 3.4 TAB 5 TAB 
+2 #!N TAB 3.2 TAB 5.5 TAB 0.3 TAB 4.5 #!N 
+TAB 4.0 #!N attribute "dep" string "connections" #!N #!N # A 
+field is created with three components: "positions", "connections", #!N # and 
+"data" #!N object "regular positions regular connections" class field #!N component 
+"positions" value 1 #!N component "connections" value 2 #!N component "data" 
+value 3 #!N #!N end #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall633,dxall634 h Example 9. Faces, Loops, and Edges  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

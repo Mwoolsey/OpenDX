@@ -1,0 +1,11 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcmpmi DXCompareModuleId #!N #!N Function #!N 
+#!N Determines whether two module identifiers are the same. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXCompareModuleId(Pointer id1, id2); #!EF #!N 
+#!N Return Value #!N #!N Returns OK, if the two identifiers 
+are the same, or returns ERROR. This routine does not set 
+an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcpmi,dxall1188 h DXCopyModuleId  #!EL  
+,  #!Ldxgmid,dxall1250 h DXGetModuleId  #!EL  ,  #!Ldxfmid,dxall1216 h DXFreeModuleId  #!EL  #!EF #!N #!N  #!Lcache,dxall1102 h Cache  #!EL  , #!N  #!Lasyns,dxall1114 h Asynchronous Services  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxcmany,dxall1184 h DXComponentReq, DXComponentOpt, DXComponentReqLoc, DXComponentOptLoc  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

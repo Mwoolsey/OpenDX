@@ -1,0 +1,45 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rdatachp Working with 
+Data Model Objects #!N #!EC #!N #!N This chapter describes the 
+programming interface for creating and manipulating the basic Objects of the 
+Data Explorer data model (some Objects are discussed in later chapters). 
+For a brief summary of the data model, see  #!Lprogchp,dxall984 h Overview  #!EL  . 
+For a detailed description, see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in IBM Visualization Data Explorer 
+User's Guide. #!N #!N Data Explorer is an object-oriented graphical application. 
+Its objects are data structures in global memory, they are passed 
+by reference, and their contents are private to the implementation. See 
+ #!Lcl23,dxall1061 t Table 23  #!EL  .  #!Rcl23 #!T,1,216,431,646  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 23. Data Explorer 
+Objects. The first column shows the hierarchical relationship of the Objects 
+to one another. For #!N TAB subclasses Field through Private, see 
+ #!Lfieldsc,dxall1062 h Field Class  #!EL  through  #!L#!n,dxall1081 h TAB PRIVSEC Private Class  #!EL  in this chapter; for Interpolator, see  #!Lprochap,dxall1115 h Data Processing #!N TAB  #!EL  ; 
+and for the remainder, see  #!Lrendchp,dxall1129 h Rendering  #!EL  . #!N TAB Type TAB 
+Description TAB Class #!EF #!N TAB Object TAB Object Class TAB 
+CLASS_OBJECT #!N TAB Field TAB Data sampled on a regular or 
+irregular TAB CLASS_FIELD #!N TAB - TAB grid TAB #!N TAB 
+Group TAB Collections of Objects TAB CLASS_GROUP #!N TAB Series TAB 
+Time (or other) series TAB CLASS_SERIES #!N TAB Multigrid TAB Group 
+of Fields to be treated as one TAB CLASS_MULTIGRID #!N TAB 
+- TAB Field TAB #!N TAB Composite Field TAB Group of 
+Fields to be treated as one TAB CLASS_COMPOSITEFIELD #!N TAB - 
+TAB Field TAB #!N TAB Array TAB Dynamic Arrays of data 
+such as points TAB CLASS_ARRAY #!N TAB Regular Array TAB One-dimensional 
+series of evenly spaced TAB CLASS_REGULARARRAY #!N TAB - TAB points 
+TAB #!N TAB Path Array TAB One-dimensional series of connected line 
+TAB CLASS_PATHARRAY #!N TAB - TAB segments TAB #!N TAB Product 
+Array TAB Regular or semi-regular grid positions TAB CLASS_PRODUCTARRAY #!N TAB 
+Mesh Array TAB Regular or semi-regular grid connections TAB CLASS_MESHARRAY #!N 
+TAB Constant Array TAB Array with a constant value TAB CLASS_CONSTANTARRAY 
+#!N TAB String TAB Object containing a string TAB CLASS_STRING #!N 
+TAB Private TAB Object pointing to private user data TAB CLASS_PRIVATE 
+#!N TAB Interpolator TAB Used to query Fields for data values 
+TAB CLASS_INTERPOLATOR #!N TAB Xform TAB Transformation matrix applied to an 
+TAB CLASS_FORM #!N TAB - TAB Object TAB #!N TAB Screen 
+TAB Object aligned to the screen TAB CLASS_SCREEN #!N TAB Clipped 
+TAB One Object clipped by another TAB CLASS_CLIPPED #!N TAB Camera 
+TAB Viewpoint, viewport, resolution TAB CLASS_CAMERA #!N TAB Light TAB Lights 
+TAB CLASS_LIGHT #!N #!N TAB Note: Any Group other than the 
+three types listed here is a generic Group. Any Array other 
+than the five types listed here is an irregular Array. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lfieldsc,dxall1062 h Field Class  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

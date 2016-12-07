@@ -1,0 +1,46 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rcatann Annotation #!N #!EC 
+#!N #!N These tools add various kinds of information to a 
+visualization. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lautoaxe,dxall770 h AutoAxes  #!EL  #!EF #!I50 
+#!N Creates an axes box for a specified data set, using 
+a specified camera. The camera is required so that the AutoAxes 
+module can determine how to position the axes box and labels. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lautogly,dxall773 h AutoGlyph  #!EL  #!EF #!I50 #!N Produces glyphs (a 
+representational figure, such as an arrow) for every data value in 
+an input Field. The size and type of glyph are based 
+on the data it receives. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lcaption,dxall781 h Caption  #!EL  #!EF 
+#!I50 #!N Creates a caption for an image. The caption position 
+specified in pixel- or viewport-relative coordinates. Captions always remain aligned to 
+the screen. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lcolorba,dxall793 h ColorBar  #!EL  #!EF #!I50 #!N Creates 
+a color bar to be displayed on the screen. It accepts 
+a color map as input. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lformat,dxall853 h Format  #!EL  #!EF 
+#!I50 #!N Creates a string from numeric values. For example, you 
+can create the string "Isosurface value = 23.4", where 23.4 is 
+the output of an Interactor. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lglyph,dxall856 h Glyph  #!EL  #!EF 
+#!I50 #!N Produces glyphs for every data value in an input 
+Field. This module allows more precise control of glyph size than 
+AutoGlyph does. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Llegend,dxall883 h Legend  #!EL  #!EF #!I50 #!N Produces 
+a legend which associates a string with a color. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lparse,dxall901 h Parse  #!EL  #!EF #!I50 #!N Separates a string into its 
+component parts (e.g., the string "data = 3.7" into "data," "=," 
+and the floating point value "3.7"). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lplot,dxall904 h Plot  #!EL  
+#!EF #!I50 #!N Creates a 2-dimensional plot from a line. You 
+can specify: customized labels for the axes; axes limits; y-axes on 
+the left and right sides of the plot; and logarithmic or 
+linear axes. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lribbon,dxall927 h Ribbon  #!EL  #!EF #!I50 #!N Produces 
+a ribbon of specified width from an input line. If a 
+"normals" component is present on the line (e.g., if the  #!F-adobe-times-bold-r-normal--18*   
+curl #!EF option was used to create a streamline or streakline), 
+the twist of the ribbon will correspond to the direction of 
+the "normals." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Ltext,dxall964 h Text  #!EL  #!EF #!I50 #!N Produces 
+text that appears in the "space" occupied by the image. That 
+is, unlike Caption, this module specifies the text position and size 
+in the same coordinates as the data. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ltube,dxall971 h Tube  #!EL  #!EF #!I50 #!N Produces a tube of specified diameter and 
+number of sides from an input line. If a "normals" component 
+is present on the line (e.g., if the  #!F-adobe-times-bold-r-normal--18*   curl #!EF 
+option was used to create a streamline or streakline), the twist 
+of the tube will correspond to the direction of the "normals." 
+#!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lcatdxl,dxall753 h DXLink  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

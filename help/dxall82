@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtmappng Modules: Using Map #!N 
+#!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   Map #!EF module maps one field 
+of data onto another. The field to be mapped  #!F-adobe-times-medium-i-normal--18*   to 
+#!EF is the first parameter; the field to be mapped  #!F-adobe-times-medium-i-normal--18*   
+from #!EF , the second parameter. In the most common use 
+of this module, no other parameters are set: the positions of 
+the first field are used as indices to the positions of 
+the second; the associated data values from the second field are 
+then mapped as new data values onto the first. #!N #!N 
+Components other than  #!F-adobe-times-bold-r-normal--18*   positions #!EF and  #!F-adobe-times-bold-r-normal--18*   data #!EF can 
+also be mapped to one another. #!N #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. Open and execute visual program .../Map.net. 
+In this example, wind values are mapped onto an isosurface of 
+cloud-water quantity and the result is colored. In addition, wind values 
+are mapped onto a probe point and displayed as text glyphs. 
+#!N #!I30 #!N 2. Double click on the right-hand  #!F-adobe-times-bold-r-normal--18*   Import 
+#!EF icon to open its configuration dialog box. The  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF parameter field contains a file name ending in "wind." #!N 
+#!I30 #!N 3. Change "wind" to "temperature" and click on  #!F-adobe-times-bold-r-normal--18*   
+OK #!EF . #!N #!I30 #!N 4. Reexecute the visual program. 
+The image is now a color map of temperatures on the 
+isosurface. The number displayed is the data value of the probe 
+point. #!N #!I30 #!N 5. To move the probe point, first 
+select  #!F-adobe-times-bold-r-normal--18*   View Control #!EF in the  #!F-adobe-times-bold-r-normal--18*   Options #!EF pull-down 
+menu. #!N #!I30 #!N 6. Next select  #!F-adobe-times-bold-r-normal--18*   Cursors #!EF in 
+the  #!F-adobe-times-bold-r-normal--18*   Mode #!EF pull-down menu. The probe point appears as 
+a small white square immediately to the left of the data 
+value. #!N #!I30 #!N 7. Drag the probe point to reposition 
+it, and then release the mouse button. The data value is 
+updated and displayed next to the newly positioned probe point. #!N 
+#!I0 #!N #!EF #!N #!N #!N See Map and Probe in 
+IBM Visualization Data Explorer User's Reference. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ltplot,dxall83 h Modules: Using Plot  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

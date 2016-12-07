@@ -1,0 +1,482 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - WriteImage</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu172.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu174.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRWRITEIM" ></A>WriteImage</H3>
+		<A NAME="IDX781"></A><A NAME="IDX782"></A>
+<A NAME="IDX783"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATIAE">Import and Export</A>
+<A NAME="IDX784"></A>
+<A NAME="IDX785"></A>
+<A NAME="IDX786"></A>
+<A NAME="IDX787"></A>
+<A NAME="IDX788"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Writes an image to a file.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+WriteImage(<STRONG>image, name, format, frame</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>image</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">image or image series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the image to be written
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>name</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;image&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">file name
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>format</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;rgb&quot; or input
+dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">format of file
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>frame</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">format dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">frame to be written
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module writes an image or series of images to disk.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If you are using the Image tool,
+the functionality of this module is available in the
+<TT><STRONG>Save Image...</STRONG></TT>
+option of the Image window&#39;s <TT><STRONG>File</STRONG></TT>
+pull-down menu
+(see <A HREF="usrgu040.htm#HDRSAVIMGS">"Saving an Image"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I>).
+</td></tr></table>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>image</STRONG></TT>
+</B></TD><TD><P>specifies the image to be written to a file on disk.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>name</STRONG></TT>
+</B></TD><TD><P>specifies the name of the file to be written to.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>format</STRONG></TT>
+</B></TD><TD><P>specifies the format in which the image is to be written.
+The image file format can be specified by the file extension in
+<TT><STRONG>name</STRONG></TT> or by <TT><STRONG>format</STRONG></TT>.
+If these specifications conflict, <TT><STRONG>format</STRONG></TT>
+takes precedence.
+If the format is one of RGB, R+G+B, YUV, or MIFF, and the given file
+exists, the image(s) are appended to the file. Otherwise, a new file is
+always created.
+
+The <TT><STRONG>format</STRONG></TT> parameter allows specification of gamma, compression, and quality for all format types. The default gamma is 2. (This is a change from previous releases for which gamma was always 1.) Compression and quality affect the compression used and the quality of the compression when writing ImageMagick supported formats. Refer to the ImageMagick documentation for formats that support compression and compression quality factors. See <A HREF="#SPTIMFMT">ImageMagick</A> for an example. The <TT><STRONG>format</STRONG></TT> parameter also allows specification that
+a "delayed colors" image should be written, for all formats other
+than RGB, R+G+B, and YUV. See <A HREF="#SPTIMFMT">PostScript</A> for a
+description
+of how to specify these two options.
+
+<P>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>frame</STRONG></TT>
+</B></TD><TD><P>specifies a frame number in the file on disk.
+The first frame of a disk file or series is frame number 0 (zero).
+Its interpretation varies with the format being used.
+<P>
+If the format is
+
+one of RGB, R+G+B, or YUV,
+
+then <TT><STRONG>frame</STRONG></TT>
+indicates the starting image frame in the disk file at which the
+given image or image series should be written.
+If the <TT><STRONG>frame</STRONG></TT> does not exist in the given file (this
+is the same as the file not existing), then the file is extended
+to contain the frames just before the indicated frame number.
+The contents of the frames that were created to extend the file are
+undefined.
+If <TT><STRONG>frame</STRONG></TT> is not provided, then the input image(s)
+are appended to an existing file.
+If the file does not exist it is created with the given image(s).
+<P>
+For the TIFF and PostScript formats, if <TT><STRONG>frame</STRONG></TT>
+is specified, it is used to modify the output file name.
+For example, if <TT><STRONG>frame</STRONG></TT> = <I>n</I>, the name is
+modified from <I>name</I><TT>.tiff</TT> to
+<I>name.n</I><TT><STRONG>.tiff</STRONG></TT>.
+If the image is a series, all frames will be written to this file.
+</TD></TR></TABLE>
+<P>
+<H5><A NAME="HDRSRFILFM">File Formats</A></H5>
+<P>
+See <A HREF="#TBLFILTYP">Table 9</A> for the recognized formats.
+PostScript** formats may include additional modifiers, separated from
+the format name by white space.
+See <A HREF="#SPTIMFMT">PostScript</A> for the recognized
+modifiers.
+The following example sets the format to PostScript and specifies a
+page size of 4x5
+
+and gamma=1.
+
+<PRE>
+WriteImage(y,name,"ps page=4x5 ");
+</PRE>
+<P>
+The RGB ("<TT><STRONG>rgb</STRONG></TT>" and
+"<TT><STRONG>r+g+b</STRONG></TT>") and
+
+YUV
+
+formats allow an existing file to be modified, either by overwriting
+existing frames or by extending the number
+of frames in the file.
+The TIFF and PostScript formats do not support this capability.
+
+MIFF allows appending of images (but not overwriting of images).
+
+<P>
+<A HREF="#TBLFILTYP">Table 9</A> summarizes the characteristics of each format.
+Descriptive sections follow the table.
+<BR>
+<P><B><A NAME="TBLFILTYP" HREF="refgu002.htm#FT_TBLFILTYP">Table 9. Format
+Characteristics for WriteImage</A></B><BR>
+<TABLE BORDER>
+			<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">File Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Format Specifier
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Resulting File Extension(s)
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Multiframe/
+Series Data
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Modify an Existing File
+</TH></TR>
+			<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">rgb
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">&quot;rgb&quot;
+<BR>
+"r+g+b"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&#46;rgb and &#46;size
+<BR>
+&#46;r,
+&#46;g,
+&#46;b, and
+&#46;size
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Yes
+</TD></TR>
+			<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">TIFF
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">&quot;tiff&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">.tiff
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">No
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">yuv
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">&quot;yuv&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">.yuv
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Yes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Color PostScript
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">&quot;ps color&quot;
+<BR>
+"ps"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">.ps
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">No
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Gray PostScript
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">&quot;ps gray&quot;
+<BR>
+"ps grey"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">.ps
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">No
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Color PostScript
+<BR>
+(Encapsulated)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">&quot;eps&quot;
+<BR>
+"eps color"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">.epsf
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">No
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">No
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Gray PostScript
+<BR>
+(Encapsulated)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">&quot;eps gray&quot;
+<BR>
+"eps grey"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">.epsf
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">No
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">No
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">MIFF
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">&quot;miff&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">.miff
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">Yes
+
+</TD></TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">many different</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">&quot;ImageMagick supported format&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">many different</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">No</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="19%">No</TD>
+			</TR>
+		</TABLE>
+<TABLE CELLPADDING="3">
+			<TR VALIGN="TOP"><TD><P><B><TT><STRONG>rgb</STRONG></TT>
+</B></TD><TD><P>rgb file format consists of two files, a binary
+<I>name</I><TT>.rgb</TT> file that contains
+the image pixel values and a
+<I>name</I><TT>.size</TT>
+file used to specify the image
+dimensions and the number of
+images contained in the
+<I>name</I><TT>.rgb</TT>
+file.
+The <I>name</I><TT>.size</TT> file contains a single line of ASCII
+text in the format "<VAR>w</VAR>&times;<VAR>h</VAR>&times;<VAR>f</VAR>,"
+where <VAR>w</VAR> and <VAR>h</VAR> give the dimensions of each image and
+<VAR>f</VAR> indicates the number of images in the
+<I>name</I><TT>.rgb</TT> file.
+The <I>name</I><TT>.rgb</TT> file contains (red, green, blue)
+binary pixel values with 8 bits per color
+(24 bits/pixel).
+Pixels are read and written from the image in left-to-right,
+top-to-bottom order.
+</TD></TR>
+			<TR VALIGN="TOP"><TD><P><B><TT><STRONG>r+g+b</STRONG></TT>
+</B></TD><TD><P>r+g+b format is similar to rgb format, except that the
+<I>name</I><TT>.rgb</TT> file is replaced by three
+binary files, one for each color.
+The <I>name</I><TT>.r</TT> file contains the red color values for
+all images, the <I>name</I><TT>.g</TT> file contains the
+green color values for all images and the
+<I>name</I><TT>.b</TT> file
+contains the blue color values
+for all images.
+Again, all color values are 8 bits (24 bits/pixel).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>TIFF</STRONG></TT>
+</B></TD><TD><P>TIFF (tag image file format) files are binary files that contain
+24 bits/pixel color resolution.
+For more information on TIFF files see <I>Tag Image File Format
+Specification</I>, Revision 5.0, available from Aldus
+Corporation or Microsoft Corporation.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>yuv</STRONG></TT>
+</B></TD><TD><P>This format adheres to Abekas YUV format, which can be directly
+imported to a variety of public domain MPEG encoders.
+<A NAME="SPTPSFMT"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>PostScript</STRONG></TT>
+</B></TD><TD><P>PostScript format files are written out using PostScript&#39;s
+image (or color image) operator and require only PostScript
+Level 1 interpreter support.
+WriteImage supports four different varieties of PostScript.
+Images can be written out in either color or gray-scale and either
+"Encapsulated" or not.
+Color images are written out at 24 bits/pixel and gray-scale at 8
+bits/pixel.
+Encapsulated PostScript is a format intended to be used when
+incorporating images into other documents.
+For this reason, the Encapsulated PostScript formats do not support
+series image input (i.e., only one image per file
+is acceptable).
+All PostScript output is run-length encoded to reduce the file size.
+(For more information on PostScript see <I>PostScript Language
+Reference Manual</I>, Second Edition;
+Addison-Wesley Publishing Company, 1990.)
+<P>
+
+By default, the image will be scaled and oriented to fill the current
+page size within the specified <TT><STRONG>margin</STRONG></TT> of the edge,
+while preserving the original aspect ratio of the image. That is, the
+image will be made as large as possible while maintaining the specified
+margin on at least one of the two dimensions.
+
+If <TT><STRONG>Allow Rerendering</STRONG></TT> is off,
+the pixels in the image will be sized appropriately to scale the image
+to fill the page, but the same number of pixels as in the currently
+displayed image will be used. If this results in a grainy image, set
+<TT><STRONG>Allow Rerendering</STRONG></TT> on, and enter a different
+<TT><STRONG>Input image size</STRONG></TT>. For example, if the displayed
+image is 640x480, and you want to double the resolution, just enter 1280
+in the <TT><STRONG>Input image size</STRONG></TT> field and Data Explorer will
+recalculate the new value of y (960) and the new (higher) value for
+<TT><STRONG>Output PPI</STRONG></TT>.
+
+If <TT><STRONG>dpi</STRONG></TT>
+or <TT><STRONG>width</STRONG></TT> is specified, these specifications will
+override the autoscaling feature. It is typically only necessary to use
+the <TT><STRONG>page</STRONG></TT> and <TT><STRONG>margin</STRONG></TT>
+modifiers.
+
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">
+The ReadImage module does not support the PostScript formats.
+</td></tr></table>
+<P>
+PostScript supports the following format modifiers:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>page = w &times; h</STRONG></TT>
+</B></TD><TD><P>Sets the page size in inches (width &times; height).
+The width is the width of the printer (typically, the dimension
+perpendicular to page motion).
+The default is 8.5&times;11.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>dpi =</STRONG></TT> <I>n</I>
+</B></TD><TD><P>Sets the number of dots (pixels) per inch
+
+in the hardcopy image.
+Note that <TT><STRONG>dpi</STRONG></TT> does <B>not</B> correspond
+to the dpi of the printer.
+
+
+Use this parameter only if you want to explicitly set the number of dots
+per inch. Generally it is easier to simply specify the <TT><STRONG>Input
+Image size</STRONG></TT> to set the overall resolution of the image if the
+image is too grainy.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>orient =
+landscape</STRONG></TT>
+<TT><STRONG>orient = portrait</STRONG></TT>
+
+<TT><STRONG>orient = auto</STRONG></TT>
+
+</B></TD><TD><P>Indicates the orientation of the image on the page.
+<TT><STRONG>landscape</STRONG></TT> means that the image&#39;s
+"up vector"  (bottom to top) runs across the
+width of the page.
+In <TT><STRONG>portrait</STRONG></TT> mode, the up vector runs up the length
+of the page.
+The default is
+
+<TT><STRONG>auto</STRONG></TT>.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>width = w</STRONG></TT>
+</B></TD><TD><P>Specifies the size in inches of the "across the screen"
+dimension of the image as it appears on the page.
+If specified, it overrides the <TT><STRONG>dpi =</STRONG></TT> modifier.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>margin = m</STRONG></TT>
+</B></TD><TD><P>Sets the desired margin around the image on the page.
+The default is .5 inch.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>height = h</STRONG></TT>
+</B></TD><TD><P>Specifies the size in inches of the "top to bottom of the
+screen" dimension of the image as it appears on the page.
+If specified, it overrides the
+
+<TT><STRONG>margin =</STRONG></TT>
+
+modifier.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>gamma = g</STRONG></TT>
+</B></TD><TD><P>Sets the gamma correction factor for the output image. The
+default
+is 2.0. This modifier is available for all format types.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>delayed = 1</STRONG></TT>
+</B></TD><TD><P>Specifies that a "delayed colors" image should be written, that
+is, an image-with-colormap. This modifier is available for PostScript,
+TIFF, and MIFF formats. In addition, it is set by default for GIF format
+(as all GIF images are in image-with-colormap format).
+
+</TD></TR></TABLE>
+<P>
+For example:
+<PRE>
+WriteImage(y, name, "ps color page=4x5  orient=landscape");
+</PRE>
+<P>
+If only <TT><STRONG>width</STRONG></TT> or <TT><STRONG>height</STRONG></TT> is
+specified (but not both), the original aspect ratio of the image
+is maintained.
+If both are specified, the image may be stretched.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B>MIFF
+</B></TD><TD><P>is a run-length-encoded format that supports image
+sequences. Writing an image to an existing miff file name causes
+the image to be appended to the file. To start a new sequence you
+must delete the .miff file.
+<A NAME="SPTIMFMT"></A>
+</TD></TR>
+			<TR VALIGN="TOP">
+				<TD><B>ImageMagick supported format</B></TD>
+				<TD>With the <A HREF="http://www.imagemagick.org">ImageMagick<FONT SIZE="-2"><SUP>TM</SUP></FONT></A> libraries configured and compiled with DX, WriteImage can read and write a large number of image file formats. ImageMagick is a robust collection of tools and libraries to read, write, and manipulate an image in many image formats (over 68 major formats) including popular formats like TIFF, JPEG, PNG, PDF, PhotoCD, and GIF. The formats that can be written by WriteImage will depend on what functionality is compiled into ImageMagick.
+					<P>For example:</P>
+					<P>WriteImage(y, name, &quot;ImageMagick supported format gamma=2.2 compression=JPEG quality=90 resize=50&quot;);</P>
+					<P>Setting a quality sets the amount of compression for variable compression types such as JPEG. </P>
+					<P>Setting a resize value on the format will use the Lanczos interpolation function. The value represents the percentage of reduction (resize=50 sets it to 50%. A good value for anti-aliasing).</P>
+				</TD>
+			</TR>
+		</TABLE>
+<P>
+
+<P><B>Note: </B>If you are writing out images for use later from within Data
+Explorer, you
+will probably want to set gamma correction to 1 (the default is 2).
+Otherwise, images will be doubly gamma-corrected. (Gamma correction at
+display time can also be controlled using the <TT>DXGAMMA</TT>
+environment variable; see <A HREF="usrgu073.htm#HDRENVVAR">C.1 , "Environment
+Variables"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>). For
+printing or viewing images in another package, use gamma appropriate for
+that device.
+
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu110.htm#HDRREADIMA">ReadImage</A>,
+
+&nbsp;<A HREF="refgu109.htm#HDRQANTIMG">QuantizeImage</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsort Sort #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N 
+#!N Function #!N #!N Sorts the values of a specified list 
+or field in a specified order. #!N #!N Syntax #!N #!N 
+#!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N result #!EF = Sort(  #!F-adobe-times-bold-r-normal--18*   field, 
+descending #!EF ) #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB field TAB scalar list or field TAB none 
+TAB object to be sorted #!N TAB descending TAB flag TAB 
+0 TAB 0: sort in descending order #!N TAB - TAB 
+- TAB - TAB 1: sort in ascending order #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB result TAB scalar list or field TAB sorted object #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   field #!EF #!EF 
+#!I50 #!N specifies the field or list to be sorted. #!N 
+#!N If the parameter is a scalar list, its values must 
+be scalars or 1-vectors. If the parameter is a field, the 
+sorting is performed on the "data" component; other components are reordered 
+and renumbered as appropriate. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   descending #!EF 
+#!EF #!I50 #!N specifies the order of sorting: descending (0) or 
+ascending (1). #!I0 #!N #!N #!N #!N Components #!N #!N The 
+"data" and data-dependent components are reordered according to their data values. 
+Similarly, components on which data depends are reordered. Components that reference 
+reordered components are renumbered. #!N #!N Example Visual Program #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N Sort.net #!EF #!N #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lstack,dxall952 h Stack  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

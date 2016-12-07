@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgpp DXGetPickPoint #!N #!N Function #!N #!N Returns the 
+pick point in world coordinates. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> Error DXGetPickPoint(Field picks, int poke, int pick, Point *point) #!EF 
+#!N #!N Functional Details #!N #!N Given  #!F-adobe-times-bold-r-normal--18*   picks #!EF pick 
+information, poke number  #!F-adobe-times-bold-r-normal--18*   poke #!EF , and pick number  #!F-adobe-times-bold-r-normal--18*   
+pick #!EF , the routine returns the pick point in  #!F-adobe-times-bold-r-normal--18*   
+point #!EF . #!N #!N A  #!F-adobe-times-bold-r-normal--18*   Point #!EF is defined 
+as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct point { float x, y, 
+z; } Point, Vector; #!EF #!N #!N Return Value #!N #!N 
+Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets 
+an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxqpic,dxall1348 h DXQueryPickCount  #!EL  
+,  #!Ldxqpp,dxall1349 h DXQueryPickPath  #!EL  ,  #!Ldxqpoc,dxall1350 h DXQueryPokeCount  #!EL  ,  #!Ldxtpp,dxall1399 h DXTraversePickPath  #!EL  #!EF #!N #!N  #!Lpies,dxall1123 h Pick-Assistance Routines  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgpx,dxall1261 h DXGetPixels  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

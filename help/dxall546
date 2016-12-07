@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen  #!Rall545 
+Macro Body #!N #!EC #!N #!N The macro body consists of 
+a sequence of assignment statements and function calls surrounded by braces 
+ #!F-adobe-times-bold-r-normal--18*   { } #!EF . The functions referred to in these 
+statements need not exist when a macro is defined; however, they 
+must exist when it is executed. #!N #!N Recursive and mutually 
+recursive macro invocations are detected and prevented from executing. Statements are 
+not guaranteed to execute in the order given in the macro's 
+declaration, although some partial ordering is always preserved. Calls to modules 
+that cause external side effects (such as Display) are always executed 
+in the order in which they were specified. #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall546,dxall547 h Macro Examples  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

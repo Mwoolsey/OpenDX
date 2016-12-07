@@ -1,0 +1,67 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rsetvars 
+Setting Variables #!N #!EC #!N #!N DXLink enables a program to 
+set (and retrieve) Data Explorer values in a visual program or 
+macro. It is important to understand the distinction between a Data 
+Explorer object and a Data Explorer value. A Data Explorer object 
+is the basic data structure of the Data Explorer data model 
+(see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in IBM Visualization Data Explorer User's Guide). A Data 
+Explorer value is a character representation of a Data Explorer object 
+(as would be used in the scripting language). The following are 
+common examples of Data Explorer values: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+string: "123" #!N integer: 123 #!N scalar: 1.23 #!N vector: [1 
+2 3] #!N string list: { "123", "456" } #!N integer 
+list: { 123, 456 } #!N scalar list: { 1.23, 4.56 
+} #!N vector list: { [1 2 3 ], [4 5 
+6] } #!EF #!N #!N #!EC #!N #!N Not all Data 
+Explorer objects can be represented by strings (e.g., fields and groups). 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLSetValue(DXLConnection *conn, 
+const char *varname, #!EF const char *value) #!EF #!I50 #!N Sets 
+the global variable specified by  #!F-adobe-times-bold-r-normal--18*   *varname #!EF to the value 
+given in  #!F-adobe-times-bold-r-normal--18*   *value #!EF (double quotation marks--for strings and string 
+lists-- must be escaped with a backslash (\), as in the 
+example below.) Returns OK or ERROR. #!N #!N This function is 
+used primarily to set global variables in a macro and is 
+the mechanism to set "inputs" to a module in a program. 
+#!I0 #!N #!N #!N #!N Global variables are variables that have 
+been assigned or referenced outside a macro (the global scope) or 
+are defined by a reference in a nested scope. Variables assigned 
+with a nested scope are considered local. For example, in the 
+following macro, the variables  #!F-adobe-times-bold-r-normal--18*   a #!EF and  #!F-adobe-times-bold-r-normal--18*   b #!EF 
+are local to the macro (their first occurrence is an assignment), 
+while  #!F-adobe-times-bold-r-normal--18*   c #!EF is a global variable (its first occurrence 
+is a reference). #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro foo( ) 
+--> ( ) #!N { #!N a = "1"; #!N b 
+= c; #!N . . . . #!N } #!N foo( 
+); #!EF #!N #!N #!EC #!N #!N See  #!Lvuim,dxall556 h Variables Used in Macros  #!EL  in IBM 
+Visualization Data Explorer User's Guide for the rules of scoping variables. 
+#!N #!N You might use DXLSetValue to control the name of 
+a data set imported with the Import tool, as in the 
+following Data Explorer macro: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N macro 
+main( ) #!N { #!N object = Import(MyFileNameHere); #!N .... #!N 
+Display(...) #!N } #!EF #!N #!N #!EC #!N #!N The following 
+C code invokes the main macro to import data from the 
+file foobar.dx and render it: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N 
+. . . #!N DXLSetValue(conn, "MyFileNameHere", "\"foobar.dx\""); #!N DXLExecuteOnce(conn); #!N . 
+. . #!EF #!N #!N #!EC #!N #!N The Data Explorer 
+user interface provides a convenient mechanism for placing global variables in 
+a visual program. The DXLInput tool (see  #!Ldxlinpt,dxall802 h DXLInput  #!EL  in IBM Visualization 
+Data Explorer User's Reference) implements a global variable inside the macro 
+main( ). By changing the label in the  #!F-adobe-times-bold-r-normal--18*   Notation #!EF 
+field of the DXLInput tool's configuration dialog box, you can change 
+the name of the global variable. This mechanism provides a clean 
+interface between the visual program and the DXLink application. Named DXLInput 
+tools are simply placed in the program and connected to the 
+module input that needs to be controlled from the application. In 
+the preceding example, a DXLInput tool named MyFileNameHere would be connected 
+to the first input of the Import tool. Then, the same 
+piece of C code could be used to control the program. 
+#!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N DXLError DXLSetInteger(DXLConnection *conn, const 
+char *varname, int value) #!N DXLError DXLSetScalar(DXLConnection *conn, const char *varname, 
+#!N const double value) #!N DXLError DXLSetString(DXLConnection *conn, const char *varname, 
+#!N const char *value) #!EF #!EF #!N #!N #!EC #!N #!N 
+Set the variable specified by  #!F-adobe-times-bold-r-normal--18*   *varname #!EF to  #!F-adobe-times-bold-r-normal--18*   value 
+#!EF (or  #!F-adobe-times-bold-r-normal--18*   *value #!EF ). These are convenience functions that 
+use DXLSetValue. They return OK or ERROR. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall1154,dxall1155 h Retrieving Values Sent From Data Explorer  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

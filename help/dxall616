@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rall615 Animation and Frame Rates #!N #!EC #!N #!N In making 
+animation for TV, you must be aware of "frame rate." Just 
+like all the other references to sampling in the discussion above, 
+TV "samples" time at 30 frames per second (25 in PAL). 
+That means that at most you can have 30 time-step changes 
+per second of video (unless you choose to skip some time 
+steps in your data). Generally, you may want to show many 
+fewer changes than that or the phenomenon may go by too 
+quickly for the viewer to comprehend. On the other hand, when 
+you rotate an object you want to make as many small 
+changes as you can afford. The result will be smooth animation 
+rather than jerky cartoon-like movement. One rule of thumb is to 
+rotate no faster than 3 degrees per frame. That means that 
+your object would rotate 90 degrees in one second, or 360 
+degrees in 4 seconds. Like any rule of thumb, this can 
+be adjusted depending on the case at hand. For example, it 
+is often useful to record the rotation at more than one 
+speed. The human visual system will detect different levels of detail 
+in an object depending on its motion rate. This can be 
+used to your advantage, to get double-duty out of your visualization. 
+Record and play it at one rate, and viewers will see 
+one aspect of your data; play it faster or slower, and 
+different details will be noticed. And often, it is good practice 
+to let an animation "loop" a few times, allowing the viewer 
+to observe the entire process from beginning to end. #!N #!N 
+The Sequencer also can generate "palindromic" motion in which the object 
+swings back and forth rather than jumping from the end of 
+a series back to the beginning. Be sure that you use 
+this feature in a meaningful way: time steps shown in reverse 
+order imply time running backward. Annotation is definitely required in this 
+case! #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall616,dxall617 h Presentation: Issues and Techniques  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

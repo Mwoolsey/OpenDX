@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rambligh AmbientLight #!N 
+#!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N Produces 
+an ambient light. #!N #!N Syntax #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   light 
+#!EF = AmbientLight(  #!F-adobe-times-bold-r-normal--18*   color #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB color TAB vector or 
+string TAB [0.2 0.2 0.2] TAB color and intensity of light 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description 
+#!EF #!N TAB light TAB light TAB the ambient light #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N The AmbientLight module produces a light that equally illuminates all 
+surfaces, regardless of location or direction. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   color #!EF #!EF #!I50 #!N specifies the color 
+of the light either as an RGB vector or as a 
+string. If it is a string, it must be one of 
+the defined color-name strings (see  #!Lcolor,dxall792 h Color  #!EL  ). #!I0 #!N #!N If 
+no value is specified for this parameter, Data Explorer incorporates an 
+ambient light of color [0.2 0.2 0.2] (low-intensity white light) to 
+the scene. The system also uses a distant light of color 
+[1.0 1.0 1.0] (high-intensity white light). (See  #!Llight,dxall884 h Light  #!EL  .) #!N #!N 
+If a value is specified, the system removes the default lights. 
+Therefore, if you use AmbientLight and want shading, you must also 
+add a distant light. In addition, if you desire shading, you 
+should use only relatively small amounts of ambient light (a value 
+less than about 0.5). Use the Collect module to incorporate the 
+resulting light into the scene that is given to the Render, 
+Display, or Image tool. #!N #!N Ambient lights have no effect 
+on volume-rendered objects. #!N #!N Example Visual Programs #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N ThunderGlyphSheet.net #!N UsingLights.net #!N SIMPLE/Light.net #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lcollect,dxall788 h Collect  #!EL  ,  #!Lconvert,dxall799 h Convert  #!EL  ,  #!Llight,dxall884 h Light  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lappend,dxall767 h Append  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

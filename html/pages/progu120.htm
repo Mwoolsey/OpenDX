@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu119.htm">Previous Page</A> &#124; <A HREF="progu121.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXCPLUS" HREF="progu097.htm#PToC_214">DXConcatenate, DXInvert,
+DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply</A></H3>
+<A NAME="IDX1599"></A>
+<A NAME="IDX1600"></A>
+<A NAME="IDX1601"></A>
+<A NAME="IDX1602"></A>
+<A NAME="IDX1603"></A>
+<A NAME="IDX1604"></A>
+<A NAME="IDX1605"></A>
+<A NAME="IDX1606"></A>
+<A NAME="IDX1607"></A>
+<A NAME="IDX1608"></A>
+<A NAME="IDX1609"></A>
+<A NAME="IDX1610"></A>
+<A NAME="IDX1611"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Apply standard matrix operations.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Matrix DXConcatenate(Matrix s, Matrix t)<BR>
+Matrix DXInvert(Matrix t)<BR>
+Matrix DXTranspose(Matrix t)<BR>
+Matrix DXAdjointTranspose(Matrix t)<BR>
+float DXDeterminant(Matrix t)<BR>
+Vector DXApply(Vector v, Matrix t)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TT><STRONG>DXConcatenate</STRONG></TT>
+returns a Matrix that is equivalent to transformation matrix
+<TT><STRONG>s</STRONG></TT>
+followed by transformation matrix
+<TT><STRONG>t</STRONG></TT>.
+<P>
+<TT><STRONG>
+DXInvert,
+DXTranspose,
+DXAdjointTranspose,
+</STRONG></TT>
+and
+<TT><STRONG>
+DXDeterminant
+</STRONG></TT>
+compute the matrix inverse,
+transpose, and adjoint transpose, and determinant,
+respectively.
+<P>
+<TT><STRONG>
+DXApply
+</STRONG></TT>
+applies matrix transformation
+<TT><STRONG>t</STRONG></TT>
+to
+<TT><STRONG>v</STRONG></TT>.
+<P>
+A
+<TT><STRONG>Matrix</STRONG></TT>
+is defined as follows:
+<BR>
+<TT><STRONG><BR>
+typedef struct matrix {<BR>
+        /* xA + b * /<BR>
+        float A&#91;3&#93;&#91;3&#93;<BR>
+        float b&#91;3&#93;;<BR>
+} Matrix<BR>
+</STRONG></TT><BR>
+<P>
+A
+<TT><STRONG>
+Point
+</STRONG></TT>
+and
+<TT><STRONG>
+Vector
+</STRONG></TT>
+is defined as follows:
+<BR>
+<TT><STRONG><BR>
+typedef struct point {<BR>
+    float x, y, z;<BR>
+} Point, Vector;<BR>
+</STRONG></TT><BR>
+<P>
+<P><STRONG>Return Value</STRONG>
+<P>
+Always returns the result of the operation.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu108.htm#HDRDXATM">DXApplyTransform</A>,
+<A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY, DXRotateZ, DXScale,
+DXTranslate, DXMat</A>
+</STRONG></TT>
+<P>
+<A HREF="progu063.htm#HDRBOPS">"Basic Operations"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu119.htm">Previous Page</A> &#124; <A HREF="progu121.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

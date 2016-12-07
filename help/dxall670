@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall669 Data #!N #!EC 
+#!N #!N To indicate that a netCDF variable contains values corresponding 
+to the data component, it must have the following attribute: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF :field = "  #!F-adobe-times-bold-i-normal--18*   
+fieldname #!EF "; #!EF #!N #!N #!EC  #!F-adobe-times-bold-i-normal--18*   Variable1 #!EF is 
+the name of the netCDF variable containing data values to be 
+imported.  #!F-adobe-times-bold-i-normal--18*   fieldname #!EF is the name of the Data Explorer 
+field by which the user refers to the data (for example, 
+"temperature," "pressure," "wind"). If more than one variable is tagged with 
+the same field name, each variable is read into a field, 
+and the fields are collected into a group. #!N #!N The 
+data are read in as an array of values, one number 
+per grid point. If the data are actually a vector or 
+a matrix at each grid point, use one of the following 
+modifiers: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-bold-i-normal--18*   
+variable1 #!EF :field = "  #!F-adobe-times-bold-i-normal--18*   fieldname #!EF , vector"; #!N 
+#!I30 #!N o  #!F-adobe-times-bold-i-normal--18*   variable1 #!EF :field = "  #!F-adobe-times-bold-i-normal--18*   fieldname 
+#!EF , matrix"; #!N #!I0 #!N #!EF #!N The non-scalar data 
+are stored in additional dimensions for the variable. For a static 
+three-dimensional 3-vector, the three components are stored in a fourth dimension 
+of size 3. #!N #!N If the data have both regular 
+connections and regular positions, no other attributes are required. A regular 
+grid is assumed, with the origin at 0.0, and a spacing 
+of 1.0 along each axis. The number of axes will be 
+determined from the number of dimensions in the data array. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall670,dxall671 h Positions  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

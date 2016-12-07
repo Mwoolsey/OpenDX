@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqacv DXQueryArrayConvert, DXQueryArrayConvertV #!N #!N Function 
+#!N #!N Determine if the given Array can be converted to 
+an Array with the given type, category, rank, and shape. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXQueryArrayConvert(Array a, Type type, 
+Category category, int rank, ...) Error DXQueryArrayConvertV(Array a, Type type, Category 
+category, int rank, int *shape) #!EF #!N #!N Functional Details #!N 
+#!N The Array can be converted only if  #!F-adobe-times-bold-r-normal--18*   type #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   category #!EF ,  #!F-adobe-times-bold-r-normal--18*   rank #!EF , and  #!F-adobe-times-bold-r-normal--18*   
+shape #!EF are all compatible with  #!F-adobe-times-bold-r-normal--18*   a #!EF . #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   rank #!EF and  #!F-adobe-times-bold-r-normal--18*   shape #!EF are compatible if 
+the rank and shape of  #!F-adobe-times-bold-r-normal--18*   a #!EF and the given 
+ #!F-adobe-times-bold-r-normal--18*   rank #!EF and  #!F-adobe-times-bold-r-normal--18*   shape #!EF differ only by dimensions 
+that have a shape of  #!F-adobe-times-bold-r-normal--18*   1 #!EF . For example, 
+an Array of  #!F-adobe-times-bold-r-normal--18*   1 #!EF *  #!F-adobe-times-bold-r-normal--18*   n #!EF matrices 
+is compatible with an Array of vectors. #!N #!N  #!Ltct228,dxall1339 t Table 28  #!EL  and 
+ #!Lcct229,dxall1339 t Table 29  #!EL  summarize the conversions allowed between types and categories. #!N #!N 
+Return Value #!N #!N Return  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and set an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxacv,dxall1174 h DXArrayConvert, DXArrayConvertV  #!EL  ,  #!Ldxef,dxall1207 h DXExtractFloat  #!EL  ,  #!Ldxei,dxall1208 h DXExtractInteger  #!EL  ,  #!Ldxens,dxall1209 h DXExtractNthString  #!EL  , 
+ #!Ldxep,dxall1210 h DXExtractParameter  #!EL  ,  #!Ldxes,dxall1211 h DXExtractString  #!EL  ,  #!Ldxqp,dxall1347 h DXQueryParameter  #!EL  #!EF #!N #!N  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxqca,dxall1341 h DXQueryConstantArray  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

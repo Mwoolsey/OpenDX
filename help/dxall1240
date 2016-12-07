@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxggc DXGetGroupClass #!N #!N Function #!N #!N Returns the subclass 
+of a Group Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Class DXGetGroupClass(Group g) #!EF #!N #!N Functional Details #!N #!N Returns 
+the subclass of a Group Object  #!F-adobe-times-bold-r-normal--18*   g #!EF . This 
+will be  #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF if the Object is a generic 
+Group Object, or either  #!F-adobe-times-bold-r-normal--18*   CLASS_SERIES #!EF ,  #!F-adobe-times-bold-r-normal--18*   CLASS_MULTIGRID #!EF 
+, or  #!F-adobe-times-bold-r-normal--18*   CLASS_COMPOSITEFIELD #!EF if the Object class is a 
+subclass of Group. #!N #!N A  #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF Object and 
+its subclasses contain other Objects that are referred to as members. 
+The members of a  #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF Object can be of 
+any class and are not restricted as to type, whereas the 
+ #!F-adobe-times-bold-r-normal--18*   CLASS_SERIES #!EF ,  #!F-adobe-times-bold-r-normal--18*   CLASS_MULTIGRID #!EF , and  #!F-adobe-times-bold-r-normal--18*   CLASS_COMPOSITEFIELD 
+#!EF generally contain members of  #!F-adobe-times-bold-r-normal--18*   TYPE_FIELD, #!EF and they assume 
+the type of the first typed member to be added and 
+are untyped if empty. All of the subclasses require that the 
+type of all its members is the same; see  #!F-adobe-times-bold-r-normal--18*   DXSetGroupType 
+#!EF . A  #!F-adobe-times-bold-r-normal--18*   CLASS_SERIES #!EF is generally used to maintain 
+time-variant data, whereas the  #!F-adobe-times-bold-r-normal--18*   CLASS_COMPOSITEFIELD #!EF and  #!F-adobe-times-bold-r-normal--18*   CLASS_MULTIGRID #!EF 
+are used to maintain spatially partitioned data within a single field. 
+#!N Note: A Group can be structured to take advantage of 
+more than one Group class. For example, one could have a 
+Series of Composite Fields where each Series member is a Field 
+that has been partitioned into a Composite Field. #!N #!N #!N 
+Return Value #!N #!N Returns the subclass of a Group Object 
+or returns an undefined value if  #!F-adobe-times-bold-r-normal--18*   g #!EF is not 
+a Group. The subclass returned will be: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF , if the 
+Object is a generic Group Object; or #!N #!I30 #!N o 
+ #!F-adobe-times-bold-r-normal--18*   CLASS_SERIES #!EF ,  #!F-adobe-times-bold-r-normal--18*   CLASS_MULTIGRID #!EF , or  #!F-adobe-times-bold-r-normal--18*   CLASS_COMPOSITEFIELD 
+#!EF , if the Object class is a subclass of  #!F-adobe-times-bold-r-normal--18*   
+Group #!EF . #!N #!I0 #!N #!EF #!N #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgoc,dxall1254 h DXGetObjectClass  #!EL  ,  #!Ldxncf,dxall1313 h DXNewCompositeField  #!EL  ,  #!Ldxng,dxall1317 h DXNewGroup  #!EL  ,  #!Ldxnmg,dxall1320 h DXNewMultiGrid  #!EL  
+,  #!Ldxns,dxall1326 h DXNewSeries  #!EL  #!EF #!N #!N  #!Lmbs,dxall1064 h Generic Operations  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxgisb,dxall1241 h DXGetImageSize, DXGetImageBounds  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

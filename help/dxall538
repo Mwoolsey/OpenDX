@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall537 Function Call Arguments 
+#!N #!EC #!N #!N Data Explorer provides a flexible function-calling mechanism 
+for invoking macros and modules. #!N #!N A macro's definition includes 
+a list of identifiers that are used as its input formal 
+parameters. The formal parameters act as names and place holders for 
+the arguments that you supply when the macro is called. #!N 
+#!N Modules (functions that are compiled into the system) have named 
+formal parameters. The general form of a function (macro or module) 
+call, whether used as the right hand side of an assignment 
+statement or on its own, is: #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N  #!F-adobe-times-bold-i-normal--18*   Name #!EF (  #!F-adobe-times-bold-i-normal--18*   arglist #!EF )[attribute_name:value,...] #!EF #!N 
+#!N #!EC #!N #!N where  #!F-adobe-times-bold-i-normal--18*   Name #!EF is the name 
+of the function being called and  #!F-adobe-times-bold-i-normal--18*   arglist #!EF is a 
+list of arguments that are separated by commas (the list can 
+be empty). Following the function may optionally be a list of 
+attribute_name:value pairs enclosed in square brackets. Each argument's value can be 
+either a variable identifier, a constant value, an expression, or the 
+special identifier  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . Note that nested function calls 
+ #!F-adobe-times-medium-i-normal--18*   cannot #!EF be passed as arguments. The argument values can 
+be passed either by position or by name, as described in 
+the following sections. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lall538,dxall539 h Positional Arguments  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgprai DXGetProductArrayInfo #!N #!N Function #!N #!N 
+Returns the number of terms and the terms of a Product 
+Array. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> ProductArray DXGetProductArrayInfo(ProductArray a, 
+int *n, Array *terms) #!EF #!N #!N Functional Details #!N #!N 
+If  #!F-adobe-times-bold-r-normal--18*   n #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , this 
+routine returns in  #!F-adobe-times-bold-r-normal--18*   *n #!EF the number of terms in 
+the product  #!F-adobe-times-bold-r-normal--18*   a #!EF . If  #!F-adobe-times-bold-r-normal--18*   terms #!EF is 
+not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns in  #!F-adobe-times-bold-r-normal--18*   *terms #!EF 
+the terms of the product. #!N #!N Product Arrays provide a 
+compact method for specifying regular and partially regular "positions" components. In 
+their simplest form, a regular n-dimensional grid may be defined by 
+combining n Regular Arrays, each of which specifies a set of 
+points along some n-dimensional delta vector. Partially regular "positions" components may 
+be specified compactly by combining regular and irregular terms. #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXGetProductArrayInfo #!EF allows access to the constituent terms of the 
+Product Array and is useful in cases where the terms may 
+be handled independently, or when knowledge of the separate terms make 
+it possible to process the Product Array without expansion. Array handles 
+also provide a mechanism to access individual elements of a Product 
+Array without expansion. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   
+a #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error 
+code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  ,  #!Ldxnpav,dxall1323 h DXNewProductArray, DXNewProductArrayV  #!EL  
+,  #!Ldxqgp,dxall1344 h DXQueryGridPositions  #!EL  #!EF #!N #!N  #!Lptas,dxall1077 h Product Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxgrai,dxall1264 h DXGetRegularArrayInfo  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

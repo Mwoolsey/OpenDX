@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - CDF Files</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu068.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu070.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu067.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRCDF" ></A>B.3 CDF Files</H2>
+		<A NAME="IDX1020"></A>
+		<P>
+CDF is a data abstraction for self-describing multidimensional
+Arrays.
+It represents a simpler data model than that of Data Explorer, one similar to
+that of the Array Object.
+Data are accessed in CDF through an applications programming interface,
+available as C and FORTRAN libraries from the National Space Science
+Data Center, NASA/Goddard Space Flight Center, Greenbelt, MD.
+Data in CDF may be stored in a number of physical formats
+(e.g., native or portable binary, single or multiple files, row or
+column majority), but the interface is the same.
+Hence, data in a CDF written in a format "foreign" to the
+workstation on which Data Explorer is running are converted
+automatically during the Import process.
+<P>
+Data Explorer provides support for importing Fields stored as CDF
+r-variables.
+To import data from a CDF, specify the CDF name as the
+<TT><STRONG>name</STRONG></TT>
+parameter in the Import Configuration dialog box (not the file
+name, since the CDF may be in multiple-file format).
+If the CDF has more than one variable, which is typical, Data Explorer
+categorizes each variable as positions, series, or data
+as appropriate.
+Variables that vary in one dimension only and are not record-variant
+are considered positions, and become the positions component in
+a Field Object.
+In many cases, these variables may have the CDF variable mnemonics
+of LATITUDE and LONGITUD, which are mapped to the first (x) and
+second (y) components of the positions vector, if they exist.
+This mapping permits direct use of these data with cartographic and
+other tools for the earth and space sciences that are publicly
+available for use with Data Explorer.
+Otherwise, the first <I>n</I> variables categorized as positions
+(where <I>n</I> is the dimensionality of the CDF dimensions)
+are used to form the positions component.
+Any additional such variables are treated as data
+variables.
+If there are no positions-type variables, the positions component will
+be a regular grid with origin of 0 and increments of 1 in each
+axis, where the number of axes corresponds to the
+dimensionality of the imported CDF r-variable.
+<P>
+If there are records in the CDF, each record is imported as a
+series member.
+In many cases there is a variable with the mnemonic EPOCH, which
+corresponds to a time stamp for each record in the CDF.
+If so, the double representing msec since 0 AD in each value of EPOCH
+is stored as the series position attribute.
+If not, the first variable that is record-variant and
+nondimensional-variant is considered the
+series variable.
+This variable is imported as the series position attribute.
+If there is no time variable, the series position starts at 1 and
+increments by 1 per series member, so that there is one
+member for each record in the CDF.
+The series position attribute, containing the time stamp, may be
+accessed with the  Attribute module.
+<P>
+You can specify the name or names of the data variable in the
+<I>variable</I>
+parameter of the Import tool and the corresponding variable(s) will be
+imported.
+In the same way, you can use <I>start</I>, <I>end</I>, and
+<I>delta</I> to import a subset of CDF records.
+<P>
+Variable and global attributes present in the CDF are imported as Object
+attributes.
+These attributes may be accessed through the Attribute and Inquire
+modules (e.g., to build metadata-driven applications).
+<P>
+Variables that vary in all dimensions and are record-variant are
+considered data variables.
+Any variable that is not a position or time variable is also considered
+a data variable, allowing every variable to be imported.
+If you want the positions to be a variable other than the one chosen by
+Data Explorer, you can use Replace or Rename to switch the components (e.g.,
+two or more sets of positions information are stored for
+different coordinate systems).
+Each data variable becomes a data component in a Field
+Object.
+Hence, there is one Field for each data variable in the Group
+imported.
+Since Data Explorer can handle data more flexibly than CDF, some assumptions
+are imposed upon certain classes of data that may be imported:
+<UL COMPACT>
+<LI>Since data stored in CDF are not distinguished as cell-centered or
+node-based, all data components are treated as the latter,
+(i.e., data dep positions).
+The Post module may be used to transform a Field to cell-centered
+(i.e., data dep connections).
+<LI> Since CDF does not "natively" support Fields other than
+rank=0, all data variables are treated as scalars.
+The Compute module can be used to construct the appropriate vector
+representation from multiple scalar Fields.
+<LI>The connections component depends on the dimensionality of the
+data variable such that 0 = none, 1 = lines, 2 = quads,
+3 = cubes, and so on.
+<LI>Each positions variable is considered a term of a Product Array
+to form the positions component.
+<LI>All variables of 0 dimension are imported as the data component of
+a Field with no positions and no connections.
+If the LATITUDE and/or LONGITUD variables exist, the other variables
+are considered data components of Fields with positions and no
+connections, where the positions are those latitude and
+longitude variables.
+You can construct an appropriate Field with positions and connections
+from the variables that are imported through modules like
+Construct, Regrid, and Connect.
+<LI>All variables of 1 dimension are imported as the data component of
+a Field of lines, where the positions would typically be a scalar
+(i.e., the one independent variable).
+If the LATITUDE and LONGITUD variables exist, then the positions are a
+2-vector constructed from the latitude and longitude Arrays, but
+still a line.
+<P>
+One-dimensional variables in CDF may be of one of three distinct
+classes, which are NOT distinguished in the way they are
+stored in a CDF file:
+1) true 1-dimensional or line data; 2) indexed point data;
+or 3) indexed mesh data.
+You must know which class the variable belongs to in order to ensure
+that Data Explorer processes the data in an appropriate fashion.
+The first class is handled correctly.
+For the second and third class, the connections component of any
+imported Field(s) may be meaningless.
+You can use the Remove module to eliminate it and treat the Field as
+scattered or point data (i.e., use Regrid or Connect to create
+a more appropriate mesh).
+<P>
+Treating such data as a collection of points is consistent with the
+original design philosophy of CDF and CDF applications.
+The third case actually represents an irregular mesh, which Data Explorer
+can support directly.
+Unfortunately, the connectivity information (i.e., the mesh structure)
+is typically not stored in the CDF, so Import cannot directly
+reconstruct the original mesh.
+Hence, the data must be treated as point data unless you have
+information, external to the CDF, that can be used to
+recreate the original mesh structure.
+</UL>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

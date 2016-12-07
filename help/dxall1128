@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue 
+#!N  #!Rphos Path Operations #!N #!EC #!N #!N The following operations 
+produce a geometric Object from a path. In addition to the 
+functions noted here, the Render module is capable of directly rendering 
+a path as a series of one-pixel lines. A path is 
+a Field with 1-dimensional regular connections. A path can be created 
+by, for example: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N f = DXNewField(); 
+#!N DXSetComponentValue(f, "positions", ...); #!N DXSetConnections(f, "lines", DXMakeGridConnections(1, n)); #!N DXEndField(f); 
+#!EF #!N #!N #!EC where  #!F-adobe-times-bold-r-normal--18*   n #!EF is the number 
+of points. #!N #!N Both of the operations listed here use 
+"normals" and "tangent" components if they are present; otherwise, they compute 
+approximations to the normals and tangents, as follows: the tangent is 
+the first derivative of the path; the normal is perpendicular to 
+the tangent and lies in the plane formed by the tangent 
+and the second derivative of the path. In each case, appropriate 
+normals are associated with the result for shading. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXRibbon() #!EF #!EF #!I50 #!N 
+Produces a ribbon of the given width from a path or 
+group of paths. See  #!Ldxrib,dxall1361 h DXRibbon  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Object DXTube() #!EF #!EF #!I50 #!N Produces a tube of a 
+given diameter from a path or group of paths. See  #!Ldxtbe,dxall1401 h DXTube  #!EL  
+. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lrendchp,dxall1129 h Rendering  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

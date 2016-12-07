@@ -1,0 +1,8 @@
+src=`echo $1 | tr "\134" "/"`
+dst=`echo $2 | tr "\134" "/"`
+echo src: $src dst: $dst
+sed -e 's/"/\\"/g' $src | \
+	sed -e 's/\\\\"/\\\\\\"/g' | \
+	sed -e 's/^/"/' | \
+	sed -e 's/$/\\n",/' > $dst
+echo NULL >> $dst

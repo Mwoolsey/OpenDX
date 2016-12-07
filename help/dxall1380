@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsgtv DXSetGroupType, DXSetGroupTypeV #!N #!N Function 
+#!N #!N Associate a type with a Group. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Group DXSetGroupType(Group g, Type t, Category c, 
+int rank, ...) Group DXSetGroupTypeV(Group g, Type t, Category c, int 
+rank, int *shape) #!EF #!N #!N Functional Details #!N #!N Associate 
+a type  #!F-adobe-times-bold-r-normal--18*   t #!EF , category  #!F-adobe-times-bold-r-normal--18*   c #!EF , 
+ #!F-adobe-times-bold-r-normal--18*   rank #!EF , and  #!F-adobe-times-bold-r-normal--18*   shape #!EF , (hereafter referred 
+to as simply type), with Group  #!F-adobe-times-bold-r-normal--18*   g #!EF . When 
+the Group type is set, all current members are checked for 
+type, and all members added subsequently are checked for type. The 
+type of a Group may be retrieved by  #!F-adobe-times-bold-r-normal--18*   DXGetType #!EF 
+. #!N #!N The type is one of the following: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N TYPE_BYTE TYPE_HYPER TYPE_SHORT #!N TYPE_UBYTE TYPE_INT 
+TYPE_USHORT #!N TYPE_DOUBLE TYPE_UINT TYPE_STRING #!N TYPE_FLOAT #!EF #!EF #!N #!N 
+#!EC #!N #!N The category is either  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL #!EF or 
+ #!F-adobe-times-bold-r-normal--18*   CATEGORY_COMPLEX #!EF . #!N #!N Array Objects are always typed. 
+Fields are typed if they contain a "data" component; their type 
+is the same as that of the "data" component. Series, MultiGrids, 
+and Composite Fields are typed if they contain typed Fields.  #!F-adobe-times-bold-r-normal--18*   
+DXSetGroupType #!EF may be used to explicitly type generic Groups. If 
+typed, all Fields contained in the Group must match the type. 
+Other Objects do not contain type information.  #!F-adobe-times-bold-r-normal--18*   DXSetGroupType #!EF needs 
+to be used if the member Fields are manipulated so that 
+the type of their "data" components, and therefore the Field type, 
+changes. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   g #!EF 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxng,dxall1317 h DXNewGroup  #!EL  ,  #!Ldxsem,dxall1376 h DXSetEnumeratedMember  #!EL  ,  #!Ldxsm,dxall1382 h DXSetMember  #!EL  
+#!EF #!N #!N  #!Lmbs,dxall1064 h Generic Operations  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxsia,dxall1381 h DXSetIntegerAttribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

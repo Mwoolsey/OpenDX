@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu168.htm">Previous Page</A> &#124; <A HREF="progu170.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXGEM"
+HREF="progu097.htm#PToC_263">DXGetEnumeratedMember</A></H3>
+<A NAME="IDX1725"></A>
+<A NAME="IDX1726"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Returns the members of a Group by index.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXGetEnumeratedMember(Group g, int n, char **name)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Returns the
+<TT><STRONG>n</STRONG></TT>th
+member of Group
+<TT><STRONG>g</STRONG></TT>.  The
+members of a Group may be indexed by calling this routine with
+successive values of <TT><STRONG>n</STRONG></TT> starting
+with 0 until
+<TT><STRONG>
+NULL
+</STRONG></TT>
+is returned.  This routine
+returns the name of the <TT><STRONG>n</STRONG></TT>th
+member in
+<TT><STRONG>
+*name
+</STRONG></TT>
+if
+<TT><STRONG>
+name
+</STRONG></TT>
+is not
+<TT><STRONG>NULL</STRONG></TT>.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">The numbering changes as members are added and deleted.
+</td></tr></table>
+<P><STRONG>Return Value</STRONG>
+Returns the <TT><STRONG>n</STRONG></TT>th member or returns
+<TT><STRONG>NULL</STRONG></TT> but does not set an
+error code if <TT><STRONG>n</STRONG></TT> is out
+of range.
+Sets an error code if <TT><STRONG>g</STRONG></TT> is not a Group.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu181.htm#HDRDXGM">DXGetMember</A>,
+<A HREF="progu182.htm#HDRDXGMC">DXGetMemberCount</A>,
+<A HREF="progu252.htm#HDRDXNG">DXNewGroup</A>,
+<A HREF="progu311.htm#HDRDXSEM">DXSetEnumeratedMember</A>
+</STRONG></TT>
+<P>
+<A HREF="progu045.htm#HDRMBS">"Generic Operations"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu168.htm">Previous Page</A> &#124; <A HREF="progu170.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

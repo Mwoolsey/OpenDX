@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsco DXSetClippedObjects #!N 
+#!N Function #!N #!N Sets the Object to be rendered and 
+the Object with which to clip it during the rendering process. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Clipped DXSetClippedObjects(Clipped c, Object 
+render, Object clipping) #!EF #!N #!N Functional Details #!N #!N Given 
+an existing Clipped Object  #!F-adobe-times-bold-r-normal--18*   c #!EF --consisting of an Object 
+to be rendered (  #!F-adobe-times-bold-r-normal--18*   render #!EF ) and an Object 
+to do the clipping (  #!F-adobe-times-bold-r-normal--18*   clipping #!EF )--this routine replaces 
+either or both. If  #!F-adobe-times-bold-r-normal--18*   render #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , the Object to be clipped is replaced by  #!F-adobe-times-bold-r-normal--18*   
+render #!EF . If  #!F-adobe-times-bold-r-normal--18*   clipping #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , the clipping Object is replaced by  #!F-adobe-times-bold-r-normal--18*   clipping #!EF 
+. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   c #!EF 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgci,dxall1226 h DXGetClippedInfo  #!EL  ,  #!Ldxncd,dxall1312 h DXNewClipped  #!EL  #!EF #!N 
+#!N  #!Lcdcs,dxall1137 h Clipped Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxsca,dxall1371 h DXSetComponentAttribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

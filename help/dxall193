@@ -1,0 +1,55 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall192 Identifying Connections #!N #!EC #!N 
+#!N In Data Explorer, we identify connections in the following way. 
+List the sample point location vertices in any order: that list 
+is called the "positions" as we discussed above. Consider each point 
+in the positions list to have an ordinal number, starting at 
+0 for the first point in the list (these ordinal numbers 
+are not explicitly listed in a Data Explorer file). A connection 
+is denoted by a "list of lists" of numbers in which 
+each entry represents the ordinal values of the points that are 
+to be connected, listed in the order they are to be 
+connected. So for example, if the first point in the positions 
+list is "0.0 0.0" and the second point is "1.0 0.0," 
+we denote a  #!F-adobe-times-medium-i-normal--18*   line #!EF connection between these two points 
+by "0 1," indicating that a line joins point 0 (first 
+point in the positions list) to point 1 (the second point 
+in the list). #!N #!N As mentioned above, a  #!F-adobe-times-medium-i-normal--18*   triangle 
+#!EF connection must reference three positions and a  #!F-adobe-times-medium-i-normal--18*   quad #!EF 
+references four positions. For complete examples of position and connection lists, 
+see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  . #!N #!N As a direct extension of this 
+concept, when we define volumetric elements like  #!F-adobe-times-medium-i-normal--18*   cubes #!EF and 
+ #!F-adobe-times-medium-i-normal--18*   tetrahedra #!EF , we can perform 3-dimensional interpolation and derive 
+a reasonable data value for any point in a sample volume. 
+The good news about all of this interpolation is that Data 
+Explorer already knows how to do the necessary calculations. As a 
+researcher, your job is to define your data space to Data 
+Explorer--its positions, connections, and data-dependency--but you do not have to worry 
+about the details of how the interpolation is actually performed. #!N 
+#!N The connections list is optional if it makes no sense 
+to connect your sample points; for example, if you are studying 
+gas molecules, there may be no meaningful interconnecting lines between separate 
+molecules. Nevertheless, you may wish to define "line" connections linking the 
+atoms within each molecule, in order to visualize interatomic bonds or 
+protein backbones; or you may define cubic volumetric elements in the 
+space around the nucleus if you wish to visualize electronic potential 
+fields, for instance. #!N #!N In any case, you must define 
+a set of connections before you can perform interpolation operations between 
+sampled data values. This is true both for position-dependent data and 
+for connection-dependent data. Once again, positions are discrete points in space, 
+and connections are logical paths between those points representing reasonable interpolation 
+paths between the sampled data values. If you do not have 
+connection information available, you can use the Connect or Regrid modules 
+to create connections for scattered point data. #!N #!N If you 
+work with regular grids, the "connections" can be defined in a 
+simple way by Data Explorer regardless of the import format you 
+are using. See  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in this Guide and  #!Lqimd,dxall109 h Importing Data  #!EL  in IBM 
+Visualization Data Explorer QuickStart Guide. #!N #!N If your work requires 
+irregular grids, you will need to carefully read the section of 
+this manual that describes the format of Data Explorer element types. 
+You may need to write a filter program to convert the 
+connection list output from your finite element program to the format 
+required by Data Explorer before you can import and visualize data 
+sampled on arbitrary structures. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Linvdat,dxall194 h Invalid Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

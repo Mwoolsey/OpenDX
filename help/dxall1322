@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnp DXNewPrivate #!N #!N Function #!N #!N 
+Creates an Object that contains a pointer to private data. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Private DXNewPrivate(Pointer data, Error (*deleteFunction)(Pointer)) 
+#!EF #!N #!N Functional Details #!N #!N The user is responsible 
+for the private data. If the data Object is larger than 
+the single pointer, you also need to specify  #!F-adobe-times-bold-r-normal--18*   deleteFunction #!EF 
+, which takes an argument of type  #!F-adobe-times-bold-r-normal--18*   Pointer #!EF . 
+If  #!F-adobe-times-bold-r-normal--18*   deleteFunction #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it 
+will be called when the Private Object is deleted and it 
+will be passed the pointer  #!F-adobe-times-bold-r-normal--18*   data #!EF . In most 
+cases,  #!F-adobe-times-bold-r-normal--18*   data #!EF should be a pointer to global memory. 
+#!N #!N Private objects are useful for storing arbitrary structures in 
+the cache for later use. Note: Private Objects cannot be used 
+between different nodes when running in distributed mode. #!N #!N The 
+Object created can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N 
+#!N Return Value #!N #!N Returns the Private Object or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxalp,dxall1171 h DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly, DXAllocateLocalOnlyZero  #!EL  ,  #!Ldxgpd,dxall1262 h DXGetPrivateData  #!EL  ,  #!Ldxscev,dxall1369 h DXSetCacheEntry, DXSetCacheEntryV  #!EL  #!EF #!N 
+#!N  #!Lprivsec,dxall1081 h Private Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxnpav,dxall1323 h DXNewProductArray, DXNewProductArrayV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

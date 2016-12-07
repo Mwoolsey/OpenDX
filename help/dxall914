@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rqantimg QuantizeImage #!N #!N Category #!N #!N 
+ #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N #!N Converts an RGB image to 
+a byte image with a colormap #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   images #!EF = QuantizeImage(  #!F-adobe-times-bold-r-normal--18*   Images, nColors 
+#!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB images TAB image, image series TAB (none) TAB image(s) 
+to quantize #!N TAB nColors TAB integer TAB 256 TAB maximum 
+number of colors to use #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Description #!EF #!N TAB images TAB image, 
+image series TAB resulting quantized image(s) #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N QuantizeImage converts an 
+image from a format in which the "colors" component is a 
+list of RGB (red, green, blue) vectors, with as many entries 
+as there are pixels in the image, to a format in 
+which the "colors" component is simply a list of unsigned bytes 
+which are interpreted as pointers into a color table. #!N #!N 
+QuantizeImage sets a "direct color map" attribute of 1 on its 
+output. When the output  #!F-adobe-times-bold-r-normal--18*   images #!EF is passed to Display, 
+this will force Display to use the colormap specified by QuantizeImage, 
+rather than a default colormap (see  #!Ludcmps,dxall813 h Using Direct Color Maps  #!EL  ). This will be 
+the case even if you set the environment variable DX8BITCMAP to 
+1. You can use the Options module to set a "direct 
+color map" attribute of 0 on the output of QuantizeImage to 
+force Display to use a shared colormap. #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   images #!EF #!EF #!I50 #!N is the 
+image or series of images to be quantized. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   nColors #!EF #!EF #!I50 #!N is the maximum number 
+of entries in the color table. #!I0 #!N #!N #!N #!N 
+The output  #!F-adobe-times-bold-r-normal--18*   images #!EF will be a new image or 
+series of images in which the color table is attached as 
+a component called "color map." #!N #!N The advantage of using 
+QuantizeImage is that the image will consume much less memory. #!N 
+#!N Components #!N #!N Changes the "colors" component. Adds a "color 
+map" component. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N SIMPLE/QuantizeImage.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lrender,dxall923 h Render  #!EL  ,  #!Lreadima,dxall915 h ReadImage  #!EL  ,  #!Lwriteim,dxall981 h WriteImage  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  ,  #!Loptions,dxall898 h Options  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lreadima,dxall915 h ReadImage  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

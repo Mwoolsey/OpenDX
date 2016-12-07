@@ -1,0 +1,11 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxre DXResetError #!N #!N Function #!N 
+#!N Resets the error state. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> void DXResetError() #!EF #!N #!N Functional Details #!N #!N Resets 
+the error state. This should be used after correcting an error 
+so that subsequent queries of the error state do not return 
+an incorrect indication. #!N #!N Return Value #!N #!N None. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxge,dxall1235 h DXGetError  #!EL  ,  #!Ldxse,dxall1377 h DXSetError, DXErrorReturn, DXErrorGoto  #!EL  #!EF #!N 
+#!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxrcol,dxall1360 h DXRGB  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

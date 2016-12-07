@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rcefd Composite Fields #!N 
+#!EC #!N #!N A Composite Field is a Group of Fields 
+treated as a single entity. Parallelism in Data Explorer is achieved 
+by explicitly partitioning Fields into a Composite Field. Composite Fields are 
+typically created with the  #!F-adobe-times-bold-r-normal--18*   DXPartition #!EF routine (see  #!Ldxpart,dxall1330 h DXPartition  #!EL  ). 
+#!N #!N The connections component of each member must be of 
+the same type, and the members are expected to be disjoint 
+and abutting (i.e., sharing positions, data, etc., at the boundary). #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   CompositeField DXNewCompositeField() #!EF #!EF 
+#!I50 #!N Creates a new Composite Field Object. See  #!Ldxncf,dxall1313 h DXNewCompositeField  #!EL  . 
+#!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lprts,dxall1068 h Parts  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

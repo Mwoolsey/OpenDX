@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rstatist Statistics #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N 
+#!N Function #!N #!N Computes statistical characteristics of a field or 
+list. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N mean, 
+sd, var, min, max #!EF = Statistics(  #!F-adobe-times-bold-r-normal--18*   data #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+data TAB field or value list TAB none TAB data set 
+used in statistical #!N TAB - TAB - TAB - TAB 
+computations #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB mean TAB scalar TAB the mean #!N 
+TAB sd TAB scalar TAB the standard deviation #!N TAB var 
+TAB scalar TAB the variance #!N TAB min TAB scalar TAB 
+minimum value #!N TAB max TAB scalar TAB maximum value #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module finds the mean, standard deviation, variance, minimum, and 
+maximum of the value list, or the "data" component if a 
+field is input. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+data #!EF #!EF #!I50 #!N specifies the field or list of 
+values on which the module performs statistical computations. #!N #!N For 
+vector fields, the computations are based on the magnitude of the 
+vector. For matrices, the computations are based on the determinant of 
+the matrix. #!I0 #!N #!N #!N #!N Example Visual Program #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!EF #!N #!N #!EC #!N #!N 
+See Also #!N #!N  #!Lcompute,dxall795 h Compute  #!EL  ,  #!Lhistogr,dxall859 h Histogram  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lstreakl,dxall954 h Streakline  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

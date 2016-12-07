@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu070.htm">Previous Page</A> &#124; <A HREF="progu072.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRPIES" HREF="progu066.htm#PToC_152">14.6 Pick-Assistance
+Routines</A></H2>
+<A NAME="IDX1185"></A>
+<A NAME="IDX1186"></A>
+<P>
+The pick structure output of the Pick tool is a Field and the picked
+points are listed in the "positions" component of
+that Field.
+Other information may be accessed using the pick-assistance
+routines listed here.
+These allow you to query the pick structure and to traverse a picked
+Object.
+(See <A HREF="progu034.htm#HDRSHOWP">9.2 , "ShowPick Module Example--Using Color
+to Show a Picked Object"</A>.)
+<P>
+It is recommended that you use the pick-assistance routines to
+manipulate picked Objects and pick structures, since the
+pick structure is undefined internally and may
+change in future.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>Error DXGetPickPoint()</STRONG></TT>
+</TD><TD><P>Returns the pick point in world coordinates.
+<A NAME="IDX1187"></A>
+<A NAME="IDX1188"></A>
+See  <A HREF="progu195.htm#HDRDXGPP">DXGetPickPoint</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXQueryPickCount()</STRONG></TT>
+</TD><TD><P>Returns the number of picks resulting from a poke.
+<A NAME="IDX1189"></A>
+<A NAME="IDX1190"></A>
+See <A HREF="#HDRUN99">"Example"</A>.
+See  <A HREF="progu283.htm#HDRDXQPIC">DXQueryPickCount</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXQueryPickPath()</STRONG></TT>
+</TD><TD><P>Returns information about the pick path.
+<A NAME="IDX1191"></A>
+<A NAME="IDX1192"></A>
+See <A HREF="#HDRUN99">"Example"</A>.
+See  <A HREF="progu284.htm#HDRDXQPP">DXQueryPickPath</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXQueryPokeCount()</STRONG></TT>
+</TD><TD><P>Returns the number of pokes.
+<A NAME="IDX1193"></A>
+<A NAME="IDX1194"></A>
+See <A HREF="#HDRUN99">"Example"</A>.
+See  <A HREF="progu285.htm#HDRDXQPOC">DXQueryPokeCount</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXTraversePickPath()</STRONG></TT>
+</TD><TD><P>Returns the subObject of the current Object selected by a pick path.
+<A NAME="IDX1195"></A>
+<A NAME="IDX1196"></A>
+See <A HREF="#HDRUN99">"Example"</A>.
+See  <A HREF="progu334.htm#HDRDXTPP">DXTraversePickPath</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRUN99" HREF="progu066.htm#PToC_153">Example</A></H3>
+<A NAME="IDX1197"></A>
+<P>
+The following code segment finds every picked vertex.
+(The comment at bottom is left as an exercise for the user.)
+<PRE>
+       DXQueryPokeCount(pickField, &nPokes);
+       for (poke = 0; poke &lt; nPokes; poke++)
+       {
+           DXQueryPickCount(pickField, poke, &nPicks);
+           for (pick = 0; pick &lt; nPicks; pick++)
+           {
+               DXQueryPickPath(pickField, poke, pick,
+                               &pathLen, &path, &elementId, &vertexId);
+               current = dataObject;
+               matrix  = Identity;
+               for (i = 0; i &lt; pathLen; i++)
+               {
+                   current = DXTraversePickPath(current, path&#91;i&#93;, &matrix);
+                   if (current == NULL)
+                       goto error;
+               }
+            /* now manipulate vertex #vertexId in field <TT><STRONG>current</STRONG></TT>. */
+           }
+       }
+</PRE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu070.htm">Previous Page</A> &#124; <A HREF="progu072.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

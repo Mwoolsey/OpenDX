@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgmai DXGetMeshArrayInfo #!N #!N 
+Function #!N #!N Returns the number of terms and the terms 
+of a Mesh Array. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+MeshArray DXGetMeshArrayInfo(MeshArray a, int *n, Array *terms) #!EF #!N #!N Functional 
+Details #!N #!N If  #!F-adobe-times-bold-r-normal--18*   n #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , the routine returns (in  #!F-adobe-times-bold-r-normal--18*   *n #!EF ) the 
+number of terms in the product  #!F-adobe-times-bold-r-normal--18*   a #!EF . If 
+ #!F-adobe-times-bold-r-normal--18*   terms #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns 
+(in  #!F-adobe-times-bold-r-normal--18*   *terms #!EF ) the terms of the product. #!N 
+#!N Mesh Arrays are generally used to specify "connections" components as 
+combinations of lower-dimensional Arrays. In their simplest, form Mesh Arrays are 
+used to combine k Path Arrays into a regular k-dimensional grid, 
+such as regular grids of cubes or quadrilaterals. In order to 
+make this common case simple to use, an alternative,  #!F-adobe-times-bold-r-normal--18*   DXQueryGridConnections 
+#!EF is provided to give quick access to the dimensionality and 
+counts of regular grids. #!N #!N Array Handles offer a simple 
+mechanism for accessing the individual elements of a Mesh Array without 
+expansion. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  ,  #!Ldxgmo,dxall1249 h DXGetMeshOffsets  #!EL  ,  #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  
+,  #!Ldxnmav,dxall1319 h DXNewMeshArray, DXNewMeshArrayV  #!EL  ,  #!Ldxqgc,dxall1343 h DXQueryGridConnections  #!EL  ,  #!Ldxsmo,dxall1383 h DXSetMeshOffsets  #!EL  #!EF #!N #!N  #!Lmarray,dxall1078 h Mesh Arrays  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgmo,dxall1249 h DXGetMeshOffsets  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

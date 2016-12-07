@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Reorient</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu118.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu120.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRREORENT" ></A>Reorient</H3>
+		<A NAME="IDX655"></A><A NAME="IDX656"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREN">Rendering</A>
+<P><STRONG>Function</STRONG>
+<P>
+Changes the orientation of an image or group of images.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>image</STRONG> = Reorient(<STRONG>image, how</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>image</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field or group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">image(s) to be reoriented
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>how</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">specific change of orientation
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>image</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">image
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">reoriented image
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module rotates or inverts an image.
+(Use Refine or Reduce to change the size of an image.)
+<P><B>Note: </B>This module is intended for images that will be displayed
+directly without rendering (i.e., using Display without
+a camera).
+So if you are rendering an object (using Image, Display with a camera,
+or Render), you should instead use Transpose, Rotate, Scale,
+and Translate to reorient that object before
+rendering it.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>image</STRONG></TT>
+</B></TD><TD><P>is an image or group of images.
+An image is (1) a regular 2-dimensional field <I>or</I> the
+output of Render or ReadImage and (2) must have the
+following characteristics.
+<UL COMPACT>
+<LI>regular 2-dimensional positions and quad connections
+<LI>position-dependent colors
+<LI>origin at &#91;0, 0&#93;.
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>how</STRONG></TT>
+</B></TD><TD><P>specifies one of several possible reorientations.
+Allowed values are 0-7 (see figure).
+</TD></TR></TABLE>
+<P><B><A NAME="FIGFRORNT" HREF="../refguide.htm#FT_FIGFRORNT">Figure 4.
+Reorientation of the letter F.</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/reorient.gif" ALT="Figure reorient not
+displayed."></CENTER><BR></B><BR>
+<P>
+If <TT><STRONG>how</STRONG></TT> is set to 0, the image&#39;s appearance
+does not change.
+However, if the origin or deltas are not in the preferred image order
+(i.e., origin at &#91;0, 0&#93; and x varying fastest), the
+internal layout is altered to the preferred order.
+The result is a more efficient display of the image.
+<P>
+Thus Reorient can be used to align images from two sources so that the
+pixels are in one-to-one correspondence.
+A tool like Compute can then operate on corresponding pixels from
+the two images.
+<P><STRONG>Components</STRONG>
+<P>
+Modifies the positions and connections components and reorders the
+position-dependent components.
+<P><STRONG>Example Visual Program</STRONG>
+<PRE>
+Topo.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu048.htm#HDRDISPLAY">Display</A>,
+&nbsp;<A HREF="refgu100.htm#HDROVERLAY">Overlay</A>,
+&nbsp;<A HREF="refgu110.htm#HDRREADIMA">ReadImage</A>,
+&nbsp;<A HREF="refgu113.htm#HDRREDUCE">Reduce</A>,
+&nbsp;<A HREF="refgu114.htm#HDRREFINE">Refine</A>,
+&nbsp;<A HREF="refgu118.htm#HDRRENDER">Render</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

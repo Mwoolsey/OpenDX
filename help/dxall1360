@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxrcol DXRGB #!N #!N Function #!N 
+#!N Constructs an RGB color structure with the given components. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> RGBColor DXRGB(double r, double g, 
+double b) #!EF #!N #!N Functional Details #!N #!N Fills in 
+all three members of an RGB Color structure with the values 
+ #!F-adobe-times-bold-r-normal--18*   r #!EF ,  #!F-adobe-times-bold-r-normal--18*   g #!EF , and  #!F-adobe-times-bold-r-normal--18*   b 
+#!EF at one time. RGB Colors are typically scaled between 0.0 
+and 1.0. #!N #!N An  #!F-adobe-times-bold-r-normal--18*   RGBColor #!EF is defined as 
+follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct rgbcolor { float r, g, b; 
+} RGBColor; #!EF #!N #!N Return Value #!N #!N Returns the 
+RGB color value. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcntr,dxall1182 h DXColorNameToRGB  #!EL  
+#!EF #!N #!N  #!Lclrs,dxall1109 h Colors  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxrib,dxall1361 h DXRibbon  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

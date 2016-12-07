@@ -1,0 +1,46 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rprint Print #!N #!N Category #!N #!N 
+ #!Lcatdbg,dxall754 h Debugging  #!EL  #!N #!N Function #!N #!N Prints an object. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Print(  #!F-adobe-times-bold-r-normal--18*   object, options, component 
+#!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB object TAB object TAB none TAB object to print 
+#!N TAB options TAB string TAB "o" TAB printing options #!N 
+TAB component TAB string or string list TAB all components TAB 
+component or components to print #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N This module 
+prints  #!F-adobe-times-bold-r-normal--18*   object #!EF according to the specifications in  #!F-adobe-times-bold-r-normal--18*   options 
+#!EF . Each character in the options string specifies printing a 
+particular portion of the information about the object: #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   r #!EF #!I50 #!N recursively traverse the 
+object #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   o #!EF #!I50 #!N print only 
+the top level of the object #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   d 
+#!EF #!I50 #!N print first and last 25 items in arrays, 
+as well as headers #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   D #!EF #!I50 
+#!N print all the items in arrays as well as headers 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   x #!EF #!I50 #!N for debugging, print 
+in expanded form (lists the object address, the object tab, and 
+the reference counts of the object) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-i-normal--18*   
+N #!EF _______ #!EF #!I50 #!N print object to  #!F-adobe-times-bold-i-normal--18*   N 
+#!EF levels. #!I0 #!N _______ #!N #!N #!N The  #!F-adobe-times-bold-r-normal--18*   component 
+#!EF parameter controls which components of  #!F-adobe-times-bold-r-normal--18*   object #!EF are printed. 
+By default, all components are printed. All values are printed in 
+decimal format except for byte array data, which are printed in 
+hexadecimal. #!N #!N In the user interface, the output of the 
+Print module appears in the Message window. #!N #!N Script Language 
+Example #!N #!N In the following example, the first call to 
+Print does not recurse through the structure but simply reports (prints) 
+that  #!F-adobe-times-bold-r-normal--18*   both #!EF is a group with two members. The 
+second call recurses through the group and reports that each member 
+of the group has six components, what those components are, and 
+how many items there are in each. The third call provides 
+this information and, in addition, the first and last 25 items 
+in the "data" component of each field. The final call prints 
+out all of the items in both the "positions" and "box" 
+components. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N electrondensity = Import("/usr/lpp/dx/samples/data/watermolecule"); #!N electrondensity 
+= Partition(electrondensity); #!N iso1 = Isosurface(electrondensity,0.1); #!N iso2 = Isosurface(electrondensity,0.3); #!N 
+both = Collect(iso1,iso2); #!N Print(both); #!N Print(both,"r"); #!N Print(both,"d", "data"); #!N 
+Print(both,"D", {"positions", "box"}); #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lecho,dxall829 h Echo  #!EL  ,  #!Ldescrib,dxall805 h Describe  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lprobe,dxall912 h Probe  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

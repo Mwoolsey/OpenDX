@@ -1,0 +1,30 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rmbs Generic Operations #!N #!EC #!N #!N This section describes 
+routines used to manipulate the members of a Group. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Group DXNewGroup() #!EF #!EF #!I50 
+#!N Creates a new generic Group Object. See  #!Ldxng,dxall1317 h DXNewGroup  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Group DXSetMember() #!EF #!EF #!I50 #!N Adds 
+a member to a Group. See  #!Ldxsm,dxall1382 h DXSetMember  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXGetMember() #!EF #!EF #!I50 #!N Gets a named 
+member of a Group. See  #!Ldxgm,dxall1246 h DXGetMember  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Group DXGetMemberCount() #!EF #!EF #!I50 #!N Retrieves the number of 
+members in a group. See  #!Ldxgmc,dxall1247 h DXGetMemberCount  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Object DXGetEnumeratedMember() #!EF #!EF #!I50 #!N Returns the members of 
+a Group by index. See  #!Ldxgem,dxall1234 h DXGetEnumeratedMember  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Group DXSetEnumeratedMember() #!EF #!EF #!I50 #!N Adds a member to 
+a Group by index. See  #!Ldxsem,dxall1376 h DXSetEnumeratedMember  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Group DXSetGroupType() #!EF #!N Group DXSetGroupTypeV(); #!EF #!I50 #!N Associates 
+a type with a Group. See  #!Ldxsgtv,dxall1380 h DXSetGroupType, DXSetGroupTypeV  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Group DXUnsetGroupType() #!EF #!EF #!I50 #!N Unsets the type 
+associated with a Group. See  #!Ldxugt,dxall1405 h DXUnsetGroupType  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Class DXGetGroupClass() #!EF #!EF #!I50 #!N Returns the subclass of 
+a Group Object. See  #!Lun3,dxall1064 s Note on Use  #!EL  . See  #!Ldxggc,dxall1240 h DXGetGroupClass  #!EL  . #!I0 #!N 
+#!N #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Note on Use  #!Run3 #!N 
+#!N The following is an example of how this routine is 
+used: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N switch (DXGetGroupClass(g)) { #!N case 
+CLASS_COMPOSITEFIELD #!N ... #!N break; #!N case CLASS_SERIES #!N ... #!N 
+break; #!N } #!EF #!N #!N #!EC #!N #!N #!EC #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lssgs,dxall1065 h Series Groups  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

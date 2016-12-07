@@ -1,0 +1,528 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu013.htm">Previous Page</A> &#124; <A HREF="progu015.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu013.htm#PToC4">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRHMOD" HREF="progu013.htm#PToC_21">2.2 Adding the Hello
+Module</A></H2>
+<A NAME="IDX113"></A>
+<A NAME="IDX114"></A>
+<P>
+The procedure in this example follows the 4-step sequence outlined above.
+<P>
+<H4><A NAME="Header_22">(1) Define the module&#39;s function, inputs, and
+outputs</A></H4>
+<P>
+The Hello module appends an input string to &quot;hello.&quot;
+The resulting combination is the module&#39;s output.
+If the input string is <TT><STRONG>NULL</STRONG></TT>, the default output
+is <TT>"hello world."</TT>
+<P>
+<H4><A NAME="HDRMBMDF">(2) Create a module description file</A></H4>
+<P>
+Data Explorer&#39;s graphical user interface and executive access the module
+description file to determine the names of the modules and their
+inputs and outputs.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">This type of file is commonly referred to as an "mdf" file
+(because of its file extension) and is
+created automatically from user input to the Module
+Builder, as described in <A HREF="progu015.htm#HDRMBLDER">Chapter 3. "Module
+Builder"</A>.
+However, for very simple modules like the one in this example, it
+is usually easier and quicker to create the file with a
+text editor.
+</td></tr></table>
+<P>
+Parameter names are a part of the module interface that can be
+seen by the user.
+In the graphical user interface, parameter names appear in the
+configuration dialog box and also serve as default names
+for interactors.
+In the scripting language, module parameters can be specified by
+name.
+<P>
+A new module cannot have the name of an existing Data Explorer module (see
+<I>IBM Visualization Data Explorer User&#39;s Reference</I> for a complete
+list).
+You should also be aware of the following requirements:
+<A NAME="IDX115"></A>
+<A NAME="IDX116"></A>
+<A NAME="IDX117"></A>
+<A NAME="IDX118"></A>
+<UL COMPACT>
+<LI>A Data Explorer module name must be a single alphanumeric string and its
+first character must be a letter.
+(Standard Data Explorer module names capitalize the first character of each
+"word" in a name, as in Attribute and AutoAxes.
+You may observe this convention or not, as you wish, for the modules
+you create.)
+<LI>The module must be assigned to a tool category--in a
+<A NAME="IDX119"></A>
+<TT><STRONG>CATEGORY</STRONG></TT> statement in the module
+description file.
+The category can be any of those listed in the Category palette of
+the VPE window or a new one that you create by naming
+it in the statement.
+</UL>
+<P>
+In the following example, the mdf file consists of five statements:
+<A NAME="IDX120"></A>
+<A NAME="IDX121"></A>
+<PRE>
+    MODULE Hello
+    CATEGORY Greetings
+    DESCRIPTION  Prefixes "hello" to the input string
+    INPUT value; string; "world"; input string
+    OUTPUT greeting; string; prefixed string
+</PRE>
+<A NAME="IDX122"></A>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>MODULE</STRONG></TT>
+</B></TD><TD><P>Specifies the module name as Hello.
+<A NAME="IDX123"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>CATEGORY</STRONG></TT>
+</B></TD><TD><P>Assigns the module to a new, user-specified category
+(Greetings).
+<A NAME="IDX124"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DESCRIPTION</STRONG></TT>
+</B></TD><TD><P>Describes Hello&#39;s purpose: to affix "hello" to the
+input string.
+<A NAME="IDX125"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>INPUT</STRONG></TT>
+</B></TD><TD><P>Assigns the name <TT><STRONG>value</STRONG></TT> to the input
+parameter;
+specifies its parameter type as <TT><STRONG>string</STRONG></TT>;
+specifies its default value as "world"; and describes
+it as an input string.
+<A NAME="IDX126"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>OUTPUT</STRONG></TT>
+</B></TD><TD><P>Assigns the name <TT><STRONG>greeting</STRONG></TT> to the
+output
+parameter; specifies its parameter type as
+<TT><STRONG>string</STRONG></TT>; and
+describes it as a prefixed
+string.
+</TD></TR></TABLE>
+<P>
+For details, see <A HREF="progu037.htm#HDRMDFSEC">11.1 , "Module Description
+Files"</A>.
+<P>
+<H4><A NAME="Header_24">(3) Write the module</A></H4>
+<P>
+Having defined the module in a description file, you can now implement
+the module with a C-language function like the one shown here.
+<PRE>
+01   #include &lt;dx/dx.h&gt;
+02
+03
+04   Error m_Hello(Object *in, Object *out)
+05   {
+06     char message&#91;30&#93;, *greeting;
+07
+08     if (!in&#91;0&#93;)
+09       sprintf(message, "hello world");
+10     else {
+11       DXExtractString(in&#91;0&#93;, &greeting);
+12       sprintf(message, "%s %s", "hello", greeting);
+13     }
+14
+15     out&#91;0&#93; = DXNewString(message);
+16     return OK;
+17   }
+</PRE>
+<P>
+The <TT><STRONG>dx.h</STRONG></TT> file "included" in line 01 contains
+the definitions of all the Data Explorer library routines.
+The name of the function that implements a module must consist of the
+module name (specified in the <TT><STRONG>MODULE</STRONG></TT> statement
+of the description file) prefixed by <TT><STRONG>m&#95;</STRONG></TT>.
+In this case, the function name is <TT><STRONG>m&#95;Hello</STRONG></TT>.
+<P>
+When Data Explorer invokes a module, it passes the module two pointers:
+the first to an array containing the inputs, the second to
+an array containing the outputs.
+(See <A HREF="progu024.htm#HDREXECM">4.3 , "Data Explorer Execution Model"</A>
+for details of parameter passing.)
+<P>
+Because the input parameter of this module is passed to
+<TT><STRONG>m&#95;Hello</STRONG></TT> as an array of
+pointers, <TT><STRONG>in&#91;0&#93;</STRONG></TT>
+is the <TT><STRONG>value</STRONG></TT>
+parameter.
+If no argument is specified for <TT><STRONG>value</STRONG></TT>,
+<TT><STRONG>in&#91;0&#93;</STRONG></TT> is <TT><STRONG>NULL</STRONG></TT>,
+and the default output ("hello world") is placed in
+<TT><STRONG>message</STRONG></TT>.
+If you do specify an argument, a library routine
+(<TT><STRONG>DXExtractString</STRONG></TT>) extracts it from
+<TT><STRONG>in&#91;0&#93;</STRONG></TT>, and
+<TT><STRONG>greeting</STRONG></TT> becomes a
+pointer to that string.
+In line 12, <TT><STRONG>greeting</STRONG></TT> is appended to "hello,"
+creating <TT><STRONG>message</STRONG></TT>.
+<P>
+Once <TT><STRONG>message</STRONG></TT> has been created, the
+<TT><STRONG>DXNewString</STRONG></TT> library routine
+creates a String Object for the output
+<TT><STRONG>out&#91;0&#93;</STRONG></TT>.
+<P><B>Note: </B>The output of any Data Explorer module must be a Data Explorer
+Object (such as
+an Array, Field, or Group).
+See <A HREF="progu044.htm#TBLCL">Table 1</A> for a complete list of Data
+Explorer Objects.
+<P>
+<H4><A NAME="Header_25">(4) Compiling and Linking Hello...</A></H4>
+<A NAME="IDX127"></A>
+<A NAME="IDX128"></A>
+<A NAME="IDX129"></A>
+<A NAME="IDX130"></A>
+<A NAME="IDX131"></A>
+<A NAME="IDX132"></A>
+<A NAME="IDX133"></A>
+<P>
+<H5><A NAME="Header_26">...as an inboard module</A></H5>
+<P>&nbsp;
+Copy the following files to the directory you want to work in:
+<PRE>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/Makefile&#95;</STRONG><VAR>workstation</VAR></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/hello.c</STRONG></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/hello.mdf</STRONG></TT>
+</PRE>
+Now rename the makefile to <TT><STRONG>Makefile</STRONG></TT> (the name of
+the default makefile) and enter: <TT>make hello</TT>.
+This command creates an executable that contains the Hello module.
+<P>
+To invoke this executable (from the directory to which the files were
+copied), enter:
+<PRE>
+dx  -mdf ./hello.mdf -exec ./dxexec.
+</PRE>
+This command starts Data Explorer (the <TT><STRONG>hello.mdf</STRONG></TT> file
+tells
+the graphical user interface about Hello and its inputs and
+outputs).
+<P>
+You can now run any visual program that uses the
+Hello module.
+One such program is <TT><STRONG>hello.net</STRONG></TT> in the directory
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide</STRONG></TT>.
+<P>
+<H5><A NAME="HDRCLO">...as an outboard module</A></H5>
+<A NAME="IDX134"></A>
+<A NAME="IDX135"></A>
+<A NAME="IDX136"></A>
+<A NAME="IDX137"></A>
+<A NAME="IDX138"></A>
+<A NAME="IDX139"></A>
+<A NAME="IDX140"></A>
+<A NAME="IDX141"></A>
+<P>&nbsp;
+Copy the following files to the directory you want to work in:
+<PRE>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/Makefile&#95;</STRONG><VAR>workstation</VAR></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/hello.c</STRONG></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/hello&#95;outboard.mdf</STRONG></TT>
+</PRE>
+Now rename the makefile to <TT><STRONG>Makefile</STRONG></TT> (the name of
+the default makefile) and enter: <TT>make hello_outboard</TT>.
+This command creates the executable
+<TT><STRONG>hello_outboard</STRONG></TT>.
+<P>
+To invoke the executable (from the directory to which the files were
+copied), enter:
+<PRE>
+dx  -mdf ./hello_outboard.mdf
+</PRE>
+This command starts Data Explorer (the
+<TT><STRONG>hello_outboard.mdf</STRONG></TT>
+file tells the graphical user interface about Hello and its
+inputs and outputs).
+<P>
+You can now run any visual program that uses the Hello module.
+One such program is <TT><STRONG>hello.net</STRONG></TT> in the directory
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide</STRONG></TT>.
+<P><B>Note: </B>The mdf file of the outboard module contains one additional
+statement, <TT><STRONG>OUTBOARD</STRONG></TT>, which specifies
+the executable (<TT>hello&#95;outboard</TT>;
+see <A HREF="progu037.htm#HDRMDFSEC">11.1 , "Module Description Files"</A>).
+This statement may also specify the name of a host on which to run the
+executable.
+<PRE>
+    MODULE Hello
+    CATEGORY Greetings
+    DESCRIPTION  Prefixes "hello" to the input string
+    OUTBOARD hello&#95;outboard
+    INPUT value; string; "world"; input string
+    OUTPUT greeting; string; prefixed string
+</PRE>
+<P>
+<H5><A NAME="HDRCLRTLM">...as a runtime-loadable module</A></H5>
+<A NAME="IDX143"></A>
+<A NAME="IDX144"></A>
+<A NAME="IDX145"></A>
+<A NAME="IDX146"></A>
+<A NAME="IDX147"></A>
+<A NAME="IDX148"></A>
+<A NAME="IDX149"></A>
+<A NAME="IDX150"></A>
+<P>&nbsp;
+Copy the following files to the directory you want to work in:
+<PRE>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/Makefile&#95;</STRONG><VAR>workstation</VAR></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/hello.c</STRONG></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/hello&#95;loadable.mdf</STRONG></TT>
+</PRE>
+Now rename the makefile to <TT><STRONG>Makefile</STRONG></TT> (the name of
+the default makefile) and enter: <TT>make hello_loadable</TT>.
+This command creates the executable
+<TT><STRONG>hello_loadable</STRONG></TT>.
+<P><B>Note: </B>Runtime-loadable modules are not available for
+SunOS 4.1 or Data General AViiON.
+<P>
+To invoke the executable (from the directory to which the files were
+copied), enter:
+<PRE>
+dx  -mdf ./hello_loadable.mdf
+</PRE>
+This command starts Data Explorer (the
+<TT><STRONG>hello_loadable.mdf</STRONG></TT>
+file tells the graphical user interface about Hello and its
+inputs and outputs).
+<P>
+You can now run any visual program that uses the Hello module.
+One such program is <TT><STRONG>hello.net</STRONG></TT> in the directory
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide</STRONG></TT>.
+<P><B>Note: </B>The mdf file of the runtime-loadable module contains one
+additional statement, <TT><STRONG>LOADABLE</STRONG></TT>, which
+specifies the executable (<TT>hello&#95;loadable</TT>;
+see <A HREF="progu037.htm#HDRMDFSEC">11.1 , "Module Description Files"</A>).
+<PRE>
+    MODULE Hello
+    CATEGORY Greetings
+    DESCRIPTION  Prefixes "hello" to the input string
+    LOADABLE hello&#95;loadable
+    INPUT value; string; "world"; input string
+    OUTPUT greeting; string; prefixed string
+</PRE>
+<P>
+<H4><A NAME="Header_29">Including Hello in a Visual Program</A></H4>
+<A NAME="IDX151"></A>
+<P>
+In this example (<A HREF="#FIGHMVP">Figure 2</A>), the Hello module is not given
+an
+input value and therefore uses its default string ("hello
+world") as output.
+The Echo module sends the string to Data Explorer&#39;s Message window.
+<P><B><A NAME="FIGHMVP" HREF="../proguide.htm#FT_FIGHMVP">Figure 2. The Hello
+Module in a Visual Program</A></B>. The protrusion of the upper tab indicates
+that the Hello module is using default input. When input is supplied through a
+connecting "arc," as it is to the Echo module, the input tab folds in.<BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/hello1.gif" ALT="Figure hello1 not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>
+A visual program that produces the string &quot;hello, how are you?&quot;
+can be created by:
+<UL COMPACT>
+<LI>Using the visual program in <A HREF="#FIGHMVP">Figure 2</A> and entering the
+string &quot;, how are you?&quot; as the argument of the
+<TT><STRONG>value</STRONG></TT> input parameter of the
+Hello module&#39;s configuration dialog box, or
+<LI>Creating a visual program (<A HREF="#FIGHMVPSI">Figure 3</A>) in which a
+string interactor stand-in provides the input (previously
+entered in the interactor by the user).
+</UL>
+<P><B><A NAME="FIGHMVPSI" HREF="../proguide.htm#FT_FIGHMVPSI">Figure 3. The Hello
+Module with a String Interactor in a Visual Program</A></B>. Note that both
+input tabs are folded in (compare <A HREF="#FIGHMVP">Figure 2</A>).<BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/hello2.gif" ALT="Figure hello2 not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>
+<H4><A NAME="Header_30">Using Hello in a Script</A></H4>
+<A NAME="IDX152"></A>
+<A NAME="IDX153"></A>
+<P>
+In the following example, no input to Hello is provided, so the module
+produces its default output:
+<PRE>
+ a = Hello();
+ Echo(a);
+</PRE>
+<P>
+In the next three examples, the user provides input to the Hello
+module.
+All three produce the output "hello, how are you?"
+<P>
+<B><U>Example 1</U></B>
+<PRE>
+ b = Hello(", how are you?");
+ Echo(b);
+</PRE>
+<B><U>Example 2</U></B>
+<PRE>
+ b = Hello(value = ", how are you?");
+ Echo(b);
+</PRE>
+<P>
+<B><U>Example 3</U></B>
+<PRE>
+ a = ", how are you?";
+ b = Hello(a);
+ Echo(b);
+</PRE>
+<P>
+<H3><A NAME="HDRHEC" HREF="progu013.htm#PToC_31">Hello Module with Error
+Checking</A></H3>
+<A NAME="IDX154"></A>
+<P>
+The definition of the Hello module (see <A HREF="#HDRHMOD">2.2 , "Adding the
+Hello Module"</A>)
+contains no error checking code.
+This omission, of course, is not a recommended practice.
+In the following version, the Data Explorer routine
+<TT><STRONG>DXSetError</STRONG></TT> reports
+errors to the user.
+<PRE>
+01   #include &lt;dx/dx.h&gt;
+02
+03
+04   m_HelloErrorChecking(Object *in, Object *out)
+05   {
+06     char message&#91;30&#93;, *greeting, longmessage=NULL;
+07
+08     if (!in&#91;0&#93;)  {
+09       sprintf(message, "hello world");
+10       out&#91;0&#93; = DXNewString(message);
+11     }
+</PRE>
+<PRE>
+12     else {
+13       if (!DXExtractString(in&#91;0&#93;, &greeting)) {
+14          DXSetError(ERROR_BAD_PARAMETER, "value must be a string");
+15          goto error;
+16       }
+17       if (strlen(greeting)&lt;=(28-strlen("hello")) {
+18         sprintf(message, "%s %s", "hello", greeting);
+19         out&#91;0&#93; = DXNewString(message);
+20       }
+</PRE>
+<PRE>
+21       else {
+22         longmessage = DXAllocate((strlen("hello")+strlen(greeting)+2)
+                                    * sizeof(char));
+23         if (!longmessage)
+24            goto error;
+25         sprintf(longmessage, "%s %s", "hello", greeting);
+26         out&#91;0&#93; = DXNewString(longmessage);
+27         DXFree((Pointer)longmessage);
+28       }
+29     }
+</PRE>
+<PRE>
+30     return OK;
+31
+32   error:
+33     DXFree((Pointer)longmessage);
+34     return ERROR;
+35   }
+</PRE>
+<P>
+In this example, the return from <TT><STRONG>DXExtractString</STRONG></TT>
+(line 13) is checked.
+If the routine returns <TT><STRONG>ERROR</STRONG></TT>, the error message
+"value must be a string" is generated and Hello
+returns <TT><STRONG>ERROR</STRONG></TT>.
+<P>
+The combined length of the user-supplied parameter string and
+"hello" is checked against the length of the
+buffer.
+If it exceeds the length, a new buffer is allocated for the output
+message (and freed before returning).
+Because <TT><STRONG>longmessage</STRONG></TT> is initialized to
+<TT><STRONG>NULL</STRONG></TT>, it can safely be freed on
+error, even if it has not yet been allocated.
+<P><B>Note: </B>The <TT><STRONG>m&#95;</STRONG></TT><VAR>module</VAR> function
+should
+return an error code according to the Data Explorer library standard:
+<TT><STRONG>ERROR</STRONG></TT> for error and
+<TT><STRONG>OK</STRONG></TT> for
+successful completion.
+Thus the module entry point would typically be declared by:
+<PRE>
+    Error m&#95;<VAR>module</VAR>&#40;Object *in, Object *out&#41;;
+</PRE>
+<P>
+To create a version of Data Explorer that includes the HelloErrorChecking
+module, copy the following files to the directory you want to
+work in:
+<PRE>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/Makefile&#95;</STRONG><VAR>workstation</VAR></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/hello_errorchecking.c</STRONG></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/helloerr.mdf</STRONG></TT>
+</PRE>
+Now rename the makefile to <TT><STRONG>Makefile</STRONG></TT> (the name of
+the default makefile) and enter: <TT>make helloerr</TT>.
+This command creates an executable that contains the HelloErrorChecking
+module.
+<P>
+To invoke this executable (from the directory to which the files were
+copied), enter:
+<PRE>
+dx  -mdf ./helloerr.mdf -exec ./dxexec.
+</PRE>
+This command starts Data Explorer (the <TT><STRONG>helloerr.mdf</STRONG></TT>
+file
+tells the graphical user interface about HelloErrorChecking
+and its inputs and outputs).
+<P>
+You can now run any visual program that uses the HelloErrorChecking
+module.
+One such program is <TT><STRONG>hello_errorchecking.net</STRONG></TT> in the
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide</STRONG></TT>
+directory.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu013.htm">Previous Page</A> &#124; <A HREF="progu015.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu013.htm#PToC4">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

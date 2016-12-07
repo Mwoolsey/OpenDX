@@ -1,0 +1,59 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rconserv Connecting 
+to the Server #!N #!EC #!N #!N Before you can execute 
+a visual program, your workstation must have established connection to the 
+server. When you start Data Explorer, the program automatically starts the 
+server connection, unless you specified that only the user interface was 
+to be started. However, if for some reason your workstation becomes 
+disconnected between the time you start Data Explorer and the time 
+you are ready to run a program, you must reestablish connection 
+with the server. #!N #!N To start the server connection, select 
+the  #!F-adobe-times-bold-r-normal--18*   Start Server... #!EF option from the  #!F-adobe-times-bold-r-normal--18*   Connection #!EF 
+pull-down menus in the VPE or Image window. A dialog box 
+appears (  #!Lservcon100,dxall493 f Figure 100  #!EL  ). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rservcon100 #!N Graphics omitted 
+from Online Documentation. Please see the manual. #!N #!N Figure 100. 
+Start Server Dialog Box #!EF #!N #!EC #!N #!N The Hostname 
+field, by default, contains the name "localhost." If the DXHOST environment 
+variable or the  #!F-adobe-times-bold-r-normal--18*   -host #!EF argument was specified, this field 
+contains the setting of that variable. #!N #!N You can change 
+the Hostname field by clicking on it and typing in the 
+new name. When it displays the desired name, connect to the 
+server by clicking on the  #!F-adobe-times-bold-r-normal--18*   Connect #!EF button. #!N #!N 
+To change the options associated with starting the server, click on 
+the Options... button. This opens the  #!F-adobe-times-bold-r-normal--18*   Options... #!EF dialog box 
+(  #!Lservopt101,dxall493 f Figure 101  #!EL  ). Most of the time, it is not necessary 
+to use these options. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rservopt101 #!N #!N Graphics 
+omitted from Online Documentation. Please see the manual. #!N Figure 101. 
+Start Server Options Dialog Box #!EF #!N #!EC The fields of 
+this dialog box are as follows: #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   Executive #!EF #!I50 #!N Specifies the name of the 
+executive to run. You might change this field if you want 
+to run a customized version of Data Explorer. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Working Directory #!EF #!I50 #!N Specifies the default directory to 
+search for files. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Memory Size #!EF #!I50 
+#!N Specifies the amount of memory to use, in megabytes. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Options #!EF #!I50 #!N Specify options in this 
+text box as you would on the command line when invoking 
+Data Explorer; that is, each option must be preceded by a 
+dash. #!N #!N  #!F-adobe-times-bold-r-normal--18*   -cache on #!EF saves the state of 
+the visual program in memory after an execution. If the visual 
+program changes, Data Explorer reexecutes only the portion of the program 
+affected by the change. If  #!F-adobe-times-bold-r-normal--18*   -cache off #!EF is specified, 
+Data Explorer must reexecute the entire program for each change. (The 
+default setting is on.) #!N #!N  #!F-adobe-times-bold-r-normal--18*   -trace on #!EF displays 
+each execution step, as it happens, in the  #!F-adobe-times-bold-r-normal--18*   Debug #!EF 
+window. It is mainly used for debugging purposes. (The default setting 
+is off.) #!N #!N  #!F-adobe-times-bold-r-normal--18*   -log on #!EF saves all communication 
+between the server and the user interface to a file. (The 
+default setting is off.) #!N #!N Other options are listed in 
+ #!Lcmdlopt,dxall744 h Command Line Options  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Connect to already running server 
+ #!F-adobe-times-medium-r-normal--18*   radio button #!EF #!EF #!I50 #!N Specifies that the user 
+interface should connect with a server that was started earlier. #!N 
+#!N You might use this option to set up a connection 
+to a debugging session for a customized version of the Data 
+Explorer executable. You can specify the port number in using the 
+stepper below the button. Note that when this button is toggled 
+on, all other fields in this dialog box become disabled. #!I0 
+#!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lrstsrv,dxall494 h Resetting the Server  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

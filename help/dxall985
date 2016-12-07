@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall984 Writing Modules 
+for use in the Data Explorer VPE or Scripting Language #!N 
+#!EC #!N #!N If you want to write a module to 
+use in the Data Explorer Visual Program Editor, or in the 
+scripting language, you will probably use the libDXlite.a library. This library 
+contains all of the Data Explorer data model routines which allow 
+you to query, manipulate, and create data model objects. Much of 
+this reference book concerns this common use of the Data Explorer 
+library routines. You should be familiar with the material in  #!Ldatachp,dxall1061 h Working with Data Model Objects  #!EL  
+, which discusses how to use the Data Explorer data model 
+routines. You may also want to incorporate one or more of 
+the existing Data Explorer modules into your own module, or use 
+some of the high level data processing functions, such as interpolation. 
+In this case you would need to use the libDXcallm.a library. 
+DXCallModule is discussed in  #!Lmodacss,dxall1113 h Module Access  #!EL  . #!N #!N  #!Lwritmod,dxall989 h Writing a Simple Module  #!EL  through  #!Lmtds,dxall1045 h Making a Module Work  #!EL  
+show you a number of examples of modules, including import filters 
+and various data manipulation modules. These examples are supported by .c 
+files and makefiles in /usr/lpp/dx/samples/program_guide. If you wish to incorporate routines 
+from the libDXcallm.a library, simply change the makefiles to link to 
+this library instead of to libDXlite.a. All of the routines in 
+libDXcallm.a are described in  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  , while the subset of routines 
+available in libDXlite.a is listed in  #!Ldxlap1,dxall1161 h Data Explorer Data Model Library: DXlite Routines  #!EL  . When you write 
+a module for use in Data Explorer, the Data Explorer Executive 
+is still the process which "owns main." Your module is simply 
+incorporated into Data Explorer. Your module can be directly built in 
+to the Data Explorer Executive (inboard module), run as a separate 
+process (outboard module), or loaded into the Data Explorer executive at 
+runtime (runtime-loadable module). Each of these is discussed in  #!Lmtds,dxall1045 h Making a Module Work  #!EL  . 
+Using runtime-loadable modules is in general the preferred option. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall985,dxall986 h Writing a Stand-alone Program Using the Data Explorer Data Model  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

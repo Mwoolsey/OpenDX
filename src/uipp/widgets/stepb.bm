@@ -1,0 +1,40 @@
+/*****************************************************************************/
+/*                         DX SOURCEFILE				     */
+/*****************************************************************************/
+
+/*
+ * $Header: /src/master/dx/src/uipp/widgets/stepb.bm,v 1.1.1.1 1999/03/24 15:17:37 gda Exp $
+ * $Log: stepb.bm,v $
+ * Revision 1.1.1.1  1999/03/24 15:17:37  gda
+ * Initial CVS Version
+ *
+ * Revision 1.1.1.1  1999/03/19 20:59:42  gda
+ * Initial CVS
+ *
+ * Revision 10.1  1999/02/24 13:25:16  gda
+ * OpenDX Baseline
+ *
+ * Revision 9.1  1997/05/22 18:52:37  svs
+ * Copy of release 3.1.4 code
+ *
+Revision 8.0  1995/10/03  18:52:55  nsc
+Copy of release 3.1 code
+
+Revision 7.1  1994/01/18  19:04:15  svs
+changes since release 2.0.1
+
+Revision 6.1  93/11/16  10:53:15  svs
+ship level code, release 2.0
+
+Revision 1.1  93/03/01  15:09:07  danz
+Initial revision
+
+ */
+
+#define stepb_width 20
+#define stepb_height 15
+static char stepb_bits[] = {
+   0x00, 0xc8, 0x0c, 0x00, 0xce, 0x0c, 0x00, 0xcf, 0x0c, 0xc0, 0xcf, 0x0c,
+   0xf0, 0xcf, 0x0c, 0xf8, 0xcf, 0x0c, 0xfe, 0xcf, 0x0c, 0xff, 0xcf, 0x0c,
+   0xfe, 0xcf, 0x0c, 0xf8, 0xcf, 0x0c, 0xf0, 0xcf, 0x0c, 0xc0, 0xcf, 0x0c,
+   0x00, 0xcf, 0x0c, 0x00, 0xce, 0x0c, 0x00, 0xc8, 0x0c, 0x00};

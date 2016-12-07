@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu053.htm">Previous Page</A> &#124; <A HREF="progu055.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRDIDE" HREF="progu044.htm#PToC_119">12.11 Data Import and
+Export</A></H2>
+<A NAME="IDX745"></A>
+<A NAME="IDX746"></A>
+<A NAME="IDX747"></A>
+<A NAME="IDX748"></A>
+<P>
+This section describes routines for importing and exporting data into
+and out of Data Explorer.
+This includes support for Data Explorer (<TT>.dx</TT>)
+files, as well as
+industry-standard netCDF files.
+<P>
+<H3><A NAME="HDRDEF" HREF="progu044.htm#PToC_120">Data Explorer Format
+Files</A></H3>
+<A NAME="IDX749"></A>
+<A NAME="IDX750"></A>
+<A NAME="IDX751"></A>
+<A NAME="IDX752"></A>
+<A NAME="IDX753"></A>
+<A NAME="IDX754"></A>
+<P>
+Files in the Data Explorer format
+(see <A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data
+Model"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>)
+can be imported by the
+<TT><STRONG>DXImportDX()</STRONG></TT>
+routine and exported by the
+<TT><STRONG>
+DXExportDX()
+</STRONG></TT>
+routine.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXImportDX()</STRONG></TT>
+<A NAME="IDX755"></A>
+</B></TD><TD><P>Imports data from a Data Explorer file.
+See  <A HREF="progu211.htm#HDRDXIDX">DXImportDX</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXExportDX()</STRONG></TT>
+<A NAME="IDX756"></A>
+</B></TD><TD><P>Writes an Object to a specified file in a specified Data
+Explorer format.
+See  <A HREF="progu140.htm#HDRDXEDX">DXExportDX</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRNCD" HREF="progu044.htm#PToC_121">netCDF Data</A></H3>
+<A NAME="IDX757"></A>
+<A NAME="IDX758"></A>
+<A NAME="IDX759"></A>
+<P>
+Data Explorer can accept industry-standard netCDF files, which describe only a
+subset of the Data Explorer data model capabilities.
+For example, netCDF files are limited to regular
+data.
+This routine is provided for compatibility with other
+systems that use netCDF.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXImportNetCDF()</STRONG></TT>
+<A NAME="IDX760"></A>
+<A NAME="IDX761"></A>
+</B></TD><TD><P>Imports data from a netCDF file.
+See  <A HREF="progu213.htm#HDRDXINC">DXImportNetCDF</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu053.htm">Previous Page</A> &#124; <A HREF="progu055.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

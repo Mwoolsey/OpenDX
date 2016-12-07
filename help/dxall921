@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rremove Remove 
+#!N #!N Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N 
+Removes components from a field. #!N #!N Syntax #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Remove(  #!F-adobe-times-bold-r-normal--18*   input, name #!EF 
+); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Default TAB Description #!EF #!N 
+TAB input TAB field TAB none TAB the field from which 
+to one or #!N TAB - TAB - TAB - TAB 
+more components are to be removed #!N TAB name TAB string 
+or string list TAB none TAB the component(s) to be removed 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description 
+#!EF #!N TAB output TAB field TAB the field without the 
+named component(s) #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N This module creates an  #!F-adobe-times-bold-r-normal--18*   output #!EF 
+field containing all components of the  #!F-adobe-times-bold-r-normal--18*   input #!EF field except 
+those specified by  #!F-adobe-times-bold-r-normal--18*   name #!EF . #!N #!N Components #!N 
+#!N All input components are propagated to the output except those 
+specified by  #!F-adobe-times-bold-r-normal--18*   name #!EF . #!N #!N See Also #!N 
+#!N  #!Lrename,dxall922 h Rename  #!EL  ,  #!Lshade,dxall942 h Shade  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lrename,dxall922 h Rename  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

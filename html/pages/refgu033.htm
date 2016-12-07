@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Color</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu032.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu034.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRCOLOR" ></A>Color</H3>
+		<A NAME="IDX417"></A><A NAME="IDX418"></A>
+<A NAME="IDX419"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<A NAME="IDX420"></A>
+<A NAME="IDX421"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Colors a field.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+colored</STRONG> = Color(<STRONG>input, color, opacity, component, delayed</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">field to be colored
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>color</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field or vector or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no color added
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">RGB color
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>opacity</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field or scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">opacity
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>component</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;colors&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component to be colored
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>delayed</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">
+0: apply maps
+<BR>
+1: delay applying color and
+   opacity maps (byte data
+   only)
+<BR></TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>colored</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">color field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">color-mapped input field
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module adds a specified color to a specified input object.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is the field to be colored.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>color</STRONG></TT>
+</B></TD><TD><P>specifies how the input field is to be colored.
+The specification can be the vector value of an RGB color, a string, or
+a color map.
+<P>
+If <TT><STRONG>color</STRONG></TT> is an RGB color, the value should be in
+the range of 0-1 (but see <A HREF="refgu048.htm#HDRCVOLRND">"Coloring Objects
+for Volume Rendering"</A>).
+
+The Convert module can convert HSV (hue, saturation, and value) colors
+to RGB.
+
+<P>
+If <TT><STRONG>color</STRONG></TT> is a string, that string should come from
+a lookup table, which can be specified by setting the DXCOLORS
+environment variable or by using the <TT>-colors</TT> flag
+with the <TT>dx</TT> command.
+If no table is specified, Data Explorer will search (in the order shown) for one
+of the following:
+<OL COMPACT>
+<LI>the file <TT>colors.txt</TT> in <TT>DXROOT/lib</TT>
+<LI>the same file in <TT><STRONG>/usr/local/dx/lib</STRONG></TT> (if this was
+not the setting for DXROOT).
+Note that the colors in this file correspond to the X Window System**
+color list, except that the Data Explorer colors are squared first (see
+<A HREF="usrgu077.htm#HDRINTCOLS">Appendix F. "Data Explorer Colors"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+</OL>
+When entering the names of colors, note that the module&#58;
+<UL COMPACT>
+<LI>accepts spaces in names.
+<LI>ignores capitalization.
+<LI>accepts the spellings <I>gray</I> and <I>grey</I>.
+</UL>
+<P>
+If <TT><STRONG>color</STRONG></TT> is a color map it can be the output of the
+Colormap Editor (the first output) or an imported color map.
+Note also that if this parameter is a color map (as opposed to a single
+color), then the <TT><STRONG>input</STRONG></TT> parameter must contain a
+"data" component;
+if the "data" component consists of vector data, the color and
+opacity mapping are based on the magnitude of the data.
+If this parameter is an imported .cm file (see <A
+HREF="refgu073.htm#HDRIMPORT">Import</A>),
+the color-map part of the color-opacity map is
+extracted and used.
+<P>
+Omitting the color specification allows you to change the opacity of an
+object without modifying its color (see  <A HREF="#SPTWFCMAP">reference #3</A>
+for a description of a color map).
+<P>
+A well-formed color map should contain a 1-dimensional "positions"
+<A NAME="SPTWFCMAP"><I>(Ref #3.)</I></A>
+component and a 3-dimensional "data" component.
+
+As with any map in Data Explorer, the "positions" component represents the
+domain in which to look up values, and the "data" component
+represents the range, that is, the values which are associated with
+items in the "positions" component.
+<P>
+Color maps can specify either smoothly varying colors or
+constant colors across a set of ranges of data values.
+If the color map has position-dependent data,
+then linear interpolation
+will be used to derive colors for data values in the
+data field between those
+given in the "positions" component of the map (see
+<A HREF="#FIGCOLMAP">Figure 1</A>).
+<P><B><A NAME="FIGCOLMAP" HREF="../refguide.htm#FT_FIGCOLMAP">Figure 1.
+Position-dependent colormaps</A></B>. In this figure a diagram of a data field
+is shown. One of the data values, 3.5, has been indicated. The field structure
+is also shown, with "positions", "data", and "connections" components. When a
+color map is applied to this field using the Color module, the data value 3.5 is
+used as a lookup value into the "positions" component of the color map. The
+color map has a "data" component which is dependent on (in a one-to-one
+correspondence with) the "positions" component. The color map contains colors
+for the value 3 (the RGB value &#91;0 1 1&#93;, or cyan) and for the value 4
+(the RGB value &#91;0 0 0&#93;, or black). Data Explorer interpolates between
+these two colors to derive the color &#91;0 .5 .5&#93;, or dark cyan, which is
+then placed in the "colors" component of the data field as the color
+corresponding to the data value 3.5. <B><BR><CENTER><IMG
+SRC="../images/colormap.gif" ALT="Figure colormap not
+displayed."></CENTER><BR></B><BR>
+If the colormap has
+connection-dependent data, then the color for any data value
+in the data field
+between two values in the "positions" component of the map
+will be constant (see <A HREF="#FIGCOLMAP1">Figure 2</A>).
+<P><B><A NAME="FIGCOLMAP1" HREF="../refguide.htm#FT_FIGCOLMAP1">Figure 2.
+Connection-dependent colormaps</A></B>. In this figure a diagram of a data field
+is shown. One of the data values, 3.5, has been indicated.  The field structure
+is also shown, with "positions", "data", and "connections" components. When a
+color map is applied to this field using the Color module, the data value 3.5 is
+used as a lookup value into the "positions" component of the color map.  The
+color map has a "data" component which is dependent on (in a one-to-one
+correspondence with) the "connections" component.  The color map contains colors
+for the range 1 to 1.5  (the RGB value &#91;1&nbsp;1&nbsp;0&#93;, or yellow),
+the range 1.5 to 3 (the RGB value &#91;0&nbsp;1&nbsp;1&#93;, or cyan) and for
+the range 3 to 4 (the RGB value &#91;0&nbsp;0&nbsp;1&#93;, or blue). Since 3.5
+lies in the range 3 to 4, Data Explorer looks up the color
+&#91;0&nbsp;0&nbsp;1&#93; and places it in the "colors" component of the data
+field as the color corresponding to the data value 3.5. <B><BR><CENTER><IMG
+SRC="../images/colomap1.gif" ALT="Figure colomap1 not
+displayed."></CENTER><BR></B><BR>
+In either case, the
+"connections" component of the map should be a set of lines connecting
+the positions.
+<P>
+The Colormap Editor puts out a well-formed colormap.
+The Construct module can also be used to create a color map. For
+example, you have 10 data values to which you want to apply particular
+colors. List those 10 data values as the first parameter to
+Construct. Then list the 10 colors (RGB vectors) as the
+last parameter to Construct. This will automatically create a
+position-dependent
+color map of the appropriate structure to use with the Color
+module. Alternatively, if you list only 9 colors (RGB vectors)
+as the last parameter to Construct, a connection-dependent
+color map will be created.
+<P>
+For surfaces, RGB colors in a color map
+
+should range between 0 and 1. Compute
+can be used to convert colors from the range of 0 to 255 to
+the range 0 to 1.
+To choose appropriate colors for volumes see <A
+HREF="refgu048.htm#HDRCVOLRND">"Coloring Objects for Volume Rendering"</A>.
+Note that if you have an HSV (hue, saturation, and value) color
+map, it can be converted to an RGB (red, blue, green) color map
+using the Convert module.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>opacity</STRONG></TT>
+</B></TD><TD><P>can be a scalar value or a field specifying an opacity map.
+This map may be the output of the Colormap Editor (the second output)
+or an imported opacity map.
+If it is an imported .cm file (see <A HREF="refgu073.htm#HDRIMPORT">Import</A>),
+the opacity part of the color-opacity
+map will be extracted and used (see below for a
+description of an opacity map).
+<P>
+The input color or opacity can also be groups of color or of opacity
+maps, as long as the hierarchy of the group matches that of
+<TT><STRONG>input</STRONG></TT>.
+<P>
+For surfaces, the default value of <TT><STRONG>opacity</STRONG></TT> is 1.0;
+the valid range is 0-1.
+For volumes, the default value is 0.5.
+If the object to be colored is a volume with an aspect ratio much
+different from 1, it may appear dark from certain viewing
+directions.
+In that case, use the Compute module to multiply the contents of the
+data component of the opacity and color maps by a scale factor
+greater than 1 before using them as an input to the Color
+module.
+(If you are using delayed colors, modify the "color multiplier"
+and "opacity multiplier" attributes.
+See the <TT><STRONG>delayed</STRONG></TT> parameter, described below.)
+<P>
+A well-formed opacity map should contain a 1-dimensional
+"positions" component and a 1-dimensional
+"data" component representing
+opacities.
+
+For surfaces, valid opacities
+range between 0 (transparent) and 1 (opaque).
+To choose appropriate opacities for volumes see <A
+HREF="refgu048.htm#HDRCVOLRND">"Coloring Objects for Volume Rendering"</A>.
+Just as with a color map, the
+"data" component may be either position-dependent or
+connection-dependent. An opacity map can be created either
+with the Colormap Editor or using the Construct module as
+described for color maps.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>component</STRONG></TT>
+</B></TD><TD><P>specifies the component to which the module adds colors.
+The default is the "colors" component, which applies to both the
+front and the back of the object, but you can specify "front
+colors" or "back colors" instead.
+Either one, if present, takes precedence over the "colors"
+component.
+If you specify <TT><STRONG>component</STRONG></TT> as "colors," the
+module deletes any existing "front colors" or
+"back colors" components.
+Which faces are "front" and which faces are "back" depends on
+how "connections" component of the faces is defined (see
+<A HREF="usrgu025.htm#HDRSTANCOM">"Standard Components"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I>).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>delayed</STRONG></TT>
+</B></TD><TD><P>causes Color to create "delayed colors."
+This option is valid only for byte data.
+When <TT><STRONG>delayed</STRONG></TT> = 1:
+<UL COMPACT>
+<LI>the "colors" component is a copy of the "data" component,
+and a "color map" component is created (i.e., a color lookup
+table with 256 entries representing the appropriate color for
+each of the 256 possible data values).
+<LI>(if <TT><STRONG>opacity</STRONG></TT> has been specified) the
+"opacities" component is a copy of the "data"
+component, and an opacity map with 256 entries
+is created.
+<LI>the module adds a "direct color map" attribute to the output
+object (see <A HREF="refgu048.htm#HDRUDCMPS">"Using Direct Color Maps"</A>).
+</UL>
+</TD></TR></TABLE>
+<P><STRONG>Components</STRONG>
+<P>
+Adds a "colors" component.
+An "opacities" component is added if <TT><STRONG>opacity</STRONG></TT>
+is less than 1 or the input data is a volume.
+If <TT><STRONG>delayed</STRONG></TT> = 1, the
+"colors"
+component is a copy of the
+"data"
+component and a
+"color map"
+component is created.
+Likewise, an
+"opacity map"
+component
+is created if
+<TT><STRONG>opacity</STRONG></TT> is less than one or the input is a volume.
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+Nearly every example visual program uses Color, including&#58;
+<PRE>
+AlternateVisualizations.net
+Sealevel.net
+UsingColormaps.net
+SIMPLE/Color
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu016.htm#HDRAUTOCOL">AutoColor</A>,
+&nbsp;<A HREF="refgu022.htm#HDRCAPTION">Caption</A>,
+&nbsp;<A HREF="refgu040.htm#HDRCONVERT">Convert</A>,
+&nbsp;<A HREF="refgu091.htm#HDRMAP">Map</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

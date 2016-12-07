@@ -1,0 +1,2128 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Data Explorer Native Files</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu067.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu069.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu067.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDREDF" ></A>B.2 Data Explorer Native Files
+</H2>
+		<A NAME="IDX975"></A><A NAME="IDX976"></A>
+<A NAME="IDX977"></A>
+<A NAME="IDX978"></A>
+<P>
+<A NAME="IDX979"></A>
+The Data Explorer native file format encapsulates the Data Explorer data model
+on disk
+(or on standard output as the result of an external
+conversion program).
+This file format is comprehensive and flexible in that it can represent
+any of the Objects created in Data Explorer.
+Thus, any Object can be exported at any point.
+A data file in this format can be imported into a Data Explorer session by
+specifying "dx" as the value of the <TT><STRONG>format</STRONG></TT>
+parameter for the Import module.
+For more information, see <A HREF="refgu073.htm#HDRIMPORT">Import</A> in <I>IBM
+Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H3><A NAME="Header_417" ></A>Overview of the Native File Format
+</H3>
+<P>
+A Data Explorer file consists of a header section followed by an optional data
+section.
+The header section consists of a textual description of a collection of
+Objects.
+The data section contains the Array Object data, either as text or in
+binary, and is referred to by the header section.
+A header section can refer to Objects and data either in the current
+file or in other files.
+<P>
+<A HREF="#FIGDEFEX1">Figure 83</A> shows data imbedded in its header.
+Another file cannot refer to data in this file because there is no
+specified data section.
+However, header sections in this file can refer to data sections in
+other files.
+This method is sometimes more convenient when creating data files with
+simple programs.
+<P>
+<A HREF="#FIGDEFEX2">Figure 84</A> shows a header section referring to a data
+section
+in another file.
+The header refers to the data using the data file name and an offset
+location (in bytes from the beginning of the data section) in
+the file.
+<P>
+<A HREF="#FIGDEFEX3">Figure 85</A> shows a header section and data section in
+the
+same file.
+The header refers to the data section using a byte offset, relative to
+the start of the data section.
+<P><B><A NAME="FIGDEFEX1" HREF="../usrguide.htm#FT_FIGDEFEX1">Figure 83. Data
+Imbedded in a Header Section</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/dinhd.gif" ALT="Figure dinhd not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>
+<P><B><A NAME="FIGDEFEX2" HREF="../usrguide.htm#FT_FIGDEFEX2">Figure 84. Header
+Referring to Data in Another File</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/hdrdat.gif" ALT="Figure hdrdat not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>
+<P><B><A NAME="FIGDEFEX3" HREF="../usrguide.htm#FT_FIGDEFEX3">Figure 85. Header and
+Data in the Same File</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/hand.gif" ALT="Figure hand not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>
+These configurations can be used in conjunction with each other.
+For example, a file can contain both a header and data and can refer to
+data both in the same file and in another file.
+A file can also have only a header and refer to data in either a
+data-only file or in a file that contains both a header
+and data.
+This flexibility allows you to construct a header that points to data in
+existing files, and lets you view and edit the
+header information (if necessary), using standard tools.
+<P>
+The following examples illustrate some of the ways you can import data
+using the Data Explorer native file format.
+You may wish to refer to the full specification of the syntax
+(see <A HREF="#HDRSYNFF">"Syntax of the Native File Format"</A>).
+<P>
+<H3><A NAME="HDRXMPLES" ></A>Examples</H3>
+<P>
+The basic way to create a data file is to first define the Arrays,
+or components, contained in a Field and to then describe
+how to collect the components together.
+To define a higher level structure, such as a series, first define the
+components, then the Fields, and then how to collect the Fields
+to make a series.
+The examples in this section illustrate the process.
+<P>
+In the first six examples, the data Objects can be viewed by the
+script shown here.
+Other scripts are shown with the later examples.
+<PRE>
+data = Import("<VAR>filename</VAR>.dx", format = "dx");
+connections = ShowConnections(data);
+connections = AutoColor(connections);
+tubes = Tube(connections, 0.08);
+camera = AutoCamera(tubes, "off diagonal");
+image = Render(tubes, camera);
+Display(image);
+</PRE>
+<P><B>Note: </B>For <A HREF="#FIGREGREG">Figure 86</A> and <A
+HREF="#FIGREGSKWD">Figure 87</A>, the
+argument "off front" is used instead of "off
+diagonal."
+<P>
+<P>
+Simply substitute the file name of the data file for
+<VAR>filename</VAR> in the Import statement.  For information
+about how to use the Data Explorer script language,
+see <A HREF="usrgu050.htm#HDRUSL">Chapter 10. "Data Explorer Scripting
+Language"</A>.
+<P>
+<H4><U><a name="HDREX1"></a>Example 1. A Regular Grid</U></H4>
+<A NAME="IDX981"></A>
+<P>
+The following example illustrates the basic Objects of the data model,
+and shows how to imbed data as text in the header section.
+The Objects and data describe a regular grid.
+This file is found in
+<TT><STRONG>/usr/local/dx/samples/data/regular.dx</STRONG></TT>.
+<A HREF="#FIGREGREG">Figure 86</A> shows the resulting structure.
+The axes diagram in the lower right corner of the figure indicates the
+orientation of the axes.
+This orientation applies to all subsequent examples as well.
+<P>
+Note that the positions are considered to increment in the order "last
+index varies fastest" when matching data to positions.
+For example, for this simple 4&nbsp;x&nbsp;2&nbsp;x&nbsp;3 grid, the order
+of the positions is
+<I>&#91;x<SUB>0</SUB>y<SUB>0</SUB>z<SUB>0</SUB>&#93;</I>,
+<I>&#91;x<SUB>0</SUB>y<SUB>0</SUB>z<SUB>1</SUB>&#93;</I>,
+<I>&#91;x<SUB>0</SUB>y<SUB>0</SUB>z<SUB>2</SUB>&#93;</I>,
+<I>&#91;x<SUB>0</SUB>y<SUB>1</SUB>z<SUB>0</SUB>&#93;</I>, and so on.
+This is because the deltas are specified in the order <I>.x, y, z</I>,
+so <I>z</I> is the last index.
+If the data was stored in the order
+<I>&#91;x<SUB>0</SUB>y<SUB>0</SUB>z<SUB>0</SUB>&#93;</I>,
+<I>&#91;x<SUB>1</SUB>y<SUB>0</SUB>z<SUB>0</SUB>&#93; ...</I>,
+then the order of the
+<TT><STRONG>delta</STRONG></TT> clauses would be reversed, and the
+counts would be specified as 3&nbsp;2&nbsp;4.
+<P>
+When using the <TT><STRONG>gridconnections</STRONG></TT> keyword, it is not
+necessary
+to specify the "element type" or "ref" attribute, as
+these will automatically be set for you.
+<PRE>
+# This example describes a regular grid
+# object 1 is the regular positions.
+  The grid is 4 in x by 2 in y by 3 in z.  The origin is
+# at &#91;0 0 0&#93;, and the deltas are 1 in the first and third
+# dimensions, and 2 in the second dimension
+object 1 class gridpositions counts 4 2 3
+origin  0   0   0
+delta   1   0   0
+delta   0   2   0
+delta   0   0   1
+</PRE>
+<PRE>
+# object 2 is the regular connections
+object 2 class gridconnections counts 4 2 3
+attribute "element type" string "cubes"
+attribute "ref" string "positions"
+</PRE>
+<PRE>
+# object 3 is the data, which is in a one-to-one correspondence with
+# the positions ("dep" on positions).
+# The data are matched to the positions in the order
+# "last index varies fastest", i.e. (x0, y0, z0), (x0, y0, z1),
+# (x0, y0, z2), (x0, y1, z0), etc.
+object 3 class array type float rank 0 items 24 data follows
+  1     3.4  5  2
+  3.4   5.1  0.3  4.5
+  1     2.3  4.1  2.1
+  6     8   9.1  2.3
+  4.5   5   3.0  4.3
+  1.2   1.2  3.0  3.2
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+# A field is created with three components: "positions", "connections",
+# and "data"
+object "regular positions regular connections" class field
+component "positions" value 1
+component "connections" value 2
+component "data" value 3
+end
+</PRE>
+<P><B><A NAME="FIGREGREG" HREF="../usrguide.htm#FT_FIGREGREG">Figure 86. Regular
+Grid Example</A></B>. The argument "off front" has been substituted for "off
+diagonal" in the script used to generate this figure (see <A
+HREF="#HDRXMPLES">"Examples"</A>).<BR>
+<B><BR><CENTER><IMG SRC="../images/reggrid.gif" ALT="Figure reggrid not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H4><U>Example 2. A Regular Skewed Grid</U></H4>
+<A NAME="IDX982"></A>
+<P>
+This example is similar to the previous one.
+However, the "positions" component is changed slightly so that the
+Objects and data describe a regular skewed grid.
+This file is found in
+<TT><STRONG>/usr/local/dx/samples/data/regularskewed.dx</STRONG></TT>.
+<A HREF="#FIGREGSKWD">Figure 87</A> shows the resulting structure.
+<PRE>
+# This example describes a regular grid, where the axes are
+# non-orthogonal
+</PRE>
+<PRE>
+# object 1 is the regular positions, where the deltas is non-orthogonal
+object 1 class gridpositions counts 4 2 3
+origin   0  0  0
+delta    1  0.2  0
+delta    0  2  0
+delta    0  0  1
+</PRE>
+<PRE>
+# object 2 is the regular connections
+object 2 class gridconnections counts 4 2 3
+</PRE>
+<PRE>
+# object 3 is the data, which is in a one-to-one correspondence with the
+# positions ("dep" on positions)
+object 3 class array type float rank 0 items 24 data follows
+  1  3.4  5  2
+  3.4  5.1  0.3  4.5
+  1  2.3  4.1  2.1
+  6  8  9.1  2.3
+  4.5  5  3.0  4.3
+  1.2  1.2  3.0  3.2
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+# the field contains three components: "positions", "connections", and
+# "data"
+object "regular positions regular connections" class field
+component "positions" value 1
+component "connections" value 2
+component "data" value 3
+end
+</PRE>
+<P><B><A NAME="FIGREGSKWD" HREF="../usrguide.htm#FT_FIGREGSKWD">Figure 87. Regular
+Skewed Grid Example</A></B>. The argument "off front" has been substituted for
+"off diagonal" in the script used to generate this figure (see <A
+HREF="#HDRXMPLES">"Examples"</A>).<BR>
+<B><BR><CENTER><IMG SRC="../images/skwdgrid.gif" ALT="Figure skwdgrid not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H4><U>Example 3. A Warped Regular Grid</U></H4>
+<A NAME="IDX983"></A>
+<P><B><A NAME="FIGDEFORM" HREF="../usrguide.htm#FT_FIGDEFORM">Figure 88. Warped
+Regular Grid Example</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/wrpdgrid.gif" ALT="Figure wrpdgrid not
+displayed."></CENTER><BR></B><BR>
+<P>
+The example file (in
+<TT><STRONG>/usr/local/dx/samples/data/deformedregular.dx</STRONG></TT>)
+defines a warped regular grid and shows how to imbed
+data as text in a header section.
+The values of the "positions" component are irregular and
+must be enumerated.
+<A HREF="#FIGDEFORM">Figure 88</A> shows the resulting structure.
+<PRE>
+# The irregular, 3 dimensional positions
+object 1 class array type float rank 1 shape 3 items 24 data follows
+
+  0          0      0
+  0          0      1
+  0          0      2
+  0          2      0
+  0          2      1
+  0          2      2
+  1   0.841471   0
+  1   0.841471   1
+  1   0.841471   2
+  1   2.841471   0
+  1   2.841471   1
+  1   2.841471   2
+</PRE>
+<PRE>
+  2  0.9092974  0
+  2  0.9092974  1
+  2  0.9092974  2
+  2   2.909297   0
+  2   2.909297   1
+  2   2.909297   2
+  3    0.14112    0
+  3    0.14112    1
+  3    0.14112    2
+  3    2.14112    0
+  3    2.14112    1
+  3    2.14112    2
+</PRE>
+<PRE>
+# The regular connections
+object 2 class gridconnections counts 4 2 3
+</PRE>
+<PRE>
+# The data, in a one-to-one correspondence with the positions
+object 3 class array type float rank 0 items 24 data follows
+  1       3.4     5
+  2       3.4     5.1
+  0.3     4.5     1
+  2.3     4.1     2.1
+  6       8       9.1
+  2.3     4.5     5
+  3       4.3     1.2
+  1.2     3       3.2
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+# The field, with three components: "positions", "connections", and
+# "data". The field is given the name "irreg positions regular connections".
+object "irreg positions regular connections" class field
+component "positions" value 1
+component "connections" value 2
+component "data" value 3
+end
+</PRE>
+<P>
+The positions are joined in the order "last index varies fastest,"
+with the connections specified as 4 x 2 &times; 3: the first 3
+positions are joined in a line, as are those in each set
+of 3 following.
+Then the first 6 positions are joined as a set of 2 quadrilaterals, as
+are the next 6 and so on (see <A HREF="#FIGDEFORM">Figure 88</A>).
+<P>
+<H4><U><a name="HDREX4"></a>Example 4. An Irregular Grid</U></H4>
+<A NAME="IDX984"></A>
+<P>
+This example file (in
+<TT><STRONG>/usr/local/dx/samples/data/irregular.dx</STRONG></TT>)
+defines an irregular grid and shows how to imbed data
+as text in a header section.
+The values of the "positions" and "connections" components
+are irregular and must be enumerated.
+See <A HREF="#FIGIRREG">Figure 89</A>.
+<P><B><A NAME="FIGIRREG" HREF="../usrguide.htm#FT_FIGIRREG">Figure 89. Irregular
+Grid Example</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/irggrid.gif" ALT="Figure irggrid not
+displayed."></CENTER><BR></B><BR>
+<PRE>
+# The irregular positions, which are 24 3-dimensional points.
+object 1 class array type float rank 1 shape 3 items 24 data follows
+  0          0   0
+  0          0   1
+  0          0   2
+  0          2   0
+  0          2   1
+  0          2   2
+  1   0.841471   0
+  1   0.841471   1
+  1   0.841471   2
+  1   2.841471   0
+  1   2.841471   1
+  1   2.841471   2
+  2  0.9092974  0
+  2  0.9092974  1
+  2  0.9092974  2
+  2   2.909297   0
+  2   2.909297   1
+  2   2.909297   2
+  3    0.14112    0
+  3    0.14112    1
+  3    0.14112    2
+  3    2.14112    0
+  3    2.14112    1
+  3    2.14112  2
+</PRE>
+<PRE>
+# The irregular connections, which are 30 tetrahedra
+object 2 class array type int rank 1 shape 4 items 30 data follows
+  10  3  4  1
+  3  10  9  6
+  10  1  7  6
+  6  1  3  10
+  6  1  0  3
+  10  1  4  5
+  5  1  8  10
+  8  5  2  1
+  10  8  7  1
+  5  8  11  10
+  15  6  9  10
+  10  6  13  15
+  13  10  7  6
+  15  13  12  6
+  10  13  16  15
+  17  10  11  8
+  10  17  16  13
+  17  8  14  13
+  13  8  10  17
+  13  8  7  10
+  22  15  16  13
+  15  22  21  18
+  22  13  19  18
+  18  13  15  22
+  18  13  12  15
+  22  13  16  17
+  17  13  20  22
+</PRE>
+<PRE>
+  20  17  14  13
+  22  20  19  13
+  17  20  23  22
+attribute "element type" string "tetrahedra"
+attribute "ref" string "positions"
+</PRE>
+<PRE>
+# The data, which is in a one-to-one correspondence with the positions
+object 3 class array type float rank 0 items 24 data follows
+   1  3.4  5  2  3.4
+   5.1  0.3  4.5  1  2.3
+   4.1  2.1  6  8  9.1
+   2.3  4.5  5  3  4.3
+   1.2  1.2  3  3.2
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+# the field, with three components: "positions", "connections", and
+# "data"
+object "irregular positions irregular connections" class field
+component "positions" value 1
+component "connections" value 2
+component "data" value 3
+end
+</PRE>
+<P>
+<H4><U>Example 5. Header and Data in Separate Files</U></H4>
+<A NAME="IDX985"></A>
+<A NAME="IDX986"></A>
+<P>
+The following example uses a header file that contains no data.
+Instead, it refers to another file, <TT><STRONG>irregirreg2.bin</STRONG></TT>,
+that contains the data in binary format.
+This example contains the same information as <A HREF="#HDREX4">"Example 4. An
+Irregular Grid"</A>,
+but the data is stored in a file separate from the header.
+If you use this sample header file in a script, the results are the same as
+in <A HREF="#FIGIRREG">Figure 89</A>.
+This file can be found in
+<TT><STRONG>/usr/local/dx/samples/data/irregirreg2.dx</STRONG></TT>.
+<PRE>
+object 1 class array type float rank 1 shape 3 items 24 msb binary
+data file irregirreg2.bin,0
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+object 2 class array type int rank 1 shape 4 items 30 msb binary
+data file irregirreg2.bin,288
+attribute "element type" string "tetrahedra"
+attribute "ref" string "positions"
+</PRE>
+<PRE>
+object 3 class array type float rank 0 items 24 msb binary
+data file irregirreg2.bin,768
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+object "irreg positions irreg connections binary file" class field
+component "positions" value 1
+component "connections" value 2
+component "data" value 3
+end
+</PRE>
+<P>
+Often, you can use this method to point to existing data files.
+To do this, your header file must:
+<UL COMPACT>
+<LI>Describe the coordinate system of the data.
+<LI>Indicate how many data values there are in the data file.
+<LI>Indicate the type of data values (float, byte, scalar, vector,
+and so on).
+</UL>
+<P>
+For example, suppose you have an existing data file written in the IEEE
+floating point format.
+It has the following characteristics:
+<UL>
+<P><LI>It is on a regular grid, 100 x 100 x 15, and the delta in the
+<I>z</I> direction is 2, while the deltas in the
+<I>x</I> and <I>y</I> directions are 1.
+<P><LI>The origin of the grid is at &#91;50 100 10&#93;.
+<P><LI>The first three bytes of the file are the number of elements
+in the <I>x</I>, <I>y</I>, and <I>z</I> directions.
+<P><LI>The data values are listed in an order such that <I>z</I>
+varies fastest.
+</UL>
+<P>
+Given all these conditions, the following Data Explorer header file imports the
+data (substituting the data file name for
+<I>data&#95;file&#95;name</I>):
+<PRE>
+object 1 class gridpositions counts 100 100 15
+origin  50  100  10
+delta   1  0  0
+delta   0  1  0
+delta   0  0  2
+</PRE>
+<PRE>
+object 2 class gridconnections counts 100 100 15
+attribute "element type" string "cubes"
+attribute "ref" string "positions"
+</PRE>
+<PRE>
+# It skips the first three bytes before reading the data values
+object 3 class array type float rank 0 items 150000
+ieee data file <VAR>data_file_name</VAR>,3
+</PRE>
+<PRE>
+object "field" class field
+component "positions" value 1
+component "connections" value 2
+component "data" value 3
+end
+</PRE>
+<P>
+<H4><U>Example 6. Product Arrays</U></H4>
+<A NAME="IDX987"></A>
+<P>
+The following examples show how to use Product Arrays to define
+positions that are composed of products of arrays.
+Such positions may be regular in one or more dimensions and irregular
+in one or more dimensions.
+The resulting product array is found as a product of all possible
+combinations of the terms comprising the Array.
+<P>
+The first data file defines data that has irregular positions in the xy
+plane but regular spacing in the z dimension.
+This file can be found in
+<TT><STRONG>/usr/local/dx/samples/data/product1.dx</STRONG></TT>.
+<A HREF="#FIGPRODAR">Figure 90</A> shows the resulting image.
+<PRE>
+# define a set of irregular points in the xy plane
+object 1 class array type float rank 1 shape 3 items 8 data follows
+      0.0  0.0  0.0
+      0.0  1.1  0.0
+      1.0  0.2  0.0
+      1.1  1.3  0.0
+      2.2  0.2  0.0
+      2.5  1.1  0.0
+      3.5  0.1  0.0
+      3.4  1.0  0.0
+</PRE>
+<PRE>
+# define a set of regular points in the z direction
+object 2 class regulararray count 3
+origin  0.0  0.0  0.0
+delta   0.0  0.0  1.0
+</PRE>
+<PRE>
+# create a product array of the irregular points in the xy plane and
+# the regular points in the z direction
+object 3 class product array
+  term 1
+  term 2
+</PRE>
+<PRE>
+# create regular cube connections
+object 4 class gridconnections counts 4 2 3
+</PRE>
+<PRE>
+# the data component
+object 5 class array type float rank 0 items 24 data follows
+  1.0  2.1  2.0  1.0  4.5  6.7  8.1  2.0
+ -0.9 -0.8  1.0  1.2  1.3  0.1  0.3  3.0
+  1.2  3.2  4.1  0.9  2.0  1.0 -0.9  2.0
+</PRE>
+<PRE>
+object "field" class field
+ component "positions" 3
+ component "connections" 4
+ component "data" 5
+end
+</PRE>
+<P><B><A NAME="FIGPRODAR" HREF="../usrguide.htm#FT_FIGPRODAR">Figure 90. Product
+Array Example with Irregular Points in the XY Plane</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/prodarxy.gif" ALT="Figure prodarxy not
+displayed."></CENTER><BR></B><BR>
+The next data file defines a regular grid that is regular in the xy
+plane but has irregular positions in the z direction.
+This file can be found in
+<TT><STRONG>/usr/local/dx/samples/data/product2.dx</STRONG></TT>.
+<A HREF="#FIGPROD">Figure 91</A> shows the resulting image.
+<PRE>
+# define a set of regular points in the xy plane
+object 1 class gridpositions 4 2 1
+# define a set of irregular points in the z direction
+object 2 class array type float rank 1 shape 3 items 3 data follows
+  0.0  0.0  0.0
+  0.0  0.0  1.0
+  0.0  0.0  3.0
+</PRE>
+<PRE>
+# create a product array of the regular points in the xy plane and
+# the irregular points in the z direction
+object 3 class product array
+  term 1
+  term 2
+</PRE>
+<PRE>
+# create regular cube connections
+object 4 class gridconnections counts 4 2 3
+</PRE>
+<PRE>
+# the data component
+object 5 class array type float rank 0 items 24 data follows
+  1.0  2.1  2.0  1.0  4.5  6.7  8.1  2.0
+ -0.9 -0.8  1.0  1.2  1.3  0.1  0.3  3.0
+  1.2  3.2  4.1  0.9  2.0  1.0 -0.9  2.0
+</PRE>
+<PRE>
+object "field" class field
+ component "positions" 3
+ component "connections" 4
+ component "data" 5
+end
+</PRE>
+<P><B><A NAME="FIGPROD" HREF="../usrguide.htm#FT_FIGPROD">Figure 91. Product Array
+Example with Irregular Points in the Z Direction</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/prodarz.gif" ALT="Figure prodarz not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H4><U>Example 7. Series</U></H4>
+<A NAME="IDX988"></A>
+<P>
+The following file defines the data for a series.
+It defines three data Array Objects, and then three Field Objects
+that are associated with the data.
+The grid definitions are in a separate file
+(<TT><STRONG>pos&#95;conn.data</STRONG></TT>).
+This first file can be found in
+<TT><STRONG>/usr/local/samples/data/regseries.dx</STRONG></TT>.
+<PRE>
+# This example describes a data series with three member fields
+# Object 1 is the data associated with the first frame in the
+# series. The data is "dep" positions, or in a one-to-one
+# correspondence with positions.
+object 1 class array type float rank 1 shape 3 items 18 data follows
+</PRE>
+<PRE>
+  1.0  0.1  0.0
+  1.4  0.2  0.0
+  1.0  0.0  0.0
+  2.2  0.1  0.2
+  1.0  0.0  0.0
+  2.0  0.0  0.1
+  0.9  0.1  0.0
+  1.1 -0.4  0.0
+  1.0  0.1  0.0
+  1.2  0.1  0.1
+  0.3  0.0  0.0
+</PRE>
+<PRE>
+  1.0  0.1  0.1
+  1.1 -0.4  0.2
+  1.1  0.2  0.0
+  1.1  0.1  0.0
+  1.2  0.1  0.1
+  1.1  0.0  0.0
+  0.9  0.0  0.1
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+# Object 2 is the data associated with the second frame in the series.
+object 2 class array type float rank 1 shape 3 items 18 data follows
+  0.0  1.1  0.0
+  0.1  2.2  0.0
+  0.0  1.0  0.0
+  0.2  1.1 -0.2
+  0.0  0.8  0.0
+  0.0  1.9  0.4
+  0.1  1.1  0.0
+  0.1  1.2  0.0
+  0.0  1.1  0.0
+  0.2  2.1  0.1
+  0.1  1.0  0.0
+  0.0  0.8  0.1
+  0.1  0.9 -0.2
+  0.1  1.2  0.0
+  0.1  1.1  0.0
+  0.2  1.1 -0.4
+  0.1  0.9  0.0
+  0.2  0.9  0.1
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+# Object 3 is the data associated with the third frame in the series.
+object 3 class array type float rank 1 shape 3 items 18 data follows
+  0.0  0.1  1.0
+  0.1  0.2  1.0
+  0.0  0.0  2.0
+ -0.2  0.1  2.2
+  0.0  0.1  0.9
+  0.0  0.2  0.8
+ -0.4  0.1  0.9
+  0.1  0.2  1.9
+  0.0  0.1  0.7
+  0.2  0.1  1.1
+ -0.1  0.0  2.0
+  0.0  0.3  1.1
+  0.1  0.1  1.2
+ -0.5  0.2  1.0
+  0.1  0.1  2.0
+  0.2  0.1  1.4
+  0.1 -0.3  0.9
+  0.2  0.3  1.1
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+# Object 4 is the first field in the series. The positions and
+# connections are defined by objects 1 and 2 in a separate file,
+# "pos_conn.data", and the data is given by object 1 in this file.
+object 4 class field
+component "positions" value file "pos_conn.data",1
+component "connections" value file "pos_conn.data",2
+component "data" value 1
+</PRE>
+<PRE>
+# Object 5 is the second field in the series. The positions and
+# connections are defined by objects 1 and 2 in a separate file,
+# "pos_conn.data" (and are in fact the same positions and connections
+# as those of the first field), and the data is given by object 2 in this file.
+object 5 class field
+component "positions" value file "pos_conn.data",1
+component "connections" value file "pos_conn.data",2
+component "data" value 2
+</PRE>
+<PRE>
+# Object 6 is the third field in the series. The positions and
+# connections are defined by objects 1 and 2 in a separate file,
+# "pos_conn.data" (and are in fact the same positions and connections
+# as those of the first field), and the data is given by object 3 in
+# this file.
+object 6 class field
+component "positions" value file "pos_conn.data",1
+component "connections" value file "pos_conn.data",2
+component "data" value 3
+</PRE>
+<PRE>
+# Here we create the series object with three members.
+# The members are objects 4, 5, and 6, which we defined above.
+# Each has a position tag associated with it (for example a time tag).
+object "series" class series
+member 0 value 4 position 1.3
+member 1 value 5 position 2.5
+member 2 value 6 position 4.5
+end
+</PRE>
+<P>
+The following file defines the grid for this time series.
+This file can be found in
+<TT><STRONG>/usr/local/samples/data/pos_conn.data</STRONG></TT>.
+<PRE>
+object 1 class gridpositions counts 3 2 3
+origin  0  0  0
+delta   1  0  0
+delta   0  2  0
+delta   0  0  1
+</PRE>
+<PRE>
+object 2 class gridconnections counts 3 2 3
+attribute "element type" string "cubes"
+attribute "ref" string "positions"
+end
+</PRE>
+<P>&nbsp;
+<P>&nbsp;
+<P>
+<H4><U>Example 8. Two-dimensional Grid, Cell-centered Data</U></H4>
+<A NAME="IDX989"></A>
+<P>
+This example describes a regular 2-dimensional grid.
+In this example, unlike other examples presented here, the data are
+dependent on (in a one-to-one correspondence with) the
+"connections" rather than the "positions"
+component.
+Data Explorer interprets this as implying that the data value within each
+connection element is the constant given by the corresponding
+data value.
+For example, if you used AutoColor and rendered this Field, you would
+see blocks of constant color.
+<P>
+You can use the following script to render this Object:
+<PRE>
+  data = Import("/usr/local/samples/data/datadepconnections.dx", format="dx");
+  colored = AutoColor(data);
+  camera = AutoCamera(colored);
+  Display(colored, camera);
+</PRE>
+<P>
+The data file is located in
+<TT><STRONG>/usr/local/samples/data/datadepconnections.dx</STRONG></TT>.
+<PRE>
+# object 1 is the regular positions. The grid is 4x4. The origin is
+# at &#91;0 0&#93;, and the deltas are 1 in the first dimension, and
+# 2 in the second dimension
+object 1 class gridpositions counts 4 4
+origin  0  0
+delta   1  0
+delta   0  2
+</PRE>
+<PRE>
+# object 2 is the regular connections, quads, connecting the positions
+object 2 class gridconnections counts 4 4
+# object 3 is the data, which are in a one-to-one correspondence with
+# the connections ("dep" on connections)
+object 3 class array type float rank 0 items 9 data follows
+  1  3.4  5  2
+  3.2  5.5  0.3  4.5
+  4.0
+attribute "dep" string "connections"
+# A field is created with three components: "positions", "connections",
+# and "data"
+object "regular positions regular connections" class field
+component "positions" value 1
+component "connections" value 2
+component "data" value 3
+end
+</PRE>
+<P>
+<H4><U>Example 9. Faces, Loops, and Edges</U></H4>
+<A NAME="IDX990"></A>
+<P>
+Faces loops, and edges are used to define polygons.
+For example, you may wish to define regions of a map with polygons.
+A positions component identifies the vertices of the polygons, an edges
+component identifies how to connect positions, a loops component
+identifies the beginning of each loop by referring to the first
+edge of the loop, and a faces component identifies which
+loops make up a face.
+(A face may have more than one loop if the face has one or more holes
+in it.)
+<P>
+For more information about faces, loops, and edges, see
+<A HREF="usrgu025.htm#HDRFLEC">"Faces, Loops, and Edges Components"</A>.
+Note that some modules do not accept this kind of data.
+However, the Refine module can be used to convert faces, loops, and
+edges data to triangles.
+See <A HREF="refgu114.htm#HDRREFINE">Refine</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>.
+<P>
+The following example describes a simple 2-dimensional data set
+consisting of five polygons.
+None of the polygons has holes.
+To view the data, you can use the following script:
+<PRE>
+g = Import("FacesLoopsEdges.dx");
+c = AutoCamera(g);
+colored = AutoColor(g);
+Display(colored, c);
+</PRE>
+<P>
+The data file is given below, and the resulting connections are
+illustrated in <A HREF="#FIGFLED">Figure 92</A>.
+The data file can be found in
+<TT><STRONG>/usr/local/dx/samples/data/FacesLoopsEdges.dx</STRONG></TT>.
+<PRE>
+#
+# Example of faces, loops and edges components.
+# This example has no holes.
+#
+#
+# Positions array.  These are a list of all the vertices of the object;
+#   no particular order is required here.
+#
+object "position list" class array type float rank 1 shape 2 items 11
+data follows
+</PRE>
+<PRE>
+ 0.133985  0.812452  # point number 0
+ 0.375019  0.896258  # point number 1
+ 0.532733  0.76484   # point number 2
+ 0.523806  0.404777  # point number 3
+ 0.300626  0.327407  # point number 4
+ 0.145888  0.508927  # point number 5
+ 0.68152   0.851137  # point number 6
+ 0.815428  0.758889  # point number 7
+ 0.94636   0.592248  # point number 8
+ 0.729132  0.416679  # point number 9
+ 0.535709  0.190524  # point number 10
+</PRE>
+<PRE>
+#
+#  Edges array.  This is a list of connected points, by point number.
+#  All the edges associated with a particular face need to be listed
+#  together. If points 10, 3 and 7 make a triangle, the list is
+#  "10 3 7" and the 10 is not repeated. Note that below, for
+
+#  readability, the connected points for each loop are
+#  shown together. However line breaks are not significant
+#  to the importer, and all of the following numbers could have
+#  been on the same line, or one to a line, with the same result.
+
+object "edge list" class array type int rank 0 items 21 data follows
+</PRE>
+<PRE>
+  1  2  6  # edge point index 0
+  0  5  4  3  2  1  # edge point index 3
+  2  3  9  8  7  6  # edge point index 9
+  3 10  9  # edge point index 15
+  3  4 10  # edge point index 18
+attribute "ref" string "positions"
+</PRE>
+<PRE>
+#  Loops array.  This is a list of connected edges, by edge number.
+#  Each number is the edge index of where the next loop starts.
+object "loop list" class array type int rank 0 items 5 data follows
+  0   # loop index 0
+  3   #  1
+  9   #  2
+ 15   #  3
+ 18   #  4
+attribute "ref" string "edges"
+</PRE>
+<PRE>
+#
+#  Faces array.  This is list of which loops make faces.  If there are
+#   no holes in the faces, this is list of all loops.  If two or more
+#   loops actually describe the outside edges and inside hole edges of
+#   a face, then this list contains the starting loop numbers of the
+#   list of loops making up a face.
+#
+object "face list" class array type int rank 0 items 5 data follows
+ 0
+ 1
+ 2
+ 3
+ 4
+attribute "ref" string "loops"
+#  data array. Dependent on faces.
+#
+object "data" class array type float rank 0 items 5 data follows
+  0  2.5  1.2  0.4  1.8
+attribute "dep" string "faces"
+</PRE>
+<PRE>
+#
+#  Field definition to put the arrays together.
+#
+object "map" class field
+</PRE>
+<PRE>
+  component "positions"  "position list"
+  component "edges"  "edge list"
+  component "loops"  "loop list"
+  component "faces"  "face list"
+  component "data"  "data"
+end
+</PRE>
+<P><B><A NAME="FIGFLED" HREF="../usrguide.htm#FT_FIGFLED">Figure 92. Example of
+Faces, Loops, and Edges</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/flexmp.gif" ALT="Figure flexmp not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H4><U>Example 10. Faces, Loops, and Edges with a Hole</U></H4>
+<A NAME="IDX991"></A>
+<P><B><A NAME="FIGFLEDGE" HREF="../usrguide.htm#FT_FIGFLEDGE">Figure 93. Example of
+Faces, Loops, and Edges with a Hole</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/flehole.gif" ALT="Figure flehole not
+displayed."></CENTER><BR></B><BR>
+<P>
+The following data file is identical to the previous data file except
+that the third polygon has a square hole in it.
+The resulting connections are illustrated in <A HREF="#FIGFLEDGE">Figure 93</A>.
+<PRE>
+#
+# Example of faces, loops and edges components. The third face has a
+# square hole in it.
+#
+#
+# Positions array.  These are a list of all the vertices of the object;
+#   no particular order is required here.
+#
+object "position list" class array type float rank 1 shape 2 items 15
+data follows
+</PRE>
+<PRE>
+  0.133985  0.812452  # point number 0
+  0.375019  0.896258  # point number 1
+  0.532733  0.76484   # point number 2
+  0.523806  0.404777  # point number 3
+  0.300626  0.327407  # point number 4
+  0.145888  0.508927  # point number 5
+  0.68152   0.851137  # point number 6
+  0.815428  0.758889  # point number 7
+  0.94636   0.592248  # point number 8
+  0.729132  0.416679  # point number 9
+  0.535709  0.190524  # point number 10
+  0.600000  0.700000  # point number 11
+  0.700000  0.700000  # point number 12
+  0.700000  0.600000  # point number 13
+  0.600000  0.600000  # point number 14
+</PRE>
+<PRE>
+#
+#  Edges array.  This is a list of connected points, by point number.  All
+#  the edges associated with a particular face need to be listed together.
+#  If points 10, 3 and 7 make a triangle, the list is "10 3 7" and the 10
+#  is not repeated.  Following a polygon, the front of the polygon is
+#  determined by the right-hand rule.
+object "edge list" class array type int rank 0 items 25 data follows
+</PRE>
+<PRE>
+  1  2  6  # edge point index 0
+  0  5  4  3  2  1  # edge point index 3
+  2  3  9  8  7  6  # edge point index 9
+ 11 12 13 14  # edge point index 15 (hole in third face)
+  3 10  9  # edge point index 19
+  3  4 10  # edge point index 22
+attribute "ref" string "positions"
+</PRE>
+<PRE>
+#
+#  Loops array.  This is a list of connected edges, by edge number.  Each
+#  number is the edge index of where the next loop starts.
+object "loop list" class array type int rank 0 items 6 data follows
+  0   # loop index 0
+  3   #  1
+  9   #  2
+ 15   #  3
+ 19   #  4
+ 22   #  5
+attribute "ref" string "edges"
+</PRE>
+<PRE>
+#
+#  Faces array.  This is list of which loops make faces.  If there are
+#   no holes in the faces, this is list of all loops.  If two or more
+#   loops actually describe the outside edges and inside hole edges of
+#   a face, then this list contains the starting loop numbers of the
+#   list of loops making up a face.
+#
+object "face list" class array type int rank 0 items 5 data follows
+ 0
+ 1
+ 2
+ 4
+ 5
+attribute "ref" string "loops"
+</PRE>
+<PRE>
+#
+#  data array. Dependent on faces.
+#
+object "data" class array type float rank 0 items 5 data follows
+  0  2.5  1.2  0.4  1.8
+attribute "dep" string "faces"
+</PRE>
+<PRE>
+#
+#
+#  Field definition to put the arrays together.
+#
+object "map with hole" class field
+  component "positions"  "position list"
+  component "edges"  "edge list"
+  component "loops"  "loop list"
+  component "faces"  "face list"
+  component "data"  "data"
+end
+</PRE>
+<P>
+<H4><U>Example 11. Three-dimensional Faces, Loops, and Edges</U></H4>
+<A NAME="IDX992"></A>
+<P>
+The following data file describes a faces, loops, and edges Object that
+exists in 3-dimensional space.
+<PRE>
+// To view the solid:
+g = Import("solid.dx");
+a = AutoCamera(g, &#91;0.2 0.1 1.0&#93;);
+Display(g, a);
+// To look at just the connections:
+s = ShowConnections(g);
+Display(s, a);
+</PRE>
+<P>
+Use the first part of the script to view the solid, and the second
+part to view only the connections.
+The data file is given below, and the resulting connections are shown
+in <A HREF="#FIGSOLIDF">Figure 94</A>.
+This data file can be found in
+<TT><STRONG>/usr/local/samples/data/solid.dx</STRONG></TT>.
+<PRE>
+# Example of faces, loops and edges components.
+#
+# Positions array.  These are a list of all the vertices of the object;
+#   no particular order is required here.
+object "position list" class array type float rank 1 shape 3 items 12
+data follows
+</PRE>
+<PRE>
+  5.0  0.0  1.0  # point number 0
+  5.0  0.0  5.0  # 1
+  3.0  5.0  5.0  # 2
+  4.5  0.0  1.5  # 3
+  4.5  0.0  4.5  # 4
+  3.0  4.0  5.0  # 5
+  4.0  0.5  5.0  # 6
+  1.5  0.0  1.5  # 7
+  1.5  0.0  4.5  # 8
+  2.0  0.5  5.0  # 9
+  1.0  0.0  5.0  # 10
+  1.0  0.0  1.0  # 11
+#  Edges array.  This is a list of connected points, by point number.  All
+#  the edges associated with a particular face need to be listed together.
+#  If points 10, 3 and 7 make a triangle, the list is "10 3 7" and the 10
+#  is not repeated.  If there is a hole in the triangle, the edges that
+#  describe the hole must be listed right before or right after.
+object "edge list" class array type int rank 0 items 23 data follows
+  1  0  2  # edge point index 0
+ 10  1  2  # 3
+  9  6  5  # 6
+ 10  1  0 11  # 9
+  8  4  3  7  # 13
+ 11 10  2  # 17
+  0 11  2  # 20
+attribute "ref" string "positions"
+</PRE>
+<PRE>
+#  Loops array.  This is a list of connected edges, by edge number.  Each
+#   number is the edge index of where the next loop starts.
+object "loop list" class array type int rank 0 items 7 data follows
+</PRE>
+<P><B><A NAME="FIGSOLIDF" HREF="../usrguide.htm#FT_FIGSOLIDF">Figure 94. Example of
+a Surface Using Faces, Edges, and Loops</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/flesurf.gif" ALT="Figure flesurf not
+displayed."></CENTER><BR></B><BR>
+<PRE>
+ 0  # loop index 0
+ 3  # 1
+ 6  # 2
+ 9  # 3
+ 13  # 4
+ 17  # 5
+ 20  # 6
+attribute "ref" string "edges"
+</PRE>
+<PRE>
+#  Faces array.  This is list of which loops make faces.  If there are
+#   no holes in the faces, this is list of all loops.  If two or more
+#   loops actually describe the outside edges and inside hole edges of
+#   a face, then this list contains the starting loop numbers of the
+#   list of loops making up a face.
+object "face list" class array type int rank 0 items 5 data follows
+ 0
+ 1
+ 3
+ 5
+ 6
+attribute "ref" string "loops"
+</PRE>
+<PRE>
+#  Colors array.  To get flat shaded surfaces, there should be one color
+#    per face, and one normal per face.  These are Red,Green,Blue values
+#    between 0 (no color) and 1 (fully saturated).
+object "color list" class array type float rank 1 shape 3 items 5 data follows
+  0.6  0.3  0.6
+  0.8  0.8  0.1
+  0.9  0.4  0.9
+  0.4  0.8  0.7
+  0.8  0.8  0.8
+attribute "dep" string "faces"
+</PRE>
+<PRE>
+#  Normals array.
+object "normal list" class array type float rank 1 shape 3 items 5
+data follows
+  0.93   0.37   0.0
+  0.0    0.0    1.0
+  0.0   -1.0    0.0
+ -0.93   0.37   0.0
+  0.0   -0.63  -0.78
+attribute "dep" string "faces"
+</PRE>
+<PRE>
+#  Field definition to put the arrays together.
+object "solid" class field
+  component "positions"  "position list"
+  component "edges"   "edge list"
+  component "loops"   "loop list"
+  component "faces"   "face list"
+  component "colors"  "color list"
+  component "normals"  "normal list"
+end
+</PRE>
+<P>
+<H4><U>Example 12. Image Files</U></H4>
+<A NAME="IDX993"></A>
+<P>
+This Data Explorer header file reads an image
+(<TT><STRONG>cylinder.rgb</STRONG></TT>).
+The image is 350 x 300 and consists of RGB colors (3-vectors).
+You can read this image in, and display it, using the visual program
+<TT><STRONG>/usr/local/dx/samples/programs/ReadImage.net</STRONG></TT>.
+This file can be found in
+<TT><STRONG>/usr/local/dx/samples/data/image.dx</STRONG></TT>.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">It is easier to import a file in the RGB format by using the
+ReadImage module.
+This example illustrates the different aspects of header files.
+</td></tr></table>
+<PRE>
+   # First describe the positions. The image is written such that
+   # x varies fastest, and the first pixel in the file is the one that is
+   # to be displayed at the top left.
+   # Because x varies fastest, the last delta specifies a vector in
+   # the x direction.  Because the first pixel is at the top left,
+   # the delta in the y direction is -1.
+object 1 class gridpositions 300 350
+origin  0  0
+delta   0 -1
+delta   1  0
+</PRE>
+<PRE>
+   # Next describe the connections
+   # The image is 350 pixels in x and 300 pixels in y.  Since
+   # x is the last delta specified, the connections are specified as
+   # 300 x 350
+object 2 class gridconnections 300 350
+attribute "ref" string "positions"
+attribute "element type" string "quads"
+</PRE>
+<PRE>
+   # Next indicate that the data can be found in the file "cylinder.rgb",
+   # starting at byte 0.  There are three bytes (red, green, and blue)
+   # for each pixel.
+object 3 class array type byte rank 1 shape 3 ieee msb items 105000
+data file cylinder.rgb,0
+attribute "dep" string "positions"
+</PRE>
+<PRE>
+   # We read the colors in as the "data" component. This allows us
+   # to immediately begin operating on them (for example, to convert the
+   # bytes to floating point colors)
+object "image" class field
+component "positions" 1
+component "connections" 2
+component "data" 3
+</PRE>
+<P>
+<H3><A NAME="HDRSYNFF" ></A>Syntax of the Native File Format
+</H3>
+		<P>
+A data file in the Data Explorer native format can contain a header section,
+a data section, or both.
+The header section defines a set of Objects, the data for which are
+contained in the data section or imbedded in the header.
+Each type of object that can be defined is described in the following
+subsections.
+
+		<p></p>
+		<H4><U>Header Section</U></H4>
+		<A NAME="IDX994"></A>
+<P>
+The header section of a Data Explorer file consists of a sequence of Object
+definitions.
+Each Object definition consists of a sequence of clauses, beginning with
+an <TT><STRONG>object</STRONG></TT> clause.
+The clauses defining an Object can be in any order, except that the type
+and size information for an Array must be specified before the data
+if the data are imbedded in the header.
+A clause consists of a sequence of words separated by one or more blank
+spaces or new lines.
+Line breaks are not significant (except after the
+<TT><STRONG>follows</STRONG></TT> keyword, when data
+must follow on the next line).
+Multiple clauses can occur on one line, and a single clause can be split
+across lines.
+The following sections describe each of the types of Objects
+that can be defined.
+In these descriptions, the <TT><STRONG>monospace</STRONG></TT> font specifies
+literals; <I>italics</I>, non-literals; square brackets [ ], optional items; and a vertical list, alternatives. A single line is limited to 4K characters within Data Explorer; however, the native file format does not have this limitiation.<P>
+<A NAME="IDX995"></A>
+In the header section (and text data sections), <TT><STRONG>#</STRONG></TT>
+is the comment character.
+All text from <TT><STRONG>#</STRONG></TT> to the end of the line is ignored.
+<P>
+<H4><U>Data Section</U></H4>
+<A NAME="IDX996"></A>
+<P>
+The data section is used for Array data when either an offset in the
+current file or in a separate file is specified in the Array
+Object definition.
+All other Objects, including Array Objects whose definitions use the
+<TT><STRONG>'data follows'</STRONG></TT> specification, are
+self-contained;
+their definitions include all necessary information.
+These Objects do not use a data section.
+<P>
+The Data Explorer file format is flexible enough to describe many existing data
+formats without having to reformat the data.
+It allows you to specify byte order, which index varies fastest, whether
+the data type is floating point or byte, and whether the file format
+is binary or ASCII.
+<P>
+For data that is not in a format accepted by the Data Explorer native file
+format, you can either reformat the data so it is acceptable,
+or import the data using a general importer specification
+(see <A HREF="qikgu027.htm#HDRGAI">5.1 , "General Array Importer"</A> in <I>IBM
+Visualization Data Explorer QuickStart Guide</I>).
+<P>
+The data section consists of a set of data items specified as text or
+binary by the <TT><STRONG>data</STRONG></TT> clauses in the various
+Array Object definitions.
+Text and binary can be mixed in the same data section, because the
+<TT><STRONG>data</STRONG></TT> clauses specify portions of the data
+section by byte offsets.
+Binary representations can be in most-significant-byte-first
+<TT>(<STRONG>msb</STRONG>)</TT> or least-significant-byte-first
+<TT>(<STRONG>lsb</STRONG>)</TT> format, as specified by the
+relevant <TT><STRONG>data</STRONG></TT> or
+<TT><STRONG>'data mode'</STRONG></TT>
+clause.
+Binary floating-point numbers currently must be in IEEE format.
+<P>
+If a Data Explorer file does not begin with a valid header (at least an
+<TT><STRONG>end</STRONG></TT> clause), it is assumed not to have
+a header section.
+<P>
+<H3><A NAME="HDROBJ" ></A>Objects</H3>
+<P>
+Every Object has a class and an identifying numeric or string name whose
+scope is the file containing the Object.
+The definition of an Object is introduced by an
+<TT><STRONG>object</STRONG></TT> clause that
+specifies the Object number or
+name and its class.
+The <TT><STRONG>class</STRONG></TT> keyword is optional (as are many of the
+keywords in the following list).
+<PRE>
+  <STRONG>object</STRONG><VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93;<STRONG>group</STRONG>
+       "<VAR>name</VAR>"   <STRONG>series</STRONG>
+<STRONG>                      multigrid
+                      compositefield
+                      field
+                      array
+                      constantarray
+                      gridpositions
+                      regulararray
+                      productarray
+                      gridconnections
+                      patharray
+                      mesharray
+                      xform
+                      string
+                      light
+                      camera
+                      clipped
+                      screen  </STRONG>
+</PRE>
+<P>
+The numeric or string name of an Object is used to refer to that Object
+in the definitions of other Objects.
+In general such references can take one of several forms:
+<PRE>
+  <VAR>number</VAR>
+  "<VAR>name</VAR>"
+  <STRONG>file</STRONG> <VAR>file</VAR>
+  <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+  <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+An Object that has a string name can be imported with the Import
+module by specifying that string as the
+<TT><STRONG>variable</STRONG></TT>
+parameter of Import.
+<P>
+All Objects can have any number of named attributes specified by
+<TT><STRONG>attribute</STRONG></TT> clauses.
+The value of an attribute is an Object.
+The value can be specified as a string or list of strings by using the
+<TT><STRONG>string</STRONG></TT> keyword (in which case a String Object
+is created to hold the string), as a number by using the
+<TT><STRONG>number</STRONG></TT> keyword (in which case an
+Array Object is created to hold the number), or as
+an Object reference.
+<PRE>
+<STRONG>attribute</STRONG> "<VAR>attribute-name</VAR>" &#91;<STRONG>value</STRONG>&#93; <STRONG>string</STRONG>  "<VAR>string</VAR>" ...
+                 <STRONG>number</STRONG> <VAR>number</VAR>
+                 <VAR>number</VAR>
+                 "<VAR>name</VAR>"
+                 <STRONG>file</STRONG> <VAR>file</VAR>
+                 <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+                 <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_435" ></A>Group Objects</H3>
+<A NAME="IDX997"></A>
+<P>
+A Group Object has any number of named or numbered members specified
+by <TT><STRONG>member</STRONG></TT> clauses.
+The value of the member is specified as an Object name or number in
+the current file or as an Object name or number in another file.
+Member numbers must be sequential, starting at 0, with no gaps in the
+numbering.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>group</STRONG>
+        "<VAR>name</VAR>"
+  <STRONG>member</STRONG>  "<VAR>member-name</VAR>" &#91;<STRONG>value</STRONG>&#93; <VAR>number</VAR>
+         <VAR>number</VAR>          "<VAR>name</VAR>"
+          <STRONG>file</STRONG> <VAR>file</VAR>
+          <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+          <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_436" ></A>Series Objects</H3>
+<A NAME="IDX998"></A>
+<P>
+A Series Object is a subclass of Group Object, in which each member has
+in addition to its ordinal index a floating-point
+<I>series position.</I>
+The series position can be, for example, the time stamp for each member
+in a time series.
+A Series Object has any number of numbered members.
+The value of the member is specified as an Object name or number within
+the current file or as an Object name or number in another file.
+Member numbers must be sequential, starting at 0, with no gaps in the
+numbering.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>series</STRONG>
+       "<VAR>name</VAR>"
+  <STRONG>member</STRONG>  <VAR>number</VAR> &#91;<STRONG>position</STRONG>&#93; <VAR>number</VAR> &#91;<STRONG>value</STRONG>&#93;<VAR>number</VAR>
+                 "<VAR>name</VAR>"
+                 <STRONG>file</STRONG> <VAR>file</VAR>
+                 <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+                 <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_437" ></A>Multigrid Objects</H3>
+<A NAME="IDX999"></A>
+<A NAME="IDX1000"></A>
+<A NAME="IDX1001"></A>
+<P>
+A Multigrid Object is a subclass of Group Object, in which each member
+is constrained to have the same data and connections type.
+This is used for representing a Field as a collection of primitive
+Fields.
+Fields may be spatially disjoint or they may overlap.
+A Multigrid Object has any number of named or numbered members specified by
+<TT><STRONG>member</STRONG></TT> clauses.
+The value of the member is specified as an Object name or number within
+the current file or as an Object name or number in another file.
+Member numbers must be sequential, starting at 0, with no gaps in the
+numbering.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>multigrid</STRONG>
+        "<VAR>name</VAR>"
+  <STRONG>member</STRONG>  "<VAR>member-name</VAR>" &#91;<STRONG>value</STRONG>&#93;  <VAR>number</VAR>
+         <VAR>number</VAR>          "<VAR>name</VAR>"
+       <STRONG>file</STRONG> <VAR>file</VAR>
+       <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+       <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_438" ></A>Composite Field Objects
+</H3>
+<A NAME="IDX1002"></A>
+<P>
+A Composite Field Object is a subclass of Group Object, in which each
+member is constrained to have the same data and
+connections type.
+In addition, Fields must be spatially disjoint and abutting, with
+boundary positions replicated exactly.
+A Composite Field Object has any number of named or numbered members
+specified by <TT><STRONG>member</STRONG></TT> clauses.
+The value of the member is specified as an Object name or number in the
+current file or as an Object name or number in another file.
+Member numbers must be sequential, starting at 0, with no gaps in the
+numbering.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>compositefield</STRONG>
+        "<VAR>name</VAR>"
+  <STRONG>member</STRONG>  "<VAR>member-name</VAR>" &#91;<STRONG>value</STRONG>&#93;  <VAR>number</VAR>
+         <VAR>number</VAR>          "<VAR>name</VAR>"
+       <STRONG>file</STRONG> <VAR>file</VAR>
+       <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+       <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_439" ></A>Field Objects</H3>
+<A NAME="IDX1003"></A>
+<P>
+A Field Object has any number of named components specified by
+<TT><STRONG>component</STRONG></TT> clauses.
+The value of the component is specified as an object name or number
+in the current file or as an Object name or number in another file.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>field</STRONG>
+        "<VAR>name</VAR>"
+  <STRONG>component</STRONG>  "<VAR>component-name</VAR>" &#91;<STRONG>value</STRONG>&#93;  <VAR>number</VAR>
+              "<VAR>name</VAR>"
+              <STRONG>file</STRONG> <VAR>file</VAR>
+              <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+              <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_440" ></A>Array Objects</H3>
+<A NAME="IDX1004"></A>
+<P>
+An Array Object specifies the type (default <TT>float</TT>), category
+(default <TT>real</TT>), rank (default 0), shape, and number of
+items.
+The types are defined as follows:
+<DL COMPACT>
+<DD>signed byte
+<DD>unsigned byte
+<DD>signed 2-byte integer
+<DD>unsigned 2-byte integer
+<DD>signed 4-byte integer
+<DD>unsigned 4-byte integer
+<DD>signed 8-byte integer
+<DD>4 byte floating point
+<DD>8 byte floating point
+<DD>character string
+</DL>
+<P><B>Note: </B>Lists are simply Arrays.
+Thus a list of integers is an Array of type "int"; a list of
+strings, an Array of type "string."
+<P>
+The categories are:
+<DL COMPACT>
+<DD>real--A number
+<DD>complex--Two numbers representing the real and imaginary
+components.
+</DL>
+The data is specified by an offset in bytes in the data section of the
+current file, an offset within the data section of another Data Explorer
+file, or by the keyword <TT><STRONG>follows</STRONG></TT>,
+indicating that the data begins immediately
+following the newline after the
+<TT><STRONG>follows</STRONG></TT>
+keyword.
+The offset is specified in bytes for both binary and text files.
+<P>
+Optional keywords before the <TT><STRONG>data</STRONG></TT> keyword specify
+the format and byte order of the data.
+The <TT><STRONG>mode</STRONG></TT> keyword before a data-location specification
+sets the default data encoding for all subsequent
+<TT><STRONG>data</STRONG></TT> clauses to be the most
+recently defined data encoding.
+The default data encoding is <TT><STRONG>text</STRONG></TT> (or
+<TT><STRONG>ascii</STRONG></TT> on all currently supported
+systems).
+The <TT><STRONG>ieee</STRONG></TT> keyword
+specifies the ANSI/IEEE standard 754 data format.
+<P>
+If <TT><STRONG>binary</STRONG></TT> (or <TT><STRONG>ieee</STRONG></TT> on all
+currently supported systems) is specified, the default byte
+order depends on the platform on which Data Explorer is running.
+
+On the DEC Alpha,
+
+the default byte order is
+<TT><STRONG>lsb</STRONG></TT> (least significant
+byte first).
+On all other platforms, the default byte order is
+<TT><STRONG>msb</STRONG></TT> (most significant byte
+first).
+The <TT><STRONG>'data mode'</STRONG></TT> clause can be used outside an Array
+Object definition;
+see <A HREF="#HDRDATMODC">"Data Mode Clause"</A> for more information.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>array</STRONG>
+         "<VAR>name</VAR>"
+  &#91;<STRONG>type</STRONG>  <STRONG>&#91;unsigned&#93; byte</STRONG> &#93;
+<STRONG>    signed byte
+        unsigned short
+        &#91;signed&#93; short
+        unsigned int
+        &#91;signed&#93; int
+        hyper
+        float
+        double
+        string</STRONG>
+</PRE>
+<PRE>
+  &#91;<STRONG>category  real</STRONG>     &#93;
+<STRONG>            complex</STRONG>
+  &#91;<STRONG>rank</STRONG> <VAR>number</VAR>&#93;
+  &#91;<STRONG>shape</STRONG> <VAR>number ...</VAR>&#93;
+  <STRONG>items</STRONG> <VAR>number</VAR>
+  &#91;  <STRONG>msb</STRONG>  &#93; &#91;   <STRONG>text</STRONG> &#93; <STRONG>data</STRONG> &#91; <STRONG>mode</STRONG> &#93;  <VAR>offset</VAR>
+<STRONG>     lsb      ieee</STRONG>                  <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>offset</VAR>
+          <STRONG>    binary                follows
+              ascii</STRONG>
+</PRE>
+<P>
+If <TT><STRONG>byte</STRONG></TT>, <TT><STRONG>short</STRONG></TT>, or
+<TT><STRONG>int</STRONG></TT> are not prefixed with either signed or
+unsigned, by default, bytes are unsigned, shorts
+are signed and ints are signed.
+For compatibility with earlier versions, <TT><STRONG>char</STRONG></TT> is
+accepted as
+a synonym for <TT><STRONG>byte</STRONG></TT>.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">
+For string-type data, the Array rank should be 1 and the Array shape
+should be the length of the longest string plus 1.
+</td></tr></table>
+<P>
+<H3><A NAME="Header_441" ></A>Constant Array Objects
+</H3>
+<A NAME="IDX1005"></A>
+<P>
+A Constant Array defines an Array whose elements all have the same value.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>constantarray</STRONG>
+         "<VAR>name</VAR>"
+  &#91;<STRONG>type</STRONG>  <STRONG>&#91;unsigned&#93; byte</STRONG> &#93;
+<STRONG>    signed byte
+        unsigned short
+        &#91;signed&#93; short
+        unsigned int
+        &#91;signed&#93; int
+        hyper
+        float
+        double
+        string</STRONG>
+  &#91;<STRONG>category  real</STRONG>     &#93;
+<STRONG>            complex</STRONG>
+  &#91;<STRONG>rank</STRONG> <VAR>number</VAR>&#93;
+  &#91;<STRONG>shape</STRONG> <VAR>number ...</VAR>&#93;
+  <STRONG>items</STRONG> <VAR>number</VAR>
+  &#91;  <STRONG>msb</STRONG>  &#93; &#91;   <STRONG>text</STRONG> &#93; <STRONG>data</STRONG> &#91; <STRONG>mode</STRONG> &#93;  <VAR>offset</VAR>
+<STRONG>     lsb      ieee</STRONG>                  <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>offset</VAR>
+          <STRONG>    binary                follows
+              ascii</STRONG>
+</PRE>
+<P>
+If <TT><STRONG>byte</STRONG></TT>, <TT><STRONG>short</STRONG></TT>, or
+<TT><STRONG>int</STRONG></TT> are not prefixed with either signed or
+unsigned, by default, bytes are unsigned, shorts
+are signed and ints are signed.
+For compatibility with earlier versions, <TT><STRONG>char</STRONG></TT> is
+accepted as
+a synonym for <TT><STRONG>byte</STRONG></TT>.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">For string type data, the Array rank should be 1 and the Array
+shape
+should be the length of the string plus 1.
+</td></tr></table>
+<P>
+The only difference between the specification of a Constant Array
+and the specification of an Array is that for a Constant Array
+only one value is listed in the data section.
+<P>
+<H3><A NAME="Header_442" ></A>gridpositions Keyword
+</H3>
+<A NAME="IDX1006"></A>
+<P>
+The <TT><STRONG>gridpositions</STRONG></TT> keyword is used to represent an
+<I>n</I>-dimensional grid of geometrically regular points in a
+compact form.
+It is a kind of Array Object and can be used in any context where an
+Array Object would be used.
+It is typically used as a regular positions component.
+The shape of the grid (number of points in each dimension) is specified
+by a list of <I>n</I> numbers following the optional
+<TT><STRONG>counts</STRONG></TT> keyword in the
+<TT><STRONG>object</STRONG></TT> clause.
+The number <I>n</I> of items in this list determines the dimensionality
+of the grid.
+The last item in this list corresponds to the fastest varying dimension.
+<P>
+A grid has an origin, which can be specified by an
+<TT><STRONG>origin</STRONG></TT> clause (which lists the <I>n</I> coordinates
+of the origin).
+If the <TT><STRONG>origin</STRONG></TT> clause is not present, the
+<TT><STRONG>origin</STRONG></TT> defaults to 0.
+The <TT><STRONG>origin</STRONG></TT> clause can be followed by <I>n</I>
+<TT><STRONG>delta</STRONG></TT> clauses, listing the deltas for
+each dimension.
+Each <TT><STRONG>delta</STRONG></TT> clause has <I>n</I> elements.
+The last <TT><STRONG>delta</STRONG></TT> clause corresponds to the fastest
+varying dimension.
+<A HREF="#HDREX1">"Example 1. A Regular Grid"</A> shows how to use the
+<TT><STRONG>delta</STRONG></TT> clause
+to specify a grid in which <I>z</I> varies fastest.
+If the <TT><STRONG>delta</STRONG></TT> clauses are not specified, the deltas
+default to unit vectors in each dimension, with the last dimension
+varying fastest.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG> gridpositions</STRONG> &#91;<STRONG>counts</STRONG>&#93;<VAR>number...</VAR>
+         "<VAR>name</VAR>"
+  <STRONG>origin</STRONG> <VAR>number ...</VAR>
+  <STRONG>delta</STRONG> <VAR>number ...</VAR>
+  &#91; <STRONG>delta</STRONG> <VAR>number ...</VAR> &#93;
+  &#46;
+  &ratio;
+</PRE>
+<P>
+The <TT><STRONG>gridpositions</STRONG></TT> keyword does not actually
+correspond to a primitive Object type in the system, but
+instead is a convenient way of representing an
+important special case of the more general
+product (Product Array Object) of
+<I>n</I> 1-dimensional
+Regular Arrays (Regular
+Array Objects).
+For most purposes the <TT><STRONG>gridpositions</STRONG></TT> keyword is
+sufficient and more convenient.
+The more primitive Regular and Product Arrays are described next.
+<P>
+<H3><A NAME="Header_443" ></A>Regular Array Objects
+</H3>
+<A NAME="IDX1007"></A>
+<P>
+A Regular Array Object is a compact encoding of a linear sequence of
+equally spaced points in <I>n</I>&#45;space.
+It is often combined in a Product Array with other Regular Array
+Objects to obtain a grid of equally-spaced points in
+<I>n</I>&#45;space;
+in such a case, it is generally more convenient to use the
+<TT><STRONG>gridpositions</STRONG></TT> keyword described
+earlier.
+<P>
+A Regular Array Object is a linear sequence of points in
+<I>n</I>-space starting at some origin, specified
+by the <TT><STRONG>origin</STRONG></TT> clause, and
+separated by some constant delta, specified
+by the <TT><STRONG>delta</STRONG></TT>
+clause.
+The <TT><STRONG>delta</STRONG></TT> clause has the same number of elements as
+<TT><STRONG>origin</STRONG></TT>.
+The dimensionality of the space that the linear sequence is embedded in
+is determined by the number of coordinates specified in the
+<TT><STRONG>origin</STRONG></TT> clause.
+Regular Array Objects are always of rank 1.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>regulararray</STRONG> &#91;<STRONG>items</STRONG>&#93; <VAR>number</VAR>
+         "<VAR>name</VAR>"
+  &#91;<STRONG>type</STRONG>  <STRONG>unsigned byte</STRONG> &#93;
+<STRONG>    signed byte
+        unsigned short
+        signed short
+        unsigned int
+        signed int
+        hyper
+        float
+        double
+        string</STRONG>
+  <STRONG>origin</STRONG> <VAR>number ...</VAR>
+  <STRONG>delta</STRONG> <VAR>number ...</VAR>
+</PRE>
+<P>
+<H3><A NAME="Header_444" ></A>Product Array Objects
+</H3>
+<A NAME="IDX1008"></A>
+<P>
+A Product Array is a compact encoding of a generalized notion of a
+regular grid.
+It is frequently used to describe a rectilinear grid as a product of
+Regular Arrays;
+in such a case, it is generally more convenient to use the
+<TT><STRONG>gridpositions</STRONG></TT> keyword described
+earlier.
+<P>
+A Product Array is the set of all possible sums of the points of the
+terms forming the product.
+For example, the product of a set of Arrays, each of which is a Regular
+Array as described above, is a lattice of points with basis vectors
+equal to the deltas of the Regular Arrays and origin equal to
+the sum of the origins of the terms.
+A product of a Regular Array with an irregular Array is a
+"semi-regular" grid whose unit cells are prisms.
+A Product Array is specified by a list of <TT><STRONG>term</STRONG></TT>
+clauses naming the Arrays that form the product.
+The last term varies fastest in the resulting list of positions.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>productarray</STRONG>
+         "<VAR>name</VAR>"
+  <STRONG>term</STRONG>  <VAR>number</VAR>
+      "<VAR>name</VAR>"
+      <STRONG>file</STRONG> <VAR>file</VAR>
+      <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+      <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_445" ></A>gridconnections Keyword
+</H3>
+<A NAME="IDX1009"></A>
+<P>
+The <TT><STRONG>gridconnections</STRONG></TT> keyword is used to represent
+the <I>n</I>-dimensional cuboidal connections of a regular grid
+in a compact form.
+It is a kind of Array Object and can be used as the "connections"
+component of a Field.
+The shape of the grid (number of points in each dimension) are specified
+by a list of <I>n</I> numbers following the optional
+<TT><STRONG>counts</STRONG></TT> keyword in the
+<TT><STRONG>object</STRONG></TT> clause.
+The last number corresponds to the fastest varying component of the
+positions.
+The number <I>n</I> of items in this list determines the dimensionality
+of the grid.
+The last item in this list corresponds to the fastest varying dimension.
+<P>
+If this grid is part of a Composite Field Object, then
+<TT><STRONG>meshoffsets</STRONG></TT> must be specified to
+define where this grid is positioned relative to
+the entire Composite Field.
+The <TT><STRONG>meshoffsets</STRONG></TT> (one number for each dimension, and
+specified in the same order as <TT><STRONG>counts</STRONG></TT>) are the
+accumulated count of connections between the origin of the whole
+grid and the origin of this grid.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG> gridconnections</STRONG>
+         "<VAR>name</VAR>"
+  &#91;<STRONG>counts</STRONG>&#93; <VAR>number...</VAR>
+  &#91; <STRONG>meshoffsets</STRONG> <VAR>number...</VAR> &#93;
+</PRE>
+<P>
+The <TT><STRONG>gridconnections</STRONG></TT> keyword does not actually
+correspond to a primitive Object type in the system, but
+instead is a convenient way of representing an
+important special case of the more general
+mesh (Mesh Array Object) of <I>n</I>
+1-dimensional paths (path Array
+Objects).
+For most purposes the <TT><STRONG>gridconnections</STRONG></TT> keyword is
+sufficient and more convenient.
+The more primitive Mesh and Path Arrays are described next.
+<P>
+<H3><A NAME="Header_446" ></A>Path Array Objects
+</H3>
+<A NAME="IDX1010"></A>
+<P>
+A Path Array Object encodes linear regularity of connections.
+It is often combined in a Mesh Array with other Path Arrays to obtain a
+grid of connections;
+in such a case, it is generally more convenient to use the
+<TT><STRONG>gridconnections</STRONG></TT> keyword described
+earlier.
+<P>
+A Path Array is a set of <I>n-1</I> line segments joining <I>n</I>
+points, where the <I>i</I>th line segment joins points <I>i</I>
+and <I>i+1</I>.
+The number of points <I>n</I> is specified by the number following the
+optional <TT><STRONG>count</STRONG></TT> keyword.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>patharray</STRONG> &#91;<STRONG>count</STRONG>&#93; <VAR>number</VAR>
+         "<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_447" ></A>Mesh Array Objects
+</H3>
+<A NAME="IDX1011"></A>
+<P>
+A Mesh Array is a compact encoding of a generalized notion of a
+regular grid of connections.
+It is frequently used to describe a rectangular grid of connections as
+a product of Path Arrays;
+in such a case, it is generally more convenient to use the
+<TT><STRONG>gridconnections</STRONG></TT> keyword described
+earlier.
+<P>
+A Mesh Array encodes multidimensional regularity of connections.
+It is a product of connection Arrays.
+The product is a set of interpolation elements where the product has
+one interpolation element for each pair of interpolation elements
+in the two multiplicands, and the number of sample points in
+each interpolation element is the product of the number
+of sample points in each of the multiplicands&#39;
+interpolation elements.
+A Mesh Array is specified by a list of <TT><STRONG>term</STRONG></TT>
+clauses naming the Arrays that form the product.
+The last term varies fastest in the resulting list of connections.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>mesharray</STRONG>
+         "<VAR>name</VAR>"
+  <STRONG>term</STRONG>  <VAR>number</VAR>
+         "<VAR>name</VAR>"
+         <STRONG>file</STRONG> <VAR>file</VAR>
+         <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+         <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_448" ></A>XForm Objects</H3>
+<A NAME="IDX1012"></A>
+<P>
+An xform Object specifies another Object transformed for example by a
+rotation, scaling, or translation.
+The Object to be transformed is specified by an <TT><STRONG>of</STRONG></TT>
+clause, and the transform itself is specified by a <I>3&times;3</I>
+matrix specified by a <TT><STRONG>times</STRONG></TT> clause and a
+3-vector specified by a <TT><STRONG>plus</STRONG></TT> clause.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91; <STRONG>class</STRONG>&#93; <STRONG>xform</STRONG> &#91;<STRONG>of</STRONG>&#93; <VAR>number</VAR>
+         "<VAR>name</VAR>"  "<VAR>name</VAR>"
+                         <STRONG>file</STRONG> <VAR>file</VAR>
+                         <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+                         <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+  &#91;<STRONG>times</STRONG>&#93;  <VAR>a b c d e f g h i</VAR>
+  &#91;<STRONG>plus</STRONG>&#93;  <VAR>j k l</VAR>
+</PRE>
+<P>
+This Object represents the Object specified in the <TT><STRONG>of</STRONG></TT>
+clause, where each point
+<I>&#91;x&nbsp;y&nbsp;z&#93;</I>
+in the Object has been transformed to the new
+point <I>&#91;x&#39;&nbsp;y&#39;&nbsp;z&#39;&#93;</I> according to
+lb x prime &nbsp; y prime &nbsp; z prime rb = lb x &nbsp; y &nbsp; z rb %%
+left lbracket a rabove d rabove g
+%%%% b rabove e rabove h
+%%%% c rabove f rabove i right rbracket %
+plus lb j &nbsp; k &nbsp; l rb
+<P>
+<H3><A NAME="Header_449" ></A>String Objects</H3>
+<A NAME="IDX1013"></A>
+<P>
+A String Object encapsulates a text string as an Object.
+For example, the values of Object attributes are frequently string
+Objects. However,
+String Objects as such generally do not appear in Data Explorer files because a
+string-valued Object attribute can be specified by using the
+<TT><STRONG>string</STRONG></TT> keyword as described in
+<A HREF="#HDROBJ">"Objects"</A>.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>string</STRONG> "<VAR>string</VAR>" ...
+         "<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_450" ></A>Light Objects</H3>
+<A NAME="IDX1014"></A>
+<P>
+A Light Object is used to place a light in a scene for the renderer.
+Lights can be either local or distant.
+Local lights have a position and a color.
+Distant lights are at infinity, and have a direction and a color.
+It is often not necessary to specify a light in a scene because the
+renderer has a default built-in light that is sufficient
+for most purposes.
+For ambient lights, only <TT><STRONG>color</STRONG></TT> can be specified,
+not <TT><STRONG>direction</STRONG></TT> or
+<TT><STRONG>position</STRONG></TT>.
+For <TT><STRONG>distant</STRONG></TT> lights, the
+<TT><STRONG>direction</STRONG></TT>
+can be absolute, or it can be relative to the current location of the
+camera, as specified in a <TT><STRONG>'from camera'</STRONG></TT>
+clause.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>light</STRONG> &#91;<STRONG>type</STRONG>&#93;  <STRONG>distant</STRONG>
+         "<VAR>name</VAR>"  <STRONG>local</STRONG>
+                    <STRONG>ambient</STRONG>
+  <STRONG>direction</STRONG> <VAR>number number number</VAR> &#91; <STRONG>from camera</STRONG> &#93;
+  <STRONG>position</STRONG> <VAR>number number number</VAR>
+  <STRONG>color</STRONG> <VAR>number number number</VAR>
+      "<VAR>color</VAR>"
+  <STRONG>position</STRONG> <VAR>number number number</VAR>
+</PRE>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">In the current release of the Data Explorer, local lights are not
+supported.
+</td></tr></table>
+<P>
+<H3><A NAME="Header_451" ></A>Camera Objects</H3>
+<A NAME="IDX1015"></A>
+<P>
+A Camera Object specifies a camera for rendering.
+Camera Objects are not generally found in Data Explorer files, but rather are
+generated as part of the execution of a script or network.
+The definition of a Camera Object is included here for completeness.
+<PRE>
+  <STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93;
+  <STRONG>camera</STRONG> &#91;&#91;<STRONG>type</STRONG>&#93; orthographic&#93;
+         "<VAR>name</VAR>"
+  <STRONG>from</STRONG> <VAR>number number number</VAR>
+  <STRONG>to</STRONG> <VAR>number number number</VAR>
+  <STRONG>width</STRONG> <VAR>number</VAR>
+  <STRONG>resolution</STRONG> <VAR>number</VAR>
+  <STRONG>aspect</STRONG> <VAR>number</VAR>
+  <STRONG>up</STRONG> <VAR>number number number</VAR>
+  <STRONG>angle</STRONG> <VAR>number</VAR>
+  <STRONG>color</STRONG> <VAR>number number number</VAR>
+              <VAR>color name</VAR>
+</PRE>
+<P>
+<H3><A NAME="Header_452" ></A>Clipped Objects</H3>
+<A NAME="IDX1016"></A>
+<P>
+A Clipped Object represents one Object (specified by the
+<TT><STRONG>of</STRONG></TT> keyword) clipped by another
+Object (specified by the <TT><STRONG>by</STRONG></TT>
+keyword).
+Generally, Clipped Objects are not specified in input data files, but
+rather are generated as a result of using the ClipPlane or
+ClipBox module.
+<PRE>
+<STRONG>object</STRONG>  <VAR>number</VAR> &#91;<STRONG>class</STRONG>&#93; <STRONG>clipped by </STRONG>  <VAR>number</VAR> <STRONG>of </STRONG>
+<VAR>number</VAR>
+        "<VAR>name</VAR>"  "<VAR>name</VAR>"   "<VAR>name</VAR>"
+    <STRONG>file</STRONG> <VAR>file</VAR>    <STRONG>file</STRONG> <VAR>file</VAR>
+    <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>  <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+    <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"  <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_453" ></A>Screen Objects</H3>
+<A NAME="IDX1017"></A>
+<P>
+Screen Objects represent an Object transformed so as always to face
+the camera.
+See <A HREF="progu075.htm#HDRRENDCHP">Chapter 16. "Rendering"</A> in the <I>IBM
+Visualization Data Explorer Programmer&#39;s Reference</I> for more information,
+specifically <A HREF="progu079.htm#HDRSNCS">16.5 , "Screen Class"</A>.
+<PRE>
+<STRONG>object</STRONG> <VAR>number</VAR> <STRONG>&#91;class&#93; screen &#91; world   &#93; &#91; behind  &#93; &#91;of&#93;</STRONG> <VAR>number</VAR>
+   "<VAR>name</VAR>"             <STRONG>viewport inside</STRONG>  "<VAR>name</VAR>"
+    <STRONG>pixel  infront</STRONG>  <STRONG>file</STRONG> <VAR>file</VAR>
+     <STRONG>stationary </STRONG>  <STRONG>file</STRONG> <VAR>file</VAR>,<VAR>number</VAR>
+             <STRONG>file</STRONG> <VAR>file</VAR>,"<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="HDRDATMODC" ></A>Data Mode Clause</H3>
+<A NAME="IDX1018"></A>
+<P>
+You can specify a default data section format using the
+<TT><STRONG>'data mode'</STRONG></TT> clause.
+This clause can be used as part of an Array Object definition, or as a
+stand-alone clause in the header section.
+<TT><STRONG>msb</STRONG></TT> (most significant byte first) and
+<TT><STRONG>lsb</STRONG></TT> (least significant byte first)
+specify the byte order;
+<TT><STRONG>text</STRONG></TT>
+and <TT><STRONG>'binary'</STRONG></TT> specify the
+data format.
+(On all current platforms, <TT><STRONG>ieee</STRONG></TT> is a synonym for
+<TT><STRONG>binary</STRONG></TT>, and <TT><STRONG>ascii</STRONG></TT>
+for <TT><STRONG>text</STRONG></TT>.)
+<PRE>
+  <STRONG>data mode</STRONG>  &#91;  <STRONG>msb</STRONG> &#93; &#91;  <STRONG>text</STRONG> &#93;
+<STRONG>  lsb      ieee
+         binary
+         ascii</STRONG>
+</PRE>
+<P>
+<H3><A NAME="Header_455" ></A>Default Clause</H3>
+<P>You can specify the default Object to be imported using the
+<TT><STRONG>default</STRONG></TT> clause.
+When a Data Explorer data file contains more than one Object (which is the
+usual case), the Import module
+(see <A HREF="refgu073.htm#HDRIMPORT">Import</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>)
+decides which Object to import based on the value of the
+<TT><STRONG>variable</STRONG></TT> parameter (Object name or names)
+of the Import module, and the
+<TT><STRONG>default</STRONG></TT>
+clause (if specified).
+If <TT><STRONG>variable</STRONG></TT> is specified to Import, then those
+Objects specified are imported.
+If <TT><STRONG>variable</STRONG></TT> is not specified, but a default Object is
+specified with the <TT><STRONG>default</STRONG></TT> clause, then
+the default Object is imported.
+If <TT><STRONG>variable</STRONG></TT> is not specified, and no Object has been
+defined
+as the default, then the last Object in the file is imported.
+<PRE>
+   <STRONG>default</STRONG> <VAR>number</VAR>
+          "<VAR>name</VAR>"
+</PRE>
+<P>
+<H3><A NAME="Header_456" ></A>End Clause</H3>
+<A NAME="IDX1019"></A>
+<P>
+The end of the header section is indicated by an <TT><STRONG>end</STRONG></TT>
+clause.
+The data section begins with the byte immediately following the first
+newline after the <TT><STRONG>end</STRONG></TT> clause.
+<PRE>
+  <STRONG>end</STRONG>
+</PRE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

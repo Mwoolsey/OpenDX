@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall550 Prompts #!N #!EC 
+#!N #!I0 #!N #!N #!Cnavy #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   @prompt #!EF 
+and #!EC  #!F-adobe-times-bold-r-normal--18*   @cprompt #!EF #!N #!I50 #!N There are two 
+at-sign (@) variables that you can set in the executive (or 
+in a script) to customize the Data Explorer script prompt (@prompt) 
+and continuation prompt (@cprompt). (The continuation prompt appears when you enter 
+an incomplete command in the script environment. It indicates that you 
+must complete the command before it can be acted upon.) #!N 
+#!N The default prompt and continuation prompt are  #!F-adobe-times-bold-r-normal--18*   dx> #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   > #!EF respectively. #!N #!N The following example show 
+how to set these variables. Note that this example shows the 
+Data Explorer prompts as they would be displayed in the executive. 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx> @prompt = "DATA EXPLORER>"; #!N 
+DATA EXPLORER> @cprompt = " more>"; #!EF #!N #!N #!EC #!N 
+#!N If, after these commands, an incomplete statement was entered, Data 
+Explorer would respond as follows: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N DATA 
+EXPLORER> a = #!N more> 3 * 5; #!EF #!N #!N 
+#!EC #!I0 #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lsem,dxall552 h Understanding the Script Execution Model  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

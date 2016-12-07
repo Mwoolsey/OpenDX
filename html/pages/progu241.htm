@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu240.htm">Previous Page</A> &#124; <A HREF="progu242.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXMT" HREF="progu097.htm#PToC_335">DXMarkTime,
+DXMarkTimeLocal</A></H3>
+<A NAME="IDX1886"></A>
+<A NAME="IDX1887"></A>
+<A NAME="IDX1888"></A>
+<A NAME="IDX1889"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Record time marks.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+void DXMarkTime(char *string)<BR>
+void DXMarkTimeLocal(char *string)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TT><STRONG>DXMarkTime</STRONG></TT> records a "global" time mark
+relevant to the system as a whole.
+<P>
+<TT><STRONG>DXMarkTimeLocal</STRONG></TT> records a "local" event
+relevant to one processor (e.g., during a parallel
+section).
+This routine is called by the executive at the beginning and end of
+each module, at the beginning and end of each task or parallel
+section, and by some system modules.
+<P>
+Both routines store the current time (from <TT><STRONG>DXGetTime</STRONG></TT>)
+and a copy of <TT><STRONG>string</STRONG></TT> in a
+processor local list.
+The copied version of <TT><STRONG>string</STRONG></TT> will be truncated if
+longer than 16 characters.
+The number of time marks stored since the last call to
+<TT><STRONG>DXPrintTimes</STRONG></TT> is limited to
+2000 events.
+<P>
+<P><STRONG>Return Value</STRONG>
+<P>
+None.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu204.htm#HDRDXGT">DXGetTime</A>,
+<A HREF="progu268.htm#HDRDXPT">DXPrintTimes</A>,
+<A HREF="progu333.htm#HDRDXTT">DXTraceTime</A>
+</STRONG></TT>
+<P>
+<A HREF="progu056.htm#HDRTIMG">13.2 , "Timing"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu240.htm">Previous Page</A> &#124; <A HREF="progu242.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

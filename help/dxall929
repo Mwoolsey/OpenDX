@@ -1,0 +1,54 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rroute Route #!N #!N Category #!N #!N  #!Lcatflow,dxall755 h Flow Control  #!EL  #!N 
+#!N Function #!N #!N Routes an object through selector-specified output paths. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF 
+= Route(  #!F-adobe-times-bold-r-normal--18*   selector, input #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB selector TAB integer or 
+integer list TAB 0 TAB paths for routing the input object 
+#!N TAB input TAB value list, string list, or object TAB 
+no default TAB object to be routed #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB output 
+TAB object TAB a possible path for routing the input object 
+#!N TAB ... TAB - TAB additional paths #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N This 
+module determines which of several output paths are executed. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   selector #!EF #!EF #!I50 #!N 
+specifies the output paths that are to be executed. If the 
+specified value is: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o NULL or 0 (zero): none of the modules that use 
+Route output are executed. #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   n #!EF 
+: specifies the consumer that is executed. If  #!F-adobe-times-medium-i-normal--18*   n #!EF 
+= 1, the modules that use Route's first output are executed; 
+if  #!F-adobe-times-medium-i-normal--18*   n #!EF = 2, the modules that use Route's 
+second output are executed; and so on. #!N #!I0 #!N #!EF 
+#!N #!N #!N This parameter may also specify a list of 
+integers, allowing multiple output paths to execute. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N specifies an object to be 
+routed to the output paths that are to be executed. #!I0 
+#!N #!N #!N #!N A single Route module can specify a 
+maximum of 21 outputs. In the user interface, the default number 
+of enabled tabs is two. (Tabs can be added to the 
+module icon and removed with the appropriate  #!F-adobe-times-bold-r-normal--18*   ...Input Tab #!EF 
+options in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu of the VPE.) 
+#!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. Modules that 
+use outputs that are not specified in the  #!F-adobe-times-bold-r-normal--18*   selector #!EF 
+list are said to be "killed" and are not executed. If 
+there are no outputs associated with  #!F-adobe-times-bold-r-normal--18*   selector #!EF (e.g., if 
+ #!F-adobe-times-bold-r-normal--18*   selector #!EF is NULL or 0), none of the modules 
+that use Route output is allowed to execute: all are killed. 
+#!N #!N In general, modules that use the results of a 
+killed module are also killed. An exception is Collect, which runs 
+unless all inputs are killed (either by Route or by errors 
+in modules that produce its inputs). . #!N #!I30 #!N 2. 
+In the scripting language, if the Route module is to work 
+properly, it and modules downstream of it must be executed as 
+part of a macro. #!I0 #!N #!N #!N #!N Components #!N 
+#!N All input components are propagated to the selected outputs. #!N 
+#!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingSwitchAndRoute.net #!N 
+UsingMessage.net #!N SIMPLE/Route.net #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lcollect,dxall788 h Collect  #!EL  ,  #!Lswitch,dxall962 h Switch  #!EL  #!N #!N  #!Lxmod,dxall263 h Data Explorer Execution Model  #!EL  in IBM Visualization 
+Data Explorer User's Guide. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lrubbers,dxall930 h RubberSheet  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

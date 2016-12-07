@@ -1,0 +1,11 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall703 DXNO_BACKING_STORE #!N if set to anything, disables framebuffer 
+readbacks. Setting this environment variable will improve performance of interaction with 
+hardware rendered images, especially for machines for which readback is slow. 
+However, some of the interactions in the image window (such as 
+zoom) will result in a black image while interaction is taking 
+place. If you are not planning on using the Image tool, 
+then it is strongly recommended that this environment variable be set. 
+The default is that framebuffer readbacks are enabled. #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltall705,dxall705 h DXCOLORS  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

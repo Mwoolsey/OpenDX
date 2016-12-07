@@ -1,0 +1,59 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rslice Slice #!N #!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N 
+Function #!N #!N Slices a multidimensional object. #!N #!N Syntax #!N 
+#!N #!CForestGreen  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   output #!EF = Slice(  #!F-adobe-times-bold-r-normal--18*   input, dimension, 
+position #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB input TAB field TAB none TAB object to 
+be sliced #!N TAB dimension TAB integer or string TAB 0 
+TAB dimension to be eliminated #!N TAB position TAB integer list 
+TAB all TAB starting positions #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Description #!EF #!N TAB output TAB field 
+or field series TAB sliced data #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N This module creates 
+one or more "slices" of data from a multidimensional object, each 
+slice containing a subset of input data. It differs from the 
+Slab module in reducing by one the dimensionality of the object 
+passed to  #!F-adobe-times-bold-r-normal--18*   output #!EF . #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N specifies the data 
+field to be sliced. This field must have regular connections. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   dimension #!EF #!EF #!I50 #!N specifies the 
+dimension to be eliminated. If  #!F-adobe-times-bold-r-normal--18*   input #!EF has  #!F-adobe-times-medium-i-normal--18*   n 
+#!EF dimensions, the output will have  #!F-adobe-times-medium-i-normal--18*   n #!EF - 1. 
+These dimensions can be specified by number (from 0 to  #!F-adobe-times-medium-i-normal--18*   
+n #!EF - 1). The first three can also be specified 
+as  #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF , and  #!F-adobe-times-medium-i-normal--18*   
+z #!EF , respectively. #!N #!N The default for this parameter 
+is dimension 0 (zero). #!N #!N #!I0 #!N Notes: #!N #!I30 
+#!N 1. The  #!F-adobe-times-bold-r-normal--18*   dimension #!EF number refers to the ordering 
+of positions in the "connections" component. Thus,  #!F-adobe-times-medium-i-normal--18*   x #!EF corresponds 
+to 0 only if the positions have been specified as  #!F-adobe-times-medium-i-normal--18*   
+x #!EF varies slowest. #!N #!I30 #!N 2. Slice can also 
+be used on deformed grids, in which case the connections do 
+not align with any particular axis. #!N #!I30 #!N 3. Transposing 
+the positions (i.e., with Transpose) does  #!F-adobe-times-medium-i-normal--18*   not #!EF change the 
+order in the "connections" component. #!I0 #!N #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   position #!EF #!EF #!I50 #!N specifies the position from 
+which the slice is generated. #!N #!N If the specified value 
+is a single value, the module creates a single field sliced 
+that position along the eliminated dimension. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   position 
+#!EF is a list of integers, the module creates a field 
+series, sliced at each position in the list. The series position 
+of each series member is equal to the value of the 
+origin of that slice along the sliced axis. #!N #!N If 
+this parameter is not specified, the output is a series of 
+slices that begin at every grid position along  #!F-adobe-times-bold-r-normal--18*   dimension #!EF 
+. #!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 
+#!N 1. This module produces 2-dimensional data from 3-dimensional data. To 
+create a 2-dimensional slice in 3-dimensional space, use Slab. #!N #!I30 
+#!N 2. Slice performs no interpolation, and only data with regular 
+connections can be sliced. #!N #!I30 #!N 3. If the data 
+are connection dependent, slicing is ill-defined and the module returns an 
+error. #!I0 #!N #!N #!N #!N Components #!N #!N All input 
+components are propagated to the output. #!N #!N Example Visual Program 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N WarpingPositions.net #!EF #!N #!N #!EC #!N 
+#!N See Also #!N #!N  #!Lselect,dxall936 h Select  #!EL  ,  #!Lslab,dxall949 h Slab  #!EL  ,  #!Lstack,dxall952 h Stack  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lsort,dxall951 h Sort  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

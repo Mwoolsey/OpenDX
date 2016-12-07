@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rmemalc Allocating and Freeing Memory #!N #!EC #!N #!N Memory 
+allocation results from either of the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o Calls to  #!F-adobe-times-bold-r-normal--18*   DXAllocate #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   DXAllocateLocal #!EF . #!N #!N In general, allocations resulting from 
+these calls must be freed before returning. #!N #!I30 #!N o 
+The creation of a new Object (e.g, by  #!F-adobe-times-bold-r-normal--18*   DXNewField #!EF 
+or  #!F-adobe-times-bold-r-normal--18*   DXNewArray #!EF ). #!N #!N On successful return, memory 
+allocated for the use of these routines does  #!F-adobe-times-medium-i-normal--18*   not #!EF 
+usually need to be freed: the Objects returned are managed by 
+the executive, and the module is not responsible for their deletion. 
+However, in case of error, no output Objects are returned, and 
+the module is responsible for deleting all Objects created. #!N #!N 
+When a Field is placed in a Group, the Field is 
+deleted when the Group is deleted; and, on error, only the 
+Group should be deleted. Similarly, an Array placed in a Field 
+is deleted when the Field is deleted. For that reason it 
+is often helpful to set the pointer of a Field or 
+Array to  #!F-adobe-times-bold-r-normal--18*   NULL #!EF after placing it in a higher-level 
+Object. The Field or Array can then be safely deleted on 
+error, regardless of whether it has been placed in a higher-level 
+Object. #!N #!I0 #!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall1024,dxall1025 h Reference Counts  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

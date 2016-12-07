@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rall1133 Tiling Options #!N #!EC #!N #!N Tiling options are 
+controlled by a set of Object attributes. These attributes may be 
+associated with Objects at any level of a Field/Group hierarchy. The 
+attributes may be set by using the  #!F-adobe-times-bold-r-normal--18*   DXSetAttribute() #!EF function, 
+or by using the Options module. The attributes are: #!T,1,76,151  #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Attribute TAB Meaning #!N TAB - TAB #!EF #!N 
+TAB "fuzz" TAB object fuzz #!N #!N  #!F-adobe-times-medium-i-normal--18*   Object fuzz #!EF 
+is a method of resolving conflicts between objects at the same 
+distance from the camera. For example, it may be desirable to 
+define a set of lines coincident with a plane. Normally it 
+will be unclear which object is to be displayed in front. 
+In addition, single-pixel lines are inherently inaccurate (i.e. they deviate from 
+the actual geometric line) by as much as one-half pixel; when 
+displayed against a sloping surface, this  #!F-adobe-times-medium-i-normal--18*   x #!EF or  #!F-adobe-times-medium-i-normal--18*   
+y #!EF inaccuracy is equivalent to a  #!F-adobe-times-medium-i-normal--18*   z #!EF inaccuracy 
+related to the slope of the surface. The "fuzz" attribute specifies 
+a  #!F-adobe-times-medium-i-normal--18*   z #!EF value that will be added to the 
+object before it is compared with other objects in the scene, 
+thus resolving this problem. The fuzz value is specified in pixels. 
+For example, a fuzz value of one pixel can compensate for 
+the described half-pixel inaccuracy when the line is displayed against a 
+surface with a slope of two. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lxformsc,dxall1135 h Xform Class  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu231.htm">Previous Page</A> &#124; <A HREF="progu233.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXMGCV" HREF="progu097.htm#PToC_326">DXMakeGridConnections,
+DXMakeGridConnectionsV</A></H3>
+<A NAME="IDX1861"></A>
+<A NAME="IDX1862"></A>
+<A NAME="IDX1863"></A>
+<A NAME="IDX1864"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Construct a grid of regular connections.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Array DXMakeGridConnections(int n, int count, int count, ...)<BR>
+Array DXMakeGridConnectionsV(int n, int *counts)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Both routines construct an Array of <TT><STRONG>n</STRONG></TT>-dimensional
+regular grid connections (i.e., a set of
+<TT><STRONG>n</STRONG></TT>-dimensional
+cubes, or hypercubes).
+For example, a quad mesh is represented by a 2-dimensional grid, while
+a cube mesh is represented by a 3-dimensional grid.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">
+<TT><STRONG>DXMakeGridConnections</STRONG></TT>
+and
+<TT><STRONG>DXMakeGridConnectionsV</STRONG></TT>
+set the "element type" for you.
+</td></tr></table>
+<P>
+For <TT><STRONG>DXMakeGridConnections</STRONG></TT>, the counts are given as
+the last <TT><STRONG>n</STRONG></TT> arguments.
+The resulting Array is a Mesh Array of <TT><STRONG>n</STRONG></TT> terms,
+where the <I>k</I>th term is the Path Array connecting
+<TT><STRONG>counts&#91;k&#93;</STRONG></TT> points;
+this routine is included to simplify the process of creating the common
+case of regular grid connections.
+The number of points along each axis is given by
+<TT><STRONG>counts</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Return the Array or return <TT><STRONG>NULL</STRONG></TT> and sets an
+error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu233.htm#HDRDXMGPV">DXMakeGridPositions, DXMakeGridPositionsV</A>,
+<A HREF="progu254.htm#HDRDXNMAV">DXNewMeshArray, DXNewMeshArrayV</A>,
+<A HREF="progu256.htm#HDRDXNPA">DXNewPathArray</A>,
+<A HREF="progu278.htm#HDRDXQGC">DXQueryGridConnections</A>,
+<A HREF="progu279.htm#HDRDXQGP">DXQueryGridPositions</A>
+</STRONG></TT>
+<P>
+<A HREF="progu046.htm#HDRCOTAS">"Creating Positions and Connections Grids"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu231.htm">Previous Page</A> &#124; <A HREF="progu233.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

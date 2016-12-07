@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall693 Setting a Path Variable: Examples #!N #!EC #!N 
+#!N Note the colon (:) separating successive path names. #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o To set DXMACROS for 
+both the Bourne (sh) and the Korn (ksh) shells: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N DXMACROS=/usr/mydirectory/projectAmacros:/usr/mydirectory/projectBmacros #!N export DXMACROS #!EF #!N #!N #!EC 
+#!N #!I30 #!N o To set DXDATA for the Korn shell 
+(ksh) only: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N export DXDATA=/usr/mydirectory/mydata:/usr/group/groupdata #!EF #!N 
+#!N #!EC #!N #!I30 #!N o To set DXDATA for the 
+C shell (csh): #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N setenv DXDATA /usr/mydirectory/mydata:/usr/group/groupdata 
+#!EF #!N #!N #!EC #!N #!I0 #!N #!EF #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmorevar,dxall695 h Other Environment Variables  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

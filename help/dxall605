@@ -1,0 +1,54 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rrubsht 
+Rubbersheet #!N #!EC #!N #!N Another technique used to visualize data 
+collected on a 2-dimensional grid is sometimes called a "height map." 
+In Data Explorer, the Rubbersheet module will generate this for you. 
+Conceptually, a height map is drawn by elevating the 2-D grid 
+into the third dimension. Call it the Z dimension, with our 
+original grid lying in the X-Y plane. The height or Z-value 
+given to each vertex of the original grid is proportional to 
+the specified scalar data value at that vertex. If the data 
+were vector data, you could elevate the grid by the magnitude 
+of the vector, since magnitude is a scalar value. The result 
+usually resembles something akin to a relief map of the surface 
+of the Earth with hills and valleys. #!N #!N However, this 
+brings up an important point that will occur elsewhere in Data 
+Explorer (and visualization in general). Remember that the original data were 
+collected on the X-Y plane (for example, our grass-counting botanist's data). 
+It is one thing to indicate the different distributions of grass 
+species by showing a 3-D plot of the numbers using a 
+height map. But it is not correct to say, then, that 
+the data values so shown were collected from these 3-dimensional positions: 
+that would imply the botanist counted grass species growing in mid-air! 
+This might be true in the Amazon, but not in Kansas. 
+#!N #!N That is, we may have counted 2 species at 
+the grid point [x=0, y=0]. If we Rubbersheet using the species 
+count as the Z deflection value, our 3-D height map will 
+now have a point at [x=0,y=0, z=2] (if the Rubbersheet "scale" 
+is 1.0 and the minimum count in our data set is 
+0). The data was not collected at that point but rather 
+at [x=0,y=0, (z=0)]. For our convenience, Data Explorer maintains the original 
+data values as if they were attached to the original grid. 
+It is your responsibility to remember and, if necessary, make it 
+clear to other viewers that the representation of the data in 
+3-D is not a "realistic" image of the original 2-D sampling 
+space. Rather, Rubbersheet is used to visualize the "ups and downs" 
+in the data Field as actual differences in height. This is 
+a very powerful visualization technique because of our familiarity with actual 
+heights in everyday experience. One simple way to show viewers the 
+difference is to make two copies of the Field by taking 
+two wires from the output tab of the Import module you 
+use to import the data Field. Connect one wire to a 
+Color module with a Colormap attached, but leave the Field 2-dimensional. 
+Arrange the 2-D colored grid such that the viewer is looking 
+straight down on it. Connect the second wire from Import to 
+Rubbersheet and then use a second Color module, but run wires 
+from the same Colormap as you used to color the first 
+copy. The second copy, a 3-D colored "height Field," can then 
+be rotated into a "perspective" view. The result will be a 
+Field both colorized according to the data values and also elevated 
+into the third dimension according the same data values. This redundancy 
+is often more instructive than either visualization technique used alone. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltrastr,dxall606 h Transformations and Structuring  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

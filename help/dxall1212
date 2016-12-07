@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxfre DXFree #!N #!N 
+Function #!N #!N Frees a previously allocated block of memory. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXFree(Pointer x) #!EF #!N 
+#!N Functional Details #!N #!N This routine can be used to 
+free memory (pointed to by  #!F-adobe-times-bold-r-normal--18*   x #!EF ) that has 
+been allocated by any of the following routines:  #!F-adobe-times-bold-r-normal--18*   DXAllocate, DXAllocateZero, 
+DXAllocateLocal, DXAllocateLocalZero, #!EF or  #!F-adobe-times-bold-r-normal--18*   DXReAllocate #!EF . If  #!F-adobe-times-bold-r-normal--18*   x 
+#!EF is  #!F-adobe-times-bold-r-normal--18*   NULL #!EF ,  #!F-adobe-times-bold-r-normal--18*   DXFree #!EF immediately returns 
+ #!F-adobe-times-bold-r-normal--18*   OK #!EF . #!N #!N Return Value Returns  #!F-adobe-times-bold-r-normal--18*   OK 
+#!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets an error code. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxalp,dxall1171 h DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly, DXAllocateLocalOnlyZero  #!EL  ,  #!Ldxpa,dxall1332 h DXPrintAlloc  #!EL  , 
+ #!Ldxrea,dxall1352 h DXReAllocate  #!EL  #!EF #!N #!N  #!Lstoral,dxall1096 h Memory Allocation  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxfadl,dxall1213 h DXFreeArrayDataLocal  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

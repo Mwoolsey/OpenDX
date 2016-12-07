@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu173.htm">Previous Page</A> &#124; <A HREF="progu175.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXGFT" HREF="progu097.htm#PToC_268">DXGetFont</A></H3>
+<A NAME="IDX1735"></A>
+<A NAME="IDX1736"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Returns a Group representing the named font.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXGetFont(char *name, float *ascent, float *descent)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The Group has as many members as there are characters in the named
+font (<TT><STRONG>name</STRONG></TT>).
+Typically, the returned font is passed to
+<TT><STRONG>DXGeometricText</STRONG></TT> to construct a text Object from a
+given string.
+Alternatively, individual characters can be extracted using
+<TT><STRONG>DXGetEnumeratedMember</STRONG></TT>.
+The member number is the same as the ASCII character code.
+<P>
+The font has an overall height of 1.
+If <TT><STRONG>ascent</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, the
+portion of the overall height above the baseline is returned in
+<TT><STRONG>*ascent</STRONG></TT>.
+If <TT><STRONG>descent</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, the
+portion of the overall height below the baseline is returned in
+<TT><STRONG>*descent</STRONG></TT>.
+The sum of the ascent and the descent is the overall height 1.
+<P>
+This routine checks the environment variables DXFONTS, DXEXECROOT,
+and DXROOT for directories to search for fonts.
+The routine also checks in <TT>/usr/local/dx</TT> and in the
+subdirectory <TT><STRONG>fonts</STRONG></TT> of each of these
+directories.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the font or returns <TT><STRONG>NULL</STRONG></TT> and sets an
+error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu152.htm#HDRDXGTT">DXGeometricText</A>,
+<A HREF="progu169.htm#HDRDXGEM">DXGetEnumeratedMember</A>
+</STRONG></TT>
+<P>
+<A HREF="progu072.htm#HDRTT">15.1 , "Text"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu173.htm">Previous Page</A> &#124; <A HREF="progu175.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

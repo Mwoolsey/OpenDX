@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall837 Distributed Processing in Script Language #!N #!N #!N Use 
+the following commands to control distributed processing in the script language. 
+(In the user interface, distributed processing should be controlled through the 
+ #!F-adobe-times-bold-r-normal--18*   Execution Group Assignment... #!EF option of the  #!F-adobe-times-bold-r-normal--18*   Connections #!EF 
+pull-down menu in the VPE window. See  #!Ldistcmp,dxall484 h Using Distributed Computation  #!EL  in IBM Visualization 
+Data Explorer User's Guide.) #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o To attach an execution group to a host requires 
+the name of the host machine and any options to be 
+used when Data Explorer is started on that host. Data Explorer 
+establishes communication with the named host via a TCP/IP socket connection. 
+The syntax for attachment is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Executive("group 
+attach", "group1:hostname -dxopt1 -dxopt2 ..."); #!N $sync #!EF #!N #!N #!EC 
+or #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Executive("group attach", { "group1:hostname -dxopt1 
+-dxopt2 ...", #!N "group2:hostname -dxopt1 -dxopt2 ...", #!N "group3:hostname -dxopt1 -dxopt2 
+...", ...}); #!N $sync #!EF #!N #!N #!EC #!N #!I30 #!N 
+o Detaching an execution group from a host requires only the 
+group's name in the command: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Executive("group 
+detach", "group1"); #!N $sync #!EF #!N #!N #!EC or #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N Executive("group detach", { "group1", "group2", ... }); #!N 
+$sync #!EF #!N #!N #!EC #!N #!I30 #!N o The "host 
+disconnect" command terminates the connection to a host: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N Executive("host disconnect", "hostname1"); #!N $sync #!EF #!N #!N #!EC 
+or #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Executive("host disconnect", { "hostname1", "hostname2", 
+... }); #!N $sync #!EF #!N #!N #!EC #!N #!I0 #!N 
+#!EF #!N Note: These Executive calls must be followed by $sync, 
+as shown. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ltall839,dxall839 h Module Definition  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

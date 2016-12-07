@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsca DXSetComponentAttribute #!N #!N Function 
+#!N #!N Adds or removes a named attribute from a component 
+of a Field. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Field 
+DXSetComponentAttribute(Field f, char *name, char *attribute, Object value) #!EF #!N #!N 
+Functional Details #!N #!N Adds an attribute/value pair to the component 
+if the component  #!F-adobe-times-bold-r-normal--18*   name #!EF exists in the Field  #!F-adobe-times-bold-r-normal--18*   
+f #!EF , and  #!F-adobe-times-bold-r-normal--18*   value #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF .  #!F-adobe-times-bold-r-normal--18*   attribute #!EF specifies the name of the associated 
+attribute and  #!F-adobe-times-bold-r-normal--18*   value #!EF represents its value. If  #!F-adobe-times-bold-r-normal--18*   attribute 
+#!EF specifies an attribute that the component already has, then its 
+value is replaced by  #!F-adobe-times-bold-r-normal--18*   value #!EF . #!N #!N If 
+ #!F-adobe-times-bold-r-normal--18*   value #!EF is  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , then the attribute 
+referred to by  #!F-adobe-times-bold-r-normal--18*   attribute #!EF is removed from the component 
+if it exists. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   
+f #!EF on success; returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and does not 
+set an error code if the component specified by  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF does not exist; returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code if  #!F-adobe-times-bold-r-normal--18*   f #!EF is not a Field. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgca,dxall1227 h DXGetComponentAttribute  #!EL  ,  #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  ,  #!Ldxsfa,dxall1379 h DXSetFloatAttribute  #!EL  
+,  #!Ldxsia,dxall1381 h DXSetIntegerAttribute  #!EL  ,  #!Ldxssa,dxall1392 h DXSetStringAttribute  #!EL  #!EF #!N #!N  #!Lfieldsc,dxall1062 h Field Class  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

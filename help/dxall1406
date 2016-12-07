@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxvpbb DXValidPositionsBoundaryBox #!N #!N Function #!N #!N Computes the 
+boundary box of the valid positions of an Object  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF . #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> DXValidPositionsBoundaryBox(Object o, 
+Point *box) #!EF #!N #!N Functional Details #!N #!N If  #!F-adobe-times-bold-r-normal--18*   
+o #!EF contains any invalid positions, this routine adds (to  #!F-adobe-times-bold-r-normal--18*   
+o #!EF or to any of its descendents that are Fields) 
+a "valid box" component consisting of an Array of 2(  #!F-adobe-times-medium-i-normal--18*   
+d #!EF ) points that are the corners of a boundary 
+box (where  #!F-adobe-times-medium-i-normal--18*   d #!EF is the dimensionality of the data). 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   Point #!EF is defined as follows: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N typedef struct point { #!N float x,y,z; 
+#!N } Point, Vector; #!EF #!EF #!N #!N #!EC #!N #!N 
+#!I0 #!N Notes: #!N #!I30 #!N 1. For data of dimensionality 
+three or less, the routine returns (in the Array pointed to 
+by  #!F-adobe-times-bold-r-normal--18*   box #!EF ) the eight corner points. For dimensionalities 
+less than three, the extra dimensions of the box returned by 
+the routine are treated as zero. #!N #!I30 #!N 2. The 
+boundary box returned by the routine is determined by combining the 
+boundary boxes of all Fields contained in  #!F-adobe-times-bold-r-normal--18*   o #!EF . 
+#!N #!I30 #!N 3. Transformations are considered in computing the boundary 
+box, but clipping objects are not. And the boundary box is 
+not guaranteed to be the tightest possible. #!I0 #!N #!N #!N 
+#!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and might or might not set an error 
+code, depending on the input. For example, it does not set 
+an error code if a boundary box cannot be defined for 
+the given input. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxbb,dxall1176 h DXBoundingBox  #!EL  
+,  #!Ldxccvs,dxall1178 h DXChangedComponentValues, DXChangedComponentStructure  #!EL  ,  #!Ldxemf,dxall1200 h DXEmptyField  #!EL  ,  #!Ldxendf,dxall1201 h DXEndField  #!EL  ,  #!Ldxeo,dxall1202 h DXEndObject  #!EL  ,  #!Ldxn,dxall1308 h DXNeighbors  #!EL  , 
+ #!Ldxs,dxall1396 h DXStatistics  #!EL  #!EF #!N #!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxw,dxall1407 h DXWarning  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

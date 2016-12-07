@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxts DXTypeSize, DXCategorySize 
+#!N #!N Function #!N #!N Return size information. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> int DXTypeSize(Type t) int DXCategorySize(Category c) #!EF 
+#!N #!N Functional Details #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXTypeSize #!EF returns the 
+size in bytes of a variable of type  #!F-adobe-times-bold-r-normal--18*   t #!EF 
+. #!N  #!F-adobe-times-bold-r-normal--18*   DXCategorySize #!EF returns the size multiplier for category 
+ #!F-adobe-times-bold-r-normal--18*   c #!EF . #!N #!N For a variable of type 
+ #!F-adobe-times-bold-r-normal--18*   t #!EF and category  #!F-adobe-times-bold-r-normal--18*   c #!EF , the size 
+in bytes is  #!F-adobe-times-bold-r-normal--18*   DXTypeSize(t) * DXCategorySize(c) #!EF . #!N Note: 
+This is the size of a single item of that type 
+(e.g., a single component of a 3-vector).  #!F-adobe-times-bold-r-normal--18*   DXGetItemSize #!EF , 
+in contrast, returns the size in bytes of the 3-vector. #!N 
+#!N #!N The type is one of the following: #!N #!N 
+The category is either  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL #!EF or  #!F-adobe-times-bold-r-normal--18*   CATEGORY_COMPLEX #!EF 
+. #!N #!N Return Value #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXTypeSize #!EF returns 
+the size in bytes.  #!F-adobe-times-bold-r-normal--18*   DXCategorySize #!EF returns the multiplier in 
+bytes. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgis,dxall1245 h DXGetItemSize  #!EL  #!EF #!N 
+#!N  #!Lty,dxall1101 h Setting Data Types  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxuref,dxall1404 h DXUnreference  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

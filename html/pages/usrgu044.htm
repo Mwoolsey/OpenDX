@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Creating and Using Macros</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu043.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu045.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu043.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A name="HDRMACROS" ></A>7.2 Creating and Using Macros</H2>
+		<A NAME="IDX818"></A>
+		<P>
+In general, macros are higher level processing functions that are
+constructed from simpler ones.
+A Data Explorer <I>macro</I> is a sequence of modules collected together
+that you can use as a single tool.
+This is useful if you have a sequence of modules that provide a function
+that you need frequently in your visual programs.
+Macros can help make your visual programs simpler by combining several
+tool icons into one.
+<P>
+<H3><A NAME="HDRCREMAC" ></A>Creating Macros</H3>
+<A NAME="SPTTOOLNOT"></A><I>(Ref #6.)</I>
+<P>
+Macros are themselves visual programs and are created in much the same way.
+For example, the macro represented in <A HREF="#FIGMACEX">Figure 75</A> maps
+data
+onto a plane, colors it, and then performs a deformation using the
+RubberSheet module.
+It is constructed by placing the appropriate tool icons on the
+VPE canvas and connecting them.
+<P><B>Note: </B>You can also create a macro directly from a visual program in
+the VPE
+window.
+<P><B><A NAME="FIGMACEX" HREF="../usrguide.htm#FT_FIGMACEX">Figure 75. Example of a
+Macro</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmpmacro.gif" ALT="Figure xmpmacro not
+displayed."></CENTER><BR></B><BR>
+See "Creating Macros the Easy Way" on page <A HREF="#SPTCMTEW">reference #7</A>.
+<P>
+Macro&#39;s inputs and outputs are represented by the
+<TT><STRONG>Input</STRONG></TT>
+and <TT><STRONG>Output</STRONG></TT> tools from the
+<TT><STRONG>Special</STRONG></TT>
+category.
+A macro has at least one input or output.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Macros cannot include interactors, Sequencers, colormaps, probes,
+picks, Display, or Image tools.
+</td></tr></table>
+<P>
+Place the <TT><STRONG>Input</STRONG></TT> icon on the canvas and connect it to
+the appropriate tool icon input tab.
+The <TT><STRONG>Input</STRONG></TT> type conforms to that of the input tab to
+which it is connected.
+Like other tools, the <TT><STRONG>Input</STRONG></TT> icon can be connected to
+multiple input tabs.
+You can use the Configuration dialog box for the
+<TT><STRONG>Input</STRONG></TT> tool
+(<A HREF="#FIGMACCF">Figure 76</A>) to specify:
+<UL COMPACT>
+<LI>Tab position in the macro
+<LI>Name of the input
+<LI>Default value for the input
+<LI>Description of the input
+<LI>Whether the input is a required parameter
+<LI>Whether the input has a descriptive default value.
+</UL>
+<P>
+Some of these values are, by default, inherited from the input tab to
+which the <TT><STRONG>Input</STRONG></TT> tool is connected, but many of them
+can
+be changed from the Configuration dialog box.
+<P><B><A NAME="FIGMACCF" HREF="../usrguide.htm#FT_FIGMACCF">Figure 76. Input
+Configuration Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/inputcfg.gif" ALT="Figure inputcfg not
+displayed."></CENTER><BR></B><BR>
+The fields in the Configuration dialog box for the
+<TT><STRONG>Input</STRONG></TT>
+tool are:
+<TABLE BORDER="1" CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Position
+</B></TD><TD><P>Specifies the tab position this input occupies on the resulting
+macro icon.
+By default, the tab positions are assigned in the order that you select
+the <TT><STRONG>Input</STRONG></TT> icons from the tool palette.
+For example, the first icon you drag over to the canvas has position 1,
+the second has position 2, and so on.
+<P>
+If an input is deleted from a macro, the position of the other inputs
+are <I>not</I> automatically changed.
+For example, if the input at position 2 of a macro with three inputs is
+deleted, the other two inputs remain at positions 1 and 3, with
+position 2 left empty.
+Each input <I>must</I> have a different value for position.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Name
+</B></TD><TD><P>Specifies the name of the input.
+This field must begin with a letter, and no spaces or special
+characters, except for the at-symbol (&#64;) and the
+underscore character (&#95;), are allowed.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Type
+</B></TD><TD><P>Specifies the type of the input.
+The type conforms to the inputs that the <TT><STRONG>Input</STRONG></TT> tool is
+connected to.
+When connecting it to more than one input, the <TT><STRONG>Input</STRONG></TT>
+tool
+assumes the type of the most restrictive input to which it is
+connected.
+For example, if the <TT><STRONG>Input</STRONG></TT> tool is connected to two
+inputs,
+an object and a scalar, the <TT><STRONG>Input</STRONG></TT> tool type would
+become a scalar type.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Default Value
+</B></TD><TD><P>Specifies a default value for the input.
+If the <TT><STRONG>descriptive value</STRONG></TT> toggle button is activated,
+the
+default value field of the macro is treated as a description,
+not an actual value.
+You can use this to indicate to users of the macro what sort of
+parameter this input should be.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Description
+</B></TD><TD><P>Provides a short description of the input for your own
+documentation
+purposes.
+This description is used to generate the Description window for the
+resulting macro tool, which you can access through its
+Configuration dialog box.
+</TD></TR>
+			<TR VALIGN="TOP">
+				<TD><B>Optional Values</B></TD>
+				<TD>Allows the macro developer to assign a set of values that will appear in the ellipses of the macro configuration dialog box for the input. For multiple options, separate each by a semicolon.</TD>
+			</TR>
+			<TR VALIGN="TOP"><TD><P><B>Options
+</B></TD><TD><P>The <TT><STRONG>required parameter</STRONG></TT> toggle button,
+when activated,
+indicates that the input is required for the macro.
+The corresponding input tab of resulting macro icon is highlighted with
+a different color.
+This option is inherited from the input to which the
+<TT><STRONG>Input</STRONG></TT>
+tool is connected.
+<P>
+The <TT><STRONG>descriptive value</STRONG></TT> toggle button is used with the
+<TT><STRONG>Default Value</STRONG></TT> field, as described above.
+</TD></TR>
+		</TABLE>
+<P>
+Specify the macro&#39;s outputs with the <TT><STRONG>Output</STRONG></TT> tool
+from
+the <TT><STRONG>Special</STRONG></TT> category.
+Place the <TT><STRONG>Output</STRONG></TT> tool icon on the canvas and connect
+it to
+the appropriate output tab from another tool icon.
+The <TT><STRONG>Output</STRONG></TT> also inherits its type from the output
+tab to
+which it is connected.
+<P>
+The Configuration dialog box for the <TT><STRONG>Output</STRONG></TT> tool is
+similar
+to the one for <TT><STRONG>Input</STRONG></TT>, but the
+<TT><STRONG>Options</STRONG></TT> toggle
+buttons and the <TT><STRONG>Default Value</STRONG></TT> field are grayed-out.
+<A NAME="IDX819"></A>
+<P>
+Before you can use the macro, you must first name it, save it, and then
+load it, making it available in the tool palette.
+<P>
+To name the macro, select the <TT><STRONG>Macro Name</STRONG></TT> option from
+the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+The <TT><STRONG>Name...</STRONG></TT> dialog box opens.
+The <TT><STRONG>Name</STRONG></TT> dialog box for the example macro is
+illustrated in
+<A HREF="#FIGMACNAME">Figure 77</A>.
+Type a name for the macro in the <TT><STRONG>Name</STRONG></TT> field.
+The name must consist only of letters and numbers (no spaces or
+underscores), and must begin with a letter.
+By default, the macro is assigned to the "Macros" category.
+You can assign the macro to a different category by typing a new name
+in the <TT><STRONG>Category</STRONG></TT> field.
+The category you choose can be a new or existing category.
+<P><B><A NAME="FIGMACNAME" HREF="../usrguide.htm#FT_FIGMACNAME">Figure 77. Macro
+Name Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/macrname.gif" ALT="Figure macrname not
+displayed."></CENTER><BR></B><BR>
+<P>
+To save the macro after it has been named, use the <TT><STRONG>Save
+As...</STRONG></TT> option of the <TT><STRONG>File</STRONG></TT>
+pull-down menu.
+Because macro files are saved as visual programs, and therefore have
+<TT><STRONG>.net</STRONG></TT> extensions, it may be helpful to
+organize them in a separate directory to
+distinguish them from other visual programs.
+<P>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Creating Macros the Easy
+Way</TH><TR><TD>
+<A NAME="SPTCMTEW"></a><I>(Ref #7.)</I>
+<P>
+For use in other visual programs or to simplify the "network" that appears in
+the VPE canvas, you may want to combine some of the tools of a visual program
+in a single macro.
+This can be done directly and easily in the VPE window if the
+selection includes only allowed tools (see preceding
+<TT><STRONG>Note</STRONG></TT>, page <A HREF="#SPTTOOLNOT">reference #6</A>).
+<OL>
+<P><LI>On the VPE canvas, use the left mouse button to create a selection
+box around the tool icons to be included in the macro.
+(It may be necessary to first reposition some of the icons in order
+to simplify this "boxing" process.)
+<P><B>Note: </B>Alternatively, you can "shift click" on all the desired
+tools.
+<P><LI>Select <TT><STRONG>Create Macro</STRONG></TT> from the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+<P><LI>In the <TT><STRONG>Create Macro</STRONG></TT> dialog box that appears,
+enter the
+required information: macro name, category, description, and
+file or path name.
+The default category ("macro") and description ("new macro")
+can be changed or left as they are.
+<P><LI>Click on <TT><STRONG>OK</STRONG></TT>.
+Unless you specified otherwise, the macro will be saved in the directory
+from which Data Explorer was started, under the name you specified (input
+and output names can be changed by editing this saved file)
+using the Visual Program Editor.
+The new macro will appear in the category specified, under the name
+specified in the dialog box.
+</OL>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRLODMAC" ></A>Loading Macros</H3>
+<A NAME="IDX820"></A>
+<P>
+For a macro to be available for use, it must be loaded into
+the tool palette.
+To load a saved macro:
+<OL COMPACT>
+<LI>Select the <TT><STRONG>Load Macro...</STRONG></TT> option from the
+<TT><STRONG>File</STRONG></TT> pull-down menu in the VPE.
+A file selection dialog box appears.
+For information about how to use the dialog box, see
+<A HREF="usrgu041.htm#HDRFSBOX">"File Selection Dialog Boxes"</A>.
+<LI>Use the dialog box to locate the macro you want to load, and select
+the desired file.
+The macro name appears on the tool palette under its assigned category.
+<LI>You can also load all the macros in a selected directory by
+clicking on <TT><STRONG>Load All Macros</STRONG></TT> in the dialog box.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If the macro you loaded has the same name as a macro previously
+loaded, the "new" macro replaces the earlier one, whether
+or not they were assigned to the same category.
+</td></tr></table>
+</OL>
+<P>
+When the new macro is available for use, it is listed in the tool
+palette as a member of the category you assigned it to.
+For example, the MapAndDeform macro would be listed under the
+MyMacros category.
+<P>
+
+When you save a visual program which uses a macro, the path to the macro
+is saved in the visual program. When you reload the visual program, the
+macro will automatically be loaded for you from the same location, so it
+will only be necessary to explicitly load the macro if it has been moved
+to a new location. You can also easily see what macros need to be
+included with a visual program, if for example, you are sending a
+visualization program to another user. Simply look at the top of the
+&#46;net file for the list of referenced macros.
+
+<P>
+You can configure Data Explorer to automatically load macros from a specified
+directory when you begin the Data Explorer program.
+To do this, use the <TT>-macros <VAR>pathlist</VAR></TT> option when
+starting Data Explorer, where <TT><VAR>pathlist</VAR></TT> specifies one
+or more paths where the macros can be found.
+Alternatively, you can use the <VAR>DXMACROS</VAR> environment variable.
+For more information on how to do this, see <A
+HREF="usrgu036.htm#HDRENVAR">"Using Environment Variables"</A>,
+and <A HREF="usrgu073.htm#HDRENVVAR">C.1 , "Environment Variables"</A>.
+<P>
+<H3><A NAME="HDRUMACVP" ></A>Using Macros in a Visual Program</H3>
+<P>
+After you have created and loaded a macro, you can use it the same way
+you use other Data Explorer tools.
+Simply select it from the tool palette and place the icon on the canvas.
+<A HREF="#FIGMACICON">Figure 78</A> shows the new icon created for the BandColors macro.<P><B><A NAME="FIGMACICON" HREF="../usrguide.htm#FT_FIGMACICON">Figure 78. BandColors Macro Icon</A></B><BR>
+			<B><BR><CENTER><IMG SRC="../images/mapdform.gif" ALT="Figure mapdform not
+displayed."></CENTER><BR></B><BR>
+<P>
+The macro has a Configuration dialog box describing the input and output
+parameters.
+You can open the dialog box by double-clicking on the macro icon.
+<P>
+<H3><A NAME="Header_251" ></A>Viewing and Changing Macros</H3>
+<A NAME="IDX821"></A>
+<P>
+After you place a macro in a visual program, it is possible to view the macro
+contents and to  change some of the tools inside the macro.
+<P>
+To open a macro:
+<OL COMPACT>
+<LI>Select the macro icon by clicking on it.
+<LI>Select the <TT><STRONG>Open Selected Macro(s)</STRONG></TT> option from
+the <TT><STRONG>Windows</STRONG></TT> pull-down menu.
+A VPE window is opened, with the expanded macro representation.
+</OL>
+<P>
+You can repeat these steps for any macros contained in the newly opened
+VPE, until only modules are present in the window.
+<P>
+With the macro opened, you can change the tools
+inside the macro.
+However,  you cannot change the number or ordering of inputs
+or of outputs.
+<P>
+Changing the tool in a macro affects only the current visualization
+session.
+If you want the changes to be permanent, you must save the changed
+macro, using the <TT><STRONG>Save</STRONG></TT> or
+<TT><STRONG>Save As...</STRONG></TT>
+options.
+If you want to restore the definition of the macro to the way it was
+before you modified it, close the VPE window containing the
+macro (without saving) and reload the macro from the main
+VPE window.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

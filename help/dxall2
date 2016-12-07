@@ -1,0 +1,64 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rquikov A Very Quick Overview #!N #!EC 
+#!N #!N Data Explorer is a system of tools and user 
+interfaces for visualizing data. In general terms the visualization of data 
+can be considered a 3-stage process: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N 1. Describing and importing data #!N #!I30 #!N 
+2. Processing the data through a visualization program #!N #!I30 #!N 
+3. Presenting the resulting image. #!N #!I0 #!N #!EF #!N The 
+simple diagram below shows where the chief tools and interfaces of 
+Data Explorer fit into this process. The numbered list that follows 
+ #!Loverdg1,dxall2 f Figure 1  #!EL  is keyed to the diagram. The list items briefly describe 
+the roles of these features in Data Explorer visualization and give 
+references to the relevant Data Explorer documentation. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Roverdg1 
+#!N Graphics omitted from Online Documentation. Please see the manual. #!N 
+#!N Figure 1. Main features of Data Explorer. Tools and interfaces 
+are positioned to show their general place in the visualization process. 
+All those listed below the data-->image sequence are interactive interfaces except 
+for the "modules" (6 and 10), which are directly accessible and 
+manipulable in the Visual Program Editor (5). Numbers correspond to those 
+in the accompanying list. Underlined features are discussed in this Guide. 
+Features not underlined are discussed in other documentation, cited in the 
+list. #!EF #!N #!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+(1) Data Model #!EF #!I50 #!N The set of definitions, rules, 
+and conventions used to describe Data Explorer entities (including data fields, 
+geometrical objects, and images). #!N #!N See IBM Visualization Data Explorer 
+User's Guide. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   (2) Data Prompter #!EF #!I50 
+#!N A user interface for describing data to be imported into 
+Data Explorer. #!N #!N See  #!Ltimpdat,dxall37 h Importing Data  #!EL  and  #!Lprompt,dxall157 h Data Prompter  #!EL  in this Guide. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   (3) Data Browser #!EF #!I50 #!N A 
+user interface for viewing a data file, determining the layout and 
+organization of the data it contains, and transferring this information to 
+the Data Prompter (2). #!N #!N See  #!Lbrowse,dxall169 h Data Prompter Browser  #!EL  in this Guide. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   (4) Scripting Language #!EF #!I50 #!N A 
+simple, high-level language for creating visualization programs. It can also be 
+used directly in a command mode to perform various tasks. Visual 
+programs--i.e., the visualization programs displayed in the Visual Program Editor window 
+(5) as "networks" of module icons--are also written in the scripting 
+language. A visual program constructed in this window by the user 
+is translated into the same language when it is saved to 
+disk. #!N #!N See IBM Visualization Data Explorer User's Guide. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   (5) Visual Program Editor (VPE) #!EF #!I50 #!N 
+A graphical user interface for creating and modifying visual programs (networks). 
+Programs created with this editor are translated into the scripting language 
+(4) by Data Explorer and are stored in that form. #!N 
+#!N See  #!Ltedvp,dxall27 h Editing a Visual Program: The Basics  #!EL  in this Guide; see also IBM Visualization Data 
+Explorer User's Guide. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   (6) Modules #!EF #!I50 
+#!N The "building blocks" (visualization "tools") that constitute a visual program 
+network. They can be directly accessed and manipulated in the Visual 
+Program Editor (5). #!N #!N See IBM Visualization Data Explorer User's 
+Reference. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   (7) Module Builder #!EF #!I50 #!N 
+A user interface for creating customized modules to be used in 
+visual programs. #!N #!N See IBM Visualization Data Explorer Programmer's Reference. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   (8) Image Window #!EF #!I50 #!N An 
+interactive window for viewing and modifying the presentation of the image 
+produced by a visual program. #!N #!N See  #!Ltuta5,dxall10 h Controlling the Appearance of an Object: The Image Window  #!EL  in this 
+Guide. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   (9) Control Panels #!EF #!I50 #!N 
+A user interface for changing the parameter values used by a 
+visual program. #!N #!N See  #!Lcpapa,dxall22 h Using Control Panels  #!EL  in this Guide; see also 
+IBM Visualization Data Explorer User's Guide. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   (10) 
+Display Module #!EF #!I50 #!N An alternative to the Image window 
+(8). #!N #!N See IBM Visualization Data Explorer User's Reference. #!I0 
+#!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lapa,dxall3 h Tutorial I: Using Data Explorer  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

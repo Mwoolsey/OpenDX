@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxaplus DXAdd, DXCross, DXDiv, DXDot, DXLength, DXMax, DXMin, DXMul, 
+DXNeg, DXNormalize, DXSub #!N #!N Function Perform standard vector mathematics. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> #!N 
+#!N Vector DXNeg(Vector v) #!N Vector DXNormalize(Vector v) #!N double DXLength(Vector 
+v) #!N Vector DXAdd(Vector v, Vector w) #!N Vector DXSub(Vector v, 
+Vector w) #!N Vector DXMin(Vector v, Vector w) #!N Vector DXMax(Vector 
+v, Vector w) #!N Vector DXMul(Vector v, double f) #!N Vector 
+DXDiv(Vector v, double f) #!N float DXDot(Vector v, Vector w) #!N 
+Vector DXCross(Vector v, Vector w) #!EF #!EF . #!N #!N #!EC 
+#!N #!N Functional Details #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DXNeg, DXNormalize, DXLength #!EF #!EF #!I50 #!N Perform unary operations 
+of negation, normalization, and length. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAdd, 
+DXSub, DXMin, DXMax #!EF #!EF #!I50 #!N Perform vector operations of 
+addition, subtraction, min, and max. Min and max are performed on 
+each component of a vector. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXMul, 
+DXDiv #!EF #!EF #!I50 #!N Multiply or divide a vector by 
+a float. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXDot, DXCross #!EF #!EF 
+#!I50 #!N Form the dot product or cross-product of two vectors. 
+#!I0 #!N #!N #!N #!N A  #!F-adobe-times-bold-r-normal--18*   Point #!EF and  #!F-adobe-times-bold-r-normal--18*   
+Vector #!EF are defined as follows: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+#!N typedef struct point { #!N float x, y, z; #!N 
+} Point, Vector; #!EF #!EF #!N #!N #!EC #!N #!N Return 
+Value Each routine returns the result of its operation. #!N #!N 
+See Also  #!F-adobe-times-bold-r-normal--18*    #!Ldxcplus,dxall1185 h DXConcatenate, DXInvert, DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply  #!EL  , #!EF #!N #!N  #!Lbops,dxall1112 h Basic Operations  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

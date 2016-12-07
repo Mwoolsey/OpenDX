@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxef DXExtractFloat #!N #!N Function #!N #!N Determines whether an 
+Object can be converted to a floating-point value, and if so, 
+extracts it. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXExtractFloat(Object 
+o, float *fp) #!EF #!N #!N Functional Details #!N #!N If 
+Object  #!F-adobe-times-bold-r-normal--18*   o #!EF can be converted to a floating-point value 
+(i.e.,  #!F-adobe-times-bold-r-normal--18*   TYPE_FLOAT #!EF ,  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL #!EF , rank 0), 
+this routine extracts it and places it in  #!F-adobe-times-bold-r-normal--18*   *fp #!EF 
+. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+and sets  #!F-adobe-times-bold-r-normal--18*   *fp #!EF if a floating-point value can be 
+extracted from  #!F-adobe-times-bold-r-normal--18*   o #!EF ; otherwise, returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+without setting an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxei,dxall1208 h DXExtractInteger  #!EL  ,  #!Ldxens,dxall1209 h DXExtractNthString  #!EL  ,  #!Ldxep,dxall1210 h DXExtractParameter  #!EL  ,  #!Ldxes,dxall1211 h DXExtractString  #!EL  ,  #!Ldxqacv,dxall1340 h DXQueryArrayConvert, DXQueryArrayConvertV  #!EL  , 
+ #!Ldxqp,dxall1347 h DXQueryParameter  #!EL  #!EF #!N #!N  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxei,dxall1208 h DXExtractInteger  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

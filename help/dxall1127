@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rclpg Clipping #!N #!EC #!N #!N Two higher-level 
+routines that use the Render module's clipping capability are listed here. 
+These routines do not themselves clip an Object to a plane 
+or to a box, but rather construct an Object (Clipped Object) 
+that describes to the renderer what clipping is to be done. 
+(The renderer does not support nested clipping, and all translucent objects 
+in a scene must be clipped by the same clipping Object.) 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXClipPlane() #!EF 
+#!EF #!I50 #!N Creates a clipping Object defined by a clipping 
+plane. See  #!Ldxcp,dxall1181 h DXClipPlane  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXClipBox() 
+#!EF #!EF #!I50 #!N Creates a clipping Object defined by a 
+clipping box. See  #!Ldxcb,dxall1180 h DXClipBox  #!EL  . #!I0 #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lphos,dxall1128 h Path Operations  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

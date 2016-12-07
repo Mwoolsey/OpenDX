@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxrep DXReplace #!N #!N Function #!N #!N Adds a 
+component from one Field to another. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Object DXReplace(Object o, Object add, char *src, char *dst) 
+#!EF #!N #!N Functional Details #!N #!N Adds a component from 
+one Field to another. For each Field in Object  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF , the  #!F-adobe-times-bold-r-normal--18*   src #!EF component of the corresponding Field 
+in Object  #!F-adobe-times-bold-r-normal--18*   add #!EF is placed in the Field as 
+the  #!F-adobe-times-bold-r-normal--18*   dst #!EF component. #!N #!N Objects  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   add #!EF can be single Fields or any Object 
+that can contain Fields (for example, Groups or Series). If they 
+are anything other than simple Fields, the Object hierarchies must match 
+exactly. #!N #!N Objects  #!F-adobe-times-bold-r-normal--18*   o #!EF and  #!F-adobe-times-bold-r-normal--18*   add #!EF 
+can be the same object. #!N #!N Object  #!F-adobe-times-bold-r-normal--18*   add #!EF 
+can be an Array or an Object where each Field in 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF corresponds to an Array in  #!F-adobe-times-bold-r-normal--18*   add #!EF 
+. In this case, the Array is added as the  #!F-adobe-times-bold-r-normal--18*   
+dst #!EF component of the Field and  #!F-adobe-times-bold-r-normal--18*   src #!EF is 
+not required. #!N #!N Return Value #!N #!N It is an 
+error if no components of name  #!F-adobe-times-bold-r-normal--18*   src #!EF are found 
+in any of the Fields of  #!F-adobe-times-bold-r-normal--18*   add #!EF . Returns 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF on success, or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets the error code to indicate an error. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxexi,dxall1204 h DXExists  #!EL  ,  #!Ldxext,dxall1206 h DXExtract  #!EL  ,  #!Ldxins,dxall1282 h DXInsert  #!EL  ,  #!Ldxrem,dxall1355 h DXRemove  #!EL  
+,  #!Ldxren,dxall1356 h DXRename  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  ,  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  ,  #!Ldxswp,dxall1397 h DXSwap  #!EL  #!EF #!N #!N 
+ #!Lctmn,dxall1089 h Component Manipulation  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxre,dxall1359 h DXResetError  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

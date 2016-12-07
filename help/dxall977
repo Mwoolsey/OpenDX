@@ -1,0 +1,97 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rvector Vector 
+#!N #!N Category #!N #!N  #!Lcatint,dxall757 h Interactor  #!EL  #!N #!N Function #!N #!N 
+Generates a vector. #!N #!N Syntax #!N #!N Available only through 
+the user interface. #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Default TAB Description #!EF #!N TAB data 
+TAB object TAB no default TAB object from which interactor #!N 
+TAB - TAB - TAB - TAB attributes can be derived 
+#!N TAB refresh TAB flag TAB 0 TAB reset the interactor 
+#!N TAB min TAB scalar, vector TAB minimum data value TAB 
+minimum output value #!N TAB max TAB scalar, vector TAB maximum 
+data value TAB maximum output value #!N TAB delta TAB scalar, 
+vector TAB input dependent TAB increment between successive #!N TAB - 
+TAB - TAB - TAB scalar outputs #!N TAB method TAB 
+string TAB input dependent TAB defines interpretation of delta #!N TAB 
+- TAB - TAB - TAB input #!N TAB decimals TAB 
+integer TAB input dependent TAB number of decimal places to be 
+#!N TAB - TAB - TAB - TAB displayed in output 
+values #!N TAB label TAB string TAB "Vector" TAB global name 
+applied to interactor #!N TAB - TAB - TAB - TAB 
+stand-ins #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB output TAB vector TAB interactor output #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This interactor allows the user to interactively change vector values. 
+Through inputs to the module (outputs from other tools or values 
+set in its configuration dialog box) the interactor can be "data 
+driven." #!N #!N If the interactor is not data-driven, its attributes 
+(e.g.,  #!F-adobe-times-bold-r-normal--18*   stringdata #!EF or  #!F-adobe-times-bold-r-normal--18*   valuelist #!EF ) are taken 
+from its  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box (accessed from the 
+ #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu in the Control Panel). Note: The 
+module's control panel is invoked by double clicking on its icon 
+in the VPE window. Its configuration dialog box is accessed from 
+the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu in the same window. #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 
+#!N is the object from which the interactor can derive any 
+or all of the minimum, maximum, and delta attributes when their 
+corresponding input uses the default value (tab up). Initially, all inputs 
+are default values. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   refresh #!EF #!EF 
+#!I50 #!N resets the interactor so that the output is computed 
+from the current input. If  #!F-adobe-times-bold-r-normal--18*   refresh #!EF = 0 (the 
+default), the output is recomputed only if the current output does 
+not lie within the range of the current  #!F-adobe-times-bold-r-normal--18*   data #!EF 
+. The default for the output of the interactor is, for 
+each component of the vector, the midpoint of the corresponding component 
+of  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   min #!EF  #!F-adobe-times-medium-r-normal--18*   and #!EF  #!F-adobe-times-bold-r-normal--18*   max #!EF 
+#!EF #!I50 #!N specify the minimum and maximum values of the 
+interactor's vector output. If set, these values override those implied by 
+ #!F-adobe-times-bold-r-normal--18*   data #!EF . Each component of the vector values corresponds 
+to a component of the interactor output. #!N #!N A specified 
+value of [10 20 30] means that the minimum (or maximum) 
+of the first component is 10, of the second is 20, 
+and of the third is 30. When the specified value is 
+scalar, that value is used for all components. #!N #!N If 
+neither  #!F-adobe-times-bold-r-normal--18*   min #!EF nor  #!F-adobe-times-bold-r-normal--18*   data #!EF is specified, the 
+interactor uses the minimum set in the  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF 
+dialog box. #!N #!N If neither  #!F-adobe-times-bold-r-normal--18*   max #!EF nor  #!F-adobe-times-bold-r-normal--18*   
+data #!EF is specified, the interactor uses the maximum in the 
+ #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+delta #!EF #!EF #!I50 #!N specifies a scalar value as a 
+factor for calculating the increment between successive outputs over the specified 
+range. The actual value depends on the interpretation specified by  #!F-adobe-times-bold-r-normal--18*   
+method #!EF (see below). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   method #!EF 
+#!EF #!I50 #!N specifies the interpretation of  #!F-adobe-times-bold-r-normal--18*   delta #!EF : 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o "rounded": the 
+increment (  #!F-adobe-times-bold-r-normal--18*   max #!EF -  #!F-adobe-times-bold-r-normal--18*   min #!EF ) * 
+ #!F-adobe-times-bold-r-normal--18*   delta #!EF is rounded to a "nice" number. The spacing 
+between successive values will approximate the interval specified by  #!F-adobe-times-bold-r-normal--18*   delta 
+#!EF . (For example, the default value of 0.01 specifies an 
+interval of 1/100 of the specified range.) #!N #!I30 #!N o 
+"relative": the interpretation is the same as for "rounded," but the 
+increment is  #!F-adobe-times-medium-i-normal--18*   not #!EF rounded. #!N #!I30 #!N o "absolute": 
+ #!F-adobe-times-bold-r-normal--18*   delta #!EF is the absolute value of the interval. (If 
+ #!F-adobe-times-bold-r-normal--18*   delta #!EF has not been specified, its default is 1.) 
+#!N #!N The default value for  #!F-adobe-times-bold-r-normal--18*   method #!EF depends on 
+other input. The default is: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N - "rounded" if  #!F-adobe-times-bold-r-normal--18*   data #!EF is specified  #!F-adobe-times-medium-i-normal--18*   
+or #!EF if both  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF 
+are specified. #!N #!I30 #!N - "absolute" in all other cases. 
+#!N #!I0 #!N #!EF #!N #!N #!I0 #!N #!EF #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   decimals #!EF #!EF #!I50 #!N specifies the 
+number of decimal places displayed in the interactor. If neither  #!F-adobe-times-bold-r-normal--18*   
+data #!EF nor  #!F-adobe-times-bold-r-normal--18*   delta #!EF is specified, the interactor uses 
+the value in its own  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   label #!EF #!EF #!I50 #!N is 
+the global label of all instances of the corresponding interactor stand-in. 
+An interactor instance's local label (set from the Control Panel) overrides 
+a global label. If not specified, the global label is set 
+by the user interface. #!I0 #!N #!N #!N #!N Example Visual 
+Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N PlotTwoLines.net #!N UsingClipPlane.net #!N UsingCompute.net 
+#!EF #!N #!N #!EC #!N #!N An example that uses a 
+data-driven vector interactor is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N MultipleDataSets.net #!EF 
+#!N #!N #!EC #!N #!N See Also #!N #!N  #!Linteger,dxall878 h Integer  #!EL  , 
+ #!Lintegel,dxall879 h IntegerList  #!EL  ,  #!Lscalar,dxall932 h Scalar  #!EL  ,  #!Lscalarl,dxall933 h ScalarList  #!EL  ,  #!Lvectorl,dxall978 h VectorList  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lvectorl,dxall978 h VectorList  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

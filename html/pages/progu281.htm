@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu280.htm">Previous Page</A> &#124; <A HREF="progu282.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXQOSM" HREF="progu097.htm#PToC_375">DXQueryOriginalSizes,
+DXQueryOriginalMeshExtents</A></H3>
+<A NAME="IDX1983"></A>
+<A NAME="IDX1984"></A>
+<A NAME="IDX1985"></A>
+<A NAME="IDX1986"></A>
+<A NAME="IDX1987"></A>
+<A NAME="IDX1988"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Returns information about the
+size of the original Field used as the input to
+<TT><STRONG>DXGrow</STRONG></TT>.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Field DXQueryOriginalSizes(Field f, int *positions, int *connections)<BR>
+Field DXQueryOriginalMeshExtents(Field f, int *offsets, int *sizes)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Returns information about the
+size of the original Field used as the input to
+<TT><STRONG>DXGrow</STRONG></TT>.  The
+parameter
+<TT><STRONG>
+f
+</STRONG></TT>
+names a Field that was produced by
+<TT><STRONG>DXGrow</STRONG></TT>.  In
+the case of
+<TT><STRONG>DXQueryOriginalSizes</STRONG></TT>,
+if
+<TT><STRONG>
+positions
+</STRONG></TT>
+is not
+<TT><STRONG>NULL</STRONG></TT>,
+the number of positions in the original Field is returned in
+<TT><STRONG>*positions</STRONG></TT>.  If
+<TT><STRONG>
+connections
+</STRONG></TT>
+is not
+<TT><STRONG>NULL</STRONG></TT>,
+the number of
+interpolation elements in the original Field is
+returned in <TT><STRONG>*connections</STRONG></TT>.  This is
+particularly useful in the case of irregular data.
+<P>
+In the case of data defined on a regular mesh of connections,
+<TT><STRONG>
+DXQueryOriginalMeshExtents
+</STRONG></TT>
+can be used to obtain the offsets of the
+original Field relative to the grown Field, and the sizes of the
+original Field.  If
+<TT><STRONG>
+offsets
+</STRONG></TT>
+is not
+<TT><STRONG>NULL</STRONG></TT>,
+the offset in each
+dimension of the original Field is returned in the Array pointed to by
+<TT><STRONG>offsets</STRONG></TT>;
+if
+<TT><STRONG>
+sizes
+</STRONG></TT>
+is not
+<TT><STRONG>NULL</STRONG></TT>,
+the size in each dimension
+of the original Field is returned in the Array pointed to by
+<TT><STRONG>offsets</STRONG></TT>.
+<P>
+Typically, data is grown so that neighborhood
+information is available during the calculation of a result for
+some original point (or connection) in the Field.
+The
+information returned by these routines identifies the portion
+of the grown Field that belonged to the original Field and that
+will remain after a later call to
+<TT><STRONG>DXShrink</STRONG></TT>.  Thus,
+the caller can use this information to process only that
+portion of the Field that will remain after a later call to
+<TT><STRONG>DXShrink</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>f</STRONG></TT> if it is a grown field or returns
+<TT><STRONG>NULL</STRONG></TT> (without setting an error code) if it
+not;
+otherwise, returns <TT><STRONG>NULL</STRONG></TT> and sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu208.htm#HDRDXGROV">DXGrow, DXGrowV</A>,
+<A HREF="progu330.htm#HDRDXSK">DXShrink</A>
+</STRONG></TT>
+<P>
+<A HREF="progu069.htm#HDRGNS">14.4 , "Growing and Shrinking Partitioned
+Data"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu280.htm">Previous Page</A> &#124; <A HREF="progu282.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

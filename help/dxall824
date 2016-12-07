@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rhardren Rendering 
+Approximations #!N #!N #!N Data Explorer provides access to the hardware 
+accelerators on the workstation, in addition to the default software rendering 
+techniques. The hardware enhancements are available only on workstations that are 
+equipped with 3-D graphic adapters. On systems without such adapters, only 
+the software rendering options are available. This enhancement is intended to 
+provide increased interactivity, especially in operations that involve only the rendering 
+process. #!N #!N Data Explorer can also provide accelerated rendering by 
+approximating the rendering using points, lines, and opaque surfaces. Such geometric 
+elements are often sufficient to approximate the appearance of the desired 
+image, and thus are useful for preliminary visualizations of the data. 
+#!N #!N The approximations fall into three main categories: bounding box, 
+dots, and wireframe. Wireframe is available only as a hardware rendering 
+technique. #!N #!N If you are using the graphical user interface 
+and the Image tool, you can access the rendering options by 
+using the  #!F-adobe-times-bold-r-normal--18*   Rendering Options #!EF option on the  #!F-adobe-times-bold-r-normal--18*   Options 
+#!EF pull-down menu in the Image window. This option invokes a 
+dialog box that allows you to set the rendering approximations for 
+continuous and one-time execution. (For more information, see  #!Lglopt,dxall327 h Rendering Options...  #!EL  in IBM 
+Visualization Data Explorer User's Guide.) #!N #!N If you are not 
+using the Image tool, then you must use the Options module 
+to set various attributes that control the rendering approximations. The following 
+table lists the attributes that control rendering approximations, together with the 
+permissible values for each attribute. #!T,1,216,356,641  #!F-adobe-times-bold-r-normal--18*   #!N TAB Attribute Name 
+TAB Values TAB Description #!EF #!N TAB "rendering mode" TAB "software" 
+TAB use software rendering #!N TAB - TAB "hardware" TAB use 
+hardware rendering #!N TAB "rendering approximation" TAB "none" "box" "dots" TAB 
+complete rendering object #!N TAB - TAB "wireframe" TAB bounding box 
+only #!N TAB - TAB - TAB dot approximation to object 
+#!N TAB - TAB - TAB wireframe approximation to object #!N 
+TAB "render every" TAB n TAB render every nth primitive #!N 
+TAB - TAB - TAB render everything (default) Note: If you 
+do not pass a camera to Display (i.e., if  #!F-adobe-times-bold-r-normal--18*   object 
+#!EF is already an image), Display will always use software to 
+display the image, regardless of the setting of any rendering options 
+using the Options tool. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lhardsof,dxall825 h Differences between Hardware and Software Rendering  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

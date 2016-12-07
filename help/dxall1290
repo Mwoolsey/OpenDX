@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxievs DXIsElementValidSequential, DXIsElementInvalidSequential #!N 
+#!N Function #!N #!N Return the validity of a specified element 
+of an invalid-component handle when the queries come in sequential order. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> int DXIsElementValidSequential(InvalidComponentHandle handle, int 
+index) int DXIsElementInvalidSequential(InvalidComponentHandle handle, int index) #!EF #!N #!N Functional Details 
+#!N #!N Access with either routine is generally faster than with 
+ #!F-adobe-times-bold-r-normal--18*   DXIsElementInvalid #!EF or  #!F-adobe-times-bold-r-normal--18*   DXIsElementValid #!EF . #!N #!N The 
+result reflects both the initial conditions of  #!F-adobe-times-bold-r-normal--18*   handle #!EF when 
+it was created with  #!F-adobe-times-bold-r-normal--18*   DXCreateInvalidComponentHandle #!EF , and of the 
+effects of any calls to  #!F-adobe-times-bold-r-normal--18*   DXSetElementInvalid #!EF ,  #!F-adobe-times-bold-r-normal--18*   DXSetElementValid 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   DXInvertValidity #!EF ,  #!F-adobe-times-bold-r-normal--18*   DXSetAllValid #!EF , or 
+ #!F-adobe-times-bold-r-normal--18*   DXSetAllInvalid #!EF . #!N Note: Accesses must be in sequential 
+order; if they are not, the results may be incorrect. #!N 
+#!N #!N Return Value #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXIsElementInvalidSequential #!EF returns TRUE 
+(1) if element  #!F-adobe-times-bold-r-normal--18*   index #!EF is marked invalid, and returns 
+FALSE (0) otherwise. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXIsElementValidSequential #!EF returns TRUE (1) 
+if element  #!F-adobe-times-bold-r-normal--18*   index #!EF is marked valid, and returns FALSE 
+(0) otherwise. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcich,dxall1191 h DXCreateInvalidComponentHandle  #!EL  , 
+ #!Ldxfich,dxall1215 h DXFreeInvalidComponentHandle  #!EL  #!EF #!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxia,dxall1291 h DXIterateArray  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

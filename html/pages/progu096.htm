@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu095.htm">Previous Page</A> &#124; <A HREF="progu097.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRDXLAP1" HREF="../proguide.htm#ToC_190">Appendix B. Data Explorer
+Data Model Library: DXlite Routines</A></H1>
+<P>
+All Data Explorer routines are included in the libraries libDXcallm.a and
+libDX.a.
+All routines are described in <A HREF="progu097.htm#HDRALLR">Appendix C. "Data
+Explorer Library Routines"</A>.
+A subset of those routines are included in libDXlite.a, as shown in
+the list below.
+Outboard and stand-alone modules can use the Data Explorer data model by
+linking to this Library.
+You can create, query, and modify Data Explorer Objects.
+For example, you can write an importer that reads data in a particular
+file format and creates a Data Explorer Field Object as its output.
+(Outboard and stand-alone programs may also link to libDXcallm.a to
+access all of the routines described in <A HREF="progu097.htm#HDRALLR">Appendix
+C. "Data Explorer Library Routines"</A>.)
+
+		<P>&nbsp;
+<BR>
+			<BR>
+		<TABLE BORDER="0" CELLSPACING="15" CELLPADDING="0">
+			<TR VALIGN="top">
+				<TD WIDTH="240">DXAbortTaskGroup<BR>
+					DXAdd<BR>
+					DXAddArrayData<BR>
+					DXAddBackColor<BR>
+					DXAddBackColors<BR>
+					DXAddColor<BR>
+					DXAddColors<BR>
+					DXAddFaceNormal<BR>
+					DXAddFaceNormals<BR>
+					DXAddFrontColor<BR>
+					DXAddFrontColors<BR>
+					DXAddLine<BR>
+					DXAddLines<BR>
+					DXAddMessage<BR>
+					DXAddNormal<BR>
+					DXAddNormals<BR>
+					DXAddOpacities<BR>
+					DXAddOpacity<BR>
+					DXAddPoint<BR>
+					DXAddPoints<BR>
+					DXAddQuad<BR>
+					DXAddQuads<BR>
+					DXAddTask<BR>
+					DXAddTetrahedra<BR>
+					DXAddTetrahedron<BR>
+					DXAddTriangle<BR>
+					DXAddTriangles<BR>
+					DXAdjointTranspose<BR>
+					DXAllocate<BR>
+					DXAllocateArray<BR>
+					DXAllocateLocal<BR>
+					DXAllocateLocalOnly<BR>
+					DXAllocateLocalOnlyZero<BR>
+					DXAllocateLocalZero<BR>
+					DXAllocateZero<BR>
+					DXApply<BR>
+					DXArrayConvert<BR>
+					DXArrayConvertV<BR>
+					DXBeginLongMessage<BR>
+					<BR>
+					DXBoundingBox<BR>
+					<BR>
+					DXCategorySize<BR>
+					DXChangedComponentValues<BR>
+					DXClipBox<BR>
+					DXClipPlane<BR>
+					DXColorNameToRGB<BR>
+					DXComponentOpt<BR>
+					DXComponentOptLoc<BR>
+					DXComponentReq<BR>
+					DXComponentReqLoc<BR>
+					DXConcatenate<BR>
+					DXCopy<BR>
+					DXCopyAttributes<BR>
+					DXCreateArrayHandle<BR>
+					DXCreateHash<BR>
+					DXCreateTaskGroup<BR>
+					DXCross<BR>
+					<BR>
+					DXDebug<BR>
+					DXDelete<BR>
+					DXDeleteAttribute<BR>
+					DXDeleteComponent<BR>
+					DXDeleteHashElement<BR>
+					DXDestroyHash<BR>
+					DXDeterminant<BR>
+					DXDiv<BR>
+					DXDot<BR>
+					<BR>
+					DXEmptyField<BR>
+					DXEnableDebug<BR>
+					DXEndField<BR>
+					DXEndLongMessage<BR>
+					DXEndObject<BR>
+					DXErrorExit<BR>
+					DXExecuteTaskGroup<BR>
+					DXExists<BR>
+					DXExpandMessage<BR>
+					DXExportDX<BR>
+					DXExtract<BR>
+					DXExtractFloat<BR>
+					DXExtractInteger<BR>
+					DXExtractNthString<BR>
+					DXExtractParameter<BR>
+					DXExtractString<BR>
+					<BR>
+					DXFree<BR>
+					DXFreeArrayDataLocal<BR>
+					DXFreeArrayHandle<BR>
+					DXFreeModuleId<BR>
+					<BR>
+					DXGetArrayClass<BR>
+					DXGetArrayData<BR>
+					DXGetArrayDataLocal<BR>
+					DXGetArrayInfo<BR>
+					DXGetAttribute<BR>
+					DXGetBackgroundColor<BR>
+					DXGetCacheEntry<BR>
+				</TD>
+				<TD WIDTH="240">DXGetCacheEntryV<BR>
+					DXGetCameraMatrix<BR>
+					DXGetCameraMatrixWithFuzz<BR>
+					DXGetCameraResolution<BR>
+					DXGetCameraRotation<BR>
+					DXGetClippedInfo<BR>
+					DXGetComponentAttribute<BR>
+					DXGetComponentValue<BR>
+					DXGetConnections<BR>
+					DXGetConstantArrayData<BR>
+					DXGetEnumeratedAttribute<BR>
+					DXGetEnumeratedComponentAttribute<BR>
+					DXGetEnumeratedComponentValue<BR>
+					DXGetEnumeratedMember<BR>
+					DXGetError<BR>
+					DXGetErrorExit<BR>
+					DXGetErrorMessage<BR>
+					DXGetFloatAttribute<BR>
+					DXGetGroupClass<BR>
+					DXGetIntegerAttribute<BR>
+					DXGetItemSize<BR>
+					DXGetMember<BR>
+					DXGetMemberCount<BR>
+					DXGetMeshArrayInfo<BR>
+					DXGetMeshOffsets<BR>
+					DXGetModuleId<BR>
+					DXGetNextHashElement<BR>
+					DXGetObjectClass<BR>
+					DXGetObjectTag<BR>
+					DXGetOrthographic<BR>
+					DXGetPart<BR>
+					DXGetPartClass<BR>
+					DXGetPathArrayInfo<BR>
+					DXGetPathOffset<BR>
+					DXGetPerspective<BR>
+					DXGetPrivateData<BR>
+					DXGetProductArrayInfo<BR>
+					DXGetRegularArrayInfo<BR>
+					DXGetScreenInfo<BR>
+					DXGetSeriesMember<BR>
+					DXGetString<BR>
+					DXGetStringAttribute<BR>
+					DXGetTime<BR>
+					DXGetType<BR>
+					DXGetValidCount<BR>
+					DXGetView<BR>
+					DXGetXformInfo<BR>
+					<BR>
+					DXImportDX<BR>
+					DXInitGetNextHashElement<BR>
+					DXInsert<BR>
+					DXInsertHashElement<BR>
+					DXInvert<BR>
+					<BR>
+					DXLength<BR>
+					DXLn<BR>
+					<BR>
+					DXMakeGridConnections<BR>
+					DXMakeGridConnectionsV<BR>
+					DXMakeGridPositions<BR>
+					DXMakeGridPositionsV<BR>
+					DXMakeStringList<BR>
+					DXMakeStringListV<BR>
+					DXMarkTime<BR>
+					DXMarkTimeLocal<BR>
+					DXMat<BR>
+					DXMax<BR>
+					DXMessage<BR>
+					DXMin<BR>
+					DXMul<BR>
+					<BR>
+					DXNeg<BR>
+					DXNeighbors<BR>
+					DXNewAmbientLight<BR>
+					DXNewArray<BR>
+					DXNewArrayV<BR>
+					DXNewCamera<BR>
+					DXNewCameraDistantLight<BR>
+					DXNewClipped<BR>
+					DXNewCompositeField<BR>
+					DXNewConstantArray<BR>
+					DXNewConstantArrayV<BR>
+					DXNewDistantLight<BR>
+					DXNewField<BR>
+					DXNewGroup<BR>
+					DXNewMeshArray<BR>
+					DXNewMeshArrayV<BR>
+					DXNewMultiGrid<BR>
+					DXNewPathArray<BR>
+					DXNewPrivate<BR>
+					DXNewProductArray<BR>
+					DXNewProductArrayV<BR>
+					DXNewRegularArray<BR>
+					DXNewScreen<BR>
+					DXNewSeries<BR>
+					DXNewString<BR>
+					DXNewXform<BR>
+					DXNormalize<BR>
+				</TD>
+				<TD WIDTH="240">DXPartition<BR>
+					DXPrint<BR>
+					DXPrintAlloc<BR>
+					DXPrintError<BR>
+					DXPrintTimes<BR>
+					DXPrintV<BR>
+					DXProcessorId<BR>
+					DXProcessors<BR>
+					DXProcessParts<BR>
+					DXPt<BR>
+					<BR>
+					DXQuad<BR>
+					DXQueryAmbientLight<BR>
+					DXQueryArrayCommon<BR>
+					DXQueryArrayCommonV<BR>
+					DXQueryArrayConvert<BR>
+					DXQueryArrayConvertV<BR>
+					DXQueryCameraDistantLight<BR>
+					DXQueryConstantArray<BR>
+					DXQueryDebug<BR>
+					DXQueryDistantLight<BR>
+					DXQueryGridConnections<BR>
+					DXQueryGridPositions<BR>
+					DXQueryHashElement<BR>
+					DXQueryParameter<BR>
+					<BR>
+					DXReadyToRun<BR>
+					DXReAllocate<BR>
+					DXReference<BR>
+					DXRegisterInputHandler<BR>
+					DXRemove<BR>
+					DXRename<BR>
+					DXReplace<BR>
+					DXResetError<BR>
+					DXRotateX<BR>
+					DXRotateY<BR>
+					DXRotateZ<BR>
+					<BR>
+					DXScale<BR>
+					DXSetAttribute<BR>
+					DXSetBackgroundColor<BR>
+					DXSetCacheEntry<BR>
+					DXSetCacheEntryV<BR>
+					DXSetClippedObjects<BR>
+					DXSetComponentAttribute<BR>
+					DXSetComponentValue<BR>
+					DXSetConnections<BR>
+					DXSetEnumeratedMember<BR>
+					DXSetError<BR>
+					DXSetErrorExit<BR>
+					DXSetFloatAttribute<BR>
+					DXSetGroupType<BR>
+					DXSetGroupTypeV<BR>
+					DXSetIntegerAttribute<BR>
+					DXSetMember<BR>
+					DXSetMeshOffsets<BR>
+					DXSetObjectTag<BR>
+					DXSetOrthographic<BR>
+					DXSetPart<BR>
+					DXSetPathOffset<BR>
+					DXSetPerspective<BR>
+					DXSetResolution<BR>
+					DXSetScreenObject<BR>
+					DXSetSeriesMember<BR>
+					DXSetStringAttribute<BR>
+					DXSetView<BR>
+					DXSetXformObject<BR>
+					DXSetXformMatrix<BR>
+					DXSub<BR>
+					DXSwap<BR>
+					<BR>
+					DXTetra<BR>
+					DXTraceTime<BR>
+					DXTranslate<BR>
+					DXTranspose<BR>
+					DXTri<BR>
+					DXTrim<BR>
+					DXTrimItems<BR>
+					DXTypeCheck<BR>
+					
+					DXTypeCheckV<BR>
+					
+					DXTypeSize<BR>
+					<BR>
+					
+					DXUnreference<BR>
+					
+					DXUnsetGroupType<BR>
+					<BR>
+					
+					DXValidPositionsBoundingBox<BR>
+					
+					DXVec<BR>
+					<BR>
+					
+					DXWarning<BR>
+				</TD>
+			</TR>
+		</TABLE>
+		<P><BR>
+			<A NAME="SPTSPEC"><I>(Ref #13.)</I></A></P>
+		<P>
+		<HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu095.htm">Previous Page</A> &#124; <A HREF="progu097.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

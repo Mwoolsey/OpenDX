@@ -1,0 +1,54 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rhec Hello Module with Error Checking 
+#!N #!EC #!N #!N The definition of the Hello module (see 
+ #!Lhmod,dxall991 h Adding the Hello Module  #!EL  ) contains no error checking code. This omission, of course, 
+is not a recommended practice. In the following version, the Data 
+Explorer routine  #!F-adobe-times-bold-r-normal--18*   DXSetError #!EF reports errors to the user. #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 01 #include <dx/dx.h> #!N 02 #!N 03 
+#!N 04 m_HelloErrorChecking(Object *in, Object *out) #!N 05 { #!N 06 
+char message[30], *greeting, longmessage=NULL; #!N 07 #!N 08 if (!in[0]) { 
+#!N 09 sprintf(message, "hello world"); #!N 10 out[0] = DXNewString(message); #!N 
+11 } #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+12 else { #!N 13 if (!DXExtractString(in[0], &greeting)) { #!N 14 
+DXSetError(ERROR_BAD_PARAMETER, "value must be a string"); #!N 15 goto error; #!N 
+16 } #!N 17 if (strlen(greeting)<=(28-strlen("hello")) { #!N 18 sprintf(message, "%s 
+%s", "hello", greeting); #!N 19 out[0] = DXNewString(message); #!N 20 } 
+#!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 21 else 
+{ #!N 22 longmessage = DXAllocate((strlen("hello")+strlen(greeting)+2) #!N * sizeof(char)); #!N 23 
+if (!longmessage) #!N 24 goto error; #!N 25 sprintf(longmessage, "%s %s", 
+"hello", greeting); #!N 26 out[0] = DXNewString(longmessage); #!N 27 DXFree((Pointer)longmessage); #!N 
+28 } #!N 29 } #!EF #!N #!N #!EC #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N 30 return OK; #!N 31 #!N 32 error: 
+#!N 33 DXFree((Pointer)longmessage); #!N 34 return ERROR; #!N 35 } #!EF 
+#!N #!N #!EC #!N #!N In this example, the return from 
+ #!F-adobe-times-bold-r-normal--18*   DXExtractString #!EF (line 13) is checked. If the routine returns 
+ #!F-adobe-times-bold-r-normal--18*   ERROR #!EF , the error message "value must be a 
+string" is generated and Hello returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF . #!N 
+#!N The combined length of the user-supplied parameter string and "hello" 
+is checked against the length of the buffer. If it exceeds 
+the length, a new buffer is allocated for the output message 
+(and freed before returning). Because  #!F-adobe-times-bold-r-normal--18*   longmessage #!EF is initialized to 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it can safely be freed on error, 
+even if it has not yet been allocated. Note: The  #!F-adobe-times-bold-r-normal--18*   
+m_ #!EF  #!F-adobe-times-bold-i-normal--18*   module #!EF function should return an error code 
+according to the Data Explorer library standard:  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF for 
+error and  #!F-adobe-times-bold-r-normal--18*   OK #!EF for successful completion. Thus the module 
+entry point would typically be declared by: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N Error m_  #!F-adobe-times-bold-i-normal--18*   module #!EF (Object *in, Object *out); #!EF 
+#!N #!N #!EC #!N #!N To create a version of Data 
+Explorer that includes the HelloErrorChecking module, copy the following files to 
+the directory you want to work in: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/Makefile_ #!EF  #!F-adobe-times-bold-i-normal--18*   workstation #!EF #!N  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/hello_errorchecking.c #!EF 
+#!N  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/helloerr.mdf #!EF #!EF #!N #!N #!EC Now rename the 
+makefile to  #!F-adobe-times-bold-r-normal--18*   Makefile #!EF (the name of the default makefile) 
+and enter: make helloerr. This command creates an executable that contains 
+the HelloErrorChecking module. #!N #!N To invoke this executable (from the 
+directory to which the files were copied), enter: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf ./helloerr.mdf -exec ./dxexec. #!EF #!N #!N 
+#!EC This command starts Data Explorer (the  #!F-adobe-times-bold-r-normal--18*   helloerr.mdf #!EF file 
+tells the graphical user interface about HelloErrorChecking and its inputs and 
+outputs). #!N #!N You can now run any visual program that 
+uses the HelloErrorChecking module. One such program is  #!F-adobe-times-bold-r-normal--18*   hello_errorchecking.net #!EF 
+in the  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide #!EF directory. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lmblder,dxall1003 h Module Builder  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

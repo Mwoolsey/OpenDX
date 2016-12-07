@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu302.htm">Previous Page</A> &#124; <A HREF="progu304.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXSBC" HREF="progu097.htm#PToC_397">DXSetBackgroundColor,
+DXGetBackgroundColor</A></H3>
+<A NAME="IDX2044"></A>
+<A NAME="IDX2045"></A>
+<A NAME="IDX2046"></A>
+<A NAME="IDX2047"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Operate on a scene background color.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Camera DXSetBackgroundColor(Camera c, RGBColor *background)<BR>
+Camera DXGetBackgroundColor(Camera c, RGBColor background)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TT><STRONG>DXSetBackgroundColor</STRONG></TT> sets a scene background
+color for use at render time.
+<TT><STRONG>DXRender</STRONG></TT> applies <TT><STRONG>background</STRONG></TT>
+to all pixels at the start of rendering so that unobscured
+pixels will have this color in the final image.
+The unset default background color is black, &#123;0,0,0&#125;.
+<P><TT><STRONG>DXGetBackgroundColor</STRONG></TT> returns the value of the
+camera background color in <TT><STRONG>*background</STRONG></TT>.
+<TT><STRONG>DXRender</STRONG></TT> initializes the output image to this color
+when using camera <TT><STRONG>c</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Return <TT><STRONG>c</STRONG></TT> or return <TT><STRONG>NULL</STRONG></TT>
+and set an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu246.htm#HDRDXNCA">DXNewCamera</A>,
+<A HREF="progu292.htm#HDRDXRNDR">DXRender</A>
+</STRONG></TT>
+<P>
+<A HREF="progu081.htm#HDRCAMSEC">16.7 , "Camera Class"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu302.htm">Previous Page</A> &#124; <A HREF="progu304.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

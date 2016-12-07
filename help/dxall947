@@ -1,0 +1,122 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsimpsur SimplifySurface 
+#!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N #!N 
+Simplifies a triangulated surface and resamples data attached to the surface. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   simplified #!EF 
+= SimplifySurface(  #!F-adobe-times-bold-r-normal--18*   original_surface, max_error, max_data_error, #!N volume, boundary, length, data, 
+stats #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB original_surface| field TAB (none) TAB triangulated surface #!N 
+TAB max_error TAB scalar TAB input dependent TAB maximum positional error 
+#!N TAB max_data_error TAB scalar TAB input dependent TAB maximum data 
+error #!N TAB volume TAB flag TAB 1 TAB 1: move 
+vertices to preserve #!N TAB - TAB - TAB - TAB 
+volume #!N TAB - TAB - TAB - TAB 0: do 
+not move vertices #!N TAB boundary TAB flag TAB 0 TAB 
+1: simplify surface boundaries #!N TAB - TAB - TAB - 
+TAB 0: do not simplify surface #!N TAB - TAB - 
+TAB - TAB boundaries #!N TAB length TAB flag TAB 1 
+TAB 1: move vertices to preserve the #!N TAB - TAB 
+- TAB - TAB length of boundaries #!N TAB - TAB 
+- TAB - TAB 0: do not move vertices #!N TAB 
+data TAB flag TAB 1 TAB 1: use data dependent on 
+#!N TAB - TAB - TAB - TAB "positions" to constrain 
+#!N TAB - TAB - TAB - TAB simplification #!N TAB 
+- TAB - TAB - TAB 0: ignore data for simplification 
+#!N TAB stats TAB flag TAB 0 TAB 1: provide simple 
+statistics. #!N TAB - TAB - TAB - TAB 0: do 
+not provide statistics #!N TAB - TAB - TAB - TAB 
+#!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Description #!EF #!N TAB simplified TAB field TAB simplified 
+triangulated surface #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N SimplifySurface builds a  #!F-adobe-times-bold-r-normal--18*   simplified #!EF surface 
+that is guaranteed to deviate from  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF by less 
+than  #!F-adobe-times-bold-r-normal--18*   max_error #!EF . This means that each vertex of 
+ #!F-adobe-times-bold-r-normal--18*   simplified #!EF as well as each point inside a triangle 
+of  #!F-adobe-times-bold-r-normal--18*   simplified #!EF is at a Euclidean distance no further 
+than  #!F-adobe-times-bold-r-normal--18*   max_error #!EF from  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF . Similarly, each 
+vertex of  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF as well as each point inside 
+a triangle of  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF is at a distance no 
+further than  #!F-adobe-times-bold-r-normal--18*   max_error #!EF from the simplified surface. #!N #!N 
+In addition, if a "data" component of  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF is 
+dependent on the "positions" component and is not  #!F-adobe-times-bold-r-normal--18*   TYPE_STRING #!EF 
+, SimplifySurface will perform a data dependent simplification: SimplifySurface will resample 
+"data" on the simplified surface and guarantee that the maximum deviation 
+between the original and re-sampled data is less than  #!F-adobe-times-bold-r-normal--18*   max_error_data 
+#!EF . For efficiency reasons, the dimensionality of the "data" component 
+is currently limited to 3: for instance, it will work for 
+RGB colors or for gradient values in 3-dimension. Note that data 
+dependent on connections will  #!F-adobe-helvetica-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   not #!EF #!EF constrain simplification. 
+#!N #!N Vertex normals for the  #!F-adobe-times-bold-r-normal--18*   simplified #!EF surface are 
+automatically computed. #!N #!N Components dependent on "positions" or "connections" of 
+ #!F-adobe-times-bold-r-normal--18*   original_surface #!EF are added to  #!F-adobe-times-bold-r-normal--18*   simplified #!EF and re-sampled. 
+For components dependent on "connections," the triangle areas are used to 
+weight the resampling. #!N #!N The following components are not re-sampled: 
+"positions," "connections," "invalid positions," "invalid connections" "normals," "neighbors," and "positional error." 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   original_surface #!EF #!EF 
+#!I50 #!N must have triangular connections.  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF is the 
+field that is being simplified. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   max_error 
+#!EF #!EF #!I50 #!N maximum distance (in the units of the 
+"position" component) between  #!F-adobe-times-bold-r-normal--18*   simplified #!EF and  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF . 
+The default value for  #!F-adobe-times-bold-r-normal--18*   max_error #!EF is 1% of the 
+diagonal of the bounding box of  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF . You 
+may decide to set  #!F-adobe-times-bold-r-normal--18*   max_error #!EF to a lower or 
+higher value than the default. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   max_data_error 
+#!EF #!EF #!I50 #!N maximum deviation between data attached to  #!F-adobe-times-bold-r-normal--18*   
+original_surface #!EF vertices, and the resampling of that data on the 
+ #!F-adobe-times-bold-r-normal--18*   simplified #!EF surface. (Again the maximum deviation also holds for 
+points inside triangles, not just vertices). #!N #!N The default value 
+for the maximum error on the data is set to 10% 
+of the diagonal of the bounding box in data space. If 
+the data is one dimensional, the default error is (max_data-min_data)/10. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   max_data_error #!EF is ignored if  #!F-adobe-times-bold-r-normal--18*   data #!EF = 
+0 or if the data are connection-dependent. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   volume #!EF #!EF #!I50 #!N specifies whether the volume enclosed 
+by the surface should be preserved or not. If set to 
+1, SimplifySurface will move the surface vertices in order to preserve 
+the volume while the number of vertices is being reduced. In 
+this case, the volume is preserved to within floating point or 
+higher accuracy. If set to 0, the surface vertices will not 
+be moved. The default is 1. #!N #!N The volume is 
+only truly defined for a surface that does not have a 
+boundary (closed surface). Setting  #!F-adobe-times-bold-r-normal--18*   volume #!EF to 1 on a 
+surface with boundary will have the effect of preventing shrinkage and 
+producing more regular triangles. #!N #!N Note that if several surfaces 
+share the same boundary, as when Isosurface is used on partitioned 
+data, the volume can still be preserved with  #!F-adobe-times-bold-r-normal--18*   volume #!EF 
+set to 1 if the boundary is left intact (  #!F-adobe-times-bold-r-normal--18*   
+boundary #!EF set to 0). #!N #!N With surfaces that present 
+sharp angles, such as CAD data, setting  #!F-adobe-times-bold-r-normal--18*   volume #!EF to 
+1 might not work well. In general, we recommend setting  #!F-adobe-times-bold-r-normal--18*   
+volume #!EF to zero when operating on CAD data. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   boundary #!EF #!EF #!I50 #!N specifies whether the 
+boundary of a surface should be simplified or left intact. If 
+set to 1, then the boundary is simplified while respecting the 
+same errors  #!F-adobe-times-bold-r-normal--18*   max_error #!EF and  #!F-adobe-times-bold-r-normal--18*   max_data_error #!EF . If 
+set to 0, then the boundary is left intact. The default 
+is 0. If  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF has no boundary, this option 
+is ignored. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   length #!EF #!EF #!I50 
+#!N if  #!F-adobe-times-bold-r-normal--18*   boundary #!EF set to 1, specifies whether the 
+length of the simplified boundary should be preserved. If set to 
+1, in a manner analogous to volume preservation, SimplifySurface will move 
+the boundary vertices in order to preserve the boundary length while 
+the number of boundary vertices is being reduced. If set to 
+0, the boundary vertices will not be moved. The default is 
+1. If  #!F-adobe-times-bold-r-normal--18*   boundary #!EF is set to 0 then the 
+value of  #!F-adobe-times-bold-r-normal--18*   length #!EF is ignored. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N if set to 1, instructs 
+SimplifySurface use  #!F-adobe-times-bold-r-normal--18*   max_data_error #!EF to constrain simplification if data are 
+dependent on "positions" and are not  #!F-adobe-times-bold-r-normal--18*   TYPE_STRING #!EF , and 
+if the dimensionality of such data is 3 or lower. If 
+set to 0, simplification will not be constrained by data. In 
+any case, SimplifySurface will resample data after simplification. The default is 
+1. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   stats #!EF #!EF #!I50 #!N 
+if set to 1, instructs SimplifySurface to write simple statistics: number 
+of vertices and triangles in original_surface, number of vertices and triangles 
+in simplified, and percentage of original numbers of vertices and triangles. 
+This information will appear in the Message window. If set to 
+0, SimplifySurface will not provide statistics. The default is 0. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   simplified #!EF #!EF #!I50 #!N simplified surface. 
+#!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Llod,dxall948 h Generating surface levels of detail.  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

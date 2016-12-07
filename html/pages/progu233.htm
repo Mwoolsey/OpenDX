@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu232.htm">Previous Page</A> &#124; <A HREF="progu234.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXMGPV" HREF="progu097.htm#PToC_327">DXMakeGridPositions,
+DXMakeGridPositionsV</A></H3>
+<A NAME="IDX1865"></A>
+<A NAME="IDX1866"></A>
+<A NAME="IDX1867"></A>
+<A NAME="IDX1868"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Create an n-dimensional grid of regularly spaced positions.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Array DXMakeGridPositions(int n, int count, int count, int count,...,<BR>
+            float origin, float origin, ..., float delta, float delta, ...)<BR>
+Array DXMakeGridPositionsV(int n, int *counts, float *origin, float *deltas)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The grids created by these routines are compactly encoded by creating
+a Product Array of <TT><STRONG>n</STRONG></TT> Regular Arrays and are
+suitable as "positions" components of a Field.
+This compact encoding is particularly useful when the data lie in or on
+a lattice of regularly spaced points, since their positions can
+be computed, thereby saving the space that explicit
+indexing would require.
+<P>
+<TT><STRONG>DXMakeGridPositions</STRONG></TT> is used to enter the
+grid&#39;s specifications as individual arguments of the
+routine&#39;s parameters.
+<TT><STRONG>DXMakeGridPositionsV</STRONG></TT> is used to enter the same
+arguments as one integer (<TT><STRONG>n</STRONG></TT>) and three
+Arrays.
+<UL>
+<P><LI>The <TT><STRONG>n</STRONG></TT> parameter specifies the dimensionality of
+the grid.
+The remaining specifications must be consistent with this value.
+<P><LI>The <TT><STRONG>counts</STRONG></TT> parameter specifies the number of
+elements in each of the grid&#39;s dimensions (e.g., 5 and 4 if
+<TT><STRONG>n</STRONG></TT>=2).
+<P><LI>The <TT><STRONG>origin</STRONG></TT> parameter specifies the vector that
+defines the grid&#39;s origin (e.g., 3.2 and 7.1 for a
+2-dimensional grid).
+<P><LI>The <TT><STRONG>delta</STRONG></TT> parameter specifies the
+<TT><STRONG>n</STRONG></TT>-dimensional vectors that define
+the delta values to be used
+(e.g., if <TT><STRONG>n</STRONG></TT>=2, this parameter would have four
+numbers, to specify two 2-vectors).
+</UL>
+<P>
+The grid constructed by either routine is a Product Array of
+<I>n</I> terms, each of which is a Regular Array.
+The first zero-based term describes a line in an
+<TT><STRONG>n</STRONG></TT>-dimensional space with
+<TT><STRONG>counts</STRONG></TT>&#91;0&#93; points (starting at the origin),
+each point separated from the previous point on the line by
+the <TT><STRONG>n</STRONG></TT>-dimensional vector described by
+<TT><STRONG>deltas</STRONG></TT>&#91;0&#93; through
+<TT><STRONG>deltas</STRONG></TT>&#91;n-1&#93;.
+For each of the remaining <TT><STRONG>n</STRONG></TT>-1 terms, the
+<I>k</I>th term will have <TT><STRONG>counts</STRONG></TT>&#91;k&#93;
+points (starting at &#91;0 ... 0&#93;), each of which is separated
+from the previous point on the line by the
+<TT><STRONG>n</STRONG></TT>-dimensional vector described by
+<TT><STRONG>deltas</STRONG></TT>&#91;k*n&#93; through
+<TT><STRONG>deltas</STRONG></TT>&#91;k*n + (n-1)&#93;.
+<P>
+The Array created can be deleted with DXDelete.
+See <A HREF="progu023.htm#HDRMEMNG">4.2 , "Memory Management"</A>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the Array or returns <TT><STRONG>NULL</STRONG></TT> and sets an
+error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu232.htm#HDRDXMGCV">DXMakeGridConnections,
+DXMakeGridConnectionsV</A>,
+<A HREF="progu278.htm#HDRDXQGC">DXQueryGridConnections</A>,
+<A HREF="progu279.htm#HDRDXQGP">DXQueryGridPositions</A>
+</STRONG></TT>
+<P>
+<A HREF="progu046.htm#HDRCOTAS">"Creating Positions and Connections Grids"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu232.htm">Previous Page</A> &#124; <A HREF="progu234.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

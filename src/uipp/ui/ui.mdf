@@ -1,0 +1,149 @@
+
+MODULE Value
+CATEGORY Interactor
+DESCRIPTION value interactor
+OUTPUT output; value; interactor output
+
+MODULE ValueList
+CATEGORY Interactor
+DESCRIPTION value list interactor
+OUTPUT output; value list; interactor output
+
+MODULE String
+CATEGORY Interactor
+DESCRIPTION string interactor
+OUTPUT output; string; interactor output
+
+MODULE FileSelector 
+CATEGORY Interactor
+DESCRIPTION File selection interactor
+OUTPUT filename; string; Full pathname of selected file 
+OUTPUT basename; string; Name of file (not including directory name) 
+
+MODULE StringList
+CATEGORY Interactor
+DESCRIPTION string list interactor
+OUTPUT output; string list; interactor output
+
+MODULE Receiver
+CATEGORY Special
+DESCRIPTION receives transmissions from a matching transmitter
+INPUT input[private:1]; object; NULL; received value
+OUTPUT output; object; received value
+
+MODULE Transmitter
+CATEGORY Special
+DESCRIPTION transmits input value to matching receivers
+INPUT input; object; NULL; value to be transmitted
+OUTPUT output[private:1,cache:0]; object; value transmitted
+
+MODULE Input
+CATEGORY Special
+DESCRIPTION input parameter
+OUTPUT parameter; object; input value
+
+MODULE Output
+CATEGORY Special
+DESCRIPTION output parameter
+INPUT parameter; object; NULL; output value
+
+MODULE Image
+CATEGORY Rendering
+DESCRIPTION renders and displays an image
+INPUT id     [visible:2]; object; (none) ;
+INPUT object; object; (none); object to render and display
+INPUT where[visible:2]; window or string; NULL; host and window for display
+INPUT useVector[visible:2]; integer; NULL; state flag
+INPUT to[visible:2]; vector; NULL; camera's look-to point
+INPUT direction[visible:2]; vector; NULL; camera's position
+INPUT width[visible:2]; scalar; NULL; width of field of view
+INPUT resolution[visible:2]; integer; 640; pixels across image
+INPUT aspect[visible:2]; scalar; 0.75; height/width
+INPUT up[visible:2]; vector; NULL; up direction
+INPUT viewAngle[visible:2]; scalar; 30.0; for perspective
+INPUT perspective[visible:2];  integer;  0; use perspective? 
+INPUT options[visible:2]; string; NULL; GL rendering options
+INPUT buttonState[visible:2]; integer; 1; Button up(1) or down(2)
+INPUT buttonUpApprox[visible:2]; string; "none";  level of approx. when button is up
+INPUT buttonDownApprox[visible:2]; string; "none";  level of approx. when button is down
+INPUT buttonUpDensity[visible:2]; integer; 1;  approximation density when button is up
+INPUT buttonDownDensity[visible:2]; integer; 1;  approximation density when button is down
+INPUT renderMode[visible:0]; flag or string; 0; rendering mode (0 == "software")
+OPTIONS software ; hardware
+INPUT defaultCamera[visible:0]; camera; (no default); the reset camera 
+INPUT resetCamera[visible:0]; flag; 0; reset the camera 
+OPTIONS false ; true
+INPUT bkgndColor[visible:0]; vector or string; "black"; background color
+OPTIONS black ; white ; grey ; red ; blue
+INPUT throttle[visible:0]; scalar; 0; minimum time in seconds between frames
+INPUT recordEnable[visible:0]; flag; 0;  Enable frame recording.
+OPTIONS false ; true
+INPUT recordFile[visible:0]; string; "image";  File name for frame recording.
+INPUT recordFormat[visible:0]; string; "rgb"; File format for frame recording.
+OPTIONS rgb; r+g+b; tiff; yuv; ps color; ps gray; eps color; eps gray
+INPUT recordRes[visible:0]; integer; (no default); resolution for recording
+INPUT recordAspect[visible:0]; scalar; (no default); aspect ratio for recording
+INPUT axesEnabled[visible:0];  flag; 0; produce Axes.
+OPTIONS false ; true
+INPUT axesLabels[visible:0];  string list;  (no labels);  labels for axes
+INPUT axesTicks[visible:0];  integer or integer list;  15;  the number of major ticks (0 to suppress)
+INPUT axesCorners[visible:0];  vector list or object;  (input object);  bounds of axes
+INPUT axesFrame[visible:0];  flag;  0;  flag for axes frame type
+OPTIONS false ; true
+INPUT axesAdjust[visible:0];  flag;  1;  whether to adjust the endpoints to match tick marks
+OPTIONS true ; false
+INPUT axesCursor[visible:0];  vector;  (no cursor);  cursor position
+INPUT axesGrid[visible:0]; flag; 0; show grid lines on background
+OPTIONS false ; true
+INPUT axesColors[visible:0]; vector list or string list; (appropriate); colors for annotation
+INPUT axesAnnotate[visible:0]; string list; "all"; annotation objects to color
+INPUT axesLabelScale[visible:0]; scalar; 1.0; scale factor for labels
+INPUT axesFont[visible:0]; string; "fixed"; font to use for labels
+OPTIONS area; cyril_d; fixed; gothiceng_t; gothicger_t; gothicit_t
+OPTIONS greek_d; greek_s; italic_d; italic_t; pitman; roman_d
+OPTIONS roman_dser; roman_s; roman_tser; roman_ext; script_d
+OPTIONS script_s; variable
+INPUT intrctnMode[visible:0]; string; "none"; sets interaction mode of window
+OPTIONS pick; navigate; panzoom; roam; rotate; zoom
+INPUT title[visible:0]; string; "Image"; Image title
+INPUT axesXTickLocs[visible:0]; scalar list; (no default); locations for x axis' ticks
+INPUT axesYTickLocs[visible:0]; scalar list; (no default); locations for y axis' ticks
+INPUT axesZTickLocs[visible:0]; scalar list; (no default); locations for z axis' ticks
+INPUT axesXTickLabels[visible:0];  string list;  (no labels);  labels for x axis' ticks
+INPUT axesYTickLabels[visible:0];  string list;  (no labels);  labels for y axis' ticks
+INPUT axesZTickLabels[visible:0];  string list;  (no labels);  labels for z axis' ticks
+INPUT webOptions[visible:0]; object; (no default); collection of tagged data items for browser control
+OUTPUT renderable; object; object rendered
+OUTPUT camera; camera; camera used to render object
+OUTPUT where; window; image window where
+
+
+
+MODULE Probe
+CATEGORY Special
+DESCRIPTION vector
+OUTPUT output; vector; probe output
+
+MODULE ProbeList
+CATEGORY Special
+DESCRIPTION vector list
+OUTPUT output; vector list; probe output
+
+MODULE Reset 
+CATEGORY Interactor 
+DESCRIPTION Has set value until used once, then switches to the unset value 
+FLAGS REROUTABLE REACH
+INPUT id     [visible:2]; object; (none) ;
+INPUT cvalue [visible:2, reroute:0] ;  value or string; (no default) ; 
+INPUT isset [visible:2] ;  flag ; (no default) ; is the toggle set
+INPUT setval [visible:2,cache:2] ;  value or string; 1 ; output value when toggle is set
+INPUT unsetval [visible:2,cache:2] ;  value or string; 0 ; output value when toggle is not set
+INPUT label  [visible:2, cache:2] ;  string; (no default) ;  
+OUTPUT output ;  value or string; the selected oneshot value 
+
+MODULE DXLInput 
+CATEGORY DXLink 
+DESCRIPTION  Provides a settable variable for remote applications 
+INPUT  default;  value or string or object;  (no default) ;  The default value (overriden by the remote application) 
+OUTPUT output ; object ;  the default value or the value sent from a remote application (remote value overrides default value)
+

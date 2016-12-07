@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Invoking Data Explorer Macros and Modules</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu053.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu055.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu050.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRCALLF" ></A>10.5 Invoking Data Explorer Macros and Modules
+</H2>
+		<P>
+This section describes the procedures and features for invoking macros
+and modules.
+It describes function call arguments and attributes.
+
+		<P>
+<H3><A NAME="Header_341" ></A>Function Call Arguments
+</H3>
+<A NAME="IDX908"></A>
+<P>
+Data Explorer provides a flexible function-calling mechanism for
+invoking macros and modules.
+<P>
+A macro&#39;s definition includes a list of identifiers that are used as
+its input formal parameters.
+The formal parameters act as names and place holders for the arguments
+that you supply when the macro is called.
+<P>
+Modules (functions that are compiled into the system) have named formal
+parameters.
+The general form of a function (macro or module) call, whether used as
+the right hand side of an assignment statement or on its own, is:
+<P>
+<PRE>
+<VAR>Name</VAR> (<VAR>arglist</VAR>)&#91;attribute&#95;name&#58;value,...&#93;
+</PRE>
+<P>
+where <VAR>Name</VAR> is the name of the function being called and
+<VAR>arglist</VAR> is a list of arguments that are separated by
+commas (the list can be empty).
+Following the function may optionally be a list of
+attribute&#95;name&#58;value pairs enclosed in
+square brackets.
+Each argument&#39;s value can be either a variable identifier, a
+constant value, an expression, or the special identifier
+<TT><STRONG>NULL</STRONG></TT>.
+Note that nested function calls <I>cannot</I> be passed as
+arguments.
+The argument values can be passed either by position or by name, as
+described in the following sections.
+<P>
+<H4><U>Positional Arguments</U></H4>
+<A NAME="IDX909"></A>
+<A NAME="IDX910"></A>
+The <I>positional</I> argument-passing mechanism is similar to the
+mechanism found in most programming languages that use subroutines.
+Given a function declared with <I>n</I> input formal parameters, the
+first <I>n</I> values supplied in the function call are
+assigned to the first <I>n</I> formal parameters.
+If you supply <I>i &lt; n</I> values in the function call, then
+only the first <I>i</I> of the function&#39;s formal
+parameters are assigned the supplied values.
+<P>
+The missing arguments are assigned the value of <TT><STRONG>NULL</STRONG></TT>.
+<P>
+<P>
+<H4><U>By-Name Arguments</U></H4>
+<A NAME="IDX911"></A>
+<A NAME="IDX912"></A>
+<A NAME="IDX913"></A>
+<P>
+The "by name" argument-passing mechanism provides more flexibility
+in specifying arguments.
+When an argument is passed by name, the following syntax is used for
+the argument&#58;
+<P>
+<PRE>
+<VAR>Fname</VAR> = <VAR>value</VAR>
+</PRE>
+<P>
+<VAR>Fname</VAR> is an identifier that corresponds to one of the
+function&#39;s input formal parameters.
+<VAR>Value</VAR> is one of the types of values that are valid for that
+argument to the function.
+If the function is a macro, the arguments are named in the definition
+of the macro in the script.
+If the function is a module, the argument names are provided in the
+description of the module
+in <A HREF="refgu009.htm#HDRFMD">Chapter 2. "Functional Modules"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Reference</I>.
+<P><B>Notes: </B><OL>
+<P><LI>Positional arguments can be supplied only prior to by-name
+arguments, because the positional context is lost once a
+name has been supplied.
+<P><LI>If an argument is supplied both by position and by name, then the
+value given by name takes precedence.
+<P><LI>If an argument is supplied by name more than once in a given
+function call, then the value associated with the last
+(rightmost) instance of the input formal parameter
+is used.
+<P><LI>A name that does not correspond to one of the function&#39;s formal
+parameters and its associated values is considered a semantic error.
+</OL>
+<P>
+<H4><U>Missing Arguments</U></H4>
+<A NAME="IDX914"></A>
+<A NAME="IDX915"></A>
+<P>
+Any formal parameter of a module that has not had a value passed to it,
+either by position or by name, is initialized to the value
+<TT><STRONG>NULL</STRONG></TT>.
+If <TT><STRONG>NULL</STRONG></TT> is explicitly passed into the module, the
+module may still use the default value, provided it is designed
+to do so.
+The <TT><STRONG>NULL</STRONG></TT> value allows modules to use internal
+defaults for those values that are not specified in a
+function call.
+The default value must be specified in the code of the module (see
+<I>IBM Visualization Data Explorer Programmer&#39;s Reference</I> for
+information).
+<P>
+If the function is a macro, a missing argument or an argument explicitly
+specified as <TT><STRONG>NULL</STRONG></TT> causes the default value to
+be used.
+If no default is specified, the parameter is set to
+<TT><STRONG>NULL</STRONG></TT>.
+<P>
+<H4><U>Example</U></H4>
+<A NAME="IDX916"></A>
+<P>
+The module Camera takes the following arguments:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><VAR>to</VAR>
+</B></TD><TD><P>The position in space to which the camera is pointed.
+The default is &#91;0, 0, 0&#93;.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><VAR>from</VAR>
+</B></TD><TD><P>The position in space where the camera is located.
+The default is &#91;0, 0, 1&#93;.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><VAR>width</VAR>
+</B></TD><TD><P>The width, in user units, of the camera&#39;s view.
+The default is 100.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><VAR>resolution</VAR>
+</B></TD><TD><P>The horizontal resolution, in pixels, of the image generated
+by the camera.
+The default is 640.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><VAR>aspect</VAR>
+</B></TD><TD><P>The aspect ratio of the image generated by the camera (i.e., its
+height divided by its width).
+The default is 0.75.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><VAR>up</VAR>
+</B></TD><TD><P>The direction, in the world coordinate system, that the camera
+considers "up"
+The default is &#91;0, 1, 0&#93;.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><VAR>perspective</VAR>
+</B></TD><TD><P>The projection method.
+The default is 0, indicating orthographic projection.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><VAR>view angle</VAR>
+</B></TD><TD><P>The viewing angle.
+This applies only in perspective projection, and the default is 30.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><VAR>background</VAR>
+</B></TD><TD><P>The image background color.
+The default is "black".
+</TD></TR></TABLE>
+<P>
+The following function calls are all equivalent and construct the
+default Camera Object:
+<P>
+<PRE>
+c1 = Camera (&#91;0, 0, 0&#93;, &#91;0, 0, 1&#93;, 100, 640, 0.75, &#91;0, 1, 0&#93;, 0, "black");
+c2 = Camera (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+c3 = Camera ();
+c4 = Camera (NULL, NULL, NULL, NULL, NULL, &#91;0, 1, 0&#93;, NULL, NULL);
+c5 = Camera (up = &#91;0, 1, 0&#93;);
+c6 = Camera (&#91;5, 5, 5&#93;, &#91;0, 0, 1&#93;, NULL, to =  &#91;0, 0, 0&#93;);
+c7 = Camera (width = 512, width = 640);
+</PRE>
+<P>
+<H3><A NAME="HDRFCA" ></A>Function Call Attributes
+</H3>
+<A NAME="IDX917"></A>
+<P>
+Functions may optionally have attributes associated with each
+invocation of the functions, and attributes may also be
+associated with specific outputs of a module.
+The Data Explorer scripting language provides three function call attributes:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>instance
+</B></TD><TD><P>Identifies the instance of a function call.
+This can help you locate errors in scripts.
+To use the <TT><STRONG>instance</STRONG></TT> attribute, follow the function
+call with
+instance and the instance number separated by a colon and enclosed in
+brackets.
+For example:
+<PRE>
+out1 = Color(surface,"blue") &#91;instance:1&#93;;
+out2 = Color(surface,"green") &#91;instance:2&#93;;
+</PRE>
+<P>
+In this example, each instance of the Color module is identified
+uniquely.
+If an error occurs, the error message will report the module name, in
+this case Color, plus its instance number.
+If the instance numbering was not used, the error message will only
+report the name of the module.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>cache
+</B></TD><TD><P>Specifies whether the system writes the outputs of a module into
+the cache.
+The cache is a portion of memory in which results of previously executed
+functions are stored.
+If the inputs to a module do not change the module will not be invoked
+in subsequent executions, rather the module results are retrieved
+from the cache.
+If the module results are not found in the cache, because they were
+purged in order to make room for some other result or they were
+never stored in the cache, the module will be reexecuted.
+<P>
+The cache attribute can have one of three values:
+<DL>
+<DD><P>&#91;cache:0&#93;  -  Do not cache the module outputs
+<DD><P>&#91;cache:1&#93;  -  Cache all the results of the modules outputs
+<DD><P>&#91;cache:2&#93;  -  Cache only the results of the modules outputs
+for the last
+execution of the module
+</DL>
+<P>
+The <TT><STRONG>cache</STRONG></TT> attribute can be associated with the
+individual
+outputs of a module, with the entire module (affecting all the
+outputs) or a combination of both.
+When output-associated and module-associated <TT><STRONG>cache</STRONG></TT>
+attributes are used in combination the output-associated
+attributes override the effects of the module-associated
+attributes.
+<P>
+The following two examples illustrate how the <TT><STRONG>cache</STRONG></TT>
+attribute can be used.
+In the first example the attribute is associated with
+the module.
+In the second example the attribute is associated with the
+module output.
+The results of both of these examples are identical since Isosurface
+has only one output.
+<PRE>
+iso = Isosurface(data,value) &#91;cache:0&#93;;
+iso &#91;cache:0&#93; = Isosurface(data,value);
+</PRE>
+<P>
+The following examples look similar to those above, but there is a
+difference because DivCurl produces two outputs.
+In the first example, only the last result of both outputs of DivCurl
+are stored in the cache.
+In the second example the last result of <TT><STRONG>div</STRONG></TT> is placed
+in
+the cache, but all results of curl are placed in the cache.
+<PRE>
+div, curl = DivCurl(data) &#91;cache:2&#93;;
+div &#91;cache:2&#93;, curl = DivCurl(data);
+</PRE>
+<P>
+In the following example all outputs of Statistics are not cached
+except for <TT><STRONG>min</STRONG></TT>.
+Since a <TT><STRONG>cache</STRONG></TT> attribute with a value of 2 was
+associated with
+<TT><STRONG>min</STRONG></TT>, the last result of the
+<TT><STRONG>min</STRONG></TT> output of
+Statistics will be stored in the cache.
+<PRE>
+mean, sd, var, min &#91;cache:2&#93;, max = Statistics(data) &#91;cache:0&#93;
+</PRE>
+<P>
+If no <TT><STRONG>cache</STRONG></TT> attribute is associated with the module,
+all
+results of the outputs will be cached unless an individual output
+has a <TT><STRONG>cache</STRONG></TT> attribute associated with it.
+The following example is similar to the one above, except that all
+results of module outputs are cached with the exception of min.
+Since a <TT><STRONG>cache</STRONG></TT> attribute with a value of 2 was
+associated with
+min only the last result of the min output of Statistics will
+be stored in the cache.
+<PRE>
+mean, sd, var, min &#91;cache:2&#93;, max = Statistics(data);
+</PRE>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>group
+</B></TD><TD><P>Identifies which execution group a module belongs to.
+This attribute is used to distribute parts of a visualization across
+multiple workstations.
+This attribute does not bind a module to a specific workstation, but
+identifies it to be a member of a group that may be assigned to a
+workstation.
+The assignment of an execution group to a workstation is done using the
+Executive module
+(see <A HREF="refgu055.htm#HDREXECTV">Executive</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>).
+<P>
+The following example illustrates how the <TT><STRONG>group</STRONG></TT>
+attribute can be used.
+<PRE>
+cwater = Import("cloudwater");
+iso = Isosurface(cwater);
+wind = Import("wind") &#91;group: "group2"&#93;;
+x = Compute("$0.x",wind) &#91;group: "group2"&#93;;
+mapped = Map(iso,x);
+colored = Color(mapped);
+camera = Camera(colored);
+Display(colored,camera);
+</PRE>
+<P>
+The second Import and the Compute will be placed into an execution
+group called "group2".
+All other modules will be placed into one default execution group.
+<P>
+You can combine the various attributes for a single function call by
+separating them with commas, as in the following examples:
+<PRE>
+wind = Import("wind") &#91;instance:2, group: "group2"&#93;;
+Colored = Color(iso,"blue") &#91;instance:1, cache:2&#93;;
+Colored = Color(iso,"green") &#91;instance:2, cache:2, group:"group"&#93;;
+</PRE>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>one shot
+</B></TD><TD><P>Represents the script language implementation of the Reset
+interactor in the user interface.
+It sets the value of a variable to one value for the first execution and
+a different value (resetvalue) there after.
+The syntax is:
+<PRE>
+x&#91;oneshot&#58;resetvalue&#93; = value;
+</PRE>
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

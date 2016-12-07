@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu018.htm">Previous Page</A> &#124; <A HREF="progu020.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="Header_41" HREF="progu015.htm#PToC_41">3.5 Module Builder: Overall
+Module Description</A></H2>
+<A NAME="IDX176"></A>
+<A NAME="IDX177"></A>
+<A NAME="IDX178"></A>
+<P>
+Use this section to specify the following information.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><B><TT><STRONG>Name</STRONG></TT>
+</B></TD><TD>The name of the module.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Category</STRONG></TT>
+</B></TD><TD>The name of the tool category to which the module is to be
+assigned.
+This can be the name of an existing category or a name of your
+choosing.
+Click on <TT><STRONG>Existing</STRONG></TT> (at the right of the text field)
+for a list of existing categories.
+If you then click on one of the categories in the list, the category
+name is automatically inserted in the text field.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Description</STRONG></TT>
+</B></TD><TD>A brief description of the module being defined.
+It appears in a <TT><STRONG>Description of...</STRONG></TT> box when the
+<TT><STRONG>Description...</STRONG></TT> button of the module&#39;s
+configuration dialog box is selected.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Number of inputs</STRONG></TT>
+</B></TD><TD>The number of inputs to the module.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Number of outputs</STRONG></TT>
+</B></TD><TD>The number of outputs from the module.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Module Type</STRONG></TT>
+</B></TD><TD>The type of module: inboard, outboard, or
+runtime-loadable.
+Specify the type by activating the appropriate toggle button.
+The default is "inboard."
+<P><B>Notes: </B><OL>
+<P><LI>Activating the <TT><STRONG>outboard</STRONG></TT> toggle button makes
+available two associated text fields (<TT><STRONG>Executable
+Name</STRONG></TT> and <TT><STRONG>Outboard Host</STRONG></TT>)
+and one toggle button (<TT><STRONG>Persistent</STRONG></TT>):
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><B><TT><STRONG>Executable Name</STRONG></TT>
+</B></TD><TD>Specifies the name of the module executable.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Outboard Host</STRONG></TT>
+</B></TD><TD>Specifies the name of the host machine on which the outboard module
+is to be run.
+This parameter defaults to "local host."
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Persistent</STRONG></TT>
+</B></TD><TD>Specifies that the outboard module is not be terminated after it
+produces output.
+</TD></TR></TABLE>
+For more information on outboard modules,
+see <A HREF="progu041.htm#HDRCLO2">11.5 , "Compiling, Linking, and Debugging an
+Outboard Module"</A>.
+<P><LI>Activating the <TT><STRONG>runtime-loadable</STRONG></TT> toggle button
+makes available the <TT><STRONG>Executable Name</STRONG></TT>
+text field.
+For more information, see <A HREF="progu042.htm#HDRMODRUNS">11.6 , "Compiling,
+Linking, and Debugging a Runtime-loadable Module"</A>.
+</OL>
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Executable name</STRONG></TT>
+</B></TD><TD>See <TT><STRONG>Module Type</STRONG></TT> above.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Outboard Host</STRONG></TT>
+</B></TD><TD>See <TT><STRONG>Module Type</STRONG></TT> above.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Persistent</STRONG></TT>
+</B></TD><TD>See <TT><STRONG>Module Type</STRONG></TT> above.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Asynchronous</STRONG></TT>
+</B></TD><TD>The module may create data asynchronously, in response to events
+outside of Data Explorer.
+See <A HREF="progu038.htm#HDRASYNMOD">11.2 , "Asynchronous Modules"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Include File Name</STRONG></TT>
+</B></TD><TD>The name of an include file to be inserted in the worker routine.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu018.htm">Previous Page</A> &#124; <A HREF="progu020.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

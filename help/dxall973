@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rupdatca UpdateCamera #!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  
+#!N #!N Function #!N #!N Alters an existing camera. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N camera #!EF = UpdateCamera( 
+ #!F-adobe-times-bold-r-normal--18*   camera, to, from, width, resolution, aspect, up, #!N perspective, angle, 
+background #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB camera TAB camera TAB none TAB camera to 
+be altered #!N TAB to TAB vector or object TAB [0 
+0 0] TAB look-to point #!N TAB from TAB vector or 
+object TAB [0 0 1] TAB position of camera #!N TAB 
+width TAB scalar or object TAB 100 TAB width of field 
+of view (for #!N TAB - TAB - TAB - TAB 
+orthographic projection) #!N TAB resolution TAB integer TAB 640 TAB horizontal 
+resolution of image (in #!N TAB - TAB - TAB - 
+TAB pixels) #!N TAB aspect TAB scalar TAB 0.75 TAB height/width 
+#!N TAB up TAB vector TAB [0 1 0] TAB up 
+direction #!N TAB perspective TAB flag TAB 0 TAB 0: orthographic 
+projection #!N TAB - TAB - TAB - TAB 1: perspective 
+projection #!N TAB angle TAB scalar TAB 30.0 TAB view angle 
+(in degrees) (for #!N TAB - TAB - TAB - TAB 
+perspective projection) #!N TAB background TAB vector or string TAB "black" 
+TAB image background color #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB camera TAB camera TAB 
+altered camera #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N The altered camera produced by this module 
+is identical to the input  #!F-adobe-times-bold-r-normal--18*   camera #!EF except for the 
+specified camera parameters (  #!F-adobe-times-bold-r-normal--18*   to #!EF ,  #!F-adobe-times-bold-r-normal--18*   from #!EF 
+, etc.). For a description of these parameters, see  #!Lcamera,dxall780 h Camera  #!EL  . 
+#!N #!N See Also #!N #!N  #!Lautocam,dxall771 h AutoCamera  #!EL  ,  #!Lcamera,dxall780 h Camera  #!EL  ,  #!Lcolor,dxall792 h Color  #!EL  
+,  #!Ldirect,dxall806 h Direction  #!EL  ,  #!Lrender,dxall923 h Render  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lusage,dxall974 h Usage  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

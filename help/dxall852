@@ -1,0 +1,50 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rforen ForEachN #!N 
+#!N Category #!N #!N  #!Lcatflow,dxall755 h Flow Control  #!EL  #!N #!N Function #!N #!N Iterates 
+through the specified set of integers. #!N #!N Syntax #!CForestGreen #!N 
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   current, last #!EF = ForEachN(  #!F-adobe-times-bold-r-normal--18*   start #!EF , 
+ #!F-adobe-times-bold-r-normal--18*   end #!EF ,  #!F-adobe-times-bold-r-normal--18*   delta #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB start TAB integer 
+TAB none TAB value of the first integer through #!N TAB 
+- TAB - TAB - TAB the loop #!N TAB end 
+TAB integer TAB none TAB value of the last integer through 
+#!N TAB - TAB - TAB - TAB the loop #!N 
+TAB delta TAB integer TAB 1 TAB numerical interval between #!N 
+TAB - TAB - TAB - TAB successive integers output by 
+the #!N TAB - TAB - TAB - TAB loop #!N 
+TAB - TAB - TAB - TAB #!EF #!N #!N Outputs 
+#!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF 
+#!N TAB current TAB integer TAB the current integer #!N TAB 
+last TAB flag TAB status of loop #!N TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N This module 
+initiates an iteration for each integer in the set unless execution 
+is terminated earlier by Done. Its function is similar to that 
+of a "for" in standard programming languages. In the user interface, 
+this module would usually be part of a macro, and  #!F-adobe-times-medium-i-normal--18*   
+only #!EF the contents of the macro would be executed for 
+each iteration of the loop. If this module is placed in 
+the top level visual program, the entire program will be executed 
+during the loop. #!N #!N Typically, loops are initiated with ForEachMember 
+or ForEachN, although they can also be implemented with a Get/Set 
+pair and Done. #!N #!N Note: If this module is used 
+in the scripting language, the results are defined only if they 
+are used inside a macro. #!N #!N #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   start #!EF #!EF #!I50 #!N is the 
+value of the first integer of the loop #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   end #!EF #!EF #!I50 #!N is the value of 
+the last integer of the loop #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+delta #!EF #!EF #!I50 #!N is the interval between successive integers 
+of the loop #!I0 #!N #!N #!N #!N This module has 
+two outputs: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   current 
+#!EF #!EF #!I50 #!N is the value of the integer currently 
+being iterated. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   last #!EF #!EF #!I50 
+#!N is a flag indicating whether or not this is the 
+last iteration through the loop. #!I0 #!N #!N #!N #!N Example 
+Macro and Program #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N FactorialMacro.net #!N 
+Factorial.net #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Lodone,dxall828 h Done  #!EL  ,  #!Lofirst,dxall850 h First  #!EL  ,  #!Lforemem,dxall851 h ForEachMember  #!EL  ,  #!Lgetglo,dxall854 h GetGlobal  #!EL  ,  #!Lgetloc,dxall855 h GetLocal  #!EL  ,  #!Lsetglo,dxall940 h SetGlobal  #!EL  
+,  #!Lsetloc,dxall941 h SetLocal  #!EL  #!N #!N  #!Lxmod,dxall263 h Data Explorer Execution Model  #!EL  in IBM Visualization Data Explorer User's 
+Guide. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lformat,dxall853 h Format  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

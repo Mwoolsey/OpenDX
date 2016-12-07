@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxref DXReference #!N #!N Function #!N #!N 
+Indicates that there is a reference to a specified Object. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXReference(Object o) #!EF #!N 
+#!N Functional Details #!N #!N Indicates that there is a reference 
+to Object  #!F-adobe-times-bold-r-normal--18*   o #!EF . The Object is guaranteed to 
+not be deleted until this reference is released, using the  #!F-adobe-times-bold-r-normal--18*   
+DXDelete #!EF routine. #!N #!N In general, one does not need 
+to use  #!F-adobe-times-bold-r-normal--18*   DXReference #!EF , because the Data Explorer library 
+routines such as  #!F-adobe-times-bold-r-normal--18*   DXSetMember #!EF and  #!F-adobe-times-bold-r-normal--18*   DXSetComponentValue #!EF manage 
+an Object's reference count themselves. #!N #!N Objects returned to the 
+executive by modules should not be referenced. Objects returned to the 
+executive are considered "owned" by the executive, and so it references 
+these Objects. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF , or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets the error 
+code to indicate an error. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxdel,dxall1195 h DXDelete  #!EL  ,  #!Ldxscev,dxall1369 h DXSetCacheEntry, DXSetCacheEntryV  #!EL  ,  #!Ldxuref,dxall1404 h DXUnreference  #!EL  #!EF #!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxregih,dxall1354 h DXRegisterInputHandler  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

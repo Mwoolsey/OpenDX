@@ -1,0 +1,54 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rrender Render 
+#!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N 
+Renders an object. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+ #!F-adobe-times-bold-r-normal--18*   image #!EF = Render(  #!F-adobe-times-bold-r-normal--18*   object, camera, format #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+object TAB object TAB none TAB object to be rendered #!N 
+TAB camera TAB camera TAB none TAB camera to be used 
+for rendering #!N TAB format TAB string TAB standard TAB format 
+of resulting image #!N TAB - TAB - TAB - TAB 
+#!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Description #!EF #!N TAB image TAB image TAB resulting 
+image #!N TAB - TAB - TAB #!EF #!N #!N Functional 
+Details #!N #!N This module uses a specified camera to create 
+an image of an object. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N specifies the object to 
+be rendered, which can contain surfaces, volumes, or combinations of surfaces 
+and volumes. Note: The current algorithm does not support coincident volumes 
+or volumes in perspective. (See  #!Ldisplay,dxall807 h Display  #!EL  for a discussion of Data 
+Explorer rendering capabilities.) #!N #!N The specified object must contain a 
+"colors," "front colors," or "back colors" component. Many modules add a 
+default color. In addition, volume rendering (i.e., of cubes or tetrahedra) 
+requires an "opacities" component. For surfaces, the lack of an "opacities" 
+component implies an opaque surface. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   camera 
+#!EF #!EF #!I50 #!N is the camera used to create the 
+image. Note: A transformed camera cannot be used for this parameter. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   format #!EF #!EF #!I50 #!N is 
+reserved for future use. #!I0 #!N #!N #!N #!N #!I0 #!N 
+Notes: #!N #!I30 #!N 1. The rendering properties of an object 
+(e.g., shading) can be changed with the Options or Shade module 
+(see  #!Ldisplay,dxall807 h Display  #!EL  ). Render always invokes the software renderer and so 
+ignores the "render mode" attribute. #!N #!I30 #!N 2. Render creates 
+24-bit images if the DXPIXELTYPE environment variable is set to DXByte 
+(the default is 96-bit images). #!N #!I30 #!N 3. If you 
+use the Display or Image tool rather than the Render module, 
+Data Explorer will automatically choose a hardware-appropriate format for you. It 
+is generally preferable to use one of these tools unless you 
+want to operate on the image itself. For example, filtering the 
+image or arranging several images together requires the Render module. #!N 
+#!I30 #!N 4. The interactive image-manipulation options provided by Data Explorer 
+in the user interface require the Image tool. See  #!Lchav,dxall300 h Controlling the Image: View Control...  #!EL  in 
+IBM Visualization Data Explorer User's Guide. #!N #!N See  #!Ldisplay,dxall807 h Display  #!EL  for 
+information on: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N  #!Lchrndpr,dxall819 h Changing Rendering Properties  #!EL  
+#!N #!I30 #!N  #!Lhardsof,dxall825 h Differences between Hardware and Software Rendering  #!EL  #!N #!I30 #!N  #!Lshading,dxall821 h Shading  #!EL  #!N #!I30 #!N 
+ #!Lobjfuzz,dxall822 h Object fuzz  #!EL  #!N #!I30 #!N  #!Lcvolrnd,dxall820 h Coloring Objects for Volume Rendering  #!EL  #!N #!I0 #!N #!EF #!N #!I0 
+#!N #!N #!N #!N Components #!N #!N Creates "positions," "connections," and 
+"colors" components for the resulting image. #!N #!N Example Visual Programs 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N PlotLine.net #!N UsingCompute.net #!N UsingMorph.net #!N 
+SIMPLE/Arrange.net #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Larrange,dxall768 h Arrange  #!EL  ,  #!Lcompute,dxall795 h Compute  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  ,  #!Lfilter,dxall849 h Filter  #!EL  ,  #!Limage,dxall860 h Image  #!EL  ,  #!Loptions,dxall898 h Options  #!EL  
+,  #!Lwriteim,dxall981 h WriteImage  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lreorent,dxall924 h Reorient  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

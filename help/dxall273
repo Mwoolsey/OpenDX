@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall272 
+Parallelism for Data Explorer SMP #!N #!EC #!N #!N For completeness, 
+the notion of module parallelism is discussed here. If you are 
+developing visualizations or modules exclusively for use with the IBM Visualization 
+Data Explorer running on a single-processor workstation, then these concepts are 
+not applicable. However, if your visualizations or modules are to be 
+run on both the IBM Visualization Data Explorer and IBM Visualization 
+Data Explorer SMP, then these concepts are important for achieving higher 
+performance. #!N #!N Every module that performs any significant amount of 
+processing is "parallelized"; that is, the module makes use of all 
+processors made available to Data Explorer to operate on the data. 
+#!N #!N Data Explorer uses explicit data partitioning as the primary 
+framework for parallelism. Data Explorer partitions the data into local, self-contained 
+regions. In general, visualization modules then generate subtasks corresponding to partitions. 
+For more information about partitioning, see Partition in IBM Visualization Data 
+Explorer User's Reference. #!N #!N In general, parallel programming is complex. 
+To help manage it, Data Explorer simplifies the process by providing 
+a simple fork-join parallelism model to implement coarse-grain shared memory parallelization 
+(data parallel). Using data partitions, read-only objects, and a single-fork join 
+mode simplifies the module writing task by avoiding the explicit use 
+of locks in modules, thereby reducing the possibility of deadlock. For 
+information about adding modules to the Data Explorer system, see IBM 
+Visualization Data Explorer Programmer's Reference. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lunduse,dxall274 h Graphical User Interface: Basics  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

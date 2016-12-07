@@ -1,0 +1,550 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Plot</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu103.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu105.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRPLOT" ></A>Plot</H3>
+		<A NAME="IDX621"></A><A NAME="IDX622"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATANN">Annotation</A>
+<A NAME="IDX623"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Creates a 2-dimensional plot.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+plot</STRONG> = Plot(<STRONG>input, labels, ticks, corners, adjust, frame, type, grid,
+            aspect, colors, annotation, labelscale, font, input2,
+            label2, ticks2, corners2, type2,
+
+            xticklocations, y1ticklocations, y2ticklocations,
+            xticklabels, y1ticklabels, y2ticklabels</STRONG>);
+
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field or group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">data to be plotted
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>labels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#123;"x," "y"&#125;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">axis label
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>ticks</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">10
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">approximate number of tick marks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>corners</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#123;&#91;xmin, ymin&#93;,
+<BR>
+&#91;xmax, ymax&#93;&#125;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">plot limits
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>adjust</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: end points not adjusted
+<BR>
+1: end points adjusted to match
+   tick marks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>frame</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">framing style for plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>type</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;lin&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">plot type
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>grid</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">grid style
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>aspect</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+
+or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1.0
+
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">y&#58;x (aspect) ratio of
+resulting plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>colors</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">colors for annotation
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>annotation</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;all&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">annotation objects to be colored
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>labelscale</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1.0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">scale factor for labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>font</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">standard
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">font for labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input2</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field or group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">second set of data to be plotted
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>label2</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#123;"y2"&#125;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">label for second y-axis
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>ticks2</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">approximate number of tick marks
+for second y-axis.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>corners2</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#123;&#91;ymin, ymax&#93;&#125;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">plot limits for second y-axis
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>type2</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;lin&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">plot type for second y-axis
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>xticklocations</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">x tick locations
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>y1ticklocations</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">y1 tick locations
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>y2ticklocations</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">y2 tick locations
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>xticklabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">xticklocations
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">x tick labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>y1ticklabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">y1ticklocations
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">y1 tick labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>y2ticklabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">y2ticklocations
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">y2 tick labels
+
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>plot</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">the plot
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module creates a 2-dimensional plot from a line or set of lines.
+
+The following plot characteristics can be set on the line or lines
+with the Options module
+(in the <TT><STRONG>Structuring</STRONG></TT> category)
+before they are passed to Plot: line label, line
+marker type, marker size, number of markers, and the
+choice of creating a scatter plot or not (see <A HREF="#HDRCRELEGD">"Creating a
+Legend"</A>,
+<A HREF="#HDRLINMARK">"Using Line Markers"</A>, and <A
+HREF="#HDRSCATPLT">"Scatter Plots"</A>).
+
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is a field or group of fields, where each field has
+1-dimensional
+positions representing the "x"-values, and 1-dimensional data
+representing the "y"-values.
+If the input is a group of Fields, each Field is plotted as a separate
+line.
+<P>
+There can be a "connections" component of element type "lines"
+connecting the positions;
+if a connections component for a given Field does not exist, the
+module adds one.
+The input can have a "colors" component, in which case the output
+plot preserves those colors.
+If the input does not have a "colors" component, the line is
+colored white.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>labels</STRONG></TT>
+</B></TD><TD><P>specifies the labels for the axes of the plot.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>ticks</STRONG></TT>
+</B></TD><TD><P>specifies the number of tick marks to be placed on the plot
+axes.
+The default is 10.
+<P>
+If the parameter value is a single integer, then approximately
+that many tick marks are placed along the axes.
+If the parameter list is a two-element integer list, the first element
+is interpreted as the approximate number of tick marks to be placed
+on the x-axis; the second element, the approximate number to be
+placed on the y-axis.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>corners</STRONG></TT>
+<A NAME="SPTCORNERS"></A>
+</B></TD><TD><P>specifies the limits of the plot axes.
+(The default limits are set by the input line
+or lines.)
+The specification can be a vector list or an object.
+If the specification is a vector list, then all points that lie outside
+of <TT><STRONG>corners</STRONG></TT> are eliminated from the plot.
+If the specification is an object (such as a group of lines), the
+module determines the minimum and maximum x- and y-values for
+the entire object and uses those to set the
+plot limits.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>adjust</STRONG></TT>
+</B></TD><TD><P>determines whether the axes end at tick marks or not.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>frame</STRONG></TT>
+</B></TD><TD><P>determines how the plot is framed.
+In all cases, axes and tick labels are drawn on the left side and
+bottom of the plot.
+For <TT><STRONG>frame</STRONG></TT> = 1, additional lines (without ticks) are
+drawn on the right side and top of the plot.
+For <TT><STRONG>frame</STRONG></TT> = 2, lines and major and minor ticks are
+drawn on the right side and top of the plot.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>type</STRONG></TT>
+</B></TD><TD><P>specifies the plot type.
+It is a string or string list and must be:
+<OL COMPACT>
+<LI>"lin" (linear plot)
+<LI>"log" (logarithmic plot)
+<LI>any two-element combination of these (e.g., &#123;"lin,"
+"lin"&#125; or &#123;"log," "lin"&#125;).
+If <TT><STRONG>type</STRONG></TT> is a single string, both the <I>x-</I>
+and the <I>y-</I>axis are of that type.
+If type is two strings, then the first string applies to the
+<I>x</I>-axis while the second string applies to the
+<I>y</I>-axis.
+</OL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>grid</STRONG></TT>
+</B></TD><TD><P>specifies whether and how to draw grid lines along major ticks.
+If <TT><STRONG>grid</STRONG></TT> = 0, no grid lines are drawn.
+If <TT><STRONG>grid</STRONG></TT> = 1, then grid lines are drawn horizontally
+along major ticks.
+If <TT><STRONG>grid</STRONG></TT> = 2, then grid lines are drawn vertically
+along major ticks.
+If <TT><STRONG>grid</STRONG></TT> = 3, grid lines are drawn both
+horizontally and vertically along major ticks.
+If <TT><STRONG>grid</STRONG></TT> is not equal to 0,
+<TT><STRONG>adjust</STRONG></TT> is set to 1.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>aspect</STRONG></TT>
+</B></TD><TD><P>allows you to set the approximate <I>y</I>&#58;<I>x</I>
+aspect ratio of the resulting plot.
+You can also use the Scale module before Plot to adjust the aspect
+ratio.
+
+The default is an aspect ratio of 1.0. If you want Plot to simply use
+the actual aspect ratio of the data, set <TT><STRONG>aspect</STRONG></TT> to
+"inherent". Note that if a second plot is drawn
+(i.e. <TT><STRONG>input2</STRONG></TT> is provided),
+<TT><STRONG>aspect</STRONG></TT> is set to 1.0 even if "inherent" is
+specified.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>colors</STRONG></TT>
+</B></TD><TD><P>together with <TT><STRONG>annotation</STRONG></TT> (see below),
+can be
+used to set the color of one or more components of the plot.
+<P>
+<TT><STRONG>colors</STRONG></TT>: specifies a single color (an RGB vector or
+color-name string) or a list of colors.
+Color-name strings must be from the list of defined color strings
+(see <A HREF="refgu033.htm#HDRCOLOR">Color</A>).
+<P>
+If <TT><STRONG>colors</STRONG></TT> is a  single string and
+<TT><STRONG>annotation</STRONG></TT> is not specified or is
+"all," then that color is used for all axes
+annotation.
+Otherwise, the number of colors in <TT><STRONG>colors</STRONG></TT> must
+match the number of <TT><STRONG>annotation</STRONG></TT> strings
+exactly and in one-to-one
+correspondence.
+By default, a background is not drawn.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>annotation</STRONG></TT>
+</B></TD><TD><P>can be one of the following:
+"all,"
+"axes,"
+"background,"
+"grid,"
+"labels," or
+"ticks."
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>labelscale</STRONG></TT>
+</B></TD><TD><P>allows you to change the size of the axes and tick labels.
+For example, to make the labels twice as large, specify
+<TT><STRONG>labelscale</STRONG></TT> = 2.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>font</STRONG></TT>
+</B></TD><TD><P>specifies the font used for labels.
+The default is "standard," which uses a fixed font for the
+tick-mark labels and a variable font for the axes labels.
+You may specify <TT><STRONG>font</STRONG></TT> as any of the defined fonts
+supplied with Data Explorer:
+<PRE>
+area          gothicit_t       pitman                roman_ext
+cyril_d       greek_d          roman_d               script_d
+fixed         greek_s          roman_dser            script_s
+gothiceng_t   italic_d         roman_s               variable
+gothicger_t   italic_t         roman_tser
+</PRE>
+For more information,
+see <A HREF="usrgu076.htm#HDRAPC">Appendix E. "Data Explorer Fonts"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+</TD></TR></TABLE>
+<P>
+The Plot module can also generate a second set of lines and a second
+y-axis on the right side of the plot.
+If a second plot is drawn, the <TT><STRONG>aspect</STRONG></TT> ratio
+defaults to 1.
+For this second plot and axis, you must repeat several specifications:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input2</STRONG></TT>
+</B></TD><TD><P>is a second field or group of fields (see
+<TT><STRONG>input</STRONG></TT>
+above).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>label2</STRONG></TT>
+</B></TD><TD><P>is the label for the second <I>y</I>-axis.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>ticks2</STRONG></TT>
+</B></TD><TD><P>is the approximate number of ticks for the second <I>y</I>-axis.
+
+A negative integer specifies outward, as opposed to inward, pointing
+ticks.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>corners2</STRONG></TT>
+&nbsp;(see <TT><STRONG><A HREF="#SPTCORNERS">corners</A></STRONG></TT>)&nbsp;
+</B></TD><TD><P>specifies the <TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT>
+for the second "y"-axis.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>type2</STRONG></TT>
+</B></TD><TD><P>specifies the type of second <I>y</I>-axis and must be either
+"log" or "lin."
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>xticklocations</STRONG></TT>
+</B></TD><TD><P>explicit set of tick locations for the x axis. If specified,
+overrides
+the values for tick locations as determined from
+<TT><STRONG>ticks</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>y1ticklocations</STRONG></TT>
+</B></TD><TD><P>explicit set of tick locations for the first y axis. If
+specified,
+overrides the values for tick locations as determined from
+<TT><STRONG>ticks</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>y2ticklocations</STRONG></TT>
+</B></TD><TD><P>explicit set of tick locations for the second y axis. If
+specified,
+overrides the values for tick locations as determined from
+<TT><STRONG>ticks</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>xticklabels</STRONG></TT>
+</B></TD><TD><P>list of labels to be associated with the specified
+<TT><STRONG>xticklocations</STRONG></TT>. If
+<TT><STRONG>xticklabels</STRONG></TT>
+is specified and <TT><STRONG>xticklocations</STRONG></TT> is not
+specified, then <TT><STRONG>xticklocations</STRONG></TT> to the integers
+0 to n-1, where n is the number of items in
+<TT><STRONG>xticklabels</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>y1ticklabels</STRONG></TT>
+</B></TD><TD><P>list of labels to be associated with the specified
+<TT><STRONG>y1ticklocations</STRONG></TT>. If
+<TT><STRONG>y1ticklabels</STRONG></TT>
+is specified and <TT><STRONG>y1ticklocations</STRONG></TT> is not
+specified, then <TT><STRONG>y1ticklocations</STRONG></TT> to the integers
+0 to n-1, where n is the number of items in
+<TT><STRONG>y1ticklabels</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>y2ticklabels</STRONG></TT>
+</B></TD><TD><P>list of labels to be associated with the specified
+<TT><STRONG>y2ticklocations</STRONG></TT>. If
+<TT><STRONG>y2ticklabels</STRONG></TT>
+is specified and <TT><STRONG>y2ticklocations</STRONG></TT> is not
+specified, then <TT><STRONG>y2ticklocations</STRONG></TT> to the integers
+0 to n-1, where n is the number of items in
+<TT><STRONG>y2ticklabels</STRONG></TT>.
+
+</TD></TR></TABLE>
+<P>
+<P>
+<H5><A NAME="HDRCRELEGD">Creating a Legend</A></H5>
+<P>To create a legend for the plot, use Options to set a "label"
+attribute on the incoming lines.
+Plot will then create an appropriate plot legend and place it in the
+upper right corner (see the first example below).
+The legend contains a short line segment with a color matching that
+of the line it corresponds to, along with the
+label for the line.
+The "label" attribute can also be set in the Data Explorer file format
+(see
+<A HREF="usrgu067.htm#HDRIMD">Appendix B. "Importing Data: File Formats"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+<P>
+<H5><A NAME="HDRLINMARK">Using Line Markers</A></H5>
+You may also choose markers for your plot lines.
+You may set a "mark" attribute on the input lines using the
+Options module.
+"mark" should have as a value one of the following:
+"circle,"
+"diamond,"
+
+"dot,"
+
+"square,"
+"star,"
+"triangle," or
+"x."
+By default, a mark is placed at every point on the line.
+You can also set a "mark every" attribute with an integer as a
+value.
+For example, the value 3 would cause every third point to be marked.
+You can control the size of the mark using the "mark scale"
+attribute, which applies a scale factor to the default
+mark size.
+For example, a "mark scale" value of 2 would make the marks twice
+as large.
+If you are using the "label" attribute, the mark will also appear
+in the legend.
+
+<P><B>Note: </B>The "dot" mark type will only
+be visible if you also set the "scatter" attribute to 1
+(see <A HREF="#HDRSCATPLT">"Scatter Plots"</A>).
+
+
+<P>
+<H5><A NAME="Header_156">Different colored lines</A></H5>
+If you want your lines to have different colors, simply pass them through the
+Color module before passing them to Plot.
+
+<P>
+<H5><A NAME="HDRSCATPLT">Scatter Plots</A></H5>
+		
+To create a scatter plot (with no line drawn between markers), set the
+"scatter" attribute on the line to 1 (one).
+(The default is a line between markers.)
+
+		<P></P>
+		<H5><A NAME="HDRSCATPLT">Column Charts</A></H5>
+		<P>To create a column chart with positions connection data, set the &quot;column&quot; attribute on the field or group to 1 (one).
+		<P> </P>
+		<P><B>Notes: </B>
+		<OL>
+<P><LI>If <TT><STRONG>corners</STRONG></TT> is more restrictive than the
+<TT><STRONG>ticklocations</STRONG></TT>, then the given locations outside the
+corners are not shown.
+<P><LI>If <TT><STRONG>corners</STRONG></TT> is less restrictive than the given
+<TT><STRONG>ticklocations</STRONG></TT>, or if <TT><STRONG>corners</STRONG></TT>
+is
+not specified, then all given tick locations are shown, whether or not
+there is data there.
+<P>
+			<LI>If <TT><STRONG>ticklocations</STRONG></TT> is specified, then the data
+range determines the extent of the axes, unless
+<TT><STRONG>corners</STRONG></TT> is specified, in which case the given
+corners are used.
+
+		</OL>
+		<P><STRONG>Bar Charts</STRONG>
+		<P>
+If the input to Plot has a "data" component that is dependent on
+"connections" rather than "positions," a bar chart
+is created.
+
+		<P><STRONG>Components</STRONG>
+<P>
+Creates "positions," "connections," and "colors"
+components.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+PlotColumn.net
+PlotLine.net
+PlotLine2.net
+PlotTwoLines.net
+
+PlotSpecifyTicks.net
+
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu036.htm#HDRCOMPUTE">Compute</A>,
+&nbsp;<A HREF="refgu039.htm#HDRCONSTRU">Construct</A>,
+&nbsp;<A HREF="refgu071.htm#HDRHISTOGR">Histogram</A>,
+
+&nbsp;<A HREF="refgu098.htm#HDROPTIONS">Options</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

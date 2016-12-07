@@ -1,0 +1,47 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxmgpv DXMakeGridPositions, DXMakeGridPositionsV #!N 
+#!N Function #!N #!N Create an n-dimensional grid of regularly spaced 
+positions. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXMakeGridPositions(int n, 
+int count, int count, int count,..., float origin, float origin, ..., 
+float delta, float delta, ...) Array DXMakeGridPositionsV(int n, int *counts, float 
+*origin, float *deltas) #!EF #!N #!N Functional Details #!N #!N The 
+grids created by these routines are compactly encoded by creating a 
+Product Array of  #!F-adobe-times-bold-r-normal--18*   n #!EF Regular Arrays and are suitable 
+as "positions" components of a Field. This compact encoding is particularly 
+useful when the data lie in or on a lattice of 
+regularly spaced points, since their positions can be computed, thereby saving 
+the space that explicit indexing would require. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXMakeGridPositions 
+#!EF is used to enter the grid's specifications as individual arguments 
+of the routine's parameters.  #!F-adobe-times-bold-r-normal--18*   DXMakeGridPositionsV #!EF is used to enter 
+the same arguments as one integer (  #!F-adobe-times-bold-r-normal--18*   n #!EF ) 
+and three Arrays. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o The  #!F-adobe-times-bold-r-normal--18*   n #!EF parameter specifies the dimensionality of the 
+grid. The remaining specifications must be consistent with this value. #!N 
+#!I30 #!N o The  #!F-adobe-times-bold-r-normal--18*   counts #!EF parameter specifies the number 
+of elements in each of the grid's dimensions (e.g., 5 and 
+4 if  #!F-adobe-times-bold-r-normal--18*   n #!EF =2). #!N #!I30 #!N o The 
+ #!F-adobe-times-bold-r-normal--18*   origin #!EF parameter specifies the vector that defines the grid's 
+origin (e.g., 3.2 and 7.1 for a 2-dimensional grid). #!N #!I30 
+#!N o The  #!F-adobe-times-bold-r-normal--18*   delta #!EF parameter specifies the  #!F-adobe-times-bold-r-normal--18*   n 
+#!EF -dimensional vectors that define the delta values to be used 
+(e.g., if  #!F-adobe-times-bold-r-normal--18*   n #!EF =2, this parameter would have four 
+numbers, to specify two 2-vectors). #!N #!I0 #!N #!EF #!N #!N 
+#!N The grid constructed by either routine is a Product Array 
+of  #!F-adobe-times-medium-i-normal--18*   n #!EF terms, each of which is a Regular 
+Array. The first zero-based term describes a line in an  #!F-adobe-times-bold-r-normal--18*   
+n #!EF -dimensional space with  #!F-adobe-times-bold-r-normal--18*   counts #!EF [0] points (starting 
+at the origin), each point separated from the previous point on 
+the line by the  #!F-adobe-times-bold-r-normal--18*   n #!EF -dimensional vector described by 
+ #!F-adobe-times-bold-r-normal--18*   deltas #!EF [0] through  #!F-adobe-times-bold-r-normal--18*   deltas #!EF [n-1]. For each 
+of the remaining  #!F-adobe-times-bold-r-normal--18*   n #!EF -1 terms, the  #!F-adobe-times-medium-i-normal--18*   k 
+#!EF th term will have  #!F-adobe-times-bold-r-normal--18*   counts #!EF [k] points (starting 
+at [0 ... 0]), each of which is separated from the 
+previous point on the line by the  #!F-adobe-times-bold-r-normal--18*   n #!EF -dimensional 
+vector described by  #!F-adobe-times-bold-r-normal--18*   deltas #!EF [k*n] through  #!F-adobe-times-bold-r-normal--18*   deltas #!EF 
+[k*n + (n-1)]. #!N #!N The Array created can be deleted 
+with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N #!N 
+Returns the Array or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  , 
+ #!Ldxqgc,dxall1343 h DXQueryGridConnections  #!EL  ,  #!Ldxqgp,dxall1344 h DXQueryGridPositions  #!EL  #!EF #!N #!N  #!Lcotas,dxall1074 h Creating Positions and Connections Grids  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxmi,dxall1299 h DXMakeImage  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

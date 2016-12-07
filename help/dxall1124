@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Run99 Example #!N #!EC #!N #!N The following code 
+segment finds every picked vertex. (The comment at bottom is left 
+as an exercise for the user.) #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+DXQueryPokeCount(pickField, &nPokes); #!N #!N for (poke = 0; poke < nPokes; 
+poke++) #!N { #!N DXQueryPickCount(pickField, poke, &nPicks); #!N #!N for (pick 
+= 0; pick < nPicks; pick++) #!N { #!N DXQueryPickPath(pickField, poke, 
+pick, #!N &pathLen, &path, &elementId, &vertexId); #!N #!N current = dataObject; 
+#!N matrix = Identity; #!N #!N for (i = 0; i 
+< pathLen; i++) #!N { #!N current = DXTraversePickPath(current, path[i], &matrix); 
+#!N if (current == NULL) #!N goto error; #!N } #!N 
+#!N #!N /* now manipulate vertex #vertexId in field  #!F-adobe-times-bold-r-normal--18*   current 
+#!EF . */ #!N #!N } #!N } #!EF #!N #!N 
+#!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lgeochap,dxall1125 h Geometric Objects  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu020.htm">Previous Page</A> &#124; <A HREF="progu022.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRMBWRKRT" HREF="progu015.htm#PToC_43">3.7 Worker Routine</A></H2>
+<A NAME="IDX182"></A>
+<A NAME="IDX183"></A>
+<P>
+At the end of the C-code framework file created by the Data Explorer Module
+Builder is a "worker routine" that serves as an interface
+to the user&#39;s application code.
+The entry point to this routine (i.e., its name) consists of the module
+name affixed to "&#95;worker" (e.g., the name of the worker
+routine for the <TT><STRONG>X</STRONG></TT> module is
+<TT><STRONG>X&#95;worker</STRONG></TT>).
+<P>
+The Module Builder prepares a parameter list for the worker routine
+that contains information from the module input parameters, along
+with pointers to memory for module results.
+Three examples appear in <A HREF="#HDRWRKRXMP">"Worker Routine Examples"</A>.
+In each example, the Module Builder creates a module with two inputs
+(the first a Field/Group, and the second a Value) and one output
+(a Field/Group Object).
+<P>
+<H3><A NAME="Header_44" HREF="progu015.htm#PToC_44">Positions
+Specification</A></H3>
+<A NAME="IDX184"></A>
+<A NAME="IDX185"></A>
+<A NAME="IDX186"></A>
+<P>
+If the worker routine needs information about the positions component
+of the first input parameter, it will use one of two sets of
+arguments to define that information, depending on whether
+the request is for regular or irregular positions:
+<PRE>
+Regular positions arguments:
+int      p_knt           Total number of positions
+int      p_dim           Dimensionality of positions
+int     *p_counts        Count of positions along each dimension
+float   *p_origin        Origin of regular grid
+float   *p_deltas        Delta vectors, p_dim x p_dim
+Irregular positions arguments:
+int      p_knt           Total number of positions
+int      p_dim           Dimensionality of positions
+float   *p_positions     Explicit list of positions
+</PRE>
+<P>
+<H3><A NAME="Header_45" HREF="progu015.htm#PToC_45">Connections
+Specification</A></H3>
+<A NAME="IDX187"></A>
+<A NAME="IDX188"></A>
+<A NAME="IDX189"></A>
+<P>
+If the worker routine needs information about the connections component
+of the first input parameter, it will use one of two sets of
+arguments for defining that information, depending on whether
+the request is for regular or irregular positions:
+<PRE>
+Regular connections arguments:
+int      c_knt           Total number of connections elements
+int      c_nv            Number of vertices per element
+int     *c_counts        Count of vertices along each dimension
+</PRE>
+<PRE>
+Irregular connections arguments:
+int      c_knt           Total number of connections elements
+int      c_nv            Number of vertices per element
+int     *c_connections   Explicit list of connections elements
+</PRE>
+<P>
+<H3><A NAME="Header_46" HREF="progu015.htm#PToC_46">Input Data</A></H3>
+<A NAME="IDX190"></A>
+<A NAME="IDX191"></A>
+<A NAME="IDX192"></A>
+<P>
+For each input to the module, a count value and a pointer are sent to
+the worker routine.
+These arguments are named by appending <TT><STRONG>&#95;knt</STRONG></TT> and
+<TT><STRONG>&#95;data</STRONG></TT> respectively to the parameter
+name given in the <TT><STRONG>Individual Parameter Information</STRONG></TT>
+section of the Module Builder interface.
+Thus, for an input parameter named <TT><STRONG>param1</STRONG></TT>, the
+worker routine would add the following to its argument list:
+<PRE>
+int param1_knt     The number of elements in the parameter.
+type *param1_data  A pointer to the data associated with the parameter.
+                   The pointer type is that specified in the Data type
+                   field of the <TT><STRONG>Individual Parameter
+                   Information</STRONG></TT> section of the
+                   Module Builder.
+</PRE>
+<P>
+For a Field/Group input, these arguments reflect the contents of the
+"data" component of the leaf.
+For a Value input (which must be a Data Explorer Array), they reflect the
+contents of the parameter.
+Because the parameters are inputs to the module, the arguments are
+read-only.
+<P>
+<H3><A NAME="Header_47" HREF="progu015.htm#PToC_47">Output Data</A></H3>
+<A NAME="IDX193"></A>
+<A NAME="IDX194"></A>
+<A NAME="IDX195"></A>
+<P>
+For each output of the module, a counts value and a pointer are sent to
+the worker routine.
+These arguments are named by appending <TT><STRONG>&#95;knt</STRONG></TT> and
+<TT><STRONG>&#95;data</STRONG></TT> respectively to the parameter name given
+in the <TT><STRONG>Individual Parameter Information</STRONG></TT> section
+of the Module Builder dialog box.
+Thus, for an input parameter named <TT><STRONG>param2</STRONG></TT>, the
+worker routine would add the following to its argument list:
+<PRE>
+int param2_knt     The number of elements in the parameter.
+type *param2_data  A pointer to the data associated with the parameter.
+                   The pointer type is that specified in the Data type
+                   field of the <TT><STRONG>Individual Parameter
+                   Information</STRONG></TT> section of the
+                   Module Builder.
+</PRE>
+<P>
+For a Field/Group output, these arguments reflect the contents of the
+"data" component of the leaf (if the leaf is a Data Explorer Field)
+or of the array itself (if the leaf is a Data Explorer Array).
+For a Value input (which must be a Data Explorer Array), they reflect the
+contents of the parameter.
+The memory associated with these parameters is not initialized.
+<P>
+<H3><A NAME="Header_48" HREF="progu015.htm#PToC_48">Implementing Default Input
+Parameters</A></H3>
+<A NAME="IDX196"></A>
+<A NAME="IDX197"></A>
+<A NAME="IDX198"></A>
+<P>
+If an input parameter is not provided, the corresponding counts argument
+of the worker routine for that parameter is zero (0).
+Implementing the default for the input parameter is the function of the
+worker routine.
+<P>
+<H3><A NAME="HDRWRKRXMP" HREF="progu015.htm#PToC_49">Worker Routine
+Examples</A></H3>
+<A NAME="IDX199"></A>
+<A NAME="IDX200"></A>
+<A NAME="IDX201"></A>
+<P><B><A NAME="FIGEX1" HREF="../proguide.htm#FT_FIGEX1">Figure 5. Worker Routine:
+Example1&#95;worker</A></B>. This routine requests no positions or
+connections.<BR>
+<PRE>
+int
+Example1_worker(
+     int inputObject_knt, float *inputObject_data,
+     int inputArgument_knt, float *inputArgument_data,
+     int outputObject_knt, float *outputObject_data)
+</PRE>
+<PRE>
+{
+ /*
+  * The arguments to this routine are:
+  *
+</PRE>
+<PRE>
+  * The following are inputs and therefore read-only.  The default
+  * values are given and should be used if knt is 0.
+  *
+  * inputObject_knt, inputObject_data: count and pointer for input &quot;inputObject&quot;
+  *                   no default value given.
+  * inputArgument_knt, inputArgument_data: count and pointer for input &quot;inputArgument&quot;
+  *                   nondescriptive default value is &quot;1.0&quot;
+  *
+  *  The following are outputs and therefore writable.
+  *
+  * outputObject_knt, outputObject_data: count and pointer for output &quot;outputObject&quot;
+  */
+ /*
+  * User&#39;s code goes here.
+  */
+}
+</PRE>
+<A NAME="IDX202"></A>
+<A NAME="IDX203"></A>
+<A NAME="IDX204"></A>
+<P><B><A NAME="FIGEX2" HREF="../proguide.htm#FT_FIGEX2">Figure 6. Worker Routine.
+Example2&#95;worker</A></B>. This routine requests regular positions and
+connections.<BR>
+<PRE>
+int
+Example2_worker(
+ int p_knt, int p_dim, int *p_counts, float *p_origin, float *p_deltas,
+ int c_knt, int c_nv, int *c_counts,
+ int inputObject_knt, float *inputObject_data,
+ int inputArgument_knt, float *inputArgument_data,
+ int outputObject_knt, float *outputObject_data)
+</PRE>
+<PRE>
+{
+ /*
+  * The arguments to this routine are:
+  *
+  *  p_knt:           total count of input positions
+  *  p_dim:           dimensionality of input positions
+  *  p_counts:        count along each axis of regular positions grid
+  *  p_origin:        origin of regular positions grid
+  *  p_deltas:        regular positions delta vectors
+  *  c_knt:           total count of input connections elements
+  *  c_nv:            number of vertices per element
+  *  c_counts:        vertex count along each axis of regular positions grid
+  *
+</PRE>
+<PRE>
+  * The following are inputs and therefore read-only.  The default
+  * values are given and should be used if knt is 0.
+  *
+  * inputObject_knt, inputObject_data: count and pointer for input &quot;inputObject&quot;
+  *                   no default value given.
+  * inputArgument_knt, inputArgument_data: count and pointer for input &quot;inputArgument&quot;
+  *                   nondescriptive default value is &quot;1.0&quot;
+  *
+  *  The following are outputs and therefore writable.
+  *
+  * outputObject_knt, outputObject_data: count and pointer for output &quot;outputObject&quot;
+  */
+ /*
+  * User&#39;s code goes here.
+  */
+}
+</PRE>
+<A NAME="IDX205"></A>
+<A NAME="IDX206"></A>
+<A NAME="IDX207"></A>
+<P><B><A NAME="FIGEX3" HREF="../proguide.htm#FT_FIGEX3">Figure 7. Worker Routine.
+Example3&#95;worker</A></B>. This routine requests irregular positions and
+connections.<BR>
+<PRE>
+int
+Example3_worker(
+ int p_knt, int p_dim, float *p_positions,
+ int c_knt, int c_nv, int *c_connections,
+ int inputObject_knt, float *inputObject_data,
+ int inputArgument_knt, float *inputArgument_data,
+ int outputObject_knt, float *outputObject_data)
+</PRE>
+<PRE>
+{
+ /*
+  * The arguments to this routine are:
+  *
+  *  p_knt:           total count of input positions
+  *  p_dim:           dimensionality of input positions
+  *  p_positions:     pointer to positions list
+  *  c_knt:           total count of input connections elements
+  *  c_nv:            number of vertices per element
+  *  c_connections:   pointer to connections list
+  *
+  * The following are inputs and therefore read-only. The default
+  * values are given and should be used if knt is 0.
+  *
+  * inputObject_knt, inputObject_data: count and pointer for input &quot;inputObject&quot;
+  *                   no default value given
+  * inputArgument_knt, inputArgument_data: count and pointer for input &quot;inputArgument&quot;
+  *                   nondescriptive default value is &quot;1.0&quot;
+  *
+</PRE>
+<PRE>
+  *  The following are outputs and therefore writable.
+  *
+  * outputObject_knt, outputObject_data: count and pointer for output &quot;outputObject&quot;
+  */
+ /*
+  * User&#39;s code goes here.
+  */
+}
+</PRE>
+
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu020.htm">Previous Page</A> &#124; <A HREF="progu022.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

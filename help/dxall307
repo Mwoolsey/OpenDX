@@ -1,0 +1,62 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rroam 
+Changing the Look-to Point #!N #!EC #!N #!N Data Explorer maintains 
+the look-to point at the center of the Image window. You 
+can use the  #!F-adobe-times-bold-r-normal--18*   Roam #!EF mode to change the look-to 
+point. #!N #!N To change the look-to point: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Select the  #!F-adobe-times-bold-r-normal--18*   Roam #!EF 
+mode by using the  #!F-adobe-times-bold-r-normal--18*   Mode #!EF option box or the 
+ #!F-adobe-times-bold-r-normal--18*   Ctrl+W #!EF accelerator key. #!N #!I30 #!N 2. A wire-frame 
+box appears around the image. The current look-to point is marked 
+by a small square box. To move the look-to point, select 
+the point by pressing the  #!F-adobe-times-medium-i-normal--18*   left #!EF mouse button and 
+holding the mouse pointer on it. You can then move the 
+cursor by dragging the selected point inside the box. When the 
+left mouse button is depressed on the point, the mouse cursor 
+disappears (the look-to point remains) and the three projections (one for 
+each axis) appear inside the wire-framed box as dots, similar to 
+the 3-D cursor function illustrated in  #!Ltdcurs59,dxall321 f Figure 59  #!EL  . When you release 
+the mouse button, the location of the point becomes the new 
+look-to point, and the image view is updated. #!N #!N Alternatively, 
+double-clicking on a point in the Image window changes the look-to 
+point to the position on which you double-click. You can set 
+the look-to point to a location outside the current boundary box 
+of the object using this method. Note: You can also enable 
+ #!F-adobe-times-bold-r-normal--18*   Roam #!EF mode by using the  #!F-adobe-times-bold-r-normal--18*   intrctnMode #!EF parameter 
+to the Image tool (see Image in IBM Visualization Data Explorer 
+User's Reference). #!N #!I0 #!N #!EF #!N #!N #!N The directions 
+of the axes are indicated by a wire-frame 3-D axes diagram 
+in the lower right-hand corner of the Image window. To move 
+the look-to point, the movement of the mouse must be along 
+the same direction as one of the axes. If you move 
+the mouse in a direction that does not correspond to any 
+of the axes directions, the point does not move. Because of 
+this, the movement of the look-to point is constrained to six 
+directions (i.e., the positive and negative directions for each of the 
+three axes). #!N #!N Note that since perspective projection does not 
+preserve parallel lines, the directions in the axes diagram do not 
+necessarily correspond to the direction that the point moves in the 
+Image window. However, these axes do correspond with the values of 
+the coordinates. #!N #!N While using orthographic projection, the movement of 
+the point in the Image window corresponds with the directions of 
+the axes diagram. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   Constraints #!EF option appears 
+in the  #!F-adobe-times-bold-r-normal--18*   View Control... #!EF dialog box when you select 
+ #!F-adobe-times-bold-r-normal--18*   Roam #!EF mode. #!N #!N You can further restrict the 
+movement of the look-to point by using the  #!F-adobe-times-bold-r-normal--18*   Constraints #!EF 
+option. This allows you to constrain movement of the point to 
+two directions (i.e., the positive and negative directions of a particular 
+axis). Select an axis to restrict movement to by clicking on 
+the  #!F-adobe-times-bold-r-normal--18*   Constraints #!EF option box and selecting the desired axis 
+(X, Y, or Z). Once this is done, you are able 
+to move the look-to point along only the selected axis, while 
+the values of the other two axes remain constant. #!N #!N 
+You may want to position the cursor in two steps, using 
+different views for each step. For example, you can position the 
+ #!F-adobe-times-medium-i-normal--18*   x #!EF and  #!F-adobe-times-medium-i-normal--18*   y #!EF coordinates using the front 
+view, and the  #!F-adobe-times-medium-i-normal--18*   z #!EF coordinate using the side view. 
+#!N #!N To release the constraints on an axis, choose the 
+ #!F-adobe-times-bold-r-normal--18*   None #!EF option. #!N #!N While in  #!F-adobe-times-bold-r-normal--18*   Roam #!EF 
+mode, the center and right mouse buttons have the same functions 
+as they do in  #!F-adobe-times-bold-r-normal--18*   Rotate #!EF mode. #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lpanzoom,dxall308 h Panning and Zooming into and out of the Image  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

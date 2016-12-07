@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqgc DXQueryGridConnections #!N #!N Function #!N 
+#!N Returns information about a connections grid. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXQueryGridConnections(Array a, int *n, int *counts) #!EF 
+#!N #!N Functional Details #!N #!N This routine can be used 
+to check whether a connections Array is a regular grid. #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF if  #!F-adobe-times-bold-r-normal--18*   a #!EF is not 
+an Array of regular grid connections of the sort constructed by 
+ #!F-adobe-times-bold-r-normal--18*   DXMakeGridConnections #!EF (i.e., a Mesh Array containing only terms of 
+type Path Array). If  #!F-adobe-times-bold-r-normal--18*   n #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , returns the number of dimensions in the grid in 
+ #!F-adobe-times-bold-r-normal--18*   *n #!EF . If  #!F-adobe-times-bold-r-normal--18*   counts #!EF is not  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF , returns the number of points along each axis 
+in the Array pointed to by  #!F-adobe-times-bold-r-normal--18*   counts #!EF . #!N 
+#!N This routine is typically used to recognize "connections" components that 
+are fully regular and, in most cases, much simpler to handle 
+than regular or partially regular connections. #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF if it is a grid connections 
+Array or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF but does not set an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  , 
+ #!Ldxmgpv,dxall1298 h DXMakeGridPositions, DXMakeGridPositionsV  #!EL  ,  #!Ldxqgp,dxall1344 h DXQueryGridPositions  #!EL  #!EF #!N #!N  #!Lcotas,dxall1074 h Creating Positions and Connections Grids  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxqgp,dxall1344 h DXQueryGridPositions  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

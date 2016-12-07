@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Colormap</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu034.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu036.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRCOLRMAP" ></A>Colormap</H3>
+		<A NAME="IDX426"></A><A NAME="IDX427"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATSPE">Special</A>
+<P><STRONG>Function</STRONG>
+<P>
+Produces a color map.
+<P><STRONG>Syntax</STRONG>
+Available only through the user interface.
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object used to derive min or max
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>min</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">min of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">minimum of color-map range
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>max</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">max of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">maximum of color-map range
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>nbins</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">20
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of bins in the histogram
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>colormap</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field or group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">RGB color map to be used
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>opacity</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">opacity map to be used
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>title</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;Colormap Editor&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">title of editor
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>rgb</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">RGB color field
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>opacity</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">opacity field
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This interactive module allows the user to create color maps that are
+applied to data.
+Through inputs to the module (either the outputs of other tools or
+values set in its configuration dialog box), the Colormap Editor
+can be "data driven."
+If it is not data driven, then the attributes (such as
+<TT><STRONG>min</STRONG></TT> and <TT><STRONG>max</STRONG></TT>)
+are taken from values set by the user in the Colormap Editor.
+<P><B>Note: </B>The Colormap Editor itself is invoked by double-clicking on the
+module&#39;s icon in the VPE window.
+The module&#39;s configuration dialog box is accessed from the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu in the same window.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>input can be used to derive the minimum and maximum values in
+the
+color and opacity maps.
+If this parameter is specified, a histogram of the "data"
+component becomes available in the Colormap Editor.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>min</STRONG></TT>
+</B></TD><TD><P>sets the minimum value used in the color and opacity maps.
+If this parameter is specified, it overrides the minimum value set by
+<TT><STRONG>data</STRONG></TT>.
+If neither <TT><STRONG>min</STRONG></TT> nor <TT><STRONG>data</STRONG></TT> is
+specified, the value is set in the minimum field of the Colormap
+Editor dialog box.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>max</STRONG></TT>
+</B></TD><TD><P>sets the maximum value in the color and opacity maps.
+If this parameter is specified, it overrides the maximum value set by
+<TT><STRONG>data</STRONG></TT>.
+If neither <TT><STRONG>max</STRONG></TT> nor <TT><STRONG>data</STRONG></TT> is
+specified, the value is set in the maximum field of the Colormap
+Editor dialog box.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>nbins</STRONG></TT>
+</B></TD><TD><P>specifies the number of data bins in the histogram displayed by
+the
+Colormap Editor.
+A value of 0 indicates that the histogram should not be
+computed.
+The histogram is accessible through the <TT><STRONG>Axis Display</STRONG></TT>
+in the <TT><STRONG>Options</STRONG></TT> pull-down menu in the
+Colormap Editor.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>colormap</STRONG></TT>
+</B></TD><TD><P>specifies the color map used to initialize the color-map portion
+of
+the Colormap Editor.
+For example, the map may be an imported <TT>.cm</TT> file, which
+contains both a color and an opacity map.
+If this file is passed to the <TT><STRONG>colormap</STRONG></TT> parameter,
+both maps will be used to initialize the maps in the editor.
+Alternatively, a simple map field can be passed to the appropriate
+parameter(s).
+<P>
+
+Note that only the color information of the map is used to initialize
+the Colormap Editor; the "positions" component of the map (representing
+the data range to which the colors apply) are ignored. This is to allow
+a colormap to be used for any input data set which may be passed to
+the <TT><STRONG>data</STRONG></TT> parameter; the range of the map will be taken
+from <TT><STRONG>data</STRONG></TT>, rather than from the colormap.
+If you want to use the
+actual "positions" of the colormap, then simply use Mark to mark the
+"positions" component of the colormap, and pass the output of Mark to
+the <TT><STRONG>data</STRONG></TT> parameter of Colormap.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>opacity</STRONG></TT>
+</B></TD><TD><P>specifies the opacity map used to initialize the opacity-map
+portion of the Colormap Editor.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>title</STRONG></TT>
+</B></TD><TD><P>specifies the title of the Colormap Editor window.
+</TD></TR></TABLE>
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+UsingColormaps.net
+VolumeRendering.net
+</PRE>
+<P>
+An example that uses a data-driven Colormap is:
+<PRE>
+DataDrivenInteractors.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu016.htm#HDRAUTOCOL">AutoColor</A>,
+&nbsp;<A HREF="refgu033.htm#HDRCOLOR">Color</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

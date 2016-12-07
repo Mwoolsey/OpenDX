@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsem DXSetEnumeratedMember #!N #!N Function #!N #!N Adds an 
+Object to a Group by index. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Group DXSetEnumeratedMember(Group g, int n, Object value) #!EF #!N 
+#!N Functional Details #!N #!N Sets the value of the  #!F-adobe-times-bold-r-normal--18*   
+n #!EF th member of Group  #!F-adobe-times-bold-r-normal--18*   g #!EF to  #!F-adobe-times-bold-r-normal--18*   
+value #!EF . The parameter  #!F-adobe-times-bold-r-normal--18*   n #!EF must refer to 
+an existing member of the Group or to the first nonexistent 
+member. That is, the indices of Group members must always be 
+contiguous starting at 0. If  #!F-adobe-times-bold-r-normal--18*   value #!EF is  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , the  #!F-adobe-times-bold-r-normal--18*   n #!EF th member of  #!F-adobe-times-bold-r-normal--18*   g 
+#!EF will be deleted. If  #!F-adobe-times-bold-r-normal--18*   g #!EF is typed, the 
+Object to be added,  #!F-adobe-times-bold-r-normal--18*   value #!EF , must be the 
+same type as  #!F-adobe-times-bold-r-normal--18*   g #!EF . #!N #!N Return Value 
+#!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   g #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxgem,dxall1234 h DXGetEnumeratedMember  #!EL  ,  #!Ldxgmc,dxall1247 h DXGetMemberCount  #!EL  ,  #!Ldxng,dxall1317 h DXNewGroup  #!EL  ,  #!Ldxsm,dxall1382 h DXSetMember  #!EL  #!EF #!N #!N 
+ #!Lmbs,dxall1064 h Generic Operations  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxse,dxall1377 h DXSetError, DXErrorReturn, DXErrorGoto  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

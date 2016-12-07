@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall129 Example 7. Scattered Data #!N #!EC #!N #!N 
+This example illustrating the importation of scattered data differs from Example 
+6 in only a few details, mainly in specifying the number 
+of data points instead of the dimensions of a data grid. 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. In the 
+Data Prompter initial dialog box, select  #!F-adobe-times-bold-r-normal--18*   Grid or Scattered File 
+#!EF , then click on the rightmost button (scattered data) in 
+the row labeled  #!F-adobe-times-bold-r-normal--18*   Grid type #!EF . #!N #!I30 #!N 
+2. Set  #!F-adobe-times-bold-r-normal--18*   Number of variables #!EF to "2." #!N #!I30 
+#!N 3. Activate the  #!F-adobe-times-bold-r-normal--18*   Positions in data file #!EF toggle 
+button and set the  #!F-adobe-times-bold-r-normal--18*   Dimension #!EF value to "2." #!N 
+#!I30 #!N 4. Repeat Steps 5 through 11 of Example 6, 
+with the following exception: in Step 7, enter the value "20" 
+in the  #!F-adobe-times-bold-r-normal--18*   # of points #!EF field (this change from 
+Example 6 is a result of the original selection for scattered 
+data in the initial dialog box). #!N #!I0 #!N #!EF #!N 
+The header file should look like: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+file = /usr/lpp/dx/samples/data/record_deformed #!N points = 20 #!N format = text 
+#!N interleaving = record-vector #!N field = rainfall, temperature, locations #!N 
+structure = scalar, scalar, 2-vector #!N type = float, int, float 
+#!N dependency = positions, positions, positions #!N #!N end #!EF #!N 
+#!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lall130,dxall131 h Example 8. Using the Block Keyword  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

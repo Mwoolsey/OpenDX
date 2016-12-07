@@ -1,0 +1,49 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rexmdf Examples of 
+Module Description Files #!N #!EC #!N #!N The following examples illustrate 
+the specification of three modules: Filter, Options, and ShowBox. #!N #!N 
+The module description for Filter is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+MODULE Filter #!N CATEGORY Transformation #!N DESCRIPTION applies a filter to 
+a field #!N INPUT input; field; (none); data to filter #!N 
+INPUT filter; value or string; "gaussian"; filter to use #!N INPUT 
+component[visible:0]; string; "data"; component to be operated on #!N #!N OPTIONS 
+data; colors #!N INPUT mask[visible:0]; value or string; "box"; rank-value filter 
+max #!N OUTPUT output; field; filtered data #!N #!EF #!N #!N 
+#!EC #!N #!N The Filter module is assigned to the Transformation 
+category. It takes four inputs: #!T,1,161,321,481,641  #!F-adobe-times-bold-r-normal--18*   #!N TAB Module Input 
+TAB Type TAB Default TAB Description #!EF #!N TAB input TAB 
+field TAB none TAB data to be filtered #!N TAB filter 
+TAB value or string TAB "gaussian" TAB filter to be used 
+#!N TAB component TAB string TAB "data" TAB component to be 
+operated on #!N TAB mask TAB value or string TAB "box" 
+TAB rank-value filter maximum #!N #!N All input parameters but  #!F-adobe-times-bold-r-normal--18*   
+input #!EF are assigned default values. The  #!F-adobe-times-bold-r-normal--18*   component #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   mask #!EF parameters are hidden by default ([visible:0]). #!N #!N 
+The OPTIONS line in the module description specifies possible values for 
+the  #!F-adobe-times-bold-r-normal--18*   component #!EF parameter (two in this case). This list 
+of values can be accessed by clicking on the  #!F-adobe-times-bold-r-normal--18*   ... 
+#!EF button to the right of the  #!F-adobe-times-bold-r-normal--18*   Value #!EF field 
+in the module's configuration dialog box. #!N #!N The module description 
+for the ShowBox module is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N MODULE 
+ShowBox #!N CATEGORY Realization #!N DESCRIPTION draws a bounding box #!N 
+INPUT input; field; (none); the field of which to show the 
+bounding box #!N OUTPUT box; field; renderable bounding box of input 
+field #!N OUTPUT center; vector; center of bounding box #!EF #!N 
+#!N #!EC #!N #!N The ShowBox module is assigned to the 
+Realization category. It takes an input, named  #!F-adobe-times-bold-r-normal--18*   input #!EF , 
+of type  #!F-adobe-times-bold-r-normal--18*   field #!EF . There are two outputs, named 
+ #!F-adobe-times-bold-r-normal--18*   box #!EF and  #!F-adobe-times-bold-r-normal--18*   center #!EF , of type  #!F-adobe-times-bold-r-normal--18*   
+field #!EF and  #!F-adobe-times-bold-r-normal--18*   vector #!EF respectively. #!N #!N The module 
+description for the Options module is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+MODULE Options #!N CATEGORY Structuring #!N DESCRIPTION associates attributes with an 
+object #!N INPUT input; object; (none); object with attributes to be 
+set #!N INPUT attribute; string; (no default); attribute to set #!N 
+INPUT value; object; (no default); value of the attribute #!N REPEAT 
+2 #!N OUTPUT output; object; the object with attributes set #!EF 
+#!N #!N #!EC #!N #!N The Options module is assigned to 
+the Structuring category. It has three named parameters, none of which 
+is given defaults. The module may take additional pairs of input 
+parameters, whose types are the same as the last two inputs 
+preceding the  #!F-adobe-times-bold-r-normal--18*   REPEAT #!EF statement. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lasynmod,dxall1048 h Asynchronous Modules  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

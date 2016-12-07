@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxfmid DXFreeModuleId #!N #!N Function #!N 
+#!N Frees the space pointed to by a module identifier. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXFreeModuleId(Pointer id) #!EF #!N 
+#!N Functional Details #!N #!N If DXCopyModuleId was used to obtain 
+a copy of a module identifier, DXFreeModuleId should be used to 
+delete that copy when it is no longer needed. #!N #!N 
+Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   
+ERROR #!EF and sets an error code. #!N #!N See Also 
+#!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  #!N #!N  #!Lcache,dxall1102 h Cache  #!EL  #!N #!N  #!Lasyns,dxall1114 h Asynchronous Services  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgtt,dxall1217 h DXGeometricText  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

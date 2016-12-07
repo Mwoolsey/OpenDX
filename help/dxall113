@@ -1,0 +1,48 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rgaints Some Notes on General 
+Array Importer Format #!N #!EC #!N #!N The General Array Importer 
+imports ASCII or binary data that is organized in one of 
+two general "styles":  #!F-adobe-times-medium-i-normal--18*   block #!EF or  #!F-adobe-times-medium-i-normal--18*   columnar #!EF . 
+Block style requires that the data be organized in records, or 
+blocks. Columnar style requires that the data be organized in vertical 
+columns (see  #!Lboxes114,dxall113 f Figure 14  #!EL  ). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rboxes114 #!N Figure 14. 
+Block and Columnar Styles of Data Organization. The three horizontal data 
+blocks at left illustrate the block style; the three vertical columns 
+at right, the columnar style. A, B, and C represent separate 
+variables. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!T,100 #!N TAB A sub0 A 
+sub1 A sub2 A sub3 ... #!N #!N #!N TAB B 
+sub0 B sub1 B sub2 B sub3 ... #!N #!N #!N 
+TAB C sub0 C sub1 C sub2 C sub3 ... #!N 
+#!N #!T,0 #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!T,75,125,175 
+#!N TAB A sub0 TAB B sub0 TAB C sub0 #!N 
+#!N #!N TAB A sub1 TAB B sub1 TAB C sub1 
+#!N #!N #!N TAB A sub2 TAB B sub2 TAB C 
+sub2 #!N #!N #!N TAB A sub3 TAB B sub3 TAB 
+C sub3 #!N #!N #!N TAB A sub3 TAB B sub3 
+TAB C sub3 #!N #!N #!N TAB . TAB . TAB 
+. #!N #!N #!N TAB . TAB . TAB . #!N 
+#!N #!N TAB . TAB . TAB . #!N #!N #!EF 
+#!N #!N #!EC #!T,0 #!EF #!N #!EC #!N #!N The following 
+set of FORTRAN I/O statements generate a record-style data file: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!T,34 #!N TAB write(15,20) A(i),i=1,100 #!N TAB write(15,20) 
+B(i),i=1,100 #!N TAB write(15,20) C(i),i=1,100 #!N 20 TAB format(10(f10.3)) #!EF #!N 
+#!N #!EC An equivalent example in C is shown on the 
+next page. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!T,34 #!N TAB for(i=0; i<100, 
+i++) printf("%10.3f",A[i]); #!N TAB for(i=0; i<100, i++) printf("%10.3f",B[i]); #!N TAB for(i=0; 
+i<100, i++) printf("%10.3f",C[i]); #!EF #!N #!N #!EC #!N #!N The following 
+FORTRAN I/O statement produces a columnar-style data file: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!T,34 #!N TAB write(15,10) (A(i),B(i),C(i),i=1,100) #!N 10 TAB format(3(2x,f10.3)) #!EF 
+#!N #!N #!EC An equivalent example in C is: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!T,34 #!N TAB for (i=0; i<100; i++) #!N TAB 
+printf(" %10.3f %10.3f %10.3f\n",A[i],B[i],C[i]); #!EF #!N #!N #!EC #!N #!N For 
+both the block and columnar styles, the information in the file 
+can be positions as well as data. The data can be: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o scalar or 
+vector #!N #!I30 #!N o a time series #!N #!I30 #!N 
+o gridded or scattered (for gridded data the grid structure can 
+be regular or warped, but the connection elements must be regular; 
+i.e., lines, quads, or cubes) #!N #!I30 #!N o position dependent 
+(associated with the grid positions) or connection dependent (associated with the 
+grid connections). #!N #!I0 #!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lgaiexs,dxall114 h Importing Data: Header File Examples  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

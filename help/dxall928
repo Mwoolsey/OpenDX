@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rrotate Rotate #!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N 
+Function #!N #!N Rotates an object. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Rotate(  #!F-adobe-times-bold-r-normal--18*   input, axis, 
+rotation, ... #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB input TAB object TAB none TAB object 
+to be rotated #!N TAB axis TAB integer or string TAB 
+"y" TAB axis of rotation #!N TAB rotation TAB scalar TAB 
+0 TAB amount of rotation (in degrees) #!N TAB ... TAB 
+- TAB - TAB additional axis-rotation pair(s) #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB output 
+TAB object TAB object marked for rotation #!N TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N This module 
+prepares a specified object for one or more rotations about a 
+specified axis. Note: A Transform object containing the specified transformation matrix 
+is inserted at the root of the object. This transform is 
+applied during rendering. #!N #!N Each rotation is specified by an 
+axis-rotation parameter pair. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+input #!EF #!EF #!I50 #!N specifies the object to be rotated. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   axis #!EF #!EF #!I50 #!N specifies 
+the axis of rotation. Allowed values are strings ("x," "y," or 
+"z") or integers (0, 1, or 2). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   rotation #!EF #!EF #!I50 #!N specifies the extent of rotation 
+(in degrees) about the specified axis. Note: Rotation is counterclockwise in 
+a right-handed coordinate system and relative to the origin of world-coordinate 
+space. #!I0 #!N #!N #!N #!N A single Rotate module can 
+specify a maximum of 22 rotations (i.e.,  #!F-adobe-times-bold-r-normal--18*   axis  #!F-adobe-times-medium-r-normal--18*   - 
+#!EF rotation #!EF pairs). In the user interface, the default number 
+of corresponding tab pairs is two. (Tabs can be added to 
+the module icon and removed with the appropriate  #!F-adobe-times-bold-r-normal--18*   ...Input Tab 
+#!EF options in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu of the 
+VPE.) Note: If you want to use the mouse to rotate 
+the object in the Image window, see  #!Lrotobj,dxall305 h Rotating the Object  #!EL  in IBM Visualization 
+Data Explorer User's Guide. #!N #!N Components #!N #!N All input 
+components are propagated to the output. #!N #!N Example Visual Programs 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Imide_potential.net #!N UsingLights.net #!EF #!N #!N 
+#!EC #!N #!N See Also #!N #!N  #!Lscale,dxall934 h Scale  #!EL  ,  #!Ltransla,dxall968 h Translate  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lroute,dxall929 h Route  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

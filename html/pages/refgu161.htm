@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Transmitter</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu160.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu162.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRTRANSMI" ></A>Transmitter</H3>
+		<A NAME="IDX751"></A><A NAME="IDX752"></A>
+<A NAME="IDX753"></A>
+<A NAME="IDX754"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATSPE">Special</A>
+<P><STRONG>Function</STRONG>
+<P>
+Transmits an object to a Receiver.
+<P><STRONG>Syntax</STRONG>
+<P>
+Available only through the user interface.
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object transmitted
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+To maintain the modularity and readability of large programs, Data Explorer
+provides two tools that allow connections between input and output
+tabs of separate modules without the use of a visible
+connecting line.
+These tools, Transmitter and Receiver, allow you to separate visual
+programs into logical blocks.
+For example, the output of several logical blocks can be transmitted to
+another block that receives them, collects them, and produces
+an image.
+<P>
+
+Receivers and Transmitters can also be used to communicate information
+between pages in the Visual Program Editor (see <A
+HREF="usrgu041.htm#HDRVPEPAGE">"Creating pages in the VPE"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>). Pages are a valuable
+way of structuring complex visual
+programs into logical blocks.
+
+<P><B>Note: </B>Macros provide another way of structuring visual programs in
+logical blocks (see
+<A HREF="usrgu044.htm#HDRMACROS">7.2 , "Creating and Using Macros"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I>).
+<P>
+To remotely connect input and output tabs&#58;
+<OL>
+			<LI>Select a Transmitter tool (in the Special category in the tool
+palette) and place it near the output tab of the module that
+is to be "connected."
+<BR>
+				<BR>
+			<LI>Connect the module&#39;s output tab to the Transmitter&#39;s
+input tab.
+<BR>
+				<BR>
+			<LI>Select a Receiver tool (also in the Special category), and place
+it near the input tab of the other module that is to be
+"connected."
+<BR>
+				<BR>
+			<LI>Connect the Receiver&#39;s output tab to the second module&#39;s
+input tab.
+
+			<P>
+The Transmitter and Receiver are now connected.
+</OL>
+<P>
+The Receiver automatically assumes the same name as the Transmitter.
+More than one Receiver can be connected to a single Transmitter and they
+assume the same name until a new Transmitter is placed on the
+VPE canvas.
+<P><B>Notes: </B><OL>
+			<LI>To change the name of a Transmitter and Receiver, use the
+<TT><STRONG>Notation</STRONG></TT> field of the appropriate
+configuration dialog box (see
+in <A HREF="usrgu041.htm#HDRUCB">"Entering Values in a Configuration Dialog
+Box"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+Changing the name of a Transmitter changes the name of all the Receivers
+connected to it.
+Changing the name of a Receiver affects only that receiver.
+<BR>
+				<BR>
+			<LI>For more information see <A HREF="usrgu041.htm#HDRTNR">"Using
+Transmitters and Receivers"</A> in <I>IBM Visualization Data Explorer User&#39;s
+Guide</I>.
+
+		</OL>
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+Receivers and transmitters are used by many of the example visual
+programs, including&#58;
+<PRE>
+AlternateVisualizations.net
+Imide&#95;potential.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu112.htm#HDRRECEIVE">Receiver</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

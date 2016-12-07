@@ -1,0 +1,67 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rallr Data Explorer Library 
+Routines #!N #!EC #!N #!N The descriptions of routines begin after 
+the list below, are sorted alphabetically by the name of the 
+(first) routine, and contain the following information: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o General function #!N #!I30 #!N o 
+Syntax #!N #!I30 #!N o Functional details #!N #!I30 #!N o 
+Return value(s) #!N #!I30 #!N o Related routine(s) and information. #!N 
+#!I0 #!N #!EF #!N #!N #!N In entries that describe more 
+than one routine, the second and any subsequent routines are not 
+listed in the expected alphabetical order in the appendix. Their names, 
+along with the page numbers of the entries in which they 
+appear, are listed here. #!N #!N A name ending in "(s)" 
+signifies that the relevant entry describes both a "singular" and a 
+"plural" version of a routine. #!N #!N DXAddBackColor(s) ...Lines, ...Normal, ( 
+ #!L...triangles,,dxall1169 h DXAddPoints, DXADDM DXAddPoint, ...Quads, ...Colors, ...Color, ...Tetrahedra  #!EL  ...FrontColors, ...FrontColor, ) ...BackColors, ...BackColor, #!N DXAddNormal(s) ...Opacities, ...Opacity, ( 
+ #!L...normals,dxall1169 h  #!EL  ) ...Normal, DXADDM DXAddPoint, #!N DXAddQuad(s) ( DXAddPoints, ...Color,  #!L...colors,,dxall1167 h ...FrontColor, DXALS DXAddLine, ...FrontColors, ...BackColor, ...Triangle, ...Quad, ...BackColors, ...Opacity, ...Tetrahedron, ...Opacities, ...Normal, ...Lines, ...Normals  #!EL  
+) DXAddPoints, ...Triangles, #!N DXAddColor(s) ...Colors, ...Quads, (  #!L...frontcolors,,dxall1169 h ...Tetrahedra  #!EL  DXADDM DXAddPoint, 
+...BackColors, ) ...Color, ...Opacities, #!N ...FrontColor, ...Normals #!EL ) DXAddTetrahedra ( 
+...BackColor, #!N DXAddOpacities  #!L...opacity,,dxall1167 h ( #!RL h DXALL1169 DXALS DXAddLine, ...Normal, DXADDM DXAddPoint, ...Triangle, ...Quad, DXAddPoints, ...Color, ...Tetrahedron, ...Colors, ...FrontColor, ...Lines, ...FrontColors, ...BackColor, ...Triangles, ...BackColors, ...Opacity, ...Quads, ...Opacities, ...Normal, ...Tetrahedra  #!EL  ...Normals #!EL ) DXAddPoints, ) #!N ...Colors, 
+#!N DXAddFaceNormals ( ...FrontColors, DXAddTetrahedron (  #!L...backcolors,,dxall1166 h #!RL h DXALL1167 DXAFNS DXAddFaceNormal, ...Opacities, DXALS DXAddLine, DXAddFaceNormals ...Normals  #!EL  ) ...Triangle, ...Quad, #!EL 
+) #!N DXAddOpacity ( ...Tetrahedron, #!N  #!L...lines,,dxall1169 h DXAddFrontColor(s) ( DXADDM DXAddPoint, ...Triangles, #!RL h DXALL1169 ...Color, ...Quads, DXADDM DXAddPoint, ...FrontColor, ...Tetrahedra  #!EL  ...Color, ...BackColor, ) ...FrontColor, 
+...Opacity, #!N ...BackColor, ...Normal, DXAddTriangle(s) ( ...Opacity, DXAddPoints,  #!L...normal,,dxall1167 h ...Colors, DXALS DXAddLine, DXAddPoints, ...FrontColors, ...Triangle, ...Quad, ...Colors, ...BackColors, ...Tetrahedron, ...FrontColors, ...Opacities, ...Lines, ...BackColors, ...Normals  #!EL  ) ...Triangles, 
+...Opacities, #!N DXAddPoint(s) ...Quads, ...Normals #!EL ) (  #!L...tetrahedra,dxall1169 h  #!EL  #!N DXAddLine(s) 
+( DXADDM DXAddPoint, )  #!L...color,,dxall1167 h #!N DXALS DXAddLine, ...FrontColor, DXAdjointTranspose ( ...Triangle, ...Quad, ...BackColor, #!RL h DXALL1185 ...Tetrahedron, ...Opacity, DXCPLUS DXConcatenate, DXInvert, #!N DXCPLUS DXConcatenate, DXTranspose, DXArrayConvertV ( DXInvert, DXAdjointTranspose, #!RL h DXALL1174 DXTranspose, DXDeterminant, DXACV DXArrayConvert, DXAdjointTranspose, DXApply  #!EL  ) DXArrayConvertV DXDeterminant, #!N #!EL ) 
+DXApply #!EL ) DXAllocateLocal ( #!N DXASSERT ( #!N DXDisplayX(8,  #!L#!rl,dxall1171 h h DXALL1377 12, 24) ( #!RL h DXALP DXAllocate, DXSE DXSetError, DXALL1199 DXAllocateZero, DXErrorReturn, DXDXS DXDisplayX, DXAllocateLocal, DXErrorGoto  #!EL  
+) DXDisplayX8, DXAllocateLocalZero, #!N DXDisplayX12, DXAllocateLocalOnly, #!N DXCategorySize DXDisplayX24 #!EL ) 
+DXAllocateLocalOnlyZero (  #!L#!n,dxall1403 h DXDiv ( #!RL  #!EL  ) DXTS DXTypeSize, h DXALL1164 #!N DXCategorySize #!EL 
+DXAPLUS DXAdd, DXAllocateLocalOnly ( ) DXCross, DXDiv,  #!L#!n,dxall1171 h DXDot, DXLength, DXALP DXAllocate, DXChangedComponentStructuDXMax, DXMin, DXMul, DXAllocateZero, ( #!RL h DXALL1178 DXNeg, DXNormalize, DXAllocateLocal, DXCCVS  #!EL  ) DXAllocateLocalZero, #!N 
+DXDot (  #!L#!el D h DXALL1164 DXAllocateLocalOnlyZero #!N DXComponentOpt DXAPLUS DXAdd,  #!EL  ) (  #!Ldxcross,,dxall1184 h DXDiv, #!N DXCMANY DXComponentReq, DXDot, DXLength, DXAllocateLocalOnlyZero DXComponentOpt, DXMax, DXMin, DXMul, ( #!RL h DXALL1171 DXComponentReqLoc, DXNeg, DXNormalize, DXALP DXAllocate, DXComponentOptLoc DXSub  #!EL  ) DXAllocateZero, #!EL ) #!N 
+DXAllocateLocal, #!N #!N DXEnableDebug DXAllocateLocalZero, DXComponentOptLoc ( (  #!Ldxallocatelocalonly,,dxall1194 h #!RL h DXALL1184 DXDB DXDebug, DXAllocateLocalOnlyZero DXCMANY DXComponentReq, DXEnableDebug,  #!EL  ) DXComponentOpt, 
+DXQueryDebug #!EL ) #!N DXComponentReqLoc, #!N DXAllocateLocalZero ( DXComponentOptLoc DXEndLongMessage ( 
+ #!L#!el,dxall1171 h ) #!RL h DXALL1175 DXALP DXAllocate, #!N DXBLM DXBeginLongMessage, DXAllocateZero, DXComponentReqLoc ( DXEndLongMessage DXAllocateLocal, #!RL h DXALL1184  #!EL  ) DXAllocateLocalZero, DXCMANY DXComponentReq, #!N DXErrorGoto ( DXAllocateLocalOnly, DXComponentOpt,  #!Ldxallocatelocalonlyzero,dxall1377 h DXComponentReqLoc, DXSE DXSetError,  #!EL  
+) DXComponentOptLoc DXErrorReturn, #!N DXAllocateZero #!EL ) DXErrorGoto #!EL ) ( 
+ #!L#!n,dxall1171 h DXCross ( #!N DXErrorReturn DXALP DXAllocate, #!RL h DXALL1164 ( #!RL h DXALL1377 DXAllocateZero, DXAPLUS DXAdd, DXSE DXSetError, DXAllocateLocal, DXCross, DXDiv, DXErrorReturn, DXAllocateLocalZero, DXDot, DXLength, DXErrorGoto  #!EL  ) DXAllocateLocalOnly, DXMax, DXMin, DXMul, #!N DXAllocateLocalOnlyZero DXNeg, DXNormalize, #!N 
+#!EL ) DXSub #!EL ) DXGetArrayEntries ( #!N DXApply ( #!N 
+ #!L#!rl,dxall1221 h h DXALL1185 #!N DXGAEY DXGetArrayEntry, DXCPLUS DXConcatenate, DXDeleteAttribute ( DXGetArrayEntries DXInvert, #!RL h DXALL1367  #!EL  ) DXTranspose, DXSETA DXSetAttribute, #!N DXAdjointTranspose, DXDeleteAttribute DXGetBackgroundColor DXDeterminant, #!EL 
+) (  #!Ldxapply,dxall1368 h  #!EL  ) #!N DXDeterminant DXSBC DXSetBackgroundColor, (  #!Ldxgetbackgroundcolor,dxall1185 h DXCPLUS DXConcatenate, DXMax, DXMin, DXMul,  #!EL  ) 
+DXInvert, DXNeg, DXNormalize, #!N DXTranspose, DXSub #!EL ) DXGetCacheEntryV ( DXAdjointTranspose, 
+#!N DXMessageGoto  #!Ldxdeterminant,,dxall1224 h ( #!RL h DXALL1168 DXGCEV DXGetCacheEntry, DXApply  #!EL  ) DXAM DXAddMessage, DXGetCacheEntryV #!N DXMessageReturn, #!EL ) 
+DXIsElementInvalid ( DXMessageGoto #!EL #!N  #!L),dxall1289 h DXGetCameraMatrixWithFuzzDXIEV DXIsElementValid, #!N ( #!RL h DXALL1225 DXIsElementInvalid DXMessageReturn ( DXGCMP DXGetCameraMatrix,  #!EL  )  #!Ldxgetcamerarotation,,dxall1168 h #!N DXAM DXAddMessage, DXGetCameraMatrixWithFuzzDXIsElementInvalidSequentDXMessageReturn,  #!EL  ) (  #!Ldxmessagegoto,dxall1290 h  #!EL  
+#!N DXIEVS DXIsElementValidSe)uential, DXGetCameraResolution #!N DXMin (  #!L#!rl ( DXALL1389  #!EL  ) h DXALL1164 
+DXSRN DXSetResolution, #!N DXAPLUS DXAdd, DXGetCameraResolution #!N DXLength ( DXCross, DXDiv, 
+#!EL )  #!Ldxdot,,dxall1164 h DXLength, #!N DXAPLUS DXAdd, DXMax, DXMin, DXMul, DXGetCameraRotation ( DXCross, DXDiv, DXNeg, DXNormalize, #!RL h DXALL1225 DXDot, DXLength, DXSub  #!EL  ) DXGCMP DXGetCameraMatrix,DXMax, DXMin, DXMul, #!N DXGetCameraRotation, DXNeg, 
+DXNormalize, DXModSetFloatInput DXGetCameraMatrixWithFuzzDXSub #!EL ) (  #!L#!el,dxall1177 h ) #!N DXCMPLU DXCallModule, #!N #!N DXModSet..., DXGetImageBounds ( DXMakeGridConnectionsV DXSetModule... #!RL h DXALL1241 ( #!RL h DXALL1297  #!EL  ) DXGISB DXGetImageSize, DXMGCV 
+#!N DXGetImageBounds DXMakeGridConnectionsV DXModSetIntegerInput #!EL ) #!EL ) (  #!L#!n,dxall1177 h #!N DXCMPLU DXCallModule, DXGetOrthographic ( DXMakeGridPositionsV DXModSet..., #!RL h DXALL1384 ( #!RL h DXALL1298 DXSetModule...  #!EL  DXSOC 
+DXSetOrthographic, DXMGPV DXMakeGridPosition), DXGetOrthographic DXMakeGridPositionsV #!N #!EL ) #!EL ) DXModSetObjectInput 
+( #!N #!N  #!Ldxgetperspective,dxall1177 h ( DXMakeStringListV ( DXCMPLU DXCallModule, #!RL h DXALL1388 #!RL h DXALL1302 DXModSet..., DXSPE DXSetPerspective, DXMSLV DXMakeStringList, DXSetModule...  #!EL  DXGetPerspective DXMakeStringListV ) #!EL ) #!EL ) 
+#!N #!N DXGetView ( #!N DXModSetObjectOutput  #!Ldxmarktimelocal,dxall1393 h ( ( #!RL h DXALL1177 DXSVW DXSetView, #!RL h DXALL1306 DXCMPLU DXCallModule, DXGetView  #!EL  ) DXMT DXMarkTime, DXModSet..., 
+#!N DXGrowV ( DXMarkTimeLocal DXSetModule... #!EL  #!L#!el,dxall1273 h ) ) DXGROV DXGrow, #!N DXMat ( #!RL #!N DXGrowV  #!EL  ) h DXALL1362 DXModSetStringInput 
+( #!N DXRXYZ DXRotateX,  #!L#!n,dxall1177 h DXRotateY, DXRotateZ, DXCMPLU DXCallModule, DXInitGetNextValidElementDXScale, DXTranslate, DXModSet..., ( #!RL h DXALL1281 DXMat  #!EL  ) DXSetModule... #!EL DXIGNIE #!NlemDXMaxd(x,#!RL ) 
+DXInitGetNextValidElementhnDXALL1164 #!N DXMul (  #!L) # DXAdd, h DXALL1164 #!N DXInvert ( DXCross, DXDiv, DXAPLUS DXAdd, #!RL h DXALL1185 DXDot, DXLength, DXCross, DXDiv, DXDot, DXLength, #!RL h DXALL1339 #!N DXMax, DXMin, DXMul, DXQACVM DXQueryArrayCommoDXSetModuleOutput ( DXNeg, DXNormalize, DXQueryArrayCommonV #!RL h DXALL1177 DXSub  #!EL  ) #!EL ) DXCMPLU DXCallModule, #!N 
+#!N DXModSet..., #!N DXNeg (  #!Ldxsetmodule... D h DXALL1164 ( #!RL h DXALL1340 ) DXAPLUS DXAdd, DXQACV DXQueryArrayConvert#!N DXSetObjectTag DXCross, DXDiv, DXQueryArrayConvertV ( #!RL h DXALL1255 DXDot, DXLength,  #!EL  ) DXGSOT DXGetObjectTag, DXMax, DXMin, 
+DXMul, #!N DXQueryDebug ( DXSetObjectTag #!EL DXNeg, DXNormalize,  #!L),dxall1194 h DXSub  #!EL  ) DXDB 
+DXDebug, #!N DXSub (  #!Ldxnewarrayv # DXEnableDebug, h DXALL1164 #!RL h DXALL1310 DXQueryDebug  #!EL  ) DXAPLUS DXAdd, DXNAV DXNewArray, #!N 
+DXCross, DXDiv, DXNewArrayV #!EL ) DXQueryOriginalMeshExtentDXDot, DXLength, #!N (  #!Ldxmax,,dxall1346 h DXMin, DXMul, DXNewConstantArrayV ( DXQOSM DXQueryOriginalSizDXNeg, DXNormalize, #!RL h DXALL1314 DXQueryOriginalMeshExtentDXSub  #!EL  ) 
+DXNCAV #!EL ) #!N DXNewConstantArrayV #!N #!N DXTetra ( #!EL ) 
+#!N DXRotate(Y, Z)  #!L#!n,dxall1292 h ( #!RL h DXALL1362 DXLTQT DXLn, DXTri, DXNewMeshArrayV ( DXRXYZ DXRotateX, DXQuad, DXTetra #!RL h DXALL1319 DXRotateY, DXRotateZ,  #!EL  ) DXNMAV DXNewMeshArray, DXScale, DXTranslate, #!N DXTranslate 
+( DXNewMeshArrayV DXMat #!EL )  #!L#!el,dxall1362 h ) #!N DXRXYZ DXRotateX, #!N #!N DXScale ( DXRotateY, DXRotateZ, DXNewProductArrayV ( #!RL h DXALL1362 DXScale, DXTranslate, #!RL h DXALL1323 DXRXYZ DXRotateX, DXMat  #!EL  ) DXNPAV DXNewProductArray,DXRotateY, DXRotateZ, #!N 
+DXTranspose ( DXNewProductArrayV DXScale, DXTranslate,  #!L#!el,dxall1185 h ) DXMat  #!EL  ) DXCPLUS DXConcatenate, #!N DXNormalize 
+( #!N DXInvert,  #!Ldxsetcacheentryv,dxall1164 h ( DXTranspose, DXAPLUS DXAdd, #!RL h DXALL1369 DXAdjointTranspose, DXCross, DXDiv, DXSCEV DXSetCacheEntry, DXDeterminant, DXDot, DXLength, DXSetCacheEntryV DXApply  #!EL  ) DXMax, DXMin, DXMul, #!EL ) #!N 
+DXTri (  #!Ldxnormalize, D h DXALL1292 DXSub  #!EL  ) DXSetGroupTypeV ( DXLTQT DXLn, DXTri, #!N  #!Ldxquad,,dxall1380 h DXTetra #!N DXPrintV ( DXSGTV DXSetGroupType,  #!EL  
+)  #!Ldxsetgrouptypev,dxall1331 h #!N DXTypeCheckV ( DXPTV DXPrint,  #!EL  )  #!Ldxprintv,dxall1402 h  #!EL  ) #!N DXTCV DXTypeCheck, #!N DXSetModuleInput ( 
+DXTypeCheckV #!EL ) #!N DXQuad (  #!Lh # #!N h DXALL1292 DXCMPLU DXCallModule, #!N DXVec ( #!RL DXLTQT DXLn, DXTri, DXModSet..., h DXALL1337 DXQuad, DXTetra DXSetModule...  #!EL  DXPTVC DXPt, DXVec #!EL 
+) ) #!EL ) #!N DXQueryArrayCommonV ( #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxatg,dxall1163 h DXAbortTaskGroup  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxw DXWarning 
+#!N #!N Function #!N #!N Presents a warning message to the 
+user. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> void DXWarning(char *message, 
+...) #!EF #!N #!N Functional Details #!N #!N The  #!F-adobe-times-bold-r-normal--18*   message 
+#!EF may be a  #!F-adobe-times-bold-r-normal--18*   printf #!EF form string, in which 
+case additional arguments may be needed. The message string should not 
+contain new-line characters, because the  #!F-adobe-times-bold-r-normal--18*   DXWarning #!EF routine formats the 
+message in a manner appropriate to the output medium. For terminal 
+output, this includes prefixing the message with the processor identifier and 
+appending a new line character. #!N #!N Return Value #!N #!N 
+None. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxse,dxall1377 h DXSetError, DXErrorReturn, DXErrorGoto  #!EL  #!EF #!N 
+#!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  . 

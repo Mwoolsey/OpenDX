@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsrn DXSetResolution, DXGetCameraResolution #!N #!N Function #!N #!N Set 
+or retrieve the resolution of a Camera. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Camera DXSetResolution(Camera c, int hres, double pix_aspect) Camera 
+DXGetCameraResolution(Camera c, int Xresolution, int Yresolution) #!EF #!N #!N Functional Details 
+#!N #!N A Camera defines the position orientation of the viewer, 
+the volume of interest of the object being viewed, and the 
+size of the image to contain the resulting view. #!N #!N 
+The horizontal size of the image containing the resulting view is 
+defined by the  #!F-adobe-times-bold-r-normal--18*   resolution #!EF in pixels; the vertical size 
+is determined by the  #!F-adobe-times-bold-r-normal--18*   resolution #!EF *  #!F-adobe-times-bold-r-normal--18*   aspect #!EF 
+. This is camera  #!F-adobe-times-bold-r-normal--18*   aspect #!EF , not  #!F-adobe-times-bold-r-normal--18*   pix_aspect 
+#!EF ; see  #!F-adobe-times-bold-r-normal--18*   DXSetPerspective #!EF and  #!F-adobe-times-bold-r-normal--18*   DXSetOrthographic #!EF . 
+The same aspect ratio is used for both the size of 
+the image and the volume of the interest to prevent the 
+objects from being stretched in one of the dimensions. #!N #!N 
+If the display pixels are not square,  #!F-adobe-times-bold-r-normal--18*   pix_aspect #!EF can 
+be used to compensate. Pixels are not square when the ratio 
+of the number of pixels in the x and y dimensions 
+does not equal the width:height ratio of the screen. #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   pix_aspect #!EF prevents objects from appearing stretched in one dimension 
+(e.g. preventing a circle from becoming an ellipse on a screen 
+with rectangular pixels). Pixels are assumed to be  #!F-adobe-times-bold-r-normal--18*   pix_aspect #!EF 
+times as tall as they are wide. Most screens have square 
+pixels and it is rarely necessary to set  #!F-adobe-times-bold-r-normal--18*   pix_aspect #!EF 
+to a value other than 1. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXSetResolution #!EF 
+, for camera  #!F-adobe-times-bold-r-normal--18*   c #!EF , sets the horizontal resolution 
+to  #!F-adobe-times-bold-r-normal--18*   hres #!EF and the pixel aspect ratio to  #!F-adobe-times-bold-r-normal--18*   
+pix_aspect #!EF . #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXGetCameraResolution #!EF , for camera 
+ #!F-adobe-times-bold-r-normal--18*   c #!EF , if  #!F-adobe-times-bold-r-normal--18*   Xresolution #!EF is not  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF , returns the  #!F-adobe-times-bold-r-normal--18*   resolution #!EF in  #!F-adobe-times-bold-r-normal--18*   *Xresolution 
+#!EF . If  #!F-adobe-times-bold-r-normal--18*   Yresolution #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+, returns the  #!F-adobe-times-bold-r-normal--18*   resolution #!EF *  #!F-adobe-times-bold-r-normal--18*   aspect #!EF in 
+ #!F-adobe-times-bold-r-normal--18*   *Yresolution #!EF . Again, this is camera aspect. #!N #!N 
+Return Value #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXSetResolution #!EF returns the Camera or 
+returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and an error code. #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+DXGetCameraResolution #!EF returns the parameters or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgcmp,dxall1225 h DXGetCameraMatrix, DXGetCameraRotation, DXGetCameraMatrixWithFuzz  #!EL  ,  #!Ldxnca,dxall1311 h DXNewCamera  #!EL  ,  #!Ldxrndr,dxall1357 h DXRender  #!EL  ,  #!Ldxsoc,dxall1384 h DXSetOrthographic, DXGetOrthographic  #!EL  ,  #!Ldxspe,dxall1388 h DXSetPerspective, DXGetPerspective  #!EL  ,  #!Ldxsvw,dxall1393 h DXSetView, DXGetView  #!EL  
+#!EF #!N #!N  #!Lcamsec,dxall1138 h Camera Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxsso,dxall1390 h DXSetScreenObject  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

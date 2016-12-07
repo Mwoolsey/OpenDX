@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnf DXNewField #!N #!N Function #!N #!N Creates 
+a new Field Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Field DXNewField() #!EF #!N #!N Functional Details #!N #!N The Field 
+Object is the fundamental Object in Data Explorer. It consists of 
+zero or more named components, usually Arrays, that are accessed with 
+ #!F-adobe-times-bold-r-normal--18*   DXGetComponentValue #!EF or  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedComponentValue #!EF . Initially, the Field 
+has no components and is said to be empty;  #!F-adobe-times-bold-r-normal--18*   DXEmptyField 
+#!EF returns "1" for such Fields. Components are inserted in the 
+Field using the function  #!F-adobe-times-bold-r-normal--18*   DXSetComponentValue #!EF . #!N #!N There 
+are several predefined component names in Data Explorer. The component "positions" 
+generally refers to the points in the data space where the 
+field is sampled; "connections" are the relationships between the "positions" and 
+their interpolation; "data" refers to the values either at the "positions" 
+or for each whole "connections" element. #!N #!N The Field created 
+can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Note 
+that certain attributes on the components on a field are necessary 
+for proper processing of the field. For example, a "connections" component 
+must "ref" the "positions" component, and the "data" component must "dep" 
+either the "positions" or "connections" component (see  #!Lcompatt3,dxall223 t Table 3  #!EL  in IBM Visualization 
+Data Explorer User's Guide, and  #!Ldatam,dxall1022 h Data Explorer Data Model  #!EL  ). #!N #!N It is 
+recommended that DXEndField be called on any field created when you 
+are finished adding components to it. DXEndField trims away allocated but 
+unused space in the component arrays, and will in addition, set 
+some default component attributes. See  #!Ldxendf,dxall1201 h DXEndField  #!EL  for more information. #!N #!N 
+See  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in IBM Visualization Data Explorer User's Guide for additional 
+information on the Data Explorer data model. #!N #!N Return Value 
+#!N #!N Returns the Field or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxemf,dxall1200 h DXEmptyField  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  ,  #!Ldxgecv,dxall1233 h DXGetEnumeratedComponentValue  #!EL  ,  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  #!EF #!N #!N  #!Lfieldsc,dxall1062 h Field Class  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxng,dxall1317 h DXNewGroup  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

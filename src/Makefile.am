@@ -1,0 +1,1 @@
+SUBDIRS = exec uipp misc

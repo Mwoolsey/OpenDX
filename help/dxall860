@@ -1,0 +1,143 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rimage Image #!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  
+#!N #!N Function #!N #!N Renders an object and displays it 
+as an image. #!N #!N Syntax #!N #!N This module is 
+accessible only through the user interface. #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB object TAB object TAB none TAB object to be 
+rendered and #!N TAB - TAB - TAB - TAB displayed 
+#!N TAB renderMode TAB flag TAB 0 TAB software=0, hardware=1 #!N 
+TAB defaultCamera TAB camera TAB no default TAB the reset camera 
+#!N TAB resetCamera TAB camera TAB no default TAB reset the 
+camera #!N TAB bkgndColor TAB vector or string TAB "black" TAB 
+image background color #!N TAB throttle TAB scalar TAB 0 TAB 
+minimum time between image frames #!N TAB - TAB - TAB 
+- TAB (in seconds) #!N TAB recordEnable TAB flag TAB 0 
+TAB enable frame recording #!N TAB recordFile TAB string TAB "image" 
+TAB file name for frame recording #!N TAB recordFormat TAB string 
+TAB "rgb" TAB file format for frame recording #!N TAB recordRes 
+TAB integer TAB no default TAB Image resolution for recording #!N 
+TAB recordAspect TAB scalar TAB no default TAB Image aspect ratio 
+for recording #!N TAB axesEnabled TAB flag TAB 0 TAB produce 
+axes #!N TAB axesLabels TAB string list TAB no labels TAB 
+labels for axes #!N TAB axesTicks TAB integer or integer list 
+TAB 15 TAB number of major tick marks (0 to #!N 
+TAB - TAB - TAB - TAB suppress) #!N TAB axesCorners 
+TAB vector list or object TAB input object TAB bounds of 
+axes #!N TAB axesFrame TAB flag TAB 0 TAB flag for 
+axes frame type #!N TAB axesAdjust TAB flag TAB 1 TAB 
+whether to adjust the end points #!N TAB - TAB - 
+TAB - TAB to match tick marks #!N TAB axesCursor TAB 
+vector TAB no cursor TAB cursor position #!N TAB axesGrid TAB 
+flag TAB 0 TAB show grid lines on background #!N TAB 
+axesColors TAB vector list or string list TAB appropriate color(s) TAB 
+color(s) for annotation #!N TAB axesAnnotate TAB string list TAB "all" 
+TAB annotation objects to be colored #!N TAB axesLabelScale TAB scalar 
+TAB 1.0 TAB scale factor for labels #!N TAB axesFont TAB 
+string TAB "standard" TAB font for labels #!N TAB intrctnMode TAB 
+string TAB "none" TAB sets interaction mode of window #!N TAB 
+title TAB string TAB "Image" TAB Image title #!N TAB axesXTickLocs 
+TAB scalar list TAB no default TAB locations for x-axis ticks 
+#!N TAB axesYTickLocs TAB scalar list TAB no default TAB locations 
+for y-axis ticks #!N TAB axesZTickLocs TAB scalar list TAB no 
+default TAB locations for z-axis ticks #!N TAB axesXTickLabels TAB string 
+list TAB no default TAB labels for x-axis ticks #!N TAB 
+axesYTickLabels TAB string list TAB no default TAB labels for y-axis 
+ticks #!N TAB axesZTickLabels TAB string list TAB no default TAB 
+labels for z-axis ticks #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB renderable TAB object TAB 
+object, ready for rendering #!N TAB camera TAB camera TAB camera 
+used #!N TAB where TAB window TAB window identifier for the 
+Image window #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N This module functions much like a combination 
+of AutoCamera and Display. However, it activates the Data Explorer direct-interaction 
+features of the Image window, which are unavailable when you use 
+the combination of AutoCamera and Display. These features include resizing of 
+the image, pan/zoom, 3-D cursors, mouse-driven rotation, navigation in the image, 
+mouse control of the look-to and look-from points, and direct user 
+control of Image-window size. The  #!F-adobe-times-bold-r-normal--18*   View Control... #!EF dialog box 
+(accessed from the  #!F-adobe-times-bold-r-normal--18*   Options #!EF pull-down menu in the Image 
+window) permits explicit specification of these features. Note: Since Image both 
+renders and displays its input, you would not normally pass it 
+an already existing image (because it would be interpreted as a 
+large number of quadrilaterals). If you do have an image (e.g., 
+previously imported or rendered by one of the appropriate modules), you 
+should use the Display tool, without specifying a camera. #!N #!N 
+While the Image tool is only available while using the User 
+Interface, you can implement your own interactions with an image using 
+SuperviseWindow, SuperviseState, and Display. Thus direct interaction can be implemented from 
+a stand-alone program using DXCallModule (see  #!Lmodacss,dxall1113 h Module Access  #!EL  in IBM Visualization Data 
+Explorer Programmer's Reference), from a program interacting with Data Explorer using 
+DXLink (see  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  in IBM Visualization Data Explorer Programmer's Reference), or 
+even from a script (see  #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  in IBM Visualization Data Explorer 
+User's Guide). See  #!Lsupwind,dxall961 h SuperviseWindow  #!EL  for a discussion of these tools. #!N 
+#!N If it is installed, hardware graphics acceleration is available as 
+one of the  #!F-adobe-times-bold-r-normal--18*   Rendering Options... #!EF in the  #!F-adobe-times-bold-r-normal--18*   Options 
+#!EF pull-down menu of the Image window. #!N #!N Usually you 
+will use only the first parameter,  #!F-adobe-times-bold-r-normal--18*   object #!EF . The 
+other parameters, which are hidden by default, control aspects of the 
+image which can also be modified by various pulldowns in the 
+menu of the Image window. #!N #!N To open the Configuration 
+dialog box for Image, you select the Image tool and use 
+the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF menu  #!F-adobe-times-bold-r-normal--18*   Configuration #!EF option. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N 
+specifies the object to be rendered. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+renderMode #!EF #!EF #!I50 #!N specifies whether the rendering should be 
+software (renderMode=0) or hardware (renderMode=1). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   defaultCamera 
+#!EF #!EF #!I50 #!N is the camera to be used when 
+the  #!F-adobe-times-bold-r-normal--18*   Reset #!EF button in the  #!F-adobe-times-bold-r-normal--18*   View Control #!EF 
+dialog box or the  #!F-adobe-times-bold-r-normal--18*   resetCamera #!EF parameter (see below) is 
+set to 1 (one). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   resetCamera #!EF 
+#!EF #!I50 #!N (when set to 1) resets the camera to 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   defaultCamera 
+#!EF if that parameter is provided,  #!F-adobe-times-medium-i-normal--18*   or #!EF #!N #!I30 
+#!N o the standard "front view" if  #!F-adobe-times-bold-r-normal--18*   defaultCamera #!EF is 
+not provided. #!N #!I0 #!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   bkgndColor #!EF #!EF #!I50 #!N specifies the color of the 
+image background as either an RGB color or a color-name string. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   throttle #!EF #!EF #!I50 #!N specifies 
+a minimum interval between successive image displays. The default is 0 
+(no delay). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   recordEnable #!EF #!EF #!I50 
+#!N specifies that the created images are to be saved to 
+a file. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   recordFile #!EF #!EF #!I50 
+#!N is the name of the file to which images are 
+saved. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   recordFormat #!EF #!EF #!I50 #!N 
+specifies the format in which the images are to be written. 
+See  #!Lwriteim,dxall981 h WriteImage  #!EL  for more information. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   recordRes 
+#!EF #!EF #!I50 #!N specifies the horizontal resolution (in pixels) of 
+the recorded image. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   recordAspect #!EF #!EF 
+#!I50 #!N specifies the aspect ratio (i.e., the ratio of vertical 
+to horizontal size) of the recorded image. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   axesEnabled #!EF #!EF #!I50 #!N specifies that a set of 
+axes is to be drawn around  #!F-adobe-times-bold-r-normal--18*   object #!EF . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   axesLabels #!EF ...  #!F-adobe-times-bold-r-normal--18*   axesFont #!EF #!EF 
+#!I50 #!N are (except for "axes" in the name) the same 
+as the corresponding parameters described for  #!Lautoaxe,dxall770 h AutoAxes  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   intrctnMode #!EF #!EF #!I50 #!N specifies one of the 
+following as the interaction mode of the Image window: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N "camera" "none" "roam" #!N "cursors" "panzoom" "rotate" #!N 
+"navigate" "pick" "zoom" #!EF #!N #!N #!EC #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   title #!EF #!EF #!I50 #!N is the title of the 
+Image window. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   axesXTickLocs #!EF #!EF #!I50 
+#!N specifies the list of x-axis tick locations (see  #!Lautoaxe,dxall770 h AutoAxes  #!EL  ) 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   axesYTickLocs #!EF #!EF #!I50 #!N specifies 
+the list of y-axis tick locations (see  #!Lautoaxe,dxall770 h AutoAxes  #!EL  ) #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   axesZTickLocs #!EF #!EF #!I50 #!N specifies the list 
+of z-axis tick locations (see  #!Lautoaxe,dxall770 h AutoAxes  #!EL  ) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   axesXTickLabels #!EF #!EF #!I50 #!N specifies the list of x-axis 
+tick labels (see  #!Lautoaxe,dxall770 h AutoAxes  #!EL  ) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   axesYTickLabels 
+#!EF #!EF #!I50 #!N specifies the list of y-axis tick labels 
+(see  #!Lautoaxe,dxall770 h AutoAxes  #!EL  ) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   axesZTickLabels #!EF #!EF 
+#!I50 #!N specifies the list of z-axis tick labels (see  #!Lautoaxe,dxall770 h AutoAxes  #!EL  
+) #!I0 #!N #!N #!N #!N The first output of the 
+Image tool (  #!F-adobe-times-bold-r-normal--18*   renderable #!EF ) is the object just 
+before rendering (including, for example, any axes attached). #!N #!N The 
+second output (  #!F-adobe-times-bold-r-normal--18*   camera #!EF ) is the camera used 
+to render  #!F-adobe-times-bold-r-normal--18*   object #!EF (including, for example, any zooms or 
+rotations applied by direct interactors). #!N #!N The third output  #!F-adobe-times-bold-r-normal--18*   
+where #!EF is the window identifier for the Image window. This 
+can be used, for example, by ReadImageWindow to read back the 
+pixels from the image. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ltall862,dxall862 h Recording images displayed in the Image window  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

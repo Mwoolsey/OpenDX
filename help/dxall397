@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rsetatdb Setting Interactor Attributes #!N #!EC #!N #!N You 
+can have several instances of the same interactor. Each instance can 
+be a different style (stepper, dial, or slider) and can have 
+a different increment value. However, all instances of an interactor have 
+the same value and the same minimum and maximum limits. As 
+you change the value or range of one instance, the other 
+instances of that interactor are automatically updated. #!N #!N To change 
+the  #!F-adobe-times-medium-i-normal--18*   range #!EF of values of an interactor, select the 
+interactor, and select the  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF option in the 
+ #!F-adobe-times-bold-r-normal--18*   Edit #!EF menu; or double-click on the interactor in the 
+Control Panel. The  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box (  #!Lsetlim80,dxall397 f Figure 80  #!EL  
+) appears. #!N #!N #!Cbrown  #!F-adobe-times-medium-r-normal--18*    #!Rsetlim80 #!N Graphics omitted from 
+Online Documentation. Please see the manual. #!N #!N Figure 80. Set 
+Attributes Dialog Box #!EF #!N #!EC In this box you can: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Set maximum 
+and minimum values. #!N #!I30 #!N o Change the step increment. 
+#!N #!I30 #!N o Change the number of decimal places displayed. 
+(In the case of an integer interactor, the decimal place field 
+is disabled.) #!N #!I30 #!N o Choose whether to update the 
+image continuously as you change the interactor values, or to update 
+only when the mouse button is released. This applies only when 
+ #!F-adobe-times-bold-r-normal--18*   Execute on Change #!EF is enabled. Note: Many interactor types 
+can also be data-driven, meaning that their attributes are derived at 
+run time from data in the visual program. See  #!Lddinter,dxall434 h Using Data-Driven Interactors  #!EL  . 
+#!N #!I0 #!N #!EF #!N The increment and update options can 
+be applied to the either just the current instance or to 
+all instances of the interactor. To affect all instances, click on 
+the option box for the attribute you want to set (increment 
+or update), and select the Global option from option menu. To 
+affect only the current instance, select the Local option. Having multiple 
+instances of an interactor with different increments allows coarse and fine 
+controls. For example, you may want one instance of a scalar 
+interactor to change by increments of 1.0, another instance by 0.10, 
+and a third instance by 0.01. Note that the "global" option 
+will not override interactors which have been explicitly set to "local." 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltall399,dxall399 h Vector interactors  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

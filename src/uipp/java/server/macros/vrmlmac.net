@@ -1,0 +1,74 @@
+//
+// time: Wed Mar  5 10:52:15 2003
+//
+// version: 3.2.0 (format), 4.2.0 (DX)
+//
+//
+// Begin MDF
+// MODULE VRMLExport
+// DESCRIPTION VRML Export for JavaDX
+// INPUT object; object; (none);  
+// INPUT base_name; string; (none);  
+// OUTPUT file_written; string;  
+// End MDF
+// workspace: width = 742, height = 252
+// layout: snap = 0, width = 50, height = 50, align = NN
+//
+macro VRMLExport(
+ object
+,base_name
+) -> (
+ file_written
+) {
+    // 
+    // node Input[7]: x = 10, y = 10, inputs = 0, label = Input
+    // parameter: position = 1, name = 'object', value = ' ', descriptive = 0, description = ' ', required = 1, visible = 1
+    //
+VRMLExport_Input_7_out_1 = object;
+    // 
+    // node Input[8]: x = 126, y = 10, inputs = 0, label = Input
+    // parameter: position = 2, name = 'base_name', value = ' ', descriptive = 0, description = ' ', required = 1, visible = 1
+    //
+VRMLExport_Input_8_out_1 = base_name;
+    // 
+    // node Export[1]: x = 19, y = 100, inputs = 3, label = Export
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "vrml"
+    //
+    Export(
+    VRMLExport_Input_7_out_1,
+    VRMLExport_Input_8_out_1,
+    "vrml"
+    ) [instance: 1, cache: 1];
+    // 
+    // node Format[8]: x = 106, y = 100, inputs = 3, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "%s.wrl"
+    // input[3]: visible = 0
+    //
+VRMLExport_Format_8_out_1[cache: 2] = 
+    Format(
+    "%s.wrl",
+    VRMLExport_Input_8_out_1,
+    NULL
+    ) [instance: 8, cache: 1];
+    // 
+    // node Output[4]: x = 106, y = 190, inputs = 1, label = Output
+    // parameter: position = 1, name = 'file_written', value = ' ', descriptive = 0, description = ' ', required = 0, visible = 1
+    //
+file_written = VRMLExport_Format_8_out_1;
+    //
+    // decorator Annotate	pos=(271,81) size=471x124 style(Label), value = <NULL>
+    // annotation user_begin: 517
+    // annotation user: When dxui saves a net in JavaDX format (that means the user has clicked on
+    // annotation user: the  'Add  Tools'  button  in  the vpe's 'Edit/Java' menu),  a special version of
+    // annotation user: the  image macro is  written into  the net. The special version uses 3 macros
+    // annotation user: in this directory to help it do its work.
+    // annotation user: <NULL>
+    // annotation user: This  macro has a ""  category  name  because there isn't any reason  why it
+    // annotation user: should ever  appear  in  dxui. There will  never be  areference  to  it  that will
+    // annotation user: enable  the  user  to  use the 'Windows/Open Selected  Macro'  button  on  it.
+    // annotation user_end: <NULL>
+// network: end of macro body
+}
+VRMLExport_Input_7_out_1 = NULL;
+VRMLExport_Input_8_out_1 = NULL;
+VRMLExport_Format_8_out_1 = NULL;

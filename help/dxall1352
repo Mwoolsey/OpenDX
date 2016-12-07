@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxrea DXReAllocate #!N #!N Function #!N #!N Changes the size of 
+a previously allocated block of storage. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Pointer DXReAllocate(Pointer x, unsigned int n) #!EF #!N #!N 
+Functional Details #!N #!N Changes the size of the previously allocated 
+block of storage pointed to by  #!F-adobe-times-bold-r-normal--18*   x #!EF by  #!F-adobe-times-bold-r-normal--18*   
+n #!EF bytes. The pointer  #!F-adobe-times-bold-r-normal--18*   x #!EF must have been 
+returned from either  #!F-adobe-times-bold-r-normal--18*   DXAllocate #!EF ,  #!F-adobe-times-bold-r-normal--18*   DXAllocateZero #!EF , 
+ #!F-adobe-times-bold-r-normal--18*   DXAllocateLocal #!EF ,  #!F-adobe-times-bold-r-normal--18*   DXAllocateLocalZero #!EF , or a previous 
+call to  #!F-adobe-times-bold-r-normal--18*   DXReAllocate #!EF . If  #!F-adobe-times-bold-r-normal--18*   x #!EF is 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF , a global memory block is allocated as 
+if  #!F-adobe-times-bold-r-normal--18*   DXAllocate #!EF was called. The number of bytes  #!F-adobe-times-bold-r-normal--18*   
+n #!EF must be greater than 0. The user is responsible 
+for freeing the allocated space by calling  #!F-adobe-times-bold-r-normal--18*   DXFree #!EF . 
+The block is copied if necessary, invalidating any pointers to the 
+old storage. #!N #!N Return Value #!N #!N Returns a pointer 
+to the new block, or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets 
+the error code to indicate an error such as out of 
+memory or a corrupted storage area. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxalp,dxall1171 h DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly, DXAllocateLocalOnlyZero  #!EL  ,  #!Ldxfre,dxall1212 h DXFree  #!EL  ,  #!Ldxpa,dxall1332 h DXPrintAlloc  #!EL  #!EF #!N #!N  #!Lstoral,dxall1096 h Memory Allocation  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxref,dxall1353 h DXReference  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

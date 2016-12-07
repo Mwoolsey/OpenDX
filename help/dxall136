@@ -1,0 +1,91 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall135 Example 4. Handling Interspersed Text #!N #!EC 
+#!N #!N The  #!F-adobe-times-bold-r-normal--18*   layout #!EF keyword is used to specify 
+which locations in a data file are to be read, thereby 
+avoiding interspersed text. In the example data file shown here, there 
+are no implied connections between data values. #!N #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. In the Data Prompter initial 
+dialog box: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N a. 
+Select  #!F-adobe-times-bold-r-normal--18*   Grid or Scattered File #!EF , then select for 
+scattered data (rightmost grid button). #!N #!I30 #!N b. Activate the 
+ #!F-adobe-times-bold-r-normal--18*   Position #!EF toggle button. #!N #!I30 #!N c. Set  #!F-adobe-times-bold-r-normal--18*   
+Number of variables #!EF to "1." #!N #!I30 #!N d. The 
+data positions (latitude and longitude) are in the data file and 
+are 2-dimensional: set  #!F-adobe-times-bold-r-normal--18*   Dimension #!EF to "2." #!N #!I30 #!N 
+e. Activate the  #!F-adobe-times-bold-r-normal--18*   Columnar #!EF toggle button. #!N #!I30 #!N 
+f. Click on  #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF to bring up the 
+simplified data prompter. #!N #!I0 #!N #!EF #!N #!N #!I30 #!N 
+2. In the  #!F-adobe-times-bold-r-normal--18*   Data file #!EF field enter the path 
+name: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /usr/lpp/dx/samples/data/CO2fragment.lis #!EF #!N #!N #!EC 
+#!N #!I30 #!N 3. Activate the  #!F-adobe-times-bold-r-normal--18*   Header #!EF toggle button, 
+select the "String marker" option, and enter "CO2_CONC \n" in the 
+associated text field. (Note that the marker text is the heading 
+for the third column of data and that the reading of 
+data will start after the new-line character, at the point marked 
+by "  #!F-adobe-times-bold-r-normal--18*   * #!EF " on the following line. See 
+also Step 6 of Example 7 in  #!Lsvarx86,dxall122 s Enter "Time Step 1 \n"  #!EL  .) Note: The 
+asterisk (  #!F-adobe-times-bold-r-normal--18*   * #!EF ) at the beginning of the 
+first data line and the interval scale following the data are 
+for reference purposes only and do not appear in the actual 
+file (see Steps 3 and 5f-j in this example). #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N VARIABLES AND SPECIFIED RANGES #!N _________________________________________________________________________ #!N 
+EPOCH 01-Jul-1983 00:00:00.000 31-Dec-1987 00:00:00.000 #!N LATITUDE -90.00 90.00 #!N LONGITUD 
+-180.00 180.00 #!N CO2_CONC -10000.0 10000.0 #!N #!N EPOCH LATITUDE LONGITUD 
+CO2_CONC #!N  #!F-adobe-times-bold-r-normal--18*   * #!EF 01-Jul-1983 00:00:00.000 -37.95 77.53 341.4 #!N 
+01-Jul-1983 00:00:00.000 -89.98 -24.80 341.0 #!N 01-Jul-1983 00:00:00.000 -7.92 -14.42 343.4 
+#!N 01-Jul-1983 00:00:00.000 -40.68 144.68 -100.0 #!N 01-Jul-1983 00:00:00.000 19.52 -154.82 
+341.9 #!N 01-Jul-1983 00:00:00.000 -14.25 -170.57 342.0 #!N 01-Jul-1983 00:00:00.000 2.00 
+-157.30 -100.0 #!N 01-Jul-1983 00:00:00.000 55.20 -162.72 335.3 #!N 01-Jul-1983 00:00:00.000 
+-75.67 -27.00 341.7 #!N 01-Jul-1983 00:00:00.000 -43.83 -172.63 341.3 #!N 01-Jul-1983 
+00:00:00.000 25.67 -80.17 343.8 #!N 01-Jul-1983 00:00:00.000 -4.67 55.17 339.1 #!N 
+01-Jul-1983 00:00:00.000 13.43 144.78 344.0 #!N 01-Jul-1983 00:00:00.000 19.53 -155.58 343.5 
+#!N 01-Jul-1983 00:00:00.000 76.23 -119.33 339.8 #!N 01-Jul-1983 00:00:00.000 40.05 -105.63 
+339.5 #!N 01-Jul-1983 00:00:00.000 66.00 2.00 338.7 #!N 01-Jul-1983 00:00:00.000 -64.92 
+-64.00 341.4 #!N 01-Jul-1983 00:00:00.000 71.32 -156.60 340.1 #!N 01-Jul-1983 00:00:00.000 
+17.75 -64.77 342.3 #!N 01-Jul-1983 00:00:00.000 38.75 -27.08 341.1 #!N #!N 
+ #!Rdbrintv #!N  #!F-adobe-times-bold-r-normal--18*   #!N |-----------skip 33-------------| width 12 | width 12 
+| width 10 #!N #!EF #!N #!EF #!N #!N #!EC #!N 
+#!I30 #!N 4. Enter "21" in the  #!F-adobe-times-bold-r-normal--18*   # of points 
+#!EF field. #!N #!I30 #!N 5. Use the  #!F-adobe-times-bold-r-normal--18*   layout #!EF 
+option to "skip" interspersed text: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N a. Select  #!F-adobe-times-bold-r-normal--18*   Full prompter #!EF from the  #!F-adobe-times-bold-r-normal--18*   
+Options #!EF menu. #!N #!I30 #!N b. Select "locations" in the 
+ #!F-adobe-times-bold-r-normal--18*   Field list #!EF of the Data Prompter. #!N #!I30 #!N 
+c. Activate the  #!F-adobe-times-bold-r-normal--18*   Layout #!EF toggle button (in the right-hand 
+panel of the prompter). #!N #!I30 #!N d. Bring up the 
+Browser for the data file by clicking on the ellipsis button 
+(  #!F-adobe-times-bold-r-normal--18*   ... #!EF ) next to the  #!F-adobe-times-bold-r-normal--18*   Data file 
+#!EF field. #!N #!I30 #!N e. Click on  #!F-adobe-times-bold-r-normal--18*   Browser... #!EF 
+to view the data file. #!N #!I30 #!N f. In the 
+data file, position the cursor at the beginning of the first 
+data value in the first data line (-37.95) and note the 
+ #!F-adobe-times-bold-r-normal--18*   Byte Offsets #!EF value (counting from the start of the 
+line). Enter this number (33) in the  #!F-adobe-times-bold-r-normal--18*   skip #!EF field 
+of the  #!F-adobe-times-bold-r-normal--18*   Layout #!EF option. #!N #!I30 #!N g. Enter 
+the value "12" in the  #!F-adobe-times-bold-r-normal--18*   width #!EF field of the 
+ #!F-adobe-times-bold-r-normal--18*   Layout #!EF option. Since the latitude-longitude pairs are 2-vectors, the 
+Data Prompter will read the specified width  #!F-adobe-times-medium-i-normal--18*   twice #!EF in 
+succession, once for each component. (Thus, the Data Prompter skips 33 
+characters, reads 12 characters, and then reads 12 more, as specified 
+by the first  #!F-adobe-times-bold-r-normal--18*   layout #!EF settings. See the marked intervals 
+at the bottom of the data file in  #!Ldbrintv,dxall136 s skip 33  #!EL  .) #!N 
+#!I30 #!N h. To confirm these changes, click on  #!F-adobe-times-bold-r-normal--18*   Modify 
+#!EF at the bottom of the panel. #!N #!I30 #!N i. 
+Select "field0" in the  #!F-adobe-times-bold-r-normal--18*   Field list #!EF and rename it 
+"CO2_concentration." #!N #!I30 #!N j. Enter the value "0" (zero) in 
+the  #!F-adobe-times-bold-r-normal--18*   skip #!EF field and "10" in the  #!F-adobe-times-bold-r-normal--18*   width 
+#!EF field. (Now the Data Prompter skips zero characters and then 
+reads 10 characters. See the marked intervals at the bottom of 
+the data file in  #!Ldbrintv,dxall136 s skip 33  #!EL  .) #!N #!I30 #!N k. To 
+confirm these changes, click on  #!F-adobe-times-bold-r-normal--18*   Modify #!EF at the bottom 
+of the panel. #!N #!I0 #!N #!EF #!N #!N #!I30 #!N 
+6. Save the header file (Step 10 of Example 1 in 
+ #!Lex1a,dxall116 s To save the header file  #!EL  ), which should look like: #!N #!I0 #!N #!EF #!N 
+#!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/CO2fragment.lis #!N points 
+= 21 #!N format = text #!N interleaving = field #!N 
+header = marker "CO2_CONC \n" #!N field = locations, CO2_concentration #!N 
+structure = 2-vector, scalar #!N type = float, float #!N layout 
+= 33, 12, 0, 10 #!N #!N end #!EF #!N #!N 
+#!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall136,dxall137 h Example 5. Time Series with Interspersed Text  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall522 Floating Point 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Floating-point #!EF numbers are used to represent 
+the set of real numbers. These numbers encompass both rational and 
+irrational numbers. By virtue of their 32-bit, IEEE single-precision internal representation, 
+they lie in the range of +/-3.4028 x 10(38). The smallest 
+step between values is +/-1.1754 x 10(-38). Like integers, floating-point numbers 
+can be prefixed by a minus sign (  #!F-adobe-times-bold-r-normal--18*   - #!EF 
+) to represent a negative number. Floating-point numbers can be expressed 
+in two ways: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Standard 
+representation #!EF #!I50 #!N The  #!F-adobe-times-medium-i-normal--18*   standard representation #!EF of a 
+floating-point number consists of a decimal number followed by a decimal 
+point (  #!F-adobe-times-bold-r-normal--18*   . #!EF ), followed by another decimal number. 
+The first decimal number represents the whole part of the floating-point 
+number. The second represents the fractional part. Either the first or 
+the second of the numbers surrounding the decimal point can be 
+omitted, but not both. If the first is omitted, then the 
+number is purely fractional. If the second is omitted, then the 
+number does not contain a fractional part. This second alternative is 
+useful for representing integer values that lie outside of the range 
+representable by the integer format. #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Scientific 
+notation #!EF #!I50 #!N  #!F-adobe-times-medium-i-normal--18*   Scientific notation #!EF is an alternative 
+means of representing floating-point numbers. A number in scientific notation has 
+the form  #!F-adobe-times-medium-i-normal--18*   x #!EF e  #!F-adobe-times-medium-i-normal--18*   y #!EF (or  #!F-adobe-times-medium-i-normal--18*   
+x #!EF E  #!F-adobe-times-medium-i-normal--18*   y #!EF ). The number  #!F-adobe-times-medium-i-normal--18*   x 
+#!EF can be either a standard floating-point number or a decimal 
+integer. The number  #!F-adobe-times-medium-i-normal--18*   y #!EF must be a decimal integer. 
+It can be prefixed by a minus sign. This scientific notation 
+is simply shorthand for writing  #!F-adobe-times-medium-i-normal--18*   x*10(y) #!EF . The effect 
+of the decimal value  #!F-adobe-times-medium-i-normal--18*   y #!EF is to specify the 
+number of places the decimal point should be shifted to the 
+right, or if  #!F-adobe-times-medium-i-normal--18*   y #!EF is negative, to the left. 
+#!I0 #!N #!N #!N #!N The following are examples of valid 
+floating-point numbers, all of which have the value 95.0: #!N #!N 
+#!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 95. #!N 95.0 #!N 95e0 #!N 9.5E1 
+#!N 950e-1 #!N 9.50e+1 #!EF #!N #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lvecm,dxall523 h Vectors, Matrices, and Tensors  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

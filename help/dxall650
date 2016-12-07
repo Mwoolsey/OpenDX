@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall649 Regular Array Objects #!N #!EC #!N #!N A 
+Regular Array Object is a compact encoding of a linear sequence 
+of equally spaced points in  #!F-adobe-times-medium-i-normal--18*   n #!EF -space. It is 
+often combined in a Product Array with other Regular Array Objects 
+to obtain a grid of equally-spaced points in  #!F-adobe-times-medium-i-normal--18*   n #!EF 
+-space; in such a case, it is generally more convenient to 
+use the  #!F-adobe-times-bold-r-normal--18*   gridpositions #!EF keyword described earlier. #!N #!N A 
+Regular Array Object is a linear sequence of points in  #!F-adobe-times-medium-i-normal--18*   
+n #!EF -space starting at some origin, specified by the  #!F-adobe-times-bold-r-normal--18*   
+origin #!EF clause, and separated by some constant delta, specified by 
+the  #!F-adobe-times-bold-r-normal--18*   delta #!EF clause. The  #!F-adobe-times-bold-r-normal--18*   delta #!EF clause has 
+the same number of elements as  #!F-adobe-times-bold-r-normal--18*   origin #!EF . The 
+dimensionality of the space that the linear sequence is embedded in 
+is determined by the number of coordinates specified in the  #!F-adobe-times-bold-r-normal--18*   
+origin #!EF clause. Regular Array Objects are always of rank 1. 
+#!T,60 #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   object #!EF TAB  #!F-adobe-times-bold-i-normal--18*   
+number #!EF [  #!F-adobe-times-bold-r-normal--18*   class #!EF ]  #!F-adobe-times-bold-r-normal--18*   regulararray #!EF [ 
+ #!F-adobe-times-bold-r-normal--18*   items #!EF ]  #!F-adobe-times-bold-i-normal--18*   number #!EF #!N TAB "  #!F-adobe-times-bold-i-normal--18*   
+name #!EF " #!N [  #!F-adobe-times-bold-r-normal--18*   type #!EF TAB  #!F-adobe-times-bold-r-normal--18*   unsigned 
+byte #!EF ] #!N  #!F-adobe-times-bold-r-normal--18*   TAB signed byte #!N TAB unsigned 
+short #!N TAB signed short #!N TAB unsigned int #!N TAB 
+signed int #!N TAB hyper #!N TAB float #!N TAB double 
+#!N TAB string #!EF #!N  #!F-adobe-times-bold-r-normal--18*   origin #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number 
+... #!EF #!N  #!F-adobe-times-bold-r-normal--18*   delta #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number ... #!EF 
+#!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall650,dxall651 h Product Array Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

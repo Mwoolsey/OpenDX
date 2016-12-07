@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu316.htm">Previous Page</A> &#124; <A HREF="progu318.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXSM" HREF="progu097.htm#PToC_411">DXSetMember</A></H3>
+<A NAME="IDX2084"></A>
+<A NAME="IDX2085"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Adds a member to a Group.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Group DXSetMember(Group g, char *name, Object value)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Adds
+<TT><STRONG>
+value
+</STRONG></TT>
+as a member of Group <TT><STRONG>g</STRONG></TT>.  The
+<TT><STRONG>
+name
+</STRONG></TT>
+may be
+<TT><STRONG>NULL</STRONG></TT>,
+in which case a
+new member is added that may be accessed only using
+<TT><STRONG>DXGetEnumeratedMember</STRONG></TT>.  If
+<TT><STRONG>
+name
+</STRONG></TT>
+is the same as the name of an
+existing member, then the new member will have the same index in the
+Field as the old member and the value of that member is overwritten
+with the new value.  Setting a member to
+<TT><STRONG>NULL</STRONG></TT>
+deletes the member.
+<P>
+If the Group is typed, and the new Object
+<TT><STRONG>
+value
+</STRONG></TT>
+is typed, then
+<TT><STRONG>
+value
+</STRONG></TT>
+must be of the same type as the Group.  This is generally the case for
+Series, Composite Fields, and MultiGrids.  The first time
+<TT><STRONG>DXSetMember</STRONG></TT> is called for one of these generally
+typed Groups with a typed <TT><STRONG>value</STRONG></TT>,
+<TT><STRONG>DXSetMember</STRONG></TT> sets the type of the Group to be the
+type of the Object.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>g</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+and
+sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu169.htm#HDRDXGEM">DXGetEnumeratedMember</A>,
+<A HREF="progu175.htm#HDRDXGGC">DXGetGroupClass</A>,
+<A HREF="progu181.htm#HDRDXGM">DXGetMember</A>,
+<A HREF="progu252.htm#HDRDXNG">DXNewGroup</A>,
+<A HREF="progu311.htm#HDRDXSEM">DXSetEnumeratedMember</A>,
+<A HREF="progu315.htm#HDRDXSGTV">DXSetGroupType, DXSetGroupTypeV</A>
+</STRONG></TT>
+<P>
+<A HREF="progu045.htm#HDRMBS">"Generic Operations"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu316.htm">Previous Page</A> &#124; <A HREF="progu318.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,82 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall775 User-supplied and 
+Annotation Glyphs #!N #!EC #!N #!N You may also pass your 
+own glyph in as  #!F-adobe-times-bold-r-normal--18*   type #!EF as the object to 
+place at each data point. The dimensionality of the positions of 
+the glyph must be either 2-D or 3-D, and the connections 
+type must be "triangles" or "lines." This glyph can be any 
+Data Explorer field (e.g., an imported object, an isosurface, or a 
+constructed object).  #!Rtype #!N #!N There are two ways to use 
+your own glyphs: as user-supplied glyphs and as annotation glyphs. #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   User-supplied Glyphs #!EF #!N #!N If you pass in 
+a single field as  #!F-adobe-times-bold-r-normal--18*   type #!EF , that object is 
+used as a glyph. It is drawn large or small depending 
+on the data value, and it inherits the color of the 
+data point, if present. The size of the object should be 
+approximately unity for the default sizing of AutoGlyph to work well. 
+Glyphs for scalar fields should be centered at the origin; glyphs 
+for vector fields should have their base at the origin and 
+the end that you want to point in the direction of 
+the vector field at (0, 1, 0); that is, the glyph 
+will be stretched along its y-dimension. You can use any combination 
+of Scale, Rotate, and Translate to scale, orient, and position your 
+template glyph before passing it to AutoGlyph. #!N #!N  #!F-adobe-times-medium-i-normal--18*   Annotation 
+Glyphs #!EF #!N #!N If you pass in a group of 
+objects as  #!F-adobe-times-bold-r-normal--18*   type #!EF , AutoGlyph interprets these as "annotation 
+glyphs." Each object in the group must be a single field. 
+It is assumed that you want data values equal to zero 
+to be represented by the zero(th) glyph in the group, data 
+values equal to one to be represented by the first glyph 
+in the group, and so on. #!N #!N Thus the data 
+component of  #!F-adobe-times-bold-r-normal--18*   data #!EF in this case must be of 
+the type integer, unsigned integer, byte, unsigned byte, short, or unsigned 
+short. The size of the glyph in the resulting output will 
+be the size of the glyph in the glyph group, modified 
+by the scaling factor  #!F-adobe-times-bold-r-normal--18*   scale #!EF . Colors and other 
+components will be maintained from the  #!F-adobe-times-medium-i-normal--18*   input glyphs #!EF to 
+the output object, rather than from the colors of  #!F-adobe-times-bold-r-normal--18*   data 
+#!EF . The  #!F-adobe-times-bold-r-normal--18*   shape #!EF ,  #!F-adobe-times-bold-r-normal--18*   ratio #!EF , 
+ #!F-adobe-times-bold-r-normal--18*   min #!EF , and  #!F-adobe-times-bold-r-normal--18*   max #!EF parameters are ignored 
+for annotation glyphs. Annotation glyphs should be positioned at the origin. 
+You can use any combination of Scale, Rotate, and Translate to 
+scale, orient, and position your template glyph before passing it to 
+AutoGlyph. #!N #!N Components #!N #!N Creates new "positions" and "connections" 
+components. In the case of a 3-D glyph, a "normals" component 
+is added for shading purposes. All components that match the dependency 
+of the "data" component are propagated to the output; all others 
+are not. If the input has "binormals" and "tangent" components, they 
+are not propagated to the output. #!N #!N Example Visual Programs 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AnnotationGlyphs.net ThunderGlyphSheet.net #!N ConnectingScatteredPoints.net UsingGlyphs.net #!N 
+PickStreamline.net UsingTextAndTextGlyphs.net #!N ProbeText.net SIMPLE/AutoGlyph.net #!EF #!N #!N #!EC #!N #!N 
+See Also #!N #!N  #!Lglyph,dxall856 h Glyph  #!EL  ,  #!Lsample,dxall931 h Sample  #!EL  #!CIndianRed #!N #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   How to Avoid Stretching or Squashing Glyphs  #!Ravoid #!N #!N 
+Users often use the Scale module to scale a collection of 
+objects prior to rendering, if the axes have very different scales. 
+This can cause a problem if the visualization includes glyphs, as 
+the glyphs will be stretched or squashed as well. You can 
+place the Scale module before Glyph or AutoGlyph, but if you 
+want AutoAxes to show the original (rather than the scaled) position 
+values, this will not work. One way of solving this problem 
+lies in the fact that Glyph and AutoGlyph can accept a 
+user-defined Glyph: #!N #!N Give either module a "user-defined" glyph that 
+is  #!F-adobe-times-medium-i-normal--18*   inversely #!EF squashed, so that when you use Scale, 
+the glyph ends up with the correct shape. Proceed as follows: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Create a 
+field with a single point at the origin, using Construct ([0 
+0 0], data = 0) for scalar (sphere) glyphs #!N #!I30 
+#!N o Feed this field to either module to make a 
+single sphere or arrow. #!N #!I30 #!N o Now scale the 
+glyph, using a scale factor that is the inverse of the 
+one you want to use on the entire data set. For 
+example, if you are going to scale your data by [1 
+1 .001], then scale the single glyph by [.001 .001 1]. 
+#!N #!I30 #!N o Feed this scaled glyph to the second 
+parameter of the module, which puts glyphs on all the data 
+points. The module will use the squashed glyph as its template. 
+After the template is scaled by [1 1 .001], the glyphs 
+won't be squashed anymore. #!N #!I30 #!N o A macro, UnsquishGlyphMacro.net, 
+which performs this operation, can be found in /usr/lpp/dx/samples/macros. This macro 
+(and this technique) works only for scalar data. #!N #!I0 #!N 
+#!EF #!N #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lautogra,dxall777 h AutoGrayScale  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

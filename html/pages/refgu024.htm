@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - CategoryStatistics</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu023.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu025.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRCATEGST" ></A>CategoryStatistics</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<P><STRONG>Function</STRONG>
+<P>
+Calculate statistics on data associated with a categorical component
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>statistics</STRONG> = CategoryStatistics(<STRONG>input, operation, category, data, lookup</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">field for which to compute
+statistics
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>operation</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">"count"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">operation to perform
+("count", "mean", "sd", "var", "min",
+"max")
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>category</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">"data"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component with categorical values
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">"data"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">data component for statistics
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>lookup</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer, string, value list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">"category lookup"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">lookup component
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>statistics</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">field with data containing the
+statistics and positions
+for the category values
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>field containing the categorical and data components
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>operation</STRONG></TT>
+</B></TD><TD><P>calculation to perform
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>category</STRONG></TT>
+</B></TD><TD><P>component with categorical values. This component must be an
+integer type (int, ubyte, ...)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>data component for statistics. This component must be scalar.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>lookup</STRONG></TT>
+</B></TD><TD><P>lookup component (optional)
+</TD></TR></TABLE>
+<P>
+CategoryStatistics calculates statistics on a scalar component
+associated with a categorical component. If the
+operation is "count", the <TT><STRONG>data</STRONG></TT>
+component is ignored and the
+number of counts in each category is calculated, corresponding
+to a histogram of the unique values in the categorized component.
+<P>
+For example, if <TT><STRONG>input</STRONG></TT> is a Field with component
+"state" containing the entries &#123;1,0,1,2,3&#125;, component
+"state lookup" containing the entries &#123;"CA", "NY",
+"PA", "VA"&#125;, and a component "sales" containing
+the entries &#123;1.2,1.0,1.4,1.7,1.8&#125;, then
+CategoryStatistics(input,"mean","state","sales") will
+produce an output field where the "positions" component will
+contain the indices &#123;0,1,2,3&#125; and the "data"
+component will contain the mean value for sales for each state, that is
+&#123;1.0,1.3,1.7,1.8&#125;.
+<P>
+The output of CategoryStatistics is a field with a "positions"
+component corresponding to the categorical indices, and a "data"
+component corresponding to the requested statistics. The
+"positions" component will consist of the integers 0 to N-1, where
+N can be determined in a number of ways:
+<UL COMPACT>
+<LI>If no <TT><STRONG>lookup</STRONG></TT> component
+is specified, and if a "categoryname lookup" component
+is not found,
+(where "categoryname" is the string specified by
+<TT><STRONG>category</STRONG></TT>), then the output field will simply have
+positions from 0 to MAX_N, where MAX_N is the maximum integer found in
+the <TT><STRONG>category</STRONG></TT> component.
+<LI>If, on the other hand, a "categoryname lookup" component is
+found, or <TT><STRONG>lookup</STRONG></TT> is specified, then the number of
+category bins will be the number of items in <TT><STRONG>lookup</STRONG></TT>.
+<TT><STRONG>lookup</STRONG></TT> can also simply be an integer specifying the
+number of category bins.
+<LI>If a lookup table is provided, then for convenience, a
+"categoryname lookup" component will be placed in the output
+containing the values corresponding to the categorical indices.
+</UL>
+<P><STRONG>Components</STRONG>
+<P>
+Creates an output field with a "positions" component representing
+the categorical indices, and a "data" component containing the
+requested statistics. Creates a "categoryname lookup" component if
+a lookup table is specified using the <TT><STRONG>lookup</STRONG></TT>
+parameter.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+Duplicates.net
+Zipcodes.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+<A HREF="refgu023.htm#HDRCATEGOR">Categorize</A>,
+<A HREF="refgu147.htm#HDRSTATIST">Statistics</A>,
+<A HREF="refgu086.htm#HDRLOOKUP">Lookup</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

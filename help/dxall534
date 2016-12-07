@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall533 Assignment 
+Statements #!N #!EC Assignment statements store values in variables. The general 
+form of an assignment statement is: #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N  #!F-adobe-times-bold-i-normal--18*   left-side #!EF [attribute_name:value,...] = #!N  #!F-adobe-times-bold-i-normal--18*   right-side #!EF [attribute_name:value,...] 
+#!EF #!N #!N #!EC #!N #!N The  #!F-adobe-times-bold-i-normal--18*   left-side #!EF portion 
+of an assignment statement is a sequence of one or more 
+identifiers separated by commas. The [attribute_name:value,...] value pair lists and the 
+brackets are optional, and are discussed in  #!Lfca,dxall543 h Function Call Attributes  #!EL  . The equal 
+sign (  #!F-adobe-times-bold-r-normal--18*   = #!EF ) is the assignment operator. It 
+stores the values specified in the  #!F-adobe-times-bold-i-normal--18*   right-side #!EF portion of 
+the statement in the variables named by the identifiers specified in 
+the  #!F-adobe-times-bold-i-normal--18*   left-side #!EF portion of the statement. You can specify 
+the values in the  #!F-adobe-times-bold-i-normal--18*   right-side #!EF portion of the statement 
+as a sequence of expressions or as the result of a 
+single function call. #!N #!N You can also use either of 
+two additional symbols,  #!F-adobe-times-bold-r-normal--18*   <- #!EF or  #!F-adobe-times-bold-r-normal--18*   := #!EF , 
+as the assignment operator. An assignment statement is terminated with a 
+semicolon, indicating the end of the  #!F-adobe-times-bold-i-normal--18*   right-side #!EF portion of 
+the statement. #!N #!N The values specified to the right of 
+the assignment operator are assigned to the identifiers to the left 
+of the assignment operator. If the number of values equals the 
+number of identifiers, the first value is stored in the first 
+identifier, the second in the second, the third in the third, 
+and so on. If the number of values is greater than 
+the number of identifiers, the extra rightmost values are ignored. If 
+the number of values is less than the number of identifiers, 
+the values are assigned in order to the leftmost identifiers. #!N 
+#!N Those identifiers not receiving a value from the  #!F-adobe-times-bold-i-normal--18*   right-side 
+#!EF list are set to the value  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . 
+In addition, if an identifier is repeated in the  #!F-adobe-times-bold-i-normal--18*   left-side 
+#!EF list, then the  #!F-adobe-times-bold-i-normal--18*   right-side #!EF associated with that identifier 
+is the value associated with its rightmost instance. #!N #!N All 
+identifiers that have not had a value explicitly assigned to them 
+have the value  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . #!N #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall534,dxall535 h Expression Assignments  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

@@ -1,0 +1,1230 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Visualization Techniques</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu062.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu064.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu062.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="Header_390" ></A>A.2 Visualization Techniques
+</H2>
+		<A NAME="IDX945"></A><A NAME="IDX946"></A>
+<P>
+Now we have our data in a Field Object inside Data Explorer.
+What can we do with it?
+This section discusses some common visualization techniques and the
+Data Explorer modules associated with them:
+<P>
+<UL COMPACT>
+<LI><A HREF="#HDRANIMAT">"Animation"</A>
+<LI><A HREF="#HDRANNOT">"Annotation"</A>
+<LI><A HREF="#HDRCOLMAP">"Color Mapping"</A>
+<LI><A HREF="#HDRCNTISO">"Contours and Isosurfaces"</A>
+<LI><A HREF="#HDRMAPING">"Mapping"</A>
+<LI><A HREF="#HDRNORSHA">"Normals and Shading"</A>
+<LI><A HREF="#HDRPLOHIS">"Plots and Histograms"</A>
+<LI><A HREF="#HDRRUBSHT">"Rubbersheet"</A>
+<LI><A HREF="#HDRTRASTR">"Transformations and Structuring"</A>
+<LI><A HREF="#HDRVECFLD">"Vector Fields"</A>
+<LI><A HREF="#HDRVOLRND">"Volume Rendering"</A>.
+</UL>
+<P>
+<H3><A NAME="HDRANIMAT" ></A>Animation</H3>
+<A NAME="IDX947"></A>
+<P>
+The Sequencer tool is the primary device used in Data Explorer to produce
+animation or motion control.
+There are two basic types of animation: show a series of steps one
+after another, or, cause an object to move or rotate or change
+scale in order to study it from different points of view.
+<P>
+Since many data sets are measured at a series of different times, your
+data may have a "time value" associated with each measurement
+set.
+There are two ways to read in these time step data files in order to
+study the dynamic process you have measured.
+<P>
+In one scheme, you can collect all your data files into a
+<I>Series</I>, a special Group of Fields understood
+by Data Explorer.
+Each Series member can represent a data collection event at a certain
+time.
+Series do not have to be based on time; you may have a set of
+experimental measurements made at different voltages (e.g.,
+a voltage series).
+Each series member is assumed to have the same type (scalar, vector,
+etc.) and the same dimensionality (2-D, 3-D, etc.), but the data
+and even the grid size or number of connections and positions
+may be different for each Series member.
+The Series Field is described in detail in <A
+HREF="usrgu025.htm#HDRSERGRP">"Series Groups"</A>.
+Series "values" do not have to be continuous but may represent
+useful information like the actual voltage setting for that
+Series entry (0.04, 2.3, 13.4).
+Series members are accessed by their ordinal position, starting at 0,
+regardless of their "value."
+<P>
+Another way to organize a collection of associated data files is to
+create individual files for each time step (or voltage
+measurement, etc.).
+Give each file a filename containing an ordinal number so you can
+access them easily with a computer program (e.g.,
+myfield.001.dx, myfield.002.dx, and so on).
+Each file will contain the Field to be imported at each time step.
+<P>
+In either case (Series Field or separately numbered files), you can
+control when a particular time step is visualized in a visual
+program using the Sequencer tool.
+This tool emits a series of integers.
+You set the minimum, maximum, and increment, as well as choosing to
+start at a specific number (so you can jump ahead in the series
+if you like).
+The Sequencer can be connected to the Import module to specify which
+Series member to read in from the specified input file at the next
+iteration.
+Alternately, you could Import the Series Group file with Import, then
+use the Select module.
+Select takes an integer input (from Sequencer, for example) to choose
+the appropriate series member.
+<P>
+If you choose to use separate files for separate data samples, you
+would likely want to use the Sequencer as an input to a Format
+module.
+The Format module could construct the filename with a format string
+like <TT>%s%03d%s</TT> along with three inputs, "myfield.",
+the output of the Sequencer, and ".dx".
+Then, when the Sequencer emits the integer "2", the output string
+from Format becomes "myfield.002.dx".
+This can be fed into Import as the name of the .dx file
+to read.
+The result is that you can use the Sequencer to specify either any
+specific file or a whole series of files to import and image one
+after another.
+<P>
+Another common type of animation is to use the Sequencer to control
+object motion.
+Usually, this requires that you run the output of Sequencer through
+at least one Compute module.
+For instance, you can rotate an object around the Y-axis one full
+revolution by employing the Rotate module.
+The smaller the angular increment, the smoother the animation will
+appear, but there is a trade-off in apparent motion rate if your
+graphics workstation is not very fast.
+So you may have to adjust the incremental angular amount to your
+liking.
+<P>
+You will find the technique of wiring Interactors to Compute
+modules useful for converting the output of Sequencer to arbitrary
+floating-point values.
+If you wanted to vary the Scale of your object using the Scale module,
+it might be more convenient to adjust the scale in increments
+of 0.01.
+With a little thought, you can extend this idea so that the same (one
+and only) Sequencer integer series can be converted into several
+different series of numbers that can simultaneously rotate,
+scale, and read in different time steps of data.
+Just a caution, though:
+too much changing at the same time will probably not help you visualize
+your data, but instead will cause confusion.
+Is the object getting bigger because the data values are increasing,
+or because you are changing the scale, or because you are moving
+the object closer to you with Translate?
+When you start out, keep your animations simple and they will be much
+more effective.
+<P>
+<H3><A NAME="HDRANNOT" ></A>Annotation</H3>
+<A NAME="IDX948"></A>
+<P>
+It is imperative that good visualizations contain sufficient annotation
+for a viewer to derive appropriate information from the imagery.
+A colored height field or streamline set with no supporting labeling
+can make perfectly beautiful, utterly
+meaningless computer graphics.
+<P>
+Annotating a scene can be done in several ways using
+Data Explorer modules.
+You can, for example, provide a ColorBar with numeric values
+automatically labeled next to the related colors, show
+Text or Caption information to provide textual
+descriptions of objects, or turn on
+AutoAxes to show neatly labeled and
+numbered axes around the perimeter
+of your data space.
+<P>
+Using the Format module, it is possible to create "clocks" or
+other "meters."
+Format creates a formatted string of text suitable for Caption or Text
+modules to display.
+Format takes a "template" and text strings and/or numbers as
+<TT><STRONG>value</STRONG></TT> inputs and assembles an informative text string
+as output.
+For example, inputting the minimum value of your data to the first
+<TT><STRONG>value</STRONG></TT> input (the second input tab) of a Format module,
+you could create a Caption that reads:
+<PRE>
+Minimum temperature = 0.0 deg.
+</PRE>
+To do this, the "template" inside the Format module would read:
+<PRE>
+Minimum temperature = %1.1f deg.
+</PRE>
+<P>
+In this template, the "%1.1f" serves as a place holder for the first
+value (which must be floating point) provided to Format;
+consequently, the minimum value argument is substituted into the string
+when the visual program is executed.
+The "1.1" means that the floating-point number should display at
+least one number to the left of the decimal point but should round
+off to only one decimal place to the right of the decimal.
+By tying the data Field to Statistics (Transformation category), you
+can easily extract the minimum value of the data;
+use this as the second input to Format.
+If you later input a different data set with a different minimum,
+Caption will automatically change to reflect the new
+minimum value.
+<P>
+One trick for showing text together with numbers that are changing is
+to use a "fixed width" font instead of a "variable" or
+"proportional" font.
+Variable text looks better when making Captions that do not include
+changing values, but fixed width text maintains the same width
+regardless of the numeric characters currently being
+displayed.
+Try both ways and you will see that the variable text has an annoying
+shrinking-expanding effect as your clock or time step meter changes
+value.
+To get the fixed text clock to behave correctly, you must use a Format
+template like "%03.2f" that allows for enough numbers to the
+left of the decimal point.
+In this example, we have predetermined that we will never create a
+number greater than 999.99 (note that if we <I>do</I> go over
+1000, the text will expand to show the whole number, causing
+the Caption string to expand: the very thing we are trying to
+avoid!).
+The "%03.2f" format makes floating-point numbers with 3 numerals
+before the decimal, including left side zero padding, and 2
+numerals after the decimal.
+<P>
+<H3><A NAME="HDRCOLMAP" ></A>Color Mapping</H3>
+<A NAME="IDX949"></A>
+<P>
+Data Explorer provides an automatically generated color map (AutoColor), an
+automatically generated grayscale (AutoGrayScale), and a
+user-definable color map (the Colormap module that
+attaches to the Color module).
+A color map represents a relationship between a continuous range of
+floating point numeric data values and a set
+of color values.
+Frequently, you will encounter color maps with continuous
+("spectral") color tones like a rainbow, but there
+is no requirement that color maps appear continuous.
+Each color map has associated with it a minimum
+and a maximum scalar value.
+You can either specify the minimum and maximum or connect the data
+Field to the Colormap module and have these values
+automatically extracted.
+<P>
+We can describe "color" to a computer in a number of ways.
+One of the more intuitive is the "hue-saturation-value" model used
+by Data Explorer&#39;s Colormap tool.
+Hue is the color&#39;s "name", like blue, red, and so on.
+Hue is considered to form a circle from red through yellow, green,
+cyan, blue, magenta, and back to red; think of Hue as an
+"angle" around this color wheel (scaled from 0.0
+to 1.0).
+Saturation is the "richness" of a color.
+Decreasing the Saturation of a color from 1.0 to 0.0 makes the color
+progressively more pastel, so for example, bright red becomes
+light red, then pink, finally turning white.
+You can think of decreasing the Saturation as adding "white paint"
+to paint of a pure hue.
+At Saturation 0.0, any color becomes white (assuming Value is held at
+1.0).
+Similarly, Value is a measure of the amount of "black paint" mixed
+with a color.
+As you decrease the color&#39;s Value from 1.0 to 0.0, you add more
+"black", so bright red becomes progressively darker red,
+and finally black.
+Any color becomes black at a Value of 0.0.
+All three of these parameters interact, so you can adjust Hue and
+decrease Saturation and Value to get a "dark pastel blue."
+<P>
+Another scheme for describing color is RGB (Red-Green-Blue).
+As in the HSV model just described, you specify a color as a triplet
+(a 3-vector).
+Each component can have a value from 0.0 to 1.0.
+If all three are 0.0, the resulting color is black; if all three are
+1.0, you get white.
+Given Red = 1.0, Green = 0.0, Blue = 0.0, the color is fully saturated
+bright red.
+You can observe a graph of RGB lines at the far left of the Colormap
+tool as you manipulate the colors using the Hue-Saturation-Value
+(HSV) controls.
+You can specify an RGB vector in the Color module in place of
+connecting a Colormap if you want the output object to have
+a single color (or you can specify one of the X Window
+System color names).
+And you can convert from RGB to HSV or back using the Convert module.
+See
+<A HREF="refgu033.htm#HDRCOLOR">Color</A> and <A
+HREF="refgu035.htm#HDRCOLRMAP">Colormap</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>
+for more details about these different specification schemes.
+<P>
+Let us assume that we have set the Colormap minimum and maximum to
+equal the minimum and maximum of the temperature data we
+collected in the atmosphere (this is done automatically
+if you connect the data Field to the input on
+Colormap).
+Recall that we collected position-dependent data, one temperature value
+at each grid position.
+For this example, assume the minimum temperature measured was 0 degrees
+Centigrade and the maximum 20.
+What color is 10?
+That depends entirely on the color map used.
+If we have a standard spectral (rainbow) map with blue at 0 and red at
+20, then 10 would have a color halfway between blue and red.
+On the default color map, this would be green.
+When we ask Data Explorer to color-map our data, it examines each data value,
+performs a linear interpolation between the minimum and maximum
+values to find the color associated with that interpolated
+value in the color map and "colorizes" the object at
+all points containing that data value with that color.
+<P>
+If we change the maximum value in the color map to 30, the measured data
+value of 10 (taken from the same data set as above) will now map to
+a cyan color, part way between blue and green.
+On the other hand, we could keep our same extreme values but manipulate
+the color map&#39;s color distribution in such a way that any value
+has any color we like.
+You can learn the details about this capability in <A
+HREF="usrgu042.htm#HDRCOLMAPE">6.3 , "Using the Colormap Editor"</A>.
+<P>
+The best way to learn about the power of color mapping is to take some
+sample data, color-map it, then manipulate the settings in the
+Colormap Editor you have connected to the Color module
+your data Field passes through.
+<P><B>Note: </B>Choose <TT><STRONG>Execute on Change</STRONG></TT> from the
+Colormap Editor
+<TT><STRONG>Execute</STRONG></TT> menu and you will see the data change colors
+as soon as you make a change in the Colormap Editor.)
+<P>
+For instance, you can create sharp color discontinuities by placing two
+control points close together vertically on the Hue control line,
+then dragging one horizontally away from the other.
+This can be used to indicate a sharp edge transition in
+your data.
+It is sometimes useful to place a special contrasting color in the
+middle of an otherwise continuous color map.
+For example, to highlight the value of 12 degrees C in our temperature
+data, we could insert a sharply defined red notch or band into the
+middle of our smooth rainbow color map.
+This would highlight that particular value or range for someone
+examining the scene.
+You can automatically generate a number of control point patterns by
+choosing <TT><STRONG>Generate Waveforms...</STRONG></TT> from the
+<TT><STRONG>Edit</STRONG></TT>
+menu in the Colormap window.
+To make a notch, choose one of the "S" shaped curves from the
+pop-up menu in the <TT><STRONG>Generate Waveforms</STRONG></TT> dialog box.
+Set the number of Steps to 4 to make a single notch, or 3 to make
+a single step.
+Click <TT><STRONG>Apply</STRONG></TT> to place control points on the currently
+chosen
+curve (Hue, Saturation, Value, or Opacity).
+You can then drag the new control points where you like.
+<P>
+If you use a red color notch in the middle of your data range, you
+probably will not want to use red elsewhere in your color map or
+it will be difficult for a viewer to tell the 12-degree
+specially highlighted red area from the 20-degree
+red maximum values (assuming 20 is
+the maximum).
+In fact, it might be safer to use a white or gray color to mark the
+special value of 12 degrees.
+Do this by creating a notch on the Saturation or Value curves instead
+of on the Hue curve.
+<P>
+Similarly, you can change the <I>opacity</I> of objects.
+Opacity is the inverse of transparency: that is, the more opaque
+the object, the less transparent.
+You can set opacity to a value between 0.0 and 1.0.
+Opacities less than 1.0 allow you to see through an object to reveal
+objects inside or behind the transparent object.
+For all objects except volumes, an Opacity of 0.0 will make the object
+disappear completely.
+Since Data Explorer uses an emissive volume rendering technique, you must set
+the color of a volume to "black" (RGB of &#91;0, 0, 0&#93;),
+as well as setting the Opacity to 0.0, to make the volume
+disappear.
+You will notice that when you view slightly transparent objects
+through each other, the colors of each object combine, making
+it very difficult to accurately assess the color of any
+one object.
+Used sparingly, opacity is a very powerful tool for examining the
+insides of objects or volumes and gauging the physical
+relationships between intersecting objects.
+<P>
+You can create a variable opacity on an object by manipulating the
+opacity curve in Colormap.
+This can make parts of an object trail off to transparency, useful if
+some data values are not of interest.
+Be aware that "hiding" data in this way may mislead someone
+viewing your results.
+But in some data sets, there may be a large number of "noisy" data
+values that you would like to exclude in order to see the
+"signal" data values of interest.
+In that case, setting an Opacity notch to hide the noisy values may be
+the best visualization technique.
+<P>
+When you lower opacity below 1.0, you will see two stripes, one white
+and one black, or a checkerboard pattern of black and white behind
+the sample color strip in the Colormap Editor.
+These are useful when you manipulate Opacity to check the apparent color
+against both a light and dark background.
+As with the color tools, you can turn on <TT><STRONG>Execute On
+Change</STRONG></TT>
+and interactively play with the Opacity of the selected object
+until you get the effect you want.
+<P>
+<H3><A NAME="HDRCNTISO" ></A>Contours and Isosurfaces
+</H3>
+<A NAME="IDX950"></A>
+<A NAME="IDX951"></A>
+<P>
+Given a set of samples taken over a presumably continuous region, it is
+meaningful to consider drawing smooth lines connecting together the
+locations on the grid containing the same data values.
+You are probably familiar with topographic maps that show contour lines
+connecting together the same values of elevation of the Earth&#39;s
+surface features, such as hills and valleys.
+These lines are called "contour lines" or "isolines"
+(<I>iso</I> means "same" or "equal").
+In most cases, the places on the surface of the sample grid that have
+identical data values will not coincide with the grid
+sample points.
+This is another case where the "connections" component is required
+for Data Explorer to determine where on the grid the same value occurs
+(say the value 5.2) in order to create lines connecting
+together all these locations.
+<P>
+To return to our 3-dimensional data set taken from the
+atmosphere.
+Since we have collected data throughout a 3-dimensional space, we can
+identify volumetric elements defined by connecting adjacent grid
+sample points in three dimensions using a "connections"
+component like cubes.
+It now becomes possible to draw "isosurfaces" rather than
+"isolines."
+An <I>isosurface</I> is that surface cutting through a volume on
+which all data values are equal to a specified value.
+Depending on the actual distribution of the data, isosurfaces may look
+more or less like flat sheets (the isosurface of "sea level"
+in a data set of elevations would look like this);
+it might enclose a portion of our space or appear as a whole set of
+small disconnected surfaces or enclosed spaces.
+<P>
+To create an isosurface, we pick a value of interest.
+Suppose that according to our knowledge of meteorology, we know
+that the dew point (at which water condenses from vapor to liquid)
+is 12 degrees C in our sample.
+Although we measured temperatures at only a fixed number of grid points,
+we are interested in seeing where rain formation may begin throughout
+the atmosphere.
+We could show only the sample points highlighted by themselves, but once
+again, we make a reasonable assumption that we have taken discrete
+samples from a continuous natural volume.
+In other words, rain formation will not simply occur at the limited set
+of discrete points where we have sampled temperatures of 12 degrees C,
+but at all the points in between that are also at 12 degrees.
+How do we find all those in-between points?
+By interpolating through the volumetric elements between adjacent sample
+points.
+And in fact, the Isosurface module will do this automatically.
+<P>
+The resulting isosurface will represent all values of 12 degrees C
+throughout our volume of sampled space.
+The actual image depends on the distribution of the data, of course.
+If the outside of a rain cloud were at exactly 12 degrees C, we would
+see a shape resembling a cloud in the sky.
+But if rain formed at an altitude where the temperature was
+12 degrees C, we would instead expect to see a flat sheet.
+Or we may not know what to expect: that is one of the uses of
+visualization, as well--for discovery, not just for
+verification.
+<P>
+Generally, the vertices that describe the mesh positions of an
+isosurface will <I>not</I> coincide with the original
+grid points.
+It is important to realize that an Isosurface is a new and valid Data Explorer
+Field with positions and connections and a data component (in which
+all data values are identical).
+You can treat this Field just like any data Field you have imported.
+Color mapping such a Field is not particularly useful since all the data
+values are identical, so you will get the same color for every point.
+<P>
+To draw contour lines on a 2-dimensional grid, you also use the
+Isosurface module.  Data Explorer figures out the dimensionality of
+the visualization by looking at the input data.
+Thus, a biologist&#39;s 2-D grid can be easily contour-mapped with
+the same tool as a meteorologist&#39;s 3-D volume, but the
+visual output will be appropriately different for the
+different inputs.
+Similar to Isosurface&#39;s contour lines is the output of the Band
+module.
+This yields filled regions between contours;
+these bands can be colored by a color map or AutoColor to yield the kind
+of image frequently used to show temperature distributions on a
+weather map.
+<P>
+<H3><A NAME="HDRMAPING" ></A>Mapping</H3>
+<A NAME="IDX952"></A>
+<P>
+There is a very useful module called Map in Data Explorer that permits you to
+"map" one data set onto a Field defined by another data set.
+For example, in our rain cloud data, we have measured temperature and
+cloud-water density throughout a volume.
+We learned earlier how to make an isosurface of temperature equal to 12
+degrees C.
+Now it may be instructive to observe the cloud-water density associated
+with this temperature isosurface.
+<P>
+The operation we wish to perform is to use our temperature isosurface
+with its arbitrary (data-defined) shape as a sampling surface to
+pick out the values of cloudwater density as they occur
+throughout the volume.
+That is, conceptually, we will <I>dip</I> the temperature isosurface
+into the cloudwater volume.
+Wherever the isosurface comes in contact with the cloudwater volume,
+the values that <I>stick</I> to the isosurface represent the
+values of cloudwater density that occur at that intersection.
+But remember that the isosurface was created using temperature data.
+The isosurface of temperature (the <I>input</I>
+Field to Map in this example) had only one data value (12 degrees C) at
+every position, but the mapped isosurface (the output of Map) will
+contain arbitrary patches of data corresponding to the
+distribution of cloudwater density.
+If we AutoColor this output isosurface, we will see an arbitrary
+geometric surface with a patchy color scheme.
+The surface is the location of all 12 degree temperatures, and the
+patchy color corresponds to the distribution of different
+cloudwater densities sampled on that surface.
+(Of course, if cloudwater density happened to have the same value at
+all points on the 12-degree temperature surface, we would see only
+one color.)
+<P>
+Naturally, you can do the opposite!
+First, make an isosurface of cloudwater density, say at the mean value
+of density.
+The mean value of a Field is taken as the default value by the
+Isosurface module: this is convenient when you start
+exploring a new data set and do not know what
+the extreme values are.
+Now map the temperature data onto the cloudwater isosurface.
+Run the output through AutoColor.
+The result will look very different.
+This time, you have "dipped" the cloudwater isosurface into a
+"bucket" of temperature data.
+Once again, this serves as a reminder that you must indicate to an
+observer exactly what kind of operation you performed if your
+visualization is to bear any meaning.
+<P>
+You can also dip the cloudwater isosurface into the temperature
+<I>colors</I>.
+To do this, first AutoColor the temperature data set.
+Then use Mark to "mark" the colors as data (this temporarily
+renames the colors component to data, while saving the
+original data component).
+Then use Map to map this marked Field into the cloudwater isosurface
+colors component.
+(It is necessary to mark the colors as data before mapping because Map
+always maps from the data component).
+An example visual program that performs each of these mapping
+operations can be found in
+<TT><STRONG>/usr/local/dx/samples/programs/UsingMap.net</STRONG></TT>.
+<P>
+Note that we changed the order of the modules slightly in the third
+example.
+In the second case, we Mapped data values from the "map" Field
+(cloudwater density) onto the "input" Field (the temperature
+isosurface), then AutoColored the resulting Field.
+In the third case, we AutoColored the "map" Field (temperature),
+then mapped color values onto the "input" Field (cloudwater
+density).
+This illustrates some of the flexibility of both the Map module itself
+and Data Explorer in general.
+In this case, the output image would be similar whether you colored by
+temperature then mapped, or mapped temperature first, then colored
+by temperature.
+There will be color differences if the range of values that mapped onto
+the isosurface is different from the entire data range used to
+AutoColor the entire temperature Field.
+You could avoid this problem by substituting a Color and Colormap pair
+in place of AutoColor, then connecting the original temperature
+Field to the input of the Colormap.
+This would automatically lock the minimum and maximum to the entire
+range of temperature, not just to the range of values that
+happened to fall on the isosurface.
+<P>
+But there are other cases in which commutative ordering of modules will
+yield a quite different visual output.
+For example, suppose we have a volumetric Field containing both
+vector data and a scalar data set.
+We can generate a series of Streamlines through the vector Field, Map
+the scalar data from the volume through which the Streamlines
+pass onto these lines, then AutoColor the lines according to
+the scalar data.
+To make the lines easier to see, we employ the Tube module to create
+cylinders along the path of each streamline.
+The radius of the Tubes can be adjusted until we get the look
+we like.
+By performing the operations in that order, the original colors are
+carried from the lines out to the outside of the cylinders,
+resulting in distinct circumferential bands of color on
+the Tube surfaces.
+<P>
+Now, change the order: create Streamlines, then Tube the
+lines.
+This yields uncolored cylinders.
+At this point, we Map the scalar data values from the volumetric Field
+in which the cylinders are embedded onto the surfaces of
+the cylinders, then AutoColor.
+This time, we will have patches of color on the cylinders, since it is
+highly unlikely that the volumetric data would lie in perfect rings
+around the outside of the tubes.
+<P>
+Which of the above two representations is "correct"?
+Both are accurate.
+Which you choose to show depends on the point you are trying to make.
+In the first case, you are illustrating the values of data precisely as
+they occur along the Streamlines:
+the Tubes are used to make these very thin lines more visible.
+In the second case, you wish to sample the data volume at a specified
+radius away from a given Streamline.
+By varying the radius of the Tubes, you can investigate phenomena such
+as the rate of change of the data Field as you move further away
+from the Streamline itself.
+<P>
+<H3><A NAME="HDRNORSHA" ></A>Normals and Shading
+</H3>
+<P>
+Another Field component used in Data Explorer is the "normals"
+component.
+<I>normals</I> are unit vectors that tell the computer graphics
+program and the image renderer which direction is "up" or
+"out."  Several tools, like Isosurface, automatically
+create a normals component so you do not have to
+calculate these numbers yourself.
+<P>
+There are two types of normals provided in Data Explorer,
+"connections normals" and "positions normals".
+Connection-based normals are vectors perpendicular to each connection
+element on the surface.
+They are created by the Normals module when you set the
+<TT><STRONG>method</STRONG></TT> input to "connections".
+The resulting surface reveals the underlying polygonal grid structure
+of your sample grid.
+Frequently, this is a valuable way to show your data, as any observer
+can then see the grid resolution directly.
+At the same time, this surface can be colored or color mapped either by
+connection-dependent or position-dependent data.
+<P>
+The other type of normals are created by the Normals module when you
+enter "positions" as the <TT><STRONG>method</STRONG></TT> (this is the
+default method, in fact).
+In this case, the surface will be much smoother in appearance yielding
+a more aesthetically pleasing surface at the expense of being able
+to directly perceive the grid resolution.
+It is sometimes less confusing to use position normals in place of
+connection normals because the object is less "busy"
+looking.
+You must be the judge of what is the appropriate way to observe your
+own data.
+You can also show your data first with connection normals, to
+illustrate the sample resolution, then switch to position
+normals in order to better show some other aspect of
+your data.
+<P>
+Normals are used by various modules in Data Explorer.
+One use of this information is that it is required by the image
+renderer (the Image, Render, and Display modules all
+incorporate the image renderer) to calculate the
+amount and direction of light falling on an
+object&#39;s surface (we will discuss
+this in more detail below).
+Rubbersheet assumes that the input grid or line is flat (if there is no
+"normals" component in the input Field) and projects the values
+in a perpendicular direction.
+However, you may wish to create your own normals or modify an existing
+"normals" component (using the Compute module, for example)
+and Rubbersheet will then use the modified normals to control
+the direction of projection of the surface or line.
+After performing the Rubbersheet projection, you may want to insert
+another Normals module.
+This will take the projected object and generate real surface normals
+before rendering, resulting in better-looking shading on you
+projected surface.
+See
+<A HREF="refgu125.htm#HDRRUBBERS">RubberSheet</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>
+for a full description.
+<P>
+Isosurface will also generate normals automatically; to do so,
+Isosurface either calculates or reads the previously
+calculated Field gradient (depending on the
+setting of the <TT><STRONG>gradient</STRONG></TT>
+input flag).
+Therefore, the normals generated by Isosurface are not necessarily
+perpendicular to the connection elements generated by the
+Isosurface module, but better indicate the actual Field
+direction than simple perpendicular normals.
+<P>
+If you wish to understand Normals better, you can use the Glyph module
+to visualize them.
+First use Mark to mark the "normals" component.
+This makes Data Explorer treat the "normals" component as if it were the
+"data" component.
+Then, Glyph the Field.
+Finally, Unmark the <TT><STRONG>normals</STRONG></TT> to restore the previous
+<TT><STRONG>data</STRONG></TT> component to its proper place.
+By showing the normals as vector glyphs in conjunction with a surface,
+you should be able to see how different modules, like Rubbersheet
+and Isosurface, deal with these vectors.
+<P>
+Normals are also useful in helping you determine the "inside" and
+"outside" of an object.
+In addition to a "colors" component, which holds the color-mapped
+information for each data point in a Field, you can specify a
+"front colors" and a "back colors" component.
+Which is front and which is back is determined by the direction of the
+normal for that vertex (position normals) or polygon (connection
+normals).
+By setting different colors for the inside and outside of a complicated
+object, you may be able to understand its shape better.
+This technique can also be helpful when you are trying to convert a
+connection list like a finite element mesh into Data Explorer form.
+If you accidentally describe the "winding" (rhymes with
+"binding") of a polygonal face in the wrong order,
+the normal for that face will point in the wrong
+direction.
+Setting "back colors" to red and "front colors" to white will
+clearly indicate which faces are pointing the wrong way.
+<P>
+The Shade module employs the "normals" component; it will make a
+"normals" component if it does not already exist.
+Shade allows you to set up the lighting of your objects to make them
+more "realistic" in appearance.
+That is to say, when we observe a 3-dimensional object, the way light
+falls on the object is an important cue to our eyes that helps us
+understand the shape of the object.
+We expect the surfaces of the object that are generally facing a light
+source to be brighter than those that face away.
+Data Explorer, like other computer graphics rendering programs, takes the normal
+directions of the object surfaces into account when calculating the
+angle between the object, the light(s) in the scene, and the
+viewer&#39;s eye point (the camera in the scene).
+<P>
+In the real world, different materials react to incident light
+differently.
+For example, many metals scatter light causing the "specular"
+reflection to be more spread out than it is on shiny plastic
+surfaces.
+The specular highlight is the highlight (many types of cloth and other
+dull surfaces have no specular brightest spot on a shiny surface.
+Think of how the sun sometimes bounces off the hood of your car at just
+the right angle and makes a bright sharp reflection.
+By adjusting the "specular" and "shininess" inputs to the
+Shade module, you can make your object appear more metallic or
+more plastic.
+If you turn the specular value all the way to 0.0, you eliminate the
+specular reflection).
+This can be important if you are trying to make sense of color-mapped
+data, since the specular highlight will be a bright white area on
+the surface of the object (assuming the incident light color
+is white).
+This white spot or area could confuse a viewer who is trying to
+interpret the color mapping of the data.
+<P>
+Two other inputs in the Shade module (<TT><STRONG>diffuse</STRONG></TT> and
+<TT><STRONG>ambient</STRONG></TT>) are also used by Data Explorer when it lights
+an object.
+Diffuse light is light emanating from a direct light source, like the
+default Light in any Data Explorer network, or from Light modules you place
+in your network.
+Think of diffuse light as the light coming from a light bulb and falling
+on an object surface, like a light in your office shining directly
+on your desk.
+This property is called "diffuse" because it represents the way
+light bounces off a surface, depending on the "roughness" of
+the surface.
+The rougher the surface, the more the light rays are scattered
+("diffused").
+An extremely smooth surface tends to bounce light more uniformly to the
+eye.
+Ambient light is light that is indirect: for example, daylight coming
+through a window, bouncing off white walls and then impinging on
+your desk.  Data Explorer automatically places an AmbientLight value
+in any scene, or you can override this value by placing
+your own AmbientLight module in a network.
+Ambient light is best thought of as a sort of "glow" emanating
+from a non-point source of light and therefore illuminating even
+the parts of objects that face away from the point light
+sources in a scene.
+If you remove the ambient light, the apparent "shadows" on an
+object lit only by a point source of light are much harsher.
+<P>
+Like Normals, the Shade module can light an object in two fundamentally
+different ways.
+If you enter "smooth" in the <TT><STRONG>how</STRONG></TT> input to Shade, the
+surface will appear smoothly rounded (assuming it is not completely
+flat to start with).
+This is equivalent to setting "positions" in a
+Normals module.
+Shade will, if necessary, create position normals, then light the
+object accordingly.
+Any point on a connection between positions will be lit by calculating
+an interpolated normal value between the position normals.
+If you choose <TT><STRONG>faceted</STRONG></TT> in Shade, the effect is the same
+as
+selecting "connections" in the Normals module.
+In this case, each connection element has one normal direction over the
+entire face.
+As a result, every point on a connection element reflects light exactly
+the same way.
+The image that you see will thus show faceted polygons.
+Once again, while this may make the object look less "realistic,"
+it does more accurately reflect the sampling resolution of your
+data and may therefore be a more desirable image to show
+other viewers.
+<P>
+<H3><A NAME="HDRPLOHIS" ></A>Plots and Histograms
+</H3>
+<A NAME="IDX953"></A>
+<A NAME="IDX954"></A>
+<P>
+Data Explorer provides a Plot module that will give you a simple 2-D graphics
+plot of your data.
+This can be convenient for showing one parameter plotted
+"traditionally" while you show a colored 3-D
+height Field illustrating the same or other
+parameters, in the same scene.
+<P>
+Histogram regroups your data into a specified number of bins (it acts
+like a form of filter on your data).
+The output of Histogram is a new Field with connection-dependent
+data.
+The connections are the bars on the histogram (which can be
+plotted).
+The height of each histogram bar is proportional to the number of
+samples of original data that occur in the range covered by
+that bar.
+You can feed the output of Histogram through AutoColor then Plot to get
+a colored plot of the data distribution.
+<P>
+If the aspect ratio of the Plot is distorted, you can correct it in the
+Plot module.
+This will stretch the Plot out in either the X or the Y direction until
+you achieve the look you want.
+Visual designers recommend an aspect ratio of approximately 4 units wide
+to 3 units high; since this is also the aspect ratio of television,
+your image will be ready both for video and for print.
+<P>
+Be aware that "binning" your data with Histogram can sometimes
+create rather arbitrary distributions.
+It is important to make this clear to the viewer of your
+visualization.
+For example, by carefully selecting bin size, you may turn a unimodal
+distribution into a bimodal one.
+Which distribution is correct for the phenomenon under study must be
+determined by the underlying science, not by the arbitrary picture
+you create.
+<P>
+On the other hand, if you wish to actually redistribute your data
+rather than just show a histogram of its distribution, you can
+use the Equalize module.
+The output of this module is essentially the same scalar Field you fed
+into it, but the data values have been changed to fit the specified
+distribution.
+By default, the data values are changed to approximate a uniform
+distribution, but you can create your own custom distribution,
+like a normal Gaussian curve.
+Equalize is useful to reduce extreme values back to a range similar to
+the majority of data values.
+You may also wish to experiment with other data "compression" and
+"expansion" techniques by connecting your data Field to Compute
+and applying a function like "ln(a)" or "a&#94;2",
+where "a" is the input Field.
+<P>
+<H3><A NAME="HDRRUBSHT" ></A>Rubbersheet</H3>
+<A NAME="IDX955"></A>
+<P>
+Another technique used to visualize data collected on a 2-dimensional
+grid is sometimes called a "height map."
+In Data Explorer, the Rubbersheet module will generate this for you.
+Conceptually, a height map is drawn by elevating the 2-D grid into the
+third dimension.
+Call it the Z dimension, with our original grid lying in the
+X-Y plane.
+The height or Z-value given to each vertex of the original grid is
+proportional to the specified scalar data value at that vertex.
+If the data were vector data, you could elevate the grid by the magnitude
+of the vector, since magnitude is a scalar value.
+The result usually resembles something akin to a relief map of the
+surface of the Earth with hills and valleys.
+<P>
+However, this brings up an important point that will occur elsewhere in
+Data Explorer (and visualization in general).
+Remember that the original data were collected on the X-Y plane (for
+example, our grass-counting botanist&#39;s data).
+It is one thing to indicate the different distributions of grass species
+by showing a 3-D plot of the numbers using a height map.
+But it is not correct to say, then, that the data values so shown were
+collected from these 3-dimensional positions: that would imply the
+botanist counted grass species growing in mid-air!
+This might be true in the Amazon, but not in Kansas.
+<P>
+That is, we may have counted 2 species at the grid point
+&#91;x=0, y=0&#93;.
+If we Rubbersheet using the species count as the Z deflection value,
+our 3-D height map will now have a point at &#91;x=0,y=0, z=2&#93;
+(if the Rubbersheet "scale" is 1.0 and the minimum count
+in our data set is 0).
+The data was not collected at that point but rather at &#91;x=0,y=0,
+(z=0)&#93;.
+For our convenience, Data Explorer maintains the original data values as if
+they were attached to the original grid.
+It is your responsibility to remember and, if necessary, make it clear
+to other viewers that the representation of the data in 3-D is not a
+"realistic" image of the original 2-D sampling space.
+Rather, Rubbersheet is used to visualize the "ups and downs"
+in the data Field as actual differences in height.
+This is a very powerful visualization technique because of our
+familiarity with actual heights in everyday experience.
+One simple way to show viewers the difference is to make two copies of
+the Field by taking two wires from the output tab of the Import
+module you use to import the data Field.
+Connect one wire to a Color module with a Colormap attached, but leave
+the Field 2-dimensional.
+Arrange the 2-D colored grid such that the viewer is looking straight
+down on it.
+Connect the second wire from Import to Rubbersheet and then use a
+second Color module, but run wires from the same Colormap as you
+used to color the first copy.
+The second copy, a 3-D colored "height Field", can then be rotated
+into a "perspective" view.
+The result will be a Field both colorized according to the data values
+and also elevated into the third dimension according the same
+data values.
+This redundancy is often more instructive than either visualization
+technique used alone.
+<P>
+<H3><A NAME="HDRTRASTR" ></A>Transformations and Structuring
+</H3>
+<A NAME="IDX956"></A>
+<A NAME="IDX957"></A>
+<P>
+Rotate, Scale, Translate, and Transform are all special types of
+operations that change the location, orientation, or size of
+objects in your scene.
+These operations can be performed anywhere in a visual program.
+You can create "hierarchical" motion by attaching Rotates and
+Translates to individual objects, then Collect these objects
+together and attach another Rotate and Translate to the
+Group (output of Collect).
+In this fashion, you can individually rotate members of the group
+independently of each other, or you can rotate the entire group
+as one.
+<P>
+By default, many modules operate on the "data" component.
+We have been treating "data" as a special kind of numeric Array,
+separate from "positions" and "connections".
+We mentioned earlier that you can have several different "data"
+components, but each must have a unique name;
+for example, your input data file can contain "positions",
+"connections", "temperature" (data), and
+"wind" (data).
+For this example, assume that "wind" is a 3-D vector.
+<P>
+Using the Structuring category tools Mark and Unmark, you can convert
+any Field component into the "data" component.
+When you Mark "wind" for example, the old "data" component
+(if any) is moved into a safe place called "saved data" and
+the "wind" values are copied into the "data"
+component.
+Since "wind" is a 3-D vector, the new (current) data component
+becomes a 3-D vector also.
+The Compute module is used to make changes in the data component
+of a Field.
+So by multiplying the first (x) component of our 3-D "data" we are,
+in effect, scaling in X.
+For example, the Compute expression in this case would be
+"&#91;a.x * 2.0, a.y, a.z&#93;" to double the
+size of each x component of each "data" point
+while leaving the y and z components the same.
+Any module connected to the output of Compute will see the scaled
+"wind" values as the "data" component of the Field.
+However, the old unscaled "wind" values are still kept in memory,
+also.
+By connecting other modules to the originally imported "wind"
+values, you still have access to those original values, at the
+same time.
+To operate on the "temperature" data, first use Unmark to return
+the "data" to the "wind" component.
+The result will be to place the scaled "wind" values into the
+"wind" component for all modules connected to the output of
+Unmark.
+Unmark also copies back all values from "saved data" into the
+"data" component.
+Then, you can Mark "temperature" as "data" and perform
+operations on it, if you like.
+<P>
+Since "positions" are also 2-D or 3-D vectors, you can Mark
+"positions", perform operations on the grid itself, then
+Unmark "positions" to perform operations on
+the "data".
+With a little knowledge of the correct matrix operations, it is
+possible to simulate the effects of rotations, translations,
+and scalings using this Mark technique.
+You can warp flat grids into cylinders or polar coordinate systems or
+create more complex objects like cones.
+In fact, there are already many macros available in the Data Explorer Repository
+that handle these types of operations using this technique, which
+you may wish to download and use yourself.
+(For the Data Explorer Repository, see <A HREF="usrgu009.htm#HDRMOREINF">"Other
+sources of information"</A>.)
+<P>
+<H3><A NAME="HDRVECFLD" ></A>Vector Fields</H3>
+<A NAME="IDX958"></A>
+<P>
+Vector-valued data sets occur very frequently in visualization.
+Data Explorer offers three ways to visualize vector Fields: vector glyphs,
+streamlines, and streaklines.
+For this example, assume that we acquired data on wind velocity and
+direction in the atmosphere.
+<P>
+Recall that a "glyph" is a visual object; a Field of glyphs is made
+by copying a generic object, positioning each copy appropriately, and
+scaling or coloring each copy according to the data associated with
+that sample point.
+Vector glyphs resemble arrows or rockets and are generated for you by
+the Glyph or AutoGlyph modules.
+A vector Field, like any Field, must have a positions component to
+identify where the vector-valued data was sampled (even if the
+data is connection-dependent, it still requires positions).
+For Glyph realizations, a "connections" component
+is not required, but it may exist if the Field
+contained it for other purposes.
+Of course, a data component containing a vector quantity is needed.
+Each vector glyph will point in the direction of the vector given by the
+datum at that point, with the base of the vector fixed at the vertex
+position (sample point) for position-dependent data.
+The base of the vector is located at the center of the connection
+element for connection-dependent data.
+The length of each vector glyph is scaled based on the vector
+"magnitude", relative to all the other vectors in
+the data Field.
+Glyph and AutoGlyph offer a number of modifications you can make to
+achieve the appearance you desire.
+The effect of glyphing a vector Field is to create a "porcupine"
+plot with lots of arrows sticking out in various directions.
+This can become hard to interpret if there are many vector data points
+or, if one area of your data has very large values, the vectors
+may intersect or occlude each other.
+You can use the Reduce module (in the Import and Export category) to
+downsample the original data Field and thereby decrease the
+number of vectors in the image.
+Picking a reasonable reduction factor will permit the viewer to see the
+overall vector Field direction(s) while reducing the visual clutter.
+<P>
+You can also use the Sample module to extract a subset of points of the
+data Field.
+For example, you can select a subset of points lying on an isosurface;
+these data points can then be fed to Glyph.
+The effect in this case is to show the vector Field direction and
+magnitude sampled at the surface of constant value.
+This is another technique to reduce the number of vectors glyphed at
+the same time and may make it easier to perceive the structure of
+the vector Field.
+<P>
+Another technique for visualizing a vector Field relies on the concept
+that there exists a potential flow direction through the Field.
+Imagine releasing some very light styrofoam balls into our wind Field;
+each ball has a streamer attached to it.
+(Gravity and friction are ignored by the visualization tool;
+of course, you may have accounted for these forces in the simulation
+that modeled the vector Field, if these forces are relevant to
+your science.)
+We release the balls at one instant on one side of our Field and after
+they have passed through the Field, we take a snapshot of the
+streamers.
+This type of image is essentially what you get with the Streamline
+module.
+Streamline is used to visualize a flow Field at an instant in time;
+it assumes that you have a particular measure of a vector Field and wish
+to study the "shape" of that static Field.
+<P>
+Streamline produces a set of lines that show the flight path of each
+"ball and streamer."
+You can indicate the starting positions of these paths in a number of
+ways: essentially, any kind of object with positions can be the
+designated start point or points for Streamline.
+For example, you can use the Sample module to extract an arbitrary
+subset of positions from an isosurface, then treat this subset
+of positions as valid starting points for Streamline.
+You would see a set of streamlines that began <I>on</I> an
+isosurface and then traversed your vector Field.
+If you want to visualize the streamers&#39; associated "twist," use
+the Ribbon module and use the curl and flag parameters of Streamline
+to force computation of the vorticity field.
+Streamlines can also start from a Grid, a list of positions,
+or a Probe.
+The Probe is a handy way to interactively investigate a vector Field;
+Probe tools are selected from the Special category.
+They are manipulated in the Image window; select <TT><STRONG>View
+Control...</STRONG></TT> from the Image window&#39;s
+<TT><STRONG>Options</STRONG></TT> menu, then choose
+<TT><STRONG>Cursors</STRONG></TT> from the
+<TT><STRONG>Mode</STRONG></TT> pop-up menu.
+Any Probes that you have placed in your visual program will be listed in another
+pop-up menu, so you can pick the one you wish to interactively
+manipulate.
+By dragging the probe through the vector Field, the Streamline starting
+point will follow the mouse pointer (again use <TT><STRONG>Execute on
+Change</STRONG></TT> to see this happen interactively).
+<P>
+Streakline is used to study a dynamic vector Field.
+Streakline is equivalent to taking a series of snapshots as our
+styrofoam balls and streamers (or just the balls without
+streamers if you like) fly through the vector Field, but
+with the additional fact that each time we take a
+snapshot, we import the next time step of
+our Field.
+That is, at each moment, we provide new data for vector direction and
+intensity at each sample point.
+As a result, you would expect the direction and speed of the balls and
+streamers to change as their flight is affected by the changing
+Field.
+This technique is often referred to as "particle advection."
+<P>
+Note that both Streamline and Streakline perform interpolation, so both
+modules require that your input vector Field has positions, data,
+<I>and</I> a "connections" component.
+<P>
+<H3><A NAME="HDRVOLRND" ></A>Volume Rendering</H3>
+<A NAME="IDX959"></A>
+<A NAME="IDX960"></A>
+<P>
+Another way to examine data collected throughout a volume of space is
+called <I>volume rendering</I>.
+Imagine a glass bowl full of lemon gelatin.
+Holding it up to a light, you can see through the gelatin because it is
+somewhat translucent.
+Now imagine that you have added strawberries to the bowl of gelatin
+before it set up.
+You can see the strawberries embedded in the gelatin.
+What is really happening, visually?
+Light shines through the mass of gelatin "accumulating" color.
+If you look through the top corner, it will appear somewhat less yellow
+than if you look through the thickest part.
+If the light strikes a strawberry as it passes through the gelatin,
+your eyes will detect an orange object with a distinct outline,
+which of course enables us to find the location of the
+strawberries in the volume of gelatin.
+The strawberry appears orange because its red color is partly occluded
+by the yellow gelatin: nevertheless, our brains convert the
+strawberry color back to red because it is a
+familiar object.
+If someone has added a fruit unfamiliar to you, you will have a hard
+time identifying the true color of the fruit, since our brains are
+not good at performing subtractive color calculations.
+<P>
+Volume rendering a data space yields an image something like our bowl
+of gelatin.
+By default, a volume rendering appears somewhat transparent.
+As light passes through from behind the volume toward your eye, it is
+absorbed more in areas of densely concentrated values.
+These areas will appear to be more "opaque."
+If you color-map your volume according to the data component, you will
+see indistinct colored areas in their relation to each other.
+For more detail on the "dense emitter" model used by Data Explorer, see
+<A HREF="usrgu025.htm#HDROPACOM">"Opacities Component"</A>.
+<P>
+If we are looking for those areas of rain formation within a rain cloud
+data volume, we do not have a built-in conception of the
+"correct" color for such an area.
+The colors assigned will come from the color map we construct.
+If we map the 12 degree C area to red, as in the example above, the
+red-colored rain-forming areas seen through a yellow cloud will,
+in fact, be perceived as orange areas.
+We can temporarily hide the yellow cloud (by changing its opacity to
+0.0 and its color to black) and entrain ourselves to see the red
+regions by themselves.
+<P>
+This is a fine point of perception, but it is important to
+be aware of.
+Perception of natural objects is greatly modified by psychological
+memories and judgements about their "correctness" in size,
+color, mass, and relationship to each other.
+Once we move into the abstract world of visualization, we have no firm
+psychological constructs on which to base
+our perceptions.
+While this may imply that we are working with a "clean
+slate"--no preconceptions, and an unbiased
+scientific viewpoint--just the opposite
+happens:
+we seek to impose interpretation on the scene and may ascribe invalid
+attributes to objects as we try to derive "meaning" from
+the scene.
+On one hand, this is precisely why we imaged the volume in the first
+place!  We want to derive patterns or shape and then figure out
+why they exist.
+On the other hand, we can be fooled by our own eyes if we are not very
+careful to comprehend and explain to others exactly the assumptions
+we make as we convert our sample numbers into colored images.
+<P>
+By the way, you won&#39;t find a specific module named VolumeRendering.
+As it happens, any volumetric Field can be directly rendered by the
+Image module or the Render or Display modules.
+So if you simply Import your volumetric data, run it through AutoColor,
+and attach it to Image, you will get a colored volume rendering of
+your data space.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

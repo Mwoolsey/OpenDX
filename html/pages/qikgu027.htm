@@ -1,0 +1,417 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Importing Data</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu026.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu028.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu016.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>Chapter 5. Importing Data</H2>
+		<P><A NAME="PToC5" ></A>Partial Table-of-Contents
+		<MENU>
+<LI><A NAME="PToC_120" HREF="#HDRGAI">5.1 General Array Importer</A>
+<MENU>
+<LI><A NAME="PToC_121" HREF="#Header_121">Describing the Data</A>
+<LI><A NAME="PToC_122" HREF="#Header_122">Creating a Header File</A>
+<LI><A NAME="PToC_123" HREF="#HDRGAINTS">Some Notes on General Array Importer
+Format</A>
+</MENU>
+<LI><A NAME="PToC_124" HREF="qikgu028.htm">5.2 Importing Data: Header
+File Examples</A>
+<MENU>
+<LI><A NAME="PToC_125" HREF="qikgu028.htm#Header_125">Record Style:
+Single-Variable Data</A>
+<LI><A NAME="PToC_134" HREF="qikgu028.htm#HDRMVARDAT">Record Style:
+Multivariable Data</A>
+<LI><A NAME="PToC_142" HREF="qikgu028.htm#Header_142">Columnar Style</A>
+</MENU>
+<LI><A NAME="PToC_149" HREF="qikgu029.htm">5.3 Header File Syntax:
+Keyword Statements</A>
+<MENU>
+<LI><A NAME="PToC_150" HREF="qikgu029.htm#HDRFILKWD">file</A>
+<LI><A NAME="PToC_151" HREF="qikgu029.htm#HDRGRIDKWD">grid</A>
+<LI><A NAME="PToC_152" HREF="qikgu029.htm#HDRPNTKWD">points</A>
+<LI><A NAME="PToC_153" HREF="qikgu029.htm#HDRBLOKWD">block</A>
+<LI><A NAME="PToC_154" HREF="qikgu029.htm#HDRDEPKWD">dependency</A>
+<LI><A NAME="PToC_155" HREF="qikgu029.htm#HDRFLDKWD">field</A>
+<LI><A NAME="PToC_156" HREF="qikgu029.htm#HDRFORMKWD">format</A>
+<LI><A NAME="PToC_157" HREF="qikgu029.htm#HDRHDRKWD">header</A>
+<LI><A NAME="PToC_158" HREF="qikgu029.htm#HDRINTRKWD">interleaving</A>
+<LI><A NAME="PToC_159" HREF="qikgu029.htm#HDRLAYTKWD">layout</A>
+<LI><A NAME="PToC_160" HREF="qikgu029.htm#HDRMAJKWD">majority</A>
+<LI><A NAME="PToC_161" HREF="qikgu029.htm#HDRRSEPKWD">recordseparator</A>
+<LI><A NAME="PToC_162" HREF="qikgu029.htm#HDRSERSKWD">series</A>
+<LI><A NAME="PToC_163" HREF="qikgu029.htm#HDRSTRCKWD">structure</A>
+<LI><A NAME="PToC_164" HREF="qikgu029.htm#HDRTYPKWD">type</A>
+<LI><A NAME="PToC_165" HREF="qikgu029.htm#HDRPOSKWD">positions</A>
+<LI><A NAME="PToC_166" HREF="qikgu029.htm#HDRENDKWD">end</A>
+</MENU>
+<LI><A NAME="PToC_167" HREF="qikgu030.htm">5.4 Data Prompter</A>
+<MENU>
+<LI><A NAME="PToC_168" HREF="qikgu030.htm#Header_168">For Future Reference</A>
+<LI><A NAME="PToC_169" HREF="qikgu030.htm#Header_169">Supported Formats</A>
+<LI><A NAME="PToC_170" HREF="qikgu030.htm#HDRINITDB">Initial Dialog Box</A>
+<LI><A NAME="PToC_171" HREF="qikgu030.htm#HDRSIMPDP">Simplified Data
+Prompter</A>
+<LI><A NAME="PToC_176" HREF="qikgu030.htm#HDRFULLDPR">Full Data Prompter</A>
+</MENU>
+<LI><A NAME="PToC_179" HREF="qikgu031.htm">5.5 Data Prompter
+Browser</A>
+<MENU>
+<LI><A NAME="PToC_180" HREF="qikgu031.htm#HDRSTRTBRS">Starting the Browser</A>
+<LI><A NAME="PToC_181" HREF="qikgu031.htm#Header_181">Browser Menu Bar</A>
+<LI><A NAME="PToC_186" HREF="qikgu031.htm#HDRBRSWIND">Browser Text Window</A>
+<LI><A NAME="PToC_187" HREF="qikgu031.htm#HDRBRSOFFA">Browser Offset Area</A>
+</MENU>
+  <LI><A NAME="PToC_188" HREF="qikgu032.htm">5.6 Using the Header File to Import 
+    Data</A> 
+</MENU><HR><P>
+<A NAME="IDX191"></A>
+<A NAME="IDX192"></A>
+<P>
+Importing data into Data Explorer is the first step in creating a visualization
+of that data.
+Data Explorer supports the importation of a number of data formats:
+General Array Importer, Data Explorer native, CDF, netCDF,
+and HDF (see <A HREF="usrgu067.htm#HDRIMD">Appendix B. "Importing Data: File
+Formats"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+The General Array Importer is discussed here not only because it can
+import a variety of data types but because its supporting
+interface makes it useful to the broadest range
+of users.
+This interface consists of the Data Prompter, for describing the data to be
+imported, and the Data Browser, for viewing the data.
+<P>
+This chapter deals with the importation of data in the following
+sections:
+<UL COMPACT>
+<LI><A HREF="#HDRGAI">5.1 , "General Array Importer"</A>
+  <LI><A HREF="qikgu028.htm">5.2 , "Importing Data: Header File Examples"</A> 
+  <LI><A HREF="qikgu029.htm">5.3 , "Header File Syntax: Keyword Statements"</A> 
+  <LI><A HREF="qikgu030.htm">5.4 , "Data Prompter"</A> 
+  <LI><A HREF="qikgu031.htm">5.5 , "Data Prompter Browser"</A> 
+</UL>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">An Important Note on
+Fields</TH><TR><TD>
+<A NAME="IDX193"></A>
+<A NAME="IDX194"></A>
+<A NAME="IDX195"></A>
+<P>
+Importing data into Data Explorer requires some knowledge of the Data Explorer
+data
+model and at least a working knowledge of a <I>field</I>.
+<P>
+<I>Fields</I> are the fundamental objects in the Data Explorer data model.
+A field represents a mapping from some <I>domain</I> to some
+<I>data space</I>.
+The domain of the mapping is specified by a set of <I>positions</I>
+and (generally) a set of <I>connections</I> that allow
+interpolation of data values for points between
+positions.
+Positions represent what can be thought of as (and often really are)
+locations in space; the data are the values associated with the
+space of the positions.
+The mapping at all points in a domain (not just those specified by the
+given positions) is represented implicitly by specifying that the
+data are dependent on (located at) the sample points or on the
+connections between points.
+<P>
+This simple abstraction is sufficient for representing a wide range
+of information.
+For example, you can describe 3-dimensional volumetric data whose domain
+is the region specified by positions and whose data space is the set
+of values associated with those positions.
+The domain of a 2-dimensional image on a monitor screen is a set of
+pixel locations, and the data space consists of the pixel
+color.
+For 2-dimensional surfaces imbedded in 3-dimensional space (e.g.,
+traditional graphical models) the domain may be a set of
+positions on the surface, and the data space a set of
+data values on that surface.
+<P>
+In Data Explorer the positions and data are said to be <I>components</I>
+of a field, and every field must contain at least a
+"positions" component and a "data"
+component.
+Fields may also contain other components (e.g., "connections").
+Thus a Data Explorer field consists of data and the additional components
+needed to describe that data so that Data Explorer can process it.
+<P>
+<TT><STRONG>(cont.)</STRONG></TT>
+</TD></TR></TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">An Important Note on Fields
+(cont.)</TH><TR><TD>
+      <P> Components are represented as arrays of numbers with some auxiliary information 
+        specifying <I>attributes</I> (e.g., type of data dependency). The syntax 
+        of defining fields in the General Array format is described in <A HREF="qikgu029.htm">5.3 
+        , "Header File Syntax: Keyword Statements"</A>. The various components 
+        are described in <I>IBM Visualization Data Explorer User&#39;s Guide</I>. 
+    </TD></TR></TABLE>
+<HR>
+<H2><A NAME="HDRGAI" ></A>5.1 General Array Importer</H2>
+<A NAME="IDX196"></A>
+<A NAME="IDX197"></A>
+<P>
+<H3><A NAME="Header_121" ></A>Describing the Data</H3>
+<A NAME="IDX198"></A>
+<A NAME="IDX199"></A>
+<P>
+To import data through the General Array Importer, you must be able to
+answer the following questions.
+<P>
+<OL>
+<P><LI>What are the independent and dependent variables?
+For example, if temperature and wind velocity are measured on a
+latitude-longitude grid, then latitude and longitude are
+the independent variables, temperature and wind
+velocity the dependent variables.
+In the case of resistance measurements versus the voltage applied to a
+semiconductor, voltage is the independent variable and
+resistance the dependent variable.
+<TABLE BORDER><TR><TH ALIGN="LEFT">Components and Variables</TH><TR><TD>
+<P>
+In Data Explorer terminology, the values of the independent variable constitute
+the "positions" component of a data field.
+In the examples above, the first independent variable consists of
+locations in space and the second does not, but both would be
+represented as "positions" in a data field.
+The independent variable is <I>always</I> represented by the
+"positions" component.
+<P>
+The values of the dependent variable constitute the "data"
+component.
+</TD></TR></TABLE>
+<P><LI>What is the dimensionality of the positions and data
+components?
+In the first example above, latitude and longitude are represented by
+2-dimensional positions, the temperature by scalar data, and
+the wind velocity by 2- or 3-dimensional vectors.
+In the second example, voltage is represented by 1-dimensional
+positions and the resistance by scalar data.
+<P><LI>How is the independent variable (the set of positions) to be
+described?
+By a regular grid (which can be completely described by an origin and
+a set of deltas) or by an explicit list (which may or may not
+be part of the data file)?
+For example, data measurements might be on a grid of 1-degree increments
+in latitude and 5-degree increments in longitude;
+voltage levels might be a set of unrelated values stored with the
+resistances in the data file.
+<P><LI>How are the positions connected to one another, if they are
+connected?
+For example, a regular grid of positions might be connected by a regular
+grid of connections (lines, quads, or cubes).
+The connections specify how data values should be interpolated between
+positions.
+Positions that are explicitly specified (i.e., not regular) can also
+be connected by a regular grid of connections (e.g., if the grid
+is deformed, or warped).
+See <A HREF="#FIGGRDTYPS">Figure 11</A>.
+<P><B><A NAME="FIGGRDTYPS" HREF="../qikguide.htm#FT_FIGGRDTYPS">Figure 11. Examples
+of Grid Types</A></B>. The three grids in the top row represent surfaces; those
+in the bottom row, volumes. Reading from left to right, the three types of grid
+are: irregular (irregular positions, irregular connections), deformed regular
+(irregular positions, regular connections), and regular (regular positions,
+regular connections),<BR>
+<B><BR><CENTER><IMG SRC="../images/gridtype.gif" ALT="Figure gridtype not
+displayed."></CENTER><BR></B><BR>
+<A NAME="IDX200"></A>
+<A NAME="IDX201"></A>
+<P><B><A NAME="FIGCOLDPND" HREF="../qikguide.htm#FT_FIGCOLDPND">Figure 12. Examples
+of Data Dependency</A></B>. &nbsp; In the visualization on the left, data
+correspond one-to-one with positions. Other data values (and colors) are
+interpolated linearly between positions. In the visualization on the right, the
+elements connecting positions are quads. Data (and colors) correspond one-to-one
+with, and are constant within, each quad.<BR>
+<B><BR><CENTER><IMG SRC="../images/datdpnd.gif" ALT="Figure datdpnd not
+displayed."></CENTER><BR></B><BR>
+<A NAME="IDX202"></A>
+<A NAME="IDX203"></A>
+<P><B>Note: </B>The General Array Importer supports only regular connections
+(lines, quads, and cubes) or scattered data.
+For irregular connections such as triangles or tetrahedra, you can use
+the Data Explorer native format to import your data.
+(See <I>IBM Visualization Data Explorer User&#39;s Guide</I>.)
+<P><LI>What is the format of the stored data values, ASCII
+or binary?
+Are they floating point, integer, signed or
+unsigned byte, etc.?
+<P><LI>Are the data dependent on "positions" or on
+"connections"?
+That is, are the data values associated one-to-one with positions or
+with the connections between positions? See <A HREF="#FIGCOLDPND">Figure 12</A>.
+(Data associated with connections are often referred to as
+"cell-centered.")
+With position-dependent data, values between positions are interpolated
+within the connection element.
+With connection-dependent data, values are assumed to be constant
+within the connection element.
+<P><LI>Do these data values represent "series data" or do they
+constitute only a single frame of data?
+In the example of resistance levels versus voltage, data may exist for each
+of a number of different doping levels.
+Each doping level could be considered a single data field and the
+collection treated as a series.
+<P><LI>Is the data in "record" or "spreadsheet" style?
+(See <A HREF="#FIGBOXES1">Figure 14</A>.)
+<P><LI>If the data are on a grid, what is the order of the data items with
+respect to the grid?
+Is it column majority (first index varies fastest) or row majority
+(last index varies fastest)?
+(See <A HREF="#FIGROWCOL">Figure 13</A>.)
+<P><LI>What kind of embedded text (comments, etc.) in the data file must
+be "skipped" when the data values are read?
+</OL>
+<P>
+With the answers to these questions, you can now use the General Array
+Importer to describe your data.
+<P><B><A NAME="FIGROWCOL" HREF="../qikguide.htm#FT_FIGROWCOL">Figure 13. Row-
+versus Column-Majority Grids</A></B>. The two grids shown here are generated
+from the same data file, consisting simply of the numbers 1, 2, 3, ..., 20. The
+associated header files differ only in the specification of the grids&#39;
+majority.<BR>
+<B><BR><CENTER><IMG SRC="../images/majcomp.gif" ALT="Figure majcomp not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H3><A NAME="Header_122" ></A>Creating a Header File</H3>
+<P>
+<A NAME="IDX204"></A>
+<A NAME="IDX205"></A>
+The General Array Importer uses a "header file" to describe the
+structure and location of data to be imported.
+This file consists of <I>keyword</I> statements that identify
+important characteristics of that data (including grid
+structure, format, and data type, along with the
+path name of the file containing
+the data).
+<P> A header file can be created with a text editor or, more easily, with the 
+  Data Prompter, which prompts for the necessary information. (See <A HREF="qikgu018.htm">3.3 
+  , "Importing Data"</A> for an example that uses the Data Prompter and <A HREF="qikgu030.htm">5.4 
+  , "Data Prompter"</A> for a detailed description of how to use it.) The Data 
+  Prompter also checks for incorrect syntax, such as conflicting keywords (see 
+  <A HREF="qikgu029.htm">5.3 , "Header File Syntax: Keyword Statements"</A>). 
+<P>
+Once a header file has been created, the data it describes can be
+imported into Data Explorer by the Import module.
+To identify a header file to Data Explorer through the Import dialog box:
+<OL COMPACT>
+<LI>Enter the path name of the header file in the
+<TT><STRONG>name</STRONG></TT> parameter field.
+<LI>Enter "general" in the <TT><STRONG>format</STRONG></TT> parameter
+field.
+(If the file has the extension
+"<TT><STRONG>&#46;</STRONG></TT>general,"
+it is
+not necessary to specify the format to Import.
+Header files created with the Data Prompter are automatically given this
+extension.)
+</OL>
+<P>
+<H3><A NAME="HDRGAINTS" ></A>Some Notes on General Array Importer Format
+</H3>
+<A NAME="IDX209"></A>
+<A NAME="IDX210"></A>
+<A NAME="IDX211"></A>
+<P>
+The General Array Importer imports ASCII or binary data that is
+organized in one of two general "styles":
+
+<I>block</I> or <I>columnar</I>.
+Block
+
+style requires that the data be organized in records,
+or blocks.
+
+Columnar
+
+style requires that the data be organized in vertical
+columns (see <A HREF="#FIGBOXES1">Figure 14</A>).
+<P><B><A NAME="FIGBOXES1" HREF="../qikguide.htm#FT_FIGBOXES1">Figure 14. Block and
+Columnar Styles of Data Organization</A></B>. The three horizontal data blocks
+at left illustrate the block style; the three vertical columns at right, the
+columnar style. A, B, and C represent separate variables. <B><BR><CENTER><IMG
+SRC="../images/dataorg.gif" ALT="Figure dataorg not
+displayed."></CENTER><BR></B><BR>
+<TABLE BORDER  ><TR><TD><BR>
+</TD></TR></TABLE>
+<P>
+The following set of FORTRAN I/O statements generate a record-style
+data file:
+<PRE>
+write(15,20) A(i),i=1,100
+write(15,20) B(i),i=1,100
+write(15,20) C(i),i=1,100
+ 20  format(10(f10.3))
+</PRE>
+An equivalent example in C is shown on the next page.
+<PRE>
+for(i=0; i&lt;100, i++) printf("%10.3f",A&#91;i&#93;);
+for(i=0; i&lt;100, i++) printf("%10.3f",B&#91;i&#93;);
+for(i=0; i&lt;100, i++) printf("%10.3f",C&#91;i&#93;);
+</PRE>
+<P>
+The following FORTRAN I/O statement produces a columnar-style data
+file:
+<PRE>
+write(15,10) (A(i),B(i),C(i),i=1,100)
+ 10 format(3(2x,f10.3))
+</PRE>
+An equivalent example in C is:
+<PRE>
+for (i=0; i&lt;100; i++)
+  printf("  %10.3f  %10.3f  %10.3f\n",A&#91;i&#93;,B&#91;i&#93;,C&#91;i&#93;);
+</PRE>
+<P>
+For both the block and columnar styles, the information in the file
+can be positions as well as data.
+The data can be:
+<UL COMPACT>
+<LI>scalar or vector
+<LI>a time series
+<LI>gridded or scattered
+(for gridded data the grid structure can be regular or warped, but the
+connection elements must be regular; i.e., lines, quads,
+or cubes)
+<LI>position dependent (associated with the grid positions) or
+connection dependent (associated with the grid connections).
+</UL>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

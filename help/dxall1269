@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgt DXGetTime #!N #!N Function #!N 
+#!N Returns the elapsed time, in seconds, from system initialization. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> double DXGetTime() #!EF #!N #!N 
+Functional Details #!N #!N The resolution of this measurement is limited 
+by the timing information available from the underlying operating system. #!N 
+#!N Generally, calls to  #!F-adobe-times-bold-r-normal--18*   DXGetTime #!EF should be used in 
+pairs to measure the amount of time elapsed between two events 
+during a single execution of Data Explorer. #!N #!N Return Value 
+#!N #!N Returns the elapsed time. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxmt,dxall1306 h DXMarkTime, DXMarkTimeLocal  #!EL  ,  #!Ldxpt,dxall1333 h DXPrintTimes  #!EL  ,  #!Ldxtt,dxall1398 h DXTraceTime  #!EL  #!EF #!N #!N  #!Ltimg,dxall1095 h Timing  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgte,dxall1270 h DXGetType  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

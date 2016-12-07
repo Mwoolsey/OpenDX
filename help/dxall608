@@ -1,0 +1,62 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rvolrnd Volume Rendering #!N #!EC #!N #!N Another way 
+to examine data collected throughout a volume of space is called 
+ #!F-adobe-times-medium-i-normal--18*   volume rendering #!EF . Imagine a glass bowl full of 
+lemon gelatin. Holding it up to a light, you can see 
+through the gelatin because it is somewhat translucent. Now imagine that 
+you have added strawberries to the bowl of gelatin before it 
+set up. You can see the strawberries embedded in the gelatin. 
+What is really happening, visually? Light shines through the mass of 
+gelatin "accumulating" color. If you look through the top corner, it 
+will appear somewhat less yellow than if you look through the 
+thickest part. If the light strikes a strawberry as it passes 
+through the gelatin, your eyes will detect an orange object with 
+a distinct outline, which of course enables us to find the 
+location of the strawberries in the volume of gelatin. The strawberry 
+appears orange because its red color is partly occluded by the 
+yellow gelatin: nevertheless, our brains convert the strawberry color back to 
+red because it is a familiar object. If someone has added 
+a fruit unfamiliar to you, you will have a hard time 
+identifying the true color of the fruit, since our brains are 
+not good at performing subtractive color calculations. #!N #!N Volume rendering 
+a data space yields an image something like our bowl of 
+gelatin. By default, a volume rendering appears somewhat transparent. As light 
+passes through from behind the volume toward your eye, it is 
+absorbed more in areas of densely concentrated values. These areas will 
+appear to be more "opaque." If you color-map your volume according 
+to the data component, you will see indistinct colored areas in 
+their relation to each other. For more detail on the "dense 
+emitter" model used by Data Explorer, see  #!Lopacom,dxall208 h Opacities Component  #!EL  . #!N #!N 
+If we are looking for those areas of rain formation within 
+a rain cloud data volume, we do not have a built-in 
+conception of the "correct" color for such an area. The colors 
+assigned will come from the color map we construct. If we 
+map the 12 degree C area to red, as in the 
+example above, the red-colored rain-forming areas seen through a yellow cloud 
+will, in fact, be perceived as orange areas. We can temporarily 
+hide the yellow cloud (by changing its opacity to 0.0 and 
+its color to black) and entrain ourselves to see the red 
+regions by themselves. #!N #!N This is a fine point of 
+perception, but it is important to be aware of. Perception of 
+natural objects is greatly modified by psychological memories and judgements about 
+their "correctness" in size, color, mass, and relationship to each other. 
+Once we move into the abstract world of visualization, we have 
+no firm psychological constructs on which to base our perceptions. While 
+this may imply that we are working with a "clean slate"--no 
+preconceptions, and an unbiased scientific viewpoint--just the opposite happens: we seek 
+to impose interpretation on the scene and may ascribe invalid attributes 
+to objects as we try to derive "meaning" from the scene. 
+On one hand, this is precisely why we imaged the volume 
+in the first place! We want to derive patterns or shape 
+and then figure out why they exist. On the other hand, 
+we can be fooled by our own eyes if we are 
+not very careful to comprehend and explain to others exactly the 
+assumptions we make as we convert our sample numbers into colored 
+images. #!N #!N By the way, you won't find a specific 
+module named VolumeRendering. As it happens, any volumetric Field can be 
+directly rendered by the Image module or the Render or Display 
+modules. So if you simply Import your volumetric data, run it 
+through AutoColor, and attach it to Image, you will get a 
+colored volume rendering of your data space. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall608,dxall609 h Design for Interactive Use  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

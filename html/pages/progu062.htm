@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu061.htm">Previous Page</A> &#124; <A HREF="progu063.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRPLSM" HREF="progu055.htm#PToC_134">13.8 Parallelism</A></H2>
+<A NAME="IDX921"></A>
+<A NAME="IDX922"></A>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<P>
+Modules used exclusively in a uniprocessor environment do not
+require any of the routines described in this section.
+However, modules that use these routines on a parallel processor can
+also be run on a uniprocessor without changing any code.
+</TD></TR></TABLE>
+<P>
+Task Groups constitute a mechanism for specifying a collection of
+tasks to be performed in parallel on a multiprocessor.
+The task model provides simple fork/join semantics, suitable for
+coarse-grain parallelism:
+<OL COMPACT>
+<LI>Begin a collection of tasks to be executed in parallel (with
+<TT><STRONG>DXCreateTaskGroup()</STRONG></TT>)
+<LI>Specify each task (with <TT><STRONG>DXAddTask()</STRONG></TT>)
+<LI>Complete the task Group and begin execution (with
+<TT><STRONG>DXExecuteTaskGroup()</STRONG></TT>).
+Creating all the tasks first simplifies the model and allows optimal
+scheduling on the basis of estimated task-completion times.
+</OL>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Notes on Use</TH><TR><TD>
+<UL COMPACT>
+<LI>It is important that all information required by parallel tasks
+be in global memory.
+This condition is generally met by passing Objects to tasks, since all
+Objects are in global memory.
+<LI>Tasks must not attempt to modify the same data structures
+simultaneously, with the exception of adding members to an
+existing Group (using
+<TT><STRONG>DXSetGroupMember()</STRONG></TT>).
+</UL>
+</TD></TR></TABLE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXCreateTaskGroup()</STRONG></TT>
+</B></TD><TD><P>Starts a new Group of tasks to be run in parallel.
+<A NAME="IDX923"></A>
+<A NAME="IDX924"></A>
+See  <A HREF="progu127.htm#HDRDXCTG">DXCreateTaskGroup</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXAddTask()</STRONG></TT>
+</B></TD><TD><P>Adds a task to be run later, in parallel if possible.
+<A NAME="IDX925"></A>
+<A NAME="IDX926"></A>
+See  <A HREF="progu105.htm#HDRDXAT">DXAddTask</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error
+DXAbortTaskGroup()</STRONG></TT>
+</B></TD><TD><P>Aborts a task group without executing it.
+<A NAME="IDX927"></A>
+<A NAME="IDX928"></A>
+See  <A HREF="progu098.htm#HDRDXATG">DXAbortTaskGroup</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error
+DXExecuteTaskGroup()</STRONG></TT>
+</B></TD><TD><P>Runs the Group of tasks in the current Group in parallel,
+if possible.
+<A NAME="IDX929"></A>
+<A NAME="IDX930"></A>
+See  <A HREF="progu138.htm#HDRDXETG">DXExecuteTaskGroup</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>int
+DXProcessors()</STRONG></TT>
+</B></TD><TD><P>Returns the number of processors.
+<A NAME="IDX931"></A>
+<A NAME="IDX932"></A>
+See  <A HREF="progu270.htm#HDRDXPROC">DXProcessors</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>int
+DXProcessorId()</STRONG></TT>
+</B></TD><TD><P>Returns the current processor identifier.
+<A NAME="IDX933"></A>
+<A NAME="IDX934"></A>
+See  <A HREF="progu269.htm#HDRDXPROI">DXProcessorId</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu061.htm">Previous Page</A> &#124; <A HREF="progu063.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

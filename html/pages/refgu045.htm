@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - DXLOutput</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu044.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu046.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRDXLOUTP" ></A>DXLOutput</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATDXL">DXLink</A>
+<A NAME="IDX445"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Sends a value to a remote application.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+DXLOutput(<STRONG>label</STRONG>, <STRONG>value</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>label</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">name associated with
+<TT><STRONG>value</STRONG></TT>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>value</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">value list or string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">value sent to a DXLink
+application
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module sends variable values from a visual program to a remote
+application that uses the DXLink library of function calls
+(see <A HREF="progu084.htm#HDRDXLINK">Chapter 17. "DXLink Developer's
+Toolkit"</A> in <I>IBM Visualization Data Explorer Programmer&#39;s
+Reference</I>).
+Values are sent as strings and in the same format as that used by the
+Echo tool.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>label</STRONG></TT>
+</B></TD><TD><P>is similar in function to the label set in the DXLInput
+configuration dialog box in that it associates a name
+(i.e., a global variable name)
+with a value.
+This global variable name is used in the
+<TT><STRONG>DXLSetValueHandler()</STRONG></TT> routine
+of the DXLink library (see <A HREF="progu089.htm#HDRRCVMSG">"Receiving Messages
+from the Server"</A>
+in <I>IBM Visualization Data Explorer Programmer&#39;s Reference</I>).
+<P>
+The remote application should install a handler for the various
+<TT><STRONG>label</STRONG></TT>ed global variable names in a program
+(see DXLSetValueHandler in <A HREF="progu089.htm#HDRRCVMSG">"Receiving Messages
+from the Server"</A> in <I>IBM Visualization Data Explorer Programmer&#39;s
+Reference</I>).
+In general, <TT><STRONG>label</STRONG></TT> values should be unique within a
+program.
+<P><B>Note: </B>If you are using the Data Explorer user interface,
+<TT><STRONG>label</STRONG></TT> does not appear as
+an input parameter but is set in the
+<TT><STRONG>notation</STRONG></TT> field
+of the DXLOutput configuration
+dialog box.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>value</STRONG></TT>
+</B></TD><TD><P>is the value that is to be converted to a string and sent to
+a remote application.
+This value must be a Data Explorer value list or string (e.g., a scalar,
+integer list, matrix, etc.).
+It cannot be a Field or Group object.
+</TD></TR></TABLE>
+<P><STRONG>See Also</STRONG>
+&nbsp;<A HREF="refgu043.htm#HDRDXLINPT">DXLInput</A>,
+
+<A HREF="refgu076.htm#HDRINPUT">Input</A>,
+<A HREF="refgu099.htm#HDROUTPUT">Output</A>,
+<A HREF="refgu044.htm#HDRDXLINPN">DXLInputNamed</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

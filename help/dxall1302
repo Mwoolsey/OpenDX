@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxmslv DXMakeStringList, DXMakeStringListV #!N #!N Function #!N #!N Create 
+a string list from a given list of strings. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXMakeStringList(int n, char *s,...) Array 
+DXMakeStringListV(int n, char **s) #!EF #!N #!N Functional Details #!N #!N 
+The first form of this routine (  #!F-adobe-times-bold-r-normal--18*   DXMakeStringList) #!EF specifies 
+the strings as the last  #!F-adobe-times-bold-r-normal--18*   n #!EF arguments. The second 
+form (  #!F-adobe-times-bold-r-normal--18*   DXMakeStringListV) #!EF specifies the strings as an Array 
+of strings  #!F-adobe-times-bold-r-normal--18*   s #!EF . #!N #!N Return Value #!N 
+#!N Return the string list or return  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxnav,dxall1310 h DXNewArray, DXNewArrayV  #!EL  #!EF #!N #!N  #!Lstingl,dxall1072 h String List Routines  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxmp,dxall1303 h DXMap  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

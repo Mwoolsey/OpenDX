@@ -1,0 +1,1364 @@
+//
+// time: Wed Mar 12 15:25:10 1997
+//
+// version: 3.1.1 (format), 3.1.4 (DX Beta)
+//
+//
+// MODULE main
+//
+// comment: This visual program is intended to be a general purpose program for viewing two-dimensional data. 
+// comment: 
+// comment: For multivariate data, you can choose which variable to  see. For series data you can use the sequencer to step through the series. Scattered data will be connected using the Connect module. A colormap editor can be used to color the data (choose Open All Colormap Editors from the Windows menu). Contour lines will be drawn (only if the data are scalar and position-dependent).
+// comment: 
+// comment: If you would like to modify or use this visual program in the future, choose Open Visual Program Editor from the Windows menu, and then choose Save As from the File menu of the VPE.
+// page assignment: CreateImage	order=10, windowed=0, showing=1
+// page assignment: color	order=6, windowed=0, showing=0
+// page assignment: con_or_glyph	order=9, windowed=0, showing=0
+// page assignment: connect	order=5, windowed=0, showing=0
+// page assignment: deform	order=8, windowed=0, showing=0
+// page assignment: import	order=2, windowed=0, showing=0
+// page assignment: is_scalar	order=7, windowed=0, showing=0
+// page assignment: one_frame	order=4, windowed=0, showing=0
+// page assignment: select_var	order=3, windowed=0, showing=0
+// workspace: width = 622, height = 414
+// layout: snap = 0, width = 50, height = 50, align = NN
+//
+macro main(
+) -> (
+) {
+    // 
+    // node FileSelector[3]: x = 154, y = 76, inputs = 0, label = FileSelector
+    // output[1]: visible = 1, type = 32, value = "_filename_"
+    // output[2]: visible = 1, type = 32, value = "_filename_"
+    // page group: import
+    //
+    // 
+    // node String[1]: x = 251, y = 78, inputs = 0, label = String
+    // output[1]: visible = 1, type = 32, value = "_filetype_"
+    // page group: import
+    //
+    // 
+    // node Import[1]: x = 183, y = 252, inputs = 6, label = Import
+    // page group: import
+    //
+main_Import_1_out_1 = 
+    Import(
+    main_FileSelector_3_out_1,
+    main_Import_1_in_2,
+    main_String_1_out_1,
+    main_Import_1_in_4,
+    main_Import_1_in_5,
+    main_Import_1_in_6
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[38]: x = 298, y = 509, inputs = 1, label = imported
+    // page group: import
+    //
+imported = main_Import_1_out_1;
+    // 
+    // node Receiver[43]: x = 341, y = 98, inputs = 1, label = imported
+    // page group: select_var
+    //
+main_Receiver_43_out_1[cache: 0] = imported;
+    // 
+    // node Inquire[3]: x = 298, y = 212, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is generic group +1"
+    // page group: select_var
+    //
+main_Inquire_3_out_1 = 
+    Inquire(
+    main_Receiver_43_out_1,
+    main_Inquire_3_in_2,
+    main_Inquire_3_in_3
+    ) [instance: 3, cache: 1];
+    // 
+    // node Selector[2]: x = 479, y = 219, inputs = 7, label = Selector
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "Selector_2"
+    // input[2]: defaulting = 0, visible = 0, type = 32, value = "normal ascii" 
+    // input[3]: defaulting = 0, visible = 0, type = 29, value = 0 
+    // input[4]: defaulting = 1, visible = 1, type = 16777248, value = { "normal ascii" "full ascii" "normal text" }
+    // input[5]: defaulting = 1, visible = 0, type = 16777245, value = { 0 1 2 }
+    // output[1]: visible = 1, type = 29, value = 0 
+    // output[2]: visible = 1, type = 32, value = "normal ascii" 
+    // page group: select_var
+    //
+main_Selector_2_out_1[cache: 2],
+main_Selector_2_out_2[cache: 2] = 
+    Selector(
+    main_Selector_2_in_1,
+    main_Selector_2_in_2,
+    main_Selector_2_in_3,
+    main_Receiver_43_out_1,
+    main_Selector_2_in_5,
+    main_Selector_2_in_6,
+    main_Selector_2_in_7
+    ) [instance: 2, cache: 1];
+    // 
+    // node Select[1]: x = 410, y = 280, inputs = 3, label = Select
+    // page group: select_var
+    //
+main_Select_1_out_1 = 
+    Select(
+    main_Receiver_43_out_1,
+    main_Selector_2_out_1,
+    main_Select_1_in_3
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[6]: x = 321, y = 364, inputs = 3, label = Switch
+    // page group: select_var
+    //
+main_Switch_6_out_1 = 
+    Switch(
+    main_Inquire_3_out_1,
+    main_Receiver_43_out_1,
+    main_Select_1_out_1
+    ) [instance: 6, cache: 1];
+    // 
+    // node Transmitter[39]: x = 311, y = 492, inputs = 1, label = selected_variable
+    // page group: select_var
+    //
+selected_variable = main_Switch_6_out_1;
+    // 
+    // node Receiver[44]: x = 229, y = 101, inputs = 1, label = selected_variable
+    // page group: one_frame
+    //
+main_Receiver_44_out_1[cache: 0] = selected_variable;
+    // 
+    // node Inquire[4]: x = 174, y = 263, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is series + 1"
+    // page group: one_frame
+    //
+main_Inquire_4_out_1 = 
+    Inquire(
+    main_Receiver_44_out_1,
+    main_Inquire_4_in_2,
+    main_Inquire_4_in_3
+    ) [instance: 4, cache: 1];
+    // 
+    // node Inquire[5]: x = 388, y = 282, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "member count -1"
+    // page group: one_frame
+    //
+main_Inquire_5_out_1 = 
+    Inquire(
+    main_Receiver_44_out_1,
+    main_Inquire_5_in_2,
+    main_Inquire_5_in_3
+    ) [instance: 5, cache: 1];
+    // 
+    // node Sequencer[1]: x = 357, y = 381, inputs = 7, label = Sequencer
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "Sequencer_1"
+    // input[4]: defaulting = 0, visible = 1, type = 1, value = 0
+    // input[5]: defaulting = 1, visible = 1, type = 1, value = 52
+    // input[6]: defaulting = 1, visible = 0, type = 1, value = 1
+    // input[7]: defaulting = 0, visible = 0, type = 16777217, value = { 0 52 1 0 52 1 }
+    // page group: one_frame
+    // vcr[1]: min = 0, max = 52, beg = 0, end = 52, cur = 0, inc = 1, loop = off, step = off, pal = off
+    // window: position = (0.2844,0.8350), size = 0.2188x0.0781
+    //
+    main_Sequencer_1_in_3 = @frame;
+main_Sequencer_1_out_1[cache: 2] = 
+    Sequencer(
+    main_Sequencer_1_in_1,
+    main_Sequencer_1_in_2,
+    main_Sequencer_1_in_3,
+    main_Sequencer_1_in_4,
+    main_Inquire_5_out_1,
+    main_Sequencer_1_in_6,
+    main_Sequencer_1_in_7
+    ) [instance: 1, cache: 1];
+    // 
+    // node Select[2]: x = 295, y = 417, inputs = 3, label = Select
+    // page group: one_frame
+    //
+main_Select_2_out_1 = 
+    Select(
+    main_Receiver_44_out_1,
+    main_Sequencer_1_out_1,
+    main_Select_2_in_3
+    ) [instance: 2, cache: 1];
+    // 
+    // node Switch[7]: x = 189, y = 453, inputs = 3, label = Switch
+    // page group: one_frame
+    //
+main_Switch_7_out_1 = 
+    Switch(
+    main_Inquire_4_out_1,
+    main_Receiver_44_out_1,
+    main_Select_2_out_1
+    ) [instance: 7, cache: 1];
+    // 
+    // node Transmitter[40]: x = 255, y = 538, inputs = 1, label = single_frame
+    // page group: one_frame
+    //
+single_frame = main_Switch_7_out_1;
+    // 
+    // node Receiver[45]: x = 126, y = 99, inputs = 1, label = single_frame
+    // page group: connect
+    //
+main_Receiver_45_out_1[cache: 0] = single_frame;
+    // 
+    // node Inquire[1]: x = 111, y = 267, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "has component + 1"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "connections"
+    // page group: connect
+    //
+main_Inquire_1_out_1 = 
+    Inquire(
+    main_Receiver_45_out_1,
+    main_Inquire_1_in_2,
+    main_Inquire_1_in_3
+    ) [instance: 1, cache: 1];
+    // 
+    // node Connect[1]: x = 255, y = 220, inputs = 3, label = Connect
+    // page group: connect
+    //
+main_Connect_1_out_1 = 
+    Connect(
+    main_Receiver_45_out_1,
+    main_Connect_1_in_2,
+    main_Connect_1_in_3
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[1]: x = 295, y = 305, inputs = 3, label = Switch
+    // page group: connect
+    //
+main_Switch_1_out_1 = 
+    Switch(
+    main_Inquire_1_out_1,
+    main_Connect_1_out_1,
+    main_Receiver_45_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[1]: x = 274, y = 438, inputs = 1, label = FieldToVisualize
+    // page group: connect
+    //
+FieldToVisualize = main_Switch_1_out_1;
+    // 
+    // node Receiver[1]: x = 150, y = 121, inputs = 1, label = FieldToVisualize
+    // page group: color
+    //
+main_Receiver_1_out_1[cache: 0] = FieldToVisualize;
+    // 
+    // node Inquire[2]: x = 73, y = 220, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "has component +1"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "colors"
+    // page group: color
+    //
+main_Inquire_2_out_1 = 
+    Inquire(
+    main_Receiver_1_out_1,
+    main_Inquire_2_in_2,
+    main_Inquire_2_in_3
+    ) [instance: 2, cache: 1];
+    // 
+    // node Transmitter[2]: x = 432, y = 536, inputs = 1, label = EntireField
+    // page group: one_frame
+    //
+EntireField = main_Receiver_44_out_1;
+    // 
+    // node Receiver[2]: x = 415, y = 173, inputs = 1, label = EntireField
+    // page group: color
+    //
+main_Receiver_2_out_1[cache: 0] = EntireField;
+    // 
+    // node Colormap[1]: x = 321, y = 209, inputs = 19, label = Colormap
+    // input[1]: defaulting = 0, visible = 0, type = 16777224, value = { [0.0 0.666667] [1.0 0.0] }
+    // input[2]: defaulting = 0, visible = 0, type = 16777224, value = { [0.0 1.0] [1.0 1.0] }
+    // input[3]: defaulting = 0, visible = 0, type = 16777224, value = { [0.0 1.0] [1.0 1.0] }
+    // input[4]: defaulting = 0, visible = 0, type = 16777224, value = { [0.0 1.0] [1.0 1.0] }
+    // input[5]: defaulting = 0, visible = 0, type = 32, value = "Colormap_1"
+    // input[7]: defaulting = 1, visible = 0, type = 5, value = -5498.0
+    // input[8]: defaulting = 1, visible = 0, type = 5, value = 407.0
+    // input[9]: defaulting = 1, visible = 0, type = 1, value = 20
+    // input[12]: defaulting = 0, visible = 0, type = 16777221, value = { -5498.0 407.0 }
+    // input[17]: defaulting = 0, visible = 0, type = 5, value = -5498.0
+    // input[18]: defaulting = 0, visible = 0, type = 5, value = 407.0
+    // page group: color
+    // window: position = (0.4453,0.0068), size = 0.5367x0.4404
+    //
+main_Colormap_1_out_1[cache: 2],
+main_Colormap_1_out_2[cache: 2] = 
+    Colormap(
+    main_Colormap_1_in_1,
+    main_Colormap_1_in_2,
+    main_Colormap_1_in_3,
+    main_Colormap_1_in_4,
+    main_Colormap_1_in_5,
+    main_Receiver_2_out_1,
+    main_Colormap_1_in_7,
+    main_Colormap_1_in_8,
+    main_Colormap_1_in_9,
+    main_Colormap_1_in_10,
+    main_Colormap_1_in_11,
+    main_Colormap_1_in_12,
+    main_Colormap_1_in_13,
+    main_Colormap_1_in_14,
+    main_Colormap_1_in_15,
+    main_Colormap_1_in_16,
+    main_Colormap_1_in_17,
+    main_Colormap_1_in_18,
+    main_Colormap_1_in_19
+    ) [instance: 1, cache: 1];
+    // 
+    // node Color[1]: x = 303, y = 306, inputs = 5, label = Color
+    // page group: color
+    //
+main_Color_1_out_1 = 
+    Color(
+    main_Receiver_1_out_1,
+    main_Colormap_1_out_1,
+    main_Color_1_in_3,
+    main_Color_1_in_4,
+    main_Color_1_in_5
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[2]: x = 228, y = 474, inputs = 3, label = Switch
+    // page group: color
+    //
+main_Switch_2_out_1 = 
+    Switch(
+    main_Inquire_2_out_1,
+    main_Color_1_out_1,
+    main_Receiver_1_out_1
+    ) [instance: 2, cache: 1];
+    // 
+    // node Transmitter[41]: x = 244, y = 564, inputs = 1, label = colored
+    // page group: color
+    //
+colored = main_Switch_2_out_1;
+    // 
+    // node Receiver[51]: x = 153, y = 81, inputs = 1, label = colored
+    // page group: is_scalar
+    //
+main_Receiver_51_out_1[cache: 0] = colored;
+    // 
+    // node Inquire[14]: x = 149, y = 185, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is scalar"
+    // page group: is_scalar
+    //
+main_Inquire_14_out_1 = 
+    Inquire(
+    main_Receiver_51_out_1,
+    main_Inquire_14_in_2,
+    main_Inquire_14_in_3
+    ) [instance: 14, cache: 1];
+    // 
+    // node Transmitter[46]: x = 153, y = 289, inputs = 1, label = is_scalar
+    // page group: is_scalar
+    //
+is_scalar = main_Inquire_14_out_1;
+    // 
+    // node Receiver[55]: x = 280, y = 73, inputs = 1, label = is_scalar
+    // page group: deform
+    //
+main_Receiver_55_out_1[cache: 0] = is_scalar;
+    // 
+    // node Receiver[46]: x = 462, y = 70, inputs = 1, label = colored
+    // page group: deform
+    //
+main_Receiver_46_out_1[cache: 0] = colored;
+    // 
+    // node Compute[1]: x = 357, y = 193, inputs = 3, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0 ? $1 : mag($1)"
+    // page group: deform
+    // expression: value = is_scalar ? colored : mag(colored)
+    // name[2]: value = is_scalar
+    // name[3]: value = colored
+    //
+main_Compute_1_out_1 = 
+    Compute(
+    main_Compute_1_in_1,
+    main_Receiver_55_out_1,
+    main_Receiver_46_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node RubberSheet[1]: x = 279, y = 293, inputs = 4, label = RubberSheet
+    // page group: deform
+    //
+main_RubberSheet_1_out_1 = 
+    RubberSheet(
+    main_Compute_1_out_1,
+    main_RubberSheet_1_in_2,
+    main_RubberSheet_1_in_3,
+    main_RubberSheet_1_in_4
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[42]: x = 292, y = 375, inputs = 1, label = deformed
+    // page group: deform
+    //
+deformed = main_RubberSheet_1_out_1;
+    // 
+    // node Receiver[47]: x = 222, y = 121, inputs = 1, label = deformed
+    // page group: con_or_glyph
+    //
+main_Receiver_47_out_1[cache: 0] = deformed;
+    // 
+    // node Sample[1]: x = 493, y = 252, inputs = 2, label = Sample
+    // page group: con_or_glyph
+    //
+main_Sample_1_out_1 = 
+    Sample(
+    main_Receiver_47_out_1,
+    main_Sample_1_in_2
+    ) [instance: 1, cache: 1];
+    // 
+    // node AutoGlyph[1]: x = 480, y = 351, inputs = 7, label = AutoGlyph
+    // page group: con_or_glyph
+    //
+main_AutoGlyph_1_out_1 = 
+    AutoGlyph(
+    main_Sample_1_out_1,
+    main_AutoGlyph_1_in_2,
+    main_AutoGlyph_1_in_3,
+    main_AutoGlyph_1_in_4,
+    main_AutoGlyph_1_in_5,
+    main_AutoGlyph_1_in_6,
+    main_AutoGlyph_1_in_7
+    ) [instance: 1, cache: 1];
+    // 
+    // node Inquire[15]: x = 162, y = 280, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is data dependent"
+    // input[3]: defaulting = 0, visible = 1, type = 32, value = "positions"
+    // page group: con_or_glyph
+    //
+main_Inquire_15_out_1 = 
+    Inquire(
+    main_Receiver_47_out_1,
+    main_Inquire_15_in_2,
+    main_Inquire_15_in_3
+    ) [instance: 15, cache: 1];
+    // 
+    // node Reset[2]: x = 416, y = 215, inputs = 6, label = Reset
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "main_Reset_2_out_1"
+    // input[2]: defaulting = 0, visible = 0, type = 29, value = 1
+    // input[3]: defaulting = 0, visible = 0, type = 3, value = 1
+    // input[4]: defaulting = 1, visible = 0, type = 29, value = 1
+    // input[5]: defaulting = 1, visible = 0, type = 29, value = 0
+    // output[1]: visible = 1, type = 29, value = 1
+    // page group: con_or_glyph
+    // toggle : 1
+    //
+    // 
+    // node ScalarList[2]: x = 316, y = 209, inputs = 11, label = ScalarList
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "ScalarList_2"
+    // input[3]: defaulting = 0, visible = 0, type = 16777221, value = { -5498.0 -4907.5 -4317.0 -3726.5 -3136.0 -2545.5 -1955.0 -1364.5 -774.0 -183.5 407.0 }
+    // input[4]: defaulting = 1, visible = 1, type = 3, value = 0
+    // input[5]: defaulting = 1, visible = 0, type = 5, value = -5498.0
+    // input[6]: defaulting = 1, visible = 0, type = 5, value = 407.0
+    // input[7]: defaulting = 1, visible = 0, type = 5, value = 1.0
+    // input[9]: defaulting = 1, visible = 0, type = 1, value = 1
+    // output[1]: visible = 1, type = 16777221, value = { -5498.0 -4907.5 -4317.0 -3726.5 -3136.0 -2545.5 -1955.0 -1364.5 -774.0 -183.5 407.0 }
+    // page group: con_or_glyph
+    //
+main_ScalarList_2_out_1[cache: 2] = 
+    ScalarList(
+    main_ScalarList_2_in_1,
+    main_Receiver_47_out_1,
+    main_ScalarList_2_in_3,
+    main_Reset_2_out_1,
+    main_ScalarList_2_in_5,
+    main_ScalarList_2_in_6,
+    main_ScalarList_2_in_7,
+    main_ScalarList_2_in_8,
+    main_ScalarList_2_in_9,
+    main_ScalarList_2_in_10,
+    main_ScalarList_2_in_11
+    ) [instance: 2, cache: 1];
+    // 
+    // node Isosurface[1]: x = 245, y = 284, inputs = 6, label = Isosurface
+    // page group: con_or_glyph
+    //
+main_Isosurface_1_out_1 = 
+    Isosurface(
+    main_Receiver_47_out_1,
+    main_ScalarList_2_out_1,
+    main_Isosurface_1_in_3,
+    main_Isosurface_1_in_4,
+    main_Isosurface_1_in_5,
+    main_Isosurface_1_in_6
+    ) [instance: 1, cache: 1];
+    // 
+    // node Color[2]: x = 311, y = 354, inputs = 5, label = Color
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "black"
+    // page group: con_or_glyph
+    //
+main_Color_2_out_1 = 
+    Color(
+    main_Isosurface_1_out_1,
+    main_Color_2_in_2,
+    main_Color_2_in_3,
+    main_Color_2_in_4,
+    main_Color_2_in_5
+    ) [instance: 2, cache: 1];
+    // 
+    // node Switch[12]: x = 215, y = 382, inputs = 3, label = Switch
+    // page group: con_or_glyph
+    //
+main_Switch_12_out_1 = 
+    Switch(
+    main_Inquire_15_out_1,
+    main_Color_2_out_1,
+    main_Switch_12_in_3
+    ) [instance: 12, cache: 1];
+    // 
+    // node Collect[1]: x = 133, y = 368, inputs = 2, label = Collect
+    // page group: con_or_glyph
+    //
+main_Collect_1_out_1 = 
+    Collect(
+    main_Receiver_47_out_1,
+    main_Switch_12_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Receiver[52]: x = 42, y = 128, inputs = 1, label = is_scalar
+    // page group: con_or_glyph
+    //
+main_Receiver_52_out_1[cache: 0] = is_scalar;
+    // 
+    // node Compute[10]: x = 28, y = 415, inputs = 2, label = Compute
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "$0 ? 1 : 2"
+    // page group: con_or_glyph
+    // expression: value = is_scalar ? 1 : 2
+    // name[2]: value = is_scalar
+    //
+main_Compute_10_out_1 = 
+    Compute(
+    main_Compute_10_in_1,
+    main_Receiver_52_out_1
+    ) [instance: 10, cache: 1];
+    // 
+    // node Switch[11]: x = 171, y = 507, inputs = 3, label = Switch
+    // page group: con_or_glyph
+    //
+main_Switch_11_out_1 = 
+    Switch(
+    main_Compute_10_out_1,
+    main_Collect_1_out_1,
+    main_AutoGlyph_1_out_1
+    ) [instance: 11, cache: 1];
+    // 
+    // node Transmitter[37]: x = 263, y = 564, inputs = 1, label = realized_data
+    // page group: con_or_glyph
+    //
+realized_data = main_Switch_11_out_1;
+    // 
+    // node Receiver[42]: x = 153, y = 144, inputs = 1, label = realized_data
+    // page group: CreateImage
+    //
+main_Receiver_42_out_1[cache: 0] = realized_data;
+    // 
+    // node Reset[1]: x = 321, y = 256, inputs = 6, label = Reset
+    // input[1]: defaulting = 0, visible = 0, type = 32, value = "main_Reset_1_out_1"
+    // input[2]: defaulting = 0, visible = 0, type = 29, value = 1
+    // input[3]: defaulting = 0, visible = 0, type = 3, value = 1
+    // input[4]: defaulting = 1, visible = 0, type = 29, value = 1
+    // input[5]: defaulting = 1, visible = 0, type = 29, value = 0
+    // output[1]: visible = 1, type = 29, value = 1
+    // page group: CreateImage
+    // toggle : 1
+    //
+    // 
+    // node Image[1]: x = 212, y = 352, inputs = 48, label = Image
+    // input[1]: defaulting = 0, visible = 0, type = 67108863, value = "Image_1"
+    // input[4]: defaulting = 0, visible = 0, type = 1, value = 1
+    // input[5]: defaulting = 0, visible = 0, type = 8, value = [275 29.1667 -1.16071]
+    // input[6]: defaulting = 0, visible = 0, type = 8, value = [275 29.1667 59.2654]
+    // input[7]: defaulting = 0, visible = 0, type = 5, value = 32.3824
+    // input[8]: defaulting = 0, visible = 0, type = 1, value = 504
+    // input[9]: defaulting = 0, visible = 0, type = 5, value = 0.844
+    // input[10]: defaulting = 0, visible = 0, type = 8, value = [0 1 0]
+    // input[11]: defaulting = 1, visible = 0, type = 5, value = 30.0001
+    // input[12]: defaulting = 0, visible = 0, type = 1, value = 0
+    // input[14]: defaulting = 0, visible = 0, type = 1, value = 1
+    // input[15]: defaulting = 1, visible = 0, type = 32, value = "none"
+    // input[16]: defaulting = 1, visible = 0, type = 32, value = "none"
+    // input[17]: defaulting = 1, visible = 0, type = 1, value = 1
+    // input[18]: defaulting = 1, visible = 0, type = 1, value = 1
+    // input[19]: defaulting = 0, visible = 0, type = 3, value = 0
+    // input[21]: visible = 1
+    // input[29]: defaulting = 1, visible = 0, type = 3, value = 0
+    // input[41]: defaulting = 0, visible = 0, type = 32, value = "rotate"
+    // input[42]: defaulting = 0, visible = 0, type = 32, value = "Basic2D"
+    // page group: CreateImage
+    // title: value = Basic2D
+    // depth: value = 8
+    // window: position = (0.5430,0.4658), size = 0.4047x0.4580
+    // internal caching: 1
+    //
+main_Image_1_out_1,
+main_Image_1_out_2,
+main_Image_1_out_3 = 
+    Image(
+    main_Image_1_in_1,
+    main_Receiver_42_out_1,
+    main_Image_1_in_3,
+    main_Image_1_in_4,
+    main_Image_1_in_5,
+    main_Image_1_in_6,
+    main_Image_1_in_7,
+    main_Image_1_in_8,
+    main_Image_1_in_9,
+    main_Image_1_in_10,
+    main_Image_1_in_11,
+    main_Image_1_in_12,
+    main_Image_1_in_13,
+    main_Image_1_in_14,
+    main_Image_1_in_15,
+    main_Image_1_in_16,
+    main_Image_1_in_17,
+    main_Image_1_in_18,
+    main_Image_1_in_19,
+    main_Image_1_in_20,
+    main_Reset_1_out_1,
+    main_Image_1_in_22,
+    main_Image_1_in_23,
+    main_Image_1_in_24,
+    main_Image_1_in_25,
+    main_Image_1_in_26,
+    main_Image_1_in_27,
+    main_Image_1_in_28,
+    main_Image_1_in_29,
+    main_Image_1_in_30,
+    main_Image_1_in_31,
+    main_Image_1_in_32,
+    main_Image_1_in_33,
+    main_Image_1_in_34,
+    main_Image_1_in_35,
+    main_Image_1_in_36,
+    main_Image_1_in_37,
+    main_Image_1_in_38,
+    main_Image_1_in_39,
+    main_Image_1_in_40,
+    main_Image_1_in_41,
+    main_Image_1_in_42,
+    main_Image_1_in_43,
+    main_Image_1_in_44,
+    main_Image_1_in_45,
+    main_Image_1_in_46,
+    main_Image_1_in_47,
+    main_Image_1_in_48
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[4]: x = 63, y = 387, inputs = 3, label = Switch
+    // input[2]: defaulting = 0, visible = 1, type = 67108863, value = 1
+    // input[3]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // page group: color
+    //
+main_Switch_4_out_1 = 
+    Switch(
+    main_Inquire_2_out_1,
+    main_Switch_4_in_2,
+    main_Switch_4_in_3
+    ) [instance: 4, cache: 1];
+    // 
+    // node ManageColormapEditor[1]: x = 39, y = 478, inputs = 3, label = ManageColormapEditor
+    // input[2]: defaulting = 1, visible = 1, type = 3, value = 1
+    // page group: color
+    //
+    ManageColormapEditor(
+    main_ManageColormapEditor_1_in_1,
+    main_Switch_4_out_1,
+    main_ManageColormapEditor_1_in_3
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[9]: x = 103, y = 326, inputs = 3, label = Switch
+    // input[2]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // input[3]: defaulting = 0, visible = 1, type = 67108863, value = 1
+    // page group: select_var
+    //
+main_Switch_9_out_1 = 
+    Switch(
+    main_Inquire_3_out_1,
+    main_Switch_9_in_2,
+    main_Switch_9_in_3
+    ) [instance: 9, cache: 1];
+    // 
+    // node ManageControlPanel[1]: x = 71, y = 423, inputs = 2, label = ManageControlPanel
+    // input[1]: defaulting = 0, visible = 1, type = 16777248, value = {"Variable Selection"}
+    // page group: select_var
+    //
+    ManageControlPanel(
+    main_ManageControlPanel_1_in_1,
+    main_Switch_9_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[8]: x = 47, y = 377, inputs = 3, label = Switch
+    // input[2]: defaulting = 0, visible = 1, type = 67108863, value = 0
+    // input[3]: defaulting = 0, visible = 1, type = 67108863, value = 1
+    // page group: one_frame
+    //
+main_Switch_8_out_1 = 
+    Switch(
+    main_Inquire_4_out_1,
+    main_Switch_8_in_2,
+    main_Switch_8_in_3
+    ) [instance: 8, cache: 1];
+    // 
+    // node ManageSequencer[1]: x = 0, y = 463, inputs = 1, label = ManageSequencer
+    // page group: one_frame
+    //
+    ManageSequencer(
+    main_Switch_8_out_1
+    ) [instance: 1, cache: 1];
+    //
+    // decorator Annotate	pos=(125,32) size=185x28 style(Label), font=bold, value = <NULL>
+    // annotation user_begin: 25
+    // annotation user: This page views the data.
+    // annotation user_end: <NULL>
+    // page group: CreateImage
+    //
+    // decorator Annotate	pos=(62,32) size=547x44 style(Label), font=bold, value = <NULL>
+    // annotation user_begin: 147
+    // annotation user: If the imported data set consists of more than one variable, this page pops up
+    // annotation user: a control panel which allows the user to choose which one to import.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: select_var
+    //
+    // decorator Annotate	pos=(59,33) size=566x44 style(Label), font=bold, value = <NULL>
+    // annotation user_begin: 108
+    // annotation user: This page checks if the imported variable is a sequence (e.g. time series). If so, it
+    // annotation user: enables the sequencer.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: one_frame
+    //
+    // decorator Annotate	pos=(52,43) size=518x44 style(Label), font=bold, value = <NULL>
+    // annotation user_begin: 102
+    // annotation user: This page checks whether or not the data has connections. If it does not, 
+    // annotation user: it adds them using Connect.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: connect
+    //
+    // decorator Annotate	pos=(48,52) size=552x44 style(Label), font=bold, value = <NULL>
+    // annotation user_begin: 106
+    // annotation user: This page checks whether the data have colors. If not, it enables the Colormap
+    // annotation user: Editor and colors the data.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: color
+    //
+    // decorator Annotate	pos=(116,40) size=375x28 style(Label), font=bold, value = <NULL>
+    // annotation user_begin: 54
+    // annotation user: This page determines if the data are scalar or vector.
+    // annotation user_end: <NULL>
+    // page group: is_scalar
+    //
+    // decorator Annotate	pos=(94,28) size=477x44 style(Label), font=bold, value = <NULL>
+    // annotation user_begin: 116
+    // annotation user: If the data are scalar, then contour lines are created. Otherwise, the
+    // annotation user: field is sampled and glyphs are placed on it.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: con_or_glyph
+    //
+    // decorator Annotate	pos=(35,180) size=246x110 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 253
+    // annotation user: This Inquire module finds out whether 
+    // annotation user: the data set is a generic group (that is, 
+    // annotation user: contains more than one variable). If so, 
+    // annotation user: then an interactor is enabled, using
+    // annotation user: ManageControlPanel, which allows 
+    // annotation user: the user to select one of the variables to 
+    // annotation user: be visualized.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: select_var
+    //
+    // decorator Annotate	pos=(480,267) size=174x68 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 99
+    // annotation user: This Inquire determines 
+    // annotation user: the limits of the sequence 
+    // annotation user: (that is, the number of steps 
+    // annotation user: in the series).
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: one_frame
+    //
+    // decorator Annotate	pos=(2,249) size=157x82 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 124
+    // annotation user: This Inquire determines
+    // annotation user: whether or not the input
+    // annotation user: is a series of data. If so,
+    // annotation user: the Sequencer is enabled
+    // annotation user: using ManageSequencer.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: one_frame
+    //
+    // decorator Annotate	pos=(78,11) size=526x44 style(Label), font=bold, value = <NULL>
+    // annotation user_begin: 118
+    // annotation user: This page deforms the data using RubberSheet. If the data are non-scalar,
+    // annotation user: it computes the magnitude of the data first.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: deform
+    //
+    // decorator Annotate	pos=(27,175) size=262x82 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 199
+    // annotation user: This Compute module contains a conditional
+    // annotation user: expression. If the data are scalar, they are 
+    // annotation user: passed through unmodified. If the data are
+    // annotation user: non-scalar, the magnitude is computed and
+    // annotation user: passed on to RubberSheet.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: deform
+    //
+    // decorator Annotate	pos=(381,264) size=241x54 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 108
+    // annotation user: This interactor resets the viewpoint. This
+    // annotation user: would be necessary, for example, if a
+    // annotation user: new data set were imported.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: CreateImage
+    //
+    // decorator Annotate	pos=(57,13) size=491x44 style(Label), font=bold, value = <NULL>
+    // annotation user_begin: 119
+    // annotation user: This page imports the data. The result is passed to other pages in the
+    // annotation user: visual program using the "imported" transmitter.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: import
+    //
+    // decorator Annotate	pos=(309,427) size=28x28 style(Marker), value = <NULL>
+    // annotation user_begin: 74
+    // annotation user: Isosurface is switched off if the data
+    // annotation user: are dep connections (cell-centered)
+    // annotation user_end: <NULL>
+    // page group: con_or_glyph
+// network: end of macro body
+CacheScene("Image_1", main_Image_1_out_1, main_Image_1_out_2);
+}
+main_FileSelector_3_out_1 = "_filename_";
+main_String_1_out_1 = "_filetype_";
+main_Import_1_in_2 = NULL;
+main_Import_1_in_4 = NULL;
+main_Import_1_in_5 = NULL;
+main_Import_1_in_6 = NULL;
+main_Import_1_out_1 = NULL;
+main_Transmitter_38_out_1 = NULL;
+main_Receiver_43_out_1 = NULL;
+main_Inquire_3_in_2 = "is generic group +1";
+main_Inquire_3_in_3 = NULL;
+main_Inquire_3_out_1 = NULL;
+main_Selector_2_in_1 = "Selector_2";
+main_Selector_2_in_2 = "normal ascii" ;
+main_Selector_2_in_3 = 0 ;
+main_Selector_2_in_5 = NULL;
+main_Selector_2_in_6 = NULL;
+main_Selector_2_in_7 = NULL;
+main_Selector_2_out_1 = 0 ;
+main_Select_1_in_3 = NULL;
+main_Select_1_out_1 = NULL;
+main_Switch_6_out_1 = NULL;
+main_Transmitter_39_out_1 = NULL;
+main_Receiver_44_out_1 = NULL;
+main_Inquire_4_in_2 = "is series + 1";
+main_Inquire_4_in_3 = NULL;
+main_Inquire_4_out_1 = NULL;
+main_Inquire_5_in_2 = "member count -1";
+main_Inquire_5_in_3 = NULL;
+main_Inquire_5_out_1 = NULL;
+main_Sequencer_1_in_1 = "Sequencer_1";
+main_Sequencer_1_in_2 = NULL;
+main_Sequencer_1_in_3 = NULL;
+main_Sequencer_1_in_4 = 0;
+main_Sequencer_1_in_6 = NULL;
+main_Sequencer_1_in_7 = { 0 52 1 0 52 1 };
+main_Sequencer_1_out_1 = NULL;
+
+@startframe = 0;
+@nextframe  = @startframe;
+@endframe   = 52;
+@deltaframe = 1;
+main_Select_2_in_3 = NULL;
+main_Select_2_out_1 = NULL;
+main_Switch_7_out_1 = NULL;
+main_Transmitter_40_out_1 = NULL;
+main_Receiver_45_out_1 = NULL;
+main_Inquire_1_in_2 = "has component + 1";
+main_Inquire_1_in_3 = "connections";
+main_Inquire_1_out_1 = NULL;
+main_Connect_1_in_2 = NULL;
+main_Connect_1_in_3 = NULL;
+main_Connect_1_out_1 = NULL;
+main_Switch_1_out_1 = NULL;
+main_Transmitter_1_out_1 = NULL;
+main_Receiver_1_out_1 = NULL;
+main_Inquire_2_in_2 = "has component +1";
+main_Inquire_2_in_3 = "colors";
+main_Inquire_2_out_1 = NULL;
+main_Transmitter_2_out_1 = NULL;
+main_Receiver_2_out_1 = NULL;
+main_Colormap_1_in_1 = { [0.0 0.666667] [1.0 0.0] };
+main_Colormap_1_in_2 = { [0.0 1.0] [1.0 1.0] };
+main_Colormap_1_in_3 = { [0.0 1.0] [1.0 1.0] };
+main_Colormap_1_in_4 = { [0.0 1.0] [1.0 1.0] };
+main_Colormap_1_in_5 = "Colormap_1";
+main_Colormap_1_in_7 = NULL;
+main_Colormap_1_in_8 = NULL;
+main_Colormap_1_in_9 = NULL;
+main_Colormap_1_in_10 = NULL;
+main_Colormap_1_in_11 = NULL;
+main_Colormap_1_in_12 = { -5498.0 407.0 };
+main_Colormap_1_in_13 = NULL;
+main_Colormap_1_in_14 = NULL;
+main_Colormap_1_in_15 = NULL;
+main_Colormap_1_in_16 = NULL;
+main_Colormap_1_in_17 = -5498.0;
+main_Colormap_1_in_18 = 407.0;
+main_Colormap_1_in_19 = NULL;
+main_Colormap_1_out_1 = NULL;
+main_Color_1_in_3 = NULL;
+main_Color_1_in_4 = NULL;
+main_Color_1_in_5 = NULL;
+main_Color_1_out_1 = NULL;
+main_Switch_2_out_1 = NULL;
+main_Transmitter_41_out_1 = NULL;
+main_Receiver_51_out_1 = NULL;
+main_Inquire_14_in_2 = "is scalar";
+main_Inquire_14_in_3 = NULL;
+main_Inquire_14_out_1 = NULL;
+main_Transmitter_46_out_1 = NULL;
+main_Receiver_55_out_1 = NULL;
+main_Receiver_46_out_1 = NULL;
+main_Compute_1_in_1 = "$0 ? $1 : mag($1)";
+main_Compute_1_out_1 = NULL;
+main_RubberSheet_1_in_2 = NULL;
+main_RubberSheet_1_in_3 = NULL;
+main_RubberSheet_1_in_4 = NULL;
+main_RubberSheet_1_out_1 = NULL;
+main_Transmitter_42_out_1 = NULL;
+main_Receiver_47_out_1 = NULL;
+main_Sample_1_in_2 = NULL;
+main_Sample_1_out_1 = NULL;
+main_AutoGlyph_1_in_2 = NULL;
+main_AutoGlyph_1_in_3 = NULL;
+main_AutoGlyph_1_in_4 = NULL;
+main_AutoGlyph_1_in_5 = NULL;
+main_AutoGlyph_1_in_6 = NULL;
+main_AutoGlyph_1_in_7 = NULL;
+main_AutoGlyph_1_out_1 = NULL;
+main_Inquire_15_in_2 = "is data dependent";
+main_Inquire_15_in_3 = "positions";
+main_Inquire_15_out_1 = NULL;
+main_Reset_2_in_1 = "main_Reset_2_out_1";
+main_Reset_2_in_2 = 1;
+main_Reset_2_in_3 = 1;
+main_Reset_2_in_4 = NULL;
+main_Reset_2_in_5 = NULL;
+main_Reset_2_in_6 = NULL;
+main_Reset_2_out_1[oneshot:0] = 1;
+main_ScalarList_2_in_1 = "ScalarList_2";
+main_ScalarList_2_in_3 = { -5498.0 -4907.5 -4317.0 -3726.5 -3136.0 -2545.5 -1955.0 -1364.5 -774.0 -183.5 407.0 };
+main_ScalarList_2_in_5 = NULL;
+main_ScalarList_2_in_6 = NULL;
+main_ScalarList_2_in_7 = NULL;
+main_ScalarList_2_in_8 = NULL;
+main_ScalarList_2_in_9 = NULL;
+main_ScalarList_2_in_10 = NULL;
+main_ScalarList_2_in_11 = NULL;
+main_ScalarList_2_out_1 = { -5498.0 -4907.5 -4317.0 -3726.5 -3136.0 -2545.5 -1955.0 -1364.5 -774.0 -183.5 407.0 };
+main_Isosurface_1_in_3 = NULL;
+main_Isosurface_1_in_4 = NULL;
+main_Isosurface_1_in_5 = NULL;
+main_Isosurface_1_in_6 = NULL;
+main_Isosurface_1_out_1 = NULL;
+main_Color_2_in_2 = "black";
+main_Color_2_in_3 = NULL;
+main_Color_2_in_4 = NULL;
+main_Color_2_in_5 = NULL;
+main_Color_2_out_1 = NULL;
+main_Switch_12_in_3 = NULL;
+main_Switch_12_out_1 = NULL;
+main_Collect_1_out_1 = NULL;
+main_Receiver_52_out_1 = NULL;
+main_Compute_10_in_1 = "$0 ? 1 : 2";
+main_Compute_10_out_1 = NULL;
+main_Switch_11_out_1 = NULL;
+main_Transmitter_37_out_1 = NULL;
+main_Receiver_42_out_1 = NULL;
+main_Reset_1_in_1 = "main_Reset_1_out_1";
+main_Reset_1_in_2 = 1;
+main_Reset_1_in_3 = 1;
+main_Reset_1_in_4 = NULL;
+main_Reset_1_in_5 = NULL;
+main_Reset_1_in_6 = NULL;
+main_Reset_1_out_1[oneshot:0] = 1;
+macro Image(
+        id,
+        object,
+        where,
+        useVector,
+        to,
+        from,
+        width,
+        resolution,
+        aspect,
+        up,
+        viewAngle,
+        perspective,
+        options,
+        buttonState = 1,
+        buttonUpApprox = "none",
+        buttonDownApprox = "none",
+        buttonUpDensity = 1,
+        buttonDownDensity = 1,
+        renderMode = 0,
+        defaultCamera,
+        reset,
+        backgroundColor,
+        throttle,
+        RECenable = 0,
+        RECfile,
+        RECformat,
+        RECresolution,
+        RECaspect,
+        AAenable = 0,
+        AAlabels,
+        AAticks,
+        AAcorners,
+        AAframe,
+        AAadjust,
+        AAcursor,
+        AAgrid,
+        AAcolors,
+        AAannotation,
+        AAlabelscale,
+        AAfont,
+        interactionMode,
+        title,
+        AAxTickLocs,
+        AAyTickLocs,
+        AAzTickLocs,
+        AAxTickLabels,
+        AAyTickLabels,
+        AAzTickLabels) -> (
+        object,
+        camera,
+        where)
+{
+    ImageMessage(
+        id,
+        backgroundColor,
+        throttle,
+        RECenable,
+        RECfile,
+        RECformat,
+        RECresolution,
+        RECaspect,
+        AAenable,
+        AAlabels,
+        AAticks,
+        AAcorners,
+        AAframe,
+        AAadjust,
+        AAcursor,
+        AAgrid,
+        AAcolors,
+        AAannotation,
+        AAlabelscale,
+        AAfont,
+        AAxTickLocs,
+        AAyTickLocs,
+        AAzTickLocs,
+        AAxTickLabels,
+        AAyTickLabels,
+        AAzTickLabels,
+        interactionMode,
+        title,
+        renderMode,
+        buttonUpApprox,
+        buttonDownApprox,
+        buttonUpDensity,
+        buttonDownDensity) [instance: 1, cache: 1];
+    autoCamera =
+        AutoCamera(
+            object,
+            "front",
+            object,
+            resolution,
+            aspect,
+            [0,1,0],
+            perspective,
+            viewAngle,
+            backgroundColor) [instance: 1, cache: 1];
+    realCamera =
+        Camera(
+            to,
+            from,
+            width,
+            resolution,
+            aspect,
+            up,
+            perspective,
+            viewAngle,
+            backgroundColor) [instance: 1, cache: 1];
+    coloredDefaultCamera = 
+	 UpdateCamera(defaultCamera,
+            background=backgroundColor) [instance: 1, cache: 1];
+    nullDefaultCamera =
+        Inquire(defaultCamera,
+            "is null + 1") [instance: 1, cache: 1];
+    resetCamera =
+        Switch(
+            nullDefaultCamera,
+            coloredDefaultCamera,
+            autoCamera) [instance: 1, cache: 1];
+    resetNull = 
+        Inquire(
+            reset,
+            "is null + 1") [instance: 2, cache: 1];
+    reset =
+        Switch(
+            resetNull,
+            reset,
+            0) [instance: 2, cache: 1];
+    whichCamera =
+        Compute(
+            "($0 != 0 || $1 == 0) ? 1 : 2",
+            reset,
+            useVector) [instance: 1, cache: 1];
+    camera = Switch(
+            whichCamera,
+            resetCamera,
+            realCamera) [instance: 3, cache: 1];
+    AAobject =
+        AutoAxes(
+            object,
+            camera,
+            AAlabels,
+            AAticks,
+            AAcorners,
+            AAframe,
+            AAadjust,
+            AAcursor,
+            AAgrid,
+            AAcolors,
+            AAannotation,
+            AAlabelscale,
+            AAfont,
+            AAxTickLocs,
+            AAyTickLocs,
+            AAzTickLocs,
+            AAxTickLabels,
+            AAyTickLabels,
+            AAzTickLabels) [instance: 1, cache: 1];
+    switchAAenable = Compute("$0+1",
+	     AAenable) [instance: 2, cache: 1];
+    object = Switch(
+	     switchAAenable,
+	     object,
+	     AAobject) [instance:4, cache: 1];
+    SWapproximation_options =
+        Switch(
+            buttonState,
+            buttonUpApprox,
+            buttonDownApprox) [instance: 5, cache: 1];
+    SWdensity_options =
+        Switch(
+            buttonState,
+            buttonUpDensity,
+            buttonDownDensity) [instance: 6, cache: 1];
+    HWapproximation_options =
+        Format(
+            "%s,%s",
+            buttonDownApprox,
+            buttonUpApprox) [instance: 1, cache: 1];
+    HWdensity_options =
+        Format(
+            "%d,%d",
+            buttonDownDensity,
+            buttonUpDensity) [instance: 2, cache: 1];
+    switchRenderMode = Compute(
+	     "$0+1",
+	     renderMode) [instance: 3, cache: 1];
+    approximation_options = Switch(
+	     switchRenderMode,
+            SWapproximation_options,
+	     HWapproximation_options) [instance: 7, cache: 1];
+    density_options = Switch(
+	     switchRenderMode,
+            SWdensity_options,
+            HWdensity_options) [instance: 8, cache: 1];
+    renderModeString = Switch(
+            switchRenderMode,
+            "software",
+            "hardware")[instance: 9, cache: 1];
+    object_tag = Inquire(
+            object,
+            "object tag")[instance: 3, cache: 1];
+    annoted_object =
+        Options(
+            object,
+            "send boxes",
+            0,
+            "cache",
+            1,
+            "object tag",
+            object_tag,
+            "ddcamera",
+            whichCamera,
+            "rendering approximation",
+            approximation_options,
+            "render every",
+            density_options,
+            "button state",
+            buttonState,
+            "rendering mode",
+            renderModeString) [instance: 1, cache: 1];
+    RECresNull =
+        Inquire(
+            RECresolution,
+            "is null + 1") [instance: 4, cache: 1];
+    ImageResolution =
+        Inquire(
+            camera,
+            "camera resolution") [instance: 5, cache: 1];
+    RECresolution =
+        Switch(
+            RECresNull,
+            RECresolution,
+            ImageResolution) [instance: 10, cache: 1];
+    RECaspectNull =
+        Inquire(
+            RECaspect,
+            "is null + 1") [instance: 6, cache: 1];
+    ImageAspect =
+        Inquire(
+            camera,
+            "camera aspect") [instance: 7, cache: 1];
+    RECaspect =
+        Switch(
+            RECaspectNull,
+            RECaspect,
+            ImageAspect) [instance: 11, cache: 1];
+    switchRECenable = Compute(
+          "$0 == 0 ? 1 : (($2 == $3) && ($4 == $5)) ? ($1 == 1 ? 2 : 3) : 4",
+            RECenable,
+            switchRenderMode,
+            RECresolution,
+            ImageResolution,
+            RECaspect,
+	     ImageAspect) [instance: 4, cache: 1];
+    NoRECobject, RECNoRerenderObject, RECNoRerHW, RECRerenderObject = Route(switchRECenable, annoted_object);
+    Display(
+        NoRECobject,
+        camera,
+        where,
+        throttle) [instance: 1, cache: 1];
+    image =
+        Render(
+            RECNoRerenderObject,
+            camera) [instance: 1, cache: 1];
+    Display(
+        image,
+        NULL,
+        where,
+        throttle) [instance: 2, cache: 1];
+    WriteImage(
+        image,
+        RECfile,
+        RECformat) [instance: 1, cache: 1];
+    rec_where = Display(
+        RECNoRerHW,
+        camera,
+        where,
+        throttle) [instance: 1, cache: 0];
+    rec_image = ReadImageWindow(
+        rec_where) [instance: 1, cache: 1];
+    WriteImage(
+        rec_image,
+        RECfile,
+        RECformat) [instance: 1, cache: 1];
+    RECupdateCamera =
+	UpdateCamera(
+	    camera,
+	    resolution=RECresolution,
+	    aspect=RECaspect) [instance: 2, cache: 1];
+    Display(
+        RECRerenderObject,
+        camera,
+        where,
+        throttle) [instance: 1, cache: 1];
+    RECRerenderObject =
+	ScaleScreen(
+	    RECRerenderObject,
+	    NULL,
+	    RECresolution,
+	    camera) [instance: 1, cache: 1];
+    image =
+        Render(
+            RECRerenderObject,
+            RECupdateCamera) [instance: 2, cache: 1];
+    WriteImage(
+        image,
+        RECfile,
+        RECformat) [instance: 2, cache: 1];
+}
+main_Image_1_in_1 = "Image_1";
+main_Image_1_in_3 = "X8,,Basic2D";
+main_Image_1_in_4 = 1;
+main_Image_1_in_5 = [275 29.1667 -1.16071];
+main_Image_1_in_6 = [275 29.1667 59.2654];
+main_Image_1_in_7 = 32.3824;
+main_Image_1_in_8 = 504;
+main_Image_1_in_9 = 0.844;
+main_Image_1_in_10 = [0 1 0];
+main_Image_1_in_11 = NULL;
+main_Image_1_in_12 = 0;
+main_Image_1_in_13 = NULL;
+main_Image_1_in_14 = 1;
+main_Image_1_in_15 = NULL;
+main_Image_1_in_16 = NULL;
+main_Image_1_in_17 = NULL;
+main_Image_1_in_18 = NULL;
+main_Image_1_in_19 = 0;
+main_Image_1_in_20 = NULL;
+main_Image_1_in_22 = NULL;
+main_Image_1_in_23 = NULL;
+main_Image_1_in_25 = NULL;
+main_Image_1_in_26 = NULL;
+main_Image_1_in_27 = NULL;
+main_Image_1_in_28 = NULL;
+main_Image_1_in_29 = NULL;
+main_Image_1_in_30 = NULL;
+main_Image_1_in_31 = NULL;
+main_Image_1_in_32 = NULL;
+main_Image_1_in_33 = NULL;
+main_Image_1_in_34 = NULL;
+main_Image_1_in_35 = NULL;
+main_Image_1_in_36 = NULL;
+main_Image_1_in_37 = NULL;
+main_Image_1_in_38 = NULL;
+main_Image_1_in_39 = NULL;
+main_Image_1_in_40 = NULL;
+main_Image_1_in_41 = "rotate";
+main_Image_1_in_42 = "Basic2D";
+main_Image_1_in_43 = NULL;
+main_Image_1_in_44 = NULL;
+main_Image_1_in_45 = NULL;
+main_Image_1_in_46 = NULL;
+main_Image_1_in_47 = NULL;
+main_Image_1_in_48 = NULL;
+main_Switch_4_in_2 = 1;
+main_Switch_4_in_3 = 0;
+main_Switch_4_out_1 = NULL;
+main_ManageColormapEditor_1_in_1 = NULL;
+main_ManageColormapEditor_1_in_3 = NULL;
+main_Switch_9_in_2 = 0;
+main_Switch_9_in_3 = 1;
+main_Switch_9_out_1 = NULL;
+main_ManageControlPanel_1_in_1 = {"Variable Selection"};
+main_Switch_8_in_2 = 0;
+main_Switch_8_in_3 = 1;
+main_Switch_8_out_1 = NULL;
+Executive("product version 3 1 4");
+$sync
+
+sequence main();
+play;

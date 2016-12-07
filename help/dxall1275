@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxicm DXImportCM 
+#!N #!N Function #!N #!N Imports data from an Data Explorer 
+colormap file. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> DXImportCM(char *filename,char 
+**variable) #!EF #!N #!N Functional Details #!N #!N Imports data from 
+a Data Explorer colormap file  #!F-adobe-times-bold-r-normal--18*   filename #!EF . (These files 
+can be saved using  #!F-adobe-times-bold-r-normal--18*   Save As #!EF from the File 
+menu of the Colormap Editor).  #!F-adobe-times-bold-r-normal--18*   variable #!EF can be "colormap" 
+or "opacity." If  #!F-adobe-times-bold-r-normal--18*   variable #!EF is NULL, then both the 
+colormap and the opacity map are imported and placed in a 
+group. #!N #!N Return Value #!N #!N Returns a pointer to 
+the Object or returns NULL and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxinc,dxall1278 h DXImportNetCDF  #!EL  ,  #!Ldxidx,dxall1276 h DXImportDX  #!EL  ,  #!Ldxihdf,dxall1277 h DXImportHDF  #!EL  
+,  #!Ldxicdf,dxall1274 h DXImportCDF  #!EL  #!EF #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxidx,dxall1276 h DXImportDX  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

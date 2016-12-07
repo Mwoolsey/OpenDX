@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall278 DXMACROS #!N #!N #!N The 
+DXMACROS environment variable is a list of the directories in which 
+Data Explorer will look for macros. If you do not specify 
+DXMACROS, you will need to load macros individually, using the process 
+described in  #!Lmacros,dxall435 h Creating and Using Macros  #!EL  . The directories are searched in the order 
+in which they are specified in the environment variable. If multiple 
+macros with the same name are encountered, the first macro found 
+is used. #!N #!N An example of the statement setting the 
+DXMACROS environment variable (in the C shell environment) is the following: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N setenv DXMACROS /usr/mydirectory/projectAmacros:/usr/mydirectory/projectBmacros #!EF #!N #!N 
+#!EC where  #!F-adobe-times-bold-r-normal--18*   /usr/mydirectory/projectAmacros #!EF and  #!F-adobe-times-bold-r-normal--18*   /usr/mydirectory/projectBmacros #!EF are two 
+directories in which macros will be sought. Multiple directories can be 
+listed, with directory names separated by a colon. #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltall280,dxall280 h DXDATA  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

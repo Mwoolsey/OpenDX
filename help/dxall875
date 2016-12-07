@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall875 Including Data Points in a Data 
+Field #!N #!N #!N Consider a field containing position-dependent data and 
+a "connections" component. If  #!F-adobe-times-bold-r-normal--18*   pointwise #!EF =0, after invalidating positions 
+with data values outside the specified range, Include invalidates all connections 
+that reference (include) an invalid position, and finally invalidates all positions 
+not referred to by any valid connection. That is, no connection 
+elements that include  #!F-adobe-times-medium-i-normal--18*   any #!EF invalid data values are retained--because 
+the result of interpolation within such a connection element is not 
+defined. For example, the following grid has valid data points (x), 
+invalid points (i), and quad connections. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+x--------x--------i--------i--------x #!N | | | | #!N | | | | 
+#!N | | | | #!N x--------x--------i--------i--------x #!N | | | 
+#!N | | | #!N | | | #!N x--------x--------x--------x #!N 
+| | | #!N | | | #!N | | | 
+#!N x--------x--------x--------x #!EF #!N #!N #!EC The removal of invalid points 
+leaves three invalid connection elements (the quads marked with "o") and 
+two data positions that have no valid connection to any other 
+data point: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N x--------x-------- x #!N | 
+#!N | | o #!N | #!N x--------x-------- x #!N | 
+| | #!N | | o | o #!N | | 
+| #!N x--------x--------x--------x #!N | | | #!N | | | 
+#!N | | | #!N x--------x--------x--------x #!EF #!N #!N #!EC The 
+field returned by Include is represented by the grid shown below. 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N x--------x #!N | #!N | #!N 
+| #!N x--------x #!N | #!N | #!N | #!N x--------x--------x--------x 
+#!N | | | #!N | | | #!N | | 
+| #!N x--------x--------x--------x #!EF #!N #!N #!EC #!N #!N Example Visual 
+Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N GeneralImport1.net #!N Thunder_cellcentered.net #!N SIMPLE/Include.net 
+#!EF #!N #!N #!EC #!N #!N See Also #!N #!N  #!Lregrid,dxall920 h Regrid  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Linput,dxall876 h Input  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

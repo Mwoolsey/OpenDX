@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnsn DXNewScreen #!N 
+#!N Function #!N #!N Creates a new Object aligned to the 
+final screen. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Screen DXNewScreen(Object 
+o, int position, int z) #!EF #!N #!N Functional Details #!N 
+#!N A Screen Object is an Object that maintains a size 
+and alignment with the screen (output image) independent of the camera 
+view and scaling transformations applied to it. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   
+position #!EF parameter specifies one of the three options for positioning 
+of the Screen Object as explained in the following material; it 
+must be one of  #!F-adobe-times-bold-r-normal--18*   SCREEN_WORLD #!EF ,  #!F-adobe-times-bold-r-normal--18*   SCREEN_PIXEL #!EF 
+or  #!F-adobe-times-bold-r-normal--18*   SCREEN_VIEWPORT #!EF . The  #!F-adobe-times-bold-r-normal--18*   z #!EF parameter determines 
+the relative depth of the Object, as described in the following 
+text. #!N #!N Three options are provided for the interpretation of 
+translations applied to a Screen Object. First, a translation applied to 
+the Screen Object may specify a new position for the origin 
+of the Screen Object in world space (  #!F-adobe-times-bold-r-normal--18*   SCREEN_WORLD #!EF 
+). Second, a translation applied to the Screen Object may specify 
+a new location for the Screen Object in the image, measured 
+in pixels, where (0,0) refers to the lower-left corner of the 
+image (  #!F-adobe-times-bold-r-normal--18*   SCREEN_PIXEL #!EF ). Third, a translation applied to 
+the Screen Object may specify a new location for the Screen 
+Object in the image, measured in viewport-relative coordinates, where (0,0) refers 
+to the lower-left corner of the image and (1,1) refers to 
+the upper-right corner of the image (  #!F-adobe-times-bold-r-normal--18*   SCREEN_VIEWPORT #!EF ). 
+#!N #!N The  #!F-adobe-times-bold-r-normal--18*   z #!EF parameter controls where the Screen 
+Object is displayed relative to all other Objects in the scene. 
+ #!F-adobe-times-medium-i-normal--18*   -1 #!EF displays behind, 0 is in the scene, and 
+ #!F-adobe-times-medium-i-normal--18*   +1 #!EF is in front of all other Objects. #!N 
+#!N The Object created can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  
+. #!N #!N Return Value #!N #!N Returns the Screen Object 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgsi,dxall1265 h DXGetScreenInfo  #!EL  ,  #!Ldxsso,dxall1390 h DXSetScreenObject  #!EL  #!EF #!N 
+#!N  #!Lsncs,dxall1136 h Screen Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxns,dxall1326 h DXNewSeries  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu099.htm">Previous Page</A> &#124; <A HREF="progu101.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXAAD" HREF="progu097.htm#PToC_194">DXAddArrayData</A></H3>
+<A NAME="IDX1482"></A>
+<A NAME="IDX1483"></A>
+<P><STRONG>Function</STRONG>
+Adds items to an Array.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+&#35;include &lt;dx/dx.h&gt;
+Array DXAddArrayData(Array a, int start, int n, Pointer data)
+</STRONG>
+</PRE>.
+<P><STRONG>Functional Details</STRONG>
+Adds <TT><STRONG>n</STRONG></TT> items to Array <TT><STRONG>a</STRONG></TT>,
+starting at the numbered item specified by
+<TT><STRONG>start</STRONG></TT>.
+The additions may replace or supplement items already
+defined.
+If <TT><STRONG>data</STRONG></TT> is not <TT><STRONG>NULL</STRONG></TT>, the
+routine copies the data into the Array;
+otherwise, it increases the number of items in the Array by
+<TT><STRONG>n</STRONG></TT>, but leaves them uninitialized.
+<P>
+To avoid having memory allocated every time,
+<TT><STRONG>DXAddArrayData</STRONG></TT> may allocate more
+than is needed for the requested number
+of items.
+If Array <TT><STRONG>a</STRONG></TT> is part of a Field, any extra space will
+be freed when <TT><STRONG>DXEndField</STRONG></TT> is called.
+If it is not part of a Field, <TT><STRONG>DXTrim</STRONG></TT> can be called
+to free the extra space, though this is not required.
+<P>
+To allocate space "up front" for an Array of known size, use
+<TT><STRONG>DXAddArrayData(a, 0, n, NULL)</STRONG></TT>, which is the
+preferred means for preallocating space for the data.
+<P>
+<TT><STRONG>DXAllocateArray(a, 0, n, NULL)</STRONG></TT> also preallocates space,
+but the number of items in the Array will be 0.
+If <TT><STRONG>DXAllocateArray</STRONG></TT> is called,
+<TT><STRONG>DXTrim</STRONG></TT> can be called to
+resize the Array to the space required
+for the actual number of items.
+<P>
+Allocating more space for an Array may result in its being copied to a
+new location in memory.
+If you call <TT><STRONG>DXGetArrayData</STRONG></TT> to obtain a pointer for
+an Array and then allocate more space for it, you must call
+<TT><STRONG>DXGetArrayData</STRONG></TT> again because the pointer may no
+longer be valid.
+<P>
+There are four ways to add data to irregular Arrays:
+<UL COMPACT>
+<LI>Add items one at a time:
+<TT><STRONG>DXAddArrayData(a, i, 1,item)</STRONG></TT>.
+<LI>Add items in batches:
+<TT><STRONG>DXAddArrayData(a, i, n, items)</STRONG></TT>.
+<LI>Add multiple items all at one time:
+<TT><STRONG>DXAddArrayData(a, 0, n, items)</STRONG></TT>.
+<LI>Allocate the memory: call
+<TT><STRONG>DXAddArrayData(a, 0, n, NULL)</STRONG></TT>;
+get a pointer to global memory with
+<TT><STRONG>DXGetArrayData(a)</STRONG></TT>;
+and put the items directly into global memory "by hand."
+</UL>
+<P><STRONG>Return Value</STRONG>
+Returns <TT><STRONG>a</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+and sets an error code.
+
+		<P><STRONG>See Also</STRONG>
+<TT><STRONG>
+<A HREF="progu107.htm#HDRDXAA">DXAllocateArray</A>,
+<A HREF="progu136.htm#HDRDXENDF">DXEndField</A>,
+<A HREF="progu154.htm#HDRDXGAD">DXGetArrayData</A>,
+<A HREF="progu335.htm#HDRDXT">DXTrim</A>, </STRONG></TT><A HREF="progu046.htm#HDRIRREG">"Irregular Arrays"</A>.
+
+		<P>
+		<HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu099.htm">Previous Page</A> &#124; <A HREF="progu101.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

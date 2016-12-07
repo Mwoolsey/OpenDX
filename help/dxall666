@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rall665 Regular Grids #!N #!EC #!N #!N To import scalar 
+data on a regular grid, specify the netCDF file name as 
+the  #!F-adobe-times-bold-r-normal--18*   name #!EF parameter. By default, all netCDF variables are 
+imported and collected into a Group. To import one or more 
+particular variables, specify their names as the  #!F-adobe-times-bold-r-normal--18*   variable #!EF parameter. 
+The  #!F-adobe-times-bold-r-normal--18*   format #!EF parameter must be "netCDF." #!N #!N Data 
+Explorer automatically constructs positions and connections for each variable, with an 
+origin of 0.0 and spacings of 1.0 along each dimension. #!N 
+#!N For data that is logically a vector Field, but whose 
+values are stored in three separate netCDF variables, each component of 
+the vector can be imported separately; the Compute module can then 
+be used to create a single vector Field. #!N #!N For 
+data that is logically a vector Field, but whose values are 
+stored as an  #!F-adobe-times-medium-i-normal--18*   n #!EF +1 dimensional regular grid, use 
+the Slice and Compute modules to separate the components of the 
+vector, and then recombine them into a single vector Field. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall666,dxall667 h Example of a Regular Grid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

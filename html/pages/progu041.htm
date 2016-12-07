@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu040.htm">Previous Page</A> &#124; <A HREF="progu042.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRCLO2" HREF="progu037.htm#PToC_80">11.5 Compiling, Linking, and
+Debugging an Outboard Module</A></H2>
+<A NAME="IDX345"></A>
+<A NAME="IDX346"></A>
+<A NAME="IDX347"></A>
+<A NAME="IDX348"></A>
+<A NAME="IDX349"></A>
+<A NAME="IDX350"></A>
+<A NAME="IDX351"></A>
+<P>
+The following sample makefile templates for creating outboard modules
+can be found in <TT><STRONG>/usr/local/dx/samples/user</STRONG></TT>:
+<A NAME="IDX352"></A>
+<A NAME="IDX353"></A>
+<A NAME="IDX354"></A>
+<A NAME="IDX355"></A>
+<A NAME="IDX356"></A>
+<A NAME="IDX357"></A>
+<UL COMPACT>
+<LI>RISC System/6000&#42; Systems:
+<TT><STRONG>Makefile&#95;outboard&#95;ibm6000</STRONG></TT>
+<LI>Silicon Graphics&#42;&#42;:
+<TT><STRONG>Makefile&#95;outboard&#95;sgi</STRONG></TT>
+<LI>Sun Microsystems&#42;&#42;:
+<TT><STRONG>Makefile&#95;outboard&#95;solaris</STRONG></TT> or
+<TT><STRONG>Makefile&#95;outboard&#95;sun4</STRONG></TT>
+<LI>Hewlett-Packard&#42;&#42;:
+<TT><STRONG>Makefile&#95;outboard&#95;hp700</STRONG></TT>
+<LI>Data General AViiON&#42;&#42;:
+<TT><STRONG>Makefile&#95;outboard&#95;aviion</STRONG></TT>
+<LI>DEC Alpha&#42;&#42;:
+<TT><STRONG>Makefile&#95;outboard&#95;alphax</STRONG></TT>
+</UL>
+<P>
+Replace <TT><STRONG>makex.o</STRONG></TT>, <TT><STRONG>add.o</STRONG></TT>, and
+<TT><STRONG>hello.o</STRONG></TT> with the names of your
+<TT><STRONG>.o</STRONG></TT> files;
+replace <TT><STRONG>m&#95;Hello</STRONG></TT>, etc. with the names of your
+modules;
+and replace <TT><STRONG>hello</STRONG></TT>, etc. with the names you want
+for your executables.
+The &#46;mdf file for the outboard modules is
+<TT><STRONG>user&#95;outboard.mdf</STRONG></TT>.
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Linking Outboard
+Modules</TH><TR><TD>
+<P>
+Typically outboard modules are linked to the library dxlite, which
+contains the Data Explorer data model routines (see
+<A HREF="progu096.htm#HDRDXLAP1">Appendix B. "Data Explorer Data Model Library:
+DXlite Routines"</A>).
+This library does not contain all of the Data Explorer routines (see
+<A HREF="progu097.htm#HDRALLR">Appendix C. "Data Explorer Library
+Routines"</A>), and an outboard module requiring access
+to such "additional" routines must be linked to the
+library dxcallm.
+However, the resulting outboard executable will be significantly
+larger than it would be otherwise.
+</TD></TR></TABLE>
+<P>
+Starting Data Explorer requires specifying the &#46;mdf file to the user
+interface:
+<PRE>
+dx  -mdf my.mdf
+</PRE>
+<P><B>Notes: </B><OL>
+<P><LI>You can also load a &#46;mdf. file after Data Explorer has
+started.
+Use the <TT><STRONG>Load Module Description(s)</STRONG></TT> option in the
+<TT><STRONG>File</STRONG></TT> pull-down menu of the VPE window.
+<P><LI>In script mode, Data Explorer does not recognize the -mdf flag, so you
+must
+add the following commands to your script before calling the module:
+<PRE>
+Executive(&quot;mdf file&quot;, &quot;module&#95;name.mdf&quot;);
+&#36;sync
+</PRE>
+</OL>
+<P>
+To debug a module you must first modify the CFLAGS line of the makefile
+to compile your source code as debuggable (<TT><STRONG>-g</STRONG></TT>)
+rather than optimized (<TT><STRONG>-O</STRONG></TT>).
+<P><B>Note: </B>Data Explorer library routines are available only as optimized
+object code.
+<P>
+To debug a module, start Data Explorer with the additional flag
+<TT>-outboarddebug</TT>.
+Instead of automatically starting the module, Data Explorer will prompt you
+to start the executable.
+You can then run the module from a debugger,
+
+using the flags specified to you by Data Explorer when it prompts you to start
+the module.
+
+<P>
+<H3><A NAME="Header_81" HREF="progu037.htm#PToC_81">Special Considerations for
+Outboard Modules</A></H3>
+<A NAME="IDX358"></A>
+<A NAME="IDX359"></A>
+<P>
+<H4><A NAME="Header_82">Simple outboard modules</A></H4>
+<A NAME="IDX360"></A>
+<A NAME="IDX361"></A>
+<A NAME="IDX362"></A>
+<P>
+The simplest type of outboard module does not need to save information,
+does not communicate with any other process, and does not
+cause asynchronous executions.
+It takes inputs, computes something based on them, and returns
+outputs.
+The executable program that makes up the outboard module is run each
+time the module is called, and it exits after returning the
+output values.
+<P>
+<H4><A NAME="Header_83">Persistent outboard modules</A></H4>
+<A NAME="IDX363"></A>
+<A NAME="IDX364"></A>
+<A NAME="IDX365"></A>
+<P>
+To prevent the executable program of the outboard module from exiting
+after each execution, set the PERSISTENT flag on the FLAGS line
+in its <TT><STRONG>.mdf</STRONG></TT> file.
+This setting may be necessary so that the module can save information
+from one execution to another, or because repeated exits and
+restarts take too much time.
+<P>
+A persistent outboard module is started from the user interface the
+first time the module is called and does not exit until its
+icon is deleted from the network (program), the entire
+network is deleted, or the <TT><STRONG>Reset Server</STRONG></TT>
+option is selected from the <TT><STRONG>Connection</STRONG></TT>
+pull-down menu.
+<P>
+In script mode, persistent outboard modules are loaded the first time
+they are called and they do not exit until the executive
+exits or the command
+<PRE>
+Executive ("flush dictionary");
+</PRE>
+is run.
+<P>
+Global variables can be safely used to save information between
+executions of an outboard module.
+If the same outboard module occurs in a network more than once, a
+different process is started for each occurrence.
+<P>
+Note that the module may not be called at every
+execution:
+If the inputs are changed from their original values and then back
+again, Data Explorer saves the previous results and uses them without
+recalling the module.
+The "cache none" option prevents previous results from being
+saved, but you also need to set "cache none" for all
+downstream modules that process the outputs.
+Otherwise, caching at the lower levels will still prevent the module
+from being called each time.
+The SIDE_EFFECT flag specifies that the module is to be called each
+time, the performance penalty being that the module continues to
+execute even if the inputs remain unchanged.
+<P>
+<H4><A NAME="Header_84">Modules that can cause executions:</A></H4>
+<P>
+An asynchronous module can request that it be rerun.
+See <A HREF="progu038.htm#HDRASYNMOD">11.2 , "Asynchronous Modules"</A>.
+<P>
+<H4><A NAME="Header_85">Running an outboard on another machine:</A></H4>
+<P>
+If an outboard module should be run on one particular machine
+(perhaps because it is compute intensive and needs to run on a fast
+machine, or because it needs to access a peripheral that is
+connected to only one machine), the OUTBOARD line can specify a host
+name as well as an executable name.  The Data Explorer libraries will take care
+of establishing a connection between where the main Data Explorer executive is
+running and the outboard host machine.  The DXMODULES environment
+variable or the -modules flag can be used to specify a search path
+for outboard module executables, or the OUTBOARD line can
+specify a fully qualified path name.
+<P>
+A valid .rhosts file must be present to allow Data Explorer to use the
+"rsh" command to start a process on another machine.
+(See the UNIX manual page for "rsh" or "remsh" for more
+information.)
+<P>
+<H4><A NAME="Header_86">Miscellaneous information</A></H4>
+<P>
+DXReadyToRun cannot be called from the time a module receives its
+inputs until after it returns its outputs.
+To trigger another execution immediately, it can do so after the call
+to DXCallOutboard() in the outboard.c file.
+<P>
+Outboard modules cannot be written in coroutine style.  They cannot
+produce outputs without being called by Data Explorer and thereby receiving new
+inputs (which can be ignored), and they must return something - the main
+Data Explorer executive will wait for the module to return before continuing.
+<P>
+An asynchronous module cannot be run in distributed mode, but it can be
+executed on another machine by setting the host name on the
+OUTBOARD line.
+<P>
+<H3><A NAME="Header_87" HREF="progu037.htm#PToC_87">Asynchronous Outboard
+Module: An Example</A></H3>
+<A NAME="IDX366"></A>
+<A NAME="IDX367"></A>
+<A NAME="IDX368"></A>
+<A NAME="IDX369"></A>
+<P>
+The function of this example module is to monitor the status of a
+given file.
+Whenever the file is modified, its data are reimported.
+For example, this program could be used to monitor the output of a
+simulation program.
+The data can be plotted as they are created.
+<P>
+This sample program is /usr/local/dx/samples/outboard/watchfile.c.
+The same directory also holds the associated .mdf file
+(<TT>watchfile.mdf</TT>) and an example (<TT>watchsocket.c</TT>)
+that listens for input over a socket.
+See /usr/local/dx/samples/Outboard/Readme for more information abut
+sample modules.
+<PRE>
+/*
+ * sample asynchronous outboard module.
+ *
+ * uses a signal to ask to be woken after a certain delay.
+ * if a given file has been changed, re-import the data.
+ *
+ * see watchfile.mdf, which must be loaded before this can be run.
+ * also see Makefile_architecture.name for how to compile this.
+ */
+#include &lt;dx/dx.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;sys/stat.h&gt;
+static Pointer  id = NULL;
+static time_t   lastchanged;
+static int      seconds;
+static char     filename&#91;1024&#93;;
+</PRE>
+<PRE>
+/*
+ * this routine is called each time the alarm signal is
+ * issued.
+ */
+void signalcatch()
+{
+    struct stat Buffer;
+    time_t changed;
+    /* stat the file to find out its last modification time */
+    if (stat(filename, &Buffer) == 0)
+    {
+      /* the last time the file was changed */
+      changed = Buffer.st_mtime;
+      /* compare to the last time the file was checked */
+      if (lastchanged != changed)
+      {
+         /* the file has changed. Rerun the main program. */
+         DXReadyToRun(id);
+      }
+</PRE>
+<PRE>
+      /* else the file hasn't changed since last time we checked */
+      else
+      {
+         /* go back to sleep for some seconds, but first reset the
+          * alarm */
+         signal(SIGALRM, signalcatch);
+         alarm(seconds);
+      }
+   }
+}	
+</PRE>
+<PRE>
+Error
+m_WatchFile(Object *in, Object *out)
+{
+    struct stat Buffer;
+    char *file;
+    /* the first input is the filename to check */
+    if (!in&#91;0&#93;)
+    {
+       DXSetError(ERROR_MISSING_DATA,"missing filename");
+       return ERROR;
+    }
+    if (!DXExtractString(in&#91;0&#93;, &file))
+    {
+       DXSetError(ERROR_BAD_PARAMETER,"filename must be a string");
+       return ERROR;
+    }
+</PRE>
+<PRE>
+    /* put the filename into a static global variable */
+    strcpy(filename,file);
+    /* the second input is the number of seconds to wait between checks */
+    /* the default is 10 seconds */
+    if (!in&#91;1&#93;)
+       seconds = 10;
+    else
+    {
+       if (!DXExtractInteger(in&#91;1&#93;, &seconds))
+       {
+         DXSetError(ERROR_BAD_PARAMETER,"seconds must be an integer");
+         return ERROR;
+       }
+    }
+</PRE>
+<PRE>
+    /* the first time through, get the module id for the DXReadyToRun call */
+    if (!id) {
+id = DXGetModuleId();
+if (!id) {
+    out&#91;0&#93; = NULL;
+    return ERROR;
+}
+    }
+    /* get the last modification time of the file */
+    if (stat(filename, &Buffer) != 0) {
+       DXSetError(ERROR_BAD_PARAMETER,"file %s not found");
+       return ERROR;
+    }
+    lastchanged = Buffer.st_mtime;
+</PRE>
+<PRE>
+    /* import the data from the file */
+    out&#91;0&#93; = DXImportDX(filename, NULL, NULL, NULL, NULL);
+    /* set the alarm for the next wakeup */
+    signal(SIGALRM, signalcatch);
+    alarm(seconds);
+    return OK;
+}
+</PRE>
+<P><B>Note: </B>If this program were compiled and linked as an inboard module,
+the global variables would have to be stored in the cache
+and associated with the module ID.
+Otherwise, the global variables would be shared among all calls to
+the module.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu040.htm">Previous Page</A> &#124; <A HREF="progu042.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

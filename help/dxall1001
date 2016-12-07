@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rall1000 Using Hello in a Script #!N #!EC #!N #!N 
+In the following example, no input to Hello is provided, so 
+the module produces its default output: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+a = Hello(); #!N #!N Echo(a); #!EF #!N #!N #!EC #!N 
+#!N In the next three examples, the user provides input to 
+the Hello module. All three produce the output "hello, how are 
+you?" #!N #!N  #!F-adobe-times-bold-r-normal--18*   EXAMPLE 1 #!EF ________________ #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N b = Hello( ", how are you?"); #!N Echo(b); 
+#!EF #!N #!N #!EC  #!F-adobe-times-bold-r-normal--18*   EXAMPLE 2 #!EF ________________ #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N b = Hello(value = ", how are you?"); 
+#!N Echo(b); #!EF #!N #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   EXAMPLE 3 
+#!EF ________________ #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N a = ", how 
+are you?"; #!N b = Hello(a); #!N Echo(b); #!EF #!N #!N 
+#!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lhec,dxall1002 h Hello Module with Error Checking  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

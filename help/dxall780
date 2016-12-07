@@ -1,0 +1,91 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcamera Camera #!N #!N Category #!N #!N 
+ #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N Constructs a camera for viewing 
+an object. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N 
+camera #!EF = Camera(  #!F-adobe-times-bold-r-normal--18*   to, from, width, resolution, aspect, up, 
+#!N perspective, angle, background #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB to TAB vector or object 
+TAB [0 0 0] TAB look-to point #!N TAB from TAB 
+vector or object TAB [0 0 1] TAB position of camera 
+#!N TAB width TAB scalar or object TAB 100 TAB width 
+of field of view (for #!N TAB - TAB - TAB 
+- TAB orthographic projection) #!N TAB resolution TAB integer TAB 640 
+TAB horizontal resolution of image (in #!N TAB - TAB - 
+TAB - TAB pixels) #!N TAB aspect TAB scalar TAB 0.75 
+TAB height/width #!N TAB up TAB vector TAB [0 1 0] 
+TAB up direction #!N TAB perspective TAB flag TAB 0 TAB 
+0: orthographic projection #!N TAB - TAB - TAB - TAB 
+1: perspective projection #!N TAB angle TAB scalar TAB 30.0 TAB 
+view angle (in degrees) (for #!N TAB - TAB - TAB 
+- TAB perspective projection) #!N TAB background TAB vector or string 
+TAB "black" TAB image background color #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Description #!EF #!N TAB camera TAB 
+camera TAB resulting camera #!N TAB - TAB - TAB #!EF 
+#!N #!N Functional Details #!N #!N This module differs from AutoCamera 
+in that it specifies a "look-from"  #!F-adobe-times-medium-i-normal--18*   point #!EF for viewing 
+an object (AutoCamera specifies a  #!F-adobe-times-medium-i-normal--18*   direction #!EF from which to 
+view an object). #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+to #!EF #!EF #!I50 #!N specifies a point in the scene 
+that appears at the center of the image; the default is 
+the origin of world space. This parameter can also be specified 
+as an object, in which case the center of the object 
+serves as the look-to point. Note: This parameter cannot have the 
+same value as  #!F-adobe-times-bold-r-normal--18*   from #!EF (see below). #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   from #!EF #!EF #!I50 #!N specifies the location of 
+the camera; the default is [0 0 1]. This parameter can 
+also be specified as an object, in which case its value 
+is the center of the object's bounding box. Note: This parameter 
+cannot have the same value as  #!F-adobe-times-bold-r-normal--18*   to #!EF (see above). 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   width #!EF #!EF #!I50 #!N functions 
+only for an orthographic projection (see  #!F-adobe-times-bold-r-normal--18*   perspective #!EF below). It 
+specifies the width of the field of view, in world coordinates. 
+If this parameter is specified as an object, the module uses 
+a value that is slightly larger than the diagonal of the 
+object's bounding box. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   resolution #!EF #!EF 
+#!I50 #!N specifies the width of the image in pixels. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   aspect #!EF #!EF #!I50 #!N specifies the 
+height-to-width ratio of the image. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   up 
+#!EF #!EF #!I50 #!N specifies a vector that will be aligned 
+with the vertical axis of the image. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   perspective #!EF #!EF #!I50 #!N specifies the method of projection 
+used in rendering  #!F-adobe-times-bold-r-normal--18*   object #!EF : perspective (0) or orthographic 
+(1). #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Perspective projection #!EF 
+#!I50 #!N This method produces a realistic rendering of objects, but 
+does not preserve their exact shape and measurements (e.g., parallel lines 
+usually do not project as being parallel). The camera is positioned 
+at the vertex of the viewing angle (see  #!F-adobe-times-bold-r-normal--18*   angle #!EF 
+below). The two end-points of that angle are the left and 
+right sides of the image area. Thus the wider the angle, 
+the greater the amount of object space that can be fitted 
+into the viewing area. Note: The  #!F-adobe-times-bold-r-normal--18*   width #!EF parameter has 
+no effect on perspective projection. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Orthographic projection 
+#!EF #!I50 #!N This method produces a somewhat artificial view of 
+an object (the distance between the front and back of an 
+object appears small compared to the distance between the object and 
+the camera), but it preserves exact scale measurements and parallel lines. 
+The size of the object can be changed only by  #!F-adobe-times-bold-r-normal--18*   
+width #!EF (the default is a field of view slightly greater 
+than the width of the object). #!N #!N The  #!F-adobe-times-bold-r-normal--18*   angle 
+#!EF parameter has no effect on orthographic projection. #!N #!N In 
+orthographic projection, only the direction of the  #!F-adobe-times-bold-r-normal--18*   from #!EF - 
+ #!F-adobe-times-bold-r-normal--18*   to #!EF vector is important, not its magnitude. The object's 
+distance does not affect its size in the image, which can 
+be changed only with the  #!F-adobe-times-bold-r-normal--18*   width #!EF parameter. In perspective 
+projection, the object's size can be changed only by changing  #!F-adobe-times-bold-r-normal--18*   
+from #!EF or  #!F-adobe-times-bold-r-normal--18*   angle #!EF (because  #!F-adobe-times-bold-r-normal--18*   width #!EF is 
+ignored). #!I0 #!N #!N For more information on these projection methods, 
+consult a text on computer graphics. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+angle #!EF #!EF #!I50 #!N specifies the viewing angle in degrees. 
+The vertex of this angle is  #!F-adobe-times-bold-r-normal--18*   to #!EF . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   background #!EF #!EF #!I50 #!N specifies the 
+color of the image background as either an RGB color or 
+a color-name string. The string can be any of the defined 
+color-name strings (see  #!Lcolor,dxall792 h Color  #!EL  ). #!I0 #!N #!N #!N #!N Example 
+Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N FlyThrough.net (uses the macro 
+InterpolatePositionsMacro.net) #!N FlyThrough2.net #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lautocam,dxall771 h AutoCamera  #!EL  ,  #!Lautocol,dxall772 h AutoColor  #!EL  ,  #!Ldirect,dxall806 h Direction  #!EL  ,  #!Lrender,dxall923 h Render  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcaption,dxall781 h Caption  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

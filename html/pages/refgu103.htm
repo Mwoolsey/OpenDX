@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Pick</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu102.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu104.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRPICK" ></A>Pick</H3>
+		<A NAME="IDX619"></A><A NAME="IDX620"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATSPE">Special</A>
+<P><STRONG>Function</STRONG>
+<P>
+Outputs a pick structure.
+<P><STRONG>Syntax</STRONG>
+<P>
+<PRE>
+<STRONG>picked</STRONG> = Pick(<STRONG>pickname, imagename, locations, reexecute, first,
+              persistent, interpolate, object, camera</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>pickname</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">name of cached picks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>imagename</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">name of cached scene
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>locations</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vectorlist
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">2-D screen coordinate pick
+positions
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>reexecute</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">cause reexecution whenever pick
+list is reset
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>first</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">
+0: include all "picks"
+<BR>
+1: include only first "picks"
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>persistent</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">
+0: "picks" not saved
+<BR>
+1: "picks" saved
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>interpolate</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: no data interpolation
+<BR>
+1: nearest vertex interpolation
+2: interpolate
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object to be "poked"
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>camera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">camera used to create scene
+picked in
+
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>picked</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">pick structure
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Picking involves using the mouse to determine information about an
+object rendered in an image.
+
+(If there is more than one image in the visual program, then the image
+which is assumed is the one from which picking was made active using the
+View Control dialog.)
+
+The user may select one or more points on the screen by positioning the
+mouse and pressing the left button; each such action is referred to
+as a "poke."
+Each poke may intersect the object at one or more places or may miss
+the object altogether.
+Each intersection is called a "pick."
+For example, a poke on a spherical isosurface will result in two picks,
+one on the front surface and one on the rear.
+<P>
+Individual subobjects in a structured scene may be made unpickable by
+attaching an attribute named "pickable", with a value of 0
+(zero), to the root of the subobject,
+
+using the Options module.
+
+<P>
+The information returned by Pick in <TT><STRONG>picked</STRONG></TT> includes
+the positions in the (xyz) world-coordinate system at which the picks
+occurred.
+These positions (contained in the "positions" component of
+<TT><STRONG>picked</STRONG></TT>) may be used to determine the
+coordinates of points on objects, to start streamlines,
+or to label points on the surface (by using
+AutoGlyph appropriately).
+
+These kinds of operations can be done directly in a visual program,
+without writing a special module.
+
+<P>
+In addition to the pick positions, <TT><STRONG>picked</STRONG></TT> contains
+information identifying the individual elements of the
+object structure that was picked.
+This information can be used to select elements of the object structure
+at any level down to the connections element
+and vertex closest to the pick point.
+See <I>IBM Visualization Data Explorer Programmer&#39;s Reference</I> for an
+example module that uses the position information
+contained in the pick structure.
+<TABLE CELLPADDING="3">
+
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>pickname</STRONG></TT>
+</B></TD><TD><P>is used only by the user interface and is not intended to be set
+by
+users.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>imagename</STRONG></TT>
+</B></TD><TD><P>is used only by the user interface and is not intended to be set
+by
+users.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>locations</STRONG></TT>
+</B></TD><TD><P>is a list of 2 dimensional screen coordinates pixel positions
+identifying the picks. If you are using the Image tool, this parameter
+is set automatically for you by the user interface. If you are using
+SuperviseWindow and SuperviseState, then the <TT><STRONG>events</STRONG></TT>
+output of SuperviseState should be used to provide this input.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>reexecute</STRONG></TT>
+</B></TD><TD><P>is used only by the user interface and is not intended to be set
+by
+users.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>first</STRONG></TT>
+</B></TD><TD><P>specifies whether all picks generated by a poke intersecting an
+object are to be added to the pick structure or only the first pick
+(i.e., the pick closest to the viewpoint):
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>0
+</B></TD><TD><P>All picks are added to the output.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>1
+</B></TD><TD><P>Only the first pick is reported for each poke.
+</TD></TR></TABLE>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>persistent</STRONG></TT>
+</B></TD><TD><P>specifies whether or not picks are saved between executions:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>0
+</B></TD><TD><P>Picks are not saved.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>1
+</B></TD><TD><P>Picks are saved and are deleted only when the user makes new
+pokes.
+<P><B>Note: </B>When new picks are made, the previous pick points are discarded.
+</TD></TR></TABLE>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>interpolate</STRONG></TT>
+</B></TD><TD><P>specifies whether a "data" component should be created in
+<TT><STRONG>picked</STRONG></TT> and, if so, how the interpolation
+of values for that component should be performed.
+<P>
+If the <TT><STRONG>interpolate</STRONG></TT> parameter is set to 1 or 2, the
+Pick output object will contain a set of components matching the set
+of dependent components in the picked object.
+Each of the components in the output object is dependent on the
+"positions" component of <TT><STRONG>picked</STRONG></TT>.
+For components that are dependent on connections in the picked object,
+the data for the picked element will be placed in the
+output component.
+<P>
+For components that are dependent on positions in the picked object,
+the data placed in the output object is determined by one of two
+options:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><B>&nbsp;1 = "nearest vertex"&nbsp;
+</B></TD><TD>The data corresponding to the vertex nearest the pick point is
+extracted.
+</TD></TR><TR VALIGN="TOP"><TD><B>&nbsp;2 = "interpolated data"&nbsp;
+</B></TD><TD>The data is interpolated from the vertex data of the picked
+element.
+</TD></TR></TABLE>
+In either case, an additional component is created (called "closest
+vertex") that receives the coordinates of the vertex closest to
+the pick point among the vertices of the picked element.
+<P><B>Note: </B>Regardless of which of the two options is selected, if different
+picks result in different sets of components or different data
+types in components of the same name, an error results.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>object</STRONG></TT>
+</B></TD><TD><P>allows the user to override the object being picked.
+By default, this object is the one rendered in the Image window
+associated with the previous execution of the graph.
+If the scene consists of several objects collected before rendering,
+and if only some of them are to be made pickable, the user can
+pass those objects directly into Pick.
+The <TT><STRONG>object</STRONG></TT> parameter also makes it possible to pick
+in an object that lies in the same coordinate space as the scene does
+but is not in fact a part of the scene.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>camera</STRONG></TT>
+</B></TD><TD><P>sets the camera used to create the scene being picked in. If you
+are using
+the Image tool, this parameter is set automatically for you by the user
+interface. If you are using SuperviseState and SuperviseWindow, then you must
+provide the camera used to render the scene.
+
+</TD></TR></TABLE>
+<P><B>Note: </B>Pick currently supports surfaces, lines, and points.
+Picking does not support volume elements; if a poke is made on a volume
+object in the image, no picks will result.
+<P><STRONG>Example Visual Program</STRONG>
+<PRE>
+PickStreamline.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu153.htm#HDRSUPWIND">SuperviseWindow</A>,
+&nbsp;<A HREF="refgu152.htm#HDRSUPSTAT">SuperviseState</A>
+<P>
+&nbsp;<A HREF="usrgu040.htm#HDRPICKIN">"Using Pick"</A> in <I>IBM Visualization
+Data Explorer User&#39;s Guide</I>.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

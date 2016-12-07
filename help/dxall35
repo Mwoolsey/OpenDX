@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall34 A simple two-dimensional field #!N #!EC #!N 
+#!N In this first example, we will import a two-dimensional field 
+on a regular grid. The data describe the topography (elevation) of 
+the southeastern United States. First start Data Explorer by typing #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit #!EF #!N #!N #!EC or 
+choose  #!F-adobe-times-bold-r-normal--18*   New Visual Program #!EF from the Data Explorer Startup 
+window. #!N #!N From the Import and Export Category in the 
+top left palette, choose the Import module. Place it on the 
+large blank canvas area. #!N #!N From the Realization Category choose 
+the RubberSheet module. Place it below the Import module. From the 
+Rendering Category choose the Image module. Place it below the RubberSheet 
+module. #!N #!N Now connect the output of Import to the 
+first input of RubberSheet, and connect the output of Rubbersheet to 
+the input of Image. Notice that the first tab of Import 
+is colored differently than any other tabs visible. This is because 
+this parameter is  #!F-adobe-times-medium-i-normal--18*   required #!EF . This is the file 
+name of the data file to import. #!N #!N Open the 
+configuration dialog box for Import. Specify the first parameter (name) as 
+/usr/lpp/dx/samples/data/southeastern_topo.dx. #!N #!N Execute the visual program by selecting  #!F-adobe-times-bold-r-normal--18*   Execute 
+Once #!EF from the  #!F-adobe-times-bold-r-normal--18*   Execute #!EF menu. You should see 
+an image showing the topography as a deformed surface. #!N #!N 
+To add colors, insert an AutoColor module (Transformation Category) between RubberSheet 
+and Image (or between Import and RubberSheet). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall35,dxall36 h A simple three-dimensional field  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

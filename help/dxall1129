@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rrendchp Rendering #!N 
+#!EC #!N #!N This chapter describes the Data Explorer rendering model, 
+introduces additional elements of the data model relevant only to rendering, 
+and describes routines for manipulating data structures for rendering. (For descriptions 
+of these routines, see  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  .) #!N #!N The Data Explorer 
+renderer is designed for data visualization. For example, it directly renders 
+scenes described by the Data Explorer data model (see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  ). 
+The renderer handles all combinations of Groups and Fields as input 
+Objects. The members of a Group or of a subclass of 
+a Group (e.g., Series and Composite Fields) are combined into one 
+image by the renderer. #!N #!N Rendering a scene involves fours 
+steps: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Transformation 
+to  #!F-adobe-times-medium-i-normal--18*   world coordinates #!EF --Applying transforms specified by transform nodes 
+in the Object. #!N #!I30 #!N 2. Shading--Assigning colors to the 
+vertices, using the intrinsic surface colors, surface normals, surface properties specified 
+by Field components, and lights specified by Light Objects. #!N #!I30 
+#!N 3. Transformation to  #!F-adobe-times-medium-i-normal--18*   image coordinates #!EF --Applying transforms specified 
+by a camera Object. #!N #!I30 #!N 4. Tiling--Generating an image 
+by interpolating point colors and opacities across faces, and rendering volumes 
+with a rendering algorithm. #!N #!I0 #!N #!EF #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltransec,dxall1130 h Transformation  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

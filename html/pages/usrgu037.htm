@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Understanding Data Explorer Windows</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu036.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu038.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu036.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRTYPES" ></A>5.2 Understanding Data Explorer Windows</H2>
+		<P>
+The Data Explorer user interface is built on the X Window System and Motif
+standards.
+These tools manage the windows used with Data Explorer.
+The windows you use depends upon how you choose to use
+the system.
+<A NAME="IDX620"></A>
+		<P>
+The primary windows are listed and described at the start of this
+chapter.
+The primary window in which you begin a Data Explorer session (either the
+Visual Program Editor or Image window) is called the <I>anchor
+window</I>.
+(You can also have a menu bar as your anchor window by specifying
+<TT>-menubar</TT> on the command line.)
+This is the window that, if closed, ends the Data Explorer session.
+The anchor window is identified by a symbol resembling a ship&#39;s
+anchor located in the top left corner, as illustrated in
+<A HREF="#FIGUSE2">Figure 30</A>.
+<P>
+Descriptions of the primary window pull-down menu options are located
+in Section <A HREF="usrgu045.htm#HDRPRIMWIN">8.1 , "Using the Primary Window
+Pull-Down Menus and Options"</A>.
+<P>
+Secondary windows, such as dialog boxes or informational boxes, appear
+when they are needed to complete a task.
+You can move secondary windows, but you cannot put them behind the
+primary window from which they came.
+See <I>IBM AIXwindows User&#39;s Guide</I> or the appropriate window system
+overview for more
+information on how to manipulate windows.
+<P>In this chapter, when references are made to the X Window System it means any window server that supports X11 protocol, including Sun's OpenWindows. The Motif window manger, mwm, has been used in many figures and examples in this chapter. Please use the appropriate window manager for your system, such as the Common Desktop Environment (CDE), vuewm for Hewlett-Packard, 4dwm for SGI, olwm for Sun, and KDE for Linux. Since title bars and window borders are features of a window manager, the appearance of your windows may differ slightly from those in the figures and examples.<P>
+<H3><A NAME="Header_112" ></A>Looking at Window Structure</H3>
+<A NAME="IDX621"></A>
+<A HREF="#FIGUSE2">Figure 30</A> points out the major parts of a
+Data Explorer window.
+Definitions of the parts follow the figure.
+<P><B><A NAME="FIGUSE2" HREF="../usrguide.htm#FT_FIGUSE2">Figure 30. Visual Program
+Editor Window</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/example1.gif" ALT="Figure example1 not
+displayed."></CENTER></B>
+		<BR>
+		<BR>
+		<P>
+The following are features of Data Explorer windows&#58;
+<OL COMPACT>
+<LI>The <I>title bar</I> contains the following items (from left to
+right):
+<UL>
+<P><LI>The menu button, which when pulled down, offers various window
+control options
+<P><LI>The window name
+<P><LI>The minimize button, which reduces the window and all of its
+secondary windows to a single icon
+<P><LI>The maximize button, which enlarges the window to full
+screen size
+</UL>
+<LI>The <I>menu bar</I> displays the titles of pull-down menus
+from which can choose options.
+When you choose a title, a pull-down menu appears.
+<LI>A <I>pull-down</I> provides you with options you can select.
+<LI>A <I>dialog box</I> or <I>information box</I> appears when
+Data Explorer requires more information in order to complete a task or when
+a user requests more information.
+A dialog box option is indicated by an ellipsis (...)
+at the end of its title.
+</OL>
+<P>
+<H3><A NAME="HDRUSEMOUS" ></A>Using the Mouse</H3>
+<A NAME="IDX622"></A>
+<P>
+In Data Explorer, the mouse is one of the primary input devices.
+Some operations can be done using the keyboard, but many rely on the
+mouse.
+The mouse-related terms used in this guide are:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Click
+</B></TD><TD><P>One press and release of a mouse button
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Double-click
+</B></TD><TD><P>Two rapid presses and releases (clicks) of a mouse button
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Triple-click
+</B></TD><TD><P>Three rapid presses and releases (clicks) of a mouse button
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Drag
+</B></TD><TD><P>A press and hold on a mouse button.
+For example, with the button depressed, a selected item can be moved
+("dragged") to another part of the screen by moving the mouse
+pointer to the desired location and releasing the mouse button.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Shift-Click
+</B></TD><TD><P>A press and release of the mouse button while depressing the
+Shift key.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Shift-Drag
+</B></TD><TD><P>A drag of the mouse pointer while depressing the Shift key.
+</TD></TR></TABLE>
+<P>
+Most of the Data Explorer operations use the left mouse button.
+The exceptions are the Online Help function and the image direct
+interactors, which use two or three mouse buttons.
+<P>
+<H3><A NAME="HDRRESIZE" ></A>Moving and Resizing Windows</H3>
+<P>
+You can move windows and adjust their sizes on the screen.
+<P>
+To move a window, drag the window name portion of the title bar to the
+desired screen location.
+<P>
+To resize a window, do one of the following:
+<UL>
+<P><LI>Drag on one of the horizontal borders.
+The window will shrink or expand vertically as you drag the border.
+<P><LI>Drag on one of the vertical borders.
+The window will shrink or expand horizontally as you drag the border.
+<P><LI>Drag on one of the corner borders.
+The window will shrink or expand both vertically and horizontally (but
+not necessarily in a uniform fashion) as you drag the border.
+</UL>
+<P>
+<H3><A NAME="HDRSELMEN" ></A>Selecting Pull-Down Menus and Pull-Down Menu Options</H3>
+<A NAME="IDX623"></A>
+<A NAME="IDX624"></A>
+<P>
+To use the mouse to see the list of options a pull-down menu
+offers, select
+the pull-down menu&#39;s title from the menu bar by moving the cursor
+to the appropriate title and clicking on it.
+The menu is displayed.
+To then select an option from the window, move the cursor to the desired
+option and click on the option.
+<P>
+Alternatively, select an option with the mouse by moving the cursor to
+the desired menu title and pressing and holding the mouse button.
+The pull-down menu appears.
+Then move the cursor to the desired option and release.
+Each option is highlighted as you move the cursor across it.
+<P>
+To select a pull-down menu with your keyboard, press the
+<TT><STRONG>Alt</STRONG></TT> key
+in conjunction with the underlined letter of the pull-down menu name
+(usually the first letter).
+For example, if you want to open the File menu (whose title appears in
+the window as <TT><STRONG><B><U>F</U></B>ile</STRONG></TT>), press
+<TT><STRONG>Alt&#43;F</STRONG></TT>.
+<P>
+Once the pull-down menu is displayed, you can select an option by
+pressing the key corresponding to the underlined letter of the
+desired option, or by directing the highlighted bar with the
+keyboard&#39;s up and down arrow keys.
+When the desired selection is highlighted, press the Enter key.
+<A NAME="IDX625"></A>
+<P>
+Some of the pull-down menu
+options can be selected without accessing the
+pull-down menus, using <I>accelerator keys</I>.
+Accelerator keys use the <TT><STRONG>Ctrl</STRONG></TT> key in combination with
+single
+keys to provide fast access to frequently used options.
+These keyboard options are displayed on the right side of the pull-down
+menu,
+across from the options that they access.
+Accelerator keys are effective only in the active window; that is, the
+mouse cursor must be in the window in which the desired pull-down
+option is located.
+To use an accelerator key to select a pull-down option, press the
+<TT><STRONG>Ctrl</STRONG></TT> key in conjunction with the appropriate letter.
+For example, the <TT><STRONG>Save</STRONG></TT> option in the
+<TT><STRONG>File</STRONG></TT> pull-down menu
+can be invoked by pressing the <TT><STRONG>Ctrl</STRONG></TT> key and the
+<TT><STRONG>S</STRONG></TT> key at the same time.
+A summary of the available accelerator keys and their functions is
+provided in <A HREF="usrgu078.htm#HDRAPD">Appendix G. "Accelerator Keys"</A>.
+<P>
+For information on each window&#39;s menu bar and pull-down options,
+refer to&#58;
+<UL COMPACT>
+<LI><A HREF="usrgu045.htm#HDRVPEMENU">"VPE Window Menu Bar"</A>
+<LI><A HREF="usrgu045.htm#HDRCPMENU">"Control Panel Menu Bar"</A>
+<LI><A HREF="usrgu045.htm#HDRIMAMENU">"Image Window Menu Bar"</A>
+<LI><A HREF="usrgu045.htm#HDRCOLMEN">"Colormap Menu Bar"</A>
+</UL>
+<P>
+<H3><A NAME="Header_116" ></A>Selecting and Deselecting Items with the Mouse</H3>
+<P>
+In the Visual Program Editor (VPE)
+and Control Panel windows, you use the
+mouse to select various items, such as items in a list, tool names,
+tool icons, and interactors.
+To select any of these items,
+simply click on the item.
+<P>
+In general, you can deselect an item
+by clicking on it again.
+The exceptions are the tool icons
+and interactors, for which
+you must either click on another part of the canvas,
+or shift-click on the item.
+<P>
+<H3><A NAME="Header_117" ></A>Selecting a Choice in an Option Box</H3>
+<A NAME="IDX626"></A>
+<P>
+An option box contains a list of choices, but usually displays only the
+one currently selected.
+Option boxes are used throughout the Data Explorer interface.
+For example, the Selector interactor, illustrated in
+<A HREF="#FIGOBOX">Figure 31</A>, can be displayed as an option box.
+<P>
+Selecting a choice from this box is similar to selecting options from
+pull-down menus.
+To display the possible choices, click on the tab on the right side of
+the option box.
+With the list of choices displayed, click on your desired selection.
+The list of options disappears, and the option box is updated
+with the new selection.
+<P><B><A NAME="FIGOBOX" HREF="../usrguide.htm#FT_FIGOBOX">Figure 31. Example of an
+Option Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/optbox.gif" ALT="Figure optbox not
+displayed."></CENTER><BR></B><BR>
+<P>
+Alternatively, you can select an option with the mouse by moving the
+cursor to the desired option box and pressing and holding the mouse
+button.
+The list of options appears.
+Then move the cursor to the desired option and release.
+Each option is highlighted as you move the cursor across it.
+<P>
+Some of the options are accessible using accelerator keys.
+This is indicated to the right of the option in the options list,
+much like it is in the pull-down menus.
+<P>
+<H3><A NAME="HDREDTXT" ></A>Editing Text Fields</H3>
+<P>
+Many of the dialog boxes in Data Explorer include text fields that you can
+change.
+You can place a text cursor in the box by clicking on the box.
+With the cursor in the box, you can use the keyboard to alter the text.
+The number of times you click on the text box depends on how you want to
+edit it:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Single Click
+</B></TD><TD><P>Places the text cursor at the point on which you clicked in the
+existing text field.
+All text you type is then inserted in the field, after the selected
+point.
+You can also use the Delete and Backspace keys.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Double Click
+</B></TD><TD><P>Places the text cursor at the start of the word on which you
+clicked
+in the existing text field, and highlights that word.
+When you type, the highlighted text is replaced with the new text you
+enter.
+Pressing the Backspace key deletes the highlighted text.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Triple Click
+</B></TD><TD><P>Highlights the entire text field.
+When you type, the entire field is replaced with the new text you enter.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Drag
+</B></TD><TD><P>Highlights the portion of the text field that you drag the
+cursor
+over.
+When the mouse button is released, the text remains highlighted.
+Typing anything replaces the highlighted text with what you type;
+pressing the Backspace key deletes the highlighted text.
+</TD></TR></TABLE>
+<P>
+Data Explorer allows you to copy and paste text within text fields.
+To copy text, select the desired text by double-clicking,
+triple-clicking, or dragging the cursor over it with the left mouse
+button.
+This action selects and copies the text.
+To paste the selected text in a text field, position the mouse cursor
+at the point you want to insert the text, and click on the center
+mouse button.
+The pasted text is inserted at the mouse cursor position.
+<P>
+If the amount of text entered into a text field cannot be fully
+displayed, you can use the keyboard to scroll the cursor
+through the text.
+Pressing the left or right arrow key moves the cursor one character to
+the left or right, respectively.
+Also, pressing the Control key (<TT><STRONG>Ctrl</STRONG></TT>) at the same time
+as
+either the left or right arrow key moves the cursor one
+<I>word</I> to the left or right, respectively.
+The Home key will move the cursor to the beginning of the text field.
+The End key will move the cursor to the end of the text field.
+<P>
+<H3><A NAME="HDRWINSTAK" ></A>Working with Windows</H3>
+<A NAME="IDX627"></A>
+<A NAME="IDX628"></A>
+<A NAME="IDX629"></A>
+<A NAME="IDX630"></A>
+<P>
+Your window manager allows you to&#58;
+<UL COMPACT>
+<LI>Stack and raise windows
+<LI>Minimize windows
+<LI>Maximize windows
+<LI>Close windows
+</UL>
+<P>
+These functions can be invoked using the menu, minimize, and
+maximize
+buttons on the title bar of Data Explorer windows.
+You can use the X Window System
+or the appropriate window system manager to
+customize the way these options work.  For more information,
+see <I>IBM AIXwindows User&#39;s Guide</I> or another appropriate window system
+overview.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+		<P></P>
+	</BODY></HTML>

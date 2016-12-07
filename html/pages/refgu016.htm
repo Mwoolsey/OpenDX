@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - AutoColor</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu015.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu017.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A NAME="HDRAUTOCOL" ></A>AutoColor</H3>
+		<A NAME="IDX376"></A><A NAME="IDX377"></A>
+<A NAME="IDX378"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<A NAME="IDX379"></A>
+<A NAME="IDX380"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Automatically colors a field.
+<P><STRONG>Syntax</STRONG>
+<P>
+<PRE><STRONG>
+mapped, colormap</STRONG> = AutoColor(<STRONG>data, opacity, intensity, start, range,
+                             saturation, min, max, delayed, outofrange</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">data field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">field to be colored
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>opacity</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">opacity, between 0 and 1
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>intensity</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1.0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">color intensity
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>start</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0.6666
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">starting color (default = blue)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>range</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0.6666
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">range of color (default = blue to
+red)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>saturation</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">saturation, between 0 and 1
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>min</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or data field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">min of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">minimum of data to be colored
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>max</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or data field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">max of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">maximum of data to be colored
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>delayed</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: apply maps
+<BR>
+1: delay applying color and
+   opacity maps (byte data only)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>outofrange</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#91;.3 .3 .3&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">how to color out-of-range points
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>mapped</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">color field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">color-mapped input field
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>colormap</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">RGB color map used
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module colors a specified field (<TT><STRONG>data</STRONG></TT>)
+by mapping hues to data values.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>data</STRONG></TT>
+</TD><TD><P>is an input field with data.
+If the input is a vector field, the colors are based
+on the magnitude of the data.
+If the input consists of matrices, the colors are based on the
+determinants.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>opacity</STRONG></TT>
+</TD><TD><P>specifies the opacity of the resulting object.
+Allowed values range from 0 to 1.
+Its default value is 1 for surfaces and 0.5 for volumes.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>intensity</STRONG></TT>
+</TD><TD><P>scales the amount of color.
+For opaque surfaces, the parameter scales from black (0) to full
+color (1).
+For volumes, it controls the brightness of the object when viewed along
+its longest dimension.
+Values greater than 1 can be used to brighten translucent surfaces or
+volumes that appear too dim.
+
+See also <A HREF="refgu048.htm#HDRCVOLRND">"Coloring Objects for Volume
+Rendering"</A>.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>start</STRONG></TT> and
+<TT><STRONG>start</STRONG></TT> &#45;
+<TT><STRONG>range</STRONG></TT>
+</TD><TD><P>specify the colors applied to the minimum and maximum data values
+mapped.
+By default, the minimum data value is colored blue (0.6666), and the
+maximum is colored red (0 or 1; colors are defined cyclically from
+&#45;&infinity; to &infinity;, so that a
+<TT><STRONG>start</STRONG></TT> of
+&#45;1 = 0 =1, and so on).
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>saturation</STRONG></TT>
+</TD><TD><P>specifies the saturation of the colors used.
+This value must be between 0 and 1.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT>
+</TD><TD><P>specify the minimum and maximum data values mapped.
+If neither is specified, the minimum and maximum values of
+<TT><STRONG>data</STRONG></TT> are mapped.
+If <TT><STRONG>min</STRONG></TT> is scalar, the minimum data value is mapped
+to that value.
+If <TT><STRONG>min</STRONG></TT> is a data field, the minimum data value of
+that field is used.
+<P>
+The <TT><STRONG>max</STRONG></TT> parameter is interpreted in corresponding
+fashion.
+If <TT><STRONG>min</STRONG></TT> is a data field and
+<TT><STRONG>max</STRONG></TT>
+is unspecified, the module uses the minimum and maximum values of
+that field.
+<P>
+For volumes, regions with values outside the
+<TT><STRONG>min</STRONG></TT>-<TT><STRONG>max</STRONG></TT>
+range are invisible; for surfaces, such
+regions are gray by default.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>delayed</STRONG></TT>
+</TD><TD><P>determines whether "delayed colors" are created.
+Such colors are available only for byte data and they use less memory.
+<P>
+When <TT><STRONG>delayed</STRONG></TT> = 1:
+<UL COMPACT>
+<LI>The "colors" component is a pointer to the "data"
+component, and a "color map" component is created.
+(This component is a color lookup table with 256 entries, representing
+the appropriate color for each of the 256 possible data values.)
+<LI>If <TT><STRONG>opacity</STRONG></TT> is also specified, an opacity map
+is created with 256 entries, while the "opacities" component is
+a copy of the "data" component.
+<LI>The module adds a "direct color map" attribute to the output
+object.
+(See <A HREF="refgu048.htm#HDRUDCMPS">"Using Direct Color Maps"</A>.)
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>outofrange</STRONG></TT>
+</TD><TD><P>specifies the coloring of data that fall outside the
+<TT><STRONG>min</STRONG></TT>-<TT><STRONG>max</STRONG></TT> range.
+This parameter applies only to surfaces; out-of-range data values for
+volumes are always invisible.
+If the parameter value is a single color (RGB vector or color-name
+string), it is applied to both the upper and lower out-of-range
+points.
+If it is a list of two colors, then it is applied to the lower
+and upper out-of-range points, respectively.
+Color strings can be any of the defined color-name strings (see
+<A HREF="refgu033.htm#HDRCOLOR">Color</A>) or either of
+strings "color of min" and
+"color of max."
+</TD></TR></TABLE>
+<P><B>Notes: </B><OL>
+<P><LI>AutoColor adds colors to the "colors" component.
+For "front colors" or "back colors," use the Rename module
+following AutoColor.
+(See <A HREF="usrgu076.htm#HDRAPC">Appendix E. "Data Explorer Fonts"</A>, in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>.)
+<P><LI>This module also outputs the RGB color map used, in the output
+<TT><STRONG>colormap</STRONG></TT>.
+The "positions" component contains the data values, and the
+"data" component contains the corresponding RGB colors.
+You can use this color map as an input to the ColorBar module.
+For byte data, the color map always contains 256 entries for the 256
+possible data values.
+If the input to AutoColor is a group, then a different color map will be
+constructed for each member of the group.
+In that case, the <TT><STRONG>colormap</STRONG></TT> output of the module is
+a group of color maps.
+Use the Select module to select the color map you want to display
+using ColorBar.
+<P><LI>If you AutoColor a group of volumes, you may find that the
+resulting image is black because the renderer does not
+support coincident volumes.
+</OL>
+<P><STRONG>Components</STRONG>
+<P>
+Adds a "colors" component.
+An "opacities" component is added if <TT><STRONG>opacity</STRONG></TT> is
+less than 1 or if the input data is a volume.
+If <TT><STRONG>delayed</STRONG></TT> = 1, the "colors" component is a
+copy of the "data" component and a "color map" component
+is created.
+Similarly, an "opacity map" component is created if
+<TT><STRONG>opacity</STRONG></TT> is less than 1 or the
+input is a volume.
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+Many example visual programs use AutoColor, including&#58;
+<PRE>
+AlternateVisualizations.net
+ContoursAndCaption.net
+InvalidData.net
+MappedIso.net
+RubberTube.net
+ThunderGlyphSheet.net
+VolumeRendering.net
+SIMPLE/Autocolor.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu033.htm#HDRCOLOR">Color</A>,
+&nbsp;<A HREF="refgu034.htm#HDRCOLORBA">ColorBar</A>,
+&nbsp;<A HREF="refgu018.htm#HDRAUTOGRA">AutoGrayScale</A>,
+&nbsp;<A HREF="refgu048.htm#HDRDISPLAY">Display</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu318.htm">Previous Page</A> &#124; <A HREF="progu320.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXSOC" HREF="progu097.htm#PToC_413">DXSetOrthographic,
+DXGetOrthographic</A></H3>
+<A NAME="IDX2089"></A>
+<A NAME="IDX2090"></A>
+<A NAME="IDX2091"></A>
+<A NAME="IDX2092"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Sets and retrieves an orthographic camera view.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Camera DXSetOrthographic(Camera c, double width, double aspect)<BR>
+Camera DXGetOrthographic(Camera c, double width, double aspect)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+A
+camera defines the position and orientation of the viewer, the
+volume of interest of the object being viewed, and the size of the
+image to contain the resulting view.
+<P>
+<TT><STRONG>DXSetOrthographic</STRONG></TT> defines the volume of interest
+for an orthographic camera
+<TT><STRONG>c</STRONG></TT>.  This can be thought of as a box that is
+centered on the <TT><STRONG>to</STRONG></TT> point, with its
+<TT><STRONG>z</STRONG></TT> axis parallel to the
+<TT><STRONG>to</STRONG></TT>-<TT><STRONG>from</STRONG></TT> vector, and infinite
+in length.  Its <TT><STRONG>y</STRONG></TT> axis is perpendicular to the
+<TT><STRONG>to</STRONG></TT>-<TT><STRONG>from</STRONG></TT> vector in the
+direction
+of the <TT><STRONG>up</STRONG></TT> vector.  Its <TT><STRONG>x</STRONG></TT>
+axis is perpendicular to its
+<TT><STRONG>y</STRONG></TT> and <TT><STRONG>z</STRONG></TT> axes.
+The x and y dimensions of the box are given by the
+<TT><STRONG>width</STRONG></TT> and
+<TT><STRONG>aspect</STRONG></TT> parameters of the camera respectively,
+where
+<TT><STRONG>aspect</STRONG></TT> is defined as the ration of the height to
+width.
+<P>
+In orthographic projection, objects do not appear smaller as they
+get more distant, and in fact, distance between the object and
+viewer have no effect on the appearance of the object.  The distance
+between the
+<TT><STRONG>to</STRONG></TT> and <TT><STRONG>from</STRONG></TT> points is
+irrelevant; only the direction is important.
+<P>
+<TT><STRONG>DXGetOrthographic</STRONG></TT> returns the
+<TT><STRONG>width</STRONG></TT> and <TT><STRONG>aspect</STRONG></TT> parameters
+of an orthographic camera
+<TT><STRONG>c</STRONG></TT>.  If width is not
+<TT><STRONG>NULL</STRONG></TT>, the camera width is returned in
+<TT><STRONG>*width</STRONG></TT>.  If aspect is not
+<TT><STRONG>NULL</STRONG></TT>, the camera aspect is returned in
+<TT><STRONG>*aspect</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+<TT><STRONG>DXSetOrthographic</STRONG></TT> returns the camera or returns
+<TT><STRONG>NULL</STRONG></TT> and sets an error code.
+<P>
+<TT><STRONG>DXGetOrthographic</STRONG></TT> returns the parameters or returns
+<TT><STRONG>NULL</STRONG></TT> (if the camera is not orthographic) and
+sets an error code (if <TT><STRONG>c</STRONG></TT> is not a
+valid camera).
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu160.htm#HDRDXGCMP">DXGetCameraMatrix, DXGetCameraRotation,
+DXGetCameraMatrixWithFuzz</A>,
+<A HREF="progu246.htm#HDRDXNCA">DXNewCamera</A>,
+<A HREF="progu292.htm#HDRDXRNDR">DXRender</A>,
+<A HREF="progu323.htm#HDRDXSPE">DXSetPerspective, DXGetPerspective</A>,
+<A HREF="progu324.htm#HDRDXSRN">DXSetResolution, DXGetCameraResolution</A>,
+<A HREF="progu328.htm#HDRDXSVW">DXSetView, DXGetView</A>
+</STRONG></TT>
+<P>
+<A HREF="progu081.htm#HDRCAMSEC">16.7 , "Camera Class"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu318.htm">Previous Page</A> &#124; <A HREF="progu320.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

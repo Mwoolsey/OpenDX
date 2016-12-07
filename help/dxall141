@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rgridkwd grid 
+#!N #!EC #!N  #!F-adobe-times-bold-r-normal--18*   grid #!EF = num sub x  #!F-adobe-times-bold-r-normal--18*   
+x #!EF num sub y  #!F-adobe-times-bold-r-normal--18*   x #!EF num sub z 
+ #!F-adobe-times-bold-r-normal--18*   x #!EF ... #!N #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Function: #!EF #!I50 #!N Specifies the size and dimensions of 
+the grid containing the data to be imported. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Use: #!EF #!I50 #!N Required unless the header file contains 
+a  #!F-adobe-times-bold-r-normal--18*   points #!EF statement. #!I0 #!N #!N #!N #!N #!I0 
+#!N Notes: #!N #!I30 #!N 1. The  #!F-adobe-times-medium-i-normal--18*   num #!EF parameter 
+is an integer specifying the number of coordinate points for a 
+particular dimension (e.g.,  #!F-adobe-times-medium-i-normal--18*   num[x] #!EF ). The number of dimensions 
+is implicitly specified by the number of such values provided. For 
+example, #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   grid #!EF = 2 
+ #!F-adobe-times-bold-r-normal--18*   x #!EF 2 #!EF #!N #!N #!EC specifies a regular 
+grid of 4 (four) points (the  #!F-adobe-times-bold-r-normal--18*   x #!EF between integers 
+is required, but the blank spaces are optional.) #!N #!I30 #!N 
+2. The  #!F-adobe-times-bold-r-normal--18*   grid #!EF keyword (in contrast to  #!F-adobe-times-bold-r-normal--18*   points 
+#!EF ) implies connections between data points. An  #!F-adobe-times-medium-i-normal--18*   n #!EF 
+-dimensional cuboid is assumed for connections. For example, a 1-dimensional grid 
+generates a line connecting the positions. #!N #!I30 #!N 3. You 
+can also specify that the number of grid elements are to 
+be found in the data file. For the syntax, see  #!Lkwifdf,dxall619 h General Array Importer: Keyword Information from Data Files  #!EL  
+in IBM Visualization Data Explorer User's Guide. #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lpntkwd,dxall142 h points  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

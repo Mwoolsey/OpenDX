@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - QuantizeImage</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu108.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu110.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRQANTIMG" ></A>QuantizeImage</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<P><STRONG>Function</STRONG>
+<P>Converts an RGB image to a byte image with a colormap
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>images</STRONG> = QuantizeImage(<STRONG>Images, nColors</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>images</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">image, image series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">image(s) to quantize
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>nColors</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">256
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">maximum number of colors to use
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>images</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">image, image series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">resulting quantized image(s)
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+QuantizeImage converts an image from a format in which the "colors"
+component is a list of RGB (red, green, blue) vectors, with as
+many entries as there are pixels in the image, to a format
+in which the "colors" component is simply a list of unsigned bytes
+which are interpreted as pointers into a color table.
+<P>
+QuantizeImage sets a "direct color map" attribute of 1 on its
+output. When the output <TT><STRONG>images</STRONG></TT> is passed to
+Display, this will force Display to use the colormap specified by
+QuantizeImage, rather than a default colormap
+(see <A HREF="refgu048.htm#HDRUDCMPS">"Using Direct Color Maps"</A>). This will
+be the case even if you set the
+environment variable DX8BITCMAP to 1. You can use the Options module to
+set a "direct color map" attribute of 0 on the output of
+QuantizeImage to force Display to use a shared colormap.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>images</STRONG></TT>
+</B></TD><TD><P>is the image or series of images to be quantized.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>nColors</STRONG></TT>
+</B></TD><TD><P>is the maximum number of entries in the color table.
+</TD></TR></TABLE>
+<P>
+The output <TT><STRONG>images</STRONG></TT> will
+be a new image or series of images in which
+the color table is attached as a component called "color map".
+<P>
+The advantage of using QuantizeImage is that the image will consume
+much less memory.
+<P><STRONG>Components</STRONG>
+<P>
+Changes the "colors" component. Adds a "color map" component.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+SIMPLE/QuantizeImage.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+<A HREF="refgu118.htm#HDRRENDER">Render</A>,
+<A HREF="refgu110.htm#HDRREADIMA">ReadImage</A>,
+<A HREF="refgu173.htm#HDRWRITEIM">WriteImage</A>,
+<A HREF="refgu048.htm#HDRDISPLAY">Display</A>,
+<A HREF="refgu098.htm#HDROPTIONS">Options</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

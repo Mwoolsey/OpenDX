@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Isosurface</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu080.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu082.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRISOSURF" ></A>Isosurface</H3>
+		<A NAME="IDX563"></A><A NAME="IDX564"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREL">Realization</A>
+<P><STRONG>Function</STRONG>
+<P>
+Computes isosurfaces and contours.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+surface</STRONG> = Isosurface(<STRONG>data, value, number, gradient, flag, direction</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">field from which one or more
+surfaces are to be
+derived.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>value</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">data mean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">isosurface value or values
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>number</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of isosurfaces or contours
+to be computed
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>gradient</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">gradient field
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<TT><STRONG>flag</STRONG></TT>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: normals not computed
+<BR>
+1: normals computed
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>direction</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&#45;1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">orientation of normals
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>surface</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field or group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">isosurface
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module computes any of the following:
+<UL COMPACT>
+<LI>points (for an input field consisting of lines)
+<LI>lines (for a surface input field)
+<LI>surfaces (for a volumetric input field).
+</UL>
+All positions in the output field
+are isovalues (i.e., they match a specified value or values).
+<P>
+The module also adds a default color to the output (gray-blue for
+isosurfaces and yellow for contour lines and points) if the
+input object is uncolored.
+If the object is colored, its colors are interpolated in the output
+object.
+<P>
+A "data" component with the same value as the input
+<TT><STRONG>value</STRONG></TT> is added to the output field.
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>is the data object for which an isosurface or contour is to be
+created.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>value</STRONG></TT>
+</B></TD><TD><P>is the isovalue or isovalues to be used for computing the
+isosurface(s) or contour(s).
+<P>
+If this parameter is not specified, the module bases it calculations on
+the value specified by <TT><STRONG>number</STRONG></TT> (see below).
+If neither parameter is specified, the module uses the arithmetic mean
+of the data input as a default.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>number</STRONG></TT>
+</B></TD><TD><P>is ignored if <TT><STRONG>value</STRONG></TT> has been
+specified.
+If that parameter is not specified, the module uses the value of
+<TT><STRONG>number</STRONG></TT> to compute a set of isosurfaces or
+contours with the following isovalues:
+<PRE>
+min &#43; delta, min &#43; (2*delta),..., min &#45; delta
+</PRE>
+where delta = (max &#45; min)/(<TT><STRONG>number</STRONG></TT> &#43; 1),
+and "max" and "min" are the maximum and minimum data
+values of the input field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>gradient</STRONG></TT>
+</B></TD><TD><P>is the gradient field used to compute normals for shading (see
+<A HREF="refgu069.htm#HDRGRADIEN">Gradient</A>).
+<P>
+If this parameter is not specified, the module adds normals by computing
+the gradient internally (<TT><STRONG>flag</STRONG></TT> can nullify
+this behavior; see below).
+<P><B>Note: </B>If only one isosurface is to be computed, it is probably more
+efficient to have module compute the gradient internally.
+If many are to be generated, it is probably more efficient to compute
+the gradient of the entire field once, so that the system can use
+it for every isosurface.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>flag</STRONG></TT>
+</B></TD><TD><P>specifies whether normals are to be computed
+for shading.
+A setting of 0 (zero) prevents the computation of normals.
+The default is 1 (one)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>direction</STRONG></TT>
+</B></TD><TD><P>specifies whether the normals should point against (0, the
+default)
+or with (1) the gradient.
+</TD></TR></TABLE>
+<P><B>Notes: </B><OL COMPACT>
+<LI>This module adds an attribute called "Isosurface value," which
+has as its value the isovalue(s) used.
+To extract this attribute (e.g., for use in a caption for an image),
+use the Attribute module.
+
+<LI>For contour lines, this module adds a &quot;fuzz&quot; attribute so
+that the line will be rendered slightly in front of a coincident
+surface (see
+<A HREF="refgu048.htm#HDRDISPLAY">Display</A>).
+
+<LI>A surface or contour is considered to be undefined if every point
+in the input volume or surface, respectively, is equal to
+<TT><STRONG>value</STRONG></TT>.
+In such cases, the module output is an empty field.
+<LI>Isosurface does not accept connection-dependent data.
+<LI>With disjoint data fields, there may be no data crossings (i.e.,
+points along a connection element where the interpolated data
+value equals the isovalue), even though the isovalue
+itself falls in the range of the actual data.
+</OL>
+<P><STRONG>Components</STRONG>
+<P>
+Creates new "positions" and "connections"
+components.
+For surfaces output, the default is to create a "normals"
+component.
+Any component dependent on "positions" is interpolated and placed
+in the output object.
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+Many example visual programs use the Isosurface module, including&#58;
+<PRE>
+AlternateVisualizations.net
+ContoursAndCaption.net
+InvalidData.net
+MappedIso.net
+Sealevel.net
+UsingIsosurface.net
+SIMPLE/Isosurface.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu020.htm#HDRBAND">Band</A>,
+&nbsp;<A HREF="refgu033.htm#HDRCOLOR">Color</A>,
+&nbsp;<A HREF="refgu069.htm#HDRGRADIEN">Gradient</A>,
+&nbsp;<A HREF="refgu091.htm#HDRMAP">Map</A>,
+
+&nbsp;<A HREF="refgu142.htm#HDRSIMPSUR">SimplifySurface</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

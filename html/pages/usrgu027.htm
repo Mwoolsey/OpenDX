@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Iterative Execution and Caching</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu026.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu028.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu026.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="Header_96" ></A>4.2 Iterative Execution and Caching of Intermediate Results</H2>
+		<P>
+Unlike the simple example in <A HREF="usrgu026.htm#FIGXMODX1">Figure 18</A> most
+real
+visualization problems involve some form of iteration.
+This may either be direct interaction, where the user is adjusting
+parameters of the visualization and observing
+their effect on the resulting images, or animation, in which
+one or more inputs to the network may vary from frame to frame.
+
+		<P>
+In iterative applications, there are often major parts of the network
+that are unaffected when input parameters are modified.
+In <A HREF="usrgu026.htm#FIGXMODX1">Figure 18</A> if the
+<TT><STRONG>isovalue</STRONG></TT> input
+to the Isosurface
+module is changed, only the affected module and its descendents
+need to be executed.
+The output of Import is not affected by the change.
+Hence, it can be reused, which avoids a superfluous access of data on
+disk.
+The MapToPlane module also does not need to be executed, since its
+inputs did not change.
+<P>
+One way to implement this capability is via a caching mechanism for
+partial results.
+Instead of immediately
+reexecuting when its inputs arrive, a module may
+first determine whether its inputs have changed.
+If they
+have not changed, it can simply retrieve its results from the
+cache.
+Otherwise, the module reexecutes, placing its new result into
+the cache.
+<P>
+Data Explorer extends this notion by incorporating a cache (implemented
+by the module scheduler rather than by the modules themselves)
+for <I>all</I> partial results.
+This cache retains results from not only the
+previous execution of the network, but from all prior executions
+(this is the default behavior; the user can also control
+cache settings for modules).
+The saving of objects in the cache
+is subject to memory limitations and a least-recently-used cache
+eviction strategy (items used the longest time ago
+are first to be discarded
+from the cache).
+The caching behavior for each output of a module
+may also be explicitly set by a user
+to optimize memory utilization.
+(See <A HREF="usrgu062.htm#HDRUDXEFF">A.1 , "Using Data Explorer
+Effectively"</A>.)
+<P>
+The caching of partial results means that in general, the output of
+Import is held in the cache. Usually, this is highly desirable,
+as it avoids needing to reimport the data every time the
+visual program is run.
+However if you modify your file on disk
+(e.g., by editing it), Data Explorer will not know that the
+file has been changed, and will continue to use the cached version.
+To force Data Explorer to reimport the data, use the
+<TT><STRONG>Reset Server</STRONG></TT>
+option of the Connection menu. This will cause all items in the cache
+to be discarded, and Import will reaccess the file on disk.
+You may also set Import to cache <I>no results</I> by
+using the Cache option of Import&#39;s Configuration dialog box;
+note, however,
+that this will not necessarily cause Import to run every time unless
+modules downstream from Import are also set to cache
+no results.
+<P><B><A NAME="FIGXMODX2" HREF="../usrguide.htm#FT_FIGXMODX2">Figure 19. Example
+2</A></B><BR>
+			<BR>
+			<CENTER>
+				<B><IMG SRC="../images/xmodf2.gif" ALT="Figure xmodf2 not
+displayed."></B></CENTER>
+		
+			
+		
+		
+			
+		
+<P><B>Note: </B>An asynchronous module could be used to monitor a file&#39;s
+status and generate new outputs when the file changes.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+		<P></P>
+	</BODY></HTML>

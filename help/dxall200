@@ -1,0 +1,84 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall199 Fields #!N #!EC #!N #!N  #!F-adobe-times-medium-i-normal--18*   Field 
+#!EF Objects are the fundamental Objects in the Data Explorer data 
+model. A Field represents a mapping from some  #!F-adobe-times-medium-i-normal--18*   domain #!EF 
+to some  #!F-adobe-times-medium-i-normal--18*   data space #!EF . The domain of the 
+mapping is specified by a set of  #!F-adobe-times-medium-i-normal--18*   positions #!EF and 
+(generally) a set of  #!F-adobe-times-medium-i-normal--18*   connections #!EF that allow interpolation of 
+data values for points in the domain between specified positions. The 
+mapping at all points in the domain is represented implicitly by 
+specifying data that are dependent on (located at) the sample points 
+or on the connections between the sample points (cell-centered data). #!N 
+#!N This simple abstraction is sufficient for representing a wide range 
+of things. For example, you can describe 3-dimensional volumetric data, whose 
+domain is the region specified by the positions, and whose data 
+space is the value associated with each position. Two-dimensional images have 
+a domain that is the set of pixel locations, and a 
+data space that consists of the pixel color. Two-dimensional surfaces imbedded 
+in 3-space (that is, traditional graphical models) can have a domain 
+that is the set of positions on the surface, and a 
+data space that is, for example, the set of data values 
+on that surface. #!N #!N If the data are dependent on 
+the given positions, then a data value at a point other 
+than those given is found by interpolation within the connection in 
+which the point resides. If the data is dependent on connections, 
+then the data value is assumed to be constant within each 
+connection. If no connections are specified, then there is no implied 
+information about data values at positions other than those given. #!N 
+#!N The information in a Field is represented by some number 
+of named  #!F-adobe-times-medium-i-normal--18*   components #!EF . Each component has a  #!F-adobe-times-medium-i-normal--18*   
+value, #!EF that is an Object. In general, components are  #!F-adobe-times-medium-i-normal--18*   
+Array #!EF Objects (described in more detail in the next section). 
+For example, the "positions" component is an Array specifying the set 
+of sample points; the "connections" component is an Array specifying a 
+means to interpolate between the positions; and the "data" component is 
+an Array specifying the data values. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rfobj21 #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N #!N 
+Figure 21. Example of a Field Object #!EF #!N #!EC #!N 
+#!N  #!Lfobj21,dxall200 f Figure 21  #!EL  shows an example of a Field Object with four 
+components. The "data" component specifies the user's data as an Array 
+of data of arbitrary type (e.g., integer), which is dependent on 
+(i.e., in one-to-one correspondence with) the "positions" component; the "positions" component 
+specifies the sample points as an Array of 3-dimensional vectors; the 
+"connections" component specifies a set of tetrahedra as vectors of four 
+integers that refer to the "positions" component; and the "box" component 
+lists the eight points that define the bounding box of the 
+positions (i.e., of the Field itself). A complete list of defined 
+component types is given in  #!Lstancom,dxall201 h Standard Components  #!EL  . #!N #!N Field components 
+(and Objects in general) can have  #!F-adobe-times-medium-i-normal--18*   attributes #!EF associated with 
+them. For example, the "dep" attribute of a component records the 
+dependency of that component on another component; thus the "data" component 
+will have a "dep" attribute of "positions" or "connections," depending on 
+whether the data are associated with the sample points or with 
+the connections between them. A component can also have a "ref" 
+attribute, indicating that it refers to another component. Typically, the "connections" 
+component has a "ref" attribute of "positions," signifying that the items 
+in the connections component refer to the positions component. A "connections" 
+component must have an "element type" attribute naming the type of 
+connections, such as "triangles," "quads," or "tetrahedra." A complete list of 
+defined attributes is given in  #!Lsca,dxall223 h Standard Attributes  #!EL  ; the complete list of 
+element types is given in  #!Lconcomp,dxall204 h Connections Component  #!EL  . #!N #!N Note that 
+Fields can share components. This allows, for example, several Fields to 
+share the same positions and connections while having different data, colors, 
+and so on.  #!Lfshare22,dxall200 f Figure 22  #!EL  illustrates two such Fields that share 3-dimensional 
+positions and tetrahedral connections, but each of which has separate (but 
+still both position-dependent) data. The sharing is possible because the Arrays 
+are Objects with a reference count stored in the Array header. 
+#!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rfshare22 #!N Graphics omitted from Online Documentation. Please 
+see the manual. #!N #!N Figure 22. Shared Components among Different 
+Fields #!EF #!N #!EC #!N #!N For example, this sharing allows 
+members of a time series, defined on a fixed grid and 
+represented by two Fields, to share positions and connections while each 
+has different data. #!N #!N In addition, sharing is vital to 
+an efficient implementation of the data flow programming model, in which 
+a module may not modify its inputs. In the example in 
+ #!Lfshare22,dxall200 f Figure 22  #!EL  , the first Field might represent the input to a 
+module (e.g., a vector Field), while the second Field might represent 
+the output from a module that computes the length of each 
+vector. The module has constructed a Field with a separate "data" 
+component representing the calculated result, but has not had to copy 
+the portions of the Field that remained the same (positions and 
+connections), because they could be shared between the input and output 
+Fields. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lstancom,dxall201 h Standard Components  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

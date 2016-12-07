@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgcev DXGetCacheEntry, DXGetCacheEntryV #!N #!N Function #!N #!N Retrieve a 
+cache entry. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGetCacheEntry(char 
+*function, int key, int n, ...) Object DXGetCacheEntryV(char *function, int key, 
+int n, Object *in) #!EF #!N #!N Functional Details #!N #!N 
+Both routines return the Object referenced by a cache entry. The 
+cache is indexed by a key created from  #!F-adobe-times-bold-r-normal--18*   function #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   key #!EF ,  #!F-adobe-times-bold-r-normal--18*   n #!EF , and the 
+Objects in the Array  #!F-adobe-times-bold-r-normal--18*   in #!EF . These must be 
+the same values as those used when the Object was placed 
+in the cache with  #!F-adobe-times-bold-r-normal--18*   DXSetCacheEntry #!EF . #!N #!N #!I0 
+#!N Notes: #!N #!I30 #!N 1. Because Data Explorer modules follow 
+pure function semantics, the cache should  #!F-adobe-times-medium-i-normal--18*   not #!EF be used 
+to store a state that affects the output of the module. 
+A module must always be able to recreate the Object from 
+the same set of inputs; the cache should only be used 
+as an optimization tool. #!N #!I30 #!N 2. On a multiprocessor 
+machine, processor local information should  #!F-adobe-times-medium-i-normal--18*   not #!EF be stored in 
+the cache, since its contents may be retrieved on another processor. 
+#!N #!I30 #!N 3. The cache is local to one machine 
+and cannot be used to communicate information between modules on different 
+machines when running in distributed mode. #!I0 #!N #!N Since DXGetCacheEntry 
+returns an Object that is referenced so that it will not 
+be deleted, you must delete it when you are finished with 
+it. Failure to do so will result in a memory leak. 
+#!N #!N For additional details on the deletion of cached Objects, 
+see  #!F-adobe-times-bold-r-normal--18*   DXSetCacheEntry #!EF . #!N #!N Return Value #!N #!N 
+Returns the cached output Object or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF but 
+does not set an error code if no such cache entry 
+exists. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxdel,dxall1195 h DXDelete  #!EL  ,  #!Ldxref,dxall1353 h DXReference  #!EL  
+,  #!Ldxscev,dxall1369 h DXSetCacheEntry, DXSetCacheEntryV  #!EL  ,  #!Ldxgsot,dxall1255 h DXGetObjectTag, DXSetObjectTag  #!EL  #!EF #!N #!N  #!Lcache,dxall1102 h Cache  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgcmp,dxall1225 h DXGetCameraMatrix, DXGetCameraRotation, DXGetCameraMatrixWithFuzz  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

@@ -1,0 +1,18 @@
+src=`echo $1 | tr "\134" "/"`
+dst=`echo $2 | tr "\134" "/"`
+echo src: $src dst: $dst
+grep -h -v // $src | \
+	grep -v include | \
+	grep -v "= NULL" | \
+	sed -e 's/"/\\"/g' | \
+	sed -e 's/\\\\"/\\\\\\"/g' | \
+	sed -e 's/Image_/I/g' | \
+	sed -e 's/Receiver_/Rcv/g' | \
+	sed -e 's/Input_/Inp/g' | \
+	sed -e 's/Inquire_/Inq/g' | \
+	sed -e 's/_out_/_o/g' | \
+	sed -e 's/_in_/_i/g' | \
+	sed -e 's/    //g' | \
+	sed -e 's/^/"/' | \
+	sed -e 's/$/",/' > $dst
+echo NULL >> $dst

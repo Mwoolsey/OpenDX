@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rtall280 DXDATA #!N #!N #!N The DXDATA environment variable specifies a 
+list of directories in which Data Explorer will search for data 
+files. If the data you wish to import are in one 
+of the directories specified in the DXDATA environment variable, then you 
+do not need to specify the complete path name to the 
+data in the Configuration dialog box for the Import tool. You 
+can simply specify the file name, and the Import module will 
+look in the specified directories for the data file. The directories 
+are searched in the order in which they are listed in 
+the environment variable; and the first occurrence of the data file 
+is used. #!N #!N An example of a statement that sets 
+the DXDATA environment variable (in the C shell environment) is the 
+following: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N setenv DXDATA /usr/mydirectory/mydata:/usr/group/groupdata #!EF #!N 
+#!N #!EC where  #!F-adobe-times-bold-r-normal--18*   /usr/mydirectory/mydata #!EF and  #!F-adobe-times-bold-r-normal--18*   /usr/group/groupdata #!EF are 
+two directories that contain data files. Multiple directories can be listed, 
+with directory names separated by a colon. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ltall282,dxall282 h DXHOST  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

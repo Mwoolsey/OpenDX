@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - The Java Explorer Server</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu059.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu061.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu059.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRJAVASRV"></A>11.7 The Java Explorer Server</H2>
+		<P>The Java Explorer server is a java application that manages (via DXLink) DX executives that run DX networks for web clients. The Java Explorer server will run multiple clients per executive and will round-robin executives on a list of servers. This provides a measure of scalability.</P>
+		<H4><A NAME="running"></A>Running the Server</H4>
+		You run one DXServer process on a machine and it serves all requests from all browsers pointed at the machine.
+		<P>The web pages generated using Java Explorer use applets which detect the ip address of the machine from which they were loaded and attempt to contact a DXServer using that ip address.</P>
+		<P>If you are browsing web pages using a URL beginning with file:/, then the applets will be able to use only a DXServer running on the same machine as your browser.</P>
+		<H4><A NAME="cmds"></A>Scripts for Controlling the Server</H4>
+		<P>For UN*X, two scripts are installed for controlling the Java Explorer server. See their description below. Add the Java Explorer server's bin directory to the path environment variable to use these directly. The default Java Explorer server bin directory is /usr/local/dx/java/server/bin.</P>
+		<UL>
+			<PRE><B>Format: startserver [ -webpage htmlfile | [ -outdir dir -outurl url ]] \
+		[ -help ] [ -debug ] [ -verbose ] [ -memory Mbytes ] \
+		[ -dxroot dir ] [ -user user ]
+    -webpage.......complete path of a Java Explorer web page
+    -outdir........directory into which new images should be written
+    -outurl........url of the -outdir argument relative to the document base
+    -help..........this message
+    -debug.........print message traffic
+    -verbose.......print cmd line args passed to DXServer
+    -version.......the software version number of this script
+    -foreground....run in the foreground in order to satisfy init
+    -memory........set the amount of memory dxexec uses. 
+    -dxroot........use dir as DXROOT
+    -user..........run the script under a different user id
+    -sessions......max number of simultaneous Data Explorer sessions (default: 1)
+    -morehelp......examples
+
+</B></PRE>
+			<PRE><B>stopserver [ host ]
+     host..........the host machine of the DXServer (default is localhost)
+</B></PRE>
+		</UL>
+		<H4><A NAME="HDRJSCONF"></A>Configuration Files</H4>
+		<P>In the following notes, <I>installDir</I> is the installation directory of the Java Explorer server - in OpenDX this is typically /usr/local/dx/java.</P>
+		<P>The Java Explorer server reads the following files from the class working directory (which will be <strong><i>installDir</i>/java/server/class</strong>):</P>
+		<UL>
+			<LI><B><I>dxserver.paths</I></B> contains directories which are searched for visual program files. The Java Explorer server locates the .net file prior to instructing Data Explorer to load the visual program.
+			<LI><B><I>dxserver.hosts</I></B> contains host names. The Java Explorer server will schedule Data Exlporer sessions on the hosts in <I>dxserver.hosts</I> in round-robin fashion. Before using this mechanism you will want to modify the following environment variables which are normally set by the startserver script:
+			<UL>
+				<LI>DXDATA - Location to the user data files; typically <I>installDir</I>/java/server/userdata
+				<LI>DXMACROS - Location to the macros directories, typically set up as <B>$DXROOT</B>/samples/macros:<I>installDir</I>/java/server/dxmacros:<I>installDir</I>/java/server/usermacros, note how more directories can be added by concatenating them onto the list separated by a colon.
+				<LI>DXINCLUDES - Location of the directory which the executive will search for included scripts. typically <B>$DXMACROS.</B>
+			</UL>
+			The startserver script modifies these for use on localhost. However, settings which work on localhost won't work on a remote machine. You must also modify <I>dxserver.paths</I> so that it contains a pathname beginning with a '/'.
+		</UL>
+		Within these files, lines beginning with // and empty lines are ignored. The Java Explorer server re-reads these files as they are updated, so it isn't necessary to restart.
+		<P>The Java Explorer server also reads the DX application defaults file from the invoker's home directory on startup. Several settings can be added to this file to change the behavior of the server so all command line options do not have to be specified upon launch.</P>
+		<UL>
+			<LI><B>DX*htmlDir</B> - should be changed so that it does not include the htmlpages directory. For example:
+			<PRE>DX*htmlDir: /usr/http/java</PRE>
+			<LI><B>DX*userHtmlDir</B> and <B>DX*userJarFile</B>. The default settings are <B>user</B> and <B>user.jar</B> respectively. Consequently, dxui will generate makefiles which compile applets into user.jar and install user.jar into <I>htmlDir/userHtmlDir</I>. By default, all web pages generated by dxui will not be installed into <I>installDir</I>/java/htmlpages. Instead they'll be installed into a directory beside htmlpages.
+		</UL>
+		<H4><A NAME="HDRCNFNOTE"></A>Configuration Notes</H4>
+		<P>In order to use Java Explorer, dx must be in the invoker's path and started with &quot;startserver&quot; from the <I>installDir</I>/server/bin/ directory. If no httpd web server is running or has yet to be configured, start a browser locally and point it at file:///$DROOT/java/htmlpages/Status.html, where $DXROOT is the DX installation directory--typically /usr/local/dx.</P>
+		<P>httpd should point to the directory structure such that &quot;htmlpages&quot; and &quot;output&quot; are accessible via the same prefixed url (e.g.for a given whatever, whatever/htmlpages and whatever/output should work). various additions for mime.types and or httpd.conf may be required. For example, to add the text/html mime type for .htm files, the line should read:</P>
+		<BLOCKQUOTE>
+			<PRE>text/html html htm</PRE>
+		</BLOCKQUOTE>
+		<P>If Java Explorer is going to create vrml that httpd serves, mime.types should have an entry</P>
+		<BLOCKQUOTE>
+			<PRE>x-world/x-vrml wrl</PRE>
+		</BLOCKQUOTE>
+		<P>Variations exist, and sometimes this is in httpd.conf or srm.conf (depending upon your httpd) using the &quot;AddTypes&quot; directive, as in</P>
+		<BLOCKQUOTE>
+			<PRE>AddType x-world/x-application .wrl</PRE>
+		</BLOCKQUOTE>
+		<P></P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

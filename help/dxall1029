@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Raddtwo Add2 
+Module Example--Add Two Data Fields #!N #!EC #!N #!N This module 
+adds together the data components of two input Fields. Thus, one 
+of its functions is to ensure that the hierarchies of the 
+two input Objects match one-to-one. #!N #!N The Add2 module takes 
+two inputs:  #!F-adobe-times-bold-r-normal--18*   field1 #!EF and  #!F-adobe-times-bold-r-normal--18*   field2 #!EF . Each 
+is of type  #!F-adobe-times-bold-r-normal--18*   field #!EF and has no default value. 
+#!N #!N The Add2 module has one output,  #!F-adobe-times-bold-r-normal--18*   result #!EF 
+, of type  #!F-adobe-times-bold-r-normal--18*   field #!EF . #!N #!N  #!F-adobe-times-bold-r-normal--18*   REPEAT 
+STEPS (1) THROUGH (5) #!EF of the first example (see  #!Laddmodx,dxall1028 h Add Module Example--Add a __________________________________ Number to Every Data Value  #!EL  
+), using the file name "add2" instead of "add." Step (5) 
+will produce files add2.c, add2.mdf, and add2.make. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (6) 
+IMPLEMENT THE ADD2 FUNCTION. #!EF Use an editor to add the 
+following lines after "User's code goes here," ________________________________________ near the end 
+of the add2.c file: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N int i; 
+#!N #!N /* first check that the lengths of the data 
+buffers match */ #!N if (field1_knt != field2_knt) { #!N DXSetError(ERROR_INVALID_DATA,"data 
+components do not match"); #!N return 0; #!N } #!N #!N 
+for (i=0; i < field1_knt; i++) #!N result_data[i] = field1_data[i] + 
+field2_data[i]; #!N #!N return 1; #!N } #!EF #!N #!N #!EC 
+#!N #!N The file /usr/lpp/dx/samples/program_guide/add2.c contains a completed version of this 
+program. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (7) TO CREATE A VERSION OF DATA 
+EXPLORER THAT INCLUDES #!EF the Add2 module, enter the command: ____________________________________________________________ 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N make -f add2.make dxexec #!EF #!N 
+#!N #!EC #!N #!N (You have now created an executable that 
+contains the Add2 module.) #!N #!N  #!F-adobe-times-bold-r-normal--18*   (8) TO INVOKE THIS 
+VERSION, ENTER: #!EF _________________________________________ #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit 
+-mdf ./add2.mdf -exec ./dxexec #!EF #!N #!N #!EC #!N #!N This 
+command starts Data Explorer (the  #!F-adobe-times-bold-r-normal--18*   add2.mdf #!EF file tells the 
+graphical user interface about Add2 and its inputs and outputs). The 
+executable dxexec invoked here is the one created in Step 6. 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   (9) WITH THIS VERSION OF DATA EXPLORER #!EF 
+you can now run any visual program that uses the Add2 
+module. One ____________________________________________ such program is /usr/lpp/dx/samples/program_guide/add2.net #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ladd2i,dxall1030 h Add2Invalid Module Example--Manipulate Invalid Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

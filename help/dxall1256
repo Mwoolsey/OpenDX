@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxgp DXGetPart #!N #!N Function #!N #!N Returns the parts of 
+an Object by index. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Field DXGetPart(Object o, int n) #!EF #!N #!N Functional Details #!N 
+#!N The parts of a Group may be indexed by calling 
+ #!F-adobe-times-bold-r-normal--18*   DXGetPart #!EF with successive values of  #!F-adobe-times-bold-r-normal--18*   n #!EF starting 
+with 0 until  #!F-adobe-times-bold-r-normal--18*   NULL #!EF is returned. This call is 
+equivalent to  #!F-adobe-times-bold-r-normal--18*   DXGetPartClass #!EF with the class parameter set to 
+ #!F-adobe-times-bold-r-normal--18*   CLASS_FIELD #!EF . #!N Note: The  #!F-adobe-times-bold-r-normal--18*   DXGetPart #!EF , 
+ #!F-adobe-times-bold-r-normal--18*   DXGetPartClass #!EF , and  #!F-adobe-times-bold-r-normal--18*   DXSetPart #!EF routines are useful 
+primarily for prototyping or in cases where their convenience outweighs efficiency 
+concerns. The  #!F-adobe-times-bold-r-normal--18*   DXProcessParts #!EF routine can often be used for 
+the same purposes with better efficiency. #!N #!N #!N Return Value 
+#!N #!N Returns the  #!F-adobe-times-bold-r-normal--18*   n #!EF th part or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF . #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgpc,dxall1257 h DXGetPartClass  #!EL  ,  #!Ldxpp,dxall1336 h DXProcessParts  #!EL  ,  #!Ldxsp,dxall1385 h DXSetPart  #!EL  #!EF #!N #!N  #!Lprts,dxall1068 h Parts  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgpc,dxall1257 h DXGetPartClass  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

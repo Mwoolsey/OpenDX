@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgte DXGetType #!N #!N Function #!N #!N 
+Returns the type, category, rank, and shape of an Object. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGetType(Object o, Type *t, 
+Category *c, int *rank, int *shape) #!EF #!N #!N Functional Details 
+If  #!F-adobe-times-bold-r-normal--18*   t #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , this 
+routine returns the type of  #!F-adobe-times-bold-r-normal--18*   g #!EF in  #!F-adobe-times-bold-r-normal--18*   *t 
+#!EF . If  #!F-adobe-times-bold-r-normal--18*   c #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+, it returns the type of  #!F-adobe-times-bold-r-normal--18*   g #!EF in  #!F-adobe-times-bold-r-normal--18*   
+*c #!EF . If  #!F-adobe-times-bold-r-normal--18*   rank #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , it returns the rank of  #!F-adobe-times-bold-r-normal--18*   g #!EF in 
+ #!F-adobe-times-bold-r-normal--18*   *rank #!EF . If  #!F-adobe-times-bold-r-normal--18*   shape #!EF is not  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF , it returns the shape Array of  #!F-adobe-times-bold-r-normal--18*   g 
+#!EF in  #!F-adobe-times-bold-r-normal--18*   *shape #!EF .  #!F-adobe-times-bold-r-normal--18*   shape #!EF must point 
+to an Array at least  #!F-adobe-times-bold-r-normal--18*   *rank #!EF in length. #!N 
+#!N The type is one of the following: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N TYPE_BYTE TYPE_HYPER TYPE_SHORT #!N TYPE_UBYTE TYPE_INT TYPE_USHORT #!N 
+TYPE_DOUBLE TYPE_UINT TYPE_STRING #!N TYPE_FLOAT #!EF #!EF #!N #!N #!EC #!N 
+#!N The category is either  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL #!EF or  #!F-adobe-times-bold-r-normal--18*   CATEGORY_COMPLEX 
+#!EF . #!N #!N Array Objects are always typed. Fields are 
+typed if they contain a "data" component; their type is the 
+same as that of the "data" component. Series, MultiGrids, and Composite 
+Fields are typed if they contain typed Fields. Generic Groups may 
+be typed by explicitly calling  #!F-adobe-times-bold-r-normal--18*   DXSetGroupType #!EF . If typed, 
+all Fields contained in the Group must match the type. Other 
+Objects do not contain type information. #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF only if there is a type 
+associated with  #!F-adobe-times-bold-r-normal--18*   o #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF without 
+setting an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgai,dxall1222 h DXGetArrayInfo  #!EL  ,  #!Ldxsgtv,dxall1380 h DXSetGroupType, DXSetGroupTypeV  #!EL  ,  #!Ldxugt,dxall1405 h DXUnsetGroupType  #!EL  #!EF #!N #!N  #!Lty,dxall1101 h Setting Data Types  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgvc,dxall1271 h DXGetValidCount  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

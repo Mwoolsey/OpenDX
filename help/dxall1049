@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rmodsior Inboard, Outboard, and Runtime-loadable Modules #!N 
+#!EC #!N #!N The chief differences between inboard, outboard, and runtime-loadable 
+modules lies in the following features: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o the module description file (  #!F-adobe-times-bold-r-normal--18*   .mdf 
+#!EF ) #!N #!I30 #!N o the compilation and linking process 
+(i.e., the Makefile) #!N #!I30 #!N o the command that starts 
+Data Explorer using the module. #!N #!I0 #!N #!EF #!N #!N 
+#!N Module description files are discussed in  #!Lmdfsec,dxall1046 h Module Description Files  #!EL  . The other 
+two features are discussed in the three sections following this brief 
+summary. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   inboard modules 
+#!EF #!EF #!I50 #!N Are compiled into Data Explorer. That is, 
+the version of dxexec found (usually) in /usr/lpp/dx/bin_architecture is replaced with 
+your own copy (i.e., a copy incorporating your module). #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   outboard modules #!EF #!EF #!I50 #!N Run as 
+separate processes. Linking an outboard module is quick, since it does 
+not involve creating an entire new version of dxexec (as the 
+compilation of inboard modules does). Thus an outboard module is also 
+easier to debug because it can be relinked more quickly. #!N 
+#!N However, outboard modules are typically less efficient than other modules, 
+especially if significant amounts of data must be transferred: data objects 
+are transferred to and from an outboard module via sockets rather 
+than as the pointers to shared memory that inboard and runtime-loadable 
+modules use. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   runtime-loadable modules #!EF #!EF 
+#!I50 #!N Can be loaded when Data Explorer is started or 
+at any time after, and they do not require a separate 
+copy of dxexec, as inboard modules do. Thus these modules have 
+the advantage of portability without the disadvantage of the data-transfer overhead 
+associated with outboard modules. A single executable can contain multiple modules 
+that can be used like a library. #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmodlink,dxall1050 h Compiling, Linking, and Debugging an Inboard Module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

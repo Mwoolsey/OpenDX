@@ -1,0 +1,71 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rcache 
+Cache #!N #!EC #!N #!N The look-aside cache service stores the 
+results of computations for later use. Each cache entry is uniquely 
+identified by a string function name, an integer key (which the 
+executive uses to store multiple outputs for a single module), the 
+number of input parameters, and the set of input parameter values. 
+#!N #!N The input parameters and the Object to be cached 
+must be Data Explorer Objects. #!N #!N  #!F-adobe-times-bold-r-normal--18*   ASSOCIATING DATA WITH 
+A CACHE ENTRY. #!EF User data not already in the form 
+of an Object can be associated with ____________________________________________ a cache entry 
+by means of a Private Object (see  #!Lprivsec,dxall1081 h Private Class  #!EL  ), encapsulating the 
+data in an object. To associate more than one Object with 
+a cache entry, use a Group to contain the Objects. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   LOSING A CACHE ENTRY. #!EF Cache entries are subject 
+to deletion without notice (e.g., when the system reclaims _____________________________ memory). 
+The relative cost of creating an entry (which must be specified 
+when the entry is created) may be taken into account when 
+deleting Objects from the cache. If an estimate is not readily 
+available, specify zero (0). Specifying  #!F-adobe-times-bold-r-normal--18*   CACHE_PERMANENT #!EF as the cost 
+prevents the entry from being deleted during memory reclamation. #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   OBJECT REFERENCE COUNTS AND THE CACHE. #!EF It is important 
+to be aware of the following: The system uses the ______________________________________________ 
+cache to store intermediate results from modules. Thus inputs to modules 
+often come from the cache. However: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o Once you have a pointer to a 
+module's input, you can be sure it will not be deleted 
+while you are processing it. #!N #!I30 #!N o If the 
+input is a Group and you extract a member, that member 
+will not be deleted while you are using it (because the 
+Group will not be deleted). #!N #!I0 #!N #!EF #!N #!N 
+#!N However, Objects other than module inputs that are put into 
+or retrieved from the cache behave differently: Once an Object is 
+put in the cache, the system may delete it at any 
+time to reclaim memory. This last has two consequences. #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1.  #!F-adobe-times-bold-r-normal--18*   DXGetCacheEntry() #!EF returns 
+an Object that is referenced so that it will not be 
+deleted. Thus, you must delete the Object when you are finished 
+using it: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N o = DXGetCacheEntry(...); #!N 
+... use o ... #!N DXDelete(o); #!EF #!N #!N #!EC #!N 
+#!N Failure to do so will result in a memory leak, 
+because the Object will always have an extra reference. #!N #!I30 
+#!N 2. To continue using an Object after putting it in 
+the cache, you must reference it  #!F-adobe-times-medium-i-normal--18*   before #!EF putting it 
+there, and delete it when it is no longer needed: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N o = New...; #!N DXReference(o); #!N DXSetCacheEntry(..., 
+o, ...); #!N ... use o ... #!N DXDelete(o); #!EF #!N 
+#!N #!EC #!N #!N Conversely, if putting the Object in the 
+cache is the last operation before the return, and if  #!F-adobe-times-bold-r-normal--18*   
+o #!EF is not visible outside the scope of the routine, 
+no reference is necessary: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N o = 
+New...; #!N ... use o ... #!N DXSetCacheEntry(..., o, ...); #!N 
+return ...; #!EF #!N #!N #!EC #!N #!N where the return 
+statement does  #!F-adobe-times-medium-i-normal--18*   not #!EF return  #!F-adobe-times-bold-r-normal--18*   o #!EF . #!N 
+#!I0 #!N #!EF #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   CACHE ROUTINES #!EF _____________________ 
+#!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #define CACHE_PERMANENT 1e32 #!EF 
+#!EF #!N #!N #!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Object DXGetCacheEntry() #!EF #!N Object DXGetCacheEntryV() #!EF #!I50 #!N Retrieve 
+a cache entry. See  #!Ldxgcev,dxall1224 h DXGetCacheEntry, DXGetCacheEntryV  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Error DXSetCacheEntry() #!EF #!N Error DXSetCacheEntryV() #!EF #!I50 #!N Set a 
+cache entry. See  #!Ldxscev,dxall1369 h DXSetCacheEntry, DXSetCacheEntryV  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error 
+DXFreeModuleId() #!EF #!N Pointer DXGetModuleId() #!EF #!I50 #!N Get a unique 
+identifier for each instance of a module. See  #!Ldxfmid,dxall1216 h DXFreeModuleId  #!EL  and  #!Ldxgmid,dxall1250 h DXGetModuleId  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXCompareModuleId() #!EF #!EF #!I50 
+#!N Returns OK if the two specified module identifiers are the 
+same; otherwise returns ERROR. See  #!Ldxcmpmi,dxall1183 h DXCompareModuleId  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Pointer DXCopyModuleId() #!EF #!EF #!I50 #!N Returns a pointer to 
+a copy of the specified module identifier. See  #!Ldxcpmi,dxall1188 h DXCopyModuleId  #!EL  . #!I0 
+#!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lpndcmd,dxall1103 h Pending Commands  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

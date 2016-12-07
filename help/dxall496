@@ -1,0 +1,40 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rstartsc Starting 
+Data Explorer in Script Mode #!N #!EC #!N #!N To run 
+Data Explorer in script mode on a workstation, you must have 
+an account on that workstation. #!N #!N To start Data Explorer, 
+follow these steps: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+1. Start the X Window System session on the workstation. #!N 
+#!I30 #!N 2. Type: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -script 
+#!EF #!N #!N #!EC When script mode starts, you will see 
+a prompt symbol (dx>), indicating that Data Explorer is ready to 
+accept input. (If you want to change the prompt symbol, see 
+ #!Lsdxsc,dxall548 h Using Data Explorer Script Commands  #!EL  .) #!N #!I0 #!N #!EF #!N #!N #!N (All of 
+the command line options for Data Explorer are described in  #!Lcmdlopt,dxall744 h Command Line Options  #!EL  
+.) #!N #!N You can type commands directly at the command 
+line, but you may find it more convenient to create a 
+script and submit it to Data Explorer for execution. To submit 
+a script, type: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N include "  #!F-adobe-times-bold-i-normal--18*   
+scriptname #!EF " #!EF #!N #!N #!EC at the prompt, where 
+ #!F-adobe-times-bold-i-normal--18*   scriptname #!EF is the name of the script. #!N #!N 
+Once you have submitted a script, Data Explorer will process the 
+commands it contains. Note that none of the direct interactor options 
+are available in script mode: you must use the Image tool 
+in the graphical user interface to take advantage of those options. 
+#!N #!N After the included script has been processed, you can 
+include another script. #!CForestGreen #!N To terminate your Data Explorer session, 
+type:  #!F-adobe-courier-bold-r-normal--18*   quit #!EF #!N #!N #!EC #!N #!N You can 
+also include a script name directly in the script command: add 
+the name of the script after the  #!F-adobe-times-bold-r-normal--18*   -script #!EF option. 
+Data Explorer will terminate automatically when it has executed the script. 
+For example, type: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N include "/usr/lpp/dx/samples/scripts/scriptexample" #!EF 
+#!N #!N #!EC You will see a sequence of images created 
+with sequencer commands. The directory  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/scripts #!EF contains examples for 
+many modules. You may find it helpful to experiment with them 
+to learn how they function. Note: To ensure that an example 
+program does not exit before you want it to, invoke script 
+mode first and then "include" the program. Otherwise, some programs will 
+execute and disappear so quickly that you won't be able to 
+identify the image. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lall496,dxall497 h Setting Environment Variables  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

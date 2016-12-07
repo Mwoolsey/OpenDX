@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rexectv Executive #!N #!N Category #!N #!N  #!Lcatictl,dxall758 h Interface Control  #!EL  
+#!N #!N Function #!N #!N Executes an executive command. #!N #!N 
+Syntax #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   Executive(  #!F-adobe-times-bold-r-normal--18*   command, value #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+command TAB string TAB none TAB command to be executed #!N 
+TAB value TAB object TAB no default TAB command-dependent value #!N 
+TAB - TAB - TAB - TAB #!EF #!N #!N Functional 
+Details #!N #!N This module tells the Data Explorer executive to 
+run an internal system command. In the user interface, it is 
+available only through the  #!F-adobe-times-bold-r-normal--18*   Execute Script Command #!EF option of 
+the  #!F-adobe-times-bold-r-normal--18*   Options #!EF pull-down menu of the Message window. And 
+with the exception of the "print" command, it should be invoked 
+only through the scripting language. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   command #!EF #!EF #!I50 #!N is the executive command 
+to be executed. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   value #!EF #!EF 
+#!I50 #!N is a  #!F-adobe-times-bold-r-normal--18*   command #!EF -dependent value. #!I0 #!N 
+#!N #!N #!N The types of commands executed by the Executive 
+module fall into four categories: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o printing system information #!N #!I30 #!N o distributed 
+processing #!N #!I30 #!N o module definition #!N #!I30 #!N o 
+system functions. #!N #!I0 #!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ltall835,dxall835 h Printing System Information  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

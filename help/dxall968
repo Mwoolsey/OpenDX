@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtransla Translate #!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  
+#!N #!N Function #!N #!N Translates an object. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Translate(  #!F-adobe-times-bold-r-normal--18*   
+input, translation #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB input TAB object TAB none TAB object 
+to translate #!N TAB translation TAB vector TAB [0 0 0] 
+TAB amount of translation along x, y, #!N TAB - TAB 
+- TAB - TAB and z axes #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB output 
+TAB object TAB object marked to be translated #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N This 
+module prepares a specified object for being moved (translated) a specified 
+amount along the  #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF , 
+and  #!F-adobe-times-medium-i-normal--18*   z #!EF axes. Note: A Transform object containing the 
+specified transformation matrix is inserted at the root of the object. 
+This transform is applied during rendering. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N specifies the object 
+to be translated. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   translation #!EF #!EF 
+#!I50 #!N is the translation vector. No translation occurs for the 
+default value of [0 0 0]. A specification of [0 1 
+0] (to take one example) will move the specified object one 
+unit in the y-direction. #!I0 #!N #!N #!N #!N Components #!N 
+#!N All input components are propagated to the output. #!N #!N 
+Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Imide_potential.net #!EF #!N 
+#!N #!EC #!N #!N See Also #!N #!N  #!Lrotate,dxall928 h Rotate  #!EL  ,  #!Lscale,dxall934 h Scale  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltransmi,dxall969 h Transmitter  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

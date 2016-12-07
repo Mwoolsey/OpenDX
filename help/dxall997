@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall997 ...as 
+an inboard module #!N #!N #!N Copy the following files to 
+the directory you want to work in: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/Makefile_ #!EF  #!F-adobe-times-bold-i-normal--18*   workstation #!EF #!N  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/hello.c #!EF 
+#!N  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/hello.mdf #!EF #!EF #!N #!N #!EC Now rename the 
+makefile to  #!F-adobe-times-bold-r-normal--18*   Makefile #!EF (the name of the default makefile) 
+and enter: make hello. This command creates an executable that contains 
+the Hello module. #!N #!N To invoke this executable (from the 
+directory to which the files were copied), enter: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf ./hello.mdf -exec ./dxexec. #!EF #!N #!N 
+#!EC This command starts Data Explorer (the  #!F-adobe-times-bold-r-normal--18*   hello.mdf #!EF file 
+tells the graphical user interface about Hello and its inputs and 
+outputs). #!N #!N You can now run any visual program that 
+uses the Hello module. One such program is  #!F-adobe-times-bold-r-normal--18*   hello.net #!EF 
+in the directory  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide #!EF . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lclo,dxall998 h ...as an outboard module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

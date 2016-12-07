@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rcnn Connections #!N #!EC #!N #!N The routines 
+listed here define the interpolation elements of a Field, creating a 
+"connections" component with an appropriate "element type" attribute. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXAddLine() #!EF #!N Field DXAddTriangle(); 
+#!N Field DXAddQuad(); #!N Field DXAddTetrahedron(); #!EF #!I50 #!N Add a 
+single interpolation element to a Field. See  #!Ldxals,dxall1167 h DXAddLine, ...Triangle, ...Quad, ...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXAddLines() #!EF #!N Field DXAddTriangles(); #!N Field 
+DXAddQuads(); #!N Field DXAddTetrahedra(); #!EF #!I50 #!N Add interpolation element(s) to 
+a Field. See  #!Ldxals,dxall1167 h DXAddLine, ...Triangle, ...Quad, ...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field 
+DXSetConnections() #!EF #!EF #!I50 #!N Sets the "connections" component of a 
+Field as a specified Array with a specified element type. See 
+ #!Ldxsc,dxall1373 h DXSetConnections  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXGetConnections() #!EF #!EF 
+#!I50 #!N Gets the "connections" component of a Field and checks 
+to see if it has a specified "element type" attribute. See 
+ #!Ldxgc,dxall1229 h DXGetConnections  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lstdcs,dxall1086 h Standard Components  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

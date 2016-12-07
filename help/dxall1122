@@ -1,0 +1,62 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Run10 Examples #!N #!EC #!N #!N In the following examples, underscored 
+items are supplied by the user. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (1) #!EF 
+No hash or compare function is provided at the time the 
+hash table is created. Stored elements are x, y, z points, 
+along with associated data values. #!N Note: Because no hash function 
+is provided, the pseudokey must be stored as the first long 
+integer word of the element. #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+typedef struct #!N { #!N #!N long pseudokey; #!N #!N Point 
+pt; #!N float data; #!N } hashelement; #!EF #!N #!N #!EC 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N HashTable hashtable; #!N hashtable = DXCreateHash(sizeof(element), 
+NULL, NULL); #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+#!N for (i=0; i <  #!F-adobe-times-medium-i-normal--18*   number of points to insert 
+#!EF ; i++){ #!N element.pseudokey = GetKey(&  #!F-adobe-times-medium-i-normal--18*   current_point #!EF ); 
+#!N element.pt =  #!F-adobe-times-medium-i-normal--18*   current_point #!EF ; #!N element.data =  #!F-adobe-times-medium-i-normal--18*   
+current_data #!EF ; #!N #!N #!N DXInsertHashElement(hashtable, (Element)&element); #!N } #!EF 
+#!N #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   (2) #!EF If GetKey returns 
+the same pseudokey for two different points, the second will overwrite 
+the first because no compare function was provided to  #!F-adobe-times-bold-r-normal--18*   DXCreateHash() 
+#!EF . #!N #!N To extract elements from the hash table: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N PseudoKey pkey; #!N hashelement *element_ptr; #!EF 
+#!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N pkey = 
+GetKey(&  #!F-adobe-times-medium-i-normal--18*   point_to_search_for #!EF ); #!N #!N element_ptr = DXQueryHashElement(hashtable, (Key)&pkey); 
+#!EF #!N #!N #!EC #!N #!N GetKey that returns a pseudokey 
+given a point x, y, z: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+PseudoKey GetKey(Key key) #!N { #!N Point *pt; #!N #!N pt 
+= (Point *)key; #!N return pt->x + 17*pt->y + 23*pt->z; #!N 
+} #!EF #!N #!N #!EC #!N #!N Alternatively, the hash function 
+GetKey can be provided at the time the hash table is 
+created. In that case the pseudokey does not need to be 
+part of the element. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct 
+#!N { #!N Point pt; #!N float data; #!N } hashelement; 
+#!N #!N HashTable hashtable; #!N hashelement element; #!N #!N hashtable = 
+DXCreateHash(sizeof(element), GetKey, NULL); #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N #!N for (i=0; i <  #!F-adobe-times-medium-i-normal--18*   number_of_points_to_insert #!EF ; i++){ 
+#!N element.pt =  #!F-adobe-times-medium-i-normal--18*   current_point #!EF ; #!N element.data =  #!F-adobe-times-medium-i-normal--18*   
+current_data #!EF ; #!N #!N DXInsertHashElement(hashtable, (Element)&element); #!EF #!N #!N #!EC 
+#!N #!N where: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N PseudoKey GetKey(Key key) 
+#!N { #!N Point *pt; #!N #!N pt = (Point *)key; 
+#!N return pt->x + 17*pt->y + 23*pt->z; #!N } #!EF #!N 
+#!N #!EC #!N #!N To extract elements from the hash table: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N hashelement *element_ptr; #!EF #!N #!N #!EC 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N element.pt =  #!F-adobe-times-medium-i-normal--18*   point_to_search_for #!EF ; 
+#!N element_ptr = DXQueryHashElement(hashtable, (Key)&element); #!EF #!N #!N #!EC #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   (3) #!EF This example uses a compare function. #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct #!N { #!N Point pt; #!N 
+float data; #!N } hashelement; #!N #!N HashTable hashtable; #!N hashelement 
+element; #!N #!N hashtable = DXCreateHash(sizeof(element), GetKey, CompareFunc); #!EF #!N #!N 
+#!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N for (i=0; i < 
+ #!F-adobe-times-medium-i-normal--18*   number of points to insert #!EF ; i++){ #!N element.pt 
+=  #!F-adobe-times-medium-i-normal--18*   current_point #!EF ; #!N element.data =  #!F-adobe-times-medium-i-normal--18*   current_data #!EF 
+; #!N #!N DXInsertHashElement(hashtable, (Element)&element); #!N } #!EF #!N #!N #!EC 
+#!N #!N where the compare function may be: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N int CompareFunc(Key searchkey, Element element) #!N { #!N Point 
+*p, p1, p2; #!N hashelement *h; #!N #!N p = (Point 
+*)searchkey; #!N p1 = *p; #!N h = (hashelement *)element; #!N 
+p2 = h->pt; #!N if ((pl.x==p2.x)&&(p1.y==p2.y)&&(p1.z==p2.z)) #!N return 0; #!N else 
+#!N return 1; #!N } #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lpies,dxall1123 h Pick-Assistance Routines  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

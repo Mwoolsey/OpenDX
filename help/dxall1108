@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rltqtc Lines, Triangles, Quadrilaterals, 
+Tetrahedra, and Cubes #!N #!EC #!N #!N These data structures define 
+the interpolation elements of an Object. They refer to points by 
+point identifiers. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   #!N typedef struct 
+line { #!N PointId p, q; #!N } Line; #!N #!N 
+typedef struct triangle { #!N PointId p, q, r; #!N } 
+Triangle; #!N #!N typedef struct quadrilateral { #!N PointId p, q, 
+r, s; #!N } Quadrilateral; #!N #!N typedef struct tetrahedron { 
+#!N PointId p, q, r, s; #!N } Tetrahedron; #!N #!N 
+typedef struct cube { #!N PointId p, q, r, s, t, 
+u, v, w; #!N } Cube; #!EF #!EF #!N #!N #!EC 
+ #!Lvertic126,dxall1108 f Figure 126  #!EL  shows the order of vertices in each structure. For more 
+information about connections and the order of vertices, see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in 
+IBM Visualization Data Explorer User's Guide. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rvertic126 #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N #!N 
+Figure 126. Order of Vertices in Connection Elements. In the tetrahedron 
+at right,  #!F-adobe-times-bold-r-normal--18*   s #!EF is the point nearest the viewer; 
+in the tetrahedron at center, the point furthest from the viewer. 
+#!EF #!N #!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Line DXLn() #!EF #!N Triangle DXTri(); #!N Quadrilateral DXQuad(); #!N Tetrahedron 
+DXTetra(); #!EF #!I50 #!N Construct a line, triangle, quadrilateral, and tetrahedron 
+respectively, given the appropriate point identifiers. See  #!Ldxltqt,dxall1292 h DXLn, DXTri, DXQuad, DXTetra  #!EL  . #!I0 #!N 
+#!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lclrs,dxall1109 h Colors  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

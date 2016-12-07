@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Loading and Using Outboard and Runtime-Loadable Modules</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu047.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu049.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu047.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRVFM" ></A>9.2 Loading and Using Outboard and Runtime-Loadable Modules
+</H2>
+		<A NAME="IDX869"></A><A NAME="IDX870"></A>
+<A NAME="IDX871"></A>
+<A NAME="IDX872"></A>
+<P>
+Data Explorer allows the following types of user-written module:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>inboard</STRONG></TT>
+</B></TD><TD><P>modules are compiled and linked
+into the Data Explorer Executive.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>outboard</STRONG></TT>
+</B></TD><TD><P>modules are run as separate processes.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>runtime-loadable</STRONG></TT>
+</B></TD><TD><P>modules are loaded at runtime and effectively become inboard
+modules.
+</TD></TR></TABLE>
+<P>
+For an outboard or runtime-loadable to be available for use, its module
+description file must be loaded into the tool palette.
+To load a module description file&#58;
+<OL COMPACT>
+<LI>Select the <TT><STRONG>Load Modules Description(s)...</STRONG></TT>
+option from
+the <TT><STRONG>File</STRONG></TT> pull-down menu in the VPE.
+A file selection dialog box appears.
+For information about how to use the dialog box, see
+<A HREF="usrgu041.htm#HDRFSBOX">"File Selection Dialog Boxes"</A>.
+<LI>Use the dialog box to locate the description file for the
+module you want to load, and select the desired file.
+The module name appears on the tool palette under its assigned
+category.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If the module description you loaded has the same name as
+an module description loaded previously, the more
+recent description replaces the less recent,
+regardless of whether they were assigned to the
+same category.
+</td></tr></table>
+</OL>
+<P>
+When the new module is available for use, it is listed in the tool
+palette as a member of the category you assigned it to.
+<P>
+You can configure Data Explorer to automatically load module
+descriptions when you begin the Data Explorer program.
+To do this, use the <TT>-mdf <VAR>filename</VAR></TT> option when
+starting Data Explorer, where <TT><VAR>filename</VAR></TT> specifies
+one or more module definitions.
+Alternatively, you can use the <VAR>DXMDF</VAR> environment
+variable.
+For more information on how to do this, see <A
+HREF="usrgu036.htm#HDRENVAR">"Using Environment Variables"</A> and
+<A HREF="usrgu073.htm#HDRENVVAR">C.1 , "Environment Variables"</A>.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

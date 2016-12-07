@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu125.htm">Previous Page</A> &#124; <A HREF="progu127.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXCICH"
+HREF="progu097.htm#PToC_220">DXCreateInvalidComponentHandle</A></H3>
+<A NAME="IDX1622"></A>
+<A NAME="IDX1623"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Creates an invalid-component handle.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+InvalidComponentHandle DXCreateInvalidComponentHandle(Object object,<BR>
+                                                      Array array, char
+*name)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The invalid-component handle is necessary in order to use the other
+invalid-component routines.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>object</STRONG></TT>
+</B></TD><TD><P>specifies:
+<UL COMPACT>
+<LI>a Field for which an invalid-component Array is to be created;
+<I>or </I>
+<LI>one of the following kinds of array:
+"positions," "connections," "face," or "polylines."
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>array</STRONG></TT>
+</B></TD><TD><P>allows an initial "invalid positions" or "invalid
+connections" component to be passed in to initialize
+the handle.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If <TT><STRONG>object</STRONG></TT> is a Field, it is not necessary
+to
+specify <TT><STRONG>array</STRONG></TT>, since the initial invalid
+component will be found in the Field.
+However, if <TT><STRONG>object</STRONG></TT> is a Field and
+<TT><STRONG>array</STRONG></TT> is not
+<TT><STRONG>NULL</STRONG></TT>, then
+<TT><STRONG>array</STRONG></TT>
+supersedes the invalid
+Array in the Field.
+</td></tr></table>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>name</STRONG></TT>
+</B></TD><TD><P>Specifies the component referred to by the invalid component:
+"positions," "connections.," "faces," or
+"polylines."
+</TD></TR></TABLE>
+<P>
+When you have finished using it, delete the invalid-component handle
+with <TT><STRONG>DXFreeInvalidComponentHandle</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the invalid-component handle or returns <TT><STRONG>NULL</STRONG></TT>
+and sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu150.htm#HDRDXFICH">DXFreeInvalidComponentHandle</A>,
+<A HREF="progu179.htm#HDRDXGIC">DXGetInvalidCount</A>,
+<A HREF="progu206.htm#HDRDXGVC">DXGetValidCount</A>,
+<A HREF="progu223.htm#HDRDXIV">DXInvertValidity</A>,
+<A HREF="progu224.htm#HDRDXIEV">DXIsElementValid, DXIsElementInvalid</A>,
+<A HREF="progu298.htm#HDRDXSIC">DXSaveInvalidComponent</A>,
+<A HREF="progu300.htm#HDRDXSAI">DXSetAllInvalid</A>,
+<A HREF="progu301.htm#HDRDXSAV">DXSetAllValid</A>,
+<A HREF="progu309.htm#HDRDXSEI">DXSetElementInvalid</A>,
+<A HREF="progu310.htm#HDRDXSEV">DXSetElementValid</A>
+</STRONG></TT>
+<P>
+<A HREF="progu068.htm#HDRINVDATA">14.3 , "Invalid Data"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu125.htm">Previous Page</A> &#124; <A HREF="progu127.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

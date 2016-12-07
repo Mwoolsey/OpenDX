@@ -1,0 +1,919 @@
+static void
+helper_vvv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        GETCOLOR(t[p]);
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vve(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        GETCOLOR(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vvf(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        GETCOLOR(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vvn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        GETCOLOR(t[p]);
+        SENDLITCOLOR(0);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vev(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vee(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vef(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_ven(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        SENDLITCOLOR(0);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vfv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vfe(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vff(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vfn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        SENDLITCOLOR(0);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vnv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        GETOPACITY(t[p]);
+        SENDCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vne(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        SENDCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vnf(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        SENDCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_vnn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETCOLOR(t[p]);
+        SENDCOLOR(0);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_evv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_eve(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    GETOPACITY(c);
+    SENDLITCOLOR(1);
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_evf(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_evn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    SENDLITCOLOR(0);
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_eev(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_eee(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    GETOPACITY(c);
+    SENDNORMAL(c);
+    SENDLITCOLOR(1);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_eef(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_een(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    SENDNORMAL(c);
+    SENDLITCOLOR(0);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_efv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    for (p = 0; p < ppc; p++) {
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_efe(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    GETOPACITY(c);
+    SENDLITCOLOR(1);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_eff(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_efn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    SENDLITCOLOR(0);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_env(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    for (p = 0; p < ppc; p++) {
+        GETOPACITY(t[p]);
+        SENDCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_ene(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    GETOPACITY(c);
+    SENDCOLOR(1);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_enf(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_enn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETCOLOR(c);
+    SENDCOLOR(0);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fvv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fve(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fvf(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fvn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fev(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fee(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fef(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fen(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_ffv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_ffe(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fff(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_ffn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fnv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETOPACITY(t[p]);
+        SENDCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fne(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fnf(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_fnn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nvv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nve(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nvf(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nvn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDNORMAL(t[p]);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nev(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nee(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nef(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nen(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    SENDNORMAL(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nfv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETOPACITY(t[p]);
+        SENDLITCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nfe(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nff(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nfn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nnv(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        GETOPACITY(t[p]);
+        SENDCOLOR(1);
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nne(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    GETOPACITY(c);
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nnf(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static void
+helper_nnn(xfieldP xf, int ppc, int c, int *t, float *rgba)
+{
+    static float fscratch[3];
+    static int p, iscratch;
+
+    for (p = 0; p < ppc; p++) {
+        SENDPOSITION(t[p]);
+    }
+    return;
+}
+
+static helperFunc helperTable[] = {
+    helper_vvv,  helper_vve,  helper_vvf,  helper_vvn,
+    helper_vev,  helper_vee,  helper_vef,  helper_ven,
+    helper_vfv,  helper_vfe,  helper_vff,  helper_vfn,
+    helper_vnv,  helper_vne,  helper_vnf,  helper_vnn,
+    helper_evv,  helper_eve,  helper_evf,  helper_evn,
+    helper_eev,  helper_eee,  helper_eef,  helper_een,
+    helper_efv,  helper_efe,  helper_eff,  helper_efn,
+    helper_env,  helper_ene,  helper_enf,  helper_enn,
+    helper_fvv,  helper_fve,  helper_fvf,  helper_fvn,
+    helper_fev,  helper_fee,  helper_fef,  helper_fen,
+    helper_ffv,  helper_ffe,  helper_fff,  helper_ffn,
+    helper_fnv,  helper_fne,  helper_fnf,  helper_fnn,
+    helper_nvv,  helper_nve,  helper_nvf,  helper_nvn,
+    helper_nev,  helper_nee,  helper_nef,  helper_nen,
+    helper_nfv,  helper_nfe,  helper_nff,  helper_nfn,
+    helper_nnv,  helper_nne,  helper_nnf,  helper_nnn 
+};
+

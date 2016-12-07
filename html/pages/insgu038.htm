@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Installation and Configuration
+Guide</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Installation and Configuration Guide">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Installation and Configuration Guide</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="insgu037.htm">Previous Page</A> &#124; <A HREF="insgu039.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="insgu032.htm#PToC10">Partial Table of Contents</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRAVILIC" HREF="insgu032.htm#PToC_73">15.7 Installing a License
+Server for Data General AViiON</A></H2>
+<P>
+<H3><A NAME="HDRAVILITP" HREF="insgu032.htm#PToC_74">Installing a License Server
+for Data General from Tape</A></H3>
+<P>
+Tape distributions of Data Explorer contain three tar format files. The first
+contains two install scripts (<TT>installdx</TT>,
+<TT>install_lsk</TT>) and a PostScript file documenting the Network
+Computing System (<TT>ncs_ps.Z</TT>). The second contains the Data Explorer
+installation tree which contains Data Explorer for all supported architectures.
+The third file contains NetLS license server installation kits for each
+supported architecture.
+<P>
+To install the license server, log in as root, insert the tape in the
+drive, and type:
+<PRE>
+cd /tmp
+tar xvf &lt;device&gt; install_lsk
+&#46;/install_lsk
+</PRE>
+<P>
+&lt;device&gt; is the appropriate tape device for the operating system
+from which you run <TT>install_lsk</TT>. Example DG/UX tape devices are:
+<PRE>
+/dev/rmt/0, ...
+</PRE>
+<P>
+Please follow the instructions presented by <TT>install_lsk</TT>
+carefully. In
+particular, when asked to give the name of the tape device, be sure to
+give the name of the non-autorewinding tape drive, examples of which are
+provided by the script. Also, if at anytime during the tape installation
+you are asked to mount the next tape, just press the &lt;ENTER&gt; key
+to have the installation continue normally.
+<P>
+<H3><A NAME="HDRAVILICD" HREF="insgu032.htm#PToC_75">Installing a License Server
+for Data General from CD-ROM</A></H3>
+<P>
+CD-ROM distributions of Data Explorer contain a mountable file system that
+includes the installation scripts (installdx.sh for Data Explorer and
+install_lsk.sh for the NetLS license server software), the software
+itself (in tar format) and documentation.
+<P>
+To install the license server, log in as root, insert the distribution
+media in the drive, and type:
+<PRE>
+mkdir /cdrom
+</PRE>
+<P>
+Mount the CD on /cdrom. Mount the disk by entering the following
+command:
+<PRE>
+mount -r -t cdrom -o noversion &lt;CD-ROM-Device&gt; /cdrom
+</PRE>
+where &lt;CD-ROM-device&gt; is the actual name of the CD-ROM drive on
+your system. A typical name is <TT>/dev/pdsk/1</TT>.
+<P>
+Type:
+<PRE>
+cd /cdrom
+&#46;/install_lsk.sh
+</PRE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="insgu037.htm">Previous Page</A> &#124; <A HREF="insgu039.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="insgu032.htm#PToC10">Partial Table of Contents</A> &#93;</B>
+<br><b>&#91;<a href="../allguide.htm">Data Explorer
+Documentation</a>&nbsp;&#124;&nbsp;<a href="../qikguide.htm">QuickStart
+Guide</a>&nbsp;&#124;&nbsp;<a href="../usrguide.htm">User&#39;s
+Guide</a>&nbsp;&#124;&nbsp;<a href="../refguide.htm">User&#39;s
+Reference</a>&nbsp;&#124;&nbsp;<a href="../proguide.htm">Programmer&#39;s
+Reference</a>&nbsp;&#124;&nbsp;<a href="../insguide.htm">Installation and
+Configuration Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

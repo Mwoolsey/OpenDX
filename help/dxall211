@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rinval Invalid Positions and 
+Invalid Connections Components #!N #!N #!N The "invalid positions" and "invalid 
+connections" components allow positions or connections to be marked as not 
+having valid data. This is useful, for example, for observational data 
+defined on a regular grid but with occasional missing observations, or 
+for simulation data defined on a regular grid but with a 
+"hole" covered by another grid, perhaps at a higher resolution. The 
+"invalid positions" component can be an Array of bytes or unsigned 
+bytes, one for each position, where the component is dependent on 
+positions (i.e., has a "dep" attribute of "positions."). In that case, 
+the value 1 indicates that the corresponding position is invalid, and 
+0 that the corresponding position is valid. Alternatively, the "invalid positions" 
+component can be an Array of signed or unsigned integers, where 
+the component references the positions (i.e., has a "ref" attribute of 
+"positions"). In that case, the component contains a list of the 
+indices of the invalid positions. The first method is more space-conserving 
+when there are a large number of invalid elements; the second, 
+when there are a relatively small number. See  #!Lcompute,dxall795 h Compute  #!EL  in IBM 
+Visualization Data Explorer User's Reference for a way to convert from 
+the "ref" type to the "dep" type. #!N #!N The "invalid 
+connections," "invalid faces," and "invalid polylines" components can be defined in 
+an analogous way. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ltall213,dxall213 h Tangents, Normals, and Binormals Components  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

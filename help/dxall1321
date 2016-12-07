@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnpa 
+DXNewPathArray #!N #!N Function #!N #!N Creates an Array specifying the 
+linear connections between points. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+PathArray DXNewPathArray(int count) #!EF #!N #!N Functional Details #!N #!N The 
+type of  #!F-adobe-times-bold-r-normal--18*   a #!EF is implicitly set to integer, the 
+rank to 1, and the shape to 2. The  #!F-adobe-times-bold-r-normal--18*   count 
+#!EF parameter specifies the number of positions connected in the path 
+defined by the Path Array. #!N #!N Path Arrays are used 
+to specify 1-dimensional regular axes of a regular or partially regular 
+"connections" component representing  #!F-adobe-times-bold-r-normal--18*   count #!EF -1 segments along the axis. 
+These are generally combined in Mesh Arrays to create 1-dimensional or 
+higher regular-connection grids. #!N #!N In the case of fully regular 
+connections (e.g., when one or more path arrays are to be 
+combined in a Mesh Array), it is often easier to use 
+ #!F-adobe-times-bold-r-normal--18*   DXMakeGridConnections #!EF . #!N #!N The Array created can be 
+deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N 
+#!N Returns the Path Array or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgpai,dxall1258 h DXGetPathArrayInfo  #!EL  ,  #!Ldxgpo,dxall1259 h DXGetPathOffset  #!EL  ,  #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  ,  #!Ldxspo,dxall1386 h DXSetPathOffset  #!EL  #!EF #!N #!N  #!Lphas,dxall1076 h Path Arrays  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxnp,dxall1322 h DXNewPrivate  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Appendix C. Environment Variables and Command Line Options</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu072.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu074.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu067.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A name="HDRAPB" ></A>Appendix C. Environment Variables and Command Line Options</H2>
+		<P><A NAME="PToC16" HREF="../usrguide.htm">Partial Table-of-Contents</A>
+		<MENU>
+<LI><A NAME="PToC_477" HREF="#HDRENVVAR">C.1 Environment Variables</A>
+<MENU>
+<LI><A NAME="PToC_478" HREF="#HDRPATHVAR">Path Variables</A>
+<LI><A NAME="PToC_484" HREF="#HDRMOREVAR">Other Environment Variables</A>
+</MENU>
+<LI><A NAME="PToC_509" HREF="usrgu074.htm#HDRCMDLOPT">C.2 Command Line
+Options</A>
+</MENU><HR><P>
+<HR>
+<H2><A NAME="HDRENVVAR" ></A>C.1 Environment Variables</H2>
+<A NAME="IDX1030"></A>
+<A NAME="IDX1031"></A>
+<P>
+The environment variables described in this section can be set in your
+login profile to customize Data Explorer.
+Note also that these variables can be overridden on the command line
+(see <A HREF="usrgu074.htm#HDRCMDLOPT">C.2 , "Command Line Options"</A>).
+<P>
+<H3><A NAME="HDRPATHVAR" ></A>Path Variables</H3>
+<P>
+Path variables specify a directory or directories to be searched for
+files.
+Directories are searched in the order of their appearance in the
+variable, reading from left to right, with successive path names
+separated by a colon (&#58;).
+Thus when a file appears in more than one directory, Data Explorer will choose
+the first copy it finds (i.e., in the leftmost directory
+containing a copy).
+<P>
+<H5><U>DXDATA</U></H5>
+specifies directories to be searched for importable
+data files.
+If the data to be imported is in your current directory or one of the
+specified directories, you do not need to enter the complete
+path name in the Configuration dialog box for the
+Import tool:
+given just the file name, the Import module will search all of these
+directories.
+<P>
+<H5><U>DXINCLUDE</U></H5>
+specifies directories to be searched
+for include scripts.
+Data Explorer uses include scripts in script mode.
+It is not necessary to specify this variable in Edit mode.
+<P>
+See <A HREF="usrgu056.htm#HDRFILINCL">"File Inclusion"</A> for more information.
+<P>
+<H5><U>DXMACROS</U></H5>
+specifies directories to be searched for macros when Data Explorer
+starts up.
+If DXMACROS is not specified, you will have to load
+macros individually (see <A HREF="usrgu044.htm#HDRMACROS">7.2 , "Creating and
+Using Macros"</A>).
+<P>
+<H5><U>DXMODULES</U></H5>
+specifies the directories to be searched for outboard modules.
+<P>
+<H4><U>Setting a Path Variable: Examples</U></H4>
+<P>
+Note the colon (&#58;) separating successive path names.
+<UL>
+<P><LI>To set DXMACROS for both the Bourne (sh) and the Korn (ksh) shells:
+<PRE>
+DXMACROS=/usr/mydirectory/projectAmacros:/usr/mydirectory/projectBmacros
+export DXMACROS
+</PRE>
+<P><LI>To set DXDATA for the Korn shell (ksh) only:
+<PRE>
+export DXDATA=/usr/mydirectory/mydata:/usr/group/groupdata
+</PRE>
+<P><LI>To set DXDATA for the C shell (csh):
+<PRE>
+setenv DXDATA /usr/mydirectory/mydata:/usr/group/groupdata
+</PRE>
+</UL>
+<P>
+<H3><A NAME="HDRMOREVAR" ></A>Other Environment Variables</H3>
+<P>
+<H5><U>DX8BITCMAP</U></H5>
+sets the level at which the change to using a private color map is made.
+The allowed values are -1 and the range from 0 (zero) to 1 (one)
+and represent the Euclidean distance in RGB color space,
+normalized to 1 (one) for the maximum
+allowed discrepancy.
+The default value is 0.1.
+If this variable is set to 1, a private color map will never be used;
+conversely, if it is set to -1, a private color map will always
+be used.
+(See Display in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.)
+<P>
+<H5><U>DXARGS</U></H5>
+specifies the default set of arguments for Data Explorer start-up.
+An option specified on the command line will override the corresponding
+setting in the variable.
+
+<P>
+<H5><U>DXAXESMAXWIDTH</U></H5>
+sets the number of digits in axes tick labels at which a switch to
+scientific notation is made. The default is 7.
+
+
+<P>
+		<H5><U>DXCOLORS</U></H5>
+		
+specifies a file name containing
+string and RGB value pairs as an alternate for
+/usr/local/dx/lib/colors.txt.
+The string name can be used by any Data Explorer tool where a color can be
+specified by name (for example, Color).
+The RGB value specifies the specific numeric value for the color.
+
+		<P>
+<H5><U>DXDELAYEDCOLORS</U></H5>
+enables ReadImage to create delayed color images if the image is a tiff
+format image saved in a byte-with-colormap format or a GIF format.
+This feature is enabled if this variable is set to any value.
+Delayed colors use less memory.
+<P>
+<H5><U>DXEXEC</U></H5>
+specifies an executive to be run at start-up.
+You should set this variable only for a customized version of Data Explorer.
+
+<P>
+<H5><U>DXFLING</U></H5>
+If DXFLING is set to 1, then for hardware-rendered images, in rotation
+mode and execute-on-change mode, if you drag the mouse across the image,
+and release the mouse button outside the image, the object in the image
+will begin to rotate, and will continue to rotate until you click inside
+the image. The direction and speed of the mouse motion before release
+will affect the rotation direction and rotation speed of the object in
+the window.
+
+<P>
+<H5><U>DXGAMMA</U></H5>
+sets the gamma correction for
+
+software-rendered
+
+images displayed to the screen by a
+Display or Image tool.
+On many display devices a given change in the digital brightness of the
+image is not reflected in a corresponding change in screen
+brightness.
+A gamma correction is a nonlinear adjustment of the pixel values to
+compensate for this difference and produce a more accurate
+representation on the screen.
+By default (except for
+
+8-bit windows on
+
+the sgi architecture), the correction factor
+(exponent) is 2 (two), on the assumption that the display
+is not otherwise gamma corrected.
+The <TT>DXGAMMA</TT> variable allows you to override this default.
+In particular, if the display device is already gamma corrected, set
+the variable to 1 (one).
+(See Display in <I>IBM Visualization Data Explorer User&#39;s Reference</I>, and
+README&#95;sgi in /usr/local/dx.)
+<P>
+<H5><U>DXGAMMA_8BIT, DXGAMMA_12BIT, and DXGAMMA_24BIT</U></H5>
+set the gamma correction for
+
+software-rendered
+
+images displayed to the screen in 8-, 12-,
+or 24-bit windows by a Display or Image tool.
+This variable overrides the value set by DXGAMMA.
+<P>
+<H5><U>DXHOST</U></H5>
+specifies the machine name of the server on which the executive is to
+be run.
+The default is "localhost".
+(See <A HREF="usrgu049.htm#HDRCONSERV">9.3 , "Connecting to the Server"</A> for
+information on how to connect to the
+server.)
+To determine the host name, enter the command:
+<PRE>
+uname -n
+</PRE>
+
+<P>
+<H5><U>DXHWGAMMA</U></H5>
+sets the gamma correction for hardware-rendered images displayed to the
+screen by a Display or Image tool. On many display devices a given
+change in the digital brightness of the image is not reflected in a
+corresponding change in screen brightness. A gamma correction is a
+non-linear adjustment of the pixel values to compensate for this
+difference and produce a more accurate representation on the screen.
+By default, the correction factor is 2, on the assumption that the
+display is not otherwise gamma corrected. The <TT>DXHWGAMMA</TT>
+variable allows you to override this default. In particular, if the
+display device is already gamma corrected, set the variable to 1.
+<P>
+<H5><U>DXHWMOD</U></H5>
+if both GL and OpenGL are supported, you can override the default
+library (which is platform-specific; please see the appropriate README
+file for your architecture in <TT>/usr/local/dx</TT>)
+by using this environment variable. It should be set to either DXhwdd.o
+(for GL) or DXhwddOGL.o (for OpenGL).
+
+<P>
+<H5><U>DXMDF</U></H5>
+specifies the name of the .mdf file that contains
+custom-added modules for customized versions of Data Explorer.
+<P>
+<H5><U>DXMEMORY</U></H5>
+sets the amount of memory (in megabytes) that can be used by the
+executive.
+
+<P>
+<H5><U>DX_SIMPLE_LOOPS</U></H5>for faces, loops, and edges data, if set, will calculate loops such that the enclosing loop for a face must be listed first. This will increase performance; however, if faces, loops, and edges data do not conform, the executive will crash.
+		<P>
+		<H5><U>DXNO_BACKING_STORE</U></H5>
+		if set to anything, disables framebuffer readbacks. Setting this environment variable will improve performance of interaction with hardware rendered images, especially for machines for which readback is slow. However, some of the interactions in the image window (such as zoom) will result in a black image while interaction is taking place. If you are not planning on using the Image tool, then it is strongly recommended that this environment variable be set. The default is that framebuffer readbacks are enabled.
+		<P></P>
+		<H5><U>DXPIXELTYPE</U></H5>
+		
+sets the image type to either 24-bit color images or
+floating-point-based 96-bit images (the default).
+This affects the behavior of Render and ReadImage.
+This variable can be set to either DXByte (24 bits) or DXFloat (96 bits).
+Setting this variable to DXByte will result in images taking up less
+memory.
+<P>
+<H5><U>DXPROCESSORS</U></H5>
+		
+sets the number of processors for Data Explorer SMP.
+
+		<P></P>
+		<H5><U>DXRSH</U></H5>
+		specifies the remote shell command to use when connecting to other systems (such as those when using distributed execution). The default is the the path to rsh.
+		<P></P>
+		<H5><U>DXRSH_NOENV</U></H5>
+		prevents the remote &quot;invoke dxexec&quot; script from being written with a full carbon copy of the local environment (only DISPLAY is set).
+		<P></P>
+		<H5><U>DXROOT</U></H5>
+specifies the top-level directory for all the files and
+directories needed by Data Explorer.
+The default is /usr/local/dx.
+
+<P>
+<H5><U>DXSHMEM</U></H5>
+specifies whether or not shared memory should be used. The amount of
+memory allocated by Data Explorer for its data and object management can be set
+at runtime with the <TT>-memory</TT> command line option. At startup,
+Data Explorer either allocates a shared memory segment or expands the existing
+data segment to create this space.
+<P>
+SMP (multiprocessor) systems are required to use shared memory so each
+processor can share a common data space. SGI systems also use shared
+memory for space. IBM systems use shared memory if the size to be
+allocated is larger than 256 MB. In all other cases Data Explorer extends the
+existing data segment using the brk() system call.
+<P>
+Each architecture (SGI, IBM, HP, ...) has a different way of
+configuring the maximum user data segment size, and a different way of
+setting the limit on the maximum size of a single shared memory segment.
+Consult your system administrator or system documentation if you have
+problems getting Data Explorer to use the amount of memory which should be
+available to you.
+<P>
+If you have problems using a large data segment, you can force Data Explorer to
+use shared memory by setting the <TT>DXSHMEM</TT> environment variable
+to any value other than -1. This will override the defaults and use
+shared memory for space. Alternatively, you can force Data Explorer to extend
+the
+data segment (if allowed for the architecture) by setting
+<TT>DXSHMEM</TT> to -1.
+<P><B>Note: </B>Regardless of the setting of <TT>DXSHMEM</TT>, the aviion and
+sun4 architectures always use the data segment.
+<P>
+<H5><U>DXSHMEMSEGMAX</U></H5>
+Some architectures have a default configuration which limits the size of
+shared memory segments (see the architecture specific README file in
+<TT>/usr/local/dx</TT>), and the system configuration must be changed as
+root to increase the maximum allowed size of a shared memory segment. If
+the maximum is not reset or if it is already set to a different limit,
+then you can use <TT>DXSHMEMSEGMAX</TT> to tell Data Explorer what the current
+limit is in megabytes (e.g. 128 == 128 MB). Data Explorer will allocate
+multiple shared memory segments if necessary to get the total amount of
+space, but it must be able to allocate them at contiguous virtual memory
+addresses.
+
+		<P>
+		<H5><U>DX_HW_TMESH_ORIENT_SENSITIVE</U></H5>allows the user to set how triangle meshes are generated. If not set, then dx will try and extend a mesh by flipping triangles. This can cause problems with two sided hardware rendering. If set to a value other than 0, then the meshes will not be extended. <H5></H5>
+		<H5><U>DX_SMALL_ARENA_FACTOR</U></H5>
+		allows the user to specify the ratio between the large and small arena. The value must be set greater than 0 and up to 8. Typically the small arena is 1/16 of the large arena, setting this environment variable to 8 will make dx allocate an equal amount of memory to the large and small arena. 
+		<P></P>
+		<H5><U>DXUINOCATCHERROR</U></H5>
+		Setting this environment variable informs the user interface to ignore OS signals. The user interface normally traps OS signals so that it may save networks on the event that the UI crashes. So setting this variable results in a standard crash. 
+		<P></P>
+		<H5><U>DX_USER_INTERACTOR_FILE</U></H5>
+		
+Specifies a file containing user interactors for use by the
+SuperviseState and SuperviseWindow modules (see
+<A HREF="refgu152.htm#HDRSUPSTAT">SuperviseState</A> and <A
+HREF="refgu153.htm#HDRSUPWIND">SuperviseWindow</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>).
+
+		<P>
+		<H5><U>DX_WEB_BROWSER</U></H5>under UNIX specifies the web browser to launch for viewing the HTML documentation. Under Windows and MacOS X setting this environment variable will launch the systems default web browser.
+		<HR>
+		<P> </P>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="17" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

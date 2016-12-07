@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu015.htm">Previous Page</A> &#124; <A HREF="progu017.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="Header_34" HREF="progu015.htm#PToC_34">3.2 Creating a Module with
+the Module Builder: A Summary</A></H2>
+<A NAME="IDX163"></A>
+<P>
+To begin a Module Builder session, enter: <TT>dx -builder</TT>.
+The dialog box (<A HREF="#FIG1A">Figure 4</A>) consists of a menu bar and
+two major sections:
+<UL COMPACT>
+<LI>A <TT><STRONG>Overall Module Description</STRONG></TT> section for
+defining the module, and
+<LI>An <TT><STRONG>Individual Parameter</STRONG></TT> section for defining
+the individual input and output parameters.
+</UL>
+<P><B><A NAME="FIG1A" HREF="../proguide.htm#FT_FIG1A">Figure 4. Module Builder
+Dialog Box</A></B>. In the <TT><STRONG>Individual Parameter
+Information</STRONG></TT> section, the <TT><STRONG>Input or
+Output?</STRONG></TT> button specifies the kind of parameter being defined, and
+the associated <TT><STRONG>Number</STRONG></TT> setting specifies its ordinal
+ranking (i.e., first, second, etc.). Use the <TT><STRONG>Number</STRONG></TT>
+stepper buttons to proceed from one parameter description to the next.<BR>
+<B><BR><CENTER><IMG SRC="../images/modbuild.gif" ALT="Figure modbuild not
+displayed."></CENTER><BR></B><BR>
+<P>
+When all the necessary information has been entered, save it.
+For new modules, use the <TT><STRONG>Save as...</STRONG></TT> option in the
+<TT><STRONG>File</STRONG></TT> pull-down menu (or
+<TT><STRONG>Save</STRONG></TT>,
+if the specified module name is already known to
+the system).
+The saved file has the name of the module and the extension
+<TT><STRONG>&#46;mb</STRONG></TT>.
+<P>
+You can now use the options in the <TT><STRONG>Build</STRONG></TT> pull-down
+menu to create a module description file
+(<TT><STRONG>&#46;mdf</STRONG></TT>), a
+C-code module framework
+(<TT><STRONG>&#46;c</STRONG></TT>), a
+makefile (<TT><STRONG>&#46;make</STRONG></TT>), or all three
+together.
+You can incorporate your own application code in the C-code framework
+file and reference additional files in the makefile.
+<P>
+Compile the program as follows:
+<BR>
+<TT>make -f <VAR>filename</VAR>.make</TT><BR>
+This command creates a customized version of the Data Explorer executive that
+can use the new module.
+To run this version in your working directory, enter the following
+command:
+<P>
+For an <I>inboard</I> module:
+<PRE>
+dx .mdf -exec dxexec
+</PRE>
+For an <I>outboard</I> or <I>runtime-loadable</I> module:
+<PRE>
+dx .mdf
+</PRE>
+<P>
+To create a version of the Data Explorer executive with more than one customized
+module, you must:
+<OL COMPACT>
+<LI>concatenate in a single mdf file the module descriptions you want
+to use;
+<LI>create a makefile that references the combined mdf file as well as
+all the individual <TT><STRONG>.c</STRONG></TT> framework files.
+<LI>compile the program as above.
+</OL>
+<P>
+You can now run the new version with the new mdf file.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu015.htm">Previous Page</A> &#124; <A HREF="progu017.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

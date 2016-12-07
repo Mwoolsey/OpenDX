@@ -1,0 +1,1549 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Importing Data: Header File Examples</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu027.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu029.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu027.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>5.2 Importing Data: Header File Examples</H2>
+		<A NAME="IDX212"></A><A NAME="IDX213"></A>
+<A NAME="IDX214"></A>
+<P>
+The examples in this section are divided into three groups: single
+variable (a simplified case of record style), record style,
+and spreadsheet style.
+A review of these examples will provide a good grounding in the use of
+the Data Prompter and the creation of header files for importing data
+with the General Array Importer.
+<P>
+The examples in the first group are generally more detailed than those
+in the second and third groups.
+Since examples often build on previous examples, it is recommended that
+you start at the beginning of a group.
+<P> The instructional sequence in each example begins with the initial dialog 
+  box of the Data Prompter. Most examples use the Data Prompter to create a header 
+  file and each example shows the header file produced. (For the syntax of keyword 
+  statements in a header file, see <A HREF="qikgu029.htm">5.3 , "Header File Syntax: 
+  Keyword Statements"</A>.) The command that invokes the Data Prompter and generates 
+  the initial dialog box is: 
+<PRE>
+dx -prompter
+</PRE>
+<P>
+<H3><A NAME="Header_125" ></A>Record Style: Single-Variable Data
+</H3>
+<A NAME="IDX216"></A>
+<A NAME="IDX217"></A>
+<A NAME="IDX218"></A>
+<A NAME="IDX219"></A>
+<A NAME="IDX220"></A>
+<P>
+It is recommended that you treat the first four examples as a unit and
+review them in sequence.
+<P>
+<H4><U>Example 1. Scalar Data on a Regular Grid</U></H4>
+<A NAME="IDX221"></A>
+<A NAME="IDX222"></A>
+<A NAME="IDX223"></A>
+<P>
+This example illustrates how a simple floating-point scalar field, on a
+regular grid, might be imported from a text file named
+"record_scalar".
+The origin of the grid is &#91;1 3 2&#93;, with deltas of 0.5, 1,
+and 0.75 in the x, y, and z directions respectively.
+<OL COMPACT>
+<LI>In the Data Prompter initial dialog box,
+
+choose Grid or Scattered File; then
+
+select the leftmost button in the
+row labeled <TT><STRONG>Grid type</STRONG></TT> (regular grid).
+<LI>Confirm that <TT><STRONG>Number of variables</STRONG></TT> is set to
+"1" and that the <TT><STRONG>Single time step</STRONG></TT>
+toggle button is activated.
+<LI>For <TT><STRONG>Data organization</STRONG></TT>, confirm that the
+<TT><STRONG>Block</STRONG></TT> (i.e., record) toggle button is
+activated.
+<LI>Click on
+
+<TT><STRONG>Describe Data</STRONG></TT>
+
+to bring up the "simplified"
+prompter.
+<LI>Enter the path name of the data file in the
+<TT><STRONG>Data file</STRONG></TT> field:
+<PRE>
+/usr/local/dx/samples/data/record_scalar
+</PRE>
+
+<LI>Browse the data file if you like by choosing
+<TT><STRONG>Browser</STRONG></TT> from the ellipses to the right of the
+<TT><STRONG>Data Field</STRONG></TT> field.
+
+<LI>Enter the values "5," "8," and "6," in that order,
+in the first three <TT><STRONG>Grid size</STRONG></TT>
+fields.
+The number of data values is 240 (i.e.,
+5 &times; 8 &times; 6).
+<LI>Confirm that <TT><STRONG>Data format</STRONG></TT> is set to
+
+ASCII (text).
+
+<LI>Confirm that <TT><STRONG>Data order</STRONG></TT> is set to Row.
+<LI>Finally, set the first three origin-delta pairs (in the
+<TT><STRONG>Grid positions</STRONG></TT> section of the
+prompter) to: 1.0, 0.5; 3.0, 1.0; and
+2.0, 0.75, in that order.
+<P>
+Since the data order is Row (i.e., last index varies fastest), the first
+six data values are associated with positions &#91;1 3 2&#93;,
+&#91;1 3 2.75&#93;, &#91;1 3 3.5 &#93;,
+&#91;1 3 4.25&#93;, &#91;1 3 5&#93;,
+and &#91;1 3 5.75 &#93;.
+(If the data are stored so that "last index varies slowest,"
+<TT><STRONG>Data order</STRONG></TT> should be set to Column.)
+<LI>To save the header file:
+<A NAME="SPTEX1A"></A>
+<OL COMPACT>
+<LI>Select <TT><STRONG>Save As...</STRONG></TT> from the
+<TT><STRONG>File</STRONG></TT> pull-down menu.
+<LI>When the <TT><STRONG>Save a Data Prompter Header File...</STRONG></TT>
+dialog box appears, position the cursor in the
+<TT><STRONG>Selection</STRONG></TT> field (at the
+point indicated by the carat).
+<LI>Enter the name of the file (<TT>record_scalar</TT>).
+<LI>Click on <TT><STRONG>OK</STRONG></TT>.
+</OL>
+The file is saved in your current directory with the extension
+"<TT><STRONG>&#46;</STRONG></TT>general" and should look like:
+</OL>
+<PRE>
+file = /usr/local/dx/samples/data/record_scalar
+grid = 5 x 8 x 6
+format = text
+interleaving = record
+majority = row
+field = field0
+structure = scalar
+type = float
+dependency = positions
+positions = regular, regular, regular, 1.0, 0.5, 3.0, 1.0, 2.0, .75
+end
+</PRE>
+<P>
+Note the information that you have supplied directly (lines 1, 2,
+and 10).
+
+You can visualize the data file using the <TT><STRONG>Visualize
+Data</STRONG></TT> button in the initial Data Prompter window.
+
+<P>
+<H4><U>Example 2. Cell-centered Data</U></H4>
+<A NAME="IDX224"></A>
+<A NAME="IDX225"></A>
+<A NAME="IDX226"></A>
+<P>
+This example involves modifying the header file created
+in Example 1.
+The important difference is that the data here is cell-centered
+(connection dependent):
+instead of 240 data values (one for each of the 5 x 8 x 6 positions),
+there are 140 values (one for each of the 4 x 7 x 5 connections).
+The format is binary.
+<P>
+<OL COMPACT>
+<LI>In the Data Prompter initial dialog box, click on
+
+<TT><STRONG>Grid or Scattered File</STRONG></TT>, then
+<TT><STRONG>Describe Data</STRONG></TT>,
+
+to bring up the simplified prompter.
+<LI>Select <TT><STRONG>Open</STRONG></TT> from the
+<TT><STRONG>File</STRONG></TT>
+pull-down menu.
+A new dialog box appears called "Open a Data Prompter Header...."
+<LI>In the <TT><STRONG>Directories</STRONG></TT> column, highlight the
+directory in which you saved the <TT>record_scalar</TT>
+header file (if it is not already highlighted).
+<LI>Highlight <TT>record_scalar.general</TT> in the
+<TT><STRONG>File</STRONG></TT> column, and then click on
+<TT><STRONG>OK</STRONG></TT>.
+The simplified prompter now displays the information for the
+<TT>record_scalar</TT> header file.
+<LI>Change the path name in the <TT><STRONG>Data file</STRONG></TT> field to:
+<PRE>
+/usr/local/dx/samples/data/record_depconnections
+</PRE>
+<LI>Select <TT><STRONG>Full prompter</STRONG></TT> from the
+<TT><STRONG>Options</STRONG></TT> pull-down menu.
+<LI>When the <TT><STRONG>Full prompter</STRONG></TT> dialog box appears, change
+<TT><STRONG>Dependency</STRONG></TT> from "positions" to
+"connections."
+To confirm this change, click on <TT><STRONG>Modify</STRONG></TT> at the
+bottom of the dialog box (note the instruction there).
+<LI>Repeat Example 1, Step 10 (see above), to save the
+header file, which should look like:
+</OL>
+<PRE>
+file = /usr/local/dx/samples/data/record_depconnections
+grid = 5 x 8 x 6
+
+format = text
+
+interleaving = record
+majority = row
+field = field0
+structure = scalar
+type = float
+dependency = connections
+positions = regular, regular, regular, 1, .5, 3, 1.0, 2.0, .75
+end
+</PRE>
+<P>
+Note the information that you have supplied directly or changed
+(lines 1, 2, 3, and 9).
+<P>
+<H4><U>Example 3. Data with Header information</U></H4>
+<A NAME="IDX227"></A>
+<A NAME="IDX228"></A>
+<P>
+A data file may contain descriptive information in addition to
+the data to be imported.
+To import only the data, therefore, it is necessary to "skip" such
+information when the file is read.
+The <TT><STRONG>header</STRONG></TT> keyword statement enables you to do just
+that, by specifying a number of bytes or lines to be skipped or
+a string to be searched for.
+For example, suppose the scalar data field of Example 1 had 3 lines
+of descriptive text preceding the data.
+<P>
+<OL COMPACT>
+<LI>As in Example 2 (Steps 2 through 4), open the
+<TT>record_scalar</TT> header file.
+<LI>Change the path name in the <TT><STRONG>Data file</STRONG></TT> field to:
+<PRE>
+/usr/local/dx/samples/data/record_withheader
+</PRE>
+<LI>Activate the <TT><STRONG>Header</STRONG></TT> toggle button and then click
+on the option button just to the right of it.
+<LI>From the list that appears, select <TT><STRONG># of lines</STRONG></TT>
+and enter the value "3" in the associated text field.
+<LI>Repeat Example 1, Step 10 (see <A HREF="#SPTEX1A">To save the header
+file</A>), to save the
+header file, which should look like:
+</OL>
+<P>
+<PRE>
+file = /usr/local/dx/samples/data/record_withheader
+grid = 5 x 8 x 6
+format = text
+interleaving = record
+majority = row
+header = lines 3
+field = field0
+structure = scalar
+type = float
+dependency = positions
+positions = regular, regular, regular, 1, .5, 3, 1.0, 2.0, .75
+end
+</PRE>
+<P>
+Note the addition of a <TT><STRONG>header</STRONG></TT> keyword
+statement (line 6).
+<P>
+<H4><U>Example 4. Naming a Field</U></H4>
+<A NAME="IDX229"></A>
+<A NAME="IDX230"></A>
+<A NAME="IDX231"></A>
+<P>
+By default, the Data Prompter names data fields in numerical order: field0,
+field1, and so on.
+But a data field can be named with a <TT><STRONG>field</STRONG></TT> keyword
+statement.
+<P>
+Once the data are imported into Data Explorer, you can, for example, extract the
+name (using the Attribute module) and include it in a caption (using
+the Caption module).
+So if there are two types of data (e.g., temperature and pressure),
+each can be automatically and appropriately labeled with an
+identifying name, thereby "tagging" the associated
+data for future reference.
+As a result, it is also possible to import a field <I>by name</I>
+when there is more than one field.
+<P>
+For this example suppose that the data in Example 1 are temperature
+values (see <A HREF="#SPTEX1A">To save the header file</A>).
+<OL COMPACT>
+<LI>Open the <TT>record_scalar</TT> header file, as in Example 2.
+<LI>In the right-hand panel of the prompter, change <TT><STRONG>Field
+name</STRONG></TT> from "Field0" to "Temperature."
+To confirm this change, click on <TT><STRONG>Modify</STRONG></TT> at the
+bottom of the dialog box (note the instruction there).
+<LI>Repeat Example 1, Step 10 (see <A HREF="#SPTEX1A">To save the header
+file</A>), to save the
+header file, which should look like:
+</OL>
+<P>
+<PRE>
+file = /usr/local/dx/samples/data/record_scalar
+grid = 5 x 8 x 6
+format = text
+interleaving = record
+majority = row
+field = Temperature
+structure = scalar
+type = float
+dependency = positions
+positions = regular, regular, regular, 1, .5, 3, 1.0, 2.0, .75
+end
+</PRE>
+<P>
+Note the change in the <TT><STRONG>field</STRONG></TT> keyword statement
+(line 6).
+<P>
+<H4><U>Example 5. Deriving Grid Information from a Data File</U></H4>
+<A NAME="IDX232"></A>
+<A NAME="IDX233"></A>
+<P>
+Being able to derive grid information directly from a data file is
+particularly useful if you import data with a standard format
+but with grid dimensions that vary from data set to
+data set.
+For example, if the first line of the data file is:
+<PRE>
+      dimensions 100 300
+</PRE>
+<P>
+you can use any of the following <TT><STRONG>grid</STRONG></TT> keyword
+statements to obtain the grid dimensions from the data file.
+<UL COMPACT>
+<LI><TT>grid = lines 0, 11, 3, 1, 3</TT>
+<P>
+This statement says
+<OL COMPACT>
+<LI>Skip 0 (zero) lines of the file.
+<LI>Skip 11 characters (the word "dimensions" and one space).
+<LI>Read the first dimension from 3 characters.
+<LI>Skip 1 character.
+<LI>Read the second dimension from 3 characters.
+</OL>
+<LI><TT>grid = bytes 11</TT>
+<P>
+This statement says to skip 11 characters and begin reading.
+<LI><TT>grid = marker "dimensions"</TT>
+<P>
+This statement says to start reading after the string marker
+"dimensions."
+</UL>
+<P>
+See <A HREF="qikgu029.htm#HDRGRIDKWD">"grid"</A>.
+See also <A HREF="usrgu067.htm#HDRKWIFDF">B.1 , "General Array Importer: Keyword
+Information from Data Files"</A> in <I>IBM Visualization Data Explorer
+User&#39;s Guide</I>.
+<P><B>Note: </B>This derivation feature is not available with the Data Prompter.
+<P>
+<H4><U>Examples 6 and 7. Vector Data</U></H4>
+<A NAME="IDX234"></A>
+<A NAME="IDX235"></A>
+<A NAME="IDX236"></A>
+<P>
+The General Array Importer supports three representations, or
+"styles," of vector data: record, record-vector,
+and series-vector.
+The first two are illustrated here.
+For the third, see <A HREF="qikgu029.htm#HDRINTRKWD">"interleaving"</A>.
+<P>
+Which representation matches the data depends on a characteristic
+called <I>interleaving</I>.
+<A NAME="IDX237"></A>
+<A NAME="IDX238"></A>
+<A NAME="IDX239"></A>
+In record interleaving, the data for each vector component are stored
+together in individual blocks (e.g., <TT>
+X<SUB>0</SUB>,
+X<SUB>1</SUB>,...,
+X<SUB>n</SUB>,
+Y<SUB>0</SUB>,
+Y<SUB>1</SUB>,...,
+Y<SUB>n</SUB></TT>).
+In record-vector interleaving, the components of each vector are stored
+consecutively (e.g., <TT>
+X<SUB>0</SUB>Y<SUB>0</SUB>,
+X<SUB>1</SUB>Y<SUB>1</SUB>,...,
+X<SUB>n</SUB>Y<SUB>n</SUB></TT>).
+<P>
+The following pair of examples illustrates the differences between the
+two representations and between the header files used to
+import them.
+The header files are identical in that they both specify a unit
+2-vector that parallels the x-axis and is defined on a 5 x 4
+regular grid.
+That is, the data consists of 20 instances of the vector &#91;1 0&#93;.
+<P>
+In Example 7, the interleaving style of the data file is
+<I>record</I>:
+<PRE>
+1 1 1 1 1 1 1 1
+1 1 1 1 1 1 1 1
+1 1 1 1
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0
+</PRE>
+<OL COMPACT>
+<LI>In the Data Prompter simplified dialog box, select
+<TT><STRONG>New</STRONG></TT>
+in the <TT><STRONG>File</STRONG></TT> pull-down menu (this selection
+clears the dialog box of any information from a previous
+file).
+<LI>Enter the path name of the data file in the
+<TT><STRONG>Data file</STRONG></TT> field:
+<PRE>
+/usr/local/dx/samples/data/record_vectordata1.
+</PRE>
+<LI>Enter the values "5" and "4," in that order, in the first
+two <TT><STRONG>Grid size</STRONG></TT> fields.
+(Note that the origin-delta values default to &#91;0
+1&#93;.)
+
+<LI>Add a field to the Field list by typing a name (e.g. field0) in the
+<TT><STRONG>Field name</STRONG></TT> text field, and then pressing the
+<TT><STRONG>Add</STRONG></TT> button.
+
+<LI>Change <TT><STRONG>Type</STRONG></TT> (right-hand panel)
+to "int."
+<P><B>Note: </B>To implement this change, you must click on
+<TT><STRONG>Modify</STRONG></TT> at the bottom of the
+dialog box.
+However, you can delay implementation to Step 5, and implement both
+steps at the same time.
+<LI>Change <TT><STRONG>Structure</STRONG></TT> (right-hand panel)
+to "2-vector."
+To implement this change, click on <TT><STRONG>Modify</STRONG></TT> at the
+bottom of the dialog box (note the instruction there).
+<LI>Step 5 activates the <TT><STRONG>Vector interleaving</STRONG></TT>
+button.
+Select
+<TT>X<SUB>0</SUB>,X<SUB>1</SUB>,...,X<SUB>n</SUB>,Y<SUB>0</SUB>,Y<SUB>1</SUB>,..
+.,Y<SUB>n</SUB></TT> (the notation used for record style).
+<LI>Repeat Example 1, Step 10 (see <A HREF="#SPTEX1A">To save the header
+file</A>), to save the
+header file, which should look like:
+</OL>
+<PRE>
+file = /usr/local/dx/samples/data/record_vectordata1
+grid = 5 x 4
+format = text
+interleaving = record
+majority = row
+field = field0
+structure = 2-vector
+type = int
+dependency = positions
+positions = regular, regular, 0, 1, 0, 1
+end
+</PRE>
+<P>
+In Example 7, the interleaving style of the data file is
+<I>record-vector</I>:
+<P>
+<PRE>
+1 0 1 0 1 0 1 0 1 0
+1 0 1 0 1 0 1 0 1 0
+1 0 1 0 1 0 1 0 1 0
+1 0 1 0 1 0 1 0 1 0
+</PRE>
+<OL>
+<P><LI>If you have not closed the simplified dialog box from Example 5,
+all you need do is:
+<OL COMPACT>
+<LI>Change the path name for the data file (in the
+<TT><STRONG>Data file</STRONG></TT> field) to:
+<PRE>
+/usr/local/dx/samples/data/record_vectordata2.
+</PRE>
+<LI>For <TT><STRONG>Vector interleaving</STRONG></TT>, select
+<TT>X<SUB>0</SUB>Y<SUB>0</SUB>,X<SUB>1</SUB>Y<SUB>1</SUB>,...,X<SUB>n</SUB>Y<SUB
+>n</SUB></TT>
+(the notation used for record-vector style).
+</OL>
+Otherwise you can repeat Example 6 (or open the header file
+<TT>record_vectordata1</TT>) and make the appropriate
+changes.
+<P><LI>Repeat Example 1, Step 10 (see <A HREF="#SPTEX1A">To save the header
+file</A>), to save the
+new header file, which should look like the one shown at the top of
+the next page.
+</OL>
+<PRE>
+file = /usr/local/dx/samples/data/record_vectordata2
+grid = 5 x 4
+format = text
+interleaving = record-vector
+majority = row
+field = field0
+structure = 2-vector
+type = int
+dependency = positions
+positions = regular, regular, 0, 1, 0, 1
+end
+</PRE>
+<P><B>Note: </B>If the interleaving is not specified, the default is
+record-vector.
+<P>
+<H4><U>Example 8. Series Data</U></H4>
+<A NAME="IDX242"></A>
+<A NAME="IDX243"></A>
+<A NAME="IDX244"></A>
+<P>
+This example illustrates how a 7-step time series of a single
+scalar field might be imported.
+The field is on a regular 5 &times; 5 grid, the data are connections
+dependent, and the style is record.
+<PRE>
+# Time-Series Data
+Time Step 1
+12  9 14  1 10 16  7 20
+19  6 11 15 18  8 13 17
+Time Step 2
+12  9  1 21 10 16  7  1
+19  6 11 15 18  8 13 17
+Time Step 3
+12  1 14 21 10 16  1 20
+19  6 11  1 18  8 13 17
+Time Step 4
+ 1  9 14 21 16  1  7 20
+19  6  1 15 18  8 13  1
+Time Step 5
+12  9 14 21  1 16  7 20
+ 1  6 11 15 18  1 13 17
+Time Step 6
+12  9 14 21 10 16  7 20
+ 1  6 11 15 18  1 13 17
+Time Step 7
+12  9 14 21 10 16  7 20
+19  6 11 15  1  8 13 17
+</PRE>
+<OL>
+<P><LI>In the Data Prompter initial dialog box,
+
+select <TT><STRONG>Grid or Scattered File</STRONG></TT>,
+
+select the leftmost button in the
+<TT><STRONG>Grid type</STRONG></TT> row (regular grid) and deactivate the
+<TT><STRONG>Single time step</STRONG></TT> toggle button.
+<P><LI>Confirm that the <TT><STRONG>Block</STRONG></TT> toggle button is
+activated and click on
+<TT><STRONG>Describe Data</STRONG></TT>.
+The <TT><STRONG>Full prompter</STRONG></TT> dialog box appears.
+(Because this example <I>requires</I> the full prompter, the
+simplified dialog box is not accessible.)
+<P><LI>Enter the path name of the data file in the
+<TT><STRONG>Data file</STRONG></TT> field:
+<PRE>
+/usr/local/dx/samples/data/record_series
+</PRE>
+<P><LI>Activate the <TT><STRONG>Header</STRONG></TT> toggle button.
+<P><LI>Step 4 also enables the <TT><STRONG># of bytes</STRONG></TT> button to
+the right.
+Click on this button and select <TT><STRONG>string
+marker</STRONG></TT>.
+<P><LI>Enter "Time Step 1 \n" in the associated text field to
+<A NAME="SPTSVARX86"></A>
+specify that the data file is to be read starting with the line
+after "Time Step 1" (see Note).
+Alternatively, selecting <TT><STRONG># of lines</STRONG></TT> and specifying
+the value "2" in the text field would produce the
+same result.
+<P><B>Note: </B>The new-line character "\n" must be included in the
+specification, and the spacing between it and the marker must
+match that in the data file (e.g., if "Time Step 1"
+and "\n" are separated by three spaces in the
+file, they must be separated by three spaces
+in the specification).
+This spacing is easily determined in the Data Browser by placing the
+cursor at each point and reading the corresponding offset value
+(see <A HREF="qikgu031.htm#FIGDP6">Figure 18</A>).
+<P>
+<P><LI>Enter the value "5" in each of the first two
+<TT><STRONG>Grid size</STRONG></TT> fields.
+<P><LI>Activate the <TT><STRONG>Series</STRONG></TT> toggle button and specify
+the number of series members by entering the value "7" in
+the associated <TT><STRONG>n</STRONG></TT> field.
+(Leave the <TT><STRONG>start</STRONG></TT> and <TT><STRONG>delta</STRONG></TT>
+fields unchanged.)
+<P><LI>Activate the <TT><STRONG>Series separator</STRONG></TT> toggle button,
+select <TT><STRONG># of lines</STRONG></TT>, and enter the value
+"1" in the associated text field.
+(When the Import module reads the data file, it will skip the lines
+"Time Step 2," "Time Step 3," and so on.)
+<P><LI>Change <TT><STRONG>Dependency</STRONG></TT> from "positions" to
+"connections."
+To confirm this change, click on <TT><STRONG>Modify</STRONG></TT> at the
+bottom of the dialog box (note the instruction there).
+<P><LI>Repeat Example 1, Step 10 (see <A HREF="#SPTEX1A">To save the header
+file</A>), to save the
+header file, which should look like:
+</OL>
+<PRE>
+file = /usr/local/dx/samples/data/record_series
+grid = 5 x 5
+format = text
+interleaving = record
+majority = row
+header = marker "Time Step 1 \n"
+series = 7, 1, 1, separator = lines 1
+field = field0
+structure = scalar
+type = float
+dependency = connections
+positions = regular, regular, 0, 1, 0, 1
+end
+</PRE>
+<P>
+<P><B>Note: </B>For scalar data, as in this example, the
+<TT><STRONG>interleaving</STRONG></TT> keyword is
+not required (it defaults to record).
+However, when series data include vectors, this keyword must be
+included and the appropriate value specified.
+For more information, see <A HREF="qikgu029.htm#HDRINTRKWD">"interleaving"</A>.
+<P>
+<H4><U>Example 9. Data and Header in the Same File</U></H4>
+<A NAME="IDX245"></A>
+<A NAME="IDX246"></A>
+<A NAME="IDX247"></A>
+<A NAME="IDX248"></A>
+<P>
+The <TT><STRONG>header</STRONG></TT> and <TT><STRONG>end</STRONG></TT> keywords
+make it possible to combine header information and data in
+the same file.
+<P><B>Note: </B>Although the General Array Importer is designed to process files
+that contain both header information and data, the Data Prompter is not.
+It cannot create them or read them in.
+Such files, like the one in this example, must be created with an
+editor.
+<PRE>
+# The Importer disregards this line, since it is a comment line.
+grid = 5 x 5
+dependency = connections
+type = byte
+structure = scalar
+format = ascii
+header = marker "Start data \n"
+end
+# There may be comments about the data here (e.g., who created it and
+# when).  These will be passed over because of the marker specified
+# in the header keyword statement.
+Start data
+17811 41218 3 9
+1021913 1 71420
+</PRE>
+<P>
+The <TT><STRONG>end</STRONG></TT> keyword marks the end of the header
+section.
+The <TT><STRONG>header</STRONG></TT> keyword statement specifies "Start
+data" as the search string and the next line as the
+start of the actual data.
+Note that if the data starts on the <I>same</I> line, the new-line
+character (\n) is not required as part of the marker
+(see also Step 6 of Example 8 in <A HREF="#SPTSVARX86">Enter &quot;Time Step 1
+\n&quot;</A>).
+<P>
+The "positions" keyword, omitted in this example, defaults to an
+origin of &#91;0 0&#93; and deltas of &#91;1 1&#93;.
+<P>
+<H3><A NAME="HDRMVARDAT" ></A>Record Style: Multivariable Data
+</H3>
+<A NAME="IDX249"></A>
+<A NAME="IDX250"></A>
+<A NAME="IDX251"></A>
+<A NAME="IDX252"></A>
+<P>
+To import record-style data, you must set the
+<TT><STRONG>interleaving</STRONG></TT> keyword
+to record, record-vector, or
+series-vector.
+(When using the Data Prompter, select Block for <TT><STRONG>Field
+interleaving</STRONG></TT>.)
+If the data includes vectors, select the appropriate vector
+interleaving, as discussed in <A HREF="#HDREX6N7">"Examples 6 and 7. Vector
+Data"</A>;
+see also <A HREF="qikgu029.htm#HDRINTRKWD">"interleaving"</A>.
+<P>
+<H4><U>Example 1. Multiple Scalar Fields</U></H4>
+<A NAME="IDX253"></A>
+<A NAME="IDX254"></A>
+<A NAME="IDX255"></A>
+<A NAME="IDX256"></A>
+<A NAME="IDX257"></A>
+<P>
+This example illustrates the importation of multiple scalar
+fields.
+The grid is 4 &times; 2 &times; 3, with an origin of &#91;0 0 0&#93;
+and deltas of &#91;1 1 1&#93;.
+The three data variables are scalar.
+The data file looks like:
+<PRE>
+Energy
+    2.158719      1.45419     1.566509     1.551361     2.215095     1.726923
+    2.080461     1.418617     1.373206     2.231642     1.316575     1.445211
+    1.673182     1.445737     1.820333     2.167849     1.721611     1.554906
+    1.604594     2.061092     1.398391     2.062042     1.996196      1.50964
+Pressure
+    34.81398     18.81529     29.65139       42.499     22.96053     31.41604
+    19.92936     27.79935     26.34873     28.91081     21.17855     28.89354
+    6.320079      43.9068     6.597938     20.41342     14.83351     43.53309
+    16.36901     18.19812     4.628566     43.64742     44.99699     26.32183
+Temperature
+    295.3329     302.5431      301.835     296.0127     297.8344     295.5451
+    301.6786     298.4496     302.0944     296.7458     296.3459     296.4179
+    303.1223     300.3094     297.9714     300.0774     299.1322     296.9368
+     302.096     294.8137      300.662     299.5744     304.1986     302.4216
+</PRE>
+<P>
+The header file to import this data should look like:
+<PRE>
+file = /usr/local/dx/samples/data/record_multiscalar
+grid = 4 x 2 x 3
+format = text
+interleaving = record
+majority = row
+header = lines 1
+field = Energy, Pressure, Temperature
+recordseparator = lines 1
+end
+</PRE>
+<P>
+<H4><U>Example 2. Cell-Centered Data</U></H4>
+<A NAME="IDX258"></A>
+<A NAME="IDX259"></A>
+<A NAME="IDX260"></A>
+<P>
+This example is identical to the preceding one except that each of the
+data variables is dependent on the connections between data points
+rather than on their positions.
+Thus there are only six data values per field (3 &times; 1 &times; 2).
+The data file looks like:
+<PRE>
+Energy
+    2.158719      1.45419     1.566509     1.551361     2.215095     1.726923
+Pressure
+    34.81398     18.81529     29.65139       42.499     22.96053     31.41604
+Temperature
+    295.3329     302.5431      301.835     296.0127     297.8344     295.5451
+</PRE>
+<P>
+The header file to import this data should look like:
+<PRE>
+file = /usr/local/dx/samples/data/record_multiscalardepconn
+grid = 4 x 2 x 3
+format = test
+interleaving = record
+majority = row
+header = lines 1
+field = Energy, Pressure, Temperature
+recordseparator = lines 1
+dependency = connections
+end
+</PRE>
+<P>
+<H4><U>Example 3. Multiple Scalars with Mixed Dependencies</U></H4>
+<A NAME="IDX261"></A>
+<A NAME="IDX262"></A>
+<A NAME="IDX263"></A>
+<A NAME="IDX264"></A>
+<A NAME="IDX265"></A>
+<P>
+This example differs from the preceding one in that Energy and
+Temperature are dependent on the positions of the grid,
+while Pressure is dependent on the grid elements
+(connection dependent).
+The data file looks like:
+<PRE>
+Energy
+    2.158719      1.45419     1.566509     1.551361     2.215095     1.726923
+    2.080461     1.418617     1.373206     2.231642     1.316575     1.445211
+    1.673182     1.445737     1.820333     2.167849     1.721611     1.554906
+    1.604594     2.061092     1.398391     2.062042     1.996196      1.50964
+Pressure
+    34.81398     18.81529     29.65139       42.499     22.96053     31.41604
+Temperature
+    295.3329     302.5431      301.835     296.0127     297.8344     295.5451
+    301.6786     298.4496     302.0944     296.7458     296.3459     296.4179
+    303.1223     300.3094     297.9714     300.0774     299.1322     296.9368
+     302.096     294.8137      300.662     299.5744     304.1986     302.4216
+</PRE>
+<P>
+The header file looks like the one shown at the top of the next page.
+<PRE>
+file = /usr/local/dx/samples/data/record_multiscalarmixed
+grid = 4 x 2 x 3
+format = text
+interleaving = record
+majority = row
+header = lines 1
+field = Energy, Pressure, Temperature
+dependency = positions, connections, positions
+recordseparator = lines 1
+end
+</PRE>
+<P>
+<H4><U>Examples 4 and 5. Scalar and Vector Data</U></H4>
+<A NAME="IDX266"></A>
+<A NAME="IDX267"></A>
+<A NAME="IDX268"></A>
+
+<A NAME="IDX269"></A>
+<P>
+This example uses the same grid as the previous 3, but here the second
+data field (velocity) consists of 2-vectors.
+In Example 4, all the x-components of the 2-vectors are listed first,
+followed by all the y-components.
+For example, the x- and y-components of the first 2-vector are 34.81398
+and 2.158719, respectively.
+<PRE>
+Energy
+    2.158719      1.45419     1.566509     1.551361     2.215095     1.726923
+    2.080461     1.418617     1.373206     2.231642     1.316575     1.445211
+    1.673182     1.445737     1.820333     2.167849     1.721611     1.554906
+    1.604594     2.061092     1.398391     2.062042     1.996196     1.509640
+Velocity
+    34.81398     18.81529     29.65139       42.499     22.96053     31.41604
+    19.92936     27.79935     26.34873     28.91081     21.17855     28.89354
+    6.320079      43.9068     6.597938     20.41342     14.83351     43.53309
+    16.36901     18.19812     4.628566     43.64742     44.99699     26.32183
+    2.158719      1.45419     1.566509     1.551361     2.215095     1.726923
+    2.080461     1.418617     1.373206     2.231642     1.316575     1.445211
+    1.673182     1.445737     1.820333     2.167849     1.721611     1.554906
+    1.604594     2.061092     1.398391     2.062042     1.996196     1.509640
+Temperature
+    295.3329     302.5431      301.835     296.0127     297.8344     295.5451
+    301.6786     298.4496     302.0944     296.7458     296.3459     296.4179
+    303.1223     300.3094     297.9714     300.0774     299.1322     296.9368
+    302.0960     294.8137      300.662     299.5744     304.1986     302.4216
+</PRE>
+<P>
+The header file should look like:
+<PRE>
+file = /usr/local/dx/samples/data/record_scalarvector1
+grid = 4 x 2 x 3
+format = text
+interleaving = record
+majority = row
+header = lines 1
+field = Energy, Velocity, Temperature
+structure = scalar, 2-vector, scalar
+recordseparator = lines 1, lines 0, lines 1
+end
+</PRE>
+<P>
+Note that the interleaving specified for the vectors (line 4) is record
+(see <A HREF="qikgu029.htm#HDRINTRKWD">"interleaving"</A>) and that the record
+separator (line 9) specifies:
+one (1) line separating the Energy and Velocity data; no lines
+separating the records containing the components of the
+Velocity data; and one (1) line separating the
+Velocity and the Temperature data (see <A
+HREF="qikgu029.htm#HDRRSEPKWD">"recordseparator"</A>).
+<P>
+The data values in Example 5 are the same as those in Example 4, but the
+components of each vector in the Velocity field appear together (e.g.,
+34.813980 is followed by 2.158719 in the same row):
+<PRE>
+Energy
+   2.158719   1.454190     1.566509   1.551361     2.215095   1.726923
+   2.080461   1.418617     1.373206   2.231642     1.316575   1.445211
+   1.673182   1.445737     1.820333   2.167849     1.721611   1.554906
+   1.604594   2.061092     1.398391   2.062042     1.996196   1.509640
+Velocity
+  34.813980   2.158719    18.815290   1.454190    29.651390   1.566509
+  42.499001   1.551361    22.960529   2.215095    31.416040   1.726923
+  19.929359   2.080461    27.799351   1.418617    26.348730   1.373206
+  28.910810   2.231642    21.178551   1.316575    28.893539   1.445211
+</PRE>
+<PRE>
+   6.320079   1.673182    43.906799   1.445737     6.597938   1.820333
+  20.413420   2.167849    14.833510   1.721611    43.533089   1.554906
+  16.369011   1.604594    18.198120   2.061092     4.628566   1.398391
+  43.647419   2.062042    44.996990   1.996196    26.321831   1.509640
+Temperature
+ 295.332886  302.543091  301.834991  296.012695  297.834412  295.545105
+ 301.678589  298.449585  302.094391  296.745789  296.345886  296.417908
+ 303.122314  300.309387  297.971405  300.077393  299.132202  296.936798
+ 302.096008  294.813690  300.661987  299.574402  304.198608  302.421600
+</PRE>
+<P>
+The header file should look like:
+<PRE>
+file = /usr/local/dx/samples/data/record_scalarvector2
+grid = 4 x 2 x 3
+format = text
+interleaving = record-vector
+majority = row
+header = lines 1
+structure = scalar, 2-vector, scalar
+field = Energy, Velocity, Temperature
+recordseparator = lines 1
+end
+</PRE>
+<P>
+Note that the interleaving specified for the vectors (line 4) has
+been changed to record-vector and that the record separator
+(line 9) specifies one (1) line separating successive
+records.
+<P>
+<H4><U>Example 6. Deformed (Warped) Regular Grid</U></H4>
+<A NAME="IDX270"></A>
+<A NAME="IDX271"></A>
+<A NAME="IDX272"></A>
+<A NAME="IDX273"></A>
+<A NAME="IDX274"></A>
+<A NAME="IDX275"></A>
+<P>
+A deformed regular grid (sometimes referred to as a warped grid) is
+one in which the positions are irregular but the connections
+are regular.
+In this example the grid is 5 &times; 4.
+The data consists of three records, the first two of which contain
+scalar data defined on the grid.
+The third contains 2-vector values defining the grid positions.
+The Data Prompter uses the reserved word <TT><STRONG>locations</STRONG></TT> as
+a field
+name for the x,y values of the grid positions.
+The data file contains no descriptive information.
+<OL COMPACT>
+<LI>In the Data Prompter initial dialog box, click on
+
+<TT><STRONG>Grid or Scattered File</STRONG></TT>, then on
+
+the button representing
+deformed data (third from the left) in the row labeled
+<TT><STRONG>Grid type</STRONG></TT>.
+<LI>Set <TT><STRONG>Number of variables</STRONG></TT> to "2."
+<LI>Step 1 automatically activates the <TT><STRONG>Positions in data
+file</STRONG></TT> toggle button (the positions of warped regular
+data are assumed to be listed in the data file) and displays
+a <TT><STRONG>Dimension</STRONG></TT> stepper button.
+Set the <TT><STRONG>Dimension</STRONG></TT> value to "2" for 2-dimensional
+(x,y) data.                                            .
+<LI>For <TT><STRONG>Data organization</STRONG></TT>, confirm that the
+<TT><STRONG>Block</STRONG></TT> (i.e., record) toggle button is
+activated.
+<LI>Click on
+
+<TT><STRONG>Data Prompter</STRONG></TT>
+
+to bring up the simplified
+data prompter.
+<LI>Enter the path name of the data file in the
+<TT><STRONG>Data file</STRONG></TT> field:
+<PRE>
+/usr/local/dx/samples/data/record_deformed
+</PRE>
+<LI>Enter the values "5," and "4," in that order, in the first
+two <TT><STRONG>Grid size</STRONG></TT> fields.
+<LI>Confirm that <TT><STRONG>Data format</STRONG></TT>,
+<TT><STRONG>Data order</STRONG></TT>, and
+<TT><STRONG>Vector interleaving</STRONG></TT>
+are set respectively to Text, Row, and
+record-vector (X<SUB>0</SUB>Y<SUB>0</SUB>,
+X<SUB>1</SUB>Y<SUB>1</SUB>, ...).
+<LI>In the <TT><STRONG>Field list</STRONG></TT>, click on "locations" and
+use the "Move field" stepper arrows to position it after
+"field1" (i.e., at the bottom of the list).
+This change is necessary to reflect the actual data file, where the two
+scalar fields precede the x,y positions.
+(By default, the Data Prompter lists "locations" as the first
+field.)
+<LI>Click on "field0" in the list and then change the name to
+"rainfall" in the <TT><STRONG>Field name</STRONG></TT> field.
+To confirm this change, click on <TT><STRONG>Modify</STRONG></TT> at the
+bottom of the dialog box (note the instruction there).
+<LI>Now change "field1" to "temperature" and the
+<TT><STRONG>Type</STRONG></TT> option from "float" to
+"int" (the temperature values are integers).
+These changes can be confirmed together by clicking on
+<TT><STRONG>Modify</STRONG></TT> at the
+bottom of the panel.
+<LI>Save the header file (Step 10 of Example 1 in
+<A HREF="#SPTEX1A">To save the header file</A>), which should look
+like:
+</OL>
+<PRE>
+file = /usr/local/dx/samples/data/record_deformed
+grid = 5 x 4
+format = text
+interleaving = record-vector
+majority = row
+field = rainfall, temperature, locations
+structure = scalar, scalar, 2-vector
+type = float, int, float
+dependency = positions, positions, positions
+end
+</PRE>
+<P>
+<H4><U>Example 7. Scattered Data</U></H4>
+<A NAME="IDX276"></A>
+<A NAME="IDX277"></A>
+<A NAME="IDX278"></A>
+<P>
+This example illustrating the importation of scattered data differs from
+Example 6 in only a few details, mainly in specifying the number of
+data points instead of the dimensions of a data grid.
+<OL>
+<P><LI>In the Data Prompter initial dialog box,
+
+select <TT><STRONG>Grid or Scattered File</STRONG></TT>, then
+
+click on the rightmost button
+(scattered data) in the row labeled
+<TT><STRONG>Grid type</STRONG></TT>.
+<P><LI>Set <TT><STRONG>Number of variables</STRONG></TT> to "2."
+<P><LI>Activate the <TT><STRONG>Positions in data file</STRONG></TT> toggle
+button and set the <TT><STRONG>Dimension</STRONG></TT> value
+to "2".
+<P><LI>Repeat Steps 5 through 11 of Example 6, with the following
+exception: in Step 7, enter the value "20" in the
+<TT><STRONG># of points</STRONG></TT> field (this change
+from Example 6 is a result of the original
+selection for scattered data in the
+initial dialog box).
+</OL>
+The header file should look like:
+<PRE>
+file = /usr/local/dx/samples/data/record_deformed
+points = 20
+format = text
+interleaving = record-vector
+field = rainfall, temperature, locations
+structure = scalar, scalar, 2-vector
+type = float, int, float
+dependency = positions, positions, positions
+end
+</PRE>
+<P>
+<H4><U>Example 8. Using the Block Keyword</U></H4>
+<A NAME="IDX279"></A>
+<A NAME="IDX280"></A>
+<A NAME="IDX281"></A>
+<A NAME="IDX282"></A>
+<P>
+The <TT><STRONG>block</STRONG></TT> keyword is used with record-style,
+fixed-format ASCII data to skip information in a block
+of data.
+For example, consider the following data file:
+<PRE>
+row 1 temperature 39 29 33 56 32
+row 2 temperature 32 33 25 33 22
+row 3 temperature 31 23 41 53 19
+row 4 temperature 43 59 43 21 28
+row 5 temperature 23 19 35 46 32
+</PRE>
+
+<OL>
+<P><LI>In the Data Prompter initial dialog box,
+
+select <TT><STRONG>Grid or Scattered File</STRONG></TT>, then
+
+ensure that the leftmost button
+in the row labeled <TT><STRONG>Grid type</STRONG></TT>
+is selected.
+<P><LI>Click on
+
+<TT><STRONG>Data Prompter</STRONG></TT>
+
+to bring up the simplified prompter.
+<P><LI>Enter  the path name of the data file in the <TT><STRONG>data
+file</STRONG></TT> field:
+<PRE>
+/usr/local/dx/samples/data/block_example.data
+</PRE>
+<P><LI>Activate the <TT><STRONG>header</STRONG></TT> toggle button, reset
+<TT><STRONG># of bytes</STRONG></TT> to  <TT><STRONG># of
+lines</STRONG></TT>, and type 1 in the associated
+field.
+<P><LI>Set <TT><STRONG>Grid size</STRONG></TT> to  5 &times; 5.
+<P><LI>Now click on <TT><STRONG>Full prompter</STRONG></TT> in the
+<TT><STRONG>Options</STRONG></TT> pull-down menu.
+<P><LI>Activate the <TT><STRONG>Block</STRONG></TT> toggle button (right-hand
+panel).
+<P><LI>Set <TT><STRONG>skip</STRONG></TT> to 17, <TT><STRONG>#
+elem</STRONG></TT> to
+5, and <TT><STRONG>width</STRONG></TT> to 3.
+<P><LI>Repeat Example 1, Step 10 (<A HREF="#SPTEX1A">To save the header
+file</A>), to save the
+header file, which should look like:
+</OL>
+<PRE>
+file = /usr/local/dx/samples/data/block_example.data
+grid = 5 x 5
+format = text
+interleaving = record
+majority = row
+header = lines 1
+field = field0
+structure = scalar
+type = int
+dependency = positions
+block = 17, 5, 3
+positions = regular, regular, 0, 1, 0, 1
+end
+</PRE>
+<P>
+The <TT><STRONG>block</STRONG></TT> statement instructs the importer to skip
+17 characters and read 5 (temperature) values (per line in this
+case), reading each value from a field of three characters.
+
+<P>
+<H3><A NAME="Header_142" ></A>Columnar Style</H3>
+<A NAME="IDX283"></A>
+<A NAME="IDX284"></A>
+
+<P>
+Importing
+
+columnar-style
+
+data requires setting the
+<TT><STRONG>interleaving</STRONG></TT> keyword to
+"field":
+Activate the
+
+<TT><STRONG>Columnar</STRONG></TT>
+
+toggle button in the Data Prompter
+initial dialog box or select "Field" for the
+<TT><STRONG>Field interleaving</STRONG></TT>
+option in the full prompter.
+<P>
+<H4><U>Example 1. Scalar and Vector Data on a Regular Grid.</U></H4>
+<A NAME="IDX285"></A>
+<A NAME="IDX286"></A>
+<A NAME="IDX287"></A>
+<A NAME="IDX288"></A>
+<P>
+This example illustrates the importation of a data file that contains
+two variables (pressure and velocity) in spreadsheet style.
+The data are in row majority order (last index varies fastest) and
+organized in four columns: the first contains the pressure
+data; the other three, the velocity components.
+The grid is 5 &times; 8 &times; 6.
+<OL COMPACT>
+<LI>In the Data Prompter initial dialog box,
+
+select <TT><STRONG>Grid or Scattered File</STRONG></TT>, then
+
+select the leftmost button in the
+row labeled <TT><STRONG>Grid type</STRONG></TT> (regular grid).
+<LI>Set <TT><STRONG>Number of variables</STRONG></TT> to
+"2."
+<LI>For <TT><STRONG>Data organization</STRONG></TT>, activate the
+
+<TT><STRONG>Columnar</STRONG></TT>
+
+toggle button.
+<LI>Click on
+
+<TT><STRONG>Describe Data</STRONG></TT>
+
+to bring up the simplified
+prompter.
+<LI>Enter the path name of the data file in the
+<TT><STRONG>Data file</STRONG></TT> field:
+<PRE>
+/usr/local/dx/samples/data/spreadsheet_2var
+</PRE>
+<LI>Enter the values "5," "8," and "6," in that order,
+in the first three <TT><STRONG>Grid size</STRONG></TT> fields.
+<LI>In the <TT><STRONG>Field list</STRONG></TT>, change the name "field0"
+to "pressure" and confirm the change by clicking on the
+<TT><STRONG>Modify</STRONG></TT> button at the bottom of
+the panel.
+  <LI>Change the name of "field1" to "velocity" and its <TT><STRONG>Structure</STRONG></TT> 
+    to "3-vector." (See Steps 9 through 11 of Example 6 in the preceding section, 
+    <A HREF="#HDREX6N7">"Example 6. Deformed (Warped) Regular Grid"</A>, for procedure.) 
+  <LI>Save the header file (Step 10 of Example 1 in
+<A HREF="#SPTEX1A">To save the header file</A>), which should look
+like:
+</OL>
+&nbsp;
+<PRE>
+file = /usr/local/dx/samples/data/spreadsheet_2var
+grid = 5 x 8 x 6
+format = text
+interleaving = field
+majority = row
+field = temperature, velocity
+structure = scalar, 3-vector
+type = float, float
+dependency = positions, positions
+positions = regular, regular, regular, 0, 1, 0, 1, 0, 1
+end
+</PRE>
+<P>
+<H4><U>Example 2. Deformed (Warped) Regular Grid</U></H4>
+<A NAME="IDX289"></A>
+<A NAME="IDX290"></A>
+<A NAME="IDX291"></A>
+<A NAME="IDX292"></A>
+<P> This example differs from Example 6 in the preceding section (<A HREF="#HDREX6N7">"Example 
+  6. Deformed (Warped) Regular Grid"</A>) in its data style (spreadsheet), smaller 
+  data grid (5 &times; 4), and number of variables (1). Follow the first 7 steps 
+  of that example, except for the following: 
+<UL COMPACT>
+<LI>In Step 2, set <TT><STRONG>Number of variables</STRONG></TT> to "1."
+<LI>In Step 4, activate the
+
+<TT><STRONG>Columnar</STRONG></TT>
+
+toggle
+button.
+<LI>In Step 6, use the path name:
+<PRE>
+/usr/local/dx/samples/data/spreadsheet_deformed.
+</PRE>
+<LI>In Step 7, use the values "3" and "4."
+</UL>
+The header file should look like:
+<P>
+<PRE>
+file = /usr/local/dx/samples/data/spreadsheet_deformed
+grid = 3 x 4
+format = text
+interleaving = field
+majority = row
+field = locations, field0
+structure = 2-vector, scalar
+type = float, float
+end
+</PRE>
+<P>
+<H4><U>Example 3. Scattered Scalar Data</U></H4>
+<A NAME="IDX294"></A>
+<A NAME="IDX295"></A>
+<A NAME="IDX296"></A>
+<A NAME="IDX297"></A>
+<P>
+This example uses the same data set as Example 2 but treats the values
+as scattered data points.
+The data file contains an x,y position followed by a data value.
+There are no implied connections for these data.
+<OL COMPACT>
+<LI>In the Data Prompter initial dialog box:
+<OL COMPACT>
+<LI>
+
+Select <TT><STRONG>Grid or Scattered File</STRONG></TT>, then
+
+select for scattered data (rightmost grid button).
+<LI>Activate the <TT><STRONG>Position</STRONG></TT> toggle button.
+<LI>Set <TT><STRONG>Dimension</STRONG></TT> to "2."
+<LI>Activate the <TT><STRONG>Spreadsheet</STRONG></TT> toggle
+button.
+<LI>Click on
+
+<TT><STRONG>Describe Data</STRONG></TT>
+
+to bring up the simplified
+data prompter.
+</OL>
+<LI>Enter the path name used in Example 2.
+<LI>Enter "12" in the <TT><STRONG># of points</STRONG></TT> field.
+<LI>Save the header file (Step 10 of Example 1 in
+<A HREF="#SPTEX1A">To save the header file</A>), which should look like:
+</OL>
+<PRE>
+file = /usr/local/dx/samples/data/spreadsheet_deformed
+points = 12
+format = text
+interleaving = field
+field = locations, field0
+structure = 2-vector, scalar
+type = float, float
+end
+</PRE>
+<P>
+<H4><U>Example 4. Handling Interspersed Text</U></H4>
+<A NAME="IDX298"></A>
+<A NAME="IDX299"></A>
+<A NAME="IDX300"></A>
+<A NAME="IDX301"></A>
+<P>
+The <TT><STRONG>layout</STRONG></TT> keyword is used to specify which
+locations in a data file are to be read, thereby
+avoiding interspersed text.
+In the example data file shown here, there are no implied connections
+between data values.
+<P>
+<OL COMPACT>
+<LI>In the Data Prompter initial dialog box:
+<OL COMPACT>
+<LI>
+
+Select <TT><STRONG>Grid or Scattered File</STRONG></TT>, then
+
+select for scattered data (rightmost grid button).
+<LI>Activate the <TT><STRONG>Position</STRONG></TT> toggle
+button.
+<LI>Set <TT><STRONG>Number of variables</STRONG></TT> to "1."
+<LI>The data positions (latitude and longitude) are in the data file
+and are 2-dimensional: set <TT><STRONG>Dimension</STRONG></TT> to
+"2."
+<LI>Activate the <TT><STRONG>Columnar</STRONG></TT> toggle
+button.
+<LI>Click on
+
+<TT><STRONG>Describe Data</STRONG></TT>
+
+to bring up the simplified
+data prompter.
+</OL>
+<LI>In the <TT><STRONG>Data file</STRONG></TT> field enter the path name:
+<PRE>
+/usr/local/dx/samples/data/CO2fragment.lis
+</PRE>
+<LI>Activate the <TT><STRONG>Header</STRONG></TT> toggle button, select the
+"String marker" option, and enter "CO2_CONC \n" in the
+associated text field.
+(Note that the marker text is the heading for the third column of data
+and that the reading of data will start after the new-line
+character, at the point marked by "<TT><STRONG>*</STRONG></TT>"
+on the following line.
+See also Step 6 of Example 7 in <A HREF="#SPTSVARX86">Enter &quot;Time Step 1
+\n&quot;</A>.)
+<P>
+<P><B>Note: </B>The asterisk (<TT><STRONG>*</STRONG></TT>) at the beginning of
+the first data
+line and the interval scale following the data are for reference
+purposes only and do not appear in the actual file
+(see Steps 3 and 5f-j in this example).
+<PRE>
+ VARIABLES AND SPECIFIED RANGES
+_________________________________________________________________________
+ EPOCH                01-Jul-1983 00:00:00.000 31-Dec-1987 00:00:00.000
+ LATITUDE                               -90.00                    90.00
+ LONGITUD                              -180.00                   180.00
+ CO2_CONC                             -10000.0                  10000.0
+         EPOCH                  LATITUDE      LONGITUD      CO2_CONC
+<TT><STRONG>*</STRONG></TT>01-Jul-1983 00:00:00.000        -37.95         77.53         341.4
+ 01-Jul-1983 00:00:00.000        -89.98        -24.80         341.0
+ 01-Jul-1983 00:00:00.000         -7.92        -14.42         343.4
+ 01-Jul-1983 00:00:00.000        -40.68        144.68        -100.0
+ 01-Jul-1983 00:00:00.000         19.52       -154.82         341.9
+ 01-Jul-1983 00:00:00.000        -14.25       -170.57         342.0
+ 01-Jul-1983 00:00:00.000          2.00       -157.30        -100.0
+ 01-Jul-1983 00:00:00.000         55.20       -162.72         335.3
+ 01-Jul-1983 00:00:00.000        -75.67        -27.00         341.7
+ 01-Jul-1983 00:00:00.000        -43.83       -172.63         341.3
+ 01-Jul-1983 00:00:00.000         25.67        -80.17         343.8
+ 01-Jul-1983 00:00:00.000         -4.67         55.17         339.1
+ 01-Jul-1983 00:00:00.000         13.43        144.78         344.0
+ 01-Jul-1983 00:00:00.000         19.53       -155.58         343.5
+ 01-Jul-1983 00:00:00.000         76.23       -119.33         339.8
+ 01-Jul-1983 00:00:00.000         40.05       -105.63         339.5
+ 01-Jul-1983 00:00:00.000         66.00          2.00         338.7
+ 01-Jul-1983 00:00:00.000        -64.92        -64.00         341.4
+ 01-Jul-1983 00:00:00.000         71.32       -156.60         340.1
+ 01-Jul-1983 00:00:00.000         17.75        -64.77         342.3
+ 01-Jul-1983 00:00:00.000         38.75        -27.08         341.1
+<A NAME="SPTDBRINTV"></A>
+<STRONG>
+|-----------skip 33-------------| width  12 | width  12 | width 10 |
+</STRONG>
+</PRE>
+<LI>Enter "21" in the <TT><STRONG># of points</STRONG></TT>
+field.
+<LI>Use the <TT><STRONG>layout</STRONG></TT> option to "skip"
+interspersed text:
+<OL COMPACT>
+<LI>Select <TT><STRONG>Full prompter</STRONG></TT> from the
+<TT><STRONG>Options</STRONG></TT> menu.
+<LI>Select "locations" in the <TT><STRONG>Field list</STRONG></TT> of
+the Data Prompter.
+<LI>Activate the <TT><STRONG>Layout</STRONG></TT> toggle button (in the
+right-hand panel of the prompter).
+<LI>Bring up the Browser for the data file by clicking on the
+ellipsis button (<TT><STRONG>...</STRONG></TT>) next to the
+<TT><STRONG>Data file</STRONG></TT> field.
+<LI>Click on <TT><STRONG>Browser...</STRONG></TT> to view the data file.
+<LI>In the data file, position the cursor at the beginning of the first
+data value in the first data line (-37.95) and note the
+<TT><STRONG>Byte Offsets</STRONG></TT> value (counting
+from the start of the line).
+Enter this number (33) in the <TT><STRONG>skip</STRONG></TT> field of the
+<TT><STRONG>Layout</STRONG></TT> option.
+<LI>Enter the value "12" in the <TT><STRONG>width</STRONG></TT> field
+of the <TT><STRONG>Layout</STRONG></TT> option.
+Since the latitude-longitude pairs are 2-vectors, the Data Prompter will read
+the specified width <I>twice</I> in succession, once for
+each component.
+(Thus, the Data Prompter skips 33 characters, reads 12 characters, and then
+reads 12 more, as specified by the first
+<TT><STRONG>layout</STRONG></TT> settings.
+See the marked intervals at the bottom of the data file in
+<A HREF="#SPTDBRINTV">skip 33</A>.)
+<LI>To confirm these changes, click on <TT><STRONG>Modify</STRONG></TT>
+at the bottom of the panel.
+<LI>Select "field0" in the <TT><STRONG>Field list</STRONG></TT> and
+rename it "CO2_concentration."
+<LI>Enter the value "0" (zero) in the <TT><STRONG>skip</STRONG></TT>
+field and "10" in the <TT><STRONG>width</STRONG></TT> field.
+(Now the Data Prompter skips zero characters and then reads 10 characters.
+See the marked intervals at the bottom of the data file in
+<A HREF="#SPTDBRINTV">skip 33</A>.)
+<LI>To confirm these changes, click on <TT><STRONG>Modify</STRONG></TT> at
+the bottom of the panel.
+</OL>
+<LI>Save the header file (Step 10 of Example 1 in
+<A HREF="#SPTEX1A">To save the header file</A>), which should look
+like:
+</OL>
+<P>
+<PRE>
+file = /usr/local/dx/samples/data/CO2fragment.lis
+points = 21
+format = text
+interleaving = field
+header = marker "CO2_CONC \n"
+field = locations, CO2_concentration
+structure = 2-vector, scalar
+type = float, float
+layout = 33, 12, 0, 10
+end
+</PRE>
+<P>
+<H4><U>Example 5. Time Series with Interspersed Text</U></H4>
+<A NAME="IDX302"></A>
+<A NAME="IDX303"></A>
+<A NAME="IDX304"></A>
+<A NAME="IDX305"></A>
+<P>
+The 21 lines of data in the preceding example represent a portion of
+a larger file (<TT>/usr/local/dx/samples/data/CO2.lis</TT>)
+containing a time series with 53 members.
+<OL>
+<P><LI>In the Data Prompter initial dialog box,
+
+select <TT><STRONG>Grid or Scattered File</STRONG></TT>, then
+click on <TT><STRONG>Describe Data</STRONG></TT>
+
+to bring up the simplified Data Prompter.
+<P><LI>Select <TT><STRONG>Open</STRONG></TT> from the
+<TT><STRONG>File</STRONG></TT>
+menu.
+<P><LI>In the <TT><STRONG>Open a Data Prompter Header</STRONG></TT> dialog box,
+select
+<TT>CO2fragment.lis.general</TT> in the
+<TT><STRONG>Files</STRONG></TT> list and then
+click on <TT><STRONG>OK</STRONG></TT>.
+<P><LI>Change the path name to:
+<PRE>
+/usr/local/dx/samples/data/CO2.lis
+</PRE>
+<P><LI>Activate the <TT><STRONG>Series</STRONG></TT> toggle button and change
+the value in the <TT><STRONG>n</STRONG></TT> field from
+"1" to "53."
+Do not change the <TT><STRONG>start</STRONG></TT> or
+<TT><STRONG>delta</STRONG></TT>
+field.
+<P><LI>Save the header file (Step 10 of Example 1 in
+<A HREF="#SPTEX1A">To save the header file</A>), which should look
+like:
+</OL>
+<PRE>
+file = /usr/local/dx/samples/data/CO2.lis
+points = 21
+format = text
+interleaving = field
+header = marker "CO2_CONC \n"
+series = 53, 1, 1
+field = locations, CO2_concentration
+structure = 2-vector, scalar
+type = float, float
+dependency = positions, positions
+layout = 33, 12, 0, 10
+end
+</PRE>
+<P>
+<H4><U><a name="HDREX6N7"></a>Example 6. Column Majority Data</U></H4>
+<A NAME="IDX306"></A>
+<A NAME="IDX307"></A>
+<A NAME="IDX308"></A>
+<A NAME="IDX309"></A>
+<P>
+The General Array Importer assumes that the order of the data it
+imports is row majority (last index varies fastest).
+That is, on a 2-dimensional n &times; m grid, the order of data is:
+<PRE>
+f(X<SUB>0</SUB>,Y<SUB>0</SUB>), f(X<SUB>0</SUB>,Y<SUB>1</SUB>), ..., f(X<SUB>0</SUB>,Y<SUB>m</SUB>), f(X<SUB>1</SUB>,Y<SUB>0</SUB>), f(X<SUB>1</SUB>,Y<SUB>1</SUB>), ...
+</PRE>
+<P>
+If the order of data is column majority (first index varies fastest),
+the order of data is:
+<PRE>
+f(X<SUB>0</SUB>,Y<SUB>0</SUB>), f(X<SUB>1</SUB>,Y<SUB>0</SUB>), ..., f(X<SUB>n</SUB>,Y<SUB>0</SUB>), f(X<SUB>0</SUB>,Y<SUB>1</SUB>), f(X<SUB>1</SUB>, Y<SUB>1</SUB>), ...
+</PRE>
+<P>
+The General Array Importer will accept column-majority data if you
+select "Column" for the <TT><STRONG>Data order</STRONG></TT>
+option in the Data Prompter.
+<P>
+The file <TT>/usr/local/dx/samples/data/temp_wind.lis.</TT> contains
+data in column majority order.
+A header file that imports this data is:
+<PRE>
+file = temp_wind.lis
+grid = 144 x 73
+format = text
+interleaving = field
+majority = column
+header = lines 9
+field = temperature, wind_velocity
+structure = scalar, 2-vector
+type = float, float
+dependency = positions, positions
+layout = 39, 14, 0, 14
+positions = regular, regular, -178.75, 2.5, 90.0, -2.5
+end
+</PRE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

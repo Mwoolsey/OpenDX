@@ -1,0 +1,45 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rmsgrtns Messaging Routines #!N #!EC #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLSetMessageHandler(DXLConnection *conn, #!EF DXLPacketTypeEnum type, const 
+char *matchstr, DXLMessageHandler h, const void *data); #!EF #!I50 #!N Sets 
+a message handler. This routine allows the user to install a 
+message handler for messages of any type. The handler "h" will 
+be called, receiving the pointer "data," whenever the message handling infrastructure 
+receives a message of type "type" containing a message that matches 
+"matchstr." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLRemoveMessageHandler(DXLConnection *conn, #!EF DXLPacketTypeEnum 
+type, const char *matchstr, DXLMessageHandler h); #!EF #!I50 #!N Removes a 
+message handler. The "h" argument is ignored. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   int DXLIsMessagePending(DXLConnection *conn) #!EF #!EF #!I50 #!N Can be used 
+by applications that need to poll the DXLConnection to determine whether 
+there are messages from the server that should be processed with 
+DXLHandlePendingMessages. It returns zero (0) if there are no messages to 
+handle, and a nonzero value otherwise. Note: In windowing applications that 
+use DXLInitializeXMainLoop, this function is not needed. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DXLError DXLHandlePendingMessages(DXLConnection *conn) #!EF #!EF #!I50 #!N Parses a message 
+that is waiting to be processed. The result is a call 
+to the installed message handlers. This routine is called automatically if 
+DXLInitializeXmainLoop is used. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLSend(DXLConnection *conn, 
+const char *msg) #!EF #!EF #!I50 #!N When the server is 
+the executive, it will accept most one-line scripting-language commands, including assignments 
+and module calls. For example, the following command makes a compound 
+assignment (1.23 to the variable "foo" and [1 2 3] to 
+the vector "bar"): #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N DXLSend(conn, "foo, 
+bar = 1.23, [1 2 3]; \n"); #!EF #!N #!N #!EC 
+#!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. Multiline scripting-language 
+commands (e.g., macro definitions) cannot be sent with this function. Instead 
+see the two  #!F-adobe-times-bold-r-normal--18*   ...MacroDefinition #!EF routines in  #!Lprgctl,dxall1152 h Program Control  #!EL  . #!N 
+#!I30 #!N 2. When the server is the user interface, it 
+will ignore most commands, and this function should be avoided. Instead 
+see the  #!F-adobe-times-bold-r-normal--18*   DXLSetValue #!EF functions in  #!Lsetvars,dxall1154 h Setting Variables  #!EL  . #!I0 #!N 
+#!N #!CForestGreen #!N #!I0 #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLSetErrorHandler(DXLConnection 
+*conn, DXLMessageHandler h, #!EF const void *data); #!EF #!EF #!N #!N 
+#!EC #!I50 #!N Sets the message handler (  #!F-adobe-times-bold-r-normal--18*   h #!EF 
+), which is called when an error occurs. The specified data 
+is passed to the handler. If no error handler is specified, 
+a default handler that prints a message and exits will be 
+used. Returns OK or ERROR. The message handler is defined by 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N typedef void #!N (*DXLMessageHandler)(DXLConnection *conn, 
+const char *msg, #!N void *data); #!EF #!EF #!N #!N #!EC 
+#!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lexecctl,dxall1151 h Execution Control  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

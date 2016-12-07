@@ -1,0 +1,11 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxmaks DXMakeString #!N #!N Function #!N 
+#!N Returns a String Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> String DXMakeString(char *s); #!EF #!N #!N Functional Details #!N #!N 
+Creates a String Object containing a specified string (  #!F-adobe-times-bold-r-normal--18*   s 
+#!EF ). The Object can be deleted with  #!F-adobe-times-bold-r-normal--18*   DXDelete() #!EF 
+. #!N #!N Return Value #!N #!N Returns the String Object 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxmslv,dxall1302 h DXMakeStringList, DXMakeStringListV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

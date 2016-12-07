@@ -1,0 +1,40 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtstmln2 Streamlines #!N #!EC #!N #!N If 
+your 2-dimensional data set consists of vectors, you can create streamlines 
+that trace the path of a massless particle in a vector 
+field. #!N #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. 
+Open and execute visual program .../Streamlines2D.net. The image is a set 
+of streamlines that follow a wind field over the surface of 
+the earth. #!N #!I30 #!N 2. Change the number of streamlines 
+by changing the value of the  #!F-adobe-times-bold-r-normal--18*   density #!EF parameter in 
+the configuration dialog box of the  #!F-adobe-times-bold-r-normal--18*   Sample #!EF tool. #!N 
+#!I30 #!N 3. Reexecute the visual program. #!N #!I0 #!N #!EF 
+#!N Note: Streamlines can be generated in other ways as well. 
+For example: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. 
+Pass a list of 2-dimensional positions to the  #!F-adobe-times-bold-r-normal--18*   start #!EF 
+parameter in the  #!F-adobe-times-bold-r-normal--18*   Streamline #!EF configuration dialog box by either: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N a. inserting a 
+ #!F-adobe-times-bold-r-normal--18*   VectorList #!EF interactor stand-in (from  #!F-adobe-times-bold-r-normal--18*   Interactor #!EF in the 
+categories palette) into the visual program, and connecting it to the 
+ #!F-adobe-times-bold-r-normal--18*   start #!EF parameter tab of Streamline  #!F-adobe-times-medium-i-normal--18*   or #!EF #!N 
+#!I30 #!N b. typing the start positions in the configuration dialog 
+box for  #!F-adobe-times-bold-r-normal--18*   Streamline #!EF . #!N #!I0 #!N #!EF #!N 
+#!N #!N #!I30 #!N 2. Use the  #!F-adobe-times-bold-r-normal--18*   Grid #!EF tool 
+(from  #!F-adobe-times-bold-r-normal--18*   Realization #!EF in the categories palette) to create a 
+particular set of start positions. Any field that contains positions can 
+be used as the starting point for streamlines. #!N #!N This 
+sample visual program contains a Grid tool. Connect it to the 
+ #!F-adobe-times-bold-r-normal--18*   start #!EF parameter tab of Streamline. It generates a 3 
+* 3 grid of points. Modify it to create a 10 
+* 3 grid of starting points. #!N #!I30 #!N 3. Use 
+the  #!F-adobe-times-bold-r-normal--18*   Probe #!EF tool (from  #!F-adobe-times-bold-r-normal--18*   Special #!EF in the 
+categories palette) to select starting points in the Image window. #!N 
+#!N This sample visual program contains a Probe tool. (Compute is 
+used to make the value of the probe point 2-dimensional.) Connect 
+the output of Compute to the  #!F-adobe-times-bold-r-normal--18*   start #!EF input tab 
+of Streamline, and then move the probe (i.e., enter cursor mode, 
+using the  #!F-adobe-times-bold-r-normal--18*   View Control #!EF dialog box). #!N #!I0 #!N 
+#!EF #!N #!N #!N See Grid, Probe, and Streamline in IBM 
+Visualization Data Explorer User's Reference. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ltrbrsht,dxall46 h RubberSheet  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

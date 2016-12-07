@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxssa 
+DXSetStringAttribute #!N #!N Function #!N #!N Adds a named attribute with 
+a string value to an Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Object DXSetStringAttribute(Object o, char *name, char *x) #!EF #!N 
+#!N Functional Details #!N #!N Creates a String containing the string 
+value  #!F-adobe-times-bold-r-normal--18*   x #!EF and then adds an attribute/value pair to 
+the Object  #!F-adobe-times-bold-r-normal--18*   o #!EF .  #!F-adobe-times-bold-r-normal--18*   name #!EF specifies the 
+name of the attribute and  #!F-adobe-times-bold-r-normal--18*   x #!EF represents its value. 
+If  #!F-adobe-times-bold-r-normal--18*   name #!EF specifies an attribute that the Object  #!F-adobe-times-bold-r-normal--18*   
+o #!EF already has, then its previous value is replaced. #!N 
+#!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgsa,dxall1268 h DXGetStringAttribute  #!EL  ,  #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  ,  #!Ldxsca,dxall1371 h DXSetComponentAttribute  #!EL  ,  #!Ldxsfa,dxall1379 h DXSetFloatAttribute  #!EL  
+,  #!Ldxsia,dxall1381 h DXSetIntegerAttribute  #!EL  #!EF #!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxsvw,dxall1393 h DXSetView, DXGetView  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

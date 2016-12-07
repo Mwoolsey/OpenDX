@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu079.htm">Previous Page</A> &#124; <A HREF="progu081.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu075.htm#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRCDCS" HREF="progu075.htm#PToC_166">16.6 Clipped Class</A></H2>
+<A NAME="IDX1258"></A>
+<A NAME="IDX1260"></A>
+<P>
+A Clipped Object is one Object clipped by another.
+The first Object is actually rendered; the second represents a region
+to which the first Object is clipped.
+The clipping Object is expected to be a closed convex surface.
+The portion of the first Object that is within the clipping Object is
+rendered.
+If the clipping Object is not a closed convex surface, the results are
+undefined.
+The clipping is performed by the renderer during the rendering
+process.
+Thus clipping is provided as a data structure for representing the
+Clipped Object to the renderer, rather than as an explicit
+operation.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Clipped DXNewClipped()</STRONG></TT>
+</B></TD><TD><P>Creates a new Clipped Object.
+<A NAME="IDX1261"></A>
+<A NAME="IDX1262"></A>
+See  <A HREF="progu247.htm#HDRDXNCD">DXNewClipped</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Clipped
+DXGetClippedInfo()</STRONG></TT>
+</B></TD><TD><P>Returns the Object to be rendered and the clipping Object.
+<A NAME="IDX1263"></A>
+<A NAME="IDX1264"></A>
+See  <A HREF="progu161.htm#HDRDXGCI">DXGetClippedInfo</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Clipped
+DXSetClippedObjects()</STRONG></TT>
+</B></TD><TD><P>Sets the Object to be rendered and the Object to clip it with
+during the rendering process.
+<A NAME="IDX1265"></A>
+<A NAME="IDX1266"></A>
+See  <A HREF="progu305.htm#HDRDXSCO">DXSetClippedObjects</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu079.htm">Previous Page</A> &#124; <A HREF="progu081.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu075.htm#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

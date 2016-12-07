@@ -1,0 +1,67 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall958 
+UserInteractors #!N #!EC UserInteractors consist of the following routines, the contents 
+of which must be provided by the user. You specify the 
+location of your custom interactor object files using the DX_USER_INTERACTOR_FILE environment 
+variable (see  #!Lmorevar,dxall695 h Other Environment Variables  #!EL  in IBM Visualization Data Explorer User's Guide). Note: 
+Default user interactors to implement rotation, pan, and zoom functionality are 
+provided by Data Explorer if you do not provide your own 
+custom interactors. Rotation (mode 0) is the same as the standard 
+left-button rotation interaction of the Image tool. Pan (mode 1) operates 
+differently than the Data Explorer pan mode of the Image tool; 
+you simply drag on the object to move it in the 
+desired direction. Zoom (mode 2) operates as follows: drag upward to 
+zoom in; drag downward to zoom out. #!N #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void *InitMode(Object args, int width, int 
+height, int #!EF *mask) #!EF #!I50 #!N Given an object containing 
+ #!F-adobe-times-bold-r-normal--18*   args #!EF (which come in as input to SuperviseState and 
+are up to the interactor builder to specify), and the current 
+width and height of the window, returns a handle that is 
+passed into all the other UserInteractor routines. This routine also sets 
+the value of  #!F-adobe-times-bold-r-normal--18*   mask #!EF to reflect which events the 
+particular interactor is interested in (for example, only left or right 
+buttons). Once  #!F-adobe-times-bold-r-normal--18*   mask #!EF is set, only those events which 
+have been specified as interesting to the interactor will cause the 
+interactor to be called. The set of possible masks is: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N DXEVENT_LEFT #!N #!I30 #!N 
+DXEVENT_MIDDLE #!N #!I30 #!N DXEVENT_RIGHT #!N #!I30 #!N DXEVENT_KEYPRESS #!N #!I0 
+#!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void EndMode(void *handle) 
+#!EF #!EF #!I50 #!N Frees the space allocated in InitMode. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void SetCamera(void *handle, float *to, float *from, 
+float #!EF *up, int projection, float fov, float width) #!EF #!I50 
+#!N Passes current camera info from Data Explorer into the interactor. 
+The interactor can extract whatever camera information it is interested in 
+and put into its private  #!F-adobe-times-bold-r-normal--18*   handle #!EF . Note that 
+if the camera is going to be modified, this handle must 
+retain the entire camera state so that it can be passed 
+back in GetCamera(). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void SetRenderable(void *handle, 
+Object object) #!EF #!EF #!I50 #!N Passes the current object into 
+the interactor. If the interactor is going to change the object, 
+it must be retained in  #!F-adobe-times-bold-r-normal--18*   handle #!EF . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int GetCamera(void *handle, float *to, float *from, #!EF 
+float *up, int *projection, float *fov, float *width) #!EF #!I50 #!N 
+Passes updated camera information from the interactor back to Data Explorer. 
+If the interactor has not updated the camera information, return 0; 
+otherwise set ALL the inputs and return 1. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int GetRenderable(void *handle, Object *obj) #!EF #!EF #!I50 #!N 
+Passes updated object information from the interactor back to Data Explorer. 
+If the interactor has not updated the object, return 0, otherwise 
+set  #!F-adobe-times-bold-r-normal--18*   obj #!EF to point to the updated object and 
+return 1. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void EventHandler(void *handle, DXEvent 
+*event) #!EF #!EF #!I50 #!N Event handler. Receives the event in 
+ #!F-adobe-times-bold-r-normal--18*   *event #!EF where a  #!F-adobe-times-bold-r-normal--18*   DXEvent #!EF is of type: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef union #!N ¤ #!N DXAnyEvent 
+any; #!N DXMouseEvent mouse; #!N DXKeyPressEvent keypress; #!N ‡ #!EF #!N 
+#!N #!EC and where DXAnyEvent, DXMouseevent, and DXKeyPressEvent are of type: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct #!N ¤ #!N int 
+event #!N ‡ DXAnyEvent #!N typedef struct #!N ¤ #!N int 
+event; #!N int x; #!N int y; #!N int state; #!N 
+‡ DXMouseEvent #!N typedef struct #!N ¤ #!N int event; #!N 
+int x; #!N int y; #!N int key; #!N ‡ DXKeyPressEvent 
+#!EF #!N #!N #!EC event is one of DXEVENT_LEFT, DXEVENT_MIDDLE, DXEVENT_RIGHT, 
+or DXEVENT_KEYPRESS; x and y are the pixel location of the 
+event; state is one of BUTTON_DOWN, BUTTON_MOTION, or BUTTON_UP; and key 
+is the key that was pressed. #!I0 #!N #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lpicking,dxall960 h Doing Picking  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

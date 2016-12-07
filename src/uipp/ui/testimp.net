@@ -1,0 +1,64 @@
+//
+// time: Thu Aug 22 13:27:08 1996
+//
+// version: 3.1.0 (format), 3.2.0 (DX Beta)
+//
+//
+// MODULE main
+// workspace: width = 355, height = 307
+// layout: snap = 0, width = 50, height = 50, align = NN
+//
+macro main(
+) -> (
+) {
+    // 
+    // node DXLInput[1]: x = 18, y = 26, inputs = 1, label = test_file
+    // input[1]: defaulting = 1, visible = 1, type = 32, value = "/usr/svsdata/netcdf/torus.cdf"
+    //
+    main_DXLInput_1_out_1 = test_file;
+    // 
+    // node DXLInput[2]: x = 277, y = 20, inputs = 1, label = test_format
+    // input[1]: defaulting = 1, visible = 1, type = 32, value = "cdf"
+    //
+    main_DXLInput_2_out_1 = test_format;
+    // 
+    // node Import[1]: x = 169, y = 125, inputs = 6, label = Import
+    // input[1]: defaulting = 1, visible = 1, type = 32, value = NULL
+    // input[3]: defaulting = 1, visible = 1, type = 32, value = "general"
+    //
+main_Import_1_out_1 = 
+    Import(
+    main_DXLInput_1_out_1,
+    main_Import_1_in_2,
+    main_DXLInput_2_out_1,
+    main_Import_1_in_4,
+    main_Import_1_in_5,
+    main_Import_1_in_6
+    ) [instance: 1, cache: 1];
+    // 
+    // node Describe[1]: x = 103, y = 245, inputs = 2, label = Describe
+    // input[2]: defaulting = 1, visible = 1, type = 32, value = "structure"
+    //
+    Describe(
+    main_Import_1_out_1,
+    main_Describe_1_in_2
+    ) [instance: 1, cache: 1];
+// decorator Annotate	pos=(162,7) size=20x20 style(Marker), value = /*\n * $Header: /src/master/dx/src/uipp/ui/testimp.net,v 1.1 1999/06/02 20:36:24 gda Exp $\n */
+// network: end of macro body
+}
+test_file = NULL;
+test_format = NULL;
+main_Import_1_in_2 = NULL;
+main_Import_1_in_4 = NULL;
+main_Import_1_in_5 = NULL;
+main_Import_1_in_6 = NULL;
+main_Import_1_out_1 = NULL;
+main_Describe_1_in_2 = NULL;
+Executive("product version 3 2 0");
+$sync
+// This network contains DXLink tools.  Therefore, the following line(s)
+// that would cause an execution when run in script mode have been 
+// commented out.  This will facilitate the use of the DXLink routines
+// exDXLLoadScript() and DXLLoadVisualProgram() when the DXLink
+// application is connected to an executive.
+// main();

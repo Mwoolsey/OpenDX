@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall1056 Miscellaneous information 
+#!N #!EC #!N #!N DXReadyToRun cannot be called from the time 
+a module receives its inputs until after it returns its outputs. 
+To trigger another execution immediately, it can do so after the 
+call to DXCallOutboard() in the outboard.c file. #!N #!N Outboard modules 
+cannot be written in coroutine style. They cannot produce outputs without 
+being called by Data Explorer and thereby receiving new inputs (which 
+can be ignored), and they must return something - the main 
+Data Explorer executive will wait for the module to return before 
+continuing. #!N #!N An asynchronous module cannot be run in distributed 
+mode, but it can be executed on another machine by setting 
+the host name on the OUTBOARD line. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall1057,dxall1058 h Asynchronous Outboard Module: An Example  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

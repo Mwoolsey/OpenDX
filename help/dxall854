@@ -1,0 +1,84 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rgetglo GetGlobal #!N #!N Category #!N #!N  #!Lcatflow,dxall755 h Flow Control  #!EL  #!N #!N 
+Function #!N #!N Retrieves an object from the cache. State is 
+maintained between executions of any macros containing GetGlobal. #!N #!N Syntax 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   object, link #!EF = GetGlobal(  #!F-adobe-times-bold-r-normal--18*   object, reset 
+#!EF ); #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB object TAB 
+object TAB none TAB object to be output if nothing has 
+#!N TAB - TAB - TAB - TAB been set #!N 
+TAB reset TAB flag TAB 0 TAB 0: the object cached 
+by SetGlobal #!N TAB - TAB - TAB - TAB (if 
+there is one) is passed to #!N TAB - TAB - 
+TAB - TAB output #!N TAB - TAB - TAB - 
+TAB 1: object (not the cached object) #!N TAB - TAB 
+- TAB - TAB is passed to output. #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N TAB 
+object TAB object TAB retrieved object #!N TAB link TAB string 
+TAB link to corresponding SetGlobal module #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N GetGlobal works with 
+SetGlobal to place objects in and retrieve them from the cache. 
+GetGlobal is equivalent to (and replaces) Get in previous versions of 
+Data Explorer. GetGlobal differs from GetLocal in that GetLocal and SetLocal 
+are used when the state maintained by the Get/Set pair should 
+be reset when a macro containing these modules is reexecuted. In 
+contrast, GetGlobal and SetGlobal will maintain state when the macro is 
+reexecuted. Note that for a single execution of a macro (for 
+example, throughout the execution of an entire loop), state is of 
+course maintained by both GetLocal and GetGlobal. #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N specifies the 
+object to be output by GetGlobal if nothing has been placed 
+in the cache (e.g., as on the first execution of a 
+visual program) or if  #!F-adobe-times-bold-r-normal--18*   reset #!EF = 1. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   reset #!EF #!EF #!I50 #!N causes the module 
+to output  #!F-adobe-times-bold-r-normal--18*   object #!EF . If this parameter is set 
+to 0 (zero), GetGlobal retrieves the last object placed in the 
+cache by SetGlobal (if there is one). Otherwise, the module passes 
+ #!F-adobe-times-bold-r-normal--18*   object #!EF to the output. #!I0 #!N #!N #!N #!N 
+The  #!F-adobe-times-bold-r-normal--18*   link #!EF output is to be connected to the 
+ #!F-adobe-times-bold-r-normal--18*   link #!EF input of the corresponding SetGlobal module. GetGlobal must 
+be used with SetGlobal, rather than with SetLocal. SetGlobal must be 
+executed on the same machine as GetGlobal (i.e., it cannot be 
+distributed to a different machine). #!N #!N #!I0 #!N Notes: #!N 
+#!I30 #!N 1. The Reset interactor can be used to provide 
+ #!F-adobe-times-bold-r-normal--18*   reset #!EF . However, if you are using GetGlobal and 
+SetGlobal in a loop, you should not use the Reset interactor 
+to provide this parameter, because the Reset interactor will output the 
+reset value for one execution, which is an  #!F-adobe-times-medium-i-normal--18*   entire #!EF 
+execution of the loop. In general, there are performance advantages to 
+using GetLocal, rather than GetGlobal with the First module supplying the 
+ #!F-adobe-times-bold-r-normal--18*   reset #!EF parameter. While the result will be the same, 
+using GetLocal will ensure that all previous results of the macro 
+will be cached and ready for reuse. If you use GetGlobal, 
+only the last result of the macro is cached. #!N #!I30 
+#!N 2. Whenever there is a GetGlobal inside a macro, all 
+outputs of the macro will be stored in the cache with 
+the cache attribute "cache last." In other words, whenever any input 
+to the macro changes, the old results of the macro will 
+be deleted from the cache and the new results will be 
+stored in the cache. There is no way for the user 
+to turn off caching for this macro. The results are also 
+locked in the cache, and cannot be flushed. This is because 
+GetGlobal maintains state for the macro that may not be reproduced 
+given the inputs to the macro. Inconsistent behavior might result if 
+results were not cached in this way. #!N #!I30 #!N 3. 
+Previously created visual programs which use Get and Set will be 
+run using GetGlobal and SetGlobal. You can explicitly change your Gets 
+and Sets to either GetGlobals and SetGlobals or GetLocals and SetLocals 
+using the Edit menu (see  #!Lscope,dxall444 s Assign Get/Set Scope  #!EL  in IBM Visualization Data Explorer 
+User's Guide). There are performance advantages to using GetLocal and SetLocal 
+whenever you do not need to maintain state between executions of 
+your macro which uses Gets and Sets. A rule of thumb 
+is that if you are using the First module to supply 
+the reset parameter of Get, you should use GetLocal instead of 
+GetGlobal (and the use of First is then unnecessary). #!I0 #!N 
+#!N A detailed description of the behavior and use of the 
+GetLocal, GetGlobal, SetLocal, and SetGlobal modules can be found in  #!Lstates,dxall269 h Preserving Explicit State  #!EL  
+in IBM Visualization Data Explorer User's Guide. #!N #!N Example Visual 
+Programs #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N SIMPLE/GetSet.net #!EF #!N #!N 
+#!EC #!N #!N See Also #!N #!N  #!Lodone,dxall828 h Done  #!EL  ,  #!Lofirst,dxall850 h First  #!EL  , 
+ #!Lsetglo,dxall940 h SetGlobal  #!EL  ,  #!Lgetloc,dxall855 h GetLocal  #!EL  ,  #!Lsetloc,dxall941 h SetLocal  #!EL  ,  #!Lreset,dxall926 h Reset  #!EL  #!N #!N  #!Lxmod,dxall263 h Data Explorer Execution Model  #!EL  in 
+IBM Visualization Data Explorer User's Guide. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lgetloc,dxall855 h GetLocal  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

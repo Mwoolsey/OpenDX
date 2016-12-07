@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Fixes</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu018.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu020.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu010.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<h2><a name="HDRWHATNEW"></a>Summary of Changes in Data Explorer Version 4.3.0</h2>
+		<p><a name="PToC3" href="../usrguide.htm">Partial Table-of-Contents</a></p>
+		<menu>
+			<li><a name="PToC_16" href="#Header_16">User Interface</a>
+				<menu></menu>
+			<li><a href="#HDRNEWTAB">Fixed up the tabs on pages</a>
+			<li><a href="#HDRNWTOOL">Tool selector is now a tree view</a>
+			<li><a href="#HDRNWPREF">Preferences file for saving state</a>
+			<li><a href="#HDRNEWGRH">Automatic graph layout of modules</a>
+			<li><a href="#HDRNEWUND">Undo now available in VPE</a>
+			<li><a href="#HDRNEWCUR">Cursor keys now move modules on canvas</a>
+		</menu>
+		<li><a href="#HDRGETSET">Shared libraries now available</a>
+		<li><a name="PToC_24" href="#Header_24">New Windows Visual Studio loadable module example</a>
+		<li><a name="PToC_25" href="#Header_25">New Windows native executive</a>
+		<li><a href="#Header_26">Added OPTIONS processing on behalf of Macros</a>
+		<li><a name="PToC_27" href="#Header_27">Changed Modules</a>
+		<li><a name="PToC_29" href="#Header_29">Backward Incompatibilities</a>
+		<li><a name="PToC_31" href="#Header_31">Fixes</a></MENU>
+			<hr>
+			<p>The following are changes to OpenDX since version 4.2.0.</p>
+			<hr>
+			<h2><a name="Header_16"></a>User Interface</h2>
+			<h3><a name="HDRNEWTAB"></a>Fixed up the tabs on pages</h3>
+			<p>The code that draws the tabs on the VPE canvas now produces rounded tabs even on Windows running the Exceed X server.</p>
+			<h3><a name="HDRNWTOOL"></a>Tool selector is now a tree view</h3>
+			<p>The tool selector and categories have now been combined into a standard tree view. Click on the (+) next to each category to expand the list. Click on the (-) next to an expanded category to collapse the category.</p>
+			<h3><a name="HDRNWPREF"></a>Preferences file for saving state</h3>
+			<p>Now at the end of each execution, OpenDX will add the network to a list of previously opened networks for the new &quot;Open Recent&quot; menu option under file. The preferences all save the state of the tool selector so that it is the same when restarting dx.</p>
+			<h3><a name="HDRNEWGRH"></a>Automatic graph layout of modules</h3>
+			<p>New mode under the Edit menu to automatically layout a network page.</p>
+			<h3><a name="HDRNEWUND"></a>Undo now available in VPE</h3>
+			<p>An undo option for the VPE is now available. Every node or annotation move is recorded and can be undone from the Edit menu or via the shortcut (Ctrl-U) or (Ctrl-Z) depending on your keyboard layout.</p>
+			<h3><a name="HDRNEWCUR"></a>Cursor keys now move modules on canvas</h3>
+			The cursor keys now can move the modules on the VPE canvas. Select a node(s) or annotation, then use the up, down, left, or right arrows to move the selected objects 1 pixel at a time.
+		<li>
+			<hr>
+			<h2><a name="HDRGETSET"></a>Shared libraries now available</h2>
+			<p>The build system now uses libtool during its build routines. This makes it possible to build shared DX libraries much easier on many platforms. The libraries no longer have overlapping functionality or be missing functionality so they are linkable with other applications.</p>
+			<hr>
+			<h2><a name="Header_24"></a>New Windows Visual Studio loadable module example</h2>
+			<p>Now included with the OpenDX distribution is an example of building a loadable module (.dll) within Microsoft's Visual Studio environment.Look for a folder named HelloWorld within the VisualDX directory.</p>
+			<hr>
+			<h2><a name="Header_25"></a>New Windows Native Executive</h2>
+			<p>It is now possible to run parts of OpenDX on Microsoft Windows without the need for an X server. The native executive can render images and displays directly to native Windows. If you do not need to use the VPE, you can do the following to run OpenDX's executive natively on Windows:</p>
+			<p>C:\&gt;dx -script -native</p>
+			<p>Then to try running a network, include one of the networks from the samples directory:</p>
+			<p>dx&gt;include &quot;C:\Program Files\OpenDX\samples\programs\AutoColor.net&quot;</p>
+			<p>When images are rendered in hardware mode, some functionality for rotating and zooming is available.</p>
+			<p>The functionality for the Supervise* modules does not yet exist.</p>
+			<hr>
+			<h2><a name="Header_26"></a>OPTIONS now available on Macros</h2>
+			<p>Macros can now assign values to the ellipses for parameters within the CDB. To create an options list, open the selected macro, double-click on the Input module and add a list of options separated by semi-colons in the Optional Values box. Save the macro, and now the options will be available to the end-user.</p>
+			<hr>
+			<h2><a name="Header_27"></a>Changed Modules</h2>
+			<p>This section contains only summaries. See <a href="../refguide.htm"><i>User's Reference</i> </a>for details. Alternatively, you can click on a module name to go directly to that module's description.</p>
+			<p></p>
+			<table cellpadding="3">
+				<tr valign="TOP">
+					<td><b><a href="refgu036.htm">Compute</a></b></td>
+					<td>Added IEEE inquiry functions isnan() and finite()</td>
+				</tr>
+				<tr valign="TOP">
+					<td><b><a href="refgu173.htm">WriteImage</a></b></td>
+					<td>Made it possible to send compression information to the ImageMagick supported format to allow compressing images while saving.</td>
+				</tr>
+				<tr valign="TOP">
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<p></p>
+			<hr>
+			<h2><a name="Header_29"></a>Backward Incompatibilities</h2>
+			<p>There are a few backward incompatibilities with previous versions of Data Explorer. You can click on a module name to go directly to that module's description if applicable.</p>
+			<table cellpadding="3">
+				<a name="SPTNEWAUAX"></a>
+				<tr valign="TOP">
+					<td>
+						<p><b><a href="usrgu044.htm">Macros</a></b></p>
+					</td>
+					<td>
+						<p>Due to the added Optional Values added to the new macro inputs, these will not be backward compatible with older versions of OpenDX or DX.</p>
+					</td>
+				</tr>
+			</table>
+			<h2><a name="Header_30"></a>HTML Documentation</h2>
+			<p>For the HTML version of the complete Data Explorer documentation, point your web browser at <tt>$DXROOT/html/index.htm</tt>.</p>
+			<p>This updated version adds a new look as well as a JavaScript local search engine.</p>
+			<p>The html documentation can now be accessed within OpenDX. By setting an environment variable, DX will override its older built-in help and launch a browser to display the html help. In the UN*X environment set the environment variable DX_WEB_BROWSER to your web browser or a url handler script such as the one included in the dx/bin directory. Within Windows or MacOS X just set this environment variable and the system default browser will launch.</p>
+			<hr>
+			<h2><a name="Header_31"></a>Fixes</h2>
+			<p>Fix a crash bug when a parameter value is set to &quot;&quot;. It probably happened only when the Display tool had a user-specified Where param as would be the case with SuperviseWindow AND the user did some operation like drag-n-drop, cut/copy/paste, 'Edit/Insert Program...'.</p>
+			<p>Added better handling of resize calls to an Image window so that the update call isn't called continually with Window managers that expose the image during resize.</p>
+			<p>Fix in the 2D quad interpolator where point is on an edge.</p>
+			<p>Remove the new-line character on some new annotations to remove the funny character at the end to be displayed.</p>
+			<p>Fixed up the JavaDX macros to include comments and put some of them in the &quot;&quot; category so they do not show up in the UI.</p>
+			<p>Add a work around to fix a bug when the PageUp, PageDown, or End keys were pressed and caused a crash. This is a bug in Motif &lt; 2.3.</p>
+			<p>Added some performance improvements in the UI with respect to interactors.</p>
+			<p>Fix for the random function in Compute for Windows version. (Bug ID#66)</p>
+			<p>Fix the module builder to work and use CR/LF on DOS based systems. (Bug ID#109)</p>
+			<p>Fix the activation of application wide commands unless the Network object == the application's main network. (Bug ID#106)</p>
+			<p>Fix problem where a large stream going to the message window on Windows would Quit the Exec (Bug ID#107)</p>
+			<p>Converted dxworker to bourne shell from csh. Now allows spaces in filenames and exe names and better handles special characters passed in to the exec with scriptcmd option.</p>
+			<p>Corrected problem where Gamma was not being applied to images saved via ImageMagick (Bug ID#67).</p>
+			<p>Fix a memory leak in the XHandler within the EditorWindow.</p>
+			<p>Fix a memory leak with respect to the rotation globes and cfg files.</p>
+			<p>Fix a memory leak with open file descriptors on systems with HAVE_OPEN_DIR and HAVE_DIRENT_H. Free regular expression compiled with regcomp.</p>
+			<p>Fixed the placement of the Throttle dialog of the Image window.</p>
+			<p>Fixed a problem with the Frame Control of the Sequencer popping up directly over the Sequencer on the first pop-up.</p>
+			<p>Fix &quot;Visualize Data...&quot; in the prompter to pass unix path separators instead of DOS on Windows machines.</p>
+			<p>Fix a memory leak in configuration dialog boxes.</p>
+			<p>EditorWindow destructor was deleting cache-optimization menu items twice, now only once. (Bug ID#18)</p>
+			<p>Object deleted during the dropFinish callback. The new Motif interprets Widget deletion as a need to cancel drag-n-drop which triggers the dropFinish callback a 2nd time. Problem is object already deleted. Now, object deletion is queued so object is deleted from dropFinish callback. (Bug ID# 38, 61)</p>
+			<p>Set Min Width, Height on the container so it can't be resized to small. (Bug ID#10)</p>
+			<p>A fix for Streamline when checking for Invalid Data components.</p>
+			<p>A correction to check to see if &quot;invalid&quot; components are added then recompute &quot;dep&quot; components.</p>
+			<p>Fix for invalid() to return error instead of crash in Compute.</p>
+			<p>A correction for netCDF where an invalid file would crash OpenDX instead of returning an error.</p>
+			<p></p>
+		
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+		</DIV>
+		<li>
+		<li>
+			<hr>
+		
+	</BODY></HTML>

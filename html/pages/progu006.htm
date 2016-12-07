@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu005.htm">Previous Page</A> &#124; <A HREF="progu007.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu003.htm#PToC1">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="Header_7" HREF="../proguide.htm#ToC_7">About This Book</A></H1>
+<P><A NAME="PToC2" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_8" HREF="#Header_8">Summary of Topics</A>
+<LI><A NAME="PToC_9" HREF="progu007.htm#Header_9">Typographic Conventions</A>
+<LI><A NAME="PToC_10" HREF="progu008.htm#HDRRELPUBS">Related Publications and
+Sources</A>
+<MENU>
+<LI><A NAME="PToC_11" HREF="progu008.htm#HDRIBPUBS">IBM Publications</A>
+<LI><A NAME="PToC_12" HREF="progu008.htm#HDRNONPUBS">Non-IBM Publications</A>
+<LI><A NAME="PToC_13" HREF="progu008.htm#HDRMOREINF">Other sources of
+information</A>
+</MENU></MENU><HR><P>
+<P>
+This reference is intended for programmers who:
+<OL COMPACT>
+<LI>want to write their own modules for use with Data Explorer, or
+
+<LI>want to write applications which incorporate Data Explorer
+modules or use the Data Explorer data model, or
+<LI>want to write applications which directly control the Data Explorer
+executive
+or user interface. Programmers using this reference should be familiar
+with Data Explorer (in particular, its data model).
+
+</OL>
+In addition to covering various aspects of creating and implementing
+modules, this reference describes in detail the use of the Module
+Builder--a utility that simplifies the task of writing a module.
+<HR>
+<H2><A NAME="Header_8" HREF="#PToC_8">Summary of Topics</A></H2>
+<UL COMPACT>
+
+<LI><A HREF="progu009.htm#HDRPROGCHP">Chapter 1. "Overview"</A> briefly
+discusses the various ways the Data Explorer
+libraries can be used and points you to the appropriate sections, depending
+on what task you want to accomplish and how you want to use Data Explorer.
+<LI><A HREF="progu013.htm#HDRWRITMOD">Chapter 2. "Writing a Simple Module"</A>
+presents a simple example to
+outline the basic procedure for creating and implementing a module.
+It also summarizes the data and execution models of Data Explorer.
+
+<LI><A HREF="progu015.htm#HDRMBLDER">Chapter 3. "Module Builder"</A>, details
+the basic features of the
+Module Builder user interface.
+
+<LI><A HREF="progu025.htm#HDRMODEXSC">Chapter 5. "Working with Data"</A> shows
+how to write modules which are
+concerned only with
+"data" component of an object. A simple module which adds two fields
+together is described.
+<LI><A HREF="progu028.htm#HDRPOSIT">Chapter 6. "Working with Positions"</A>
+shows how to write modules which operate on the
+"positions" component of an object. A simple "glyph" type
+module which places a mark at each position in a field is described.
+<LI><A HREF="progu030.htm#HDRCONNEC">Chapter 7. "Working with Connections"</A>
+shows how to write modules which operate using
+the "connections" component of an object. A simple module which
+averages data over the nearby neighbors in a field is described.
+<LI><A HREF="progu031.htm#HDRIMPTD">Chapter 8. "Importing Data"</A> shows how to
+write an import filter.
+<LI><A HREF="progu033.htm#HDRPICKST">Chapter 9. "Using the Pick Structure"</A>
+shows how to write a module which uses the
+structure output by the Pick tool to perform specific operations on
+objects "picked" using the mouse in the Image window.
+
+<LI><A HREF="progu035.htm#HDRPARAL">Chapter 10. "Writing Modules for a Parallel
+Environment"</A>, explains how to write a module for
+execution on parallel processors.
+<LI><A HREF="progu037.htm#HDRMTDS">Chapter 11. "Making a Module Work"</A>, deals
+with the main aspects of
+implementing a new module: module description files,
+compilation and linking, and debugging.
+<LI><A HREF="progu044.htm#HDRDATACHP">Chapter 12. "Working with Data Model
+Objects"</A>, details the programming interface of
+the Data Explorer data model.
+<LI><A HREF="progu055.htm#HDRSYSCHAP">Chapter 13. "System Services"</A>, <A
+HREF="progu066.htm#HDRPROCHAP">Chapter 14. "Data Processing"</A>, and <A
+HREF="progu072.htm#HDRGEOCHAP">Chapter 15. "Geometric Objects"</A>
+summarize the Data Explorer routines available for:
+<UL COMPACT>
+<LI>System services (e.g, error handling and storage allocation)
+<LI>Data processing (e.g, partitioning and hashing)
+<LI>Creating geometric objects.
+</UL>
+<LI><A HREF="progu075.htm#HDRRENDCHP">Chapter 16. "Rendering"</A>, deals with
+several advanced
+aspects of rendering an image: transformations, shading,
+and tiling.
+<LI><A HREF="progu084.htm#HDRDXLINK">Chapter 17. "DXLink Developer's
+Toolkit"</A>, describes the main features of this
+aid to application programming for Data Explorer.
+<LI><A HREF="progu096.htm#HDRDXLAP1">Appendix B. "Data Explorer Data Model
+Library: DXlite Routines"</A>, lists the subset of Data Explorer routines
+for creating, querying, and modifying Data Explorer Objects.
+<LI><A HREF="progu097.htm#HDRALLR">Appendix C. "Data Explorer Library
+Routines"</A>, lists and describes all the Data Explorer
+interface routines.
+<LI><A HREF="progu343.htm#HDRPROGLOS">Chapter 18. "Glossary"</A>, a glossary of
+Data Explorer terms, follows the
+appendices.
+</UL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu005.htm">Previous Page</A> &#124; <A HREF="progu007.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC2">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

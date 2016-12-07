@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Defining Macros</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu054.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu056.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu050.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRMACRDEF" ></A>10.6 Defining Macros
+</H2>
+		<A NAME="IDX918"></A>
+		<P>
+<I>Macros</I> are higher level processing functions that are
+constructed from simpler ones.
+A macro definition consists of two parts&#58;
+<UL COMPACT>
+<LI>A macro header
+<LI>A macro body
+</UL>
+<P>
+The following sections define these parts.
+<P>
+<H3><A NAME="Header_348" ></A>Macro Header</H3>
+<A NAME="IDX919"></A>
+<P>
+The macro header defines the macro&#39;s name, its formal parameters,
+and the names of values that it returns.
+The syntax of a macro header is
+<P>
+<PRE>
+   macro <VAR>MacroName</VAR> (<VAR>inputs</VAR>) &#91; -&gt; (<VAR>outputs</VAR>) &#93;
+</PRE>
+where&#58;
+<UL>
+<P><LI>The keyword <TT><STRONG>macro</STRONG></TT> indicates that a new macro
+definition has started.
+<P><LI><VAR>MacroName</VAR> is an identifier of the name that is being
+associated with the macro definition.
+<P><LI>The <VAR>inputs</VAR> portion of a macro header is a list of
+identifiers separated by commas.
+The list may be empty.
+These identifiers act as place holders for the arguments passed to the
+macro when it is called.
+If the macro does not require any arguments, then you can omit the list
+(but not the enclosing parentheses).
+The right-arrow symbol is needed only for macros with outputs.
+The following are examples of valid headers for macros without outputs:
+<PRE>
+macro MyMacro(x,y)
+macro MyMacro()
+</PRE>
+<A NAME="IDX920"></A>
+<P>
+You can also specify default values for the inputs.
+Consider the following example:
+<PRE>
+macro X (a = "no input", b = 4)
+{
+  Echo (a, b);
+}
+</PRE>
+The values of the arguments <TT>a</TT> and <TT>b</TT> vary,
+depending how the macro is invoked.
+For example:
+<PRE>
+X();                // a and b are set to the defaults, "no input" and 4
+X("new value", 3);  // a is set to "new value", b is set to 3
+X(NULL);            // a and b are set to the defaults, "no input" and 4
+X(b = 6);           // a gets default of "no input", b is set to 6
+</PRE>
+<P>
+See <A HREF="usrgu054.htm#HDRCALLF">10.5 , "Invoking Data Explorer Macros and
+Modules"</A> for further explanation of the function-calling
+mechanism.
+<P><LI>The <VAR>outputs</VAR> portion of a macro&#39;s header is a list of
+identifiers separated by commas.
+<P>
+These identifiers act as place holders for the values returned by the
+macro when the macro is executed.
+If the macro does not return any values, then the right-arrow portion,
+-&gt; (), is not necessary.
+</UL>
+<P>
+<P>
+<H3><A NAME="Header_349" ></A>Macro Body</H3>
+<A NAME="IDX921"></A>
+<P>
+The macro body consists of a sequence of assignment statements and
+function calls surrounded by braces <TT><STRONG>&#123;
+&#125;</STRONG></TT>.
+The functions referred to in these statements need not exist when a
+macro is defined; however, they must exist when it is executed.
+<P>
+Recursive and mutually recursive macro invocations are detected and
+prevented from executing.
+Statements are not guaranteed to execute in the order given in the
+macro&#39;s declaration, although some partial ordering is
+always preserved.
+Calls to modules that cause external side effects (such as Display)
+are always executed in the order in which they were specified.
+<P>
+<P>
+<H3><A NAME="Header_350" ></A>Macro Examples</H3>
+<A NAME="IDX922"></A>
+<P>
+The first example macro, Sum, takes two arguments.
+The macro computes and returns their sum.
+<PRE>
+macro Sum (arg1, arg2) -&gt; (sum)
+{
+    sum = arg1 + arg2;
+}
+</PRE>
+<P>
+The second example macro, PrintSum, also takes two arguments and
+computes their sum.
+However, unlike the macro Sum, it does not return the computed value.
+Instead, it prints out using the Echo module.
+This example illustrates a function call (to Echo) that either does not
+return a value or whose return values are ignored.
+<P>
+<PRE>
+macro PrintSum (arg1, arg2)
+&#123;
+    sum = arg1 + arg2;
+    Echo (sum);
+&#125;
+</PRE>
+<P>
+The third example macro, VectorManip, implements a function to compute
+the cross product, dot product, and cosine of two 3-vectors.
+Note that the returned values do not need to be computed in the order
+in which they are declared.
+<P>
+<PRE>
+macro VectorManip (vectlist1, vectlist2) -&gt; (dot, cross, cos)
+{
+    cross = Compute("cross($0, $1)", vectlist1, vectlist2);
+    dot = Compute("dot($0, $1)", vectlist1, vectlist2);
+    cos = Compute("$0/(mag($1)/mag($2))", dot, vectlist1, vectlist2);
+}
+</PRE>
+<P>
+Note that the Data Explorer
+script language does not allow nested function calls.
+The following
+example illustrates a syntactically invalid
+function call:
+<PRE>
+Echo ( Sum (arg1, arg2) );
+</PRE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

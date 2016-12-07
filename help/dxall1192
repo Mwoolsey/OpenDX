@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxctg 
+DXCreateTaskGroup #!N #!N Function #!N #!N Starts a new task Group 
+to utilize parallelism. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error 
+DXCreateTaskGroup() #!EF #!N #!N Functional Details #!N #!N All tasks subsequently 
+created with  #!F-adobe-times-bold-r-normal--18*   DXAddTask #!EF until the matching  #!F-adobe-times-bold-r-normal--18*   DXExecuteTaskGroup #!EF 
+is called will be members of this task Group. Each task 
+added to this group will, when  #!F-adobe-times-bold-r-normal--18*   DXExecuteTaskGroup #!EF is called, 
+be sorted by its work values and executed in parallel if 
+possible. #!N #!N If an error occurs before ExecuteTaskGroup is called, 
+AbortTaskGroup should be called to free memory associated with the task 
+group. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxatg,dxall1163 h DXAbortTaskGroup  #!EL  , 
+ #!Ldxat,dxall1170 h DXAddTask  #!EL  ,  #!Ldxetg,dxall1203 h DXExecuteTaskGroup  #!EL  ,  #!Ldxproi,dxall1334 h DXProcessorId  #!EL  ,  #!Ldxproc,dxall1335 h DXProcessors  #!EL  #!EF #!N #!N  #!Lplsm,dxall1105 h Parallelism  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxcul,dxall1193 h DXCull  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

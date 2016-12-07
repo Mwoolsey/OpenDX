@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu083.htm">Previous Page</A> &#124; <A HREF="progu085.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu075.htm#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRDXLINK" HREF="../proguide.htm#ToC_170">Chapter 17. DXLink
+Developer's Toolkit</A></H1>
+<P><A NAME="PToC19" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_171" HREF="#Header_171">17.1 Introduction</A>
+<LI><A NAME="PToC_172" HREF="progu085.htm#Header_172">17.2 Example 1:
+sealevel.c</A>
+<LI><A NAME="PToC_173" HREF="progu086.htm#Header_173">17.3 Example 2:
+maptoplane.c</A>
+<LI><A NAME="PToC_174" HREF="progu087.htm#Header_174">17.4 Example 3: xapp.c</A>
+<LI><A NAME="PToC_175" HREF="progu088.htm#HDRINITEX">17.5 Initialization and
+Exit</A>
+<LI><A NAME="PToC_176" HREF="progu089.htm#HDRMSGSYS">17.6 Messaging System</A>
+<MENU>
+<LI><A NAME="PToC_177" HREF="progu089.htm#Header_177">Sending Messages to the
+Server</A>
+<LI><A NAME="PToC_178" HREF="progu089.htm#HDRRCVMSG">Receiving Messages from the
+Server</A>
+<LI><A NAME="PToC_179" HREF="progu089.htm#HDRMSGRTNS">Messaging Routines</A>
+</MENU>
+<LI><A NAME="PToC_180" HREF="progu090.htm#HDREXECCTL">17.7 Execution Control</A>
+<LI><A NAME="PToC_181" HREF="progu091.htm#HDRPRGCTL">17.8 Program Control</A>
+<MENU>
+<LI><A NAME="PToC_182" HREF="progu091.htm#Header_182">Loading programs and
+macros</A>
+<LI><A NAME="PToC_183" HREF="progu091.htm#HDRSETVARS">Setting Variables</A>
+<LI><A NAME="PToC_184" HREF="progu091.htm#Header_184">Retrieving Values Sent
+From Data Explorer</A>
+</MENU>
+<LI><A NAME="PToC_185" HREF="progu092.htm#Header_185">17.9 Window Control</A>
+</MENU><HR><P>
+<A NAME="IDX1332"></A>
+<A NAME="IDX1333"></A>
+<A NAME="IDX1334"></A>
+<HR>
+<H2><A NAME="Header_171" HREF="#PToC_171">17.1 Introduction</A></H2>
+<A NAME="IDX1335"></A>
+<P>
+DXLink is a C programming interface that can be used to communicate with
+the Data Explorer user interface (dxui) or the Data Explorer executive
+(dxexec).
+Functions are provided to load programs, enable the setting and
+retrieval of named variables, control execution, handle errors,
+and define application-specific messaging.
+For the user interface, functions are also available to control window
+visibility and to load configuration files.
+For the executive, a function is provided to send arbitrary
+scripting-language commands.
+Support for X windows is built in but is not required.
+<P>
+The kinds of application that can be written with DXLink include:
+<UL COMPACT>
+<LI>A graphical user interface and demonstration utility that controls
+the execution of the Data Explorer user interface to start selected demos,
+flip through images, and remove and place windows on
+the display.
+<LI>A graphical user interface that communicates with the executive,
+replacing the Data Explorer user interface.
+<LI>A shell-like scripting language to control the user interface (and
+that might also be useful for a demonstration utility).
+</UL>
+<P>
+A majority of DXLink functions have names that begin with the prefix
+"DXL."
+These functions can be used in communicating with either the user
+interface or the executive.
+The prefix "uiDXL" identifies a function intended for use only
+with the interface; the prefix "exDXL," a function
+for use only with the executive.
+<P><B>Note: </B>In the remainder of this document, references to "the server"
+apply to the user interface and the executive equally.
+<P>
+All applications that use the DXLink facilities must link with the
+library libDXL.a and include the header file dxl.h in the
+source code.
+<P>
+The functions provided by DXLink are described in more detail in the
+following sections.
+They have been divided into four groups:
+<OL COMPACT>
+<LI><A HREF="progu088.htm#HDRINITEX">17.5 , "Initialization and Exit"</A>,
+<LI><A HREF="progu089.htm#HDRMSGSYS">17.6 , "Messaging System"</A>,,
+<LI><A HREF="progu090.htm#HDREXECCTL">17.7 , "Execution Control"</A>, and
+<LI><A HREF="progu091.htm#HDRPRGCTL">17.8 , "Program Control"</A>.
+</OL>
+<P>
+
+The declarations for these functions are found in the C include file
+<TT>dxl.h</TT>, which should be included in any C file that uses them.
+The following sections describe three simple DXLink programs. All
+of these examples and necessary Makefiles can be found in
+<TT>/usr/local/dx/samples/dxlink</TT>. It is recommended that you
+create these programs and run them before studying the C code
+which follows. See the <TT>Readme</TT> file in
+<TT>/usr/local/dx/samples/dxlink</TT>
+for instructions on how to create them.
+
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Stand-alone
+Programs</TH><TR><TD>
+<OL COMPACT>
+<LI>Stand-alone programs may access the Data Explorer data model by linking to
+the library DXlite.
+The file libDXlite.a contains a subset of Data Explorer routines (see
+<A HREF="progu096.htm#HDRDXLAP1">Appendix B. "Data Explorer Data Model Library:
+DXlite Routines"</A>).
+<LI>Stand-alone programs may also access almost all Data Explorer data modules
+and all Data Explorer library routines by linking to the library
+libDXcallm.a.
+(The exceptions are such user-interface features as interactors,
+the Colormap Editor, the Image tool, and Get and Set.)
+The file libDXcallm.a contains all the Data Explorer library routines
+listed in <A HREF="progu097.htm#HDRALLR">Appendix C. "Data Explorer Library
+Routines"</A>.
+See also <A HREF="progu064.htm#HDRMODACSS">13.10 , "Module Access"</A>.
+<LI>When starting Data Explorer from an external program, certain command line
+options may be useful to disable portions of the user interface
+that the external program is intended to control.
+See <A HREF="usrgu074.htm#TBLDCLOPTS">Table 6</A> in <I>IBM Visualization Data
+Explorer User&#39;s Guide</I>.
+</OL>
+</TD></TR></TABLE>
+
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu083.htm">Previous Page</A> &#124; <A HREF="progu085.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

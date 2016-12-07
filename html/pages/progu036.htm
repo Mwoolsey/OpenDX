@@ -1,0 +1,403 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu035.htm">Previous Page</A> &#124; <A HREF="progu037.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu035.htm#PToC12">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDREXMODP1" HREF="progu035.htm#PToC_73">10.2 A Parallel Version of
+the AverageCell Module</A></H2>
+<A NAME="IDX275"></A>
+<A NAME="IDX276"></A>
+<A NAME="IDX277"></A>
+<A NAME="IDX278"></A>
+<P>
+Writing a version of AverageCell for a parallel environment introduces
+a "problem" that does not arise with the Add module:
+the implementation of parallelism by dividing Fields into spatially
+disjoint subsets called partitions.
+Each partition is stored as a Field inside a Group Object.
+This Group is a special subclass of Group objects called a
+"Composite Field."
+<P>
+The AverageCell algorithm requires information about the neighbors of
+each cell.
+But for cells on a partition boundary, at least some of those
+neighbors are in another partition.
+<TT><STRONG>DXGrow</STRONG></TT> deals with this difficulty and obtains the
+needed information by "growing" the partition by a
+specified number of cells.
+In effect it "restores the old neighborhood."
+The desired operation can then be performed on the "grown"
+Field.
+<TT><STRONG>DXShrink</STRONG></TT> restores the partition to its pre-growth
+state by removing the extra cells and "cleaning up."
+(See <A HREF="progu069.htm#HDRGNS">14.4 , "Growing and Shrinking Partitioned
+Data"</A>.)
+<P>
+To create a version of Data Explorer that includes the AverageCellParallel
+module, copy the following files to the directory where you
+want to work:
+<PRE>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/Makefile&#95;</STRONG><VAR>workstation</VAR></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/averagecell_parallel.c</STRONG></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/averagecellpar.mdf</STRONG></TT>
+</PRE>
+Now rename the makefile to <TT><STRONG>Makefile</STRONG></TT> and enter:
+<TT>make avgcell_par</TT>.
+<P>
+To run this version (from the directory to which the files were
+copied), enter:
+<PRE>
+dx  -mdf ./averagecellpar.mdf -exec ./dxexec
+</PRE>
+<P>
+You can now run any visual program that uses the AverageCellParallel
+module.
+One such program is <TT><STRONG>averagecell_parallel.net</STRONG></TT> in the
+directory <TT><STRONG>/usr/local/dx/samples/program&#95;guide</STRONG></TT>.
+<P>
+The example AverageCellParallel code follows:
+<PRE>
+01   #include &lt;dx/dx.h&gt;
+02
+03   static Error DoAverageCell(Object);
+04
+05
+06
+07   Error m_AverageCellParallel(Object *in, Object *out)
+08   {
+09     Object o=NULL;
+10
+11     if (!in&#91;0&#93;) {
+12       DXSetError(ERROR_BAD_PARAMETER,"missing input");
+13       goto error;
+14     }
+15
+16     o = DXCopy(in&#91;0&#93;, COPY_STRUCTURE);
+</PRE>
+<P>
+"Grow" the Fields so that averaging can be performed across
+partition boundaries.
+Since it is not necessary to grow a Field beyond the original boundaries
+of the data,  and since only the "data" component is affected,
+grow the partition by one cell.
+(The original components--"positions," "data,"
+etc.--are copied into components named
+"original positions," "original data," and so on.)
+<PRE>
+17     if (!DXGrow(o, 1, GROW_NONE, "data", NULL))
+18       goto error;
+</PRE>
+<P>
+Create the task Group.
+<PRE>
+19     if (!DXCreateTaskGroup())
+20       goto error;
+</PRE>
+<P>
+The add tasks will be added in
+<TT><STRONG>DoAverageCell()</STRONG></TT>.
+<PRE>
+21     if (!DoAverageCell(o)) {
+22       DXAbortTaskGroup();
+23       goto error;
+24     }
+25
+26     if (!DXExecuteTaskGroup())
+27       goto error;
+</PRE>
+<P>
+Do not call <TT><STRONG>DXShrink</STRONG></TT> to shrink the grown Field
+until you have recursively removed any "original data"
+component(s), assuming that you want to save the newly
+created one(s).
+Otherwise the new "data" component(s) will be replaced by the
+(unprocessed) "original data" components(s).
+Now you can call <TT><STRONG>DXShrink</STRONG></TT>.
+<PRE>
+28     if (DXExists(o, "original data"))
+29       DXRemove(o,"original data");
+30     if (!DXShrink(o))
+31       goto error;
+32
+33     out&#91;0&#93; = o;
+34     return OK;
+35    error:
+36     DXDelete((Object)o);
+37     return ERROR;
+38   }
+39
+40   struct arg {
+41     Field field;
+42   };
+43
+44   static Error AddCellTask(Pointer p)
+45   {
+46     struct arg *arg = (struct arg *)p;
+47     int i, j, numitems, shape, *neighbors_ptr, sum, neighbor;
+48     int dim, counts&#91;3&#93;;
+49     char *attribute;
+50     float *data_ptr, *newdata_ptr, dataaverage;
+51     Array connections, data, newdata=NULL, neighbors;
+52     Field field;
+53
+54     field = arg-&gt;field;
+55
+</PRE>
+<P>
+Get the connections component; determine the number of connections and
+their element type.
+<PRE>
+56
+57     connections = (Array)DXGetComponentValue(field,"connections");
+58     if (!connections) {
+59       DXSetError(ERROR_MISSING_DATA,"input has no connections");
+60       goto error;
+61     }
+62     if (!DXGetArrayInfo(connections, &numitems, NULL, NULL, NULL, NULL)) {
+63       goto error;
+64     }
+65     if (!(attribute=
+66           (char *)DXGetString((String)DXGetComponentAttribute(field,
+67                                                               "connections",
+68                                                               "element type")))) {
+69       DXSetError(ERROR_MISSING_DATA,
+70                  "missing connection element type attribute");
+71       goto error;
+72     }
+73
+74
+</PRE>
+<P>
+Get the data component, and get the data dependency attribute.
+<PRE>
+75     data = (Array)DXGetComponentValue(field,"data");
+76     if (!data) {
+77       DXSetError(ERROR_MISSING_DATA,"input has no data");
+78       goto error;
+79     }
+80     if (!(attribute=
+81           (char *)DXGetString((String)DXGetComponentAttribute(field,
+82                                                               "data",
+83                                                               "dep")))) {
+84       DXSetError(ERROR_MISSING_DATA,
+85                  "missing data dependency attribute");
+86       goto error;
+87     }
+88
+</PRE>
+<P>
+In this example, the data must be dependent on the connections.
+<PRE>
+89     if (strcmp(attribute,"connections")) {
+90       DXSetError(ERROR_INVALID_DATA,
+91                  "data must be dependent on connections");
+92       goto error;
+93     }
+94
+</PRE>
+<P>
+For this example, the data must be floating-point scalar.
+<PRE>
+95     if (!DXTypeCheck(data, TYPE_FLOAT, CATEGORY_REAL, 0, NULL)) {
+96       DXSetError(ERROR_INVALID_DATA, "data must be floating point scalar");
+97       goto error;
+98     }
+</PRE>
+<P>
+Get a pointer to the data.
+<PRE>
+99     data_ptr = (float *)DXGetArrayData(data);
+100
+</PRE>
+<P>
+Make a new data component, allocate space in it, and get a
+pointer to it.
+<PRE>
+101    newdata = DXNewArray(TYPE_FLOAT,CATEGORY_REAL, 0);
+102    if (!DXAddArrayData(newdata, 0, numitems, NULL))
+103      goto error;
+104    newdata_ptr = (float *)DXGetArrayData(newdata);
+105
+</PRE>
+<P>
+If the data is ungridded, use the neighbors component.
+If it is gridded, use a different method.
+<PRE>
+106    if (!DXQueryGridConnections(connections, &dim,  counts)) {
+107
+</PRE>
+<P>
+Now the program needs the neighbors of the connections.
+Note that neighbors can be obtained only for ungridded data:
+for gridded data there are more efficient ways to determine neighbors.
+<PRE>
+108      neighbors = DXNeighbors(field);
+109      if (!neighbors)
+110        goto error;
+111      neighbors_ptr = (int *)DXGetArrayData(neighbors);
+112      if (!DXGetArrayInfo(neighbors, NULL, NULL, NULL, NULL, &shape))
+113        goto error;
+114
+115
+116      for (i=0; i&lt;numitems; i++) {
+117        dataaverage = data_ptr&#91;i&#93;;
+118        sum = 1;
+</PRE>
+<P>
+<TT><STRONG>shape</STRONG></TT> is the number of neighbors of a connection
+element.
+<PRE>
+119        for (j=0; j&lt;shape; j++) {
+120          neighbor = neighbors_ptr&#91;shape*i + j&#93;;
+121          if (neighbor != -1) {
+122            dataaverage = dataaverage + data_ptr&#91;neighbor&#93;;
+123            sum++;
+124          }
+125        }
+126        dataaverage = dataaverage/sum;
+127        newdata_ptr&#91;i&#93; = dataaverage;
+128      }
+129    }
+130
+131    else {
+</PRE>
+<P>
+The connections are gridded.
+This example handles only 2-dimensional connections (quads).
+<PRE>
+132
+133      if (dim != 2) {
+134        DXSetError(ERROR_INVALID_DATA,"connections must be 2-dimensional");
+135        goto error;
+136      }
+137
+138      for (i=0; i&lt; numitems; i++) {
+139        dataaverage = data_ptr&#91;i&#93;;
+140        sum = 1;
+</PRE>
+<P>
+&nbsp;There are as many as four (4) neighbors for every quad.&nbsp;
+<PRE>
+141        if ((i % (counts&#91;1&#93;-1)) &gt; 0) {
+142          neighbor = i-1;
+143          dataaverage = dataaverage + data_ptr&#91;neighbor&#93;;
+144          sum++;
+145        }
+</PRE>
+<PRE>
+146        if ((i % (counts&#91;1&#93;-1)) &lt; (counts&#91;1&#93; - 2)) {
+147          neighbor = i+1;
+148          dataaverage = dataaverage + data_ptr&#91;neighbor&#93;;
+149          sum++;
+150        }
+</PRE>
+<PRE>
+151        neighbor = i-(counts&#91;1&#93;-1);
+152        if (neighbor&gt;=0 && neighbor&lt;numitems) {
+153          dataaverage = dataaverage + data_ptr&#91;neighbor&#93;;
+154          sum++;
+155        }
+156        neighbor = i+(counts&#91;1&#93;-1);
+157        if (neighbor&gt;=0 && neighbor&lt;numitems) {
+158          dataaverage = dataaverage + data_ptr&#91;neighbor&#93;;
+159          sum++;
+160        }
+161        dataaverage = dataaverage/sum;
+162        newdata_ptr&#91;i&#93; = dataaverage;
+163      }
+164    }
+</PRE>
+<P>
+Place the new data component in the Field.
+<PRE>
+165    DXSetComponentValue(field, "data", (Object)newdata);
+166    newdata=NULL;
+</PRE>
+<P>
+The data component has been changed (lines 162 and 165)
+<P>
+<PRE>
+167    if (!DXChangedComponentValues(field,"data"))
+168      goto error;
+169
+170
+171    return OK;
+172   error:
+173    DXDelete((Object)newdata);
+174    return ERROR;
+175  }
+176
+177
+178  static Error DoAverageCell(Object object)
+179  {
+180    Object subo;
+181    struct arg arg;
+182    int i;
+183
+184    switch (DXGetObjectClass(object)) {
+185    case (CLASS_FIELD):
+186
+187      arg.field = (Field)object;
+188      if (!DXAddTask(AddCellTask, &arg, sizeof(arg), 0.0))
+189        goto error;
+190      break;
+191
+192    case (CLASS_GROUP):
+</PRE>
+<P>
+If <TT><STRONG>object</STRONG></TT> is a Group, recursively call
+<TT><STRONG>DoAverageCell()</STRONG></TT>.
+<PRE>
+193      for (i=0; subo=DXGetEnumeratedMember((Group)object, i, NULL); i++) {
+194        if (!DoAverageCell(subo))
+195          return ERROR;
+196      }
+197      break;
+198    }
+199    return OK;
+200   error:
+201    return ERROR;
+202  }
+</PRE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu035.htm">Previous Page</A> &#124; <A HREF="progu037.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu035.htm#PToC12">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

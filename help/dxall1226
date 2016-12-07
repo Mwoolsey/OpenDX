@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgci DXGetClippedInfo #!N #!N Function #!N #!N Returns the Object 
+to be rendered and the clipping Object. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Clipped DXGetClippedInfo(Clipped c, Object *render, Object *clipping) #!EF 
+#!N #!N Functional Details #!N #!N Returns the Object to be 
+rendered in  #!F-adobe-times-bold-r-normal--18*   *render #!EF , given a Clipped Object  #!F-adobe-times-bold-r-normal--18*   
+c #!EF , if  #!F-adobe-times-bold-r-normal--18*   render #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF . If  #!F-adobe-times-bold-r-normal--18*   clipping #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+, returns the clipping Object in  #!F-adobe-times-bold-r-normal--18*   *clipping #!EF . #!N 
+#!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   c #!EF or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxncd,dxall1312 h DXNewClipped  #!EL  ,  #!Ldxsco,dxall1370 h DXSetClippedObjects  #!EL  #!EF #!N #!N  #!Lcdcs,dxall1137 h Clipped Class  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgca,dxall1227 h DXGetComponentAttribute  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

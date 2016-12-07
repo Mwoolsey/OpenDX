@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rlist 
+List #!N #!N Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N 
+#!N Creates a list. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N  #!F-adobe-times-bold-r-normal--18*   list #!EF = List(  #!F-adobe-times-bold-r-normal--18*   object1, object2,...] #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+object1 TAB value, value list, or string list TAB no default 
+TAB list item #!N TAB object2, ... TAB ... TAB ... 
+TAB more list items to concatenate #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Description #!EF #!N TAB list TAB 
+value list or string list TAB the list of objects #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module creates a list from specified objects, which can 
+be single values, strings or lists themselves. The objects specified ( 
+ #!F-adobe-times-bold-r-normal--18*   object1, object2, ... #!EF ) must all be the same 
+type or be convertible to the same type. The output  #!F-adobe-times-bold-r-normal--18*   
+list #!EF is a list of the concatenated items. #!N #!N 
+To select items from the list, use the Select module. #!N 
+#!N #!N A maximum of 21 objects can be concatenated with 
+single call to the List module. In the user interface, the 
+default number of enabled  #!F-adobe-times-bold-r-normal--18*   string #!EF tabs is two. (Tabs 
+can be added to the module icon and removed with the 
+appropriate  #!F-adobe-times-bold-r-normal--18*   ...Input Tab #!EF options in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF 
+pull-down menu of the VPE.) #!N #!N Example Visual Programs #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AnnotationGlyphs.net #!N ContoursAndCaption.net #!N MappedIso.net #!N PlotTwoLines.net 
+#!N UsingAttributes.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lselect,dxall936 h Select  #!EL  ,  #!Lenumer,dxall830 h Enumerate  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Llookup,dxall886 h Lookup  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

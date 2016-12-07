@@ -1,0 +1,146 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rdfndinf Data File 
+and Data Information #!N #!EC #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Data file #!EF #!I50 #!N The first information the General 
+Array Importer requires is the path name of the data file 
+to be imported. This name can be entered directly in the 
+text field to the right of the  #!F-adobe-times-bold-r-normal--18*   Data file #!EF 
+label. Alternatively, you can click on the ellipsis button (  #!F-adobe-times-bold-r-normal--18*   
+... #!EF ) to the right of the text field. If 
+you select  #!F-adobe-times-bold-r-normal--18*   File Selection Dialog... #!EF from the pop-up menu, 
+you can select a file from the dialog list. Note that 
+using the  #!F-adobe-times-bold-r-normal--18*   File Selection #!EF dialog list is simply a 
+shortcut for typing in the path name. The  #!F-adobe-times-bold-r-normal--18*   Browser #!EF 
+option on the ellipsis pop-up is discussed in  #!Lbrowse,dxall169 h Data Prompter Browser  #!EL  . #!N 
+#!N See also  #!Lfilkwd,dxall140 h file  #!EL  . #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rdp317 #!N #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N Figure 
+17. Full Data Prompter. The two halves of this dialog box 
+are described in separate sections in the text (see  #!Ldfndinf,dxall167 h Data File and Data Information  #!EL  and 
+ #!Ldfldinf,dxall168 h Data Fields Information  #!EL  ). #!EF #!N #!EC #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Header #!EF 
+ #!Rdprhdr #!I50 #!N If your data file has a header (an 
+initial section that must not be imported with the data), activate 
+the  #!F-adobe-times-bold-r-normal--18*   Header #!EF toggle button. Clicking on the button immediately 
+to the right of the toggle will generate a pop-up menu 
+of three options for specifying where the header stops and the 
+data begins: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+ #!F-adobe-times-bold-r-normal--18*   # of bytes #!EF (from the beginning of the file) 
+#!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   # of lines #!EF (from the 
+top of the file) #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   string marker 
+#!EF #!N #!I0 #!N #!EF #!N Click on one and enter 
+the appropriate information in the associated text field to the right. 
+The appropriate offset or string can be determined by browsing the 
+data file. (See Notes in  #!Lhdrkwd,dxall147 h header  #!EL  . As earlier examples demonstrate, 
+this information ultimately appears in a  #!F-adobe-times-bold-r-normal--18*   header #!EF keyword statement 
+in a header file.) #!N #!N See also  #!Lhdrkwd,dxall147 h header  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Grid Size versus # of Points #!EF #!I50 
+#!N Located below the  #!F-adobe-times-bold-r-normal--18*   Header #!EF toggle button are two 
+buttons labeled  #!F-adobe-times-bold-r-normal--18*   Grid Size #!EF and  #!F-adobe-times-bold-r-normal--18*   # of Points 
+#!EF . #!N #!N If the data has connections that are 
+gridded, click on the  #!F-adobe-times-bold-r-normal--18*   Grid size #!EF button. Specify the 
+dimensions of the grid in the associated text fields (e.g., if 
+the data are 2-dimensional, enter the sizes in the first two 
+fields and leave the last two blank). #!N #!N If the 
+data consist of unconnected points, click on the  #!F-adobe-times-bold-r-normal--18*   # of 
+Points #!EF associated button, and enter the appropriate number in the 
+associated text field. #!N #!N Notice that these choices affect other 
+aspects of the Data Prompter. The choice of points deactivates the 
+ #!F-adobe-times-bold-r-normal--18*   Data order #!EF buttons and all but the first origin-delta 
+field in the  #!F-adobe-times-bold-r-normal--18*   Positions #!EF section at the bottom. #!N 
+#!N See also  #!Lgridkwd,dxall141 h grid  #!EL  and  #!Lpntkwd,dxall142 h points  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Data Format #!EF #!I50 #!N The format of the data can 
+be ASCII/Text or Binary/IEEE. The selection of  #!F-adobe-times-bold-r-normal--18*   Binary/IEEE #!EF ) 
+activates the  #!F-adobe-times-bold-r-normal--18*   Significant Byte First #!EF option button immediately to 
+the right. You may then select Most Significant Byte First (MSB) 
+or Least Significant Byte First (LSB). For ASCII (or Text) format, 
+this option button is inactivated. #!N #!N See also  #!Lformkwd,dxall146 h format  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Data Order #!EF #!I50 #!N This option 
+specifies the layout of multidimensional arrays.  #!F-adobe-times-bold-r-normal--18*   Row #!EF (majority) means 
+that the last index of a multidimensional array varies fastest (as 
+in C language).  #!F-adobe-times-bold-r-normal--18*   Column #!EF (majority) means that the first 
+index varies fastest (as in FORTRAN). #!N #!N See also  #!Lmajkwd,dxall150 h majority  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Field Interleaving #!EF #!I50 #!N The 
+data to be visualized must be organized in one of two 
+general styles: block or columnar. For data laid out in blocks, 
+select  #!F-adobe-times-bold-r-normal--18*   Block #!EF from the  #!F-adobe-times-bold-r-normal--18*   Field Interleaving #!EF option 
+menu. For columnar style, select  #!F-adobe-times-bold-r-normal--18*   Columnar #!EF . #!N #!N 
+Note that when  #!F-adobe-times-bold-r-normal--18*   Columnar #!EF is selected, both  #!F-adobe-times-bold-r-normal--18*   Vector 
+Interleaving #!EF and  #!F-adobe-times-bold-r-normal--18*   Series Interleaving #!EF are grayed out. (See 
+ #!Lgaints,dxall113 h Some Notes on General Array Importer Format  #!EL  for more information about the block and columnar styles.) #!N 
+#!N See also  #!Lintrkwd,dxall148 h interleaving  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Vector Interleaving 
+#!EF #!I50 #!N The interpretation of vector data organized in records 
+(blocks) is specified by the  #!F-adobe-times-bold-r-normal--18*   Vector Interleaving #!EF option button. 
+The two choices in the associated option menu are: #!N X[0]Y[0], 
+X[1]Y[1],..., X[n]Y[n] "Vectors together" and X[0], X[1],..., X[n], Y[0], Y[1],..., Y[n] 
+"Components together" #!N #!N "Vectors together" means that all of the 
+components of one vector are written together, then all the components 
+of the next vector, and so on. "Components together" means that 
+all of the x-components are written together, then all the y-components, 
+and so on. #!N #!N See also  #!Lintrkwd,dxall148 h interleaving  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   Series #!EF #!I50 #!N For data consisting of a 
+sequence of fields, click on the  #!F-adobe-times-bold-r-normal--18*   Series #!EF toggle button, 
+activating the three text fields to the right: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   n #!EF specifies the 
+number of series members in the data file. #!N #!I30 #!N 
+o  #!F-adobe-times-bold-r-normal--18*   start #!EF specifies the series value for the first 
+series member. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   delta #!EF specifies the 
+difference in position between successive series members. #!N #!I0 #!N #!EF 
+#!N #!N #!N See also  #!Lserskwd,dxall152 h series  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Series Interleaving #!EF #!I50 #!N Activating the  #!F-adobe-times-bold-r-normal--18*   Series #!EF toggle 
+button also activates the  #!F-adobe-times-bold-r-normal--18*   Series Interleaving #!EF option menu if 
+ #!F-adobe-times-bold-r-normal--18*   Field Interleaving #!EF is set to  #!F-adobe-times-bold-r-normal--18*   Record #!EF . 
+The option menu contains two choices: #!N F1(s0), F2(s0), F1(s1), F2(s1),..., 
+F1(sn), F2(sn) "Series members together" #!N and #!N F1(s0), F1(s1), F2(s0), 
+F2(s1),..., Fn(s0), Fn(s1) "Fields together" #!N #!N This feature is useful 
+for series that consist of more than one field. "Series members 
+together" means that the data for each field of series member 
+zero (s0) are followed by all the data for each field 
+for series member one (s1), and so on. "Fields together" means 
+that all the series members for field 1 (F1) are followed 
+by all the series members for field 2 (F2), and so 
+on. #!N #!N See also  #!Lintrkwd,dxall148 h interleaving  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Series Separator #!EF #!I50 #!N This feature is required only if 
+the data for series members are separated from one another by 
+non-data (e.g., comments). The specification is identical to that of the 
+ #!F-adobe-times-bold-r-normal--18*   Header #!EF keyword (see  #!Ldprhdr,dxall167 s Header  #!EL  ). #!N #!N See also 
+ #!Lserskwd,dxall152 h series  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Grid Positions #!EF #!I50 #!N 
+This feature is required for gridded data if you have not 
+specified that the positions are stored in the file (by naming 
+one of the fields with the reserved word "locations"). #!N #!N 
+The entire section is grayed out if the "locations" reserved word 
+is used. If the data consist of unconnected points (and are 
+so specified in the initial dialog box or by the  #!F-adobe-times-bold-r-normal--18*   
+# of points #!EF toggle), all but one of the origin-delta 
+fields is grayed out. See also  #!Lposkwd,dxall155 h positions  #!EL  . #!N #!N The 
+option button just to the right of the  #!F-adobe-times-bold-r-normal--18*   Grid positions 
+#!EF (or  #!F-adobe-times-bold-r-normal--18*   Point positions #!EF ) title offers the following 
+choices: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Completely regular 
+#!EF #!EF #!I50 #!N The dimensions of the grid are all 
+regular. This selection fixes the regular/irregular option button to the left 
+of each dimension field at "regular" (i.e., "irregular" cannot be selected 
+for any dimension). There will be as many origin/delta fields enabled 
+as there are dimensions as specified by  #!F-adobe-times-bold-r-normal--18*   Grid size #!EF 
+, or one if  #!F-adobe-times-bold-r-normal--18*   # of Points #!EF is chosen. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Partially regular #!EF #!EF #!I50 #!N 
+Each dimension of the grid can be either regular or irregular. 
+This selection specifies a product of arrays. Thus, for example, the 
+grid may be spaced equally in one dimension, but have an 
+explicit list of positions in another dimension. For each dimension, you 
+can set the  #!F-adobe-times-bold-r-normal--18*   regular #!EF /  #!F-adobe-times-bold-r-normal--18*   irregular #!EF option 
+menu to the appropriate choice, and then enter either the origin, 
+delta pair for that dimension or the explicit list of positions 
+for that dimension. #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 
+1. A regular dimension is specified completely by an origin and 
+a delta (the number of positions in the dimension is specified 
+in the grid section). #!N #!I30 #!N 2. Specification of an 
+irregular dimension requires an explicit and complete list of values (the 
+number of items in the list must exactly equal the number 
+of positions in the dimension). #!I0 #!N #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Explicit position list #!EF #!EF #!I50 #!N The positions 
+are completely irregular and must be explicitly specified. If this option 
+is chosen, then a single field is enabled for you to 
+enter the position list. The number of items in the list 
+should be equal to the total number of positions x the 
+dimensionality of the positions. #!I0 #!N #!N #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldfldinf,dxall168 h Data Fields Information  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

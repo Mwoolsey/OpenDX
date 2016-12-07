@@ -1,0 +1,84 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rsequen Using the 
+Sequencer #!N #!EC #!N #!N The Sequencer allows you to "animate" 
+a visual image and is very easy to use. The process 
+is rather like running a video cassette tape: You can play 
+it forward or backward, stop it, pause, and so on. The 
+Sequencer Control panel consists of 8 buttons as shown in  #!Lvcrcon52,dxall295 f Figure 52  #!EL  
+. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rvcrcon52 #!N Graphics omitted from Online Documentation. 
+Please see the manual. #!N #!N Figure 52. Sequence Control Panel. 
+The first two buttons at top left are Loop and Palindrome. 
+The others are: Step (<  #!F-adobe-times-bold-r-normal--18*   || #!EF >), Counter ( 
+ #!F-adobe-times-bold-r-normal--18*   ... #!EF ), Back (<), Forward (>), Stop (&sqbul.), and 
+Pause (  #!F-adobe-times-bold-r-normal--18*   || #!EF ). #!EF #!N #!EC #!N #!N 
+The > button starts the animation sequence and plays forward. The 
+< button plays the sequence in the opposite direction. #!N #!N 
+The &sqbul. button stops the animation and resets the animation to 
+the beginning of the sequence, while the  #!F-adobe-times-bold-r-normal--18*   || #!EF button 
+pauses the animation at the current frame. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   
+Loop #!EF button causes the animation to loop; that is to 
+go from beginning to end, reset to beginning, play to end, 
+and so on until terminated by either pause or stop. #!N 
+#!N The  #!F-adobe-times-bold-r-normal--18*   Palindrome #!EF button causes the sequence to be 
+played from beginning to end, and then from end to beginning. 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   Loop #!EF and  #!F-adobe-times-bold-r-normal--18*   Palindrome #!EF can be 
+pressed simultaneously, resulting in an continuous forward and reverse animation. #!N 
+#!N The <  #!F-adobe-times-bold-r-normal--18*   || #!EF > button causes the behavior 
+of the > and < buttons to become single-step mode. Each 
+time one of these buttons is pressed, the animation advances one 
+frame in the specified direction. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   ... #!EF 
+button opens the Frame Control dialog. The Frame Control dialog box 
+(see  #!Lvcrfr53,dxall295 f Figure 53  #!EL  ) is used to specify the first, "next," and 
+last (end) frames, the number of frames, and the increment between 
+successive frames. #!N #!N If a frame is being displayed, the 
+current frame number appears in the Frame Control dialog box, next 
+to the word "Current," and a corresponding colored marker is shown 
+on the slide bar. A colored marker indicating the position of 
+the next frame is also shown. Black markers indicate the positions 
+of  #!F-adobe-times-medium-i-normal--18*   start #!EF and  #!F-adobe-times-medium-i-normal--18*   end #!EF relative to the 
+next range of min to max. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rvcrfr53 #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N #!N 
+Figure 53. Sequencer Frame Control Dialog Box #!EF #!N #!EC Values 
+for the Start, Next, and End frames are set by: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Entering a value 
+in the text field of the stepper buttons #!N #!I30 #!N 
+o Using the stepper controls #!N #!I30 #!N o Moving the 
+position marker. #!N #!I0 #!N #!EF #!N #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Start #!EF #!EF #!I50 #!N The starting 
+value for the sequence. By default, set to the value in 
+the Min field, in a new program. To change the Start 
+field, use the stepper controls or select the field and enter 
+the new value or use the Start marker. If you change 
+the value in the Min field, then the Start field is 
+set to that new value. If you are working with a 
+saved program, then the Min and Start fields are set to 
+the values that were saved. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   End 
+#!EF #!EF #!I50 #!N The ending value for the sequence. By 
+default, set to the value in the Max field, in a 
+new program. To change the End field, use the stepper controls 
+or select the field and enter the new value or use 
+the End marker. If you change the value in the Max 
+field, then the End field is set to that new value. 
+If you are working with a saved program, then the Max 
+and End fields are set to the values that were saved. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Current #!EF #!EF #!I50 #!N Displays 
+the current frame number. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Increment #!EF 
+#!EF #!I50 #!N By default, set to 1. To change the 
+increment, use the stepper controls or select the field and enter 
+the new value. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Next #!EF #!EF 
+#!I50 #!N By default, set to the value in the Start 
+field, in a new program. You can set the Next field 
+to any value between the Start and End values: the Sequencer 
+will begin running at that value. (When the Sequencer is in 
+loop mode, subsequent loops begin at the value in the Start 
+field.) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Min #!EF  #!F-adobe-times-medium-r-normal--18*   and #!EF 
+ #!F-adobe-times-bold-r-normal--18*   Max #!EF #!EF #!I50 #!N Specify the allowed range of 
+sequence values. These are text fields that can be altered. Data 
+Explorer ensures that the value in the Start field is greater 
+than or equal to the Min value, and the value in 
+the End field is less than or equal to the Max 
+value. #!I0 #!N #!N #!N Note: If the images change more 
+quickly than you would like, use the  #!F-adobe-times-bold-r-normal--18*   Throttle... #!EF option 
+(see  #!Lspeed,dxall329 h Changing the Rate of Frame Display: Throttle...  #!EL  ). #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall295,dxall296 h Using a Data-Driven Sequencer  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

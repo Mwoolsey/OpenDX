@@ -1,0 +1,53 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rannot Annotation #!N #!EC #!N #!N 
+It is imperative that good visualizations contain sufficient annotation for a 
+viewer to derive appropriate information from the imagery. A colored height 
+field or streamline set with no supporting labeling can make perfectly 
+beautiful, utterly meaningless computer graphics. #!N #!N Annotating a scene can 
+be done in several ways using Data Explorer modules. You can, 
+for example, provide a ColorBar with numeric values automatically labeled next 
+to the related colors, show Text or Caption information to provide 
+textual descriptions of objects, or turn on AutoAxes to show neatly 
+labeled and numbered axes around the perimeter of your data space. 
+#!N #!N Using the Format module, it is possible to create 
+"clocks" or other "meters." Format creates a formatted string of text 
+suitable for Caption or Text modules to display. Format takes a 
+"template" and text strings and/or numbers as  #!F-adobe-times-bold-r-normal--18*   value #!EF inputs 
+and assembles an informative text string as output. For example, inputting 
+the minimum value of your data to the first  #!F-adobe-times-bold-r-normal--18*   value 
+#!EF input (the second input tab) of a Format module, you 
+could create a Caption that reads: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+Minimum temperature = 0.0 deg. #!EF #!N #!N #!EC To do 
+this, the "template" inside the Format module would read: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N Minimum temperature = %1.1f deg. #!EF #!N #!N 
+#!EC #!N #!N In this template, the "%1.1f" serves as a 
+place holder for the first value (which must be floating point) 
+provided to Format; consequently, the minimum value argument is substituted into 
+the string when the visual program is executed. The "1.1" means 
+that the floating-point number should display at least one number to 
+the left of the decimal point but should round off to 
+only one decimal place to the right of the decimal. By 
+tying the data Field to Statistics (Transformation category), you can easily 
+extract the minimum value of the data; use this as the 
+second input to Format. If you later input a different data 
+set with a different minimum, Caption will automatically change to reflect 
+the new minimum value. #!N #!N One trick for showing text 
+together with numbers that are changing is to use a "fixed 
+width" font instead of a "variable" or "proportional" font. Variable text 
+looks better when making Captions that do not include changing values, 
+but fixed width text maintains the same width regardless of the 
+numeric characters currently being displayed. Try both ways and you will 
+see that the variable text has an annoying shrinking-expanding effect as 
+your clock or time step meter changes value. To get the 
+fixed text clock to behave correctly, you must use a Format 
+template like "%03.2f" that allows for enough numbers to the left 
+of the decimal point. In this example, we have predetermined that 
+we will never create a number greater than 999.99 (note that 
+if we  #!F-adobe-times-medium-i-normal--18*   do #!EF go over 1000, the text will 
+expand to show the whole number, causing the Caption string to 
+expand: the very thing we are trying to avoid!). The "%03.2f" 
+format makes floating-point numbers with 3 numerals before the decimal, including 
+left side zero padding, and 2 numerals after the decimal. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcolmap,dxall600 h Color Mapping  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

@@ -1,0 +1,30 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgrai 
+DXGetRegularArrayInfo #!N #!N Function #!N #!N Returns the number of items, 
+the origin, and the delta of a Regular Array. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> RegularArray DXGetRegularArrayInfo(RegularArray a, int *count, Pointer 
+origin, Pointer delta) #!EF #!N #!N Functional Details #!N #!N If 
+ #!F-adobe-times-bold-r-normal--18*   count #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , this routine 
+returns in  #!F-adobe-times-bold-r-normal--18*   *count #!EF the number of points. If  #!F-adobe-times-bold-r-normal--18*   
+origin #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns in 
+ #!F-adobe-times-bold-r-normal--18*   *origin #!EF the position of the first point. If  #!F-adobe-times-bold-r-normal--18*   
+delta #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns in 
+ #!F-adobe-times-bold-r-normal--18*   *delta #!EF the spacing between the points. Both  #!F-adobe-times-bold-r-normal--18*   origin 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   delta #!EF must point to buffers large enough 
+to hold one item of the type of  #!F-adobe-times-bold-r-normal--18*   a #!EF 
+. The information about  #!F-adobe-times-bold-r-normal--18*   a #!EF may be obtained by 
+calling  #!F-adobe-times-bold-r-normal--18*   DXGetArrayInfo #!EF . #!N #!N Regular Arrays provide a 
+compact representation for a sequence of  #!F-adobe-times-bold-r-normal--18*   count #!EF points beginning 
+at  #!F-adobe-times-bold-r-normal--18*   origin #!EF and extending in the direction specified by 
+the  #!F-adobe-times-bold-r-normal--18*   delta #!EF vector and spaced  #!F-adobe-times-bold-r-normal--18*   delta #!EF apart. 
+The dimensionality of  #!F-adobe-times-bold-r-normal--18*   origin #!EF and  #!F-adobe-times-bold-r-normal--18*   delta #!EF may 
+be found through a call to  #!F-adobe-times-bold-r-normal--18*   DXGetArrayInfo #!EF . By 
+accessing the origin and delta information directly, it may be possible 
+to process Regular Arrays without expansion. Array handles provides a mechanism 
+for accessing individual elements of a Regular Array without expansion. #!N 
+#!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  ,  #!Ldxgai,dxall1222 h DXGetArrayInfo  #!EL  ,  #!Ldxnra,dxall1324 h DXNewRegularArray  #!EL  #!EF #!N 
+#!N  #!Lrras,dxall1075 h Regular Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxgsi,dxall1265 h DXGetScreenInfo  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

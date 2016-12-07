@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtscdps Connecting 
+Scattered Data Points #!N #!EC #!N #!N Many Data Explorer modules 
+cannot be used with scattered data points that have no connections 
+(i.e., interpolation elements). However, Data Explorer does provide two methods for 
+creating connections between scattered data values. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N 1. The first method uses the  #!F-adobe-times-bold-r-normal--18*   Connect 
+#!EF module. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+Open and execute visual program .../Connect.net. #!N #!N The scattered data 
+values in the image are created by the  #!F-adobe-times-bold-r-normal--18*   Construct #!EF 
+module. The  #!F-adobe-times-bold-r-normal--18*   Connect #!EF module uses triangles to connect them. 
+#!N #!I0 #!N #!EF #!N #!N #!I30 #!N 2. The second 
+method uses the  #!F-adobe-times-bold-r-normal--18*   Regrid #!EF module. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o Open and execute visual program .../Regrid.net. 
+#!N #!N The data values here are the same as those 
+in the  #!F-adobe-times-bold-r-normal--18*   Connect #!EF example. They are mapped onto a 
+regular grid by the  #!F-adobe-times-bold-r-normal--18*   Regrid #!EF module. The rightmost  #!F-adobe-times-bold-r-normal--18*   
+Construct #!EF module generates the grid. #!N #!I0 #!N #!EF #!N 
+#!N #!N See Connect and Regrid in IBM Visualization Data Explorer 
+User's Reference. #!N #!I0 #!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ltcntxec,dxall60 h Controlling Execution with Switch  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

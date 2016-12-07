@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Building Expressions and Statements</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu052.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu054.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu050.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRBLD" ></A>10.4 Building Expressions and Statements
+</H2>
+		<P>
+You can use the basic elements of the Data Explorer scripting language to
+build expressions and assignment statements.
+Most statements in the scripting language are assignment statements;
+however, a special group of script commands with their options
+can form a statement.
+These commands are described in <A HREF="usrgu056.htm#HDRSDXSC">10.7 , "Using
+Data Explorer Script Commands"</A>.
+The following sections tell you how to write Data Explorer script expressions
+and statements.
+
+		<P>
+<H3><A NAME="Header_335" ></A>Arithmetic Expressions
+</H3>
+<A NAME="IDX901"></A>
+<P>
+You can combine scalar values and variables that contain values with the
+arithmetic operators listed below to derive new values.
+Lists of scalars can also be combined if the lists have the same
+cardinality (number of elements), or if one of the lists has
+just a single element.
+If the two lists being operated upon have the same number of elements,
+then the operator is applied to the corresponding element pairs in
+each list to produce a new list of the same cardinality.
+If one of the lists has just a single element, then the operator is
+applied, in turn, to each of the elements of the larger list
+and to that single element to produce a list whose size
+is the same as the larger list.
+<P>
+If both of the elements in an operation are the same type, either
+integer or floating point, then the result of the operation
+is also of the same type.
+If, however, one of the elements is an integer and the other is a
+floating-point value, then the result is a floating-point value.
+Given this automatic type conversion, a simple way to convert an integer
+value to a floating-point value is to add 0.0 to it.
+<P>
+<P>
+<H4><U>Operators</U></H4>
+<A NAME="IDX902"></A>
+The operators listed in the following table can be used in arithmetic
+expressions.
+In the table, a horizontal line separates each precedence level and the
+higher levels are placed above the lower ones.
+Operators with higher precedence are evaluated before those with lower
+precedence.
+Operators with the same precedence are evaluated from left to right.
+Because expressions in parentheses are evaluated first, you can
+use parentheses to alter the grouping of operands, thereby
+changing the precedence levels.
+<P>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%">Operator
+</TH><TH ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%">Description
+</TH></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%">
+<TT><STRONG>&#45;</STRONG></TT>
+<BR></TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%">Unary minus
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%"><HR>
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%"><HR>
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%">
+<TT><STRONG>&#94;</STRONG></TT>
+<BR></TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%">Exponentiation
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%">
+<TT><STRONG>**</STRONG></TT>
+<BR></TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%">Exponentiation (alternate
+form)
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%"><HR>
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%"><HR>
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%">
+<TT><STRONG>*</STRONG></TT>
+<BR></TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%">Multiplication
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%">
+<TT><STRONG>/</STRONG></TT>
+<BR></TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%">Division
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%"><HR>
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%"><HR>
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%">
+<TT><STRONG>&#43;</STRONG></TT>
+<BR></TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%">Addition
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="17%">
+<TT><STRONG>&#45;</STRONG></TT>
+<BR></TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="83%">Subtraction
+<BR>
+<P>
+</TD></TR></TABLE>
+<P>
+The following expressions all have the value
+&#123;2.0 4.0 8.0&#125;&#58;
+<P>
+<PRE>
+&#123;3.0 5.0 9.0&#125; &#45; &#123;1.0 1.0 1.0&#125;
+&#123;2 4 8&#125; + 0.0
+8 * &#123;.25 .50 1e0&#125;
+2 &#94; &#123;1.0 2.0 3.0&#125;
+(&#123;2 2 2&#125; &#45; 1.0) * &#123;2 4 8&#125;
+</PRE>
+<P>
+<H3><A NAME="Header_337" ></A>Assignment Statements
+</H3>
+<A NAME="IDX903"></A>
+Assignment statements store values in variables.
+The general form of
+an assignment statement is&#58;
+<P>
+<PRE>
+<VAR>left-side</VAR>&#91;attribute&#95;name&#58;value,...&#93; =
+<VAR>right-side</VAR>&#91;attribute&#95;name&#58;value,...&#93;
+</PRE>
+<P>
+The <VAR>left-side</VAR> portion of an assignment statement is a sequence
+of one or more identifiers separated by commas.
+The <TT>&#91;attribute&#95;name&#58;value,...&#93;</TT> value
+pair lists and the brackets are optional, and are discussed in
+<A HREF="usrgu054.htm#HDRFCA">"Function Call Attributes"</A>.
+The equal sign (<TT><STRONG>=</STRONG></TT>) is the assignment operator.
+It stores the values specified in the <VAR>right-side</VAR> portion of the
+statement in the variables named by the identifiers specified in the
+<VAR>left-side</VAR> portion of the statement.
+You can specify the values in the <VAR>right-side</VAR> portion of the
+statement as a sequence of expressions or as the result of a single
+function call.
+<P>
+You can also use either of two additional symbols,
+
+<TT><STRONG>&lt;&#45;</STRONG></TT> or
+<TT><STRONG>&#58;=</STRONG></TT>,
+as the assignment operator.
+An assignment statement is terminated with a semicolon, indicating the
+end of the <VAR>right-side</VAR> portion of the statement.
+<P>
+The values specified to the right of the assignment operator are
+assigned to the identifiers to the left of the assignment
+operator.
+If the number of values equals the number of identifiers, the first
+value is stored in the first identifier, the second in the second,
+the third in the third, and so on.
+If the number of values is greater than the number of identifiers, the
+extra rightmost values are ignored.
+If the number of values is less than the number of identifiers, the
+values are assigned in order to the leftmost identifiers.
+<P>
+Those identifiers not receiving a value from the <VAR>right-side</VAR>
+list are set to the value <TT><STRONG>NULL</STRONG></TT>.
+In addition, if an identifier is repeated in the <VAR>left-side</VAR> list,
+then the <VAR>right-side</VAR> associated with that identifier is the
+value associated with its rightmost instance.
+<P>
+All identifiers that have not had a value explicitly assigned to them
+have the value <TT><STRONG>NULL</STRONG></TT>.
+<P>
+<P>
+<H4><U>Expression Assignments</U></H4>
+<A NAME="IDX904"></A>
+<A NAME="IDX905"></A>
+<P>
+The values for the <VAR>right-side</VAR> portion of an expression
+assignment statement consist of a sequence of constant values,
+variables, arithmetic expressions, and the value
+<TT><STRONG>NULL</STRONG></TT>, separated by commas.
+The various values need not be of the same kind, data type, or
+dimension.
+<P>
+The following examples all assign the value "A string" to the
+variable <VAR>a</VAR>, the value 2.0 to the variable <VAR>b</VAR>,
+and the value <TT><STRONG>NULL</STRONG></TT> to the variable
+<VAR>c</VAR>.
+<P>
+<PRE>
+a  = "A string";                // These 3 lines
+b := 2 * (2 &#45; 1e0);             // constitute a single
+c &lt;&#45; NULL;                      // example.
+<P>
+a, b, c     = "A string", 2.0, NULL;
+a, b, c    &lt;&#45; "A string", 5 / 2.5, NULL;
+a, b, c     = "A string", 2.0;
+a, b, c, d  = "A string", 2.0;
+a, b, c, a  = &#91;&#91;1 0&#93;&#91;0 1&#93;&#93;, 2.0, NULL, "A  string",  &#91;1 2 3&#93;;
+</PRE>
+<P>
+The following example illustrates a simple way to swap values:
+<PRE>
+a = 2;
+b = 4;
+c = 6;
+d = 8;
+e = 10;
+a, b = b, a;         // Values are swapped, so a = 4, b = 2
+c, d, e = e, c, d;   // c = 10, d = 6, e = 8
+</PRE>
+<P>
+<H3><A NAME="HDRFUNCALL" ></A>Function Call Assignments
+</H3>
+<A NAME="IDX906"></A>
+<A NAME="IDX907"></A>
+<P>
+A function call can refer either to a function defined as a module (a
+function compiled into the system), or to a macro (a function
+defined in the scripting language itself).
+The values for the <VAR>right-side</VAR> portion of a function call
+assignment statement are the values returned by a single
+function call.
+<P>
+The Statistics function, which is used in the following examples,
+returns five values:
+<UL COMPACT>
+<LI>Mean of the data
+<LI>Standard deviation of the data
+<LI>Variance of the data
+<LI>The minimum value in the data
+<LI>The maximum value in the data
+</UL>
+In the first example, all of these values are assigned to variables
+for later use.
+In the second example, the minimum and maximum values are ignored.
+In the third example, only the minimum and maximum values are being
+saved for later use.
+<P>
+<PRE>
+&nbsp;(1)&nbsp; mean, sd, var, min, max = Statistics (data);
+&nbsp;(2)&nbsp; mean, sd, var = Statistics (data);
+&nbsp;(3)&nbsp; min, min, min, min, max = Statistics (data);
+</PRE>
+<P>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

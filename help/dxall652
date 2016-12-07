@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rall651 gridconnections Keyword #!N #!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   gridconnections 
+#!EF keyword is used to represent the  #!F-adobe-times-medium-i-normal--18*   n #!EF -dimensional 
+cuboidal connections of a regular grid in a compact form. It 
+is a kind of Array Object and can be used as 
+the "connections" component of a Field. The shape of the grid 
+(number of points in each dimension) are specified by a list 
+of  #!F-adobe-times-medium-i-normal--18*   n #!EF numbers following the optional  #!F-adobe-times-bold-r-normal--18*   counts #!EF 
+keyword in the  #!F-adobe-times-bold-r-normal--18*   object #!EF clause. The last number corresponds 
+to the fastest varying component of the positions. The number  #!F-adobe-times-medium-i-normal--18*   
+n #!EF of items in this list determines the dimensionality of 
+the grid. The last item in this list corresponds to the 
+fastest varying dimension. #!N #!N If this grid is part of 
+a Composite Field Object, then  #!F-adobe-times-bold-r-normal--18*   meshoffsets #!EF must be specified 
+to define where this grid is positioned relative to the entire 
+Composite Field. The  #!F-adobe-times-bold-r-normal--18*   meshoffsets #!EF (one number for each dimension, 
+and specified in the same order as  #!F-adobe-times-bold-r-normal--18*   counts #!EF ) 
+are the accumulated count of connections between the origin of the 
+whole grid and the origin of this grid. #!T,96 #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   object #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number #!EF [ 
+ #!F-adobe-times-bold-r-normal--18*   class #!EF ]  #!F-adobe-times-bold-r-normal--18*   gridconnections #!EF #!N TAB "  #!F-adobe-times-bold-i-normal--18*   
+name #!EF " #!N [  #!F-adobe-times-bold-r-normal--18*   counts #!EF ] TAB  #!F-adobe-times-bold-i-normal--18*   
+number... #!EF #!N [  #!F-adobe-times-bold-r-normal--18*   meshoffsets #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number... #!EF 
+] #!EF #!N #!N #!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   gridconnections #!EF 
+keyword does not actually correspond to a primitive Object type in 
+the system, but instead is a convenient way of representing an 
+important special case of the more general mesh (Mesh Array Object) 
+of  #!F-adobe-times-medium-i-normal--18*   n #!EF 1-dimensional paths (path Array Objects). For most 
+purposes the  #!F-adobe-times-bold-r-normal--18*   gridconnections #!EF keyword is sufficient and more convenient. 
+The more primitive Mesh and Path Arrays are described next. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall652,dxall653 h Path Array Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

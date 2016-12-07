@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rvfm Loading and Using Outboard 
+and Runtime-Loadable Modules #!N #!EC #!N #!N Data Explorer allows the 
+following types of user-written module: #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   inboard #!EF #!EF #!I50 #!N modules are compiled and 
+linked into the Data Explorer Executive. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+outboard #!EF #!EF #!I50 #!N modules are run as separate processes. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   runtime-loadable #!EF #!EF #!I50 #!N modules 
+are loaded at runtime and effectively become inboard modules. #!I0 #!N 
+#!N #!N #!N For an outboard or runtime-loadable to be available 
+for use, its module description file must be loaded into the 
+tool palette. To load a module description file: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Select the  #!F-adobe-times-bold-r-normal--18*   Load Modules 
+Description(s)... #!EF option from the  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu in 
+the VPE. A file selection dialog box appears. For information about 
+how to use the dialog box, see  #!Lfsbox,dxall358 h File Selection Dialog Boxes  #!EL  . #!N #!I30 
+#!N 2. Use the dialog box to locate the description file 
+for the module you want to load, and select the desired 
+file. The module name appears on the tool palette under its 
+assigned category. #!N Note: If the module description you loaded has 
+the same name as an module description loaded previously, the more 
+recent description replaces the less recent, regardless of whether they were 
+assigned to the same category. #!N #!N #!I0 #!N #!EF #!N 
+#!N #!N When the new module is available for use, it 
+is listed in the tool palette as a member of the 
+category you assigned it to. #!N #!N You can configure Data 
+Explorer to automatically load module descriptions when you begin the Data 
+Explorer program. To do this, use the -mdf  #!F-adobe-times-bold-i-normal--18*   filename #!EF 
+option when starting Data Explorer, where  #!F-adobe-times-bold-i-normal--18*   filename #!EF specifies one 
+or more module definitions. Alternatively, you can use the  #!F-adobe-times-bold-i-normal--18*   DXMDF 
+#!EF environment variable. For more information on how to do this, 
+see  #!Lenvar,dxall276 h Using Environment Variables  #!EL  and  #!Lenvvar,dxall684 h Environment Variables  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lconserv,dxall493 h Connecting to the Server  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

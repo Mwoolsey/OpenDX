@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsct DXScalarConvert #!N #!N Function #!N #!N Converts 
+the contents of an Array into scalar floating-point values. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXScalarConvert(Array a) #!EF #!N #!N 
+Functional Details #!N #!N Creates a new Array with the contents 
+of Array  #!F-adobe-times-bold-r-normal--18*   a #!EF converted to scalar floating-point values, using 
+the same conversion routines as  #!F-adobe-times-bold-r-normal--18*   DXStatistics #!EF . #!N #!N 
+Return Value #!N #!N Returns a copy of the converted Array 
+or returns  #!F-adobe-times-bold-r-normal--18*   a #!EF if it is already scalar float; 
+otherwise, returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxs,dxall1396 h DXStatistics  #!EL  #!EF #!N #!N  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxsai,dxall1365 h DXSetAllInvalid  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

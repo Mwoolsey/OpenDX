@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxrxyz DXRotateX, DXRotateY, DXRotateZ, DXScale, 
+DXTranslate, DXMat #!N #!N Function #!N #!N Manipulate Transform matrices. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Matrix DXRotateX(Angle angle) Matrix DXRotateY(Angle 
+angle) Matrix DXRotateZ(Angle angle) Matrix DXScale(double x, double y, double z) 
+Matrix DXTranslate(Vector v) Matrix DXMat(double a, double b, double c, double 
+d, double e, double f, double g, double h, double i, 
+double j, double k, double l) #!EF #!N #!N Functional Details 
+#!N #!N Manipulate Transform matrices.  #!F-adobe-times-bold-r-normal--18*   DXRotateX, DXRotateY, #!EF and  #!F-adobe-times-bold-r-normal--18*   
+DXRotateZ #!EF return a Matrix that specifies a rotation about the 
+ #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF , or  #!F-adobe-times-medium-i-normal--18*   z 
+#!EF axis by angle  #!F-adobe-times-bold-r-normal--18*   angle #!EF in radians. #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXScale #!EF returns a Matrix that specifies a scaling by 
+amounts  #!F-adobe-times-bold-r-normal--18*   x #!EF ,  #!F-adobe-times-bold-r-normal--18*   y #!EF , and  #!F-adobe-times-bold-r-normal--18*   
+z #!EF along the  #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF 
+, and  #!F-adobe-times-medium-i-normal--18*   z #!EF axes. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXTranslate #!EF 
+returns a Matrix that specifies a translation by  #!F-adobe-times-bold-r-normal--18*   v #!EF 
+. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXMat #!EF returns a Matrix with the 
+specified components. #!N #!N A  #!F-adobe-times-bold-r-normal--18*   Matrix #!EF is defined as 
+follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct matrix { /* xA + b 
+*/ float A[3][3]; float b[3]; } Matrix; #!EF #!N #!N An 
+ #!F-adobe-times-bold-r-normal--18*   Angle #!EF is in radians and is defined as follows: 
+#!N  #!F-adobe-times-bold-r-normal--18*   typedef double Angle; #!EF #!N #!N Return Value #!N 
+#!N Returns the resulting Matrix. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxcplus,dxall1185 h DXConcatenate, DXInvert, DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply  #!EL  ,  #!Ldxatm,dxall1173 h DXApplyTransform  #!EL  ,  #!Ldxnxf,dxall1328 h DXNewXform  #!EL  #!EF #!N #!N  #!Lmatrxsc,dxall1111 h Transformation Matrices  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxsic,dxall1363 h DXSaveInvalidComponent  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

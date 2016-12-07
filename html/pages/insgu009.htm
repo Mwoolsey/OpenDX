@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Installation and Configuration
+Guide</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Installation and Configuration Guide">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Installation and Configuration Guide</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="insgu008.htm">Previous Page</A> &#124; <A HREF="insgu010.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="insgu007.htm#PToC2">Partial Table of Contents</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRDISKREQ" HREF="../insguide.htm#ToC_11">Chapter 5. Disk Space
+Requirements and Tape Specifications</A></H1>
+<P>
+Data Explorer is comprised of five subsystems as follows:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Base executables
+</B></TD><TD><P>contains all files needed to run Data Explorer.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Development environment
+</B></TD><TD><P>contains libraries, header files and other tools needed to
+build a custom executive.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Samples
+</B></TD><TD><P>example programs, scripts, tutorial, and makefiles.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Online help
+
+and HTML
+
+</B></TD><TD><P>online help available from the Data Explorer User Interface,
+
+and documentation in HTML format.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>PostScript and ASCII documentation
+</B></TD><TD><P>Documentation in PostScript format and for printing and in flat
+ASCII format for basic minimal viewing.
+
+</TD></TR></TABLE>
+<P>
+If you are installing Data Explorer from tape:
+<DL COMPACT>
+<DD>8mm tapes are 2.3 GB,
+<DD>1/4 inch tapes are 150 MB (QIC-150),
+
+<DD>4mm tapes are 4 GB.
+
+</DL>
+<P>
+Disk space requirements for each subsystem are shown in <A
+HREF="#TBLDISKREQ">Table 1</A>.
+<BR>
+<P><B><A NAME="TBLDISKREQ">Table 1. Disk space requirements in
+megabytes</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="CENTER" VALIGN="TOP" WIDTH="25%">Subsystem/Platform
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">Base executables
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">Development
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">Samples
+
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">Online help / HTML
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">PostScript / ASCII
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">Total
+</TH></TR><TR>
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%">IBM
+
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">12
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">78
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%">HP
+
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">15
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">14
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">12
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">74
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%">Sun 4
+
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">24
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">12
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">85
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%">Sun Solaris
+
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">24
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">12
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">86
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%">SGI
+
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">18
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">23
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">12
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">86
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%">Data General
+
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">22
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">13
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">12
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">80
+</TD></TR><TR>
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%">Digital Equip.
+
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">33
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">40
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">12
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">118
+</TD></TR></TABLE>
+<P>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="insgu008.htm">Previous Page</A> &#124; <A HREF="insgu010.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="insgu007.htm#PToC2">Partial Table of Contents</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxregih DXRegisterInputHandler #!N #!N Function #!N #!N Assigns 
+a handler routine for input coming from an open file descriptor. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXRegisterInputHandler(Error (*proc)(int, Pointer), 
+int fd, Pointer arg) #!EF #!N #!N Functional Details #!N #!N 
+Assigns a handler routine for input coming from an open file 
+descriptor. This function associates the routine  #!F-adobe-times-bold-r-normal--18*   proc #!EF with the 
+file descriptor  #!F-adobe-times-bold-r-normal--18*   fd #!EF and may be used to accept 
+input from a socket. When any input is available on  #!F-adobe-times-bold-r-normal--18*   
+fd #!EF , the routine  #!F-adobe-times-bold-r-normal--18*   proc #!EF is called and 
+passed  #!F-adobe-times-bold-r-normal--18*   fd #!EF and  #!F-adobe-times-bold-r-normal--18*   arg #!EF . #!N #!N 
+The file descriptor is checked for input between module executions. Input 
+from  #!F-adobe-times-bold-r-normal--18*   fd #!EF does not interrupt modules;  #!F-adobe-times-bold-r-normal--18*   fd #!EF 
+is not checked for input before returning from DXRegisterInputHandler. #!N #!N 
+Calling DXRegisterInputHandler with  #!F-adobe-times-bold-r-normal--18*   proc=NULL #!EF unregisters the handler. #!N #!N 
+Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF , or returns 
+ #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets the error code to indicate an 
+error. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxrtr,dxall1351 h DXReadyToRun  #!EL  #!EF #!N 
+#!N  #!Lasyns,dxall1114 h Asynchronous Services  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxrem,dxall1355 h DXRemove  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu103.htm">Previous Page</A> &#124; <A HREF="progu105.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXADDM" HREF="progu097.htm#PToC_198">DXAddPoint, ...Color,
+...FrontColor, ...BackColor, ...Opacity, ...Normal,</A></H3>
+<STRONG>
+DXAddPoints, ...Colors, ...FrontColors, ...BackColors, ...Opacities, ...Normals
+</STRONG>
+<A NAME="IDX1510"></A>
+<A NAME="IDX1511"></A>
+<A NAME="IDX1512"></A>
+<A NAME="IDX1513"></A>
+<A NAME="IDX1514"></A>
+<A NAME="IDX1515"></A>
+<A NAME="IDX1516"></A>
+<A NAME="IDX1517"></A>
+<A NAME="IDX1518"></A>
+<A NAME="IDX1519"></A>
+<A NAME="IDX1520"></A>
+<A NAME="IDX1521"></A>
+<A NAME="IDX1522"></A>
+<A NAME="IDX1523"></A>
+<A NAME="IDX1524"></A>
+<A NAME="IDX1525"></A>
+<A NAME="IDX1526"></A>
+<A NAME="IDX1527"></A>
+<A NAME="IDX1528"></A>
+<A NAME="IDX1529"></A>
+<A NAME="IDX1530"></A>
+<A NAME="IDX1531"></A>
+<A NAME="IDX1532"></A>
+<A NAME="IDX1533"></A>
+<P><STRONG>Function</STRONG>
+Add points or point-dependent data to a Field.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+&#35;include &lt;dx/dx.h&gt;
+Field DXAddPoint(Field f, int id, Point p)
+Field DXAddColor(Field f, int id, RGBColor c)
+Field DXAddFrontColor(Field f, int id, RGBColor c)
+Field DXAddBackColor(Field f, int id, RGBColor c)
+Field DXAddOpacity(Field f, int id, double o)
+Field DXAddNormal(Field f, int id, Vector v)
+Field DXAddPoints(Field f, int start, int n,  Point *p)
+Field DXAddColors(Field f, int start, int n, RGBColor *c)
+Field DXAddFrontColors(Field f, int start, int n, RGBColor *c)
+Field DXAddBackColors(Field f, int start, int n, RGBColor *c)
+Field DXAddOpacities(Field f, int start, int n, float *o)
+Field DXAddNormals(Field f, int start, int n, Vector *v)
+</STRONG>
+</PRE>.
+<P><STRONG>Functional Details</STRONG>
+Associated with a Field may be a number of components that
+correspond one-to-one with the "positions" component,
+as indicated by their each having a "dep" attribute
+of "positions."
+These routines aid in constructing such components.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXAddPoint, DXAddColor, DXAddFrontColor,
+DXAddBackColor, DXAddOpacity, DXAddNormal, </STRONG></TT>
+</B></TD><TD><P>Add one point (position), color, front color, back color,
+opacity, or normal to <TT><STRONG>f</STRONG></TT> with the
+specified zero-based <TT><STRONG>id</STRONG></TT>.
+If necessary, the routine creates the appropriate component.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXAddPoints, DXAddColors,
+DXAddFrontColors, DXAddBackColors, DXAddOpacities, DXAddNormals</STRONG></TT>
+</B></TD><TD><P>Add <TT><STRONG>n</STRONG></TT> points, colors, front colors,
+back colors,
+opacities, or normals to <TT><STRONG>f</STRONG></TT> with zero-based
+identifiers beginning with <TT><STRONG>start</STRONG></TT>.
+If necessary, the routine creates the appropriate component.
+</TD></TR></TABLE>
+<P>
+Colors are specified as <TT><STRONG>RGBColors</STRONG></TT> and defined
+as follows:
+<PRE>
+<STRONG>
+typedef struct rgbcolor {
+   float r, g, b;
+} RGBColor;
+</STRONG>
+</PRE>
+<P>
+<TT><STRONG>Points</STRONG></TT> and <TT><STRONG>Normals</STRONG></TT> are
+defined
+as follows:
+<PRE>
+<STRONG>
+typedef struct point {
+   float x, y, z;
+} Point, Vector;
+</STRONG>
+</PRE>
+<P>
+Opacities are specified as floating-point values.
+<P><B>Notes: </B><OL COMPACT>
+<LI>These routines are suitable for adding a small number of points and
+for rapid prototyping.
+For better performance, see the description of
+<TT><STRONG>DXAddArrayData</STRONG></TT> and the
+discussion of direct-access routines
+in <A HREF="progu046.htm#HDRIRREG">"Irregular Arrays"</A>
+<LI>These routines
+do not check the "dep" attribute of the component being added
+to; thus, these routines do not perform correctly if the component
+exists and has a dep "connections" attribute.
+</OL>
+<P><STRONG>Return Value</STRONG>
+Returns <TT><STRONG>f</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+and sets an error code.
+<P><STRONG>See Also</STRONG>
+<TT><STRONG>
+<A HREF="progu100.htm#HDRDXAAD">DXAddArrayData</A>,
+<A HREF="progu101.htm#HDRDXAFNS">DXAddFaceNormal, DXAddFaceNormals</A>,
+<A HREF="progu154.htm#HDRDXGAD">DXGetArrayData</A>
+</STRONG></TT>
+<P>
+<A HREF="progu050.htm#HDRPPOINTS">"Points and Dependent Data"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu103.htm">Previous Page</A> &#124; <A HREF="progu105.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

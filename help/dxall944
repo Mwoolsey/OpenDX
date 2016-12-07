@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rshowbox 
+ShowBox #!N #!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N 
+#!N Draws the bounding box of a field. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N box, center #!EF = ShowBox( 
+ #!F-adobe-times-bold-r-normal--18*   input #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB input TAB field TAB none TAB the 
+field for which a bounding box #!N TAB - TAB - 
+TAB - TAB is to be shown #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB box 
+TAB color field TAB renderable bounding box of input field #!N 
+TAB center TAB vector TAB center of bounding box #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+This module produces a set of lines representing the edges of 
+the bounding box of a specified input object. It also generates 
+a 3-vector for the position of the center of the bounding 
+box. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF 
+#!EF #!I50 #!N specifies the object for which ShowBox generates a 
+bounding box. #!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N 
+#!I30 #!N 1. The module adds a default color to the 
+output box. #!N #!I30 #!N 2. Unlike ShowConnections, ShowBoundary, and ShowPositions, 
+this module does not pass the colors and data of the 
+input through to the output. #!N #!I30 #!N 3. Any invalid 
+data in  #!F-adobe-times-bold-r-normal--18*   input #!EF is ignored in creating the bounding 
+box. (See  #!Linval,dxall211 h Invalid Positions and Invalid Connections Components  #!EL  in IBM Visualization Data Explorer User's Guide.) #!I0 
+#!N #!N #!N #!N Components #!N #!N Creates new "positions," "connections," 
+and "colors" components. #!N #!N Example Visual Programs #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N ContoursAndCaption.net #!N UsingSwitchAndRoute.net #!N SIMPLE/MapToPlane.net #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lshowbou,dxall943 h ShowBoundary  #!EL  ,  #!Lshowcon,dxall945 h ShowConnections  #!EL  ,  #!Lshowpos,dxall946 h ShowPositions  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lshowcon,dxall945 h ShowConnections  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

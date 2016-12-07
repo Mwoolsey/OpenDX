@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu207.htm">Previous Page</A> &#124; <A HREF="progu209.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXGROV" HREF="progu097.htm#PToC_302">DXGrow, DXGrowV</A></H3>
+<A NAME="IDX1808"></A>
+<A NAME="IDX1809"></A>
+<A NAME="IDX1810"></A>
+<A NAME="IDX1811"></A>
+<A NAME="IDX1812"></A>
+<A NAME="IDX1813"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Add information from neighboring partitions to a Composite Field.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXGrow(Object object, int n, Pointer fill, ...)<BR>
+Object DXGrowV(Object object, int n, Pointer fill, char **components)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Recursively add boundary information to each partition of any
+Composite Fields encountered in <TT><STRONG>object</STRONG></TT>.
+<P>
+The depth of overlap is defined by <TT><STRONG>n</STRONG></TT>.
+The treatment of the boundary of the Field is specified by the
+<TT><STRONG>fill</STRONG></TT> parameter:
+specify <TT><STRONG>GROW_NONE</STRONG></TT> for no expansion at the exterior
+boundary of the entire field;
+<TT><STRONG> GROW_REPLICATE</STRONG></TT> to expand at the exterior boundary
+by replicating the nearest edge values;
+<TT><STRONG>GROW_NOFILL</STRONG></TT> to expand the exterior boundary by
+leaving space for the extra data but leaving their value
+undefined;
+any other value of <TT><STRONG>fill</STRONG></TT> must be a pointer to a data
+item of the correct type to expand at the boundary.
+It is used as the fill value.
+For <TT><STRONG>DXGrowV</STRONG></TT>, the <TT><STRONG>components </STRONG></TT>
+Array contains a <TT><STRONG>NULL</STRONG></TT>-terminated list of
+components to be grown; all others remain unaffected.
+For <TT><STRONG>DXGrow</STRONG></TT>, the final arguments after
+<TT><STRONG>n</STRONG></TT> consist of a
+<TT><STRONG>NULL</STRONG></TT>-terminated list of
+the components to be grown.  For each
+component that is grown, the original component is renamed to
+"original <I>component</I>" before the grown component is
+created.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the input Object with the overlapping data added or returns
+<TT><STRONG> NULL</STRONG></TT> and sets an error code.
+If <TT><STRONG>o</STRONG></TT> is a field, returns <TT><STRONG>o</STRONG></TT>
+unmodified.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu281.htm#HDRDXQOSM">DXQueryOriginalSizes,
+DXQueryOriginalMeshExtents</A>,
+<A HREF="progu330.htm#HDRDXSK">DXShrink</A>
+</STRONG></TT>
+<P>
+<A HREF="progu069.htm#HDRGNS">14.4 , "Growing and Shrinking Partitioned
+Data"</A>.
+<P><P>
+
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu207.htm">Previous Page</A> &#124; <A HREF="progu209.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Installation and Configuration
+Guide</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Installation and Configuration Guide">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Installation and Configuration Guide</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="insgu028.htm">Previous Page</A> &#124; <A HREF="insgu030.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="insgu026.htm#PToC8">Partial Table of Contents</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRCFGSCR" HREF="../insguide.htm#ToC_52">Chapter 13. The Configure
+Script</A></H1>
+<P><A NAME="PToC9" HREF="../insguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_53" HREF="#HDRCFGCLO">13.1 Command Line Options for
+Configure</A>
+<LI><A NAME="PToC_54" HREF="insgu030.htm#Header_54">13.2 Using Other Than the
+Default Configuration</A>
+</MENU><HR><P>
+<P>
+The Configure script, located in the bin directory of the Data Explorer
+installation tree, is used to install or deinstall soft links and small
+files in standard places (e.g..
+<TT>/usr/local/bin</TT>, <TT>/usr/local/lib</TT>, ...) that
+reference the Data Explorer installation tree.
+<P>
+Configure is run automatically from the installation script, so
+generally one does not need to run it directly. However, if for example,
+Data Explorer for architecture A (e.g. ibm6000) is installed on a machine with
+architecture B (e.g. hp700), then Configure may need to be run on the
+machine with architecture A that expects to use Data Explorer.
+<P>
+Configure provides the ability to configure individual subsystems of
+Data Explorer, but by default will attempt to configure all of them.
+<P>
+The run-time subsystem uses either /usr/local/bin or /usr/bin (in that
+order) as the directory to install executables (e.g. the <TT>dx</TT> driver
+script). If neither of these directories is writable an error will
+occur. A Data Explorer manual page is also installed in the appropriate manual
+page directory tree if that directory is writable. Note, that in a
+networked environment in which /usr/local/bin and the manual page
+directory are shared among many hosts, Configure need only be run once
+to configure all such machines to use the run-time subsystem of Data Explorer.
+<P>
+The development subsystem uses the same executable directories as the
+run-time subsystem to install its development related executables (e.g.
+mdf-c). This subsystem also uses either /usr/local/lib or /usr/lib (in
+that order) as the directory to install links to libraries (i.e.
+libDX.a, libDXlite.a). In addition, a link is made from /usr/include/dx
+to the include directory of the Data Explorer installation directory. Note, that
+in a networked environment in which /usr/local/lib and /usr/local/bin
+directory are shared among many hosts, Configure need only be run once
+to configure all such machines to use the development subsystem of Data Explorer
+with the exception of the /usr/include/dx directory which is generally
+not shared.
+<P>
+The samples subsystem and the online help subsystem do not require
+configuring.
+<P>
+To perform the standard configuration after installation, enter the
+following:
+<PRE>
+Configure
+</PRE>
+<P>
+To perform the standard deconfiguration prior to removing Data Explorer from
+your
+system or to reconfigure Data Explorer, enter the following:
+<PRE>
+Configure deinstall
+</PRE>
+<P>
+If the root directory is moved after installation, Data Explorer can (and
+should)
+be reconfigured to use the new root directory with the following:
+<PRE>
+Configure deinstall
+Configure -dxroot &lt;<I>new directory</I>&gt;
+</PRE>
+<P>
+A complete description of the usage and options for Configure are found
+in <A HREF="#HDRCFGCLO">13.1 , "Command Line Options for Configure"</A>.
+<HR>
+<H2><A NAME="HDRCFGCLO" HREF="#PToC_53">13.1 Command Line Options for
+Configure</A></H2>
+<P>Usage is as follows:
+<PRE>
+Configure &#91; -&lt;option&gt; ... &#93; &#91; &lt;platform&gt; &#93; &#91; &lt;operation&gt; &#93;
+</PRE>
+Where &lt;operation&gt; is one of install or deinstall and
+&lt;platform&gt; is one of the supported architectures (alphax, aviion, hp700,
+ibm6000, sgi, solaris, sun4).
+The default action is to configure
+all Data Explorer subsystems for the architecture that is running Configure.
+<P>
+The options are as follows:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>-bindir &lt;bindir&gt;
+</B></TD><TD><P>indicates the name of the directory where
+executable shell scripts should be placed. The given directory must
+exist. The default is /usr/local/bin and if this is not writable, then
+/usr/bin.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-libdir &lt;libdir&gt;
+</B></TD><TD><P>indicates the name of the directory where Data Explorer
+libraries should be placed. The given directory must exist. The default
+is /usr/local/lib and if this is not writable, then /usr/lib.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-check
+</B></TD><TD><P>lists the actions that will be taken without actually
+performing them.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-dxroot
+</B></TD><TD><P>indicates the root of the Data Explorer installation directory.
+The
+default is /usr/local/dx.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-echo
+</B></TD><TD><P>the same as -check, above.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-help
+</B></TD><TD><P>gives a listing of supported options.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-online-help
+</B></TD><TD><P>perform the given operation for the online help
+subsystem.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-html
+</B></TD><TD><P>perform the given operation for the HTML subsystem.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-samples
+</B></TD><TD><P>perform the given operation for the samples subsystem.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-runtime
+</B></TD><TD><P>perform the given operation for the run-time subsystem.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>-develop
+</B></TD><TD><P>perform the given operation for the develop subsystem.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="insgu028.htm">Previous Page</A> &#124; <A HREF="insgu030.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC9">Partial Table of Contents</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

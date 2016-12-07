@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall506 Example 1. A Simple Script #!N #!EC #!N 
+#!N In this example, the data found in /usr/...cloudwater is imported 
+and assigned to the variable  #!F-adobe-times-bold-r-normal--18*   data #!EF . Then the 
+Isosurface module is called on  #!F-adobe-times-bold-r-normal--18*   data #!EF (with no other 
+parameters set) and the result is assigned to  #!F-adobe-times-bold-r-normal--18*   iso #!EF 
+. A Camera is created using AutoCamera, and the isosurface is 
+displayed using Display (note that the Image tool is not available 
+in the scripting language. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N data = 
+Import("/usr/lpp/dx/samples/data/cloudwater"); #!N iso = Isosurface(data); #!N camera = AutoCamera(iso); #!N Display(iso, 
+camera); #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall507,dxall508 h Example 2. Setting Parameters  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

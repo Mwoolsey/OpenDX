@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rrename Rename #!N #!N 
+Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N Renames a 
+component in a field. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Rename(  #!F-adobe-times-bold-r-normal--18*   input, oldname, newname #!EF 
+); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Default TAB Description #!EF #!N 
+TAB input TAB field TAB none TAB the field containing the 
+component #!N TAB - TAB - TAB - TAB to be 
+renamed #!N TAB oldname TAB string TAB none TAB the original 
+name of the component #!N TAB newname TAB string TAB "data" 
+TAB the new name assigned to the #!N TAB - TAB 
+- TAB - TAB component #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Description #!EF #!N TAB output TAB field 
+TAB field containing the renamed component #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N This module creates 
+a field (  #!F-adobe-times-bold-r-normal--18*   output #!EF ) in which all occurrences 
+of a specified component (  #!F-adobe-times-bold-r-normal--18*   oldname #!EF ) in  #!F-adobe-times-bold-r-normal--18*   
+input #!EF have been assigned a new name (  #!F-adobe-times-bold-r-normal--18*   newname 
+#!EF ). #!N #!N Components #!N #!N All input components are 
+propagated to the output. The component  #!F-adobe-times-bold-r-normal--18*   oldname #!EF is renamed 
+to  #!F-adobe-times-bold-r-normal--18*   newname #!EF . #!N #!N Example Visual Programs #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N ReadImage.net #!N UsingMorph.net #!EF #!N 
+#!N #!EC #!N #!N See Also #!N #!N  #!Lextract,dxall845 h Extract  #!EL  ,  #!Lmark,dxall893 h Mark  #!EL  
+,  #!Lremove,dxall921 h Remove  #!EL  ,  #!Lreplace,dxall925 h Replace  #!EL  ,  #!Lunmark,dxall972 h Unmark  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lrender,dxall923 h Render  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

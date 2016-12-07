@@ -1,0 +1,121 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rinitdb Initial Dialog Box 
+#!N #!EC #!N #!N To start the Data Prompter, type: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -prompter #!EF #!N #!N #!EC or 
+choose  #!F-adobe-times-bold-r-normal--18*   Import Data #!EF from the Data Explorer Startup window. 
+The initial dialog box appears (see  #!Ldp115,dxall160 f Figure 15  #!EL  ). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*   
+ #!Rdp115 #!N #!N Graphics omitted from Online Documentation. Please see the 
+manual. #!N Figure 15. Initial Data Prompter window #!EF #!N #!EC 
+#!N #!N At the top of the Data Prompter initial dialog 
+is a text field into which you can enter the data 
+file to be imported. If you press the  #!F-adobe-times-bold-r-normal--18*   ... #!EF 
+button to the right of the field, a list of directories 
+is presented. This list of directories is taken from your DXDATA 
+environment variable, if set (see  #!Lenvvar,dxall684 h Environment Variables  #!EL  in IBM Visualization Data Explorer 
+User's Guide). Then a file selection dialog is presented, initialized to 
+the directory chosen from the  #!F-adobe-times-bold-r-normal--18*   ... #!EF button. You can 
+also access the file selection dialog directly by choosing  #!F-adobe-times-bold-r-normal--18*   Select 
+Data File #!EF from the  #!F-adobe-times-bold-r-normal--18*   File #!EF menu. #!N #!N 
+The dialog also allows you to specify the type of data 
+file you wish to import. The choices are: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Data Explorer file #!N #!I30 
+#!N o CDF format #!N #!I30 #!N o netCDF format file 
+#!N #!I30 #!N o HDF format #!N #!I30 #!N o Image 
+file #!N #!I30 #!N o Grid or Scattered file #!N #!I30 
+#!N o Spreadsheet format #!N #!I0 #!N #!EF #!N For the 
+Data Explorer, CDF, netCDF, and HDF formats, all you need to 
+do is make the selection of the format and specify the 
+file name at the top of the dialog. Each of these 
+formats is supported directly by Data Explorer and no further description 
+by you is necessary. Then you can choose to browse the 
+data file, have Data Explorer test the import of the data 
+file and print some characteristics of it, or have Data Explorer 
+visualize the data automatically using a general purpose visual program. #!N 
+#!N If you choose  #!F-adobe-times-bold-r-normal--18*   Image file #!EF , the dialog 
+will expand, allowing you to choose the type of image format, 
+and you can then have Data Explorer automatically read and display 
+your image file. #!N #!N If you choose  #!F-adobe-times-bold-r-normal--18*   Spreadsheet format 
+#!EF , the dialog will expand, allowing you to specify whether 
+to import the data as a table or a matrix. Spreadsheet 
+data consists of columns of related data, typically non-spatial. If imported 
+as a table, then the data will be treated as a 
+single Field of data, with each column placed in the field 
+as a named component. Each component will contain scalar or string 
+data. If imported as a matrix, then it is implicitly assumed 
+to be a two-dimensional grid, with the rows and columns specifying 
+the two dimensions. In this case the data in each column 
+must be of the same type (i.e. you cannot have mixed 
+strings and numbers). The  #!F-adobe-times-bold-r-normal--18*   Spreadsheet format #!EF option also allows 
+you to specify a column delimiter. For example, to specify tab-separated 
+columns, specify "\t" as the delimiter. See  #!Limpspsh,dxall872 h ImportSpreadsheet  #!EL  in IBM Visualization 
+Data Explorer User's Reference for more information. #!N #!N If you 
+choose  #!F-adobe-times-bold-r-normal--18*   Grid or Scattered File (General Array Format) #!EF , 
+which allows you to import a wide variety of data formats, 
+you will need to tell Data Explorer more about the file. 
+If you choose this option, the dialog box that appears allows 
+you to identify for the Data Prompter five important characteristics of 
+the data you want to import: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o Grid type #!N #!I30 #!N o Number 
+of variables #!N #!I30 #!N o Positions in data file #!N 
+#!I30 #!N o Single time step #!N #!I30 #!N o Data 
+organization. #!N #!I0 #!N #!EF #!N #!N #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Grid type #!EF #!I50 #!N Four grid-selection buttons 
+display patterns representing different types of data. Reading from left to 
+right, they are: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o  #!F-adobe-times-medium-i-normal--18*   Regular grid #!EF : the data-point positions can be 
+specified by origin-and-delta pairs (one pair for each dimension). #!N #!I30 
+#!N o  #!F-adobe-times-medium-i-normal--18*   Partly regular grid #!EF : one or more 
+of the dimensions cannot be described by a simple origin-delta pair. 
+#!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   Warped regular grid #!EF : each 
+position must be explicitly specified, but there is still a grid 
+structure to the connections between data points. #!N #!I30 #!N o 
+ #!F-adobe-times-medium-i-normal--18*   Scattered data #!EF : there are no connections between data 
+points. #!N #!I0 #!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Number 
+of variables #!EF #!I50 #!N The stepper button allows you to 
+specify the number of variables in the data file to be 
+imported. For example, if the file contains data values for temperature 
+and velocity (and for nothing else), the stepper button should be 
+set to 2. (The default is 1, and the allowed range 
+is 1-100.) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Positions in data file #!EF 
+#!I50 #!N This option is available only with the selection of 
+warped regular grid or scattered points. It is not meant for 
+files that "describe" data positions by reference to origin-delta pairs. For 
+example, if the data are organized as: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N x1, y1, data1 #!N x2, y2, data2 #!N . . 
+. #!EF #!N #!N #!EC #!N #!N the toggle should be 
+activated. #!N #!N Selecting the regular or partly regular grid automatically 
+deactivates the toggle: the label is grayed out, and the button 
+cannot be activated. #!N #!N Selecting the third button (warped grid) 
+automatically activates the toggle, and a stepper button appears for setting 
+the number of dimensions (e.g., set the stepper to 3 for 
+x,y,z points). Once the warped grid is selected, however, the toggle 
+cannot be reset (i.e., the position specifications are assumed to be 
+in the file). #!N #!N Selecting the fourth button (scattered points) 
+does not activate the toggle, but it allows you to do 
+so, and to deactivate it even after setting the number of 
+dimensions. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Single time step #!EF #!I50 #!N 
+This toggle button allows you to specify whether your data consists 
+of a single time step or not. By default, the toggle 
+is activated. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Data organization #!EF #!I50 #!N 
+The data organization can be characterized as block or spreadsheet. For 
+example, given a regular grid containing two variables (say temperature and 
+pressure), block style lists one set of values first, followed by 
+the other: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N t [1], t[2], ..., 
+t[n], p[1], p[2], ..., p[n] #!EF #!N #!N #!EC #!N #!N 
+Spreadsheet style alternates the two (one pair per line): #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N t [1], p[1] #!N t [2], p[2] #!N 
+... #!N t [n], p[n] #!EF #!N #!N #!EC #!I0 #!N 
+#!N #!N #!N Once you have specified the five characteristics in 
+the initial dialog box, click on  #!F-adobe-times-bold-r-normal--18*   Data Prompter #!EF . 
+The simplified Data Prompter that appears is "customized," containing only those 
+options appropriate to the data you have described in the dialog 
+box (see  #!Lsimpdp,dxall161 h Simplified Data Prompter  #!EL  ). #!N #!N For Future Reference: Once you 
+have opened and modified either the simplified or full data prompter, 
+if you then close the simplified or full window, you should 
+not use the  #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF button to reopen the 
+window, as the  #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF button opens a brand 
+new window. Instead, use  #!F-adobe-times-bold-r-normal--18*   Open General Array Importer #!EF from 
+the  #!F-adobe-times-bold-r-normal--18*   Options #!EF menu of the initial dialog. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lsimpdp,dxall161 h Simplified Data Prompter  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

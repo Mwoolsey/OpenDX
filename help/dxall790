@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcollecn CollectNamed #!N #!N Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N 
+#!N Function #!N #!N Collects named objects together in a group. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N group #!EF 
+= CollectNamed(  #!F-adobe-times-bold-r-normal--18*   object, name, ... #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB object TAB object 
+TAB none TAB object to be collected #!N TAB name TAB 
+string TAB none TAB name of object #!N TAB ... TAB 
+- TAB - TAB additional object-name pair(s) #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB group 
+TAB group TAB the group of objects #!N TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N This module 
+creates, from specified objects, a group of named members. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N 
+is an object to be placed in the group. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF #!EF #!I50 #!N is the name 
+to be associated with the preceding object. Each name must be 
+unique. #!I0 #!N #!N #!N #!N The input parameters  #!F-adobe-times-bold-r-normal--18*   object 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   name #!EF must be paired. Objects can then 
+be selected from the group by name or by number (see 
+ #!Lselect,dxall936 h Select  #!EL  ). #!N #!N Note that fields placed in the generic 
+group created by the module are treated individually (compare CollectMultiGrid). For 
+example, AutoColor colors each field in the group according to the 
+minimum and maximum data values of that field, and Sample samples 
+each field individually. #!N #!N A single CollectNamed module can collect 
+up to 21 objects together in a group. The default number 
+of enabled parameter pairs (i.e.,  #!F-adobe-times-bold-r-normal--18*   object #!EF ,  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF ) is two. (Tabs can be added to the module 
+icon and removed with the appropriate  #!F-adobe-times-bold-r-normal--18*   ...Input Tab #!EF options 
+in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu of the VPE.) #!N 
+#!N Components #!N #!N All input components are propagated to the 
+output. #!N #!N See Also #!N #!N  #!Lappend,dxall767 h Append  #!EL  ,  #!Lcollect,dxall788 h Collect  #!EL  , 
+ #!Lmultigr,dxall789 h CollectMultiGrid  #!EL  ,  #!Lcollecs,dxall791 h CollectSeries  #!EL  ,  #!Lselect,dxall936 h Select  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lcollecs,dxall791 h CollectSeries  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,46 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rclippla ClipPlane #!N #!N 
+Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N Prepares an 
+object for clipping by a plane. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N clipped #!EF = ClipPlane(  #!F-adobe-times-bold-r-normal--18*   object, point, 
+normal #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB object TAB object TAB none TAB object to 
+be clipped #!N TAB point TAB vector TAB center of object 
+TAB a point on the clipping plane #!N TAB normal TAB 
+vector TAB [0 0 1] TAB perpendicular to the clipping #!N 
+TAB - TAB - TAB - TAB plane #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N TAB 
+clipped TAB object TAB object marked for clipping #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N This 
+module constructs an object so that it can be clipped by 
+an infinite plane. Data Explorer renders only the portion of the 
+object that lies on the side opposite that pointed to by 
+ #!F-adobe-times-bold-r-normal--18*   normal #!EF (see below). #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N is the object to 
+be clipped. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   point #!EF  #!F-adobe-times-medium-r-normal--18*   , 
+#!EF #!EF #!I50 #!N specifies a point in the clipping plane. 
+This specification, together with  #!F-adobe-times-bold-r-normal--18*   normal #!EF , defines the clipping 
+plane. The default is the center of the object to be 
+clipped. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   normal #!EF #!EF #!I50 #!N 
+specifies a normal to the clipping plane. This normal projects to 
+the side of the plane that is to be clipped. All 
+parts of the specified object that lie on the opposite side 
+are retained. #!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N 
+#!I30 #!N 1. The specified object must be of a kind 
+for which a bounding box can be constructed. Otherwise an error 
+results. In general, bounding boxes can be constructed for all geometric 
+objects, but not for, say, captions. #!N #!I30 #!N 2. All 
+translucent objects in the scene should be clipped by the same 
+object. In addition, objects can be clipped by only one clipping 
+plane or one clipping box. #!N #!I30 #!N 3. The effect 
+of ClipPlane occurs during rendering, and its use does not affect 
+the behavior of modules upstream from the renderer. For example, ShowBox 
+will draw a box around the  #!F-adobe-times-medium-i-normal--18*   unclipped #!EF object. #!I0 
+#!N #!N #!N #!N Components #!N #!N All input components are 
+propagated to the output. #!N #!N Example Visual Program #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingClipPlane.net #!EF #!N #!N #!EC #!N #!N See 
+Also #!N #!N  #!Lclipbox,dxall786 h ClipBox  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lcollect,dxall788 h Collect  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

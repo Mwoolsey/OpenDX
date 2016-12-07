@@ -1,0 +1,769 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Appendix D. User Interface Configuration</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu074.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu076.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu073.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRAPF" ></A>Appendix D. User Interface Configuration
+</H2>
+		<P>
+Data Explorer provides its own set of resources for customizing the user
+interface in addition to the standard X-window and Motif
+resources.
+These resources (see table) can be specified in the
+<TT>&#46;Xdefaults</TT> resource file, and a majority can
+be invoked as command line switches or options.
+For example:
+
+		<PRE>
+DX*noImagePrinting: true
+DX*restrictionLevel: maximum
+</PRE>
+are valid resource-file entries.
+The corresponding command line format is&#58;
+<PRE>
+dx -image -noImagePrinting -restrictionLevel maximum
+</PRE>
+<P>
+The command line switch for a Boolean resource (e.g.,
+<TT>-noImagePrinting</TT>) toggles the
+default value.
+<BR>
+<P><B><A NAME="TBLRESCFG" HREF="usrgu002.htm#FT_TBLRESCFG">Table 7. Resource
+Configuration Table</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="192">
+<BR>
+Resource Name
+<BR></TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="162">Command Line Option
+(if available)
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50">
+<BR>
+Type
+<BR></TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="300">
+<BR>
+Default
+<BR></TH></TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*autoLayoutGroupSpacing</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-autoLayoutGroupSpacing</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">int</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">30</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*autoLayoutHeight</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-autoLayoutHeight</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">int</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">90</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*autoLayoutNodeSpacing</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-autoLayoutNodeSpacing</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">int</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">15</TD>
+			</TR>
+			<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*errorEnabled
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">true
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*errorOpensMessage
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">true
+</TD></TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*fontList</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">String</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">*helvetica*bold-r*14*75-75*=bold,<BR>
+					*helvetica*medium-r*14*75-75*=normal,<BR>
+					*helvetica*medium-o*14*75-75*=oblique</TD>
+			</TR>
+			<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*infoEnabled
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">true
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*infoOpensMessage
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">true
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*limitImageOptions
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-limitImageOptions
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*metric
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-metric
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noConfirmedQuit
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noConfirmedQuit
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noCMapOpenMap
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noCMapOpenMap
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noCMapSaveMap
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noCMapSaveMap
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noCMapSetNameOption
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noCMapSetNameOption
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noDXHelp
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noDXHelp
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noEditorAccess
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noEditorAccess
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noEditorOnError
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noEditorOnError
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noImageLoad
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noImageLoad
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noImageMenus
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noImageMenus
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noImagePrinting
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noImagePrinting
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noImageRWNetFile
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noImageRWNetFile
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noImageSaving
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noImageSaving
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noInteractorAttribute
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noInteractorAttribute
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noInteractorEdits
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noInteractorEdits
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noInteractorMovement
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noInteractorMovement
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noMessageInfoOption
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noMessageInfoOption
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noMessageWarningOption
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noMessageWarningOption
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noOpenAllPanels
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noOpenAllPanels
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noPGroupAssignment
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noPGroupAssignment
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noPanelAccess
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noPanelAccess
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noPanelEdit
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noPanelEdit
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noPanelRWConfig
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-noPanelRWConfig
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*noScriptCommand
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">
+<PRE>-noScriptCommand
+</PRE>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">false
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*printImageCommand
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">"lpr"
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*printImageFormat
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">"PSCOLOR"
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*printImagePageSize
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">NULL
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*printImageResolution
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">int
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*printImageSize
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">NULL
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*restrictionLevel
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">-restrictionlevel
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">NULL
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*saveImageFormat
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">"PSCOLOR"
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*saveImagePageSize
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">NULL
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*saveImageResolution
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">int
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*saveImageSize
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">NULL
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*vpeCanvas.lineThickness
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">int
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">1
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*warningEnabled
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">true
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="192">DX*warningOpensMessage
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="162">N/A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50">Boolean
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="300">true
+</TD></TR></TABLE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*errorEnabled</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default value of the <TT><STRONG>Error
+Messages</STRONG></TT>
+toggle button in the Message window&#39;s <TT><STRONG>Option</STRONG></TT>
+menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*errorOpensMessage</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies whether or not the Message window pops up
+when an error message is printed in the Message window.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*infoEnabled</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default value of the <TT><STRONG>Information
+Messages</STRONG></TT>
+toggle button in the Message window&#39;s <TT><STRONG>Option</STRONG></TT>
+menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*infoOpensMessage</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies whether or not the Message window pops up
+when an informational message is printed in the Message
+window.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*limitImageOptions</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Image Depth</STRONG></TT>,
+<TT><STRONG>Throttle</STRONG></TT>,
+<TT><STRONG>Change Image Name...</STRONG></TT>,
+and <TT><STRONG>Panel Access...</STRONG></TT> menu
+commands from the Image window&#39;s <TT><STRONG>Options</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*metric</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies that Data Explorer use the metric system (centimeters)
+when set to
+"true".
+The default is the English system (inches).
+The <TT><STRONG>Print Image</STRONG></TT> and <TT><STRONG>Save
+Image</STRONG></TT>
+dialog boxes option
+menus are affected accordingly.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noConfirmedQuit</STRONG>
+</PRE>
+</B></TD><TD><P>Turns off the "Are you sure you want to quit Data Explorer?"
+message.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noCMapOpenMap</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Open...</STRONG></TT> menu command
+from the Colormap Editor&#39;s <TT><STRONG>File</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noCMapSaveMap</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Save As...</STRONG></TT> menu command
+from the Colormap Editor&#39;s <TT><STRONG>File</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noCMapSetNameOption</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Set Colormap Name...</STRONG></TT> menu
+command
+from the Colormap Editor&#39;s <TT><STRONG>Options</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noDXHelp</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>On Context</STRONG></TT>,
+<TT><STRONG>On Manual</STRONG></TT>
+and <TT><STRONG>On Help</STRONG></TT> menu commands from the Help menu of both
+the Control Panel and the Image window.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noEditorAccess</STRONG>
+</PRE>
+</B></TD><TD><P>Removes (1) the <TT><STRONG>Delete</STRONG></TT>,
+<TT><STRONG>Show Selected
+Interactor</STRONG></TT>, <TT><STRONG>Add Selected Interactor</STRONG></TT>,
+<TT><STRONG>Show Selected Tool</STRONG></TT>, and
+<TT><STRONG>Comment...</STRONG></TT>
+menu commands from the Control Panel&#39;s
+<TT><STRONG>Edit</STRONG></TT> menu;
+(2) the <TT><STRONG>Open Visual Program Editor</STRONG></TT> menu commands from
+the
+Image window&#39;s <TT><STRONG>Windows</STRONG></TT> menu.
+
+</TD></TR><TR
+VALIGN="TOP"><TD><P><B><TT><STRONG>DX*noEditorOnError</STRONG></TT>
+</B></TD><TD><P>Turns off default behavior of popping up the VPE when an error
+occurs.
+Instead, a question dialog box is popped up, with the name of the visual
+program, which lets the user choose whether or not to open the VPE on
+the .net file.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DX*noImageLoad</STRONG></TT>
+</B></TD><TD><P>Removes the <TT><STRONG>Load Macro...</STRONG></TT> and
+<TT><STRONG>Load Module Definition(s)...</STRONG></TT>
+menu commands from the Image
+window&#39;s <TT><STRONG>File</STRONG></TT>
+menu.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noImageMenus</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the bar from all Image and Display windows.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noImagePrinting</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Print Image...</STRONG></TT>
+menu command from the Image window&#39;s
+<TT><STRONG>File</STRONG></TT>
+menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noImageRWNetFile</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Open</STRONG></TT>,
+<TT><STRONG>Save</STRONG></TT>, and
+<TT><STRONG>Save As...</STRONG></TT> menu commands from the
+Image window&#39;s <TT><STRONG>File</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noImageSaving</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Save Image...</STRONG></TT> menu command
+from the Image
+window&#39;s <TT><STRONG>File</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noInteractorAttribute</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Set Attributes...</STRONG></TT> menu
+command from the
+Control Panel&#39;s <TT><STRONG>Edit</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noInteractorEdits</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Set Style</STRONG></TT>, <TT><STRONG>Set
+Layout</STRONG></TT>, <TT><STRONG>Set
+Dimensionality</STRONG></TT>, and <TT><STRONG>Set Interactor
+Label...</STRONG></TT>
+menu commands from the Control Panel&#39;s <TT><STRONG>Edit</STRONG></TT>
+menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noInteractorMovement</STRONG>
+</PRE>
+</B></TD><TD><P>Restricts the ability to move interactor instances within a
+Control
+Panel.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noMessageInfoOption</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Information Messages</STRONG></TT>
+toggle button from the
+Message window&#39;s <TT><STRONG>Options</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noMessageWarningOption</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Warning Messages</STRONG></TT> toggle
+button from the
+Message window&#39;s <TT><STRONG>Options</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noOpenAllPanels</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Open All Panels...</STRONG></TT> menu
+command from the
+<TT><STRONG>Panels</STRONG></TT> menu of the Control Panel and the
+<TT><STRONG>Windows</STRONG></TT> menu of the Image window.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noPGroupAssignment</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Execution Group
+Assignment...</STRONG></TT> menu command
+from the Image window&#39;s
+<TT><STRONG>Connection</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noPanelAccess</STRONG>
+</PRE>
+</B></TD><TD><P>Removes (1)
+the Control Panel&#39;s <TT><STRONG>Panels</STRONG></TT> menu and all its menu
+commands;
+(2)
+the <TT><STRONG>Open All Control Panels</STRONG></TT> and <TT><STRONG>Open
+Control Panel by
+Name</STRONG></TT> menu commands from the Image window&#39;s
+<TT><STRONG>Windows</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noPanelEdit</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the Control Panel&#39;s <TT><STRONG>Edit</STRONG></TT>
+menu and all its
+menu commands.
+This is equivalent to the following
+options:
+<PRE>
+noInteractorEdits
+noInteractorAttribute
+noEditorAccess
+noInteractorMovement
+</PRE>
+<P>
+By restricting the ability to highlight interactors with a mouse click,
+this option in effect also disables interactor movement.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noRWConfig</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Open...</STRONG></TT> and
+<TT><STRONG>Save As...</STRONG></TT> menu
+commands from the <TT><STRONG>File</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*noScriptCommand</STRONG>
+</PRE>
+</B></TD><TD><P>Removes the <TT><STRONG>Execute Script Command...</STRONG></TT>
+menu command from
+the Message window&#39;s <TT><STRONG>Options</STRONG></TT> menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*printImageCommand</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default print image command to be used use in the
+<TT><STRONG>Print Image</STRONG></TT> dialog box available from the
+Image window.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*printImageFormat</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default file format to be used in the
+<TT><STRONG>Print
+Image</STRONG></TT> dialog box available in the Image window.
+The following values are recognized&#58;
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">PSCOLOR
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Color PostScript
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">PSGREY
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Gray level PostScript
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">EPSCOLOR
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Encapsulated Color PostScript
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">EPSGREY
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Encapsulated Gray level
+PostScript
+</TD></TR></TABLE>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*printImagePageSize</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default page size that PostScript
+images should be centered on when printing images
+from the <TT><STRONG>Print Image</STRONG></TT> dialog box available from the
+Image window.
+Units are those indicated by the metric option.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*printImageResolution</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default resolution that
+PostScript images should be printed with when
+printing images from the <TT><STRONG>Print Image</STRONG></TT> dialog box
+available from the Image window.
+Resolution is in dots per inch
+unless the <TT>DX*metric</TT> resource is set, in which case
+dots per centimeter is used.
+This resource is overridden by the
+<TT>printImageSize</TT> resource.
+If this is set to zero (the default),
+then the <TT><STRONG>Print Image...</STRONG></TT> dialog box chooses the
+resolution.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*printImageSize</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default size of PostScript
+images printed from the <TT><STRONG>Print Image</STRONG></TT> dialog box
+available from the Image window.
+If specified this
+option overrides the <TT>printImageResolution</TT> option.
+The value is a string in the same format as
+that accepted by the dialog box
+(for example, "8", "8x", "x10", "8x10").
+Units are those indicated by the metric option.
+The default value is determined
+by <TT>printImageResolution</TT> option.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*restrictionLevel</STRONG>
+</PRE>
+</B></TD><TD><P>Combines options to make it easier to build applications on top
+of
+Data Explorer.
+The string value must be one of the following:
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">minimum
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Combines the restrictions implied
+by the following options:
+<PRE>
+noEditorAccess
+noInteractorEdits
+noInteractorMovement
+limitImageOptions
+noScriptCommand
+noCMapSetNameOption
+</PRE>
+<P>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">intermediate
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Combines the restrictions implied
+by <TT>minimum</TT> restriction
+level plus the following options&#58;
+<PRE>
+noImageRWNetFile
+noOpenAllPanels
+noImageLoad
+noPanelEdit
+noPanelOptions
+noPGroupAssignment
+<P>
+</PRE>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">maximum
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Combines the restrictions implied
+by the <TT>intermediate</TT>
+restriction level plus the following options:
+<PRE>
+noPanelRWConfig
+noImageSaving
+noPanelAccess
+noCMapOpenMap
+noCMapSaveMap
+</PRE>
+</TD></TR></TABLE>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*saveImageFormat</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default file format to be used in the
+<TT><STRONG>Print
+Image</STRONG></TT> dialog box available in the Image window.
+The following values are recognized:
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">PSCOLOR
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Color PostScript
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">PSGREY
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Gray level PostScript
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">EPSCOLOR
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Encapsulated Color PostScript
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">EPSGREY
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Encapsulated Gray level
+PostScript
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">RGB
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">"rgb" format
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">R+G+B
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">"r+g+b" format
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">TIFF
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">TIFF format
+</TD></TR></TABLE>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*saveImagePageSize</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default page size that PostScript
+images should be centered on when saving images
+from the <TT><STRONG>Save Image</STRONG></TT> dialog box available from the
+Image window.  Units are those indicated by the metric option.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*saveImageResolution</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default resolution that
+PostScript images should be saved with when
+saving images from the <TT><STRONG>Save Image</STRONG></TT> dialog box
+available from the Image window.  Resolution is in dots per inch
+unless the <TT>DX*metric</TT> resource is set, in which case
+dots per centimeter is used.
+This resource is overridden by the
+<TT>saveImageSize</TT> resource.
+If this is set to zero (the default),
+then the <TT><STRONG>Save Image</STRONG></TT> dialog box
+chooses the resolution,
+which may be specified inside the visual program.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*saveImageSize</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default size of PostScript
+images saved from the <TT><STRONG>Print Image</STRONG></TT> dialog box
+available from the Image window.
+If specified
+this
+option overrides the <TT>saveImageResolution</TT> option.
+The value is a string in the same format as that
+accepted by the dialog box
+(for example, "8", "8x", "x10",
+"8x10").
+Units are those indicated by the metric option.
+The default value is
+determined
+by <TT>saveImageResolution</TT> option.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*vpeCanvas.lineThickness</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the thickness of the lines that connect
+module outputs to  module inputs in the VPE.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*warningEnabled</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies the default value of the <TT><STRONG>Warning
+Messages</STRONG></TT>
+toggle button in the Message window&#39;s <TT><STRONG>Option</STRONG></TT>
+menu.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>
+<PRE><STRONG>DX*warningOpensMessage</STRONG>
+</PRE>
+</B></TD><TD><P>Specifies whether or not the Message window pops up
+when a warning message is printed in the Message window.
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu219.htm">Previous Page</A> &#124; <A HREF="progu221.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXIC"
+HREF="progu097.htm#PToC_314">DXInvalidateConnections</A></H3>
+<A NAME="IDX1833"></A>
+<A NAME="IDX1834"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Propagates the validity of positions.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXInvalidateConnections(Object object)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+Propagates the validity of positions within the Fields of
+<TT><STRONG>object</STRONG></TT>
+to the connections, faces, or polylines.
+The validity of the positions is determined from the contents of the
+"invalid positions" component.
+A connections, faces, or polylines element will be invalidated if any
+of its constituent positions are invalid.
+An "invalid" connections, faces, or polylines component will be
+created if necessary.
+If there is no "invalid positions" component, if none of the
+positions are invalid, or if there is no "connections,"
+"faces," or "polylines," component, there will
+be no change to <TT><STRONG>object</STRONG></TT>.
+<P>
+To invalidate positions that become unreferenced because of the action
+of <TT><STRONG>DXInvalidateConnections</STRONG></TT>, use
+<TT><STRONG>DXInvalidateUnreferencedPositions</STRONG></TT>.
+To remove invalidated connections, faces, or polylines (and positions),
+use <TT><STRONG>DXCull</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the updated Object or returns <TT><STRONG>NULL</STRONG></TT>
+and sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu128.htm#HDRDXCUL">DXCull</A>,
+<A HREF="progu222.htm#HDRDXIUP">DXInvalidateUnreferencedPositions</A>
+</STRONG></TT>
+<P>
+<A HREF="progu068.htm#HDRINVDATA">14.3 , "Invalid Data"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu219.htm">Previous Page</A> &#124; <A HREF="progu221.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

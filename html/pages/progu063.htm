@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu062.htm">Previous Page</A> &#124; <A HREF="progu064.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="Header_135" HREF="progu055.htm#PToC_135">13.9 Basic Data
+Types</A></H2>
+<A NAME="IDX935"></A>
+<A NAME="IDX936"></A>
+<A NAME="IDX937"></A>
+<A NAME="IDX938"></A>
+<P>
+This section describes some basic data types used by the system,
+including points, vectors, triangles, colors, and matrices.
+<P>
+<H3><A NAME="HDRPSVS" HREF="progu055.htm#PToC_136">Points and Vectors</A></H3>
+<A NAME="IDX939"></A>
+<A NAME="IDX940"></A>
+Points are represented by the <TT><STRONG>Point</STRONG></TT>
+structure.
+Data Explorer provides a routine that constructs a point structure.
+Vectors are represented by the same structure as points, but for the
+sake of clarity they are defined as a separate type.
+<PRE>
+typedef struct point {
+    float x, y, z;
+} Point, Vector;
+typedef int PointId;
+</PRE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Point DXPt()
+<BR>
+Point DXVec();</STRONG></TT>
+</B></TD><TD><P>Construct a Point or a Vector with the given coordinates.
+<A NAME="IDX941"></A>
+<A NAME="IDX942"></A>
+<A NAME="IDX943"></A>
+<A NAME="IDX944"></A>
+<A NAME="IDX945"></A>
+<A NAME="IDX946"></A>
+See  <A HREF="progu272.htm#HDRDXPTVC">DXPt, DXVec</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRLTQTC" HREF="progu055.htm#PToC_137">Lines, Triangles,
+Quadrilaterals, Tetrahedra, and Cubes</A></H3>
+<A NAME="IDX947"></A>
+<A NAME="IDX948"></A>
+<A NAME="IDX949"></A>
+<A NAME="IDX950"></A>
+<A NAME="IDX951"></A>
+<P>
+These data structures define the interpolation elements of an
+Object.
+They refer to points by point identifiers.
+<PRE>
+<STRONG>
+typedef struct line {
+    PointId p, q;
+} Line;
+typedef struct triangle {
+    PointId p, q, r;
+} Triangle;
+typedef struct quadrilateral {
+    PointId p, q, r, s;
+} Quadrilateral;
+typedef struct tetrahedron {
+    PointId p, q, r, s;
+} Tetrahedron;
+typedef struct cube {
+    PointId p, q, r, s, t, u, v, w;
+} Cube;
+</STRONG>
+</PRE>
+<A HREF="#FIGVERTIC">Figure 9</A> shows the order of vertices in each structure.
+For more information about connections and the order of vertices,
+see <A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data
+Model"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<A NAME="IDX952"></A>
+<A NAME="IDX953"></A>
+<P><B><A NAME="FIGVERTIC" HREF="../proguide.htm#FT_FIGVERTIC">Figure 9. Order of
+Vertices in Connection Elements</A></B>. In the tetrahedron at right,
+<TT><STRONG>s</STRONG></TT> is the point nearest the viewer; in the tetrahedron
+at center, the point furthest from the viewer.<BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/vertord.gif" ALT="Figure vertord not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Line DXLn()
+<BR>
+Triangle DXTri();
+<BR>
+Quadrilateral DXQuad();
+<BR>
+Tetrahedron DXTetra();</STRONG></TT>
+</B></TD><TD><P>Construct a line, triangle, quadrilateral, and tetrahedron
+respectively, given the appropriate point identifiers.
+<A NAME="IDX954"></A>
+<A NAME="IDX955"></A>
+<A NAME="IDX956"></A>
+<A NAME="IDX957"></A>
+See  <A HREF="progu227.htm#HDRDXLTQT">DXLn, DXTri, DXQuad, DXTetra</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRCLRS" HREF="progu055.htm#PToC_138">Colors</A></H3>
+<A NAME="IDX958"></A>
+<A NAME="IDX959"></A>
+<P>
+Colors define the photometric characteristics of an Object;
+they may be associated with points, triangles, or lights, and may be
+used to define its reflectance or opacity.
+In Data Explorer, colors are floating-point numbers and therefore open ended,
+as is light intensity in the real world.
+However, real output devices can display only a limited range of
+intensities.
+In general, the range from 0.0 to 1.0 is by default mapped onto
+the range of displayable intensities of the output device,
+so colors should normally be specified in this range.
+Data Explorer provides a routine that constructs an RGB
+color structure.
+<PRE>
+typedef struct rgbcolor {
+    float r, g, b;
+} RGBColor;
+</PRE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>RGBColor DXRGB()</STRONG></TT>
+</B></TD><TD><P>Constructs an RGB color structure with the given components.
+<A NAME="IDX960"></A>
+<A NAME="IDX961"></A>
+See  <A HREF="progu295.htm#HDRDXRCOL">DXRGB</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error
+DXColorNameToRGB()</STRONG></TT>
+</B></TD><TD><P>Gets the RGB values for a specified colorname string.
+<A NAME="IDX962"></A>
+<A NAME="IDX963"></A>
+See  <A HREF="progu117.htm#HDRDXCNTR">DXColorNameToRGB</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="Header_139" HREF="progu055.htm#PToC_139">Angles</A></H3>
+<A NAME="IDX964"></A>
+<P>
+Angles are expressed as floating-point numbers in radians.
+The following macros express angles in units that might be more
+convenient.
+For example, <TT><STRONG>5*DEG</STRONG></TT> is 5 degrees in radians.
+<PRE>
+typedef double Angle;
+#define DEG (6.283185307179586476925287/360)
+#define RAD (1)
+</PRE>
+<P>
+<H3><A NAME="HDRMATRXSC" HREF="progu055.htm#PToC_140">Transformation
+Matrices</A></H3>
+<A NAME="IDX965"></A>
+<A NAME="IDX966"></A>
+<A NAME="IDX967"></A>
+<P>
+Transformation matrices (or transforms) specify the relationship between
+Objects.
+For example, when a renderable object is included in a model, a
+transformation matrix specifies its placement.
+In Data Explorer, a transform is a 4&times;3 matrix specifying rotation and
+translation.
+This is a homogeneous matrix without the part that computes the
+<I>w</I> component of the result.
+(The <I>w</I> component is used for perspective, which is specified
+by a camera and is not needed here.)
+<A NAME="IDX968"></A>
+<PRE>
+typedef struct matrix {
+    /* xA + b */
+    float A&#91;3&#93;&#91;3&#93;;
+    float b&#91;3&#93;;
+} Matrix;
+static Matrix mdentity = {
+    1, 0, 0,
+    0, 1, 0,
+    0, 0, 1,
+    0, 0, 0
+};
+</PRE>
+<P>
+Transforms can be specified in a number of ways:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Matrix DXRotateX()
+<BR>
+Matrix DXRotateY();
+<BR>
+Matrix DXRotateZ();</STRONG></TT>
+</B></TD><TD><P>Return a Matrix that specifies a rotation (in radians) about the
+<I>x</I>, <I>y</I> or <I>z</I> axis by angle
+<TT><STRONG>angle</STRONG></TT>.
+<A NAME="IDX969"></A>
+<A NAME="IDX970"></A>
+<A NAME="IDX971"></A>
+<A NAME="IDX972"></A>
+<A NAME="IDX973"></A>
+<A NAME="IDX974"></A>
+See  <A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY, DXRotateZ, DXScale,
+DXTranslate, DXMat</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Matrix DXScale()</STRONG></TT>
+</B></TD><TD><P>Returns a Matrix that specifies a scaling by amounts
+<TT><STRONG>x</STRONG></TT>, <TT><STRONG>y</STRONG></TT>, and
+<TT><STRONG>z</STRONG></TT> along the
+<I>x</I>, <I>y</I> and
+<I>z</I> axes.
+<A NAME="IDX975"></A>
+<A NAME="IDX976"></A>
+See  <A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY, DXRotateZ, DXScale,
+DXTranslate, DXMat</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Matrix
+DXTranslate()</STRONG></TT>
+</B></TD><TD><P>Returns a Matrix that specifies a translation by vector
+<TT><STRONG>v</STRONG></TT>.
+<A NAME="IDX977"></A>
+<A NAME="IDX978"></A>
+See  <A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY, DXRotateZ, DXScale,
+DXTranslate, DXMat</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Matrix DXMat()</STRONG></TT>
+</B></TD><TD><P>Returns a Matrix with the specified components.
+<A NAME="IDX979"></A>
+<A NAME="IDX980"></A>
+See  <A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY, DXRotateZ, DXScale,
+DXTranslate, DXMat</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRBOPS" HREF="progu055.htm#PToC_141">Basic Operations</A></H3>
+<A NAME="IDX981"></A>
+<A NAME="IDX982"></A>
+<P>
+A number of basic operations on the <TT><STRONG>Matrix</STRONG></TT>,
+<TT><STRONG>Point</STRONG></TT>, and <TT><STRONG>Vector</STRONG></TT>
+types are defined here.
+Operations declared as operating on type <TT><STRONG>Vector</STRONG></TT>
+also work on <TT><STRONG>Point</STRONG></TT> because both are
+type-defined for structure.
+These operations all take their arguments by value and return
+the result.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Vector DXNeg()
+<BR>
+Vector DXNormalize();
+<BR>
+double DXLength();</STRONG></TT>
+</B></TD><TD><P>Perform unary operations of negation, normalization, and length.
+<A NAME="IDX983"></A>
+<A NAME="IDX984"></A>
+<A NAME="IDX985"></A>
+<A NAME="IDX986"></A>
+<A NAME="IDX987"></A>
+<A NAME="IDX988"></A>
+<A NAME="IDX989"></A>
+<A NAME="IDX990"></A>
+<A NAME="IDX991"></A>
+See  <A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Vector DXAdd()
+<BR>
+Vector DXSub();
+<BR>
+Vector DXMin();
+<BR>
+Vector DXMax();</STRONG></TT>
+</B></TD><TD><P>Perform vector operations of addition, subtraction, min, and
+max.
+Min and max operations are performed on each component of a vector.
+<A NAME="IDX992"></A>
+<A NAME="IDX993"></A>
+<A NAME="IDX994"></A>
+<A NAME="IDX995"></A>
+<A NAME="IDX996"></A>
+<A NAME="IDX997"></A>
+<A NAME="IDX998"></A>
+<A NAME="IDX999"></A>
+<A NAME="IDX1000"></A>
+<A NAME="IDX1001"></A>
+<A NAME="IDX1002"></A>
+<A NAME="IDX1003"></A>
+See  <A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>
+Vector DXMul();
+<BR>
+Vector DXDiv();</STRONG></TT>
+</B></TD><TD><P>Multiply or divide a vector by a floating-point number.
+<A NAME="IDX1004"></A>
+<A NAME="IDX1005"></A>
+<A NAME="IDX1006"></A>
+<A NAME="IDX1007"></A>
+<A NAME="IDX1008"></A>
+<A NAME="IDX1009"></A>
+See  <A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>float DXDot()
+<BR>
+Vector DXCross();</STRONG></TT>
+</B></TD><TD><P>Form the dot product or cross-product of two vectors.
+<A NAME="IDX1010"></A>
+<A NAME="IDX1011"></A>
+<A NAME="IDX1012"></A>
+<A NAME="IDX1013"></A>
+<A NAME="IDX1014"></A>
+<A NAME="IDX1015"></A>
+See  <A HREF="progu099.htm#HDRDXAPLUS">DXAdd, DXCross, DXDiv, DXDot, DXLength,
+DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Matrix
+DXConcatenate()</STRONG></TT>
+</B></TD><TD><P>Returns a Matrix equivalent to the concatenation of two
+matrices.
+<A NAME="IDX1016"></A>
+<A NAME="IDX1017"></A>
+See  <A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert, DXTranspose,
+DXAdjointTranspose, DXDeterminant, DXApply</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Matrix DXInvert()
+<BR>
+Matrix DXTranspose();
+<BR>
+Matrix DXAdjointTranspose();
+<BR>
+float DXDeterminant();</STRONG></TT>
+</B></TD><TD><P>Compute, respectively, the inverse, transpose, adjoint
+transpose,
+and determinant of a matrix.
+<A NAME="IDX1018"></A>
+<A NAME="IDX1019"></A>
+<A NAME="IDX1020"></A>
+<A NAME="IDX1021"></A>
+<A NAME="IDX1022"></A>
+<A NAME="IDX1023"></A>
+<A NAME="IDX1024"></A>
+<A NAME="IDX1025"></A>
+See  <A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert, DXTranspose,
+DXAdjointTranspose, DXDeterminant, DXApply</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Vector DXApply()</STRONG></TT>
+</B></TD><TD><P>Forms the product of a vector (interpreted as a row vector) and
+a matrix.
+<A NAME="IDX1026"></A>
+<A NAME="IDX1027"></A>
+<A NAME="IDX1028"></A>
+See  <A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert, DXTranspose,
+DXAdjointTranspose, DXDeterminant, DXApply</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu062.htm">Previous Page</A> &#124; <A HREF="progu064.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

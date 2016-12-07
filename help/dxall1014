@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Rmbwrkrt Worker Routine #!N #!EC #!N #!N At the end of 
+the C-code framework file created by the Data Explorer Module Builder 
+is a "worker routine" that serves as an interface to the 
+user's application code. The entry point to this routine (i.e., its 
+name) consists of the module name affixed to "_worker" (e.g., the 
+name of the worker routine for the  #!F-adobe-times-bold-r-normal--18*   X #!EF module 
+is  #!F-adobe-times-bold-r-normal--18*   X_worker #!EF ). #!N #!N The Module Builder prepares 
+a parameter list for the worker routine that contains information from 
+the module input parameters, along with pointers to memory for module 
+results. Three examples appear in  #!Lwrkrxmp,dxall1020 h Worker Routine Examples  #!EL  . In each example, the 
+Module Builder creates a module with two inputs (the first a 
+Field/Group, and the second a Value) and one output (a Field/Group 
+Object). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1014,dxall1015 h Positions Specification  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

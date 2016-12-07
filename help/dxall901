@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rparse Parse #!N #!N Category #!N #!N 
+ #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N Function #!N #!N Extracts values from an input 
+string. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N value, 
+... #!EF = Parse(  #!F-adobe-times-bold-r-normal--18*   input, format #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB input TAB 
+string TAB none TAB string to be operated on #!N TAB 
+format TAB string TAB "%s" TAB format control string #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB value TAB value or string TAB value extracted from input 
+string #!N TAB ... TAB value or string TAB additional values 
+extracted #!N TAB - TAB - TAB #!EF #!N #!N Functional 
+Details #!N #!N This module uses a format-control string (  #!F-adobe-times-bold-r-normal--18*   
+format #!EF ) to extract values from a specified input string 
+(  #!F-adobe-times-bold-r-normal--18*   input #!EF ). Note: The control string resembles a 
+C-language scanf format string. #!N #!N The "%" symbol in the 
+control string specifies that extraction is to begin at the corresponding 
+position in the input string. The character immediately following this symbol 
+specifies the type of value to be extracted: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N  #!F-adobe-times-bold-r-normal--18*   c #!EF : single character 
+#!N #!I30 #!N  #!F-adobe-times-bold-r-normal--18*   d #!EF : integer #!N #!I30 #!N 
+ #!F-adobe-times-bold-r-normal--18*   f #!EF : floating point (with a fixed number of 
+digits after the decimal point) #!N #!I30 #!N  #!F-adobe-times-bold-r-normal--18*   g #!EF 
+: general (scientific notation if appropriate) #!N #!I30 #!N  #!F-adobe-times-bold-r-normal--18*   s 
+#!EF : string. #!N #!I0 #!N #!EF #!N #!N #!N The 
+number of outputs is equal to the number of extractions specified 
+in  #!F-adobe-times-bold-r-normal--18*   format #!EF . #!N #!N Example #!N #!N Given 
+the statements: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N string = "temperature = 
+45.8 index = 4 color = red" #!N format = "temperature 
+= %f index = %d color = %s" #!N output1, output2, 
+output3 = Format(string, format); #!EF #!N #!N #!EC the three outputs 
+of parse will be 45.8, 4, and "red." #!N #!N Example 
+Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingParse.net #!EF #!N #!N 
+#!EC #!N #!N See Also #!N #!N  #!Lformat,dxall853 h Format  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lpartiti,dxall902 h Partition  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

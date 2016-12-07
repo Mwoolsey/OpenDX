@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtube Tube #!N #!N Category #!N #!N  #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N 
+Function #!N #!N Changes a specified line into a tube. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N tube #!EF = 
+Tube(  #!F-adobe-times-bold-r-normal--18*   line, diameter, ngon, style #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB line TAB field 
+TAB none TAB line to be drawn as a tube #!N 
+TAB diameter TAB scalar TAB input dependent TAB tube diameter #!N 
+TAB ngon TAB integer TAB 8 TAB number of sides to 
+the tube #!N TAB style TAB string TAB "sphere" TAB style 
+of tube caps #!N TAB - TAB - TAB - TAB 
+#!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Description #!EF #!N TAB tube TAB field TAB a 
+renderable tube #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N This module is intended for use with 
+any module that creates lines (e.g., Streamline). #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   line #!EF #!EF #!I50 #!N specifies the 
+line that is to be changed into a tube. If a 
+"normals" component is present (as would occur if the input field 
+ #!F-adobe-times-bold-r-normal--18*   curl #!EF were used with Streamline or if the  #!F-adobe-times-bold-r-normal--18*   
+flag #!EF parameter is set in Streamline), the tube shows a 
+corresponding twist. To show the twist most effectively, use the Ribbon 
+module. Excessive amounts of twist can produce a pinching effect. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   diameter #!EF #!EF #!I50 #!N specifies the 
+tube diameter in the same units as those of the original 
+space. If this parameter is not specified, the module provides an 
+appropriate value (1/50 of the diagonal of the boundary box of 
+ #!F-adobe-times-bold-r-normal--18*   line #!EF . This value is attached to the output 
+ #!F-adobe-times-bold-r-normal--18*   tube #!EF as an attribute called "Tube diameter," which can 
+be extracted with the Attribute module. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+ngon #!EF #!EF #!I50 #!N specifies the number of sides of 
+the cross-sectional polygon of the tube. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+style #!EF #!EF #!I50 #!N in the current version of Data 
+Explorer has no effect. #!I0 #!N #!N #!N #!N Components #!N 
+#!N Creates new "positions," "connections," and "normals" components. All other components 
+are propagated to the output. #!N #!N Example Visual Programs #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Imide_potential.net #!N Interop.net #!N PlotLine2.net #!N RubberTube.net 
+#!EF #!N #!N #!EC #!N #!N See Also #!N #!N  #!Lfacenor,dxall847 h FaceNormals  #!EL  
+,  #!Lribbon,dxall927 h Ribbon  #!EL  ,  #!Lstreakl,dxall954 h Streakline  #!EL  ,  #!Lstreaml,dxall955 h Streamline  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lunmark,dxall972 h Unmark  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

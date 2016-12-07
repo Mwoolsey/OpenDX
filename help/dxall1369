@@ -1,0 +1,48 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxscev DXSetCacheEntry, DXSetCacheEntryV #!N #!N Function 
+#!N #!N Set a cache entry. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Error DXSetCacheEntry(Object out, double cost, char *function, int key, 
+int n, ...) Error DXSetCacheEntryV(Object out, double cost, char *function, int 
+key, int n, Object *in) #!EF #!N #!N Functional Details #!N 
+#!N Create or alter a cache entry to store a reference 
+to  #!F-adobe-times-bold-r-normal--18*   out #!EF . The cache entry is indexed by 
+a key created from  #!F-adobe-times-bold-r-normal--18*   function #!EF ,  #!F-adobe-times-bold-r-normal--18*   key #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   n #!EF , and the Objects in the Array 
+ #!F-adobe-times-bold-r-normal--18*   in #!EF . The parameter  #!F-adobe-times-bold-r-normal--18*   function #!EF makes the 
+key unique to the caller;  #!F-adobe-times-bold-r-normal--18*   key #!EF allows the caller 
+to have multiple cache entries with the same  #!F-adobe-times-bold-r-normal--18*   function #!EF 
+, and  #!F-adobe-times-bold-r-normal--18*   n #!EF and  #!F-adobe-times-bold-r-normal--18*   in #!EF allow the 
+cache entry to be related to the Objects that were used 
+to create it. Setting a cache entry to  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+removes the entry and deletes the Object. #!N #!N #!N #!N 
+The  #!F-adobe-times-bold-r-normal--18*   out #!EF parameter must be a Data Explorer Object. 
+Private Objects may be used to store arbitrary user data in 
+the cache. #!N #!N The entry may be automatically deleted at 
+any time because of memory constraints unless  #!F-adobe-times-bold-r-normal--18*   cost #!EF is 
+set to a value equal to or greater than  #!F-adobe-times-bold-r-normal--18*   CACHE_PERMANENT 
+#!EF . #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. 
+Because Data Explorer modules follow pure function semantics, the cache should 
+ #!F-adobe-times-medium-i-normal--18*   not #!EF be used to store a state that affects 
+the output of the module. A module must always be able 
+to recreate the Object from the same set of inputs; the 
+cache should be used only as an optimization tool. #!N #!I30 
+#!N 2. On a multiprocessor machine, processor local information should  #!F-adobe-times-medium-i-normal--18*   
+not #!EF be stored in the cache, since its contents may 
+be retrieved on another processor. #!N #!I30 #!N 3. The cache 
+is local to one machine and cannot be used to communicate 
+information between modules on different machines when running in distributed mode. 
+#!I0 #!N #!N #!N #!N Because Objects in the cache are 
+candidates for deletion at any time,  #!F-adobe-times-bold-r-normal--18*   DXReference #!EF should be 
+called before caching an Object if that Object is to be 
+used later. #!N #!N If you have called DXReference on the 
+Object before putting it in the cache, call  #!F-adobe-times-bold-r-normal--18*   DXDelete #!EF 
+when the Object is no longer being used; the latter call 
+will not delete the Object from the cache. (To delete an 
+Object from the cache, set the cache entry to  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF with  #!F-adobe-times-bold-r-normal--18*   DXSetCacheEntry #!EF .) #!N #!N #!N #!N Return 
+Value #!N #!N Return  #!F-adobe-times-bold-r-normal--18*   OK #!EF or return  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and set an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxdel,dxall1195 h DXDelete  #!EL  ,  #!Ldxgcev,dxall1224 h DXGetCacheEntry, DXGetCacheEntryV  #!EL  ,  #!Ldxgsot,dxall1255 h DXGetObjectTag, DXSetObjectTag  #!EL  ,  #!Ldxnp,dxall1322 h DXNewPrivate  #!EL  ,  #!Ldxref,dxall1353 h DXReference  #!EL  
+#!EF #!N #!N  #!Lcache,dxall1102 h Cache  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxsco,dxall1370 h DXSetClippedObjects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

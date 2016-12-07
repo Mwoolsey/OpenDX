@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rfilesel FileSelector #!N #!N Category #!N #!N  #!Lcatint,dxall757 h Interactor  #!EL  
+#!N #!N Function #!N #!N Produces file names as outputs. #!N 
+#!N Syntax #!N #!N Available only through the user interface. #!N 
+#!N Outputs #!N #!N #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Description #!EF #!N TAB filename TAB string TAB full 
+path name of selected file #!N TAB basename TAB string TAB 
+name of file (not including directory name) #!N TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N This module 
+can be used whenever a file name is needed (e.g., as 
+input to the Import or ReadImage tools). It generates two output 
+strings, both of which are file names: #!N #!N The first 
+(  #!F-adobe-times-bold-r-normal--18*   filename #!EF ) is the complete path to the 
+file. #!N #!N The second (  #!F-adobe-times-bold-r-normal--18*   basename #!EF ) is 
+the file name, without the path. (For more information, see  #!Lbuico,dxall380 h Using Control Panels and Interactors  #!EL  
+in IBM Visualization Data Explorer User's Guide.) #!N #!N #!I0 #!N 
+Notes: #!N #!I30 #!N 1.  #!F-adobe-times-bold-r-normal--18*   FileSelector #!EF cannot be data 
+driven. #!N #!I30 #!N 2. The  #!F-adobe-times-bold-r-normal--18*   FileSelector #!EF dialog box 
+can access only those files that are accessible to the user 
+interface. #!I0 #!N #!N #!N #!N Example Visual Program #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N MultipleDataSets.net #!EF #!N #!N #!EC #!N #!N See 
+Also #!N #!N  #!Linteger,dxall878 h Integer  #!EL  ,  #!Lintegel,dxall879 h IntegerList  #!EL  ,  #!Lscalar,dxall932 h Scalar  #!EL  ,  #!Lscalarl,dxall933 h ScalarList  #!EL  , 
+ #!Lselecto,dxall937 h Selector  #!EL  ,  #!Lstring,dxall956 h String  #!EL  ,  #!Lstringl,dxall957 h StringList  #!EL  ,  #!Lvalue,dxall975 h Value  #!EL  ,  #!Lvaluel,dxall976 h ValueList  #!EL  ,  #!Lvector,dxall977 h Vector  #!EL  
+,  #!Lvectorl,dxall978 h VectorList  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lfilter,dxall849 h Filter  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

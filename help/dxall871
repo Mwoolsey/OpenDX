@@ -1,0 +1,195 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rimport 
+Import #!N #!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N Function #!N 
+#!N Reads an external data file. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   data #!EF = Import(  #!F-adobe-times-bold-r-normal--18*   name, variable, 
+format, start, end, delta #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB name TAB string TAB none 
+TAB name of file containing data to be #!N TAB - 
+TAB - TAB - TAB read, or "!command" #!N TAB variable 
+TAB string or string list TAB format dependent TAB variable to 
+be read #!N TAB format TAB string TAB file extension or 
+content TAB "dx," "general," "netcdf," "CDF," #!N TAB - TAB - 
+TAB - TAB "hdf," "cm" #!N TAB start TAB integer TAB 
+first frame TAB first data frame to be imported #!N TAB 
+end TAB integer TAB last frame TAB last data frame to 
+be imported #!N TAB delta TAB integer TAB 1 TAB increment 
+between frames #!N TAB - TAB - TAB - TAB #!EF 
+#!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Description #!EF #!N TAB data TAB object TAB object containing 
+requested variables #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N From an external data file this modules 
+creates Data Explorer objects that can be processed by other modules. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF #!EF 
+#!I50 #!N is the name of the data file being imported. 
+If the parameter specifies an absolute path name, the system attempts 
+to open the file. Otherwise, it first searches the current directory 
+(i.e., the directory from which Data Explorer was invoked) and then, 
+if necessary, the directories specified by the environment variable DXDATA (see 
+ #!Lenvvar,dxall684 h Environment Variables  #!EL  in IBM Visualization Data Explorer User's Guide). Note: This parameter 
+can also specify an external filter (see  #!Lextflt,dxall871 s External filters  #!EL  ). #!N #!N 
+If  #!F-adobe-times-bold-r-normal--18*   name #!EF contains a series, the parameters  #!F-adobe-times-bold-r-normal--18*   start 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   end #!EF , and  #!F-adobe-times-bold-r-normal--18*   delta #!EF can 
+be used to import a portion of the data (see parameter 
+descriptions below). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   variable #!EF #!EF #!I50 
+#!N specifies the variable(s) to be imported. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   format #!EF #!EF #!I50 #!N specifies the format of the 
+data to be imported. Valid format names are: "dx," "general," "netcdf," 
+"CDF," "hdf," and "cm." These keywords can also be used as 
+extensions on file names. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   start #!EF 
+ #!F-adobe-times-medium-r-normal--18*   and #!EF #!EF  #!F-adobe-times-bold-r-normal--18*   end #!EF #!I50 #!N specify the 
+first and last data frame to be imported from a data 
+file containing a series. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   delta #!EF 
+#!EF #!I50 #!N specifies the increment in counting the data frames 
+in the range from  #!F-adobe-times-bold-r-normal--18*   start #!EF to  #!F-adobe-times-bold-r-normal--18*   end #!EF 
+. For example, if the first and last frames are 10 
+and 20 respectively, and  #!F-adobe-times-bold-r-normal--18*   delta #!EF = 2, the output 
+ #!F-adobe-times-bold-r-normal--18*   data #!EF is a series group with six members (frames 
+10, 12, 14,...). #!I0 #!N #!N #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+For Future Reference #!N #!N If the data set being imported 
+is changed (e.g., by editing) during a Data Explorer session, and 
+if the cache is enabled (the default condition), it may be 
+necessary to reinitialize the Data Explorer executive to access the new 
+data. To do so, select  #!F-adobe-times-bold-r-normal--18*   Reset Server #!EF in the 
+ #!F-adobe-times-bold-r-normal--18*   Connections #!EF pull-down menu of the VPE window. #!N #!N 
+Resetting the server flushes the executive cache. The next time the 
+visual program is invoked, the entire network executes (not just the 
+portions affected by changes) and Import will reaccess the data set. 
+#!N #!N Specifying that the module's output not be cached has 
+the same effect. Select the appropriate option in: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o the "Cache" option menu of 
+the module's configuration dialog box,  #!F-adobe-times-medium-i-normal--18*   or #!EF #!N #!I30 #!N 
+o the "Set Output Cacheability" option menu in the  #!F-adobe-times-bold-r-normal--18*   Edit 
+#!EF pull-down menu. #!N #!N Note that it may be necessary 
+to apply the same restriction to any module downstream from Import. 
+#!N #!N To specify that  #!F-adobe-times-medium-i-normal--18*   no #!EF outputs are to 
+be cached, use the  #!F-adobe-times-bold-r-normal--18*   -cache off #!EF option when starting 
+Data Explorer. #!N #!I0 #!N #!EF #!N #!N #!N #!EC #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   Data Explorer format files. #!EF A Data Explorer data 
+file consists of one or more header and data sections that 
+describe the structure and values of user data. The header section 
+is a text description of one or more Data Explorer objects, 
+and the data section is either a text or binary representation 
+of the data values. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   variable #!EF specifies 
+more than one object, the module creates a group and each 
+object is added to the group by name. If  #!F-adobe-times-bold-r-normal--18*   variable 
+#!EF is not specified, the default object is imported. This object 
+can be specified with the  #!F-adobe-times-bold-r-normal--18*   default #!EF keyword in the 
+Data Explorer file format (see  #!Ledf,dxall623 h Data Explorer Native Files  #!EL  in IBM Visualization Data Explorer 
+User's Guide). If it is not specified, the default object is 
+the last object defined in the data file. #!N #!N Any 
+Data Explorer object in a Data Explorer data file can be 
+specified for import, including Lights, Cameras, and Transforms, as well as 
+more common objects such as Series, Groups, and Fields. The data 
+can be in a separate file from the header, and header 
+and data sections can be interspersed. And the data can be 
+specified in a variety of formats (see see  #!Ledf,dxall623 h Data Explorer Native Files  #!EL  in IBM 
+Visualization Data Explorer User's Guide). #!N #!N  #!F-adobe-times-bold-r-normal--18*   General array importer 
+files. #!EF You can use the general format described in  #!Lgai,dxall110 h General Array Importer  #!EL  
+in IBM Visualization Data Explorer QuickStart Guide to import data from 
+various file formats and convert the data to objects. This format 
+allows you to describe the structure of your data so that 
+Data Explorer can create Data Explorer objects from it. If you 
+do not specify a variable, then all variables are imported. #!N 
+#!N Normally, the  #!F-adobe-times-bold-r-normal--18*   name #!EF parameter in this case is 
+the general array header file. However, the  #!F-adobe-times-bold-r-normal--18*   name #!EF parameter 
+can be the data file if the extended form of the 
+ #!F-adobe-times-bold-r-normal--18*   format #!EF parameter includes the header file as a template. 
+The  #!F-adobe-times-bold-r-normal--18*   format #!EF parameter can also include any set of 
+keyword-value pairs as a comma-separated list. The specified values are used 
+instead of those in the header file. This format is useful 
+for data files with similar header files where only the size 
+of the data changes. An example for the  #!F-adobe-times-bold-r-normal--18*   grid #!EF 
+keyword is: #!N #!N  #!F-adobe-times-bold-r-normal--18*   format #!EF ="general, template=headerfile, grid=num[x] x 
+num[y] x num[z] ..." #!N #!N An example parameter for the 
+ #!F-adobe-times-bold-r-normal--18*   points #!EF keyword is: #!N #!N  #!F-adobe-times-bold-r-normal--18*   format #!EF = 
+"general, template=headerfile, points=n" #!N #!N You may also omit template=headerfile if 
+all the necessary information is specified by the keyword-value pairs. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   netCDF files. #!EF When the netCDF file is opened, 
+variables matching the  #!F-adobe-times-bold-r-normal--18*   variable #!EF parameter are read in as 
+field objects. If you give no field name, all fields are 
+read in and placed as separate fields in a group. Each 
+group member is named using the name of the field in 
+the netCDF file. If more than one variable has the same 
+field name, a composite field is created. #!N #!N You can 
+import both regular and irregular data. If the data are regular, 
+nonzero origins and non-unit spacing can be handled. You can also 
+import scalar, vector, and tensor data. For irregular data, "positions" and 
+"connections" are determined from information in the netCDF variable attributes associated 
+with the field. Additional components can also be read in and 
+added to the field, based on netCDF attribute information. #!N #!N 
+For a detailed description of the attributes required in a netCDF 
+file, and an example of the correct format, see  #!Lnetcdf,dxall665 h netCDF Files  #!EL  in 
+IBM Visualization Data Explorer User's Guide. #!N #!N  #!F-adobe-times-bold-r-normal--18*   CDF files. 
+#!EF When the CDF is opened, variables matching the "variable" parameter 
+are read in as fields. If "variable" is not specified, then 
+all variables are imported and placed as fields in a group. 
+Each group member is named using the name of the field 
+(CDF variable) in the CDF. If the CDF contains records, then 
+variable(s) are imported as a series. Some CDF variables become the 
+"positions" component of the field, while others become the "data" component 
+of the field. For a series, the values of the record-varying 
+variable become the "series positions" attribute(s). Variable and global attributes present 
+in the CDF are imported as object attributes. Only CDF r-variables 
+are supported. See IBM Visualization Data Explorer User's Guide for more 
+information on importing data from a CDF. #!N #!N  #!F-adobe-times-bold-r-normal--18*   HDF 
+files. #!EF Scientific DataSets are read in as fields. If there 
+are more than one DataSet in the HDF file, you can 
+specify the variable as a number corresponding to the position of 
+the data set (0 corresponds to the first file). If no 
+variable is specified, all fields are read in and placed as 
+separate fields in a group. Each group member is named using 
+the label (if it exists) from the HDF file. #!N #!N 
+If scales are present, they are interpreted as "positions" with regular 
+"connections." Otherwise, the positions are a regular grid with regular connections. 
+For more information on HDF, see  #!Lhdf,dxall682 h HDF Files  #!EL  in IBM Visualization Data 
+Explorer User's Guide. #!N #!N  #!F-adobe-times-bold-r-normal--18*   CM files. #!EF Import will 
+import saved color-map files. (To save a color map explicitly as 
+a separate  #!F-adobe-times-bold-r-normal--18*   .cm #!EF file, choose  #!F-adobe-times-bold-r-normal--18*   Save As... #!EF 
+in the  #!F-adobe-times-bold-r-normal--18*   File #!EF menu of the ColorMap Editor.) #!N 
+#!N The imported file will be a group containing the color 
+map as the first field and the opacity map as the 
+second field. (Alternatively, you can import just one of these maps 
+by specifying the  #!F-adobe-times-bold-r-normal--18*   variable #!EF parameter to Import as "colormap" 
+or "opacity" respectively.) #!N #!N The color map is a field 
+with a 1-dimensional "positions" component (the data values) and a 3-dimensional 
+"data" component (the colors). Similarly the opacity map is a field 
+with a 1-dimensional "positions" component (the data values) and a 1-dimensional 
+"data" component (the opacities). #!N #!N You can pass the imported 
+color and opacity maps to (1) the  #!F-adobe-times-bold-r-normal--18*   color #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   opacity #!EF tabs of the Color module or (2) the 
+ #!F-adobe-times-bold-r-normal--18*   color-map #!EF and  #!F-adobe-times-bold-r-normal--18*   opacity #!EF parameters of the Colormap 
+tool. #!N #!N When a .cm file is imported, the result 
+is not only information describing the color and opacity maps themselves, 
+but also information specifically intended for the Colormap Editor regarding control 
+points. Users are not expected to create their own .cm files 
+(other than by writing them using the  #!F-adobe-times-bold-r-normal--18*   Save As #!EF 
+command in the Colormap Editor), as the content of this file 
+is not documented. However users can import any field which has 
+the appropriate color or opacity map structure and use it as 
+input to either the Color or the Colormap tools. For more 
+information on the structure of color and opacity maps, see  #!Lcolor,dxall792 h Color  #!EL  
+. #!N #!N  #!F-adobe-times-bold-r-normal--18*   External filters. #!EF  #!Rextflt If the first 
+character of the  #!F-adobe-times-bold-r-normal--18*   name #!EF parameter is "!" (e.g., "!ext2dx 
+mydata.ext mydata.dx"), the rest of the string following the exclamation point 
+is interpreted as a shell command to be executed. The command 
+should be the name of an external filter program with any 
+required arguments. The filter program can be any  #!F-adobe-times-medium-i-normal--18*   user-supplied #!EF 
+program that reads data from other file formats or generates data, 
+but it must output "dx" or "general array" format as standard 
+output. The Import module waits for the program to execute, reads 
+the output of the program, and imports the objects with the 
+same options as if reading directly from a file. #!N #!N 
+Example Visual Programs #!N #!N Nearly every example visual program uses 
+the Import module. Most import Data Explorer format files. Two example 
+programs that import general array format files are: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N GeneralImport1.net #!N GeneralImport2.net #!EF #!N #!N #!EC #!N #!N 
+An example program that uses the external filter option is: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N ImportExternalFilter.net #!EF #!N #!N #!EC #!N #!N 
+An example program that uses the extended form of the  #!F-adobe-times-bold-r-normal--18*   
+format #!EF parameter is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N MRI_2.net #!EF 
+#!N #!N #!EC #!N #!N See Also #!N #!N  #!Lexport,dxall844 h Export  #!EL  , 
+ #!Lpartiti,dxall902 h Partition  #!EL  ,  #!Lreadima,dxall915 h ReadImage  #!EL  ,  #!Limpspsh,dxall872 h ImportSpreadsheet  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Limpspsh,dxall872 h ImportSpreadsheet  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall571 Data Explorer Object 
+Cache #!N #!EC #!N #!N Data Explorer uses an object cache 
+to store intermediate results of modules. Caching systems are intended to 
+fill up and then reclaim memory by throwing things out of 
+the cache. The size of the cache defaults to a large 
+percentage of the physical memory on the machine. You can control 
+the size of the cache with the -memory command line option 
+to the  #!F-adobe-times-bold-r-normal--18*   dx #!EF command. The minimum cache size needed 
+is on the order of the maximum amount of memory required 
+for a program execution. #!N #!N The Data Explorer "executive" schedules 
+module execution. It does detailed graph analysis, implements distributed processing of 
+the modules, and implements the Switch and Route modules. It also 
+provides optimization by caching the intermediate outputs of modules. For example, 
+if you run Import twice in a row with the same 
+inputs, Import will not actually run the second time, and instead 
+the executive will use the cached output from the previous execution. 
+The Image and Display tools also cache their images internally. #!N 
+#!N To implement the caching scheme, Data Explorer will allocate memory 
+up to some fixed size. This memory is referred to as 
+the arena. When the arena fills up and more memory is 
+required, Data Explorer looks for objects to discard from the cache. 
+When it does this it may mean that subsequent executions will 
+have to execute larger portions of the program. #!N #!N The 
+arena is of fixed size for any one instance of Data 
+Explorer. The size of this arena is chosen by default based 
+on the size of the physical memory in the system. For 
+some data sets, the default arena size will not be sufficient. 
+In those cases, one can use the -memory option to increase 
+the size of the arena, with the limitation that your can't 
+increase the arena size to be larger than the amount of 
+real plus virtual memory (page or swap space) on your machine. 
+Talk to your system administrator if you think you need to 
+increase the amount of swap space on your system. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall572,dxall573 h Reducing Memory Requirements  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

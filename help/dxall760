@@ -1,0 +1,94 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rcatren Rendering #!N 
+#!EC #!N #!N These tools create a displayable image from a 
+renderable object or modify the visual characteristics of the object(s) being 
+displayed. For example, Normals and FaceNormals could be used to add 
+shading to a geometrical structure created with RubberSheet (Realization category), while 
+Light and AmbientLight could be used to change its default lighting. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lambligh,dxall766 h AmbientLight  #!EL  #!EF #!I50 #!N 
+Produces an ambient light. You can specify the color of the 
+light. Ambient lights illuminate a surface equally, regardless of direction, so 
+an object illuminated only with ambient light is not shaded. Note 
+that it is not necessary to specify an ambient light, because 
+a small amount of ambient light is built into the object 
+model. However, explicitly specified lighting overrides the default lighting. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Larrange,dxall768 h Arrange  #!EL  #!EF #!I50 #!N Creates a single image from 
+a collection of images. You can specify how many images to 
+put in a row. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lautocam,dxall771 h AutoCamera  #!EL  #!EF #!I50 
+#!N This module produces an appropriate camera as input to the 
+Render or Display module. Specifying a "look-from" direction changes this default 
+camera. The width of the image in model units (orthographic projection) 
+or the field of view (perspective projection), or the image size 
+and aspect ratio can also be changed. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lcamera,dxall780 h Camera  #!EL  #!EF #!I50 #!N Produces a camera for input to the 
+Render or Display module. You can specify the "look-to" point, the 
+"look-from" point, the width of the image in units corresponding to 
+those in the data, the image size, and the aspect ratio. 
+Camera differs from AutoCamera in that it specifies a "look from" 
+a  #!F-adobe-times-medium-i-normal--18*   point #!EF instead of a  #!F-adobe-times-medium-i-normal--18*   direction #!EF . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lclipbox,dxall786 h ClipBox  #!EL  #!EF #!I50 #!N Clips an object 
+using a box. You can specify the box explicitly, as the 
+two corners defining a box, or it can be the bounding 
+box of an object. The module renders only that part of 
+the object inside the box. The Render, Display, or Image tool 
+actually performs the clipping. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lclippla,dxall787 h ClipPlane  #!EL  #!EF #!I50 
+#!N Clips an object by a plane. The user specifies the 
+plane with a point and a normal. The side of the 
+plane the normal projects into is the side that will be 
+clipped (i.e., not displayed). The Render, Display, or Image tool performs 
+the clipping. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldisplay,dxall807 h Display  #!EL  #!EF #!I50 #!N Renders 
+and/or displays an image to the screen. If a camera is 
+not provided, the Display module expects the first input to be 
+an image (e.g., the output of Render or Arrange). #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lfacenor,dxall847 h FaceNormals  #!EL  #!EF #!I50 #!N Computes normals on a surface. 
+When you use the FaceNormals module, each face of the surface 
+is flat-shaded. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Limage,dxall860 h Image  #!EL  #!EF #!I50 #!N This 
+tool renders and displays an image to the screen. It performs 
+like the AutoCamera and Display modules combined. Using the Image tool 
+to render an image enables many direct interactors that are not 
+available when using AutoCamera and Display. These options are available in 
+the  #!F-adobe-times-bold-r-normal--18*   View Control #!EF option of the  #!F-adobe-times-bold-r-normal--18*   Options #!EF 
+pull-down menu in the Image window. For example, see  #!Lchav,dxall300 h Controlling the Image: View Control...  #!EL  in 
+IBM Visualization Data Explorer User's Guide. The Image tool is available 
+only in the graphical user interface. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Llight,dxall884 h Light  #!EL  
+#!EF #!I50 #!N Produces a distant point light. You can specify 
+the direction and color of the light. Note that it is 
+not necessary to specify a light, because there is a default 
+light built into the object model; however, explicitly specified lighting overrides 
+the default lighting. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lnormals,dxall897 h Normals  #!EL  #!EF #!I50 #!N 
+Computes point or face normals for shading a surface. For example, 
+you can use this module to produce shading on rubbersheets and 
+boundaries. However, shading on an isosurface is smoother if you use 
+the gradient shading options built into the Isosurface module. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Loverlay,dxall900 h Overlay  #!EL  #!EF #!I50 #!N Overlays two images. The result 
+is a new image that can be displayed using the Display 
+module. The new image is a pixel-by-pixel sum of the two 
+images, where 1 -  #!F-adobe-times-bold-r-normal--18*   blend #!EF attenuates the base-image pixels, 
+and  #!F-adobe-times-bold-r-normal--18*   blend #!EF attenuates the overlay-image pixels, (  #!F-adobe-times-bold-r-normal--18*   blend 
+#!EF is a value between 0 and 1). You can also 
+perform chromakeying by specifying  #!F-adobe-times-bold-r-normal--18*   blend #!EF as an RGB color 
+or as a string specifying a color. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lrender,dxall923 h Render  #!EL  #!EF #!I50 #!N Renders an object and creates an image. 
+The object can be any combination of volumes, surfaces, lines, and 
+points, and you can clip the object. You need to provide 
+a camera to the Render module to specify the viewing direction. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lreorent,dxall924 h Reorient  #!EL  #!EF #!I50 #!N Rotates or inverts 
+an image or a group of images. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lrotate,dxall928 h Rotate  #!EL  #!EF #!I50 #!N Rotates an object around specified axes. The 
+Render, Display, or Image tool actually performs the rotation. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lscale,dxall934 h Scale  #!EL  #!EF #!I50 #!N Changes an object's dimensions along 
+the  #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF , and  #!F-adobe-times-medium-i-normal--18*   
+z #!EF axes. The scaling is actually performed in the Render, 
+Display, or Image tool. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lscalscr,dxall935 h ScaleScreen  #!EL  #!EF #!I50 
+#!N Scales all screen objects (typically captions and color bars) by 
+a specified amount. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lshade,dxall942 h Shade  #!EL  #!EF #!I50 #!N 
+Allows you to specify object-shading parameters such as specularity. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ltransfo,dxall967 h Transform  #!EL  #!EF #!I50 #!N Moves, rotates, and resizes an 
+object. The Render, Display, or Image tool actually performs the translation. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Ltransla,dxall968 h Translate  #!EL  #!EF #!I50 #!N Moves an object 
+along the  #!F-adobe-times-medium-i-normal--18*   x, y #!EF , and  #!F-adobe-times-medium-i-normal--18*   z #!EF 
+axes. The Render, Display, or Image tool actually performs the translation. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lupdatca,dxall973 h UpdateCamera  #!EL  #!EF #!I50 #!N Makes specified alterations 
+to the input camera. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lcatspe,dxall761 h Special  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

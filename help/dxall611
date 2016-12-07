@@ -1,0 +1,54 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall610 Transmitters and Receivers #!N 
+#!EC #!N #!N In the Special category, there are two modules, 
+Transmitter and Receiver, that should be used in larger visual programs. 
+Each Transmitter can "broadcast" to any number of identically named Receivers. 
+The name you choose for the Transmitter is analogous to a 
+radio station's broadcast frequency. Receivers with the identical name are like 
+radios tuned to that channel. Like radios, more than one Receiver 
+can receive from a single Transmitter; more than one Transmitter can 
+broadcast, each on a different frequency, requiring differently named ("tuned") Receivers. 
+This means you reduce the clutter of wires looping all over 
+the screen in the VPE. But the real advantage of Transmitters 
+and Receivers is that you, the visual program author, can provide 
+meaningful names that then appear on the modules in the visual 
+program. This is a handy way to provide some visual documentation 
+of the way the visual program is wired. #!N #!N Although 
+you can add Transmitters and Receivers to your net at any 
+time, and do not have to add them in pairs, you 
+will find it is easier to add one or more Receivers 
+to a net right after you place and name the corresponding 
+Transmitter because Data Explorer automatically gives Receivers the same name as 
+the most recently placed Transmitter. However, if you decide to add 
+a Receiver later, just be sure to double-click the Receiver module 
+and set its name to the name of the Transmitter you 
+wish it to receive from. Changing the name of any Transmitter 
+will automatically change the names of all associated Receivers, but changing 
+the name of a Receiver affects only that specific module. #!N 
+#!N A good way to use Transmitters is to broadcast "global 
+variables," to use the terminology of traditional programming. For example, you 
+are allowed only one Sequencer per visual program, but, as discussed 
+earlier, the output of Sequencer may be used by many "subnets" 
+to perform various functions. You may find it most convenient to 
+place the Sequencer connected to a Transmitter you name "sequencer" near 
+the top of your visual program (the lowercase "s" helps remind 
+you of the function of this Transmitter, but you may use 
+any name you like). Then, wherever in the net that you 
+need to receive the current value of the Sequencer, attach a 
+Receiver named "sequencer." #!N #!N Another global that you may want 
+available is the path name of your current work directory. Attach 
+a String Interactor to a Transmitter. Then pick up this "channel" 
+with Receivers throughout the visual program, for instance, as an input 
+to a Format module (the Format template must include a "%s" 
+as a place-holder for a string input). You will find this 
+especially convenient when you give your visual program to a colleague 
+who will naturally place the visual program and data files in 
+a differently named subdirectory on your colleague's workstation. By simply changing 
+the name in the Interactor to identify the name of the 
+work directory on the new machine, the visual program will be 
+back in business. If you had "hard-coded" the name of the 
+path into several modules on your visual program, the new user 
+would have to hunt down all these references and do a 
+lot of extra typing. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall611,dxall612 h Documentation  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

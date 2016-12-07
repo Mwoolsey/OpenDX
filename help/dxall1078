@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rmarray Mesh Arrays #!N #!EC 
+#!N #!N Mesh Arrays encode multidimensional regularity of connections. A mesh 
+Array is a product of a set of connections Arrays. The 
+product is a set of interpolation elements where the product has 
+one interpolation element for each pair of interpolation elements in the 
+two multiplicands, and the number of sample points in each interpolation 
+element is the product of the number of sample points in 
+each of the multiplicands' interpolation elements. This represents multidimensional regular connections. 
+Each term may be either regular or not, resulting in either 
+completely regular (for example, cubes) or partially regular (for example, prisms) 
+multidimensional connections. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   MeshArray 
+DXNewMeshArray() #!EF #!N MeshArray DXNewMeshArrayV(); #!EF #!I50 #!N Create an Array 
+that is the product of a set of regular or irregular 
+connection Arrays. See  #!Ldxnmav,dxall1319 h DXNewMeshArray, DXNewMeshArrayV  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   MeshArray 
+DXGetMeshArrayInfo() #!EF #!EF #!I50 #!N Returns the number of terms and 
+the terms of a mesh Array. See  #!Ldxgmai,dxall1248 h DXGetMeshArrayInfo  #!EL  . #!I0 #!N 
+#!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   LESS COMMONLY USED ROUTINES #!EF __________________________________ #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   MeshArray DXSetMeshOffsets() #!EF #!N 
+MeshArray DXGetMeshOffsets(); #!EF #!I50 #!N Set and retrieve the offset values 
+along each dimension of a mesh. When a Mesh Array is 
+used to define a regular grid of connections that is a 
+part of a partitioned Field, it is useful to know the 
+offset of the partition within the original Field. See  #!Ldxsmo,dxall1383 h DXSetMeshOffsets  #!EL  and 
+ #!Ldxgmo,dxall1249 h DXGetMeshOffsets  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lctas,dxall1079 h Constant Arrays  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

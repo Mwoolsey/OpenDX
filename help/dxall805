@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdescrib Describe #!N #!N Category #!N #!N  #!Lcatdbg,dxall754 h Debugging  #!EL  
+#!N #!N Function Describes a Data Explorer object #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Describe(  #!F-adobe-times-bold-r-normal--18*   object, options #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+object TAB object TAB none TAB Object to be described #!N 
+TAB options TAB string TAB "all" TAB how much information to 
+provide #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Functional Details #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N Specifies any Data Explorer object, 
+for example, a group, field, or scalar value. This module will 
+query the object and present information about it in the Message 
+Window (use Open Message Window in the Windows menu). #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   options #!EF #!EF #!I50 #!N specifies how much 
+information to provide.  #!F-adobe-times-bold-r-normal--18*   options #!EF must be one of "all," 
+"structure," "details," or "render": #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+"all" #!EF #!I50 #!N (the default) prints out all three types 
+of the following information. Specifying any one of the following keywords 
+restricts the output to that subset of the information #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   "structure" #!EF #!I50 #!N describes the top level object 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "details" #!EF #!I50 #!N describes in more 
+detail any data in the object #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "render" 
+#!EF #!I50 #!N describes whether the object is renderable (i.e. ready 
+for input to the Image or Display tools), and if not 
+suggests what needs to be added or changed to make it 
+so. #!I0 #!N #!N #!I0 #!N #!N #!N #!N Components #!N 
+#!N Does not modify the input object. #!N #!N Example Visual 
+Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N SIMPLE/Describe.net #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lprint,dxall911 h Print  #!EL  ,  #!Lecho,dxall829 h Echo  #!EL  ,  #!Lvisuobj,dxall980 h VisualObject  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldirect,dxall806 h Direction  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

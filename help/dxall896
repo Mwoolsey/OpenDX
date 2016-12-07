@@ -1,0 +1,55 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmorph Morph #!N 
+#!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N #!N Applies 
+a binary morphological operator to a field. #!N #!N Syntax #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Morph(  #!F-adobe-times-bold-r-normal--18*   input, 
+operation, mask #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB input TAB field TAB none TAB input 
+data #!N TAB operation TAB string TAB "erode" TAB the operation 
+to be applied #!N TAB mask TAB value or string TAB 
+"box" TAB the mask element #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Description #!EF #!N TAB output TAB field 
+TAB morphologically transformed input #!N TAB - TAB - TAB #!EF 
+#!N #!N Functional Details #!N #!N This module applies one of 
+the following binary morphological operators to input data: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N "close" "dilate" "erode" "open" #!EF #!N #!N #!EC The 
+input data are treated much as booleans are in the C 
+language (e.g., 0 = FALSE and nonzero = TRUE). #!N #!N 
+The  #!F-adobe-times-bold-r-normal--18*   mask #!EF parameter (see below) is centered on each 
+position in  #!F-adobe-times-bold-r-normal--18*   input #!EF in turn, and all positions corresponding 
+to "1" in the mask are considered for  #!F-adobe-times-bold-r-normal--18*   operation #!EF 
+(see below). #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input 
+#!EF #!EF #!I50 #!N is the input data to be operated 
+on. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   operation #!EF #!EF #!I50 #!N 
+specifies one of the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o "dilate": The output corresponding to a given data 
+value is true (1) if any data value in  #!F-adobe-times-bold-r-normal--18*   input 
+#!EF corresponding to a "1" in  #!F-adobe-times-bold-r-normal--18*   mask #!EF is true. 
+Otherwise, the output is false. #!N #!I30 #!N o "erode": The 
+output corresponding to a given data value is true (1) if 
+all the data values corresponding to a "1" in  #!F-adobe-times-bold-r-normal--18*   mask 
+#!EF are true. Otherwise, the output is false. #!N #!I30 #!N 
+o "close": is dilation followed by erosion. #!N #!I30 #!N o 
+"open" is erosion followed by dilation. Note: Successive openings or closings 
+have no additional effect. #!N #!I0 #!N #!EF #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   mask #!EF #!EF #!I50 #!N specifies one of 
+the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+a Filter name (see  #!Lfilter,dxall849 h Filter  #!EL  ) #!N #!I30 #!N o an 
+explicit matrix. #!N #!I0 #!N #!EF #!N The function of both 
+is to identify potential operands for  #!F-adobe-times-bold-r-normal--18*   operation #!EF (see above). 
+The dimensions must be odd, and the default is the 3 
+* 3 box filter of Filter. #!I0 #!N #!N #!N #!N 
+The module supports all data types and, like Filter, requires regular 
+connections (quads or cubes). It handles both position- and connection-dependent data. 
+#!N #!N If the data are vectors, each element of a 
+vector is transformed independently. Because the module returns a 0/1 output, 
+its output is always TYPE_UBYTE. Note: Data along the boundary are 
+replicated to fill the overlap region for the filter. #!N #!N 
+Components #!N #!N Modifies the "data" component. All other components are 
+propagated to the output. #!N #!N Example Visual Program #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingMorph.net #!EF #!N #!N #!EC #!N #!N See 
+Also #!N #!N  #!Lcompute,dxall795 h Compute  #!EL  ,  #!Lfilter,dxall849 h Filter  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lnormals,dxall897 h Normals  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

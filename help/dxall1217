@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgtt DXGeometricText #!N #!N Function #!N #!N Produces a 
+geometric text Object consisting of a given string. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGeometricText(char *s, Object font, float *width) 
+#!EF #!N #!N Functional Details The geometric text Object consists of 
+the string  #!F-adobe-times-bold-r-normal--18*   s #!EF , in the font  #!F-adobe-times-bold-r-normal--18*   font 
+#!EF (which is an Object returned by  #!F-adobe-times-bold-r-normal--18*   DXGetFont #!EF . 
+The text is a Field with a "positions" component indicating the 
+points of the font in pixels, a "connections" component of type 
+"lines," and a "colors" component with a constant white color. The 
+origin of the string (left end of baseline) is placed at 
+the origin of the  #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF 
+plane with the baseline pointed along the positive  #!F-adobe-times-medium-i-normal--18*   x #!EF 
+axis. If  #!F-adobe-times-bold-r-normal--18*   width #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , 
+the width of the string (in pixels) will be returned in 
+ #!F-adobe-times-bold-r-normal--18*   *width #!EF . The string will be bounded above by 
+ #!F-adobe-times-bold-r-normal--18*   ascent #!EF and below by  #!F-adobe-times-bold-r-normal--18*   -descent #!EF (as returned 
+by  #!F-adobe-times-bold-r-normal--18*   DXGetFont #!EF ), to the left by 0, and 
+to the right by  #!F-adobe-times-bold-r-normal--18*   width #!EF . #!N #!N Return 
+Value #!N #!N Returns the text Object or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and sets an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgft,dxall1239 h DXGetFont  #!EL  #!EF #!N #!N  #!Ltt,dxall1126 h Text  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgac,dxall1218 h DXGetArrayClass  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

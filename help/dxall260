@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall259 Multigrid Groups #!N #!EC #!N 
+#!N It is often necessary to represent a Field as a 
+collection of separate Fields, each with its own grid. For example, 
+this is the case in some kinds of simulations using multiple 
+grids. The data structure used to hold such Fields is a 
+subclass of Group called a  #!F-adobe-times-medium-i-normal--18*   Multigrid #!EF Object. It is 
+the same as a generic Group in most respects, except that 
+it requires all members to be Fields holding data of the 
+same type. The "connections" component of each member must also be 
+of the same type. Grids may be completely disjoint or may 
+overlap. For overlapping grids, the "invalid positions" or "invalid connections" components 
+may be used to define which grid is valid in a 
+particular region. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lall260,dxall261 h Composite Field Groups  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

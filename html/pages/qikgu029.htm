@@ -1,0 +1,961 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Header File Syntax: Keyword Statements</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu028.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu030.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu027.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>5.3 Header File Syntax: Keyword Statements</H2>
+		<A NAME="IDX312"></A><A NAME="IDX313"></A>
+<A NAME="IDX314"></A>
+<A NAME="IDX315"></A>
+<P>
+The header of a General Array Importer file contains two or more of the
+keyword statements in the list that follows.
+The statements from <TT><STRONG>block</STRONG></TT> through
+<TT><STRONG>type</STRONG></TT> are listed in alphabetical
+order for convenient reference (they can be listed
+in any order in a header file).
+The placement of the first two statements in the list
+(<TT><STRONG>file</STRONG></TT> and
+<TT><STRONG>grid&#124;points</STRONG></TT>) and the last two
+(<TT><STRONG>positions</STRONG></TT> and <TT><STRONG>end</STRONG></TT>) reflect
+syntactic requirements.
+The descriptions that follow this list occur in the same partly
+alphabetized order.
+<P><B>Notes: </B>
+		<OL COMPACT>
+<LI>A statement or part of a statement enclosed in brackets
+(&#91;&nbsp;&#93;) is optional.
+<LI>Except for <TT><STRONG>positions</STRONG></TT>, no keyword statement
+can exceed one line in length.
+<LI>Any line beginning with a pound sign (#) is interpreted as a comment
+and ignored.
+</OL>
+		<BLOCKQUOTE>
+			<B>file</B> = filename
+			<P><B>grid</B> = num<SUB>x</SUB> &nbsp; <B>x</B> &nbsp; num<SUB>y</SUB> &nbsp; <B>x</B> &nbsp; num<SUB>z</SUB> &nbsp; <B>x</B> ...</P>
+			<P><B>or</B></P>
+			<P><B>points</B> = n</P>
+			<P>[ <B>block</B> = skip<SUB>1</SUB>, elements<SUB>1</SUB>, width<SUB>1</SUB>, skip<SUB>2</SUB>, elements<SUB>2</SUB>, width<SUB>2</SUB>, ..., skip<SUB>f</SUB>, elements<SUB>f</SUB>, width<SUB>f </SUB>]</P>
+			<P>[ <B>dependency</B> = dependency<SUB>1</SUB>, dependency<SUB>2</SUB>, ..., dependency<SUB>f </SUB>]</P>
+			<P>[ <B>field</B> = name<SUB>1</SUB>, name<SUB>2</SUB>, ..., name<SUB>f</SUB> ]</P>
+			<P>[ <B>format</B> = ( <B>msb</B> | <B>lsb</B> ] [ <B>ascii</B> | <B>text</B> | <B>binary</B> | <B>ieee</B> )]</P>
+			<P>[ <B>header</B> = ( <B>bytes</B> | <B>lines</B> | <B>marker</B> &quot;string&quot; )]</P>
+			<P>[ <B>interleaving</B> = ( <B>field</B> | <B>record</B> | <B>record-vector</B> | <B>series-vector</B> )]</P>
+			<P>[ <B>layout</B> = skip<SUB>1</SUB>, width<SUB>1</SUB>, skip<SUB>2</SUB>, width<SUB>2</SUB>, ..., skip<SUB>f</SUB>, width<SUB>f</SUB> ]</P>
+			<P>[ <B>majority</B> = ( <B>row</B> | <B>column</B> )]</P>
+			<P>[ <B>recordseparator</B> = ( <B>bytes</B> n | <B>lines</B> n | <B>marker</B> &quot;string&quot; ), ( <B>bytes</B> n | <B>lines</B> n | <B>marker</B> &quot;string&quot; ), ... ]</P>
+			<P>[ <B>series</B> = t [ , start, delta ] [ , <B>separator</B> = ( <B>bytes</B> n | <B>lines</B> n | <B>marker</B> &quot;string&quot; ) ]]</P>
+			<P>[ <B>structure</B> = structure<SUB>1</SUB>, structure<SUB>2</SUB>, ..., structure<SUB>f</SUB> ] </P>
+			<P>[ <B>type</B> = type<SUB>1</SUB>, type<SUB>2</SUB>, ..., type<SUB>f</SUB> ]</P>
+			<P>[ <B>positions</B> = ( ( origin<SUB>1</SUB>, delta<SUB>1</SUB>, ..., origin<SUB>d</SUB>, delta<SUB>d</SUB> ) | ( positiontype<SUB>1</SUB>, positiontype<SUB>2</SUB>, ..., positiontype<SUB>d</SUB>, position<SUB>1</SUB>, position<SUB>2</SUB>, ..., position<SUB>d</SUB> ) | ( position<SUB>1</SUB>, position<SUB>2</SUB>, ..., position<SUB>d</SUB> ) ) ]</P>
+			<P>[ <B>end</B> ]</P>
+		</BLOCKQUOTE>
+		<P>
+		<H3><A NAME="HDRFILKWD" ></A>file</H3>
+<A NAME="IDX316"></A><A name="IDX317"></A><B>file</B> = filename
+		<TABLE cellpadding="3">
+			<TR valign="TOP">
+				<TD><B>Function: </B></TD>
+				<TD>Specifies the name of the file (including the path, if any) containing the data to be imported. The Importer searches the directory where the header file was found and any paths specified with the DXDATA environment variable (see the appropriate appendix in <I>IBM Visualization Data Explorer User's Guide</I> for information on environment variables).</TD>
+			</TR>
+			<TR valign="TOP">
+				<TD><B>Use: </B></TD>
+				<TD>Required unless the header file contains an <TT><STRONG>end</STRONG></TT> statement. If this statement is omitted, the Importer assumes that the data are contained in the same file as the header and that they begin on the line immediately after the <TT><STRONG>end</STRONG></TT> statement or at the point specified by a <TT><STRONG>header</STRONG></TT> statement.</TD>
+			</TR>
+		</TABLE>
+		<P>
+<H3><A NAME="HDRGRIDKWD" ></A>grid</H3>
+<A NAME="IDX318"></A><A name="IDX319"></A><B>grid</B> = num<SUB>x</SUB>  <B>x</B>  num<SUB>y</SUB>  <B>x</B>  num<SUB>z</SUB>  <B>x</B> ... 
+		<TABLE cellpadding="3">
+			<TR valign="TOP">
+				<TD><B>Function: </B></TD>
+				<TD>Specifies the size and dimensions of the grid containing the data to be imported.</TD>
+			</TR>
+			<TR valign="TOP">
+				<TD><B>Use: </B></TD>
+				<TD>Required unless the header file contains a <TT><STRONG>points</STRONG></TT> statement.</TD>
+			</TR>
+		</TABLE>
+		<P><B>Notes: </B><OL COMPACT>
+<LI>The <I>num</I> parameter is an integer specifying the number of
+coordinate points for a particular dimension (e.g.,
+<I>num<SUB>x</SUB></I>).
+The number of dimensions is implicitly specified by the number of such
+values provided.
+For example,
+<PRE>
+<STRONG>grid</STRONG> = 2 <STRONG>x</STRONG> 2
+</PRE>
+specifies a regular grid of 4 (four) points (the <TT><STRONG>x</STRONG></TT>
+between integers is required, but the blank spaces are optional.)
+<LI>The <TT><STRONG>grid</STRONG></TT> keyword (in contrast to
+<TT><STRONG>points</STRONG></TT>) implies connections
+between data points.
+An <I>n</I>-dimensional cuboid is assumed for connections.
+For example, a 1-dimensional grid generates a line connecting the
+positions.
+<LI>You can also specify that the number of grid elements are to be
+found in the data file.
+For the syntax, see <A HREF="usrgu067.htm#HDRKWIFDF">B.1 , "General Array
+Importer: Keyword Information from Data Files"</A> in <I>IBM Visualization Data
+Explorer User&#39;s Guide</I>.
+</OL>
+<P>
+<H3><A NAME="HDRPNTKWD" ></A>points</H3>
+<A NAME="IDX320"></A><A name="IDX321"></A><B>points</B> = n
+		<TABLE cellpadding="3">
+			<TR valign="TOP">
+				<TD><B>Function: </B></TD>
+				<TD>Specifies the number of data points to be imported.</TD>
+			</TR>
+			<TR valign="TOP">
+				<TD><B>Use: </B></TD>
+				<TD>Required unless the header file contains a <TT><STRONG>grid</STRONG></TT> statement.</TD>
+			</TR>
+		</TABLE>
+		<P><B>Notes: </B><OL COMPACT>
+<LI>The <TT><STRONG>points</STRONG></TT> keyword (unlike
+<TT><STRONG>grid</STRONG></TT>) implies an absence of
+connections between data points.
+<LI>Unless the <TT><STRONG>locations</STRONG></TT> reserved word is used in
+the <TT><STRONG>field</STRONG></TT> keyword statement (see <A
+HREF="#HDRFLDKWD">"field"</A>),
+the positions are 1-dimensional.
+If this reserved word is not used, 1-dimensional positions can be
+specified with the <TT><STRONG>positions</STRONG></TT> keyword
+(see <A HREF="#HDRPOSKWD">"positions"</A>).
+Otherwise, positions are assumed to be regular, with an origin of 0
+(zero) and a delta of 1 (one).
+<LI>You can also specify that the number of points is to be found in
+the data file.
+For the syntax, see <A HREF="usrgu067.htm#HDRKWIFDF">B.1 , "General Array
+Importer: Keyword Information from Data Files"</A> in <I>IBM Visualization Data
+Explorer User&#39;s Guide</I>.
+</OL>
+<P>
+<H3><A NAME="HDRBLOKWD" ></A>block</H3>
+<A NAME="IDX322"></A><A NAME="IDX323"></A>[ <B>block</B> = skip<SUB>1</SUB>, elements<SUB>1</SUB>, width<SUB>1</SUB>, skip<SUB>2</SUB>, elements<SUB>2</SUB>, width<SUB>2</SUB>, ..., skip<SUB>f</SUB>, elements<SUB>f</SUB>, width<SUB>f</SUB> ]
+		<TABLE cellpadding="3">
+			<TR valign="TOP">
+				<TD><B>Function: </B></TD>
+				<TD>Specifies characteristics of each data field being imported. This keyword applies only to fixed-format ASCII data with record, record-vector, or series-vector interleaving.</TD>
+			</TR>
+			<TR valign="TOP">
+				<TD><B>Use: </B></TD>
+				<TD>Optional.</TD>
+			</TR>
+		</TABLE>
+		<P><B>Note: </B>All three parameters take integer values.
+(Comma separators are optional.)
+<UL COMPACT>
+<LI><TT>skip</TT> specifies the number of leading characters (in a
+line) to be passed over before reading the data in a line or
+in a record.
+<LI><TT>elements</TT> specifies the number of data values stored in
+each line or in an entire record.
+<LI><TT>width</TT> specifies the number of characters to be read for
+each element of a given field.
+</UL>
+<P>
+<H3><A NAME="HDRDEPKWD" ></A>dependency</H3>
+<A NAME="IDX324"></A><A NAME="IDX325"></A>[ <B>dependency</B> = dependency<SUB>1</SUB>, dependency<SUB>2</SUB>, ..., dependency<SUB>f</SUB> ]
+		<TABLE cellpadding="3">
+			<TR valign="TOP">
+				<TD><B>Function: </B></TD>
+				<TD>Specifies the dependencies of the data fields being imported.</TD>
+			</TR>
+			<TR valign="TOP">
+				<TD><B>Use: </B></TD>
+				<TD>Optional. By default, data are assumed to be position dependent. Only if the header file also contains a <TT><STRONG>grid</STRONG></TT> statement (see <A href="#HDRGRIDKWD">&quot;grid&quot;</A>) may you specify connections (cell-centered) dependency (a <TT><STRONG>points</STRONG></TT> statement implies positions dependency).</TD>
+			</TR>
+		</TABLE>
+		<P><B>Notes: </B><OL COMPACT>
+<LI>For field-interleaved data, all fields must have the same
+dependency.
+<LI>The <TT><STRONG>locations</STRONG></TT> field (see "field Keyword
+Statement," Note 4) must be specified as
+position dependent.
+<LI>Comma separators are optional.
+</OL>
+<P>
+<H3><A NAME="HDRFLDKWD" ></A>field</H3>
+<A NAME="IDX326"></A><A NAME="IDX327"></A>[ <B>field</B> = name<SUB>1</SUB>, name<SUB>2</SUB>, ..., name<SUB>f</SUB> ]
+		<TABLE cellpadding="3">
+			<TR valign="TOP">
+				<TD><B>Function: </B></TD>
+				<TD>Specifies the name and number of individual fields in a data file.</TD>
+			</TR>
+			<TR valign="TOP">
+				<TD><B>Use: </B></TD>
+				<TD>Optional. If this keyword is not used, the number of fields is derived from other keywords (e.g., <TT><STRONG>structure</STRONG></TT> or <TT><STRONG>type</STRONG></TT>).</TD>
+			</TR>
+		</TABLE>
+		<P><B>Notes: </B><OL COMPACT>
+<LI>The values for the <TT><STRONG>name</STRONG></TT> parameter are strings
+separated by commas and without quotation
+marks.
+<LI>You must name all the fields in the data file.
+<LI>The field names can be used later to refer to individual fields.
+For example, if you use the Import module to import the data all
+at once, you can use the Select module to separate out
+each field by name.
+Or you can specify the names of the fields you want to import as the
+<TT><STRONG>variable</STRONG></TT> parameter to the Import module.
+For more information, see
+<A HREF="refgu073.htm#HDRIMPORT">Import</A> and <A
+HREF="refgu131.htm#HDRSELECT">Select</A> in <I>IBM Visualization Data Explorer
+User&#39;s Reference</I>.
+<LI>If the position values are intermixed with the data in a file,
+you must specify the positions as a field (instead of using
+the <TT><STRONG>positions</STRONG></TT> keyword).
+Use the reserved word <TT><STRONG>locations</STRONG></TT> for the field
+name.
+The corresponding value for the <TT><STRONG>structure</STRONG></TT>
+keyword should specify the dimensionality of the
+positions (e.g., "2-vector").
+</OL>
+<P>
+<H3><A NAME="HDRFORMKWD" ></A>format</H3>
+<A NAME="IDX328"></A><A NAME="IDX329"></A>[ <B>format</B> = ( <B>msb</B> | <B>lsb</B> ] [ <B>ascii</B> | <B>text</B> | <B>binary</B> | <B>ieee</B> )]
+		<P>
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD><B>Function:
+</B></TD>
+					<TD>Specifies the format and byte order of the data.
+</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD><B>Use:
+</B></TD>
+					<TD>Optional.
+</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><B>Notes: </B>
+		<OL COMPACT>
+<LI>The accepted values for byte order are <TT><STRONG>msb</STRONG></TT>
+(most significant byte first) and <TT><STRONG>lsb</STRONG></TT>
+(least significant byte first).
+If the format is specified as binary, then the default byte order is
+the host byte order (i.e., the byte order of the machine on
+which the Import module is executing).
+<LI>For specifying the data format, <TT><STRONG>ascii</STRONG></TT> and
+<TT><STRONG>text</STRONG></TT> are synonymous, as are
+<TT><STRONG>binary</STRONG></TT> and
+<TT><STRONG>ieee</STRONG></TT>.
+The default is <TT><STRONG>ascii</STRONG></TT>.
+The supported binary form is IEEE.
+</OL>
+<P>
+<H3><A NAME="HDRHDRKWD" ></A>header</H3>
+<A NAME="IDX330"></A><A NAME="IDX331"></A>[ <B>header</B> = ( <B>bytes</B> | <B>lines</B> | <B>marker</B> &quot;string&quot; )]
+		<P>
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD><B>Function:
+</B></TD>
+					<TD>Specifies how much material the Importer must skip before it begins
+reading data from a data file.
+</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD><B>Use:
+</B></TD>
+					<TD>Optional.
+By default, the Importer assumes that the data begin at the start
+of the file.
+
+						<UL COMPACT>
+							<LI><TT><STRONG>bytes</STRONG></TT> <I>n</I>&#58; the Importer will
+pass over <I>n</I> bytes (in a binary file)  or <I>n</I>
+characters (in an ASCII file) before it begins to
+read data.
+
+							<LI><TT><STRONG>lines</STRONG></TT> <I>n</I>&#58; the Importer will pass
+over <I>n</I> lines before it begins to read data.
+
+							<LI><TT><STRONG>marker</STRONG></TT> "<I>string</I>"&#58; the
+Importer will begin at the first character after the specified
+string.
+Quotation marks are required for a string containing blank spaces or
+commas.
+
+						</UL>
+					</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><B>Notes: </B>
+		<OL COMPACT>
+<LI>If the data begins on the line following a marker, be sure to
+specify a new-line character ("\n") as part of the string.
+Note also that the spacing between the marker and the new-line character
+must be the same as that in the actual file.
+This spacing is easily determined in the Data Browser by placing the
+cursor at the end of the marker and then at the end of the line
+and reading the corresponding offset values (see
+<A HREF="qikgu031.htm#FIGDP6">Figure 18</A>).
+<LI>If the marker itself contains quotation marks or special
+characters, use the escape character ("\") to
+indicate them, as shown in the following table.
+<PRE>
+backslash                    \          \\
+backspace                    BS         \b
+bit pattern                  ddd        ddd
+carriage return              CR         \r
+double quote                 "          \"
+form feed                    FF         \f
+horizontal tab               HT         \t
+newline                      NL (LF)    \n
+<STRONG>Note:</STRONG> An octal value (ddd) can be used to specify special
+      characters other than those shown here.
+</PRE>
+</OL>
+<P>
+<H3><A NAME="HDRINTRKWD" ></A>interleaving</H3>
+<A NAME="IDX332"></A><A NAME="IDX333"></A>[ <B>interleaving</B> = ( <B>field</B> | <B>record</B> | <B>record-vector</B> | <B>series-vector</B> )]
+		<P>
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD><B>Function:
+</B></TD>
+					<TD>Specifies to the Importer how the data in a data file are
+interleaved.
+</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD><B>Use:
+</B></TD>
+					<TD>Optional.
+By default, the Importer assumes that the interleaving
+is record-vector.
+</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><B>Note: </B>The examples presented here are based on a 1-dimensional grid
+with 10 elements and two series members:
+
+		<PRE>
+&middot;
+grid = 10
+series = 2
+field = t, v
+structure = scalar, 3-vector
+&middot;
+</PRE>
+where <TT><STRONG>t</STRONG></TT> is a scalar value and
+<TT><STRONG>v</STRONG></TT>
+is a vector with three components (<I>vx, vy,</I> and
+<I>vz</I>).
+In the examples themselves, <TT><STRONG>s</STRONG></TT> represents a series
+member (0 or 1), and <TT><STRONG>g</STRONG></TT> represents a grid
+element number (0 through 9).
+The <TT><STRONG>interleaving</STRONG></TT> options are as follows:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>field</STRONG></TT>
+</TD><TD><P>Specifies column-oriented data such as that generated by a
+spreadsheet or by data-listing software.
+There is a separate "column" for each of the two fields with one
+element of each field per "row."
+(For non-scalar data, as here, there is a column for each vector
+component.)
+The number of rows corresponds to the size of the grid multiplied by
+the number of series members.
+<PRE><STRONG>
+|- Field t -|--------------- Field v ---------------|</STRONG>
+t(s=0,g=0),  vx(s=0,g=0),  vy(s=0,g=0),  vz(s=0,g=0),
+t(s=0,g=1),  vx(s=0,g=1),  vy(s=0,g=1),  vz(s=0,g=1),
+&middot;
+t(s=0,g=9),  vx(s=0,g=9),  vy(s=0,g=9),  vz(s=0,g=9),
+t(s=1,g=0),  vx(s=1,g=0),  vy(s=1,g=0),  vz(s=1,g=0),
+t(s=1,g=1),  vx(s=1,g=1),  vy(s=1,g=1),  vz(s=1,g=1),
+&middot;
+t(s=1,g=9),  vx(s=1,g=9),  vy(s=1,g=9),  vz(s=1,g=9)
+</PRE>
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>record</STRONG></TT>
+</TD><TD><P>Specifies
+
+block or
+
+record-oriented data, where the values of all the elements
+of all the fields corresponding to one member (e.g., a time step) are
+listed before the elements and fields of the next member.
+For non-scalar fields, all the values of each vector component (e.g., all
+values of x) are listed in a separate record rather than in tuples
+(as they are in <TT><STRONG>record-vector</STRONG></TT> data; see
+below).
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">For scalar fields, <TT><STRONG>record</STRONG></TT> and
+<TT><STRONG>record-vector</STRONG></TT> are the same.
+</td></tr></table>
+<PRE>
+t(s=0,g=0), t(s=0,g=1), ..., t(s=0,g=9),    &#93; Field t  *
+vx(s=0,g=0), vx(s=0,g=1), ..., vx(s=0,g=9), *          |  Member
+vy(s=0,g=0), vy(s=0,g=1), ..., vy(s=0,g=9), | Field v  |    s<SUB>0</SUB>
+vz(s=0,g=0), vz(s=0,g=1), ..., vz(s=0,g=9), *          *
+t(s=1,g=0), t(s=1,g=1), ..., t(s=1,g=9),    &#93; Field t  *
+vx(s=1,g=0), vx(s=1,g=1), ..., vx(s=1,g=9), *          |  Member
+vy(s=1,g=0), vy(s=1,g=1), ..., vy(s=1,g=9), | Field v  |    s<SUB>1.</SUB>
+vz(s=1,g=0), vz(s=1,g=1), ..., vz(s=1,g=9)  *          *
+</PRE>
+</TD></TR></TABLE>
+<P>
+The remaining two options (<TT><STRONG>record-</STRONG></TT> and
+<TT><STRONG>series-vector</STRONG></TT>) apply to cases in
+which vector components are stored together:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>record-vector</STRONG></TT>
+</TD><TD><P>Here the values of all the elements of all the components of all the
+fields corresponding to each member (e.g., a time step) are listed
+before those corresponding to the next member (e.g., all the
+data for <TT><STRONG>s</STRONG></TT><SUB>0</SUB> are listed
+first, followed by all the data for
+<TT><STRONG>s</STRONG></TT><SUB>1</SUB>).
+<P>
+In addition, the components of each vector are stored as tuples (in
+contrast to the way they are stored in <TT><STRONG>record</STRONG></TT>
+data).
+<PRE>
+t(s=0,g=0), t(s=0,g=1), ..., t(s=0,g=9), &#93; Field t *
+vx(s=0,g=0), vy(s=0,g=0), vz(s=0,g=0),   *         |
+vx(s=0,g=1), vy(s=0,g=1), vz(s=0,g=1),   | Field   |  Member s<SUB>0</SUB>
+...                                      |   v     |
+vx(s=0,g=9), vy(s=0,g=9), vz(s=0,g=9),   *         *
+t(s=1,g=0), t(s=1,g=1), ..., t(s=1,g=9), &#93; Field t *
+vx(s=1,g=0), vy(s=1,g=0), vz(s=1,g=0),   *         |
+vx(s=1,g=1), vy(s=1,g=1), vz(s=1,g=1),   | Field   |  Member s<SUB>1</SUB>
+...                                      |   v     |
+vx(s=1,g=9), vy(s=1,g=9), vz(s=1,g=9)    *         *
+</PRE>
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>series-vector</STRONG></TT>
+</TD><TD><P>Here the values of all the elements of all the members (e.g., time
+steps) are listed for one field before those of the next field
+(e.g., all the data for field <TT><STRONG>t</STRONG></TT> are listed
+first, followed by all the data for field
+<TT><STRONG>v</STRONG></TT>).
+<P>
+In addition, the components of a vector are stored as tuples rather
+than in separate records (as they are stored in
+<TT><STRONG>record</STRONG></TT> data; see above).
+<PRE>
+t(s=0,g=0), t(s=0,g=1), ..., t(s=0,g=9),  * Field  &#93; Member s<SUB>0</SUB>
+t(s=1,g=0), t(s=1,g=1), ..., t(s=1,g=9),  *   t    &#93; Member s<SUB>1</SUB>
+vx(s=0,g=0), vy(s=0,g=0), vz(s=0,g=0),    *        *
+vx(s=0,g=1), vy(s=0,g=1), vz(s=0,g=1),    |        | Member
+...                                       |        |   s<SUB>0</SUB>
+vx(s=0,g=9), vy(s=0,g=9), vz(s=0,g=9),    | Field  *
+vx(s=1,g=0), vy(s=1,g=0), vz(s=1,g=0),    |   v    *
+vx(s=1,g=1), vy(s=1,g=1), vz(s=1,g=1),    |        | Member
+...                                       |        |   s<SUB>1</SUB>
+vx(s=1,g=9), vy(s=1,g=9), vz(s=1,g=9)     *        *
+</PRE>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRLAYTKWD" ></A>layout</H3>
+<A NAME="IDX336"></A><A NAME="IDX337"></A>[ <B>layout</B> = skip<SUB>1</SUB>, width<SUB>1</SUB>, skip<SUB>2</SUB>, width<SUB>2</SUB>, ..., skip<SUB>f</SUB>, width<SUB>f</SUB> ]
+		<P>
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD><B>Function:
+</B></TD>
+					<TD>Specifies the number of bytes (characters) the Importer must skip
+before it begins to read a field&#39;s data and then the number
+of bytes it should read (i.e., the "width" of the
+data item).
+</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD><B>Use:
+</B></TD>
+					<TD>Optional.
+This keyword applies only to ASCII, field-interleaved data.
+If the data is in ASCII format but the keyword is not used, the
+Importer assumes a default of one or more blank spaces
+(space, tab, new line, or form feed) as the
+delimiter between fields.
+</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><B>Notes: </B>
+		<OL COMPACT>
+<LI>The components of a vector must each be represented in the same
+number of characters.
+Comma separators are optional.
+<P>
+The following statement tells the Importer to skip 10 characters,
+read one field of 6 characters, skip 10 characters, and read
+another field of 4 characters.
+<PRE>
+layout = 10, 6, 10, 4
+</PRE>
+<LI>Because <I>skip</I> specifies the number of characters to be
+passed over before each <I>field</I>, it does not apply to
+single elements of a vector field but to the field as a
+whole.
+However, <I>width</I> applies to <I>each</I> element of the
+vector.
+For example, the following statement tells the Importer to skip
+10 characters, then read a field 6 characters long:
+<PRE>
+layout = 10, 6
+</PRE>
+If the field <I>v</I> is a 2-vector, then each component
+(<I>v<SUB>x</SUB></I> and <I>v<SUB>y</SUB></I>) is 6 characters
+long, for a total width of 12 characters.
+<LI>If there are no spaces between two fields, specify the skip value
+as 0 (zero).
+</OL>
+<P>
+<H3><A NAME="HDRMAJKWD" ></A>majority</H3>
+<A NAME="IDX338"></A><A NAME="IDX339"></A>[ <B>majority</B> = ( <B>row</B> | <B>column</B> )]
+		<P>
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD><B>Function:
+</B></TD>
+					<TD>Specifies the organization of multidimensional arrays composing a
+data field.
+</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD><B>Use:
+</B></TD>
+					<TD>Optional.
+The default is <TT><STRONG>row</STRONG></TT> (last dimension varies
+fastest, as in the C programming language).
+Column majority means that the first dimension varies fastest, as in
+the FORTRAN programming language.
+</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><B>Note: </B>The maximum number of dimensions supported for column majority
+is 4.
+
+		<P>
+<H3><A NAME="HDRRSEPKWD" ></A>recordseparator</H3>
+<A NAME="IDX340"></A><A NAME="IDX341"></A>[ <B>recordseparator</B> = ( <B>bytes</B> n | <B>lines</B> n | <B>marker</B> &quot;string&quot; ), ( <B>bytes</B> n | <B>lines</B> n | <B>marker</B> &quot;string&quot; ), ... ]
+		<P>
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD><B>Function:
+</B></TD>
+					<TD>Specifies the separation between records.
+</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD><B>Use:
+</B></TD>
+					<TD>Optional.
+This keyword applies only to record and record-vector interleaving.
+</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><B>Notes: </B>
+		<OL COMPACT>
+<LI>With differences to be noted here, the specification of separation
+is very much like that of the <TT><STRONG>header</STRONG></TT> keyword
+(see <A HREF="#HDRHDRKWD">"header"</A>).
+<LI>If all records are separated by the same amount, a single separator
+value should be specified.
+For example, if each pair of successive records is separated
+by two lines, then
+<PRE>
+recordseparator = lines 2
+</PRE>
+<LI>If the records are separated by different amounts, a value must be
+specified for each of the separators:
+<UL COMPACT>
+<LI>For record-vector data the number of separator values must equal
+the number of <I>fields</I> minus one.
+For example, if
+<PRE>
+structure = scalar, scalar, 2-vector
+</PRE>
+then two separator values must be specified:
+one between the two scalar fields and one between the second
+scalar field and the vector field.
+<LI>For record data, the number of separator values must equal the
+number of <I>dimensions</I> minus one.
+For the preceding example, three separator values must be specified:
+the first between the two scalar fields; the second between the
+second scalar and the first vector component; and the third
+between the two vector components.
+</UL>
+</OL>
+<P>
+<H3><A NAME="HDRSERSKWD" ></A>series</H3>
+<A NAME="IDX343"></A><A NAME="IDX344"></A>[ <B>series</B> = t [ , start, delta ] [ , <B>separator</B> = ( <B>bytes</B> n | <B>lines</B> n | <B>marker</B> &quot;string&quot; ) ]]
+		<P>
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD>
+						<P><B>Function:
+</B>
+					</TD>
+					<TD>
+						<P>Specifies, to the Importer, information about a series.
+
+					</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD>
+						<P><B>Use:
+</B>
+					</TD>
+					<TD>
+						<P>Optional.
+This keyword is required only for the importation of series data.
+The default assumes no separation between series
+sections.
+Descriptive information between series sections is described with the
+<TT><STRONG>separator</STRONG></TT> parameter.
+If descriptive information precedes the <I>first</I> member of the
+series, it can be skipped by means of a <TT><STRONG>header</STRONG></TT>
+statement.
+
+						<UL COMPACT>
+							<LI><TT><STRONG>t</STRONG></TT> is a required parameter that specifies the
+number of series elements in the data file.
+Its default value is 1.
+
+							<LI><TT><STRONG>start</STRONG></TT> and <TT><STRONG>delta</STRONG></TT> are
+optional parameters that specify the series positions.
+The position values are defined as:
+&lt; start, start plus d e l t a, start plus (2 times d e l t a), ellip,
+start plus (t minus 1) times d e l t a&gt;
+
+							<P>
+The defaults for <TT><STRONG>start</STRONG></TT> and
+<TT><STRONG>delta</STRONG></TT>
+are 0 (zero) and 1 (one) respectively.
+
+							<LI>The following example specifies that there are four series members,
+with positions 0.8, 1.2, 1.6, and 2.0.
+
+							<PRE>
+series = 4, 0.8, 0.4
+</PRE>
+							<LI>The specification of <TT><STRONG>separator</STRONG></TT> is very much like
+that of the <TT><STRONG>header</STRONG></TT> keyword (see <A
+HREF="#HDRHDRKWD">"header"</A>).
+
+						</UL>
+					</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P>
+		<H3><A NAME="HDRSTRCKWD" ></A>structure</H3>
+<A NAME="IDX345"></A><A NAME="IDX346"></A>[ <B>structure</B> = structure<SUB>1</SUB>, structure<SUB>2</SUB>, ..., structure<SUB>f</SUB> ]
+		<P>
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD><B>Function:
+</B></TD>
+					<TD>Specifies the structure of each field in a data file.
+</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD><B>Use:
+</B></TD>
+					<TD>Optional.
+The default is <TT><STRONG>scalar</STRONG></TT>.
+Accepted values are <TT><STRONG>scalar</STRONG></TT>,
+<TT><STRONG>string&#91;&nbsp;n&nbsp;&#93;</STRONG></TT>, and
+<TT><STRONG>2-vector&nbsp;,&nbsp;...,
+9-vector</STRONG></TT> for each field.
+However, <TT><STRONG>5-vector, ..., 9-vector</STRONG></TT> cannot be
+specified for column-majority arrays.
+In <TT><STRONG>string&#91;&nbsp;n&nbsp;&#93;</STRONG></TT>, <I>n</I>
+specifies the length of the longest string.
+</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><B>Notes: </B>
+		<OL COMPACT>
+<LI>Use of this keyword requires specifying the structure of all fields
+in the file.
+<LI>The following example specifies that the first two fields have a
+scalar structure, while the third is a vector with three
+components:
+<PRE>
+structure = scalar, scalar, 3-vector
+</PRE>
+<LI>Since the default is scalar, the statement is not required if, say,
+six scalar fields are to be imported.
+But if one of these fields is vector, the statement is required;
+for example:
+<PRE>
+structure = scalar, scalar, 3-vector, scalar, scalar, scalar
+</PRE>
+<LI>If string data contain embedded blanks, you must use the
+<TT><STRONG>layout</STRONG></TT> or <TT><STRONG>block</STRONG></TT>
+keyword to specify how the string is to be read.
+</OL>
+<P>
+<H3><A NAME="HDRTYPKWD" ></A>type</H3>
+<A NAME="IDX347"></A><A NAME="IDX348"></A>[ <B>type</B> = type<SUB>1</SUB>, type<SUB>2</SUB>, ..., type<SUB>f</SUB> ]
+		<P>
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD><B>Function:
+</B></TD>
+					<TD>Specifies the data type for each specified field.
+</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD><B>Use:
+</B></TD>
+					<TD>Optional.
+The default is <TT><STRONG>float</STRONG></TT>.
+The accepted values are:
+
+						<PRE><STRONG>
+double      byte               int               short
+float       signed byte        signed int        signed short
+string      unsigned byte      unsigned int      unsigned short
+</STRONG>
+</PRE>
+					</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><B>Notes: </B>
+		<OL COMPACT>
+<LI>
+Use of this keyword requires specifying the type for all fields in
+the file.
+<LI>The following are pairs of equivalent types:
+<UL COMPACT>
+<LI><TT><STRONG>byte</STRONG></TT> and <TT><STRONG>unsigned
+byte</STRONG></TT>.
+<LI><TT><STRONG>short</STRONG></TT> and <TT><STRONG>signed short</STRONG></TT>.
+<LI><TT><STRONG>int</STRONG></TT> and <TT><STRONG>signed int</STRONG></TT>.
+</UL>
+</OL>
+<P>
+<H3><A NAME="HDRPOSKWD" ></A>positions</H3>
+		<A NAME="IDX349"></A><A NAME="IDX350"></A>[ <B>positions</B> = ( ( origin<SUB>1</SUB>, delta<SUB>1</SUB>, ..., origin<SUB>d</SUB>, delta<SUB>d</SUB> ) | ( positiontype<SUB>1</SUB>, positiontype<SUB>2</SUB>, ..., positiontype<SUB>d</SUB>, position<SUB>1</SUB>, position<SUB>2</SUB>, ..., position<SUB>d</SUB> ) | ( position<SUB>1</SUB>, position<SUB>2</SUB>, ..., position<SUB>d</SUB> ) ) ]
+		<P>Each syntax line in this diagram is discussed separately in Note 4 below.
+			<TABLE CELLPADDING="3">
+				<TR VALIGN="TOP">
+					<TD><B>Function:
+</B></TD>
+					<TD>Defines the positions component of the fields in a data file.
+</TD>
+				</TR>
+				<TR VALIGN="TOP">
+					<TD><B>Use:
+</B></TD>
+					<TD>Optional.
+The default is regular positions in compact notation, where the origin
+and delta in each dimension are 0.0 and 1.0 respectively,
+unless the <TT><STRONG>locations</STRONG></TT>
+keyword has been used.
+</TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P><B>Notes: </B>
+		<OL COMPACT>
+<LI>This keyword must be placed at the end of the header file or
+immediately preceding the <TT><STRONG>end</STRONG></TT> keyword.
+<LI>The numbers specified in a <TT><STRONG>positions</STRONG></TT> statement
+can span any number of uninterrupted lines (including carriage
+returns, which is not true of other keyword statements).
+<LI>Positions can also be specified with the <TT><STRONG>field</STRONG></TT>
+statement and the <TT><STRONG>locations</STRONG></TT> reserved word
+(see <A HREF="#HDRFLDKWD">"field"</A>).
+This alternative is important in cases where:
+<UL COMPACT>
+<LI>The positions are irregular and can be interleaved with data
+themselves.
+<LI>The positions vary with a series member.
+<LI>The positions are not stored in row-majority order in ASCII.
+</UL>
+<LI>There are four ways to specify positions with the
+<TT><STRONG>positions</STRONG></TT> keyword:
+</OL>
+<UL>
+<P><LI><TT><STRONG>Regular positions:</STRONG></TT>
+&lt; "positions" =
+origin sub 1 , d e l t a sub 1 , ellip, origin sub d , d e l t a sub d &gt;
+Specifies a regular grid, using the origin of a dimension and the
+spacing (delta) of the positions in that dimension.
+The dimensions must be specified in the same order as that in the
+<TT><STRONG>grid</STRONG></TT> keyword statement (see <A
+HREF="#HDRGRIDKWD">"grid"</A>).
+<P>
+The statement
+<PRE>
+positions = 0.0, 1.0, 0.0, 0.5, 0.0, 1.5
+</PRE>
+specifies the origin-delta pairs of a 6 &times; 6 &times; 3 grid,
+with origins of 0.0 in all three dimensions and deltas of
+1.0, 0.5, and 1.5.
+<P><LI><TT><STRONG>Partially regular positions:</STRONG></TT>
+&lt; "positions" =
+positiontype sub 1 , positiontype sub 2 , ellip ,
+positiontype sub d ,
+position sub 1 , position sub 2 , ellip , position sub k  &gt;
+Specifies an array (regular or irregular) for each dimension from
+which a product is to be formed.
+For example, one array with the values 1, 2, 3, and a second with the
+values 1, 4, 8 will generate the following set of positions:
+<BR>
+(1, 1) (1, 4) (1, 8)<BR>
+(2, 1) (2, 4) (2, 8)<BR>
+(3, 1) (3, 4) (3, 8)<BR>
+<P>
+For each dimension, specify a string indicating the type of positions
+for the dimension--accepted values are
+<TT><STRONG>regular</STRONG></TT> and
+<TT><STRONG>irregular</STRONG></TT>.
+Specify the strings for all dimensions first, then follow with the
+position values.
+<P>
+For compact specification, the position values are two numbers: an
+origin and the delta value for the spacing.
+Specifying irregular positions requires an explicit listing of each
+position value, with the same number of positions as specified
+by the <TT><STRONG>grid</STRONG></TT> keyword
+statement.
+The order in which positions are specified must correspond to the
+order in which dimensions are specified in that statement.
+<P>
+The following example specifies the positions for a 6 &times; 6 &times; 3
+grid, where the first two dimensions are regular, and the third
+is irregular:
+<PRE>
+position = regular, regular, irregular, 0.0, 1.0, 0.0, 0.5, 0.0, 0.5, 1.5
+</PRE>
+<P>
+Here the first dimension is regular, with positions 0, 1, 2, 3, 4, 5.
+<BR>
+The second dimension is regular, with positions 0.0, 0.5, 1.0, 1.5,
+2.0, 2.5.
+<BR>
+The third dimension is irregular, with positions 0, 0.5, 1.5.
+<P>
+The first few positions are
+(0, 0, 0) (0, .5, .5) (0, .5, 1.5) (1, 0, 0)....
+<P><LI><TT><STRONG>Completely irregular positions:</STRONG></TT>
+<A NAME="SPTCOMPIRG"></A>
+&lt; "positions" =
+position sub 1 , position sub 2 , ellip , position sub g &gt;
+Specifies fully irregular positions: you must list all the position
+values.
+<P><B>Note: </B>The requirement that all positions must be listed is what
+distinguishes a "completely irregular" from a
+
+"partially regular" grid (discussed above).
+For example, the keyword statement
+<PRE>
+<STRONG>positions</STRONG> = irregular, irregular, irregular,...
+</PRE>
+still defines a <I>partially</I> regular grid, even though each
+array specified is irregular.
+<P>
+The number of values you provide corresponds to the product of all the
+dimension specifications (i.e., the <I>num</I> values) in the
+<TT><STRONG>grid</STRONG></TT> keyword statement.
+The position values must be listed in row majority order, and they can
+be delimited by commas.
+<P>
+You must specify <I>g</I> numbers, where <I>g</I>
+is the product of the
+<I>num</I> values of the dimensions all multiplied together,
+along with the number of dimensions
+(e.g., <I>m&times;n&times;o&times;d</I>, where
+<I>m</I>, <I>n</I>, and <I>o</I>
+are the grid dimensions, or <I>num</I>
+values, and <I>d</I> is the number of dimensions).
+<P>
+The following example specifies the six positions for an irregular
+2 &times; 3 grid:
+<PRE>
+positions = 0, 0, 0, 2, 0, 6, 2, 1, 5, 4, 7, 7
+</PRE>
+<P>
+The first and last positions are (0, 0) and (7, 7) respectively.
+</UL>
+<UL>
+<P><LI><TT><STRONG>Position information from the data file</STRONG></TT>
+<P>
+You can specify that the information for the
+<TT><STRONG>positions</STRONG></TT> keyword is
+to be found in the data file.
+For the syntax, see <A HREF="usrgu067.htm#HDRKWIFDF">B.1 , "General Array
+Importer: Keyword Information from Data Files"</A> in <I>IBM Visualization Data
+Explorer User&#39;s Guide</I>.
+<P><B>Note: </B>The <TT><STRONG>positions</STRONG></TT> keyword may give a
+compact
+encoding of the position.
+In that respect, this function differs from the
+<TT><STRONG>locations</STRONG></TT> reserved word
+when used with the <TT><STRONG>field</STRONG></TT>
+keyword (see <A HREF="#HDRFLDKWD">"field"</A>).
+</UL>
+<P>
+<H3><A NAME="HDRENDKWD" ></A>end</H3>
+<A NAME="IDX351"></A><A name="IDX352"></A>[ <B>end</B> ]
+		<TABLE cellpadding="3">
+			<TR valign="TOP">
+				<TD><B>Function: </B></TD>
+				<TD>Causes the Importer to stop processing header statements.</TD>
+			</TR>
+			<TR valign="TOP">
+				<TD><B>Use: </B></TD>
+				<TD>Optional unless the data are in the same file with the header statements. By default, the Importer stops processing at the end of the header file.</TD>
+			</TR>
+		</TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

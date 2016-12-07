@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Renumer Enumerate #!N #!N 
+Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N #!N Generates a 
+numeric list. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   
+list #!EF = Enumerate(  #!F-adobe-times-bold-r-normal--18*   start, end, count, delta, method #!EF 
+); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Default TAB Description #!EF #!N 
+TAB start TAB scalar or vector TAB input dependent TAB first 
+value in list #!N TAB end TAB scalar or vector TAB 
+input dependent TAB last value in list #!N TAB count TAB 
+integer TAB input dependent TAB number of entries in list #!N 
+TAB delta TAB scalar or vector TAB input dependent TAB numeric 
+spacing #!N TAB method TAB string TAB "linear" TAB method #!N 
+TAB - TAB - TAB - TAB #!EF #!N #!N Outputs 
+#!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF 
+#!N TAB list TAB value list TAB the numeric list #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module creates a list of numeric values. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   start #!EF #!EF #!I50 #!N 
+specifies the first value in the list. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   end #!EF #!EF #!I50 #!N specifies the last value in 
+the list. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   count #!EF #!EF #!I50 
+#!N specifies the number of items in the list. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   delta #!EF #!EF #!I50 #!N specifies the numerical 
+spacing between successive items in the list. If  #!F-adobe-times-bold-r-normal--18*   start #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   end #!EF are vector values and this parameter is 
+specified, it must be specified as a matching vector. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   method #!EF #!EF #!I50 #!N specifies the type 
+of list to be created. At present, the specification must be 
+"linear." The list created is a linear sequence of numbers from 
+ #!F-adobe-times-bold-r-normal--18*   start #!EF to  #!F-adobe-times-bold-r-normal--18*   end #!EF , containing  #!F-adobe-times-bold-r-normal--18*   count 
+#!EF items or containing items separated by a spacing interval of 
+ #!F-adobe-times-bold-r-normal--18*   delta #!EF . #!I0 #!N #!N Note: Only three of 
+the first four parameters are required. If all four are specified, 
+ #!F-adobe-times-bold-r-normal--18*   delta #!EF is ignored. #!N #!N Example Visual Program #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N ContoursAndCaption.net #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lequaliz,dxall831 h Equalize  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

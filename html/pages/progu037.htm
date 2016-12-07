@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu036.htm">Previous Page</A> &#124; <A HREF="progu038.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu035.htm#PToC12">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRMTDS" HREF="../proguide.htm#ToC_74">Chapter 11. Making a Module
+Work</A></H1>
+<P><A NAME="PToC13" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_75" HREF="#HDRMDFSEC">11.1 Module Description Files</A>
+<MENU>
+<LI><A NAME="PToC_76" HREF="#HDREXMDF">Examples of Module Description Files</A>
+</MENU>
+<LI><A NAME="PToC_77" HREF="progu038.htm#HDRASYNMOD">11.2 Asynchronous
+Modules</A>
+<LI><A NAME="PToC_78" HREF="progu039.htm#HDRMODSIOR">11.3 Inboard, Outboard, and
+Runtime-loadable Modules</A>
+<LI><A NAME="PToC_79" HREF="progu040.htm#HDRMODLINK">11.4 Compiling, Linking,
+and Debugging an Inboard Module</A>
+<LI><A NAME="PToC_80" HREF="progu041.htm#HDRCLO2">11.5 Compiling, Linking, and
+Debugging an Outboard Module</A>
+<MENU>
+<LI><A NAME="PToC_81" HREF="progu041.htm#Header_81">Special Considerations for
+Outboard Modules</A>
+<LI><A NAME="PToC_87" HREF="progu041.htm#Header_87">Asynchronous Outboard
+Module: An Example</A>
+</MENU>
+<LI><A NAME="PToC_88" HREF="progu042.htm#HDRMODRUNS">11.6 Compiling, Linking,
+and Debugging a Runtime-loadable Module</A>
+<LI><A NAME="PToC_89" HREF="progu043.htm#HDRMEML">11.7 Memory Leaks</A>
+</MENU><HR><P>
+<P>
+This chapter discusses module description files and the compiling,
+linking, and debugging of modules.
+<HR>
+<H2><A NAME="HDRMDFSEC" HREF="#PToC_75">11.1 Module Description Files</A></H2>
+<A NAME="IDX279"></A>
+<A NAME="IDX281"></A>
+<A NAME="IDX282"></A>
+<P>
+A module description file (<TT><STRONG>.mdf</STRONG></TT> file) contains
+essential information about Data Explorer modules, including
+their inputs and outputs.
+Data Explorer uses this information for various executive and user-interface
+operations, among them the creation of tool icons.
+<P>
+A module description file consists of one or more "definition"
+sections, one section for each module described.
+Every section must contain the first two statements shown here, along
+with <TT><STRONG>INPUT &nbsp;and&nbsp; OUTPUT</STRONG></TT>:
+<P>
+<PRE><STRONG>
+    MODULE <VAR>name</VAR>
+    CATEGORY <VAR>category name</VAR>
+    DESCRIPTION <VAR>module description</VAR>
+    FLAGS <VAR>optional flags</VAR>
+    OUTBOARD "<VAR>executable</VAR>"; <VAR>host</VAR>
+    LOADABLE "<VAR>executable</VAR>"
+    INPUT <VAR>name</VAR> &#91;<VAR>visible</VAR>&#93;; <VAR>type</VAR>; <VAR>default</VAR>; <VAR>description</VAR>
+    OPTIONS <VAR>option1; option2;...</VAR>;
+    OUTPUT <VAR>name</VAR> &#91;<VAR>cache</VAR>&#93;; <VAR>type</VAR>; <VAR>description</VAR>
+    REPEAT <VAR>n</VAR>
+</STRONG>
+</PRE>
+<P><B>Note: </B>A module description may contain an
+<TT><STRONG>OUTBOARD</STRONG></TT> or a
+<TT><STRONG>LOADABLE</STRONG></TT>
+statement, but not both.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>MODULE</STRONG></TT>
+<A NAME="IDX283"></A>
+<A NAME="IDX284"></A>
+<A NAME="IDX285"></A>
+</B></TD><TD><P>Is required and must be the first statement in the definition
+section.
+It assigns a name to the module being described.
+<P>
+<I>name</I> must be a single alphanumeric word, with a letter for
+the first character.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>CATEGORY</STRONG></TT>
+<A NAME="IDX286"></A>
+<A NAME="IDX287"></A>
+</B></TD><TD><P>Is required.
+It assigns the module to a Data Explorer or user-defined
+category.
+(Categories function as tool menus in the VPE window; see
+<A HREF="usrgu040.htm#HDRUNDUS2">Chapter 6. "Graphical User Interface: Important
+Windows"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.)
+<P>
+<I>category name</I> may contain more than one word
+(e.g., "Import and Export").
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DESCRIPTION</STRONG></TT>
+</B></TD><TD><P>Is optional.
+It serves as a help function.
+<P>
+<I>module description</I> should briefly describe
+the module function.
+Brevity is recommended since this description shares limited space with
+other information (accessed with the <TT><STRONG>Description...</STRONG></TT>
+button
+in the module&#39;s configuration dialog box).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>FLAGS</STRONG></TT>
+<A NAME="IDX288"></A>
+<A NAME="IDX289"></A>
+<A NAME="IDX290"></A>
+<A NAME="IDX291"></A>
+<A NAME="IDX292"></A>
+<A NAME="IDX293"></A>
+<A NAME="IDX294"></A>
+<A NAME="IDX295"></A>
+<A NAME="IDX296"></A>
+</B></TD><TD><P>Is optional.
+Most modules do not need to set flags.
+<UL COMPACT>
+<LI><TT><STRONG>PIN</STRONG></TT>:
+Specifies that a module is always to execute on the same processor.
+Applicable only to multiprocessor systems.
+<LI><TT><STRONG>PERSISTENT</STRONG></TT>: Specifies that the outboard
+<A NAME="SPTPRSFLAG"><I>(Ref #2.)</I></A>
+executable is not to be terminated after each execution of
+the visual program.
+<LI><TT><STRONG>ERR_CONT</STRONG></TT>: Specifies that modules downstream
+are to continue to execute even when this module returns
+<TT><STRONG>ERROR</STRONG></TT>.
+<LI><TT><STRONG>SIDE_EFFECT</STRONG></TT>: Specifies that the module has
+side effects and must execute each time the visual program is
+executed, even if its inputs have not changed.
+<P>
+<LI><TT><STRONG>ASYNC</STRONG></TT>: Identifies the module as being able to
+initiate execution in response to an external event.
+(See also <A HREF="progu038.htm#HDRASYNMOD">11.2 , "Asynchronous Modules"</A>.)
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>OUTBOARD</STRONG></TT>
+<A NAME="IDX297"></A>
+<A NAME="IDX298"></A>
+</B></TD><TD><P>Is optional.
+It identifies the module as a separate executable program.
+<P><B>Note: </B>If this statement is included, the module definition must not
+have a <TT><STRONG>LOADABLE</STRONG></TT> statement (see below).
+<P>
+&quot;<I>executable</I>&quot; specifies the name of the
+executable and any arguments to be passed.
+(Quotation marks are required for executable specifications containing
+spaces or tabs; otherwise they are optional.)
+<P><B>Note: </B>If you are running Data Explorer on the IBM POWER Visualization
+System**,
+the name of the executable must be preceded by the term
+"os," and the combination enclosed in quotation
+marks (e.g., &quot;os executable&quot;).
+<P>
+<I>host</I> is optional and specifies a remote machine
+on which the executable is to be run.
+The default host is the one on which the executive runs.
+(See also <A HREF="progu014.htm#HDRCLO">"...as an outboard module"</A> and <A
+HREF="progu041.htm#HDRCLO2">11.5 , "Compiling, Linking, and Debugging an
+Outboard Module"</A>.)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>LOADABLE</STRONG></TT>
+<A NAME="IDX299"></A>
+<A NAME="IDX300"></A>
+</B></TD><TD><P>Is optional.
+It identifies the module as being runtime loadable (i.e., compiled
+separately and loaded into Data Explorer at run time.
+<P><B>Note: </B>If this statement is included, the module definition must not
+have an <TT><STRONG>OUTBOARD</STRONG></TT> statement (see above).
+<P>
+&quot;<I>executable</I>&quot; specifies the name of the
+executable and any arguments to be passed.
+(Quotation marks are required for executable specifications containing
+spaces or tabs; otherwise they are optional.)
+<P>
+See also <A HREF="progu014.htm#HDRCLRTLM">"...as a runtime-loadable module"</A>
+and <A HREF="progu042.htm#HDRMODRUNS">11.6 , "Compiling, Linking, and Debugging
+a Runtime-loadable Module"</A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>INPUT</STRONG></TT>
+<A NAME="IDX301"></A>
+<A NAME="IDX302"></A>
+</B></TD><TD><P>Is required for each input parameter (i.e., two input
+parameters,
+two statements).
+A statement consists of four fields separated by semicolons:
+<OL COMPACT>
+<LI><I>name</I> (of a parameter) must be one word and must
+conform to the executive&#39;s lexical conventions (see
+<A HREF="usrgu050.htm#HDRUSL">Chapter 10. "Data Explorer Scripting Language"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+<A NAME="IDX303"></A>
+<A NAME="IDX304"></A>
+<P>
+&#91;<I>visible</I>&#93; is optional.
+<TT><STRONG>visible&#58;</STRONG></TT><VAR>n</VAR> specifies the
+accessibility and initial visibility of input tabs:
+<A NAME="IDX305"></A>
+<A NAME="IDX306"></A>
+<DL COMPACT>
+<DD>0: Not initially visible.
+<DD>1: Initially visible (default).
+<DD>2: Not available to the user interface.
+</DL>
+<P>
+A hidden parameter (<TT><STRONG>visible&#58;0</STRONG></TT>) can be
+exposed with the <TT><STRONG>Expand</STRONG></TT> button in the
+module&#39;s configuration dialog box.
+Less commonly used parameters are often hidden by default.
+<LI><VAR>type</VAR> specifies the type(s) of the input and is used for
+type matching in the Visual Program Editor.
+<A NAME="IDX307"></A>
+<A NAME="IDX308"></A>
+The valid types are:
+<PRE><STRONG>
+camera      integer list     scalar          value
+field       matrix           scalar list     value list
+flag        matrix list      series          vector
+group       object           string          vector list
+integer
+</STRONG>
+</PRE>
+<P>
+To specify more than one type, use the word <TT><STRONG>or</STRONG></TT>
+as a separator (see, for example, the description file for
+Filter in <A HREF="#HDREXMDF">"Examples of Module Description Files"</A>).
+<P>
+If the type of the input value is not explicit (e.g., a string without
+quotation marks or a vector without brackets), the user interface
+attempts to match the input against the type(s) specified in
+the <TT><STRONG>INPUT</STRONG></TT> statement.
+It reads from left to right and stops at the first successful match.
+For this reason, <TT><STRONG>string</STRONG></TT> should be specified last,
+because any series of characters can always be converted to a
+string by adding double-quotation marks.
+<A NAME="IDX309"></A>
+<A NAME="IDX310"></A>
+<LI><VAR>default</VAR> identifies the value to be used if none has
+been specified.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">This part of the <TT><STRONG>INPUT</STRONG></TT> statement is
+informational only:
+it is the module writer&#39;s responsibility to implement a default
+value.
+</td></tr></table>
+By convention, parentheses identify a description of default behavior
+rather than an actual value.
+If no default is applicable, specify
+<TT><STRONG>(no default)</STRONG></TT>.
+If the parameter is required, specify <TT><STRONG>(none)</STRONG></TT>.
+<A NAME="IDX311"></A>
+<A NAME="IDX312"></A>
+<LI><VAR>description</VAR> should contain a short phrase describing the
+parameter.
+</OL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>OPTIONS</STRONG></TT>
+<A NAME="IDX313"></A>
+<A NAME="IDX314"></A>
+</B></TD><TD><P>Is optional.
+It identifies a list of possible values for the parameter.
+This list can be accessed by clicking on the <TT><STRONG>...</STRONG></TT>
+button to the right of the <TT><STRONG>Value</STRONG></TT> field in the
+module&#39;s configuration dialog box.
+<P>
+Options in the list are separated by a semicolon (;).
+If the option itself includes a semicolon, use a back slash (\) to
+escape it with.
+To accommodate inputs that have more options than will fit on a single
+line, use multiple OPTIONS statements.
+If the REPEAT  statement is used, the OPTIONS statement must precede it.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>OUTPUT</STRONG></TT>
+<A NAME="IDX315"></A>
+<A NAME="IDX316"></A>
+</B></TD><TD><P>Is required for each output parameter (i.e., two output
+parameters,
+two statements).
+A statement consists of three fields separated by semicolons:
+<OL COMPACT>
+<LI><VAR>name</VAR> (of a parameter) must be one word and must conform to
+the executive&#39;s lexical conventions (see
+<A HREF="usrgu050.htm#HDRUSL">Chapter 10. "Data Explorer Scripting Language"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+<A NAME="IDX317"></A>
+<A NAME="IDX318"></A>
+<P>
+&#91;<VAR>attribute</VAR>&#93; is optional.
+<TT><STRONG>cache&#58;</STRONG></TT><VAR>n</VAR> specifies the caching to be
+performed by the executive:
+<A NAME="IDX319"></A>
+<DL COMPACT>
+<DD>0: Do not cache the output.
+<DD>1: Cache all outputs (default).
+<DD>2: Cache the output of the last execution only.
+</DL>
+<P>
+Output caching is similar to module caching
+(see <A HREF="usrgu054.htm#HDRFCA">"Function Call Attributes"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I>.)
+Cache specifications for outputs override those for the module.
+<LI><VAR>type</VAR> specifies the type of the output and is used for
+type matching in the Visual Program Editor.
+<A NAME="IDX320"></A>
+<A NAME="IDX321"></A>
+The valid types are:
+<PRE><STRONG>
+camera     integer list     scalar         value
+field      matrix           scalar list    value list
+flag       matrix list      series         vector
+group      object           string         vector list
+integer
+</STRONG>
+</PRE>
+<P>
+To specify more than one type, use the word <TT><STRONG>or</STRONG></TT>
+as a separator.
+<LI><VAR>description</VAR> should be a short phrase
+describing the parameter.
+<A NAME="IDX322"></A>
+<A NAME="IDX323"></A>
+</OL>
+<P>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>REPEAT</STRONG></TT>
+<A NAME="IDX324"></A>
+<A NAME="IDX325"></A>
+</B></TD><TD><P>Is optional.
+It specifies some number of <TT><STRONG>INPUT</STRONG></TT> or
+<TT><STRONG>OUTPUT</STRONG></TT> statements to be repeated.
+The parameter <TT><VAR>n</VAR></TT> specifies the number of
+statements (input or output) affected:
+"1" specifies the first immediately preceding statement; "2",
+the first and second preceding statements; and so on.
+<P>
+<TT><STRONG>REPEAT</STRONG></TT> must come immediately after
+<TT><STRONG>INPUT</STRONG></TT> (after the last input
+statement if there are two or more) or after
+<TT><STRONG>OPTIONS</STRONG></TT> if
+<TT><STRONG>OPTIONS</STRONG></TT>
+is used.
+The same requirement applies to <TT><STRONG>OUTPUT</STRONG></TT>.
+That is, one <TT><STRONG>REPEAT</STRONG></TT> for all inputs
+and another for all outputs.
+<P>
+The number of repetitions of a single statement is determined by
+the number of corresponding tabs on the module icon (up to
+a maximum of 21).
+Thus,
+<TT><STRONG>REPEAT</STRONG></TT> makes it possible to add input and
+output tabs to (or delete them from) a module icon,
+thereby adding or deleting inputs and outputs.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDREXMDF" HREF="#PToC_76">Examples of Module Description
+Files</A></H3>
+<A NAME="IDX326"></A>
+<P>
+The following examples illustrate the specification of
+three modules: Filter, Options, and ShowBox.
+<P>
+The module description for Filter is:
+<PRE>
+   MODULE Filter
+   CATEGORY Transformation
+   DESCRIPTION  applies a filter to a field
+   INPUT input;  field;  (none);  data to filter
+   INPUT filter;  value or string;  "gaussian";  filter to use
+   INPUT component&#91;visible:0&#93;;  string;  "data";  component to be operated on
+   OPTIONS data; colors
+   INPUT mask&#91;visible:0&#93;; value or string; "box"; rank-value filter max
+   OUTPUT output;  field;  filtered data
+</PRE>
+<P>
+The Filter module is assigned to the Transformation category.
+It takes four inputs:
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Module Input
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">data to be filtered
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>filter</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">value or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&quot;gaussian&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">filter to be used
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>component</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&quot;data&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">component to be operated on
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>mask</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">value or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&quot;box&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">rank-value filter maximum
+</TD></TR></TABLE>
+<P>
+All input parameters but <TT><STRONG>input</STRONG></TT> are assigned
+default values.
+The <TT><STRONG>component</STRONG></TT> and <TT><STRONG>mask</STRONG></TT>
+parameters are hidden by default (&#91;visible:0&#93;).
+<P>
+The OPTIONS line in the module description specifies possible values
+for the <TT><STRONG>component</STRONG></TT> parameter (two in
+this case).
+This list of values can be accessed by clicking on the
+<TT><STRONG>...</STRONG></TT> button to the right of the
+<TT><STRONG>Value</STRONG></TT> field in the module&#39;s
+configuration dialog box.
+<P>
+The module description for the ShowBox module is:
+<PRE>
+   MODULE ShowBox
+   CATEGORY Realization
+   DESCRIPTION  draws a bounding box
+   INPUT input;  field;  (none);  the field of which to show the bounding box
+   OUTPUT box;  field;  renderable bounding box of input field
+   OUTPUT center; vector;  center of bounding box
+</PRE>
+<P>
+The ShowBox module is assigned to the Realization category.
+It takes an input, named <TT><STRONG>input</STRONG></TT>,
+of type <TT><STRONG>field</STRONG></TT>.
+There are two outputs, named <TT><STRONG>box</STRONG></TT> and
+<TT><STRONG>center</STRONG></TT>, of type
+<TT><STRONG>field</STRONG></TT> and
+<TT><STRONG>vector</STRONG></TT>
+respectively.
+<P>
+The module description for the Options module is:
+<PRE>
+    MODULE Options
+    CATEGORY Structuring
+    DESCRIPTION  associates attributes with an object
+    INPUT input;  object;  &#40;none&#41;; object with attributes to be set
+    INPUT attribute;  string;  (no default);  attribute to set
+    INPUT value;  object;  (no default);  value of the attribute
+    REPEAT 2
+    OUTPUT output;  object;  the object with attributes set
+</PRE>
+<P>
+The Options module is assigned to the Structuring
+category.
+It has three named parameters, none of which is given defaults.
+The module may take additional pairs of input parameters, whose types
+are the same as the last two inputs preceding the
+<TT><STRONG>REPEAT</STRONG></TT> statement.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu036.htm">Previous Page</A> &#124; <A HREF="progu038.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

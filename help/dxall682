@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Rhdf HDF Files #!N #!EC #!N #!N HDF is a multiobject 
+file structure that is designed to facilitate the transfer of data 
+between machines. HDF was created at the National Center for Supercomputing 
+Applications (NCSA). #!N #!N Data Explorer provides support for importing HDF 
+files that contain a Scientific DataSet (SDS). A Scientific DataSet is 
+an HDF set that stores rectangular gridded Arrays of data, together 
+with the information about the data. Note: Scientific Data Sets should 
+be created using the DFSD API and not the SD API. 
+#!N #!N To import HDF files, specify the filename as the 
+ #!F-adobe-times-bold-r-normal--18*   name #!EF parameter. By default, all the datasets will be 
+imported and collected into a Group. To import a particular dataset 
+specify a number corresponding to that dataset as the  #!F-adobe-times-bold-r-normal--18*   variable 
+#!EF parameter (0 corresponds to the first dataset). The  #!F-adobe-times-bold-r-normal--18*   format 
+#!EF parameter must be "hdf." #!N #!N If dimension scales are 
+specified, Data Explorer uses these to construct positions; otherwise positions have 
+an origin of 0.0 and deltas of 1.0 along each dimension. 
+Data Explorer automatically constructs regular connections for either case. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lapb,dxall683 h Environment Variables and Command Line Options  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

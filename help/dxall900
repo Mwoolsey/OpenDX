@@ -1,0 +1,62 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Roverlay Overlay #!N #!N Category #!N 
+#!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N Overlays one image with 
+another. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N combined 
+#!EF = Overlay(  #!F-adobe-times-bold-r-normal--18*   overlay, base, blend #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB overlay TAB 
+image TAB none TAB overlay image #!N TAB base TAB image 
+TAB none TAB base image #!N TAB blend TAB scalar, vector, 
+field, or string TAB .5 TAB 0: for base image only 
+#!N TAB - TAB - TAB - TAB 1: for overlay 
+image only #!N TAB - TAB - TAB - TAB #!EF 
+#!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Description #!EF #!N TAB combined TAB image TAB combined image 
+#!N TAB - TAB - TAB #!EF #!N #!N Functional Details 
+#!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   overlay #!EF 
+#!EF #!I50 #!N is the overlay image. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   base #!EF #!EF #!I50 #!N is the base image under 
+ #!F-adobe-times-bold-r-normal--18*   overlay #!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   blend #!EF 
+#!EF #!I50 #!N determines how the module combines the two images 
+and what the output image will be. If the parameter is: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   a 
+scalar value #!EF : the resulting image (  #!F-adobe-times-bold-r-normal--18*   combined #!EF 
+) is equal to #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N ((1 - 
+ #!F-adobe-times-bold-r-normal--18*   blend #!EF ) *  #!F-adobe-times-bold-r-normal--18*   base #!EF ) + ( 
+ #!F-adobe-times-bold-r-normal--18*   blend #!EF *  #!F-adobe-times-bold-r-normal--18*   overlay #!EF ) #!EF #!N #!N 
+#!EC #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   a vector or string #!EF 
+: this value will be interpreted as an RGB color. The 
+ #!F-adobe-times-bold-r-normal--18*   combined #!EF image is the base image  #!F-adobe-times-medium-i-normal--18*   except #!EF 
+for the pixels where the base image is equal to  #!F-adobe-times-bold-r-normal--18*   
+blend #!EF . These pixels will be taken from the overlay 
+image. This specification allows you to perform chromakeying. #!N #!N Two 
+pixels are considered to have the same color if the corresponding 
+component colors (i.e., red, green, blue) of one are each within 
+0.1% of the other. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   blend #!EF can 
+also be specified (in a string) as one of the standard 
+X Window System** colors (see  #!Lcolor,dxall792 h Color  #!EL  ). #!N #!I30 #!N o 
+ #!F-adobe-times-medium-i-normal--18*   a field of position-dependent data #!EF : each data value 
+in the field is used as a blending value to overlay 
+the two pixels (one from each image) corresponding to that position. 
+That is, the blending is pixel by pixel. The "blending" field 
+must have a grid that is compatible with both the overlay 
+and the base image. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   blend #!EF values 
+in the field must be scalar values between 0.0 and 1.0. 
+#!N #!I0 #!N #!EF #!N #!I0 #!N #!N #!N #!N #!I0 
+#!N Notes: #!N #!I30 #!N 1. The images  #!F-adobe-times-bold-r-normal--18*   base #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   overlay #!EF must be the same size and have 
+the same grid positions. The "colors" component must be dependent on 
+"positions." The  #!F-adobe-times-bold-r-normal--18*   base #!EF and  #!F-adobe-times-bold-r-normal--18*   overlay #!EF images must 
+both have the same partitioning (or none). #!N #!I30 #!N 2. 
+To add two images together, or subtract one from the other, 
+use the Compute module. First mark the "colors" component in each 
+image (with the Mark module), then, use Compute to perform the 
+desired operation on each. Finally, use Unmark to return the modified 
+data to the "colors" component. #!I0 #!N #!N #!N #!N Components 
+#!N #!N Modifies the "colors" component. All other input components are 
+propagated to the output. #!N #!N Example Visual Program #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingOverlay.net #!EF #!N #!N #!EC #!N #!N See 
+Also #!N #!N  #!Larrange,dxall768 h Arrange  #!EL  ,  #!Lcolor,dxall792 h Color  #!EL  ,  #!Lcompute,dxall795 h Compute  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  , 
+ #!Lrender,dxall923 h Render  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lparse,dxall901 h Parse  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

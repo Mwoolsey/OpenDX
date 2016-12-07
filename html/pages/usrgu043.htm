@@ -1,0 +1,1427 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Graphical User Interface: Control Panels, Interactors, and Macros</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu042.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu043.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu040.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRUNDUS3" ></A>Chapter 7. Graphical User Interface: Control Panels, Interactors, and Macros
+</H2>
+		<P><A NAME="PToC10"></A>Partial Table-of-Contents
+		<MENU>
+<LI><A NAME="PToC_200" HREF="#HDRBUICO">7.1 Using Control Panels and
+Interactors</A>
+<MENU>
+<LI><A NAME="PToC_201" HREF="#HDRCPI">Building Control Panels</A>
+<LI><A NAME="PToC_202" HREF="#HDRINTRACS">Placing Interactors in a New Control
+Panel</A>
+<LI><A NAME="PToC_203" HREF="#HDRADIN2CP">Adding Interactors to an Existing
+Control Panel</A>
+<LI><A NAME="PToC_204" HREF="#Header_204">Selecting, Moving, and Deleting
+Interactors</A>
+<LI><A NAME="PToC_205" HREF="#Header_205">Changing the Size of an Interactor</A>
+<LI><A NAME="PToC_206" HREF="#HDRLOCSTI">Locating Interactor Stand-ins</A>
+<LI><A NAME="PToC_207" HREF="#Header_207">Deleting Control Panels</A>
+<LI><A NAME="PToC_208" HREF="#Header_208">Saving and Restoring Control
+Panels</A>
+<LI><A NAME="PToC_209" HREF="#HDRCCP">Customizing a Control Panel</A>
+<LI><A NAME="PToC_222" HREF="#HDRCPADBS">Control Panels as Dialog Boxes</A>
+<LI><A NAME="PToC_223" HREF="#HDRCPA">Control Panel Access, Groups, and
+Hierarchies</A>
+<LI><A NAME="PToC_224" HREF="#HDRCMD">Creating, Modifying, and Deleting Control
+Panel Groups</A>
+<LI><A NAME="PToC_225" HREF="#HDRRCPA">Restricting Control Panel Access</A>
+<LI><A NAME="PToC_226" HREF="#HDRSTARTCP">Specifying a Startup Control Panel</A>
+<LI><A NAME="PToC_227" HREF="#HDROCP">Opening Existing Control Panels</A>
+<LI><A NAME="PToC_228" HREF="#HDRINTERAC">Using Interactors</A>
+<LI><A NAME="PToC_246" HREF="#HDRDDINTER">Using Data-Driven Interactors</A>
+</MENU>
+<LI><A NAME="PToC_247" HREF="usrgu044.htm#HDRMACROS">7.2 Creating and Using
+Macros</A>
+<MENU>
+<LI><A NAME="PToC_248" HREF="usrgu044.htm#HDRCREMAC">Creating Macros</A>
+<LI><A NAME="PToC_249" HREF="usrgu044.htm#HDRLODMAC">Loading Macros</A>
+<LI><A NAME="PToC_250" HREF="usrgu044.htm#HDRUMACVP">Using Macros in a Visual
+Program</A>
+<LI><A NAME="PToC_251" HREF="usrgu044.htm#Header_251">Viewing and Changing
+Macros</A>
+</MENU></MENU><HR><P>
+<A NAME="IDX762"></A>
+<A NAME="IDX763"></A>
+<A NAME="IDX764"></A>
+<HR>
+<H2><A NAME="HDRBUICO" ></A>7.1 Using Control Panels and Interactors
+</H2>
+<P>
+As you create a visual program, you may have inputs whose values are subject to
+frequent change.
+You can use interactors as an easy method for controlling those input
+values.
+<I>Interactors</I>, which appear only in Control Panels, are the
+interactive devices that you use to manipulate inputs to a visual program
+in order to change the image that is produced (see
+<A HREF="#HDRINTERAC">"Using Interactors"</A> for detailed descriptions).
+<A NAME="IDX765"></A>
+<P>
+<I>Interactor stand-ins</I> are used to indicate which input to a
+module a given interactor is to control.
+While you are building the network in the VPE, you select interactor
+stand-ins from the tool palettes and place them on the canvas,
+as you do with other tools.
+Like any tool, the output of an interactor stand-in can be connected to
+more than one input.
+Interactor stand-ins are named, in general, after the type of data they
+output&#58;
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Integer stand-ins
+</B></TD><TD><P>Represent interactors that output whole numbers.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Scalar stand-ins
+</B></TD><TD><P>Represent interactors that output real numbers.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>String stand-ins
+</B></TD><TD><P>Represent interactors that output text strings.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Value stand-ins
+</B></TD><TD><P>Represent interactors that output scalars, vectors, and tensors.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Vector stand-ins
+</B></TD><TD><P>Represent interactors that output vectors.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Integer list stand-ins
+</B></TD><TD><P>Represent interactors that output integer lists.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Scalar list stand-ins
+</B></TD><TD><P>Represent interactors that output scalar lists.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>String list stand-ins
+</B></TD><TD><P>Represent interactors that output string lists.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Value list stand-ins
+</B></TD><TD><P>Represent interactors that output value lists (e.g., vector and
+scalar lists).
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Vector list stand-ins
+</B></TD><TD><P>Represent interactors that output vector lists.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Selector stand-ins
+</B></TD><TD><P>Represent interactors that output values and strings,
+representing
+a choice of one from many.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Selector list stand-ins
+</B></TD><TD><P>Represent interactors that output values and strings,
+representing
+a choice of none, one, or more among many.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>FileSelector stand-ins
+</B></TD><TD><P>Represent interactors that output both a fully qualified path
+name and an individual file name.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Reset stand-ins
+</B></TD><TD><P>Represent interactors that output one value when executed the
+first
+time after being set and another value thereafter.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Toggle stand-ins
+</B></TD><TD><P>Represent interactors that output one of two values.
+</TD></TR></TABLE>
+<P>
+Data Explorer allows the visual programmer to associate comments with each
+Control Panel.
+To access these comments, use the <TT><STRONG>On Control Panel</STRONG></TT>
+option of
+the <TT><STRONG>Help</STRONG></TT> pull-down menu in the Control Panel about
+which you want to learn.
+If no comments exist for the Control Panel, the <TT><STRONG>On Control
+Panel</STRONG></TT> option is grayed out.
+<P>
+<H3><A NAME="HDRCPI" ></A>Building Control Panels</H3>
+<A NAME="IDX766"></A>
+<P>
+<A HREF="#FIGUSEA">Figure 60</A> illustrates the organization of a Control
+Panel.
+<P><B><A NAME="FIGUSEA" HREF="../usrguide.htm#FT_FIGUSEA">Figure 60. Control Panel
+Window</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/ctrlpan.gif" ALT="Figure ctrlpan not
+displayed."></CENTER><BR></B><BR>
+The menu bar, discussed in <A HREF="usrgu045.htm#HDRCPMENU">"Control Panel Menu
+Bar"</A>, contains categories of
+available menu options.
+The open area is called the <I>layout area</I>.
+<P>
+You can create any number of Control Panels for one visual program, and you can
+also place a single interactor in multiple Control Panels.
+The configuration of a Control Panel and the values of the interactors
+are saved when you save the visual program.
+You can also customize Control Panels, and save or restore them
+independently of the visual program.
+<P>
+If you are going to control a tool input through an interactor in a
+Control Panel, then you must first connect an interactor stand-in
+to that input in the VPE.
+Using a stand-in as a tool input is an alternative to using the
+module&#39;s Configuration dialog box every time you want to
+change the value of the input.
+<P>
+<H3><A NAME="HDRINTRACS" ></A>Placing Interactors in a New Control Panel
+</H3>
+<A NAME="IDX767"></A>
+<A NAME="IDX768"></A>
+<A NAME="IDX769"></A>
+<P>
+To place interactors in a new Control Panel&#58;
+<OL COMPACT>
+<LI>On the VPE canvas, select the interactor stand-ins you want in
+the Control Panel (other tools can be selected as well).
+<LI>Click on the <TT><STRONG>New Control Panel</STRONG></TT> option of the
+<TT><STRONG>Windows</STRONG></TT> menu.
+This causes a new Control Panel to appear with the selected interactors
+in the layout area.
+Each interactor is labeled with the name of the tool to which its output
+is connected, unless its output is connected to more than one tool or
+not connected to any tool, in which case the interactor is labeled
+with the interactor type (e.g., an integer interactor is labeled
+with "Integer").
+You can also double-click on one of the selected interactor stand-ins to
+create a new Control Panel automatically.
+</OL>
+<P>
+When a new Control Panel is created with the selected interactors, the
+interactors are placed in a vertical column in the order in which
+their stand-ins were placed on the VPE canvas.
+<P><B>Note: </B>If you select a group that includes tools other than interactor
+stand-ins, only the interactors appear in the Control Panel.
+Therefore, the quickest way to place all the visual program&#39;s interactors in
+one Control Panel is to use the <TT><STRONG>Select All</STRONG></TT> option of
+the
+<TT><STRONG>Edit</STRONG></TT> pull-down, then select the <TT><STRONG>New
+Control
+Panel</STRONG></TT> option of the <TT><STRONG>Windows</STRONG></TT> pull-down
+menu.
+<P>
+<P>
+<H3><A NAME="HDRADIN2CP" ></A>Adding Interactors to an Existing Control Panel
+</H3>
+<A NAME="IDX770"></A>
+<A NAME="IDX771"></A>
+<P>
+To add an interactor to an existing Control Panel&#58;
+<OL COMPACT>
+<LI>Open the Control Panel.
+<LI>Select the interactor stand-in on the VPE canvas.
+<LI>In the Control Panel window, click on the <TT><STRONG>Add Selected
+Interactor(s)</STRONG></TT> option of the <TT><STRONG>Edit</STRONG></TT> menu.
+<LI>Move the cursor to where you want to position the tool in the
+Control Panel.
+Note that the style of the cursor changes when you move it onto the
+panel.
+This is similar to how tool icons are placed on the VPE canvas.
+Exact placement of the interactor depends on the grid settings (see
+<A HREF="#HDRCCPGRID">"Changing the Alignment of Interactors in the Control
+Panel"</A>).
+<LI>Click the mouse.
+The interactor appears at the specified location.
+</OL>
+<P>
+Alternatively, you can use "drag and drop" to add an interactor
+to an existing Control Panel:
+<OL COMPACT>
+<LI>Select the interactor stand-in on the VPE canvas.
+<LI>Press the middle mouse button while the cursor is positioned on the
+stand-in icon.
+<LI>Drag the cursor to the Control Panel and release the mouse button.
+<LI>The interactor appears at the new location.
+</OL>
+<P>
+You can add more than one interactor at a time to a Control Panel.
+To do this, select multiple interactor stand-ins on the VPE canvas,
+then select <TT><STRONG>Add Selected Interactor(s)</STRONG></TT> in the desired
+Control Panel.
+After doing this, you can use the mouse to place the interactors in the
+Control Panel one at a time.
+They are placed in the Control Panel in the same order that they were
+placed initially onto the VPE canvas.
+Similarly, you can drag and drop multiple stand-ins from the visual program
+to a Control Panel.
+You can also drag and drop interactors from one Control Panel to
+another, as long as both are associated with the same Data Explorer
+session.
+For more information on drag and drop, see <A
+HREF="usrgu041.htm#HDRMACTS">"Moving and Copying Tools"</A>.
+<P>
+You can put the same interactor in more than one Control Panel and in
+the same Control Panel more than once.
+For example, you may want to have one Control Panel that contains
+<I>all</I> the interactors for a visual program, and another that
+contains only the most frequently used interactors.
+You can also place multiple instances of an interactor, with different
+styles or step size increments, in one Control Panel.
+This provides both coarse and fine control over a parameter value.
+The user interface ensures that each instance of the interactor
+is consistent.
+If you change a value in one instance, it changes in the others.
+<P>
+<H3><A NAME="Header_204" ></A>Selecting, Moving, and Deleting Interactors
+</H3>
+<P>
+To select an interactor, click on it.
+<P>
+To select a group of interactors, use one of the following methods&#58;
+<A NAME="IDX772"></A>
+<UL>
+<P><LI>Hold down the Shift key and click on each interactor in turn.
+<P><LI>Position the mouse pointer on the canvas near a corner of the group
+and drag the mouse to draw a selection box around the interactor
+you want.
+To select an interactor, you must completely enclose it in the
+selection box.
+As an interactor is encompassed by the selection box, it is highlighted
+(indicating that it is selected).
+</UL>
+<P>
+To deselect an interactor, shift-click on it.
+<P>
+To deselect a group of interactors, use one of these methods:
+<UL>
+<P><LI>Shift-click on each interactor.
+<P><LI>Shift-drag to draw a box around the interactors you want to
+
+deselect.
+As a selected interactor is encompassed in the box, it becomes
+unhighlighted.
+Release the button to deselect the interactors.
+</UL>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Clicking on an empty part of the layout area deselects all
+selected interactors.
+</td></tr></table>
+<P>
+To move an interactor&#58;
+<A NAME="IDX773"></A>
+<OL COMPACT>
+<LI>Depress the mouse button on the interactor and drag it to the
+desired location.
+While the mouse button is depressed, an outline of the interactor
+follows the motion of the mouse, but the interactor remains in
+the original location.
+<LI>Release the mouse button.
+The interactor moves to that location.
+</OL>
+<P>
+To move a group of interactors&#58;
+<A NAME="IDX774"></A>
+<OL COMPACT>
+<LI>Select a group of interactors to be moved.
+<LI>Position the mouse pointer on any member of the group and drag it.
+An outline of each interactor appears and follows the mouse.
+<LI>Release the mouse button.
+The interactors move to the new location.
+</OL>
+<P>
+To delete one or more interactors&#58;
+<A NAME="IDX775"></A>
+<OL COMPACT>
+<LI>Select one or more interactors to delete.
+<LI>Press the <TT><STRONG>Ctrl+Delete</STRONG></TT> accelerator key or click on
+the
+<TT><STRONG>Delete</STRONG></TT> option of the <TT><STRONG>Edit</STRONG></TT>
+menu.
+</OL>
+<P>
+If you delete an interactor stand-in from the VPE, the interactor
+in the Control Panel is also deleted.
+However, deleting the interactor in the Control Panel does not affect
+what is displayed in the VPE.
+<P>
+<H3><A NAME="Header_205" ></A>Changing the Size of an Interactor
+</H3>
+<A NAME="IDX776"></A>
+<A NAME="IDX777"></A>
+<P>
+You can change the size of interactors in a Control Panel.
+Some interactors (e.g., Selector) resize automatically, depending on
+their contents, but others (e.g., String) do not.
+You can resize any interactor by pressing the control key (Ctrl) and
+the left mouse button.
+<P>
+<H3><A NAME="HDRLOCSTI" ></A>Locating Interactor Stand-ins</H3>
+
+<P>
+As you are building and modifying visual programs and Control Panels, you may
+find
+it desirable to locate that interactor in a Control Panel that
+corresponds to a specific interactor stand-in.
+To locate an interactor corresponding to a stand-in&#58;
+<OL COMPACT>
+<LI>Select the desired stand-in in the VPE by clicking on it.
+<LI>Select the <TT><STRONG>Edit</STRONG></TT> menu <TT><STRONG>Show Selected
+Interactor(s)</STRONG></TT> option in the Control Panel.
+</OL>
+<P>
+The interactor corresponding to the stand-in will become selected.
+If no interactors in the Control Panel are associated with the selected
+stand-in, the <TT><STRONG>Show Selected Interactor(s)</STRONG></TT> option
+will be grayed-out.
+If you have more than one Control Panel and you are unsure which of
+them contains the interactor corresponding to the stand-in,
+Step 2 (above) can be applied to each Control Panel.
+Alternatively, you can double-click on
+the stand-in.
+This will highlight the corresponding interactor.
+<P>
+To locate a stand-in corresponding to an interactor&#58;
+<OL COMPACT>
+<LI>Select the interactor in a Control Panel by clicking on it.
+<LI>Select the <TT><STRONG>Edit</STRONG></TT> menu <TT><STRONG>Show Selected
+Tool</STRONG></TT>
+option in the Control Panel.
+</OL>
+<P>
+The stand-in corresponding to the interactor will be selected.
+If the stand-in is not in the currently displayed portion of the visual program,
+the display will be updated so the selected stand-in is visible.
+<P>
+<H3><A NAME="Header_207" ></A>Deleting Control Panels</H3>
+<A NAME="IDX778"></A>
+<P>
+To delete a Control Panel&#58;
+<OL COMPACT>
+<LI>Delete the interactors in the Control Panel.
+<LI>Click on the <TT><STRONG>Close</STRONG></TT> option of the
+<TT><STRONG>File</STRONG></TT> menu.
+</OL>
+<P>
+<H3><A NAME="Header_208" ></A>Saving and Restoring Control Panels
+</H3>
+<A NAME="IDX779"></A>
+<P>
+The <TT><STRONG>Program Settings...</STRONG></TT> option of the anchor
+window allows you to save your own configuration of the Control
+Panel(s) independently of the rest of the network.
+You can save the values of the Control Panels as well as the
+configuration of all of the stored Control Panels for the
+current visual program.
+<P>
+Select the <TT><STRONG>Program Settings...Save As</STRONG></TT> option on the
+<TT><STRONG>File</STRONG></TT> menu anchor window bar.
+You can retrieve Control Panels in the anchor window by using the
+<TT><STRONG>Program Settings...Load</STRONG></TT> option.
+<P>
+If you have made changes that you do not want to keep, click on the
+<TT><STRONG>Program Settings...Load</STRONG></TT> option of the
+<TT><STRONG>File</STRONG></TT> menu, and
+select the file again without saving.
+This procedure restores the original configuration.
+<P>
+<H3><A NAME="HDRCCP" ></A>Customizing a Control Panel</H3>
+<A NAME="IDX780"></A>
+<P>
+This section describes the customization that can be done while building
+the Control Panel from the VPE window or while actually viewing
+the image in the Image window.
+<P>
+The Control Panel <TT><STRONG>Options</STRONG></TT> menu provides several
+possibilities
+for further customizing the Panel and its interactors, as described
+in <A HREF="usrgu045.htm#HDRCONPOP">"Control Panel Options Menu"</A>.
+<P>
+<H4><A NAME="HDRCHCPNM"></A><U>Changing the Name of a Control Panel</U></H4>
+<P>
+Every Control Panel is given the default name of "Control Panel,"
+as shown in the title box across the top of the window.
+If you want to customize the name in any particular Control Panel, you
+can do so by clicking on the <TT><STRONG>Change Control Panel
+Name...</STRONG></TT> option on the <TT><STRONG>Options</STRONG></TT>
+menu
+and entering a new
+name in the dialog box that appears.
+The new name can contain any number of characters including any letter,
+number, symbol, or space that you find on the keyboard.
+<P>
+If you have several Control Panels in your visual program, you should assign
+names
+to them.
+Data Explorer allows you to open each one individually, by name, from a Control
+Panel, Image window, and VPE.
+To open a Control Panel by name from any of these three primary windows,
+do the following:
+<OL COMPACT>
+<LI>Select the <TT><STRONG>Open Control Panel by Name</STRONG></TT> option
+from the <TT><STRONG>Windows</STRONG></TT> pull-down menu
+in the VPE and Image window, or
+from the <TT><STRONG>Panels</STRONG></TT> pull-down menu
+in the Control Panel.
+This reveals a cascade menu with a list of the existing Control Panels.
+<LI>Click on the name of the Control Panel you wish to open.
+The desired Control Panel appears.
+</OL>
+<P>
+<H4><A NAME="HDRADCM2CP"></A><U>Adding Comments to a Control Panel</U></H4>
+<A NAME="IDX781"></A>
+<P>
+If other people are going to use the visual programs you create, it may be
+desirable to document how the interactors are used.
+You can associate comments with the Control Panel to describe how it
+uses the interactors to control input values in the visual program.
+<P>
+To add comments to a Control Panel:
+<OL COMPACT>
+<LI>Select the <TT><STRONG>Comment...</STRONG></TT> option from the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu in the Control Panel.
+A dialog box appears, with a large text field in which you can type the
+comments.
+If a comment has been entered previously for this Control Panel, it is
+displayed in the text field.
+<LI>Enter your comments in the text field, editing the same way as
+with any text field.
+This text field has multiple lines; you can break the lines using the
+Enter key, or allow them to flow automatically as you type.
+<LI>Click on <TT><STRONG>OK</STRONG></TT> to store the comments.
+</OL>
+<P>
+These comments can be viewed, but not edited, by using the <TT><STRONG>On
+Control Panel</STRONG></TT> option of the <TT><STRONG>Help</STRONG></TT>
+pull-down menu
+in the Control Panel.
+To edit the comments, you must use the <TT><STRONG>Comment...</STRONG></TT>
+option
+of the <TT><STRONG>Options</STRONG></TT> pull-down menu.
+<P>
+<H4><A NAME="HDRCCPGRID"></A><U>Changing the Alignment of Interactors in the Control Panel<BR>
+			</U></H4>
+<A NAME="IDX782"></A>
+<P>
+You can specify whether the interactors you place in the Control Panel
+automatically align on a grid pattern.
+To do this, select <TT><STRONG>Grid...</STRONG></TT> from the
+<TT><STRONG>Options</STRONG></TT>
+pull-down menu.
+The <TT><STRONG>Grid</STRONG></TT> dialog box appears; it works the same way
+as it
+does in the VPE (see <A HREF="usrgu041.htm#HDRWINDSET">"Customizing the VPE
+Window"</A>).
+<P>
+<H4><A NAME="HDRCHINST"></A><U>Changing the Interactor Style</U></H4>
+<A NAME="IDX783"></A>
+<A NAME="IDX784"></A>
+<P>
+A particular default interactor might not be the most desirable style
+for your particular application.
+For some interactor types, you can change this in a Control Panel at
+any time by using the following procedure&#58;
+<OL COMPACT>
+<LI>Select the interactor.
+<LI>Click on the <TT><STRONG>Edit</STRONG></TT> menu <TT><STRONG>Set
+Style...</STRONG></TT> option.
+<P><B>Note: </B>Be sure to highlight the interactor in the panel before
+selecting
+this option.
+Otherwise, most of the options will appear grayed-out.
+If the interactor is not a type whose style can be changed, the style
+option will remain grayed-out.
+A cascade menu appears for you to choose a new style.
+</OL>
+<P>
+<H4><A NAME="HDRRESZINT"></A><U>Resizable Interactors.</U></H4>
+<P>
+You can change the size of the interactors in a Control Panel.
+Some interactors (e.g., Selector) resize automatically; others (e.g.,
+String) do not.
+To resize any interactor, press the Control key and then drag the
+border of the interactor.
+<P>
+<H4><A NAME="HDRCHINDI"></A><U>Changing the Interactor Dimensionality</U></H4>
+<P>
+When vector and vector list interactors are created, by default, their
+dimensionality to set to 3.
+Dimensionality can be changed using the <TT><STRONG>Edit</STRONG></TT> menu
+<TT><STRONG>Set
+Dimensionality</STRONG></TT> option.
+<P>
+<H4><A NAME="HDRCHINLA"></A><U>Changing the Interactor Layout</U></H4>
+<A NAME="IDX785"></A>
+<A NAME="IDX786"></A>
+<P>
+When an interactor is created, its layout is vertical, that is, the
+interactor label is placed at the top of the interactor.
+Data Explorer allows you to choose between this vertical layout and a horizontal
+layout.
+The horizontal layout places the label on the left side of interactor.
+<P>
+To change the layout of the interactor&#58;
+<OL COMPACT>
+<LI>Select the interactor.
+<LI>Click on the <TT><STRONG>Edit</STRONG></TT> menu
+<TT><STRONG>Set Layout...</STRONG></TT>
+option.
+A cascade menu appears for you to choose the layout you desire.
+</OL>
+<P>
+<H4><A NAME="HDRSETATDB"></A><U>Setting Interactor Attributes</U></H4>
+<A NAME="IDX787"></A>
+<A NAME="IDX788"></A>
+<P>
+You can have several instances of the same interactor.
+Each instance can be a different style (stepper, dial, or slider) and
+can have a different increment value.
+However, all instances of an interactor have the same value and the same
+minimum and maximum limits.
+As you change the value or range of one instance, the other instances
+of that interactor are automatically updated.
+<P>
+To change the <I>range</I> of values of an interactor, select the
+interactor, and select the <TT><STRONG>Set Attributes...</STRONG></TT> option
+in the <TT><STRONG>Edit</STRONG></TT> menu; or double-click on the
+interactor in the Control Panel.
+The <TT><STRONG>Set Attributes...</STRONG></TT> dialog box
+(<A HREF="#FIGSETLIM">Figure 61</A>)
+appears.
+<P>
+<P><B><A NAME="FIGSETLIM" HREF="../usrguide.htm#FT_FIGSETLIM">Figure 61. Set
+Attributes Dialog Box</A></B><BR>
+<A NAME="IDX789"></A>
+<A NAME="IDX790"></A>
+<B><BR><CENTER><IMG SRC="../images/setattr.gif" ALT="Figure setattr not
+displayed."></CENTER><BR></B><BR>
+In this box you can&#58;
+<UL>
+<P><LI>Set maximum and minimum values.
+<P><LI>Change the step increment.
+<P><LI>Change the number of decimal places displayed.
+(In the case of an integer interactor, the decimal place field is
+disabled.)
+<P><LI>Choose whether to update the image continuously as you change the
+interactor values, or to update only when the mouse button is
+released.
+This applies only when <TT><STRONG>Execute on Change</STRONG></TT> is enabled.
+<P><B>Note: </B>Many interactor types can also be data-driven, meaning that
+their attributes are derived at run time from data in the
+visual program.
+See <A HREF="#HDRDDINTER">"Using Data-Driven Interactors"</A>.
+</UL>
+<A NAME="IDX791"></A>
+<A NAME="IDX792"></A>
+The increment and update options can be applied to the either just the
+current instance or to all instances of the interactor.
+To affect all instances, click on the option box for the attribute you
+want to set (increment or update), and select the Global option
+from option menu.
+To affect only the current instance, select the Local option.
+Having multiple instances of an interactor with different increments
+allows coarse and fine controls.
+For example, you may want one instance of a scalar interactor to change
+by increments of 1.0, another instance by 0.10, and a third instance
+by 0.01.
+
+Note that the "global" option will not override interactors which have
+been explicitly set to "local".
+
+<P>
+<H5><U>Vector interactors</U></H5>
+The <TT><STRONG>Set Attributes...</STRONG></TT> dialog box for vector
+interactors
+has an additional field, <TT><STRONG>Selected Component</STRONG></TT>, included
+at the top of the box.
+You can use this field to set different attributes for the different
+components of a vector.
+Do this by changing the component number with the stepper, and setting
+the attributes desired for that component.
+Repeat this process for all components of the vector.
+<P>
+To assign common attributes to all components of a vector interactor,
+set the option box at the top of the dialog box to <TT><STRONG>All
+Components</STRONG></TT>.
+When you do this, the component stepper is disabled, and any attributes
+you set are applied to all components of the vector.
+<P>
+<H5><A NAME="HDRSETSEL"></A><U>Setting Selector and SelectorList Interactor Attributes<BR>
+			</U></H5>
+<A NAME="IDX793"></A>
+<A NAME="IDX794"></A>
+The Set Attributes dialog box for the <TT><STRONG>Selector</STRONG></TT> and
+<TT><STRONG>SelectorList</STRONG></TT> interactors (<A HREF="#FIGSELATT">Figure
+62</A>)
+differ from the dialog box for other types of interactors
+because the behavior of those interactors is different from
+other types of interactors.
+<P>
+The Selector and SelectorList interactors are similar to an option menu,
+with the current choice(s) displayed by the interactor.
+(The Selector offers a one-of-many choice; the SelectorList, a choice of
+none, one, or more among many.)
+Each choice on the interactor represents a pair of outputs: a value and
+a string.
+The string is what appears as the choice on the interactor.
+The value can be a string, integer, scalar, vector or matrix.
+All the values must be of the same type.
+By default, the values are integers.
+A value is associated with a string using the
+<TT><STRONG>Set Attributes...</STRONG></TT> dialog box
+(<A HREF="#FIGSELATT">Figure 62</A>).
+<P><B><A NAME="FIGSELATT" HREF="../usrguide.htm#FT_FIGSELATT">Figure 62. Set
+Attributes Dialog Box for a Selector Interactor</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/selattr.gif" ALT="Figure selattr not
+displayed."></CENTER><BR></B><BR>
+<P>
+You can use the Selector or SelectorList interactor for many purposes.
+A common use is as a switch control in your visual program.
+You can use an integer output, for example, as input to the Switch
+module to switch easily among several objects.
+You can use a string output, for example, as input to the Select or
+Import modules, allowing you to easily select different members
+or data file names.
+You can also use a string output as input to the Caption module to
+annotate the image with the current selector setting.
+A discussion on how to use the Selector and
+SelectorList interactors can be found in
+<A HREF="#HDRSELINT">"Selector and SelectorList Interactors"</A>.
+<P>
+The default choices for the Selector and SelectorList interactors are:
+<UL COMPACT>
+<LI>1, "on"
+<LI>0, "off"
+</UL>
+To modify the choices, do the following:
+<OL COMPACT>
+<LI>Open a Control Panel with the selector interactor in it.
+<LI>Open the selector&#39;s <TT><STRONG>Set Attributes...</STRONG></TT>
+dialog box
+by double-clicking on the interactor, or by selecting the interactor
+and then choosing the <TT><STRONG>Set Attributes...</STRONG></TT> option in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+A dialog box appears, similar to the one shown <A HREF="#FIGSELATT">Figure
+62</A>.
+<LI>The procedure for modifying the choices in this list is similar to
+that for modifying the list elements in a list interactor (see
+<A HREF="#HDRLISTINT">"List Interactors"</A>).
+To enter a value in this interactor click on the <TT><STRONG>Value</STRONG></TT>
+box,
+enter a value, and press the Enter key.
+Then click on the <TT><STRONG>Label</STRONG></TT> box, type a string, and press
+the
+Enter key.
+For more information about how to modify, add, and delete elements,
+see <A HREF="#HDRLISTINT">"List Interactors"</A>.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If you wish to change the type of the values in the value field,
+for example, entering values other than integers when initially
+configuring the interactor, you must first delete all the
+entries in the <TT><STRONG>Set Attributes...</STRONG></TT> dialog
+before entering new ones.
+This is required since the type of all values must be the same.
+</td></tr></table>
+<LI>When you are finished modifying the choices, click on
+<TT><STRONG>OK</STRONG></TT> to apply the changes.
+</OL>
+<P>
+Because the selector interactor yields both the value and the string as
+outputs, you can use either output, or both, in a visual program.
+In the selector stand-in, the output on the left is the value, while
+the output on the right represents the string.
+<P>
+<H5><A NAME="HDRCHINLB"></A><U>Changing the Label on the Interactor</U></H5>
+<A NAME="IDX795"></A>
+<A NAME="IDX796"></A>
+<P>
+The default label on any unconnected interactor is the name of the
+interactor stand-in.
+If the interactor is connected to one input, the default name of the
+interactor is the name of the tool followed by the input
+parameter name.
+If the interactor is connected to more than one input, its default
+name is the name of the interactor stand-in.
+You can change the default name by doing the following&#58;
+<OL COMPACT>
+<LI>Click on the <TT><STRONG>Set Interactor Label...</STRONG></TT> option on the
+Control Panel <TT><STRONG>Edit</STRONG></TT> menu.
+<LI>Enter a new name in the dialog box that appears
+(<A HREF="#FIGLABEL">Figure 63</A>).
+</OL>
+<P><B><A NAME="FIGLABEL" HREF="../usrguide.htm#FT_FIGLABEL">Figure 63. Set
+Interactor Label Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/intlabl.gif" ALT="Figure intlabl not
+displayed."></CENTER><BR></B><BR>
+<P>
+The new name can contain any number of characters, including any letter,
+number, symbol, or space that you find on the keyboard.
+(If you want a blank label, enter "\0" for the name.)
+<P>
+The interactor label can have multiple lines: type "\n" where
+you want a line to break.
+For example,
+<PRE>
+  First&nbsp;Line\nSecond&nbsp;Line
+</PRE>
+<P>
+<H5><A NAME="HDRSETOGAT"></A><U>Setting Toggle and Reset Attributes</U></H5>
+<P>
+You can set the output of Toggle and Reset interactors for both their
+"button down" (set) and "button up"
+(unset) states..
+The output value can be string, integer, scalar, or vector, and the
+set and unset outputs do not have to be of the same type.
+<P>
+<H3><A NAME="HDRCPADBS" ></A>Control Panels as Dialog Boxes</H3>
+<P>
+It is possible to customize Control Panels so that they appear as
+dialog boxes.
+This is intended for building applications to be used in
+<TT>-image</TT> or
+<TT>-menubar</TT> mode
+(i.e., with the Image window or menu bar
+as the anchor window).
+The appearance of the dialog box can be modified with the options
+<TT><STRONG>Label</STRONG></TT> and <TT><STRONG>Separator</STRONG></TT>
+under <TT><STRONG>Add Element</STRONG></TT> in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu
+of the Control Panel.
+These will add the specified element to the panel at the point where
+the mouse cursor is positioned.
+Separators can be made vertical using the <TT><STRONG>Set Layout</STRONG></TT>
+option
+of the <TT><STRONG>Edit</STRONG></TT> menu.
+The size of the separator can be controlled using the mechanism
+described in <A HREF="#HDRRESZINT">"Resizable Interactors."</A>.
+The color and font of labels can be specified using the dialog box that
+appears when the label is created.
+These can be changed by selecting the label and choosing
+<TT><STRONG>Set Attributes</STRONG></TT> from the
+<TT><STRONG>Edit</STRONG></TT> menu of the Control Panel.
+<P>
+Once the Control Panel has been created, select
+<TT><STRONG>Dialog
+Style</STRONG></TT>
+in the <TT><STRONG>Options</STRONG></TT> pull-down menu to create the dialog
+box.
+The size of the box will vary to accommodate the interactors.
+The empty canvas to the right of the interactors will be truncated.
+The placement of the interactors will also change if the box size is
+changed, to maintain the same relative positions.
+In <TT>-editor</TT> mode, the <TT><STRONG>Close</STRONG></TT> button returns
+to an editable Control Panel.
+In <TT>-image</TT> or
+<TT>-menubar</TT>
+mode the,
+<TT><STRONG>Close</STRONG></TT> button closes the dialog box.
+To enable a "dialog style" dialog box, save the visual program with the
+Control Panel in dialog-style format.
+<P>
+<H3><A NAME="HDRCPA" ></A>Control Panel Access, Groups, and Hierarchies
+</H3>
+<A NAME="IDX797"></A>
+<A NAME="IDX798"></A>
+<P>
+You may wish to organize your Control Panels into groups or hierarchies
+depending on how the interactors in the Control Panels relate.
+For example, you may have a few Control Panels that are tightly related
+and wish to have them treated as a group.
+Data Explorer provides you with the means of placing these Control Panels into a
+group so that they can be opened together.
+<P>
+If you have a master Control Panel that should be open before any other
+controls, Data Explorer provides you with the capability of restricting
+access to these Control Panels from any Data Explorer window except
+the master Control Panel.
+Access to Control Panel groups can be done in a similar fashion.
+Restricting access to Control Panels in this way allows you to build
+Control Panels into hierarchical structures.
+<P>
+A special type of Control Panel access can be achieved by specifying
+which Control Panels are automatically opened when Data Explorer is started
+with the Image window or menu bar
+as the anchor (using the
+<TT>-image</TT> or
+<TT>-menubar</TT>
+option).
+<P>
+<H3><A NAME="HDRCMD" ></A>Creating, Modifying, and Deleting Control Panel Groups
+</H3>
+<A NAME="IDX799"></A>
+<P>
+The following describes how to create Control Panel groups, restrict
+access (build hierarchies), and specify which Control Panels are
+open at startup.
+<P>
+Control panel groups are created using the <TT><STRONG>Control Panel
+Group...</STRONG></TT> dialog box.
+The dialog box is opened by selecting the <TT><STRONG>Control Panel
+Groups...</STRONG></TT> option under the <TT><STRONG>Options</STRONG></TT>
+menu in the VPE window (<A HREF="#FIGPPROMX">Figure 64</A>).
+<P><B><A NAME="FIGPPROMX" HREF="../usrguide.htm#FT_FIGPPROMX">Figure 64. Control
+Panel Group Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/ctpangrp.gif" ALT="Figure ctpangrp not
+displayed."></CENTER><BR></B><BR>
+<P>
+The right side of the dialog displays the list of Control Panels.
+Associated with each Control Panel is a toggle button to the left and an
+ellipsis toggle to the right.
+The left side of the dialog is a list of the existing groups.
+This list remains empty until a group is created.
+At the bottom of the dialog box is a series of pushbuttons that are used
+for creating, modifying, and deleting groups.
+Clicking on the ellipsis causes the corresponding Control Panel to be
+opened (or raised to the front if it is already opened).
+Clicking on the ellipsis when it is depressed closes the corresponding
+Control Panel and releases the toggle.
+<P>
+To create a Control Panel group:
+<OL COMPACT>
+<LI>Select the Control Panels that you want in the group by activating
+the corresponding left toggle button.
+<LI>Enter the name of the group in the text field next to <TT><STRONG>Group
+Name</STRONG></TT>
+Although it is not required, select a name that is unique compared to
+the names of other Control Panels or other groups.
+<LI>Click on the <TT><STRONG>Add</STRONG></TT> pushbutton at the bottom of
+the dialog box.
+</OL>
+<P>
+The new group is added to the list of groups displayed on the left side
+of the dialog box.
+The group is also added to the list of named Control Panels that is
+displayed by the <TT><STRONG>Open Control Panel by Name</STRONG></TT> option in
+the <TT><STRONG>Windows</STRONG></TT> menu.
+<P>
+Once a Control Panel group is created, it can be modified.
+Modifying a Control Panel group can include changing its name, adding
+new Control Panels, and removing Control Panels from the group.
+<P>
+To modify a Control Panel group&#58;
+<OL COMPACT>
+<LI>Click on the Control Panel group name that is to be modified.
+This causes the name of the Control Panel group to be displayed in the
+group name text field and causes the toggle buttons of the Control
+Panels that are members of the group to be activated.
+All other Control Panel buttons are released.
+<LI>You may now change the name of the group by editing the
+text field.
+Add a new Control Panel by clicking on its toggle button (this causes
+
+the toggle button to be activated).
+To remove a Control Panel from the group, click on its toggle button to
+release it.
+<LI>Once you have made the desired changes to the Control Panel group,
+click on the <TT><STRONG>Modify</STRONG></TT> button at the bottom of the
+dialog box.
+This causes the change to take effect.
+</OL>
+<P>
+To delete a Control Panel group&#58;
+<OL COMPACT>
+<LI>Select the group by clicking on its name.
+<LI>Click on the <TT><STRONG>Delete</STRONG></TT> button at the bottom of the
+dialog box.
+</OL>
+<P>
+<H3><A NAME="HDRRCPA" ></A>Restricting Control Panel Access</H3>
+<P>
+Access to Control Panels is restricted using the <TT><STRONG>Control Panel
+Access...</STRONG></TT> dialog box.
+This dialog box is opened by selecting the <TT><STRONG>Control Panel
+Access</STRONG></TT> in
+the <TT><STRONG>Option</STRONG></TT> menu of the VPE, Image, or Control
+Panel
+windows.
+The <TT><STRONG>Control Panel Access</STRONG></TT> dialog is used to restrict
+certain
+Control Panel names or Control Panel groups names from appearing
+in the <TT><STRONG>Open Control Panel by Name</STRONG></TT> option in the
+<TT><STRONG>Windows</STRONG></TT> window.
+<P>
+A <TT><STRONG>Control Panel Access</STRONG></TT> dialog box appears in
+<A HREF="#FIGPROGMX">Figure 65</A>.
+<P><B><A NAME="FIGPROGMX" HREF="../usrguide.htm#FT_FIGPROGMX">Figure 65. Control
+Panel Access Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/ctpanacc.gif" ALT="Figure ctpanacc not
+displayed."></CENTER><BR></B><BR>
+Each Control Panel and Control Panel group is listed.
+To the left of each is a toggle button.
+This toggle button is used to select which Control Panels or groups can
+be accessed from the window in which the dialog box was opened.
+To the right of the Control Panel names is an ellipsis toggle.
+(Note that Control Panel groups do not have the ellipsis.)
+The ellipsis toggle is used to open (or raise) the corresponding Control
+Panel when the button is activated.
+Once activated, selecting the button again closes the Control Panel and
+pops up the button.
+<P>
+To restrict Control Panel access:
+<OL COMPACT>
+<LI>Click on each Control Panel access toggle button that you wish to
+exclude so that those toggle buttons are deactivated.
+(Initially, all the toggle buttons are activated.)
+<LI>Once you have indicated which Control Panels and Control Panel
+groups you wish to exclude, click on <TT><STRONG>OK</STRONG></TT>.
+</OL>
+<P>
+Selecting the <TT><STRONG>Cancel</STRONG></TT> pushbutton causes the dialog
+box to
+be closed and any changes to be canceled.
+<P>
+<H3><A NAME="HDRSTARTCP" ></A>Specifying a Startup Control Panel
+</H3>
+<P>
+Data Explorer allows you to choose whether a Control Panel opens automatically
+when you start the system with the Image window or menu bar
+as the anchor
+(using the
+<TT>-image</TT> or
+<TT>-menubar</TT>
+option).
+Using this option, you can have the appropriate Control Panels be
+immediately available to a user running your visual program.
+The <TT><STRONG>Startup Control Panel</STRONG></TT> option in the
+<TT><STRONG>Options</STRONG></TT>
+pull-down menu is a toggle button, and is toggled on by default.
+If you do not want a particular Control Panel to open automatically,
+toggle the option off by clicking on it in that
+Control Panel.
+<P>
+The automatic startup feature can be suppressed by using the
+<TT>-suppress</TT> startup flag when you run Data Explorer.
+See <A HREF="usrgu074.htm#HDRCMDLOPT">C.2 , "Command Line Options"</A> for more
+information.
+<P>
+<H3><A NAME="HDROCP" ></A>Opening Existing Control Panels</H3>
+<P>
+You can open existing Control Panels associated with a visual program in the
+following ways:
+<UL>
+<P>
+			<LI>Select the <TT><STRONG>Open All Control Panels</STRONG></TT> option from
+the
+<TT><STRONG>Windows</STRONG></TT> menu in the VPE or Image window, or from
+the <TT><STRONG>Panels</STRONG></TT> menu in an already open Control Panel.
+
+			<P>
+			<LI>Select the <TT><STRONG>Open Control Panel by Name</STRONG></TT> option
+from the
+<TT><STRONG>Windows</STRONG></TT> menu in the VPE or Image window, or from the
+<TT><STRONG>Panels</STRONG></TT> menu in an already open Control Panel.
+From the list of Control Panel names, click on the one you want to open.
+(If there are no accessible
+Control Panels, no names are displayed.)
+
+			<P><LI>Double-click on the interactor stand-in in the VPE whose Control
+Panel you want to open.
+All Control Panels that contain that interactor are opened.
+If the selected interactor does not currently have a Control Panel,
+Data Explorer creates one for it.
+<P>
+Alternatively, you can select one or more interactor stand-ins in the
+VPE, then choose <TT><STRONG>Open Control Panel</STRONG></TT> from the
+<TT><STRONG>Windows</STRONG></TT> menu in the VPE.
+All Control Panels associated with the selected interactors are opened.
+</UL>
+<P>
+When Data Explorer is started with the Image window or menu bar
+as the anchor window, some
+Control Panels may be opened automatically as a visual program is loaded.
+For visual programs you create, you can decide whether a Control Panel should
+open
+automatically (see <A HREF="#HDRSTARTCP">"Specifying a Startup Control
+Panel"</A>).
+<P>
+<H3><A NAME="HDRINTERAC" ></A>Using Interactors</H3>
+<P>
+You use interactors to dynamically change the inputs of a tool without
+making modifications in the VPE window.
+Interactors reside in Control Panel windows.
+As a visual program is built in the Editor window, the user selects the
+interactor
+stand-ins from the Tool Palettes and places them on the canvas.
+Then the corresponding interactors are placed into existing Control
+Panels or into a new Control Panel, as described in <A HREF="#HDRCPI">"Building
+Control Panels"</A>.
+Different interactor stand-ins can be represented by different
+interactor styles.
+<P>
+<H4><A NAME="HDRINTSCAI"></A><U>Integer and Scalar Interactors</U></H4>
+<A NAME="IDX800"></A>
+<A NAME="IDX801"></A>
+<P>
+Integer and scalar interactor stand-ins can be represented by
+four styles:
+<UL COMPACT>
+<LI>Stepper
+<LI>Dial
+<LI>Slider
+<LI>Text
+</UL>
+For both integer and scalar stand-ins, the stepper is the default.
+You can change the style at any time by using the <TT><STRONG>Set
+Style</STRONG></TT>
+option from the <TT><STRONG>Edit</STRONG></TT> pull-down menu
+on the Control Panel.
+<P>
+<H5><A NAME="HDRSTEPER"></A><U>Stepper</U></H5>
+<P>
+<A NAME="IDX802"></A>
+The Stepper (<A HREF="#FIGSTEP">Figure 66</A>) enables you to enter a value by
+typing
+it into the text field or by using the arrow buttons to increase
+(right arrow) or decrease (left arrow) a displayed value.
+The arrow buttons have a built-in acceleration function so that the
+longer you depress a button, the faster the value changes.
+<P><B><A NAME="FIGSTEP" HREF="../usrguide.htm#FT_FIGSTEP">Figure 66. Stepper
+Style</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/stepint.gif" ALT="Figure stepint not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H5><U>Dial</U></H5>
+<P>
+<A NAME="IDX803"></A>
+The Dial (<A HREF="#FIGDIALINT">Figure 67</A>) has circular shape.
+You can specify a value by manipulating the dial indicator, or you can
+directly enter a value in the field at the bottom of the interactor.
+<P>
+To manipulate the dial indicator, press and hold the mouse button in the
+circular part of the interactor.
+Turning the dial clockwise increases the interactor value, while turning
+it counterclockwise decreases the value.
+If you move the cursor within the dial, shading occurs in intervals
+around the dial indicator.
+The shading indicates whether the value change is positive or negative.
+The shading is light if you move in a clockwise direction (positive);
+it is dark (negative) if the movement is counterclockwise.
+If you click the pointer within the shaded area, the dial indicator
+jumps to the mouse pointer location, and the value changes
+accordingly.
+<P><B><A NAME="FIGDIALINT" HREF="../usrguide.htm#FT_FIGDIALINT">Figure 67. Dial
+Style</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/dialint.gif" ALT="Figure dialint not
+displayed."></CENTER><BR></B><BR>
+<P>
+The dial indicator can move clockwise or counterclockwise as many
+times as determined by the increment values and minimum and
+maximum that are set.
+These limits can be set in the Set Attributes dialog box, which you can
+display by selecting the <TT><STRONG>Set Attributes...</STRONG></TT> option on
+the <TT><STRONG>Options</STRONG></TT> menu.
+When the interactor reaches the limit, it can no longer be turned in
+that direction.
+<P>
+<H5><U>Slider</U></H5>
+<P>
+<A NAME="IDX804"></A>
+The Slider (<A HREF="#FIGSLIINT">Figure 68</A>) enables you to enter a value by
+either moving the tab on the Slider, typing in a number, or
+clicking on one of the arrow buttons to increase (right
+arrow) or decrease (left arrow) a displayed value.
+<P><B><A NAME="FIGSLIINT" HREF="../usrguide.htm#FT_FIGSLIINT">Figure 68. Slider
+Style</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/slidint.gif" ALT="Figure slidint not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H5><U>Text</U></H5>
+<P>
+The Text style (<A HREF="#FIGTTINT">Figure 69</A>) enables you to simply type in
+a
+value.
+For more information on how to enter and modify text in a field,
+see <A HREF="usrgu037.htm#HDREDTXT">"Editing Text Fields"</A>.
+<P><B><A NAME="FIGTTINT" HREF="../usrguide.htm#FT_FIGTTINT">Figure 69. Text
+Style</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/textint.gif" ALT="Figure textint not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H4><A NAME="HDRSTRINT"></A><U>String Interactor</U></H4>
+<A NAME="IDX805"></A>
+<P>
+The string stand-in has one style of interactor, which cannot be
+changed.
+This interactor consists of a text field (<A HREF="#FIGSTINT">Figure 70</A>).
+(For information on how to enter and modify text in a text field,
+see <A HREF="usrgu037.htm#HDREDTXT">"Editing Text Fields"</A>.)
+It enables you to enter strings by typing directly into the text field,
+then pressing the Enter key.
+<P><B><A NAME="FIGSTINT" HREF="../usrguide.htm#FT_FIGSTINT">Figure 70. String
+Interactor</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/strngint.gif" ALT="Figure strngint not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H4><A NAME="HDRVALINT"></A><U>Value Interactor</U></H4>
+<A NAME="IDX806"></A>
+<P> The value stand-in has one style of interactor that cannot be changed. This 
+  interactor consists of a text field. (For information on how to enter and modify 
+  text in a text field, see <A HREF="usrgu037.htm#HDREDTXT">"Editing Text Fields"</A>.) 
+  This interactor enables you to enter scalars, vectors, and lists by typing directly 
+  into the text field and pressing the Enter key. The input into the text field 
+  must either begin with a numeric value, or be enclosed by brackets (&#91;&nbsp;&#93;) 
+  for vectors. See <A HREF="../usrguide.htm">"Vectors, Matrices, and Tensors"</A> 
+  and <A
+HREF="../usrguide.htm">"Lists"</A> for more information on the syntax of vectors 
+  and lists. 
+<P>
+<H4><A NAME="HDRVECINT"></A><U>Vector Interactor</U></H4>
+<A NAME="IDX807"></A>
+<P>
+The vector stand-in has two styles of interactor; a stepper style and
+a text style.
+The Vector interactor works like one, two, or
+three Steppers stacked in a column.
+With it, you can specify the components of a vector (e.g,
+x, y, and z) from top to bottom.
+See <A HREF="#HDRSTEPER">"Stepper"</A> for detailed information on the operation
+of a
+Stepper.
+You can also change the dimensionality of the interactor using the
+<TT><STRONG>Edit</STRONG></TT> menu <TT><STRONG>Set Dimensionality</STRONG></TT>
+option.
+The text style vector interactor is similar to that of the value
+interactor.
+<P>
+<H4><A NAME="HDRLISTINT"></A><U>List Interactors</U></H4>
+<A NAME="IDX808"></A>
+Data Explorer provides six types of list stand-ins and interactors:
+<UL COMPACT>
+<LI>Integer
+<LI>Scalar
+<LI>Selector
+<LI>Vector
+<LI>String
+<LI>Value
+</UL>
+<P>
+With the exception of Selector, these list interactors can have two
+styles: list-editor and text.
+The text-style list interactor is similar to that of the value
+interactor.
+
+		<P>
+The list-editor style list interactors consist of the following parts:
+
+		<UL>
+			<LI>Title
+
+			<LI>List of values
+
+			<LI>Pushbuttons for adding and deleting elements
+
+			<LI>A single stepper (for integer and scalar lists), three steppers
+(for a vector list), or a text field (for string and value lists).
+
+		</UL>
+		<A HREF="#FIGVECLIST">Figure 71</A> shows an example of a Vector list
+interactor.
+For the SelectorList interactor, see <A HREF="#HDRSELINT">"Selector and
+SelectorList Interactors"</A>.
+<P><B><A NAME="FIGVECLIST" HREF="../usrguide.htm#FT_FIGVECLIST">Figure 71. Sample
+Vector List Interactor</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/veclist.gif" ALT="Figure veclist not
+displayed."></CENTER><BR></B><BR>
+<P>
+The top portion of the list interactor shows the current list of
+values.
+If the list exceeds the length of the display area, a vertical scroll
+bar is provided.
+If the list values exceed the width of the display, a horizontal scroll
+bar is provided.
+<P>
+<H5><U>Modifying an Element in the List</U></H5>
+<P>
+To modify an element, select it by clicking on it.
+The stepper or text field is updated to show the element&#39;s values.
+Use the stepper or text field to change the values of the elements.
+<P>
+<H5><U>Appending an Element to the List</U></H5>
+<P>
+To append a value to a list, make sure that no list elements are
+selected.
+(An element can be deselected by clicking on it.)
+Use the steppers or text field at the bottom of the interactor to
+specify the value, then click on the <TT><STRONG>Add</STRONG></TT> button.
+<P>
+<H5><U>Adding an Element to the Middle of the List</U></H5>
+<P>
+To add an element to the middle of the list, select the element
+following the position you want the new value to occupy.
+Click on the <TT><STRONG>Add</STRONG></TT> button.
+A copy of the selected element is added to the list, becomes selected,
+and the steppers or text field display its current value.
+Use the steppers or text field to adjust the value of the new element.
+<P>
+<H5><U>Deleting an Element from the List</U></H5>
+<P>
+To delete an element from the list, select it by clicking on it, then
+click on the <TT><STRONG>Delete</STRONG></TT> button.
+After deleting the item, the next item in the list becomes selected.
+<P>
+<H4><A NAME="HDRSELINT"></A><U>Selector and SelectorList Interactors</U></H4>
+<A NAME="IDX809"></A>
+<A NAME="IDX810"></A>
+<A NAME="IDX811"></A>
+<P>
+The Selector interactor (<A HREF="#FIGSELECT">Figure 72</A>.) can be used as a
+switch
+control in a visual program.
+<A NAME="IDX812"></A>
+It can appear as an option menu (with only the current choice shown) or
+as a "radio button" interactor, with all possible choices shown,
+and only the current choice highlighted in the radio button
+next to the label.
+The SelectorList interactor always appears as a list of toggle buttons.
+
+<P><B><A NAME="FIGSELECT" HREF="../usrguide.htm#FT_FIGSELECT">Figure 72. Selector
+Interactor (Radio-button Style)</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/selctint.gif" ALT="Figure selctint not
+displayed."></CENTER><BR></B><BR>
+<P>
+<A HREF="#HDRSETSEL">"Setting Selector and SelectorList Interactor
+Attributes"</A> describes how to configure the selector interactor
+for your visual program, and also describes its various uses.
+<P>
+<H4><A NAME="HDRFSELINT"></A><U>FileSelector Interactor</U></H4>
+<P>
+The FileSelector interactor can be used to select a file from within
+the file system (<A HREF="#FIGFSELINT">Figure 73</A>).
+<P><B><A NAME="FIGFSELINT" HREF="../usrguide.htm#FT_FIGFSELINT">Figure 73.
+FileSelector Interactor</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/flselint.gif" ALT="Figure flselint not
+displayed."></CENTER><BR></B><BR>
+<P>
+The interactor consists of a text field containing a string and a
+button labelled with an ellipses.
+Clicking on the button causes a file selection dialog box to be opened.
+The file selection dialog box, illustrated in <A HREF="#FIGFILESB">Figure
+74</A>,
+functions in a similar manner to other file selection dialog boxes (for
+a description on how to use file selection dialog boxes see
+<A HREF="usrgu041.htm#HDRSAVERVP">"Saving and Restoring a Visual Program"</A>)
+with the exception of the buttons at
+the bottom of the dialog box.
+<P><B><A NAME="FIGFILESB" HREF="../usrguide.htm#FT_FIGFILESB">Figure 74. File
+Selection Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/flseldb.gif" ALT="Figure flseldb not
+displayed."></CENTER><BR></B><BR>
+<P>
+<TT><STRONG>OK</STRONG></TT> causes the file name in the Selection area to be
+set in the text field of the FileSelector interactor and closes the file
+selection dialog box.
+<TT><STRONG>Filter</STRONG></TT> applies the filter string specified in the
+Filter area.
+<TT><STRONG>Close</STRONG></TT> closes the file selection dialog box without
+any modification to the FileSelector interactor text field.
+<TT><STRONG>Apply</STRONG></TT> causes the file name in the Selection area to be
+set
+in the text field of the FileSelector interactor and leaves the
+file selection dialog box open.
+<P>
+An alternate way of specifying or modifying a file name in the
+FileSelector text field is to directly type into the field.
+See <A HREF="usrgu037.htm#HDREDTXT">"Editing Text Fields"</A> on how to enter
+and modify text in a text field.
+<P>
+The FileSelector interactor produces two outputs: the first output is
+the contents of the text field (typically a fully qualified path
+name set from the file selection dialog box).
+The second output is the name of the file as it appears in the
+directory (that is, excluding any directory name).
+<P>
+<H4><A NAME="HDRRSETINT"></A><U>Reset Interactor</U></H4>
+<A NAME="IDX813"></A>
+<A NAME="IDX814"></A>
+The Reset interactor outputs one value for the first execution after
+its toggle is set, and a different value thereafter.
+This interactor appears only as a toggle button.
+<P>
+<H4><A NAME="HDRTOGLINT"></A><U>Toggle Interactor</U></H4>
+<A NAME="IDX815"></A>
+<A NAME="IDX816"></A>
+<P>
+The Toggle interactor outputs one of two
+possible values.
+The values can be strings, scalars, vectors, or matrices.
+This interactor appears only as a toggle button.
+<P>
+<H3><A NAME="HDRDDINTER" ></A>Using Data-Driven Interactors</H3>
+<A NAME="IDX817"></A>
+<P>
+Most of the interactor types may be <I>data-driven</I>, meaning
+that their attributes, such as minimum, maximum, increment, and
+label, may be set by connecting the output of a tool to the
+input of the interactor stand-in in the VPE or by a
+value typed into the interactor stand-in&#39;s
+Configuration dialog box, rather than by
+using the <TT><STRONG>Set Attributes</STRONG></TT>
+dialog box for the interactor.
+<P>
+If an interactor is data-driven, then the information transmitted via
+connections or set in the Configuration dialog box overrides the
+values set via the <TT><STRONG>Set Attributes</STRONG></TT> dialog box
+and causes
+the corresponding values in the <TT><STRONG>Set Attributes</STRONG></TT>
+dialog box to be grayed out.
+<P>
+Data-driven interactors allow you to create visual programs that will
+work with a variety of input data sets without the need to reset the
+interactor attributes to be in a range appropriate for the data
+being used.
+For example, a scalar interactor controlling an isosurface value can be
+data-driven by connecting the input data field to it.
+The interactor is then automatically set so that its minimum and
+maximum span the range of the data.
+<P>
+Data-driven interactors have a data input to which an input data field
+may be connected.
+In this case the interactor automatically chooses the minimum, maximum,
+and increment.
+However, if you would like to have more control over the exact values
+that are used, the interactors allow you to specify them directly
+through other input tabs that are by default hidden.
+For example, you may wish to set the minimum and maximum for an
+interactor to go from the minimum of the data values to the
+midpoint of the data values, rather than to the maximum.
+In this case, you can use the "min" and "max" input tabs of
+the interactor rather than the "data" tab.
+<P>
+The interactors that can be data-driven are
+Integer,
+Scalar,
+Vector,
+IntegerList,
+ScalarList,
+VectorList,
+Selector,
+SelectorList, and
+Toggle.
+In <A HREF="refgu009.htm#HDRFMD">Chapter 2.  Functional Modules</A> in <I>IBM
+Visualization Data Explorer User&#39;s Reference</I>,
+the inputs for each of these interactors are described on the manual
+page corresponding to that interactor.
+<P>
+Each time an input to a data-driven interactor is changed (for example,
+by importing a new data set) the interactor is reexecuted, updating
+its attributes.
+If the current setting of the interactor lies within the new range
+allowed, the interactor value does not change.
+If the current setting is outside the new allowed range, the current
+setting is reset to the midpoint of the new minimum and maximum.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

@@ -1,0 +1,71 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall37 
+Example 1 #!N #!EC This example illustrates the importation of a 
+simple data set consisting of a single variable on a 5 
+* 5 * 5 grid. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N 1. First enter: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx 
+-prompter #!EF #!N #!N #!EC You can also access the Data 
+Prompter by choosing  #!F-adobe-times-bold-r-normal--18*   Import Data #!EF from the Data Explorer 
+Startup window. #!N #!N When the initial dialog box appears (see 
+ #!Ldp115,dxall160 f Figure 15  #!EL  ), choose Grid or Scattered File, and then type the 
+path name /usr/lpp/dx/samples/tutorial/external.data. into the  #!F-adobe-times-bold-r-normal--18*   Data file name #!EF field 
+at the top of the dialog. #!N #!I30 #!N 2. Press 
+the  #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF button to bring up a window 
+which allows you to describe the data. #!N #!I30 #!N 3. 
+You can now view the file by clicking on the ellipsis 
+button (  #!F-adobe-times-bold-r-normal--18*   ... #!EF ) to the right of the 
+file-name field and selecting  #!F-adobe-times-bold-r-normal--18*   Browser #!EF from the pull-down menu. 
+The  #!F-adobe-times-bold-r-normal--18*   File Browser #!EF window appears. (If necessary, move this 
+window so that you can view it and the Data Prompter 
+window at the same time.) It is also possible to browse 
+the data file from the initial prompter window once the file 
+name has been entered. #!N #!I30 #!N 4. The first three 
+lines of the file may look like data, but they are 
+header information, so click on the  #!F-adobe-times-bold-r-normal--18*   Header #!EF toggle button 
+and then on  #!F-adobe-times-bold-r-normal--18*   # of bytes #!EF to the right 
+(now activated). #!N #!I30 #!N 5. Select  #!F-adobe-times-bold-r-normal--18*   # of lines 
+#!EF and enter the value "3" in the associated field. #!N 
+#!I30 #!N 6. The first line of the header gives the 
+grid dimensions as 5 5 5, so enter these numbers in 
+the first three  #!F-adobe-times-bold-r-normal--18*   Grid size #!EF fields. Note what happens 
+in the  #!F-adobe-times-bold-r-normal--18*   Grid positions #!EF fields as each number is 
+entered. (You can use the tab key or the mouse to 
+move the cursor from one field to the next.) #!N #!I30 
+#!N 7. For  #!F-adobe-times-bold-r-normal--18*   Data format #!EF , ensure that  #!F-adobe-times-bold-r-normal--18*   
+ASCII (text) #!EF is selected. #!N #!I30 #!N 8. Next you 
+need to specify whether the data is in row or column 
+majority order. In this particular file, the data is in row 
+majority, so select that button. #!N #!I30 #!N 9. Position the 
+cursor in the first  #!F-adobe-times-bold-r-normal--18*   origin, delta #!EF field, hold down 
+the left mouse button, and drag the cursor over the numbers 
+there to highlight the field before releasing the mouse button. The 
+default values and the highlight bar will disappear as soon as 
+you start typing. #!N #!I30 #!N 10. The origin of the 
+grid is [1.0, 3.0, 2.0] (second line of the header) and 
+the corresponding deltas are .5, .3, and .8, respectively (third line). 
+So enter the values: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 1, .5 
+#!N 3, .3 #!N 2, .8 #!EF #!N #!N #!EC in 
+the three  #!F-adobe-times-bold-r-normal--18*   origin, delta #!EF fields. #!N #!I30 #!N 11. 
+On the right side of the prompter window, you can change 
+the name of the data variable (field0 by default) and specify 
+the data type and structure. For this example, the data are 
+floating-point scalar, so you do not need to change the settings. 
+#!N #!I30 #!N 12. You can now save the header file 
+you have defined. Select  #!F-adobe-times-bold-r-normal--18*   Save As... #!EF from the  #!F-adobe-times-bold-r-normal--18*   
+File #!EF pull-down menu. Save the file under any name you 
+choose. Note: The data can now be imported by specifying this 
+file name to an  #!F-adobe-times-bold-r-normal--18*   Import #!EF module. However, if the 
+extension is not "general," you must specify "general" in the "format" 
+parameter field of the  #!F-adobe-times-bold-r-normal--18*   Import #!EF configuration dialog box (see 
+ #!Ltcnfgbx,dxall61 h Controlling Inputs: Configuration Dialog Boxes  #!EL  ). #!N #!I30 #!N 13. In the initial Data Prompter 
+window, note that the  #!F-adobe-times-bold-r-normal--18*   Test Import #!EF and  #!F-adobe-times-bold-r-normal--18*   Visualize 
+Data #!EF buttons are now enabled. First choose  #!F-adobe-times-bold-r-normal--18*   Test Import 
+#!EF . A window appears, displaying a description of the imported 
+data. Now choose  #!F-adobe-times-bold-r-normal--18*   Test Import #!EF . A general purpose 
+visualization program will be run on this data set. To view 
+the program, choose Open Visual Program Editor from the Windows menu 
+of the Image window. You can also experiment with changing the 
+interactor settings in the control panel. #!N #!I0 #!N #!EF #!N 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall38,dxall39 h Example 2  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue 
+#!N  #!Riefs Image Fields #!N #!EC #!N #!N An image Field 
+is a Field with regular positions and with regular quadrilateral connections. 
+Images also contain a "colors" component. The sign of the deltas 
+of the "positions" component determines the orientation of the image. #!N 
+#!N Functions of the routines listed here include creating a field 
+image, returning a pointer to the data in an image field, 
+and returning information about an image. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXMakeImage() #!EF #!EF #!I50 #!N Creates a 
+new empty image Field. See  #!Ldxmi,dxall1299 h DXMakeImage  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   RGBColor *DXGetPixels() #!EF #!EF #!I50 #!N Returns a pointer to 
+the data in an image Field. See  #!Ldxgpx,dxall1261 h DXGetPixels  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXGetImageSize() #!EF #!N Object DXGetImageBounds(); #!EF #!I50 
+#!N Return information about image Fields. See  #!Ldxgisb,dxall1241 h DXGetImageSize, DXGetImageBounds  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXOutputRGB() #!EF #!EF #!I50 #!N Writes an 
+image to a file in RGB format. See  #!Ldxorgb,dxall1329 h DXOutputRGB  #!EL  . #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXDisplayX() #!EF #!N Object DXDisplayX8(); 
+#!N Object DXDisplayX12(); #!N Object DXDisplayX24(); #!EF #!I50 #!N Display an 
+image on an X window. See  #!Ldxdxs,dxall1199 h DXDisplayX, DXDisplayX8, DXDisplayX12, DXDisplayX24  #!EL  . #!I0 #!N #!N 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

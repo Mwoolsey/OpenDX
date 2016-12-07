@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall186 How the Data Model Facilitates Interoperability #!N #!EC 
+#!N #!N The Data Explorer data model is not simply a 
+convenient way to represent data objects. It also allows Data Explorer 
+tools to be more powerful than they would be otherwise. #!N 
+#!N Tools can be used in multiple ways, because the components 
+of the data set are described using a common structure. There 
+is no distinction between "data," "positions," and "colors" in how they 
+are represented within a Data Explorer field object. (For more information 
+on Data Explorer fields, see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  .) For example, you can 
+use the Compute module to operate on the data to extract 
+the magnitude, or x component of a vector (e.g., operate on 
+the positions of a grid to warp the grid or on 
+the colors of a field to negate an image). This also 
+means that the user has the capability of modifying or inspecting 
+all aspects of a data object. #!N #!N Tools can be 
+used on any object in Data Explorer; there is no distinction 
+between "data objects" and "geometry objects." An isosurface or an image 
+is represented in the same way in which an imported data 
+field is represented. So for example, you can: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o create an isosurface (contour lines) 
+of a mapped isosurface #!N #!I30 #!N o create an isosurface 
+from an image #!N #!I30 #!N o map onto glyphs, streamlines, 
+isosurfaces, etc. #!N #!I0 #!N #!EF #!N The Data Model also 
+ensures that the fidelity of the original data is maintained throughout 
+the visualization process. In particular, all of the following are preserved 
+throughout: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o the 
+original coordinate space of the data #!N #!I30 #!N o the 
+original range of data values (not scaled to 0 to 255, 
+for example) #!N #!I30 #!N o attributes of the data (dependency 
+on positions or connections) #!N #!I30 #!N o the presence of 
+missing or invalid data. #!N #!I0 #!N #!EF #!N Finally, the 
+data model ensures that Data Explorer users and developers can add 
+new components or new attributes without modifying current modules. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lvis,dxall188 h Introduction to Visualization  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

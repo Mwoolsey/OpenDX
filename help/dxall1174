@@ -1,0 +1,53 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxacv DXArrayConvert, DXArrayConvertV 
+#!N #!N Function Creates a new Array of specified type, category, 
+rank, and shape from an existing Array. #!N #!N Syntax #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> #!N #!N Array DXArrayConvert(Array 
+a, Type t, Category c, int rank, ...) #!N Array DXArrayConvertV(Array 
+a, Type t, Category c, int rank, int *shape) #!EF #!EF 
+. #!N #!N #!EC #!N #!N Functional Details The routine copies 
+Array  #!F-adobe-times-bold-r-normal--18*   a #!EF and converts it to type  #!F-adobe-times-bold-r-normal--18*   t 
+#!EF , category  #!F-adobe-times-bold-r-normal--18*   c #!EF , rank  #!F-adobe-times-bold-r-normal--18*   rank #!EF 
+, and a specified shape. (The new Array can be deleted 
+with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  .) #!N #!N Conversion requires that the 
+parameters of the newly created Array be compatible with those of 
+the Array from which it was copied. For example, the new 
+ #!F-adobe-times-bold-r-normal--18*   rank #!EF and  #!F-adobe-times-bold-r-normal--18*   shape #!EF are compatible with the 
+rank and shape of  #!F-adobe-times-bold-r-normal--18*   a #!EF if they differ only 
+by dimensions that have a shape of  #!F-adobe-times-bold-r-normal--18*   1 #!EF . 
+Thus an Array of  #!F-adobe-times-bold-r-normal--18*   1 #!EF *  #!F-adobe-times-bold-r-normal--18*   n #!EF 
+matrices can be converted to an Array of vectors.  #!Ltct24,dxall1174 t Table 24  #!EL  and 
+ #!Lcct25,dxall1174 t Table 25  #!EL  summarize the convertibility of the different types and categories.  #!Rtct24 
+#!T,1,131,196,261,326,391,456,521,586,651  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 24. Summary of Type Conversions #!N 
+TAB - TAB - TAB Unsigned TAB - TAB Unsigned TAB 
+- TAB Unsigned TAB - TAB #!N TAB - TAB Byte 
+TAB Byte TAB Short TAB Short TAB Int TAB Int TAB 
+Float TAB Double #!N TAB - TAB - TAB - TAB 
+- TAB - TAB - TAB - TAB - TAB #!EF 
+#!N TAB Byte TAB A TAB CNS TAB A TAB CNS 
+TAB A TAB CNS TAB A TAB A #!N TAB Unsigned 
+Byte TAB CNS TAB A TAB A TAB A TAB A 
+TAB A TAB A TAB A #!N TAB Short TAB CNS 
+TAB CNS TAB A TAB CNS TAB A TAB CNS TAB 
+A TAB A #!N TAB Unsigned Short TAB CNS TAB CNS 
+TAB CNS TAB A TAB A TAB A TAB A TAB 
+A #!N TAB Int TAB CNS TAB CNS TAB CNS TAB 
+CNS TAB A TAB CNS TAB A TAB A #!N TAB 
+Unsigned Int TAB CNS TAB CNS TAB CNS TAB CNS TAB 
+CNS TAB A TAB A TAB A #!N TAB Float TAB 
+CNS TAB CNS TAB CNS TAB CNS TAB CNS TAB CNS 
+TAB A TAB A #!N TAB Double TAB CNS TAB CNS 
+TAB CNS TAB CNS TAB CNS TAB CNS TAB CNS TAB 
+A #!N TAB Notes: #!N TAB #!N TAB CNS = Conversion 
+not supported #!N TAB A = ANSI 'C' type-conversion semantics  #!Rcct25 
+#!T,1,216,431,646  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 25. Summary of Category Conversions #!N 
+TAB - TAB Real TAB Complex #!EF #!N TAB Real TAB 
+Conversion TAB Conversion #!N TAB Complex TAB CNS TAB Conversion #!N 
+TAB Notes: #!N TAB #!N TAB CNS = Conversion not supported 
+#!N TAB Real-->Complex: a --> a + 0i #!N #!N Return 
+Value Returns a new Array or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also  #!F-adobe-times-bold-r-normal--18*    #!Ldxef,dxall1207 h DXExtractFloat  #!EL  , 
+ #!Ldxei,dxall1208 h DXExtractInteger  #!EL  ,  #!Ldxens,dxall1209 h DXExtractNthString  #!EL  ,  #!Ldxep,dxall1210 h DXExtractParameter  #!EL  ,  #!Ldxes,dxall1211 h DXExtractString  #!EL  ,  #!Ldxqacvm,dxall1339 h DXQueryArrayCommon, DXQueryArrayCommonV  #!EL  ,  #!Ldxqacv,dxall1340 h DXQueryArrayConvert, DXQueryArrayConvertV  #!EL  
+,  #!Ldxqp,dxall1347 h DXQueryParameter  #!EL  #!EF #!N #!N  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxblm,dxall1175 h DXBeginLongMessage, DXEndLongMessage  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

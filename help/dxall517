@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rstrico String Constants #!N #!EC String constants consist of a 
+sequence of any characters delimited by the double quote character ("). 
+However, a null character in a string delimited by double quotation 
+marks (for example, "str\0ing") causes the string to be terminated at 
+the null character. #!N #!N String constants have the following characteristics: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o They are 
+delimited with double quotes. #!N #!I30 #!N o They can be 
+up to 4000 characters long. #!N #!I30 #!N o They may 
+extend over multiple lines, providing that the last character on each 
+line (except for the last line) is a backslash. For example, 
+the following lines, #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N a = "123\ 
+#!N 456"; #!EF #!N #!N #!EC are equivalent to #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N a = "123456"; #!EF #!N #!N #!EC #!N 
+#!I0 #!N #!EF #!N #!N #!N You can use the following 
+escape sequences to include special characters in a string constant: #!T,1,216,431,646 
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Description TAB Character TAB Escape Sequence #!EF #!N 
+TAB newline TAB NL (LF) TAB \n #!N TAB horizontal tab 
+TAB HT TAB \t #!N TAB vertical tab TAB VT TAB 
+\v #!N TAB backspace TAB BS TAB \b #!N TAB carriage 
+return TAB CR TAB \r #!N TAB formfeed TAB FF TAB 
+\f #!N TAB audible alert TAB BEL TAB \a #!N TAB 
+backslash TAB \ TAB \\ #!N TAB question mark TAB ? 
+TAB \? #!N TAB single quote TAB ' TAB \' #!N 
+TAB double quote TAB " TAB \" #!N TAB octal number 
+(ooo) TAB - TAB \ooo #!N TAB hex number (hh) TAB 
+- TAB \xhh #!N #!N The following are examples of valid 
+string constants: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N "" // an empty 
+string #!N #!N "this a string: ~!@#$%^&*()_+" #!EF #!N #!N #!EC 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall517,dxall518 h Scalar Numeric Constants  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

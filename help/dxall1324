@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxnra DXNewRegularArray #!N #!N Function #!N #!N Creates an Array containing 
+evenly spaced data. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> RegularArray 
+DXNewRegularArray(Type t, int dim, int n, Pointer origin, Pointer delta) #!EF 
+#!N #!N Functional Details #!N #!N The new Array Object represents 
+a Regular Array of  #!F-adobe-times-bold-r-normal--18*   n #!EF points starting at  #!F-adobe-times-bold-r-normal--18*   
+origin #!EF with a spacing of  #!F-adobe-times-bold-r-normal--18*   delta #!EF . The 
+rank is assumed to be 1, and the shape is  #!F-adobe-times-bold-r-normal--18*   
+dim #!EF . Both  #!F-adobe-times-bold-r-normal--18*   origin #!EF and  #!F-adobe-times-bold-r-normal--18*   delta #!EF 
+are assumed to point to items of the same type as 
+the items in  #!F-adobe-times-bold-r-normal--18*   a #!EF . #!N #!N Type  #!F-adobe-times-bold-r-normal--18*   
+t #!EF is one of the following: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TYPE_BYTE TYPE_HYPER TYPE_SHORT #!N TYPE_UBYTE TYPE_INT TYPE_USHORT #!N TYPE_DOUBLE 
+TYPE_UINT TYPE_STRING #!N TYPE_FLOAT #!EF #!EF #!N #!N #!EC #!N #!N 
+Regular Arrays are most often used as constituents of Product Arrays 
+for the compact representation of regular grids of positions. #!N #!N 
+In previous versions of the Data Explorer software, regular arrays with 
+zero delta values were used to store constant data. This type 
+of data can now be stored in a Constant Array. #!N 
+#!N The Array created can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  
+. #!N #!N Return Value #!N #!N Returns the Regular Array 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  ,  #!Ldxgrai,dxall1264 h DXGetRegularArrayInfo  #!EL  ,  #!Ldxncav,dxall1314 h DXNewConstantArray, DXNewConstantArrayV  #!EL  
+#!EF #!N #!N  #!Lrras,dxall1075 h Regular Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxnsn,dxall1325 h DXNewScreen  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

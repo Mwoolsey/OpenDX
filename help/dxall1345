@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqhe DXQueryHashElement #!N #!N Function #!N #!N 
+Searches a hash table for an element matching a specified key. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Element DXQueryHashElement(HashTable hashTable, Key 
+searchKey) #!EF #!N #!N Functional Details #!N #!N If a hash 
+function was provided when the table was created, that function is 
+used to derive a long integer pseudokey from  #!F-adobe-times-bold-r-normal--18*   searchKey #!EF 
+; otherwise, the first long integer of  #!F-adobe-times-bold-r-normal--18*   searchKey #!EF is 
+assumed to be the pseudokey. If a compare function was provided 
+when the hash table was created, then more than one element 
+may be stored with the same pseudokey.  #!F-adobe-times-bold-r-normal--18*   DXQueryHashElement #!EF will 
+use this compare function to return the element that matches the 
+ #!F-adobe-times-bold-r-normal--18*   searchKey #!EF . #!N #!N  #!F-adobe-times-bold-r-normal--18*   Key #!EF is defined 
+as: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N typedef Pointer Key; #!EF 
+#!EF #!N #!N #!EC #!N #!N Return Value #!N #!N Returns 
+the element if found or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , but 
+does not set an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxch,dxall1190 h DXCreateHash  #!EL  #!EF #!N #!N  #!Lhash,dxall1121 h Hashing  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxqosm,dxall1346 h DXQueryOriginalSizes, DXQueryOriginalMeshExtents  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

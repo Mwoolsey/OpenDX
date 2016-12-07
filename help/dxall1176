@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxbb DXBoundingBox #!N #!N Function #!N #!N Computes the bounding 
+box of an Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Object DXBoundingBox(Object o, Point *box) #!EF #!N #!N Functional Details #!N 
+#!N This routine adds to Object  #!F-adobe-times-bold-r-normal--18*   o #!EF , and 
+any of its descendants that are Fields, a "box" component consisting 
+of an Array of 2(d) points that are the corners of 
+a bounding box (where  #!F-adobe-times-medium-i-normal--18*   d #!EF is the dimensionality of 
+the data). For data of dimensionality three or less, the routine 
+returns--in the Array pointed to by  #!F-adobe-times-bold-r-normal--18*   box #!EF --the eight 
+corner points; for dimensionalities of one or two, the extra dimensions 
+are treated as zero in the box returned by the routine. 
+#!N #!N The bounding box returned on  #!F-adobe-times-bold-r-normal--18*   o #!EF is 
+determined by combining the bounding boxes of all Fields contained in 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF . #!N #!N Transformations are considered in computing 
+the bounding box, but clipping Objects are not. The bounding box 
+is not guaranteed to be the tightest possible. #!N #!N A 
+ #!F-adobe-times-bold-r-normal--18*   Point #!EF is defined as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct 
+point { float x, y, z; } Point, Vector; #!EF #!N 
+#!N Return Value Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and may or may not set an error code, depending 
+on the input. For example, it does not set an error 
+code if a bounding box cannot be defined for the given 
+input. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxccvs,dxall1178 h DXChangedComponentValues, DXChangedComponentStructure  #!EL  ,  #!Ldxemf,dxall1200 h DXEmptyField  #!EL  
+,  #!Ldxendf,dxall1201 h DXEndField  #!EL  ,  #!Ldxeo,dxall1202 h DXEndObject  #!EL  ,  #!Ldxn,dxall1308 h DXNeighbors  #!EL  ,  #!Ldxs,dxall1396 h DXStatistics  #!EL  ,  #!Ldxvpbb,dxall1406 h DXValidPositionsBoundaryBox  #!EL  #!EF 
+#!N #!N  #!Lstdcs,dxall1086 h Standard Components  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxcmplu,dxall1177 h DXCallModule, DXModSet..., DXSetModule...  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

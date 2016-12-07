@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu239.htm">Previous Page</A> &#124; <A HREF="progu241.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXMPC" HREF="progu097.htm#PToC_334">DXMapCheck</A></H3>
+<A NAME="IDX1883"></A>
+<A NAME="IDX1884"></A>
+<A NAME="IDX1885"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Verifies that the types of <TT><STRONG>input</STRONG></TT> and
+<TT><STRONG>map</STRONG></TT> are valid to be used as
+parameters to the <TT><STRONG>DXMap</STRONG></TT>
+routine.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXMapCheck(Object input, Object map, char *index,<BR>
+                  Type *type, Category *category, int *rank, int *shape)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<P>
+If <TT><STRONG>map</STRONG></TT> is an Array, it must contain a single
+element.
+If <TT><STRONG>map</STRONG></TT> is not an Array, the type, category, rank,
+and shape of the input component specified by
+<TT><STRONG>index</STRONG></TT> must match that
+of the "positions" component of
+the map.
+The type, category, rank and shape of the map (and of the data Object
+produced by this mapping) are returned in the corresponding
+arguments, <TT><STRONG>type</STRONG></TT>,
+<TT><STRONG>category</STRONG></TT>,
+<TT><STRONG>rank</STRONG></TT>,
+and <TT><STRONG>shape</STRONG></TT>.
+<P>
+The type is one of the following:
+<PRE><STRONG>
+TYPE_BYTE            TYPE_HYPER        TYPE_SHORT
+TYPE_UBYTE           TYPE_INT          TYPE_USHORT
+TYPE_DOUBLE          TYPE_UINT         TYPE_STRING
+TYPE_FLOAT
+</STRONG>
+</PRE>
+<P>
+The category is either <TT><STRONG>CATEGORY_REAL</STRONG></TT> or
+<TT><STRONG>CATEGORY_COMPLEX</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the <TT><STRONG>input</STRONG></TT> argument if
+<TT><STRONG>input</STRONG></TT> and
+<TT><STRONG>map</STRONG></TT>
+are valid for mapping;
+otherwise, returns <TT><STRONG>NULL</STRONG></TT> but does not set an
+error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu238.htm#HDRDXMP">DXMap</A>,
+<A HREF="progu239.htm#HDRDXMPA">DXMapArray</A>
+</STRONG></TT>
+<P>
+<A HREF="progu067.htm#HDRINADMG">14.2 , "Interpolation and Mapping"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu239.htm">Previous Page</A> &#124; <A HREF="progu241.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

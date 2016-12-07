@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxmpc DXMapCheck #!N #!N Function #!N 
+#!N Verifies that the types of  #!F-adobe-times-bold-r-normal--18*   input #!EF and  #!F-adobe-times-bold-r-normal--18*   
+map #!EF are valid to be used as parameters to the 
+ #!F-adobe-times-bold-r-normal--18*   DXMap #!EF routine. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Object DXMapCheck(Object input, Object map, char *index, Type *type, Category *category, 
+int *rank, int *shape) #!EF #!N #!N Functional Details #!N #!N 
+#!N If  #!F-adobe-times-bold-r-normal--18*   map #!EF is an Array, it must contain 
+a single element. If  #!F-adobe-times-bold-r-normal--18*   map #!EF is not an Array, 
+the type, category, rank, and shape of the input component specified 
+by  #!F-adobe-times-bold-r-normal--18*   index #!EF must match that of the "positions" component 
+of the map. The type, category, rank and shape of the 
+map (and of the data Object produced by this mapping) are 
+returned in the corresponding arguments,  #!F-adobe-times-bold-r-normal--18*   type #!EF ,  #!F-adobe-times-bold-r-normal--18*   category 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   rank #!EF , and  #!F-adobe-times-bold-r-normal--18*   shape #!EF . 
+#!N #!N The type is one of the following: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N TYPE_BYTE TYPE_HYPER TYPE_SHORT #!N TYPE_UBYTE TYPE_INT TYPE_USHORT 
+#!N TYPE_DOUBLE TYPE_UINT TYPE_STRING #!N TYPE_FLOAT #!EF #!EF #!N #!N #!EC 
+#!N #!N The category is either  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL #!EF or  #!F-adobe-times-bold-r-normal--18*   
+CATEGORY_COMPLEX #!EF . #!N #!N Return Value #!N #!N Returns the 
+ #!F-adobe-times-bold-r-normal--18*   input #!EF argument if  #!F-adobe-times-bold-r-normal--18*   input #!EF and  #!F-adobe-times-bold-r-normal--18*   map 
+#!EF are valid for mapping; otherwise, returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF but 
+does not set an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxmp,dxall1303 h DXMap  #!EL  ,  #!Ldxmpa,dxall1304 h DXMapArray  #!EL  #!EF #!N #!N  #!Linadmg,dxall1117 h Interpolation and Mapping  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxmt,dxall1306 h DXMarkTime, DXMarkTimeLocal  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

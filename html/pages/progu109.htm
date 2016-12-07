@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu108.htm">Previous Page</A> &#124; <A HREF="progu110.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXACV" HREF="progu097.htm#PToC_203">DXArrayConvert,
+DXArrayConvertV</A></H3>
+<A NAME="IDX1552"></A>
+<A NAME="IDX1553"></A>
+<A NAME="IDX1554"></A>
+<A NAME="IDX1555"></A>
+<P><STRONG>Function</STRONG>
+Creates a new Array of specified type, category, rank, and shape
+from an existing Array.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+&#35;include &lt;dx/dx.h&gt;
+Array DXArrayConvert(Array a, Type t, Category c, int rank, ...)
+Array DXArrayConvertV(Array a, Type t, Category c, int rank, int *shape)
+</STRONG>
+</PRE>.
+<P><STRONG>Functional Details</STRONG>
+The routine copies Array <TT><STRONG>a</STRONG></TT> and converts it to
+type <TT><STRONG>t</STRONG></TT>, category <TT><STRONG>c</STRONG></TT>,
+rank <TT><STRONG>rank</STRONG></TT>, and a
+specified shape.
+(The new Array can be deleted with DXDelete.
+See <A HREF="progu023.htm#HDRMEMNG">4.2 , "Memory Management"</A>.)
+<P>
+Conversion requires that the parameters of the newly created Array be
+compatible with those of the Array from which it was copied.
+For example, the new <TT><STRONG>rank</STRONG></TT> and
+<TT><STRONG>shape</STRONG></TT> are compatible with
+the rank and shape of <TT><STRONG>a</STRONG></TT>
+if they differ only by dimensions that
+have a shape of <TT><STRONG>1</STRONG></TT>.
+Thus an Array of <TT><STRONG>1</STRONG></TT> &times; <TT><STRONG>n</STRONG></TT>
+matrices can be converted to an Array of vectors.
+<A HREF="#TBLTCT">Table 2</A> and <A HREF="#TBLCCT">Table 3</A> summarize the
+convertibility of the different types and categories.
+<BR>
+<P><B><A NAME="TBLTCT" HREF="progu002.htm#FT_TBLTCT">Table 2. Summary of Type
+Conversions</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&nbsp;
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Byte
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">Unsigned Byte
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Short
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">Unsigned Short
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Int
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">Unsigned Int
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Float
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Double
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Byte</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Unsigned
+Byte</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Short</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Unsigned
+Short</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Int</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Unsigned Int</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Float</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Double</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="9"><B>Notes&#58; </B>
+<DL COMPACT>
+<DD>CNS = Conversion not supported
+<DD>A = ANSI &#39;C&#39; type-conversion semantics
+</DL>
+</TD></TR></TABLE>
+<BR>
+<P><B><A NAME="TBLCCT" HREF="progu002.htm#FT_TBLCCT">Table 3. Summary of
+Category Conversions</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Real
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Complex
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>Real</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Conversion
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Conversion
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>Complex</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Conversion
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="3"><B>Notes&#58; </B>
+<DL COMPACT>
+<DD>CNS = Conversion not supported
+<DD>Real-&gt;Complex: a -&gt; a + 0i
+</DL>
+</TD></TR></TABLE>
+<P><STRONG>Return Value</STRONG>
+Returns a new Array or returns <TT><STRONG>NULL</STRONG></TT> and sets an
+error code.
+<P><STRONG>See Also</STRONG>
+<TT><STRONG>
+<A HREF="progu142.htm#HDRDXEF">DXExtractFloat</A>,
+<A HREF="progu143.htm#HDRDXEI">DXExtractInteger</A>,
+<A HREF="progu144.htm#HDRDXENS">DXExtractNthString</A>,
+<A HREF="progu145.htm#HDRDXEP">DXExtractParameter</A>,
+<A HREF="progu146.htm#HDRDXES">DXExtractString</A>,
+<A HREF="progu274.htm#HDRDXQACVM">DXQueryArrayCommon, DXQueryArrayCommonV</A>,
+<A HREF="progu275.htm#HDRDXQACV">DXQueryArrayConvert, DXQueryArrayConvertV</A>,
+<A HREF="progu282.htm#HDRDXQP">DXQueryParameter</A>
+</STRONG></TT>
+<P>
+<A HREF="progu051.htm#HDRMDEPS">12.8 , "Extracting Module Parameters"</A>.
+<P><P>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu108.htm">Previous Page</A> &#124; <A HREF="progu110.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

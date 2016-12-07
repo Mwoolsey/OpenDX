@@ -1,0 +1,53 @@
+Here's some help on how to specify the various types of variables for the
+Value field of the Configuration Dialog box:
+
+  strings: 
+    you may type the string with or without double quotes surrounding it. If 
+    you leave the quotes off, the User Interface will add them for you.
+
+  integers: 
+    enter the integer without a decimal point, e.g.   1 or 104
+
+  scalars: 
+    floating point numbers. You may enter the number with or 
+    without decimal points. For values where either an integer or a scalar is 
+    acceptable, numbers without decimal points will be treated as integers
+
+    (both integers and scalars may also be entered in scientific notation, 
+    e.g. 1e10.)
+
+  vectors: 
+    use square brackets to define the vector. Components of the vector may 
+    be separated by either spaces or commas (or both). For example, the 
+    following are valid vectors:
+
+    [1, 3.0, 1.3]   [1 4 5]
+
+  values:
+    may be integers, scalars, or vectors
+
+  lists: 
+    use curly braces to define lists. Entries in the list may be separated 
+    by either spaces or commas.  (In Data Explorer, a list is the same as 
+    an "Array")
+
+    For example:
+          integer list:   {1, 3, 3}
+          vector list: {[1, 2][3.4, 2][2.0, 3]}
+          string list: {"one" "two" "three"}
+
+    You can also quickly specify a "regular" list (a list 
+    with items equally spaced) with the following syntax:    
+    {a .. b : c}
+    where a is the starting value, b is the ending value, and c is the 
+    increment (which defaults to 1 if unspecified. For example,
+
+    {-1 1 3 5 7} is equivalent to {-1 .. 9 : 2}
+
+  matrices: 
+    use nested square brackets, e.g. [[1, 2][2,3]]
+
+  Fields, Groups, Objects, and Cameras cannot be created by typing into the
+  configuration dialog box. They must be passed in via wires from other
+  modules 
+

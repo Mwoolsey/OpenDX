@@ -1,0 +1,107 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rposkwd positions #!N #!EC #!N [  #!F-adobe-times-bold-r-normal--18*   
+positions #!EF = origin sub 1 , d e l t 
+a sub 1 , ..., origin sub d , d elta 
+sub d #!N positiontype sub 1 , positiontype sub 2 , 
+... , positiontype sub d , position sub 1 , position 
+sub 2 , ... , position sub k #!N position sub 
+1 , position sub 2 , ... , position sub g 
+] #!N Each syntax line in this diagram is discussed separately 
+in Note 4 below. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Function: #!EF #!I50 #!N Defines the positions component of the fields 
+in a data file. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Use: #!EF #!I50 
+#!N Optional. The default is regular positions in compact notation, where 
+the origin and delta in each dimension are 0.0 and 1.0 
+respectively, unless the  #!F-adobe-times-bold-r-normal--18*   locations #!EF keyword has been used. #!I0 
+#!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. 
+This keyword must be placed at the end of the header 
+file or immediately preceding the  #!F-adobe-times-bold-r-normal--18*   end #!EF keyword. #!N #!I30 
+#!N 2. The numbers specified in a  #!F-adobe-times-bold-r-normal--18*   positions #!EF statement 
+can span any number of uninterrupted lines (including carriage returns, which 
+is not true of other keyword statements). #!N #!I30 #!N 3. 
+Positions can also be specified with the  #!F-adobe-times-bold-r-normal--18*   field #!EF statement 
+and the  #!F-adobe-times-bold-r-normal--18*   locations #!EF reserved word (see  #!Lfldkwd,dxall145 h field  #!EL  ). This 
+alternative is important in cases where: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o The positions are irregular and can be 
+interleaved with data themselves. #!N #!I30 #!N o The positions vary 
+with a series member. #!N #!I30 #!N o The positions are 
+not stored in row-majority order in ASCII. #!N #!I0 #!N #!EF 
+#!N #!N #!I30 #!N 4. There are four ways to specify 
+positions with the  #!F-adobe-times-bold-r-normal--18*   positions #!EF keyword: #!I0 #!N #!N #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Regular positions: 
+#!EF #!N  #!F-adobe-times-bold-r-normal--18*   positions #!EF = origin sub 1 , d 
+e l t a sub 1 , ..., origin sub d 
+, d e l t a sub d #!N Specifies a 
+regular grid, using the origin of a dimension and the spacing 
+(delta) of the positions in that dimension. The dimensions must be 
+specified in the same order as that in the  #!F-adobe-times-bold-r-normal--18*   grid 
+#!EF keyword statement (see  #!Lgridkwd,dxall141 h grid  #!EL  ). #!N #!N The statement #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N positions = 0.0, 1.0, 0.0, 0.5, 0.0, 
+1.5 #!EF #!N #!N #!EC specifies the origin-delta pairs of a 
+6 * 6 * 3 grid, with origins of 0.0 in 
+all three dimensions and deltas of 1.0, 0.5, and 1.5. #!N 
+#!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Partially regular positions: #!EF #!N  #!F-adobe-times-bold-r-normal--18*   positions 
+#!EF = positiontype sub 1 , positiontype sub 2 , ... 
+, positiontype sub d , position sub 1 , position sub 
+2 , ... , position sub k #!N Specifies an array 
+(regular or irregular) for each dimension from which a product is 
+to be formed. For example, one array with the values 1, 
+2, 3, and a second with the values 1, 4, 8 
+will generate the following set of positions: #!N (1, 1) (1, 
+4) (1, 8) (2, 1) (2, 4) (2, 8) (3, 1) 
+(3, 4) (3, 8) #!N #!N For each dimension, specify a 
+string indicating the type of positions for the dimension--accepted values are 
+ #!F-adobe-times-bold-r-normal--18*   regular #!EF and  #!F-adobe-times-bold-r-normal--18*   irregular #!EF . Specify the strings 
+for all dimensions first, then follow with the position values. #!N 
+#!N For compact specification, the position values are two numbers: an 
+origin and the delta value for the spacing. Specifying irregular positions 
+requires an explicit listing of each position value, with the same 
+number of positions as specified by the  #!F-adobe-times-bold-r-normal--18*   grid #!EF keyword 
+statement. The order in which positions are specified must correspond to 
+the order in which dimensions are specified in that statement. #!N 
+#!N The following example specifies the positions for a 6 * 
+6 * 3 grid, where the first two dimensions are regular, 
+and the third is irregular: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N position 
+= regular, regular, irregular, 0.0, 1.0, 0.0, 0.5, 0.0, 0.5, 1.5 
+#!EF #!N #!N #!EC #!N #!N Here the first dimension is 
+regular, with positions 0, 1, 2, 3, 4, 5. #!N The 
+second dimension is regular, with positions 0.0, 0.5, 1.0, 1.5, 2.0, 
+2.5. #!N The third dimension is irregular, with positions 0, 0.5, 
+1.5. #!N #!N The first few positions are (0, 0, 0) 
+(0, .5, .5) (0, .5, 1.5) (1, 0, 0).... #!N #!I30 
+#!N o  #!F-adobe-times-bold-r-normal--18*   Completely irregular positions: #!EF  #!Rcompirg #!N  #!F-adobe-times-bold-r-normal--18*   positions 
+#!EF = position sub 1 , position sub 2 , ... 
+, position sub g #!N Specifies fully irregular positions: you must 
+list all the position values. Note: The requirement that all positions 
+must be listed is what distinguishes a "completely irregular" from a 
+"partially regular" grid (discussed above). For example, the keyword statement #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   positions #!EF = irregular, irregular, irregular,... 
+#!EF #!N #!N #!EC still defines a  #!F-adobe-times-medium-i-normal--18*   partially #!EF regular 
+grid, even though each array specified is irregular. #!N #!N The 
+number of values you provide corresponds to the product of all 
+the dimension specifications (i.e., the  #!F-adobe-times-medium-i-normal--18*   num #!EF values) in the 
+ #!F-adobe-times-bold-r-normal--18*   grid #!EF keyword statement. The position values must be listed 
+in row majority order, and they can be delimited by commas. 
+#!N #!N You must specify  #!F-adobe-times-medium-i-normal--18*   g #!EF numbers, where  #!F-adobe-times-medium-i-normal--18*   
+g #!EF is the product of the  #!F-adobe-times-medium-i-normal--18*   num #!EF values 
+of the dimensions all multiplied together, along with the number of 
+dimensions (e.g.,  #!F-adobe-times-medium-i-normal--18*   m*n*o*d #!EF , where  #!F-adobe-times-medium-i-normal--18*   m #!EF , 
+ #!F-adobe-times-medium-i-normal--18*   n #!EF , and  #!F-adobe-times-medium-i-normal--18*   o #!EF are the grid 
+dimensions, or  #!F-adobe-times-medium-i-normal--18*   num #!EF values, and  #!F-adobe-times-medium-i-normal--18*   d #!EF is 
+the number of dimensions). #!N #!N The following example specifies the 
+six positions for an irregular 2 * 3 grid: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N positions = 0, 0, 0, 2, 0, 6, 
+2, 1, 5, 4, 7, 7 #!EF #!N #!N #!EC #!N 
+#!N The first and last positions are (0, 0) and (7, 
+7) respectively. #!N #!I0 #!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Position information from the data 
+file #!EF #!N #!N You can specify that the information for 
+the  #!F-adobe-times-bold-r-normal--18*   positions #!EF keyword is to be found in the 
+data file. For the syntax, see  #!Lkwifdf,dxall619 h General Array Importer: Keyword Information from Data Files  #!EL  in IBM Visualization Data 
+Explorer User's Guide. Note: The  #!F-adobe-times-bold-r-normal--18*   positions #!EF keyword may give 
+a compact encoding of the position. In that respect, this function 
+differs from the  #!F-adobe-times-bold-r-normal--18*   locations #!EF reserved word when used with 
+the  #!F-adobe-times-bold-r-normal--18*   field #!EF keyword (see  #!Lfldkwd,dxall145 h field  #!EL  ). #!N #!I0 #!N 
+#!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lendkwd,dxall156 h end  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

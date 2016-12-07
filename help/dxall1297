@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxmgcv DXMakeGridConnections, DXMakeGridConnectionsV #!N #!N Function 
+#!N #!N Construct a grid of regular connections. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXMakeGridConnections(int n, int count, int count, 
+...) Array DXMakeGridConnectionsV(int n, int *counts) #!EF #!N #!N Functional Details 
+#!N #!N Both routines construct an Array of  #!F-adobe-times-bold-r-normal--18*   n #!EF 
+-dimensional regular grid connections (i.e., a set of  #!F-adobe-times-bold-r-normal--18*   n #!EF 
+-dimensional cubes, or hypercubes). For example, a quad mesh is represented 
+by a 2-dimensional grid, while a cube mesh is represented by 
+a 3-dimensional grid. #!N Note:  #!F-adobe-times-bold-r-normal--18*   DXMakeGridConnections #!EF and  #!F-adobe-times-bold-r-normal--18*   DXMakeGridConnectionsV 
+#!EF set the "element type" for you. #!N #!N #!N For 
+ #!F-adobe-times-bold-r-normal--18*   DXMakeGridConnections #!EF , the counts are given as the last 
+ #!F-adobe-times-bold-r-normal--18*   n #!EF arguments. The resulting Array is a Mesh Array 
+of  #!F-adobe-times-bold-r-normal--18*   n #!EF terms, where the  #!F-adobe-times-medium-i-normal--18*   k #!EF th 
+term is the Path Array connecting  #!F-adobe-times-bold-r-normal--18*   counts[k] #!EF points; this 
+routine is included to simplify the process of creating the common 
+case of regular grid connections. The number of points along each 
+axis is given by  #!F-adobe-times-bold-r-normal--18*   counts #!EF . #!N #!N Return 
+Value #!N #!N Return the Array or return  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxmgpv,dxall1298 h DXMakeGridPositions, DXMakeGridPositionsV  #!EL  ,  #!Ldxnmav,dxall1319 h DXNewMeshArray, DXNewMeshArrayV  #!EL  ,  #!Ldxnpa,dxall1321 h DXNewPathArray  #!EL  ,  #!Ldxqgc,dxall1343 h DXQueryGridConnections  #!EL  ,  #!Ldxqgp,dxall1344 h DXQueryGridPositions  #!EL  #!EF 
+#!N #!N  #!Lcotas,dxall1074 h Creating Positions and Connections Grids  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxmgpv,dxall1298 h DXMakeGridPositions, DXMakeGridPositionsV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

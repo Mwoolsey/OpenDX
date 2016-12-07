@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgpai DXGetPathArrayInfo #!N #!N Function #!N #!N Returns 
+the number of points referred to in a Path Array. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> PathArray DXGetPathArrayInfo(PathArray a, int *count) 
+#!EF #!N #!N Functional Details #!N #!N If  #!F-adobe-times-bold-r-normal--18*   count #!EF 
+is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , this routine returns in  #!F-adobe-times-bold-r-normal--18*   
+*count #!EF the number of points referred to by the Path 
+Array  #!F-adobe-times-bold-r-normal--18*   a #!EF ; this is one more than the 
+number of line segments in  #!F-adobe-times-bold-r-normal--18*   a #!EF . #!N #!N 
+Path Arrays are used to define the regular constituents of a 
+connections grid. As such, they are most often found as members 
+of Mesh Arrays. While it is possible to use Path Arrays 
+directly to define 1-dimensional regular connections, they will not be recognized 
+through the usual  #!F-adobe-times-bold-r-normal--18*   DXQueryGridConnections #!EF interface, and, in some cases, 
+will not be handled without expansion. It is therefore preferable to 
+use  #!F-adobe-times-bold-r-normal--18*   DXMakeGridConnections #!EF and  #!F-adobe-times-bold-r-normal--18*   DXQueryGridConnections #!EF to define and 
+access 1-dimensional regular grids. #!N #!N Array handles offer a simple 
+mechanism to access individual elements of a Path Array without expansion. 
+#!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF or 
+returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  ,  #!Ldxgpo,dxall1259 h DXGetPathOffset  #!EL  ,  #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  , 
+ #!Ldxnpa,dxall1321 h DXNewPathArray  #!EL  ,  #!Ldxqgc,dxall1343 h DXQueryGridConnections  #!EL  ,  #!Ldxspo,dxall1386 h DXSetPathOffset  #!EL  #!EF #!N #!N  #!Lphas,dxall1076 h Path Arrays  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgpo,dxall1259 h DXGetPathOffset  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

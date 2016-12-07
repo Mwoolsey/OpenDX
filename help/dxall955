@@ -1,0 +1,118 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rstreaml 
+Streamline #!N #!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N 
+#!N Computes streamlines to represent the movement of particles through static 
+vector fields. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   
+line #!EF = Streamline(  #!F-adobe-times-bold-r-normal--18*   data, start, time, head, curl, flag, 
+stepscale #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB data TAB vector field TAB none TAB vector 
+field #!N TAB start TAB vector list or geometric field TAB 
+center of the first series member TAB starting point(s) #!N TAB 
+time TAB scalar list TAB series start time(s) TAB starting time(s) 
+#!N TAB head TAB integer TAB final series frame number TAB 
+series time-step at which the #!N TAB - TAB - TAB 
+- TAB streamlines end #!N TAB curl TAB vector field TAB 
+no curl TAB vorticity of vector field(s) #!N TAB flag TAB 
+flag TAB input dependent TAB 0: curl not used #!N TAB 
+- TAB - TAB - TAB 1: curl used to generate 
+twist of #!N TAB - TAB - TAB - TAB streamline(s) 
+#!N TAB stepscale TAB value TAB 0.1 TAB step length as 
+a fraction of the #!N TAB - TAB - TAB - 
+TAB size of the connection element #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Description #!EF #!N TAB line TAB 
+field or group TAB one or more streamlines #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N This 
+module traces the path of a particle through a static vector 
+field in discrete steps. The visual form of this trace is 
+a streamline, which starts at a specified time and continues until 
+the particle it represents exits from the field or reaches a 
+region of zero velocity. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N specifies a vector field. Vector 
+fields are limited to  #!F-adobe-times-medium-i-normal--18*   n #!EF -D vectors defined in 
+ #!F-adobe-times-medium-i-normal--18*   n #!EF space; for example, 2-D vectors on a 2-D 
+sheet or 3-D vectors defined in a 3-D volume. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   start #!EF #!EF #!I50 #!N specifies a set 
+of positions at which streamlines originate. It can be either a 
+list of positions or a geometric field (e.g., the output of 
+a Grid module or even an isosurface). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   time #!EF #!EF #!I50 #!N specifies a set of times 
+at which streamlines begin to be traced. The units of time 
+correspond to the units of the vector field. That is, a 
+particle travelling at a unit velocity moves one unit of distance 
+in one unit of time. #!N #!N Both  #!F-adobe-times-bold-r-normal--18*   time #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   start #!EF can contain single or multiple elements. If 
+either parameter contains a single element, that element is associated with 
+each element of the other list. If both parameters contain multiple 
+elements, they must contain the same number of elements, which are 
+then matched in pairs. #!N #!N You can use the time 
+parameter to start different streamlines at different times. Note that for 
+the static vector fields used by Streamline, a particle at a 
+given location will trace the same streamline, regardless of what time 
+it is started. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   head #!EF #!EF 
+#!I50 #!N specifies an expiration time for streamlines that have not 
+otherwise terminated. The streamline points are computed iteratively, and the spacing 
+between the points depends on the element size of the connections 
+and the stepscale. If this maximum is reached, a warning is 
+produced and the streamline is terminated. The maximum number of streamline 
+points is 25,000. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   curl #!EF #!EF 
+#!I50 #!N causes Streamline to produce normals and binormals components that 
+represent the vorticity of the vector field.  #!Ldivcurl,dxall827 h DivCurl  #!EL  ). In that 
+case, the default value for  #!F-adobe-times-bold-r-normal--18*   flag #!EF is 1. The 
+"normals" and "binormals" components of the resulting streamlines rotate according to 
+the vorticity of the vector field. This information is either interpolated 
+from the vector field passed in as the  #!F-adobe-times-bold-r-normal--18*   curl #!EF 
+parameter or is computed internally. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   flag 
+#!EF #!EF #!I50 #!N specifies whether or not the twist specified 
+by  #!F-adobe-times-bold-r-normal--18*   curl #!EF is enabled. A setting of 0 (zero) 
+disables the twist. #!N #!N However, if  #!F-adobe-times-bold-r-normal--18*   curl #!EF is 
+not specified, the default value for  #!F-adobe-times-bold-r-normal--18*   flag #!EF is 0, 
+and no twist is produced. In that case you have the 
+option of setting  #!F-adobe-times-bold-r-normal--18*   flag #!EF to 1, which causes Streamline 
+to compute the curl internally. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   stepscale 
+#!EF #!EF #!I50 #!N specifies the accuracy of the interpolation. Streamline 
+traces the path of a particle through the vector field in 
+discrete steps. These steps are determined by interpolating a vector from 
+the vector field at the current end of the streamline and 
+appending a new segment that extends the streamline in the direction 
+of the vector. #!N #!N The length of the new segment 
+is determined by two factors. First, the length of the projection 
+of the segment along the edges of the cells of the 
+prior and subsequent vector fields in which the starting point of 
+the segment is found does not exceed a proportion (specified by 
+the  #!F-adobe-times-bold-r-normal--18*   stepscale #!EF parameter) of the length of the edge. 
+Second, if grid is irregular, the segment is truncated at the 
+boundary of the element in which it begins. This allows the 
+segment length to be determined anew for the next element. #!N 
+#!N Thus the  #!F-adobe-times-bold-r-normal--18*   stepscale #!EF parameter offers the user control 
+over the accuracy of the streamline. If  #!F-adobe-times-bold-r-normal--18*   stepscale #!EF is 
+a small value (perhaps in the range of 0.01 to 0.05), 
+the resulting streamline contains a relatively large number of segments that 
+closely trace small variations in the vector field. If  #!F-adobe-times-bold-r-normal--18*   stepscale 
+#!EF is assigned a large number (0.5 to 1), the steps 
+are larger and less accurate, but require less execution time. Note, 
+however, that since the step is determined as a proportion of 
+the size of the grid cell in which it is contained, 
+the segments are small in areas in which the grid elements 
+are small, and proportionally larger in areas in which the grid 
+elements are large. #!I0 #!N #!N #!N #!N Streamlines trace particles 
+through time. Associated with the streamline is a "time" component that 
+indicates, for each position of the streamline, the time at which 
+the particle reached that position. The initial value in this component, 
+therefore, is equal to the starting time for that stream, which 
+is by default the first series position, or settable by the 
+user using the  #!F-adobe-times-bold-r-normal--18*   time #!EF parameter. The final value in 
+the time component is equal to (1) the time at which 
+the particle exits from the vector field or (2) the time 
+specified by the  #!F-adobe-times-bold-r-normal--18*   head #!EF parameter. #!N #!N The output 
+streamlines also contain a "data" component that indicates the velocity of 
+the data field at each position in the streamline. #!N #!N 
+Components #!N #!N Creates new "positions," "connections," "data," "time," and "colors" 
+components. If the flag argument is set, "normals" and "binormals" components 
+are also created. #!N #!N Example Visual Programs #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N Interop.net #!N InvalidData.net #!N RubberTube.net #!N Streamline.net #!N ThunderStreamlines.net 
+#!EF #!N #!N #!EC #!N #!N See Also #!N #!N  #!Ldivcurl,dxall827 h DivCurl  #!EL  
+,  #!Lglyph,dxall856 h Glyph  #!EL  ,  #!Lribbon,dxall927 h Ribbon  #!EL  ,  #!Lstreakl,dxall954 h Streakline  #!EL  ,  #!Ltube,dxall971 h Tube  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lstring,dxall956 h String  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

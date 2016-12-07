@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Connecting to the Server</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu048.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu050.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu047.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRCONSERV" ></A>9.3 Connecting to the Server
+</H2>
+		<A NAME="IDX873"></A><A NAME="IDX874"></A>
+<A NAME="IDX875"></A>
+<P>
+Before you can execute a visual program, your workstation must have established
+connection to the server.
+When you start Data Explorer, the program automatically starts the server
+connection, unless you specified that only the user interface
+was to be started.
+However, if for some reason your workstation becomes disconnected
+between the time you start Data Explorer and the time you are ready to
+run a program, you must reestablish connection with the
+server.
+<P>
+To start the server connection, select the <TT><STRONG>Start
+Server...</STRONG></TT> option from the
+<TT><STRONG>Connection</STRONG></TT> pull-down
+menus in the VPE or Image
+window.
+A dialog box appears (<A HREF="#FIGSERVCON">Figure 81</A>).
+<P><B><A NAME="FIGSERVCON" HREF="../usrguide.htm#FT_FIGSERVCON">Figure 81. Start
+Server Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/strtsrv.gif" ALT="{ Start Server Dialog Box
+}"></CENTER><BR></B><BR>
+<P>
+The Hostname field, by default, contains the name "localhost."
+If the DXHOST environment variable or the
+<TT><STRONG>-host</STRONG></TT> argument was
+specified, this field contains the
+setting of that variable.
+<P>
+You can change the Hostname field by clicking on it and typing in the
+new name.
+When it displays the desired name, connect to the server by clicking on
+the <TT><STRONG>Connect</STRONG></TT> button.
+<P>
+To change the options associated with starting the server, click on the
+Options... button.
+This opens the <TT><STRONG>Options...</STRONG></TT> dialog box
+(<A HREF="#FIGSERVOPT">Figure 82</A>).
+Most of the time, it is not necessary to use these options.
+<P><B><A NAME="FIGSERVOPT" HREF="../usrguide.htm#FT_FIGSERVOPT">Figure 82. Start
+Server Options Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/strtsrvo.gif" ALT="Figure strtsrvo not
+displayed."></CENTER><BR></B><BR>
+The fields of this dialog box are as follows:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Executive
+</B></TD><TD><P>Specifies the name of the executive to run.
+You might change this field if you want to run a customized version of
+Data Explorer.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Working Directory
+</B></TD><TD><P>Specifies the default directory to search for files.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Memory Size
+</B></TD><TD><P>Specifies the amount of memory to use, in megabytes.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Options
+</B></TD><TD><P>Specify options in this text box as you would on the command
+line
+when invoking Data Explorer;
+that is, each option must be preceded by a dash.
+<P>
+<TT><STRONG>-cache on</STRONG></TT> saves the state of the visual program in
+memory
+after an execution.
+If the visual program changes, Data Explorer reexecutes only the portion of the
+program
+affected by the change.
+If <TT><STRONG>-cache off</STRONG></TT> is specified, Data Explorer must
+reexecute the entire
+program for each change.
+(The default setting is on.)
+<P>
+<TT><STRONG>-trace on</STRONG></TT> displays each execution step, as it happens,
+in the <TT><STRONG>Debug</STRONG></TT> window.
+It is mainly used for debugging purposes.
+(The default setting is off.)
+<P>
+<TT><STRONG>-log on</STRONG></TT> saves all communication between the server and
+the user interface to a file.
+(The default setting is off.)
+<P>
+Other options are listed in <A HREF="usrgu074.htm#HDRCMDLOPT">C.2 , "Command
+Line Options"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Connect to already running server
+&nbsp;radio button&nbsp;
+</B></TD><TD><P>Specifies that the user interface should connect with a server
+that was started earlier.
+<P>
+You might use this option to set up a connection to a debugging session
+for a customized version of the Data Explorer executable.
+You can specify the port number in using the stepper below the button.
+Note that when this button is toggled on, all other fields in this
+dialog box become disabled.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRRSTSRV" ></A>Resetting the Server
+</H3>
+<A NAME="IDX876"></A>
+<A NAME="IDX877"></A>
+<P>
+If the data set your visual program is using changes (e.g., by being edited)
+during your Data Explorer session, and the <TT><STRONG>cache</STRONG></TT> is
+enabled
+(the default condition), it may be necessary to force Data Explorer
+to reinitialize the server executive to access the
+new data.
+To do this, select the <TT><STRONG>Reset Server</STRONG></TT> option from the
+<TT><STRONG>Connections</STRONG></TT> pull-down menu.
+<P>
+The action of resetting the server flushes the executive cache.
+The next time you execute the visual program, it executes the entire network,
+not
+just the portions affected by changes internal to the Data Explorer session,
+and will thus reaccess the data set.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

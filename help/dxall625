@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rxmples Examples #!N #!EC #!N 
+#!N The basic way to create a data file is to 
+first define the Arrays, or components, contained in a Field and 
+to then describe how to collect the components together. To define 
+a higher level structure, such as a series, first define the 
+components, then the Fields, and then how to collect the Fields 
+to make a series. The examples in this section illustrate the 
+process. #!N #!N In the first six examples, the data Objects 
+can be viewed by the script shown here. Other scripts are 
+shown with the later examples. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N data 
+= Import("  #!F-adobe-times-bold-i-normal--18*   filename #!EF .dx", format = "dx"); #!N #!N 
+connections = ShowConnections(data); #!N connections = AutoColor(connections); #!N #!N tubes = 
+Tube(connections, 0.08); #!N #!N camera = AutoCamera(tubes, "off diagonal"); #!N image 
+= Render(tubes, camera); #!N Display(image); #!EF #!N #!N #!EC Note: For 
+ #!Lregreg105,dxall626 f Figure 105  #!EL  and  #!Lregskwd106,dxall627 f Figure 106  #!EL  , the argument "off front" is used instead 
+of "off diagonal." #!N #!N #!N Simply substitute the file name 
+of the data file for  #!F-adobe-times-bold-i-normal--18*   filename #!EF in the Import 
+statement. For information about how to use the Data Explorer script 
+language, see  #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lex1,dxall626 h Example 1. A Regular Grid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

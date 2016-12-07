@@ -1,0 +1,68 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rusage Usage #!N #!N 
+Category #!N #!N  #!Lcatdbg,dxall754 h Debugging  #!EL  #!N #!N Function #!N #!N Prints information 
+about current use of resources. #!N #!N Syntax #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N Usage(  #!F-adobe-times-bold-r-normal--18*   what, how #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB what TAB string 
+TAB none TAB the string to be printed #!N TAB how 
+TAB integer TAB 0 TAB level of detail #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N The output of this module appears in the Message window 
+of the user interface. Since, the module traverses the entire memory, 
+it can be used to check for corruption of the memory 
+area. #!N #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+what #!EF #!EF #!I50 #!N specifies what resource information is to 
+be printed. Currently, the only allowed value for this parameter is 
+"memory." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   how #!EF #!EF #!I50 #!N 
+specifies the level of detail of the printout. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   0 #!EF #!EF #!I50 #!N Prints 
+out a summary of the total current use of memory. A 
+typical printout might look like: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 0: 
+58720256 bytes total : 1379008 in use, 57341248 free #!EF #!N 
+#!N #!EC #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   1 #!EF #!EF #!I50 
+#!N Prints out a summary of current use of memory, both 
+in small and in large arenas. A typical printout might look 
+like: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 0: small: 4194304 = hdr 
+16472 + used 486864 + #!N free 3920 + pool 3687048 
+(limit 4194304) #!N #!N 0: large: 2097152 = hdr 16472 + 
+used 494656 + #!N free 29704 + pool 1558120 (limit 54525952) 
+#!EF #!N #!N #!EC where #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   small #!EF #!EF #!I50 #!N is the total number 
+of bytes currently managed by the memory manager for the small 
+arena. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   large #!EF #!EF #!I50 #!N 
+is the total number of bytes currently managed by the memory 
+manager for the large arena. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   hdr 
+#!EF #!EF #!I50 #!N is the amount of memory space used 
+by internal data structures. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   used #!EF 
+#!EF #!I50 #!N is the amount of memory space allocated for 
+use. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   free #!EF #!EF #!I50 #!N 
+is the amount of memory previously used and available for reuse. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   pool #!EF #!EF #!I50 #!N is 
+the amount of memory space allocated to Data Explorer but not 
+yet used. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   limit #!EF #!EF #!I50 
+#!N is the largest amount of memory that can be managed 
+by the memory manager. #!I0 #!N #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   2 #!EF #!EF #!I50 #!N lists the number of blocks 
+on each free list #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   3 #!EF 
+#!EF #!I50 #!N lists the number of blocks on each free 
+list plus the actual blocks on each free list #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   4 #!EF #!EF #!I50 #!N lists addresses of 
+all allocated blocks (warning: very long) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+5 #!EF #!EF #!I50 #!N lists addresses of all allocated and 
+all freed blocks (warning: very long) #!I0 #!N #!N #!I0 #!N 
+#!N Note: You can easily specify Usage("memory," 0) by using the 
+Show Memory Use button in the  #!F-adobe-times-bold-r-normal--18*   Commands #!EF menu of 
+the Message window. The information provided by this module applies to 
+memory use at the time of execution and should be interpreted 
+with that restriction in mind. See  #!Ldxpa,dxall1332 h DXPrintAlloc  #!EL  in IBM Visualization Data 
+Explorer Programmer's Reference for more information. #!N #!N Script Language Example 
+#!N #!N This example shows the use of memory before and 
+after the Isosurface module is printed. (For this example, Data Explorer 
+should be started with the -readahead off option.) #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N electrondensity = Import("/usr/lpp/dx/samples/data/watermolecule"); #!N camera = AutoCamera(electrondensity,width=5); #!N Usage("memory", 
+1); #!N isosurface = Isosurface(electrondensity,0.3); #!N Usage("memory", 1); #!N Display(isosurface,camera); #!EF 
+#!N #!N #!EC #!N #!N See Also #!N #!N  #!Ltrace,dxall966 h Trace  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lvalue,dxall975 h Value  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

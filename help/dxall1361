@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxrib DXRibbon #!N 
+#!N Function #!N #!N Produces a ribbon of the given width 
+from a path or group of paths. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXRibbon(Object o, double width) #!EF #!N #!N 
+Functional Details #!N #!N Produces a ribbon of the width  #!F-adobe-times-bold-r-normal--18*   
+width #!EF from a path or group of paths in Object 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF . The ribbon is perpendicular to the normal 
+and parallel to the tangent at each point on the path, 
+where the normals are provided by the "normals" component if present 
+or approximated from the path otherwise. The normals (given or computed) 
+are translated to the generated vertices and associated with the ribbon 
+for shading. If the direction of the normals changes too rapidly, 
+breaks in the ribbon may occur. #!N #!N For additional details 
+on ribbons, see Ribbon in IBM Visualization Data Explorer User's Reference. 
+#!N #!N Return Value #!N #!N Returns the ribbon, or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets the error code to indicate an 
+error. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxtbe,dxall1401 h DXTube  #!EL  #!EF #!N 
+#!N  #!Lphos,dxall1128 h Path Operations  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxrxyz,dxall1362 h DXRotateX, DXRotateY, DXRotateZ, DXScale, DXTranslate, DXMat  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

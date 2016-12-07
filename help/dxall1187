@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxca DXCopyAttributes #!N #!N Function #!N #!N Copies 
+attributes from one Object to another. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Object DXCopyAttributes(Object dst, Object src) #!EF #!N #!N Functional 
+Details #!N #!N Gets the value of each attribute, in turn, 
+from the source Object  #!F-adobe-times-bold-r-normal--18*   src #!EF and sets it in 
+an identically named attribute in the destination Object  #!F-adobe-times-bold-r-normal--18*   dst #!EF 
+. Attributes already present in  #!F-adobe-times-bold-r-normal--18*   dst #!EF that are also 
+present in  #!F-adobe-times-bold-r-normal--18*   src #!EF have their values updated to those 
+in  #!F-adobe-times-bold-r-normal--18*   src #!EF . The values of attributes present in 
+ #!F-adobe-times-bold-r-normal--18*   dst #!EF but not present in  #!F-adobe-times-bold-r-normal--18*   src #!EF remain 
+unchanged. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   dst #!EF 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code unless 
+ #!F-adobe-times-bold-r-normal--18*   dst #!EF was also specified as  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxga,dxall1223 h DXGetAttribute  #!EL  ,  #!Ldxgea,dxall1231 h DXGetEnumeratedAttribute  #!EL  , 
+ #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  #!EF #!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxcpmi,dxall1188 h DXCopyModuleId  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

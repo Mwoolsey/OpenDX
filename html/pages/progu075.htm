@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu074.htm">Previous Page</A> &#124; <A HREF="progu076.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu072.htm#PToC17">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRRENDCHP" HREF="../proguide.htm#ToC_158">Chapter 16.
+Rendering</A></H1>
+<P><A NAME="PToC18" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_159" HREF="#HDRTRANSEC">16.1 Transformation</A>
+<LI><A NAME="PToC_160" HREF="progu076.htm#Header_160">16.2 Surface Shading</A>
+<LI><A NAME="PToC_161" HREF="progu077.htm#Header_161">16.3 Tiling</A>
+<MENU>
+<LI><A NAME="PToC_162" HREF="progu077.htm#HDRRENDMDL">Rendering Model</A>
+<LI><A NAME="PToC_163" HREF="progu077.htm#Header_163">Tiling Options</A>
+</MENU>
+<LI><A NAME="PToC_164" HREF="progu078.htm#HDRXFORMSC">16.4 Xform Class</A>
+<LI><A NAME="PToC_165" HREF="progu079.htm#HDRSNCS">16.5 Screen Class</A>
+<LI><A NAME="PToC_166" HREF="progu080.htm#HDRCDCS">16.6 Clipped Class</A>
+<LI><A NAME="PToC_167" HREF="progu081.htm#HDRCAMSEC">16.7 Camera Class</A>
+<LI><A NAME="PToC_168" HREF="progu082.htm#HDRLIGHTSC">16.8 Light Class</A>
+<LI><A NAME="PToC_169" HREF="progu083.htm#HDRIEFS">16.9 Image Fields</A>
+</MENU><HR><P>
+<A NAME="IDX1217"></A>
+<P>
+This chapter describes the Data Explorer rendering model, introduces
+additional elements of the data model relevant only to
+rendering, and describes routines for manipulating
+data structures for rendering.
+(For descriptions of these routines, see
+<A HREF="progu097.htm#HDRALLR">Appendix C. "Data Explorer Library
+Routines"</A>.)
+<P>
+The Data Explorer renderer is designed for data visualization.
+For example, it directly renders scenes described
+by the Data Explorer data model (see <A HREF="usrgu024.htm#HDRDATMOD">Chapter 3.
+"Understanding the Data Model"</A>).
+The renderer handles all combinations of Groups and Fields as input
+Objects.
+The members of a Group or of a subclass of a Group (e.g., Series and
+Composite Fields) are combined into one image by the renderer.
+<A NAME="IDX1218"></A>
+<A NAME="IDX1219"></A>
+<P>
+Rendering a scene involves fours steps:
+<OL>
+<P><LI>Transformation to <I>world coordinates</I>--Applying
+transforms specified by transform nodes in the Object.
+<P><LI>Shading--Assigning colors to the vertices, using the intrinsic
+surface colors, surface normals, surface properties specified by
+Field components, and lights specified by Light Objects.
+<P><LI>Transformation to <I>image coordinates</I>--Applying
+transforms specified by a camera Object.
+<P><LI>Tiling--Generating an image by interpolating point
+colors and opacities across faces, and rendering volumes with a
+rendering algorithm.
+</OL>
+<HR>
+<H2><A NAME="HDRTRANSEC" HREF="#PToC_159">16.1 Transformation</A></H2>
+<A NAME="IDX1220"></A>
+<A NAME="IDX1221"></A>
+<A NAME="IDX1222"></A>
+<P>
+Transformation is the process of computing pixel coordinates from model
+coordinates (i.e., the coordinates of the Object).
+Because <TT><STRONG>DXRender()</STRONG></TT> performs necessary
+transformations, most applications do not need
+<TT><STRONG> DXTransform() </STRONG></TT>.
+<P>
+Transformation is essentially a two-step operation: (1) transform the
+model coordinates of an Object into world coordinates; and (2)
+transform the world coordinates into image coordinates
+(see <A HREF="#FIGAO6AFG2">Figure 10</A>).
+<P><B><A NAME="FIGAO6AFG2" HREF="../proguide.htm#FT_FIGAO6AFG2">Figure 10.
+Transformation of Coordinates</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/transfrm.gif" ALT="Figure transfrm not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+The transformation from model to world coordinates is specified by
+transform nodes (see <A HREF="progu078.htm#HDRXFORMSC">16.4 , "Xform Class"</A>)
+in the description
+of the input Object.
+The transformation from world coordinates to image coordinates is
+specified by a camera Object.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXApplyTransform()</STRONG></TT>
+</B></TD><TD><P>Recursively applies a transform to an Object.
+<A NAME="IDX1223"></A>
+See  <A HREF="progu108.htm#HDRDXATM">DXApplyTransform</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu074.htm">Previous Page</A> &#124; <A HREF="progu076.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

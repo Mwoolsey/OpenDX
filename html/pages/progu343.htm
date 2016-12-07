@@ -1,0 +1,443 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu342.htm">Previous Page</A> &#124; <A HREF="progu344.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRPROGLOS" HREF="../proguide.htm#ToC_437">Chapter 18.
+Glossary</A></H1>
+<P>This glossary defines important
+abbreviations and terms.  It includes information from
+<CITE>IBM Dictionary of Computing</CITE> (ZC20-1699).
+<P>
+<TABLE CELLPADDING="3">
+<TR><TD COLSPAN="2">A
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>Array
+</TD><TD><P>An ordered list of data items of the same type represented
+by an Array Object.  Arrays are either irregular or compact.  See
+also <I>compact Array, irregular Array</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P>attribute
+</TD><TD><P>A characteristic of an Object.  Objects can have attributes that
+are indexed by a string name and have
+a value that is an Object.  See also <I>component attribute</I>.
+</TD></TR><TR><TD COLSPAN="2">C
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>cache
+</TD><TD><P>The cache service provides various parts of the system with
+a means to store the results of computations for later reuse.  Each
+cache entry is uniquely identified by a string function name, an
+integer key (used by the executive to store multiple
+outputs for a single module), the number of input parameters, and the
+set of input parameter values.
+</TD></TR><TR VALIGN="TOP"><TD><P>camera
+</TD><TD><P>A camera defines the position and orientation of the viewer, the
+volume of interest of the object being viewed, and the size of the
+image to contain the resulting view.
+</TD></TR><TR VALIGN="TOP"><TD><P>canvas
+</TD><TD><P>The large open area of the VPE window that is used to build and
+edit visual programs.
+</TD></TR><TR VALIGN="TOP"><TD><P>clipping plane
+</TD><TD><P>A plane that divides a
+3-dimensional volume into a region that is rendered and
+a region that is not rendered.  This allows the inside of an object to
+be seen.
+</TD></TR><TR VALIGN="TOP"><TD><P>compact array
+</TD><TD><P>Any one of five varieties of compact encoding of array data.  The
+varieties are&#58;
+<UL COMPACT>
+<LI>regular
+<LI>path
+<LI>product
+<LI>mesh
+<LI>compact.
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P>component
+</TD><TD><P>A basic part or classification of a Field; each component is
+indexed by a string and its value is an Object.  See
+also <I>component attribute</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P>component attribute
+</TD><TD><P>A characteristic of a component.  Components
+of a Field can have attributes that are indexed by a
+string name and have a value that is an Object.
+</TD></TR><TR VALIGN="TOP"><TD><P>Composite Field
+</TD><TD><P>A group of Fields that together is treated a single
+Field.
+This type of Field is useful, for example, for certain kinds of
+simulation data that are represented by disjoint grids.
+A Composite Field is a collection of compatible Fields, all having a
+"positions" component of the same dimensionality, "data"
+components of the same type, and "connections" with the
+same "element type."
+It is required that members be disjoint and abutting.
+</TD></TR><TR VALIGN="TOP"><TD><P>connections
+</TD><TD><P>A component of a Field, specifying how data points in that Field
+are joined together.
+</TD></TR><TR VALIGN="TOP"><TD><P>constant Array
+</TD><TD><P>An Array with a constant value.
+</TD></TR><TR VALIGN="TOP"><TD><P>contour
+</TD><TD><P>Lines on a surface
+that connect points with the same data value.
+</TD></TR><TR><TD COLSPAN="2">D
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>dependent
+</TD><TD><P>A description of a component attribute.  One
+component is said to be dependent on another if the items in
+the component arrays are in one-to-one correspondence with
+each other.
+</TD></TR><TR><TD COLSPAN="2">E
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>executive
+</TD><TD><P>The component of the Data Explorer system that manages the execution
+of
+modules specified using the scripting language.  This term is often
+used to refer to the entire server portion of the Data Explorer
+client-server model, including the executive, modules, and data
+management components.
+</TD></TR><TR VALIGN="TOP"><TD><P>export
+</TD><TD><P>To write an Object to a
+specified Data Explorer-format
+external data file.  For example, importing an ASCII file can
+be slow.  You
+can export the data in a binary format for faster access.  You
+can also import data, operate
+on it, and then export the transformed data for future use.
+</TD></TR><TR><TD COLSPAN="2">F
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>Field
+</TD><TD><P>A self-contained collection of information necessary
+to represent scientific data.  A
+Data Explorer Field typically is made up of a series of components
+and other information as required.  It
+includes the data itself in the form of a "data"
+component, a set of sample points in the form of a
+"positions" component, optionally,
+
+a set of interpolation elements
+in the form of a "connections" component, and other
+information as needed.
+</TD></TR><TR VALIGN="TOP"><TD><P>filter
+</TD><TD><P>A program that converts data to a Data Explorer format.
+</TD></TR><TR VALIGN="TOP"><TD><P>flat shading
+</TD><TD><P>A shading model in which each polygon of an object is shaded
+using a single intensity value.  Contrast with <I>Gouraud shading</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P>fork&#45;join parallelism
+</TD><TD><P>A programming concept that allows parallel processing.  The fork
+statement splits a single computation into multiple
+independent computations.  The
+join statement recombines two or more concurrent computations
+into one.
+</TD></TR><TR><TD COLSPAN="2">G
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>glyph
+</TD><TD><P>A figure that is mapped to a particular variable.  The
+length, angle, or other attribute of the figure
+relates to the value of the particular variable.
+</TD></TR><TR VALIGN="TOP"><TD><P>Gouraud shading
+</TD><TD><P>Also called intensity interpolation shading.  A
+shading model in which the intensity of values of incident
+illumination on a polygon are interpolated from intensity values at
+the vertices of the polygon.  Contrast with <I>flat shading</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P>Group
+</TD><TD><P>A collection of Objects.
+</TD></TR><TR VALIGN="TOP"><TD><P>grow
+</TD><TD><P>Add information from neighboring partitions to a Composite Field.
+Generally necessary only in a parallel environment.
+</TD></TR><TR><TD COLSPAN="2">H
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>handle
+</TD><TD><P>A data structure that is a temporary local identifier for an Object.
+</TD></TR><TR VALIGN="TOP"><TD><P>hash table
+</TD><TD><P>A table of Objects that is accessed with a search
+key (the hash value).
+</TD></TR><TR VALIGN="TOP"><TD><P>hidden
+</TD><TD><P>A module input parameter that does not appear by
+default in the module configuration dialog box.  Hidden
+parameters are typically those less
+commonly used in visual programs.
+</TD></TR><TR><TD COLSPAN="2">I
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>Image window
+</TD><TD><P>IBM Data Explorer window that displays the image generated by a
+visual
+program.
+</TD></TR><TR VALIGN="TOP"><TD><P>import
+</TD><TD><P>To read in an external data file.
+</TD></TR><TR VALIGN="TOP"><TD><P>interactor
+</TD><TD><P>A Data Explorer device used to manipulate data in order to
+change the visual image produced by a program.
+<P>See also <I>interactor stand-in</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P>interactor stand-in
+</TD><TD><P>An icon used in the visual program editor window to represent
+an interactor.  Stand-ins are named after the type of data they
+accept.  The five types are:
+<UL COMPACT>
+<LI>integer
+<LI>scalar
+<LI>string
+<LI>selector
+<LI>value.
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P>interpolation element
+</TD><TD><P>An interpolation element provides a means to interpolate between
+a specified set of sample points.  The
+set of interpolation elements for a particular Field constitutes
+the "connections" component.
+</TD></TR><TR VALIGN="TOP"><TD><P>invalid positions and connections
+</TD><TD><P>Marked positions and connections that are ignored by modules.
+</TD></TR><TR VALIGN="TOP"><TD><P>irregular Array
+</TD><TD><P>An Array Object in which the data is stored explicitly, as
+opposed to a compact Array.
+</TD></TR><TR VALIGN="TOP"><TD><P>isosurface
+</TD><TD><P>A surface in
+3-dimensional space
+that connects points with the same data value.
+</TD></TR><TR VALIGN="TOP"><TD><P>item
+</TD><TD><P>A single piece of data in an Array Object.
+</TD></TR><TR><TD COLSPAN="2">J
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>join
+</TD><TD><P>An operation that merges two or more computation paths.
+</TD></TR><TR><TD COLSPAN="2">L
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>light
+</TD><TD><P>An Object that illuminates a scene.
+</TD></TR><TR><TD COLSPAN="2">M
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>macro
+</TD><TD><P>In IBM Data Explorer, a
+sequence of modules that are be collected together.  A
+macro cannot have recursion at any level.
+</TD></TR><TR VALIGN="TOP"><TD><P>makefile
+</TD><TD><P>A file used by the UNIX&#42;&#42;
+utility "make" that contains a
+list of source files and commands required for maintaining current
+versions of Data Explorer programs.  The
+modification times of the files determine what files have changed
+since the last time "make" was
+run, and therefore, what commands must be executed.
+</TD></TR><TR VALIGN="TOP"><TD><P>mdf
+</TD><TD><P>See module description file.
+</TD></TR><TR VALIGN="TOP"><TD><P>member
+</TD><TD><P>An individual unit in a group.  A collection of members makes a
+group.
+</TD></TR><TR VALIGN="TOP"><TD><P>mesh Array
+</TD><TD><P>A compact Array that encodes multidimensional regularity
+of connections.  It is a product of connection Arrays.  The
+product is a set of interpolation elements in which the product
+has one element for each pair of elements in the two multiplicands,
+and the number of sample points in each element is the product
+of the number of sample points in each of the multiplicands&#39;
+elements.
+</TD></TR><TR VALIGN="TOP"><TD><P>module
+</TD><TD><P>A primitive function that is provided as part of IBM Data Explorer,
+such as the Isosurface module.  The
+same term is used for the function&#39;s icon, which is its
+visible representation in the VPE window.
+</TD></TR><TR VALIGN="TOP"><TD><P>Module Builder
+</TD><TD><P>A graphical user interface to assist in the creation of
+user-defined modules.
+</TD></TR><TR VALIGN="TOP"><TD><P>module description file (mdf)
+</TD><TD><P>A module description file is used by a programmer who is adding a
+module
+to Data Explorer to describe
+information about the module that
+is needed by the system.
+<P>A module description file contains the name of the
+module, a short description of it, a category for the user interface
+to put the module in, and the names and descriptions of the input and
+output parameters.  The module description file is used by the
+executive and the user interface
+to name parameters.  The module description file is also
+used by the graphical user interface
+to form
+a tool icon in the proper category
+with the right number of input and output tabs.
+</TD></TR><TR VALIGN="TOP"><TD><P>MultiGrid
+</TD><TD><P>A MultiGrid Group is another kind of Group that is treated as a
+single entity.  Like
+a Composite Field, all of the members of a MultiGrid
+Group must have the
+same type of data and the same type of connections.  It
+is <I>not</I> required that members be disjoint and abutting
+however.
+Overlapping grids can be used along with the "invalid positions"
+and "invalid connections" components to define which grid is
+valid in a particular region.
+</TD></TR><TR><TD COLSPAN="2">N
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>netCDF
+</TD><TD><P>See Network Common Data Form.
+</TD></TR><TR VALIGN="TOP"><TD><P>Network Common Data Form (netCDF)
+</TD><TD><P>A data abstraction
+that stores and retrieves scientific data structures
+in self&#45;describing, multiple dimensional blocks.  netCDF is
+accessible with C or FORTRAN.  netCDF is not a database management
+system.
+</TD></TR><TR><TD COLSPAN="2">O
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>Object
+</TD><TD><P>A region of global memory that contains an identification
+of its type plus additional type-dependent information.
+</TD></TR><TR><TD COLSPAN="2">P
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>parallelism
+</TD><TD><P>The concurrent execution of modules.
+</TD></TR><TR VALIGN="TOP"><TD><P>partition
+</TD><TD><P>A member of a Composite Field.
+</TD></TR><TR VALIGN="TOP"><TD><P>partitioned Field
+</TD><TD><P>A Composite Field.
+</TD></TR><TR VALIGN="TOP"><TD><P>path array
+</TD><TD><P>A compact Array that encodes linear regularity of connections.  It
+is a set of <I>n</I> &#45; 1 line segments, where the
+<I>i</I>th line segment joins points <I>i</I>
+and <I>i</I> &#43; 1.
+</TD></TR><TR VALIGN="TOP"><TD><P>pick
+</TD><TD><P>One Object that was picked using the mouse.
+</TD></TR><TR VALIGN="TOP"><TD><P>pick path
+</TD><TD><P>A list of integers that describe how to traverse
+an Object&#39;s hierarchy to reach a particular picked
+object.
+</TD></TR><TR VALIGN="TOP"><TD><P>pick structure
+</TD><TD><P>A Field that identifies objects
+picked using the mouse.  It contains the components
+"positions," "pick paths," "picks,"
+and "pokes."
+</TD></TR><TR VALIGN="TOP"><TD><P>poke
+</TD><TD><P>One screen location that was poked, or selected,
+by the user.  One poke may result in none, one, or
+more than one pick.
+</TD></TR><TR VALIGN="TOP"><TD><P>positions
+</TD><TD><P>A component of a Field, consisting of a set of points.
+</TD></TR><TR VALIGN="TOP"><TD><P>private Object
+</TD><TD><P>Objects containing arbitrarily stored data.  These
+Objects can be stored in the cache for later use.
+</TD></TR><TR VALIGN="TOP"><TD><P>product Array
+</TD><TD><P>A compact Array that encodes multidimensional positional
+regularity.  It
+is the set of points obtained by summing one point from each
+of the terms in all possible combinations.
+</TD></TR><TR VALIGN="TOP"><TD><P>pseudo key
+</TD><TD><P>Accesses Objects in a hash table.
+</TD></TR><TR><TD COLSPAN="2">R
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>realization
+</TD><TD><P>The representation of data in terms of boundaries, surfaces,
+transparency, color, and other graphical, image,
+and geometric characteristics.
+</TD></TR><TR VALIGN="TOP"><TD><P>regular Array
+</TD><TD><P>A compact Array that is a set of <I>n</I> points lying on a
+line with constant spacing between them, representing
+1-dimensional regular positions.
+</TD></TR><TR VALIGN="TOP"><TD><P>rendering
+</TD><TD><P>The generation of an image from some representation
+of an object.
+Rendering can be done from a surface representation, or from
+volumetric information.
+</TD></TR><TR VALIGN="TOP"><TD><P>ribbon
+</TD><TD><P>Ribbons are derived from lines (e.g., streamlines and
+streaklines).
+Ribbons may twist to indicate vorticity.
+</TD></TR><TR><TD COLSPAN="2">S
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>scripting language
+</TD><TD><P>The IBM Data Explorer command-line language.  The
+scripting language is available for users who choose to write
+visual programs in a programming language.  Data Explorer
+uses the scripting language to manage the execution of modules
+and to invoke visualization functions.
+</TD></TR><TR VALIGN="TOP"><TD><P>Series
+</TD><TD><P>A Series is intended to represent a
+single Field sampled across some parameter, such as time or temperature
+(e.g., a simulation of a CMOS device across a temperature range.
+Members of a Series have a position.
+A copy of the position is found in the "Series position"
+attribute.
+<P>
+Every member of the Series must have the same dimensionality, say
+<I>n</I>, the same data type, and the same connections
+element type.
+Members are stored in and retrieved from a Series Group
+by index rather than by name.
+Members cannot be retrieved by Series value.
+</TD></TR><TR VALIGN="TOP"><TD><P>shading
+</TD><TD><P>Applying lights to a surface during the rendering process.
+</TD></TR><TR VALIGN="TOP"><TD><P>shrink
+</TD><TD><P>Generally
+necessary only in a parallel environment;
+deletes the information, previously added by Grow, from
+neighboring partitions of a Composite
+Field.  Composite Field members are returned to their original size.
+</TD></TR><TR VALIGN="TOP"><TD><P>stand-in
+</TD><TD><P>See <I>interactor stand-in</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P>streaklines
+</TD><TD><P>Lines, sometimes called rakes, that show the path of
+particles over time.
+</TD></TR><TR VALIGN="TOP"><TD><P>string Object
+</TD><TD><P>A character string stored in an Object.
+</TD></TR><TR><TD COLSPAN="2">T
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>tiling
+</TD><TD><P>Combining shaded surface and volume interpolation elements to
+produce an image.
+</TD></TR><TR VALIGN="TOP"><TD><P>tool
+</TD><TD><P>A general term used to describe any of the icons used by
+IBM Data Explorer to build a visual program, specifically modules, macros,
+or interactor stand-ins.
+</TD></TR><TR VALIGN="TOP"><TD><P>tube
+</TD><TD><P>Tubes are derived from lines (e.g., streamlines and
+streaklines).
+Tubes may twist to indicate vorticity.
+</TD></TR><TR><TD COLSPAN="2">V
+<P></STRONG></TD></TR><TR VALIGN="TOP"><TD><P>value
+</TD><TD><P>(1) A specific occurrence of an attribute (e.g.
+for the attribute "color").
+<BR>(2) A quantity assigned to a constant, a variable, a parameter,
+or a symbol.
+</TD></TR><TR VALIGN="TOP"><TD><P>visual program
+</TD><TD><P>A user-specified interconnection of Data Explorer modules that
+performs
+a sequence of operations on data.
+</TD></TR><TR VALIGN="TOP"><TD><P>Visual Program Editor
+</TD><TD><P>Data Explorer graphical user interface for creating and editing
+visual
+programs and macros.  See also <I>canvas</I>.
+</TD></TR><TR VALIGN="TOP"><TD><P>VPE
+</TD><TD><P>See Visual Program Editor.
+</TD></TR><TR VALIGN="TOP"><TD><P>volume
+</TD><TD><P>An object that fills a 3&#45;dimensional space.
+A solid ball is a volume.
+A surface, however, is infinitely thin and does not fill space
+even though it exists in three dimensions.
+</TD></TR><TR VALIGN="TOP"><TD><P>volume rendering
+</TD><TD><P>A technique for creating an image that
+shows not just the surface of a 3&#45;dimensional object,
+but its contents as well.  The
+interior details being visualized may be physical, such as bone
+and muscle in a human body or the structure of a machine part, or they
+may be other characteristics such as fluid flow, heat, or stress.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu342.htm">Previous Page</A> &#124; <A HREF="progu344.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

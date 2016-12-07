@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcplus DXConcatenate, DXInvert, DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply #!N #!N Function 
+#!N #!N Apply standard matrix operations. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Matrix DXConcatenate(Matrix s, Matrix t) Matrix DXInvert(Matrix t) Matrix 
+DXTranspose(Matrix t) Matrix DXAdjointTranspose(Matrix t) float DXDeterminant(Matrix t) Vector DXApply(Vector v, 
+Matrix t) #!EF #!N #!N Functional Details #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXConcatenate 
+#!EF returns a Matrix that is equivalent to transformation matrix  #!F-adobe-times-bold-r-normal--18*   
+s #!EF followed by transformation matrix  #!F-adobe-times-bold-r-normal--18*   t #!EF . #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   DXInvert, DXTranspose, DXAdjointTranspose, #!EF and  #!F-adobe-times-bold-r-normal--18*   DXDeterminant #!EF compute 
+the matrix inverse, transpose, and adjoint transpose, and determinant, respectively. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   DXApply #!EF applies matrix transformation  #!F-adobe-times-bold-r-normal--18*   t #!EF to 
+ #!F-adobe-times-bold-r-normal--18*   v #!EF . #!N #!N A  #!F-adobe-times-bold-r-normal--18*   Matrix #!EF is 
+defined as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct matrix { /* xA 
++ b * / float A[3][3] float b[3]; } Matrix #!EF 
+#!N #!N A  #!F-adobe-times-bold-r-normal--18*   Point #!EF and  #!F-adobe-times-bold-r-normal--18*   Vector #!EF is 
+defined as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct point { float x, 
+y, z; } Point, Vector; #!EF #!N #!N Return Value #!N 
+#!N Always returns the result of the operation. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxatm,dxall1173 h DXApplyTransform  #!EL  ,  #!Ldxrxyz,dxall1362 h DXRotateX, DXRotateY, DXRotateZ, DXScale, DXTranslate, DXMat  #!EL  #!EF #!N #!N  #!Lbops,dxall1112 h Basic Operations  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxc,dxall1186 h DXCopy  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,40 @@
+/*****************************************************************************/
+/*                         DX SOURCEFILE				     */
+/*****************************************************************************/
+
+/*
+ * $Header: /src/master/dx/src/uipp/widgets/frame.bm,v 1.1.1.1 1999/03/24 15:17:37 gda Exp $
+ * $Log: frame.bm,v $
+ * Revision 1.1.1.1  1999/03/24 15:17:37  gda
+ * Initial CVS Version
+ *
+ * Revision 1.1.1.1  1999/03/19 20:59:42  gda
+ * Initial CVS
+ *
+ * Revision 10.1  1999/02/24 13:25:11  gda
+ * OpenDX Baseline
+ *
+ * Revision 9.1  1997/05/22 18:52:19  svs
+ * Copy of release 3.1.4 code
+ *
+Revision 8.0  1995/10/03  18:52:43  nsc
+Copy of release 3.1 code
+
+Revision 7.1  1994/01/18  19:04:09  svs
+changes since release 2.0.1
+
+Revision 6.1  93/11/16  10:53:09  svs
+ship level code, release 2.0
+
+Revision 1.1  93/03/01  15:08:16  danz
+Initial revision
+
+ */
+
+#define frame_width 22
+#define frame_height 16
+static char frame_bits[] = {
+   0xff, 0xff, 0xff, 0xcc, 0xcc, 0xcc, 0xff, 0xff, 0xff, 0x81, 0x40, 0xe0,
+   0x81, 0x40, 0xe0, 0x81, 0x40, 0xe0, 0x81, 0x40, 0xe0, 0x81, 0x40, 0xe0,
+   0x81, 0x40, 0xe0, 0x81, 0x40, 0xe0, 0x81, 0x40, 0xe0, 0x81, 0x40, 0xe0,
+   0xff, 0xff, 0xff, 0xcc, 0xcc, 0xcc, 0xff, 0xff, 0xff, 0x00, 0x00, 0xc0};

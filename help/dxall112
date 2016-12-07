@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rall111 Creating a Header File #!N #!EC #!N #!N The General 
+Array Importer uses a "header file" to describe the structure and 
+location of data to be imported. This file consists of  #!F-adobe-times-medium-i-normal--18*   
+keyword #!EF statements that identify important characteristics of that data (including 
+grid structure, format, and data type, along with the path name 
+of the file containing the data). #!N #!N A header file 
+can be created with a text editor or, more easily, with 
+the Data Prompter, which prompts for the necessary information. (See  #!Ltimpdat,dxall37 h Importing Data  #!EL  
+for an example that uses the Data Prompter and  #!Lprompt,dxall157 h Data Prompter  #!EL  for 
+a detailed description of how to use it.) The Data Prompter 
+also checks for incorrect syntax, such as conflicting keywords (see  #!Lsydfgi,dxall139 h Header File Syntax: Keyword Statements  #!EL  
+). #!N #!N Once a header file has been created, the 
+data it describes can be imported into Data Explorer by the 
+Import module. To identify a header file to Data Explorer through 
+the Import dialog box: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N 1. Enter the path name of the header file in 
+the  #!F-adobe-times-bold-r-normal--18*   name #!EF parameter field. #!N #!I30 #!N 2. Enter 
+"general" in the  #!F-adobe-times-bold-r-normal--18*   format #!EF parameter field. (If the file 
+has the extension "  #!F-adobe-times-bold-r-normal--18*   . #!EF general," it is not 
+necessary to specify the format to Import. Header files created with 
+the Data Prompter are automatically given this extension.) #!N #!I0 #!N 
+#!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lgaints,dxall113 h Some Notes on General Array Importer Format  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

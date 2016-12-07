@@ -1,0 +1,51 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rband Band #!N #!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  
+#!N #!N Function #!N #!N Divides a specified field into bands. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N band #!EF 
+= Band(  #!F-adobe-times-bold-r-normal--18*   data, value, number, remap #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB data TAB 
+scalar field TAB none TAB field to be divided #!N TAB 
+value TAB scalar or scalar list TAB data mean TAB band 
+divisions #!N TAB number TAB integer TAB no default TAB number 
+of divisions #!N TAB remap TAB string TAB "low" TAB data 
+values applied to bands #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB band TAB field or 
+group TAB divided input #!N TAB - TAB - TAB #!EF 
+#!N #!N Functional Details #!N #!N The values used for dividing 
+a field into bands are specified by  #!F-adobe-times-bold-r-normal--18*   value #!EF or 
+ #!F-adobe-times-bold-r-normal--18*   number #!EF . #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N is the field to be 
+divided and must have 2-dimensional connections (triangles or quads). #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   value #!EF #!EF #!I50 #!N specifies the value(s) 
+at which the divisions are to be created (i.e., the data 
+values in the data field). If this parameter and  #!F-adobe-times-bold-r-normal--18*   number 
+#!EF (see below) are both unspecified, the module, by default, constructs 
+the division at the arithmetic mean of the data set. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   number #!EF #!EF #!I50 #!N specifies the 
+number of equal divisions to be created between the minimum (min) 
+and maximum (max) data values of the field. The first division 
+is created at min + delta, the second at min + 
+2 * delta, and the last at max - delta, where 
+delta = (max-min)/(number+1). Note: This parameter is ignored if  #!F-adobe-times-bold-r-normal--18*   value 
+#!EF is specified. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   remap #!EF #!EF 
+#!I50 #!N assigns data values to the elements in each band: 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "low" #!EF #!I50 #!N 
+specifies that all connection elements are assigned the value of the 
+lower boundary of the band (the lowest data value if it 
+is the first band). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "high" #!EF #!I50 
+#!N specifies that all connection elements are assigned the value of 
+the upper boundary of the band (the largest data value if 
+it is the last band). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "original" #!EF 
+#!I50 #!N specifies that the data values remain unchanged. #!I0 #!N 
+#!N #!I0 #!N #!N #!N #!N Components #!N #!N This module 
+creates new "positions" and "connections" components, and adds a "colors" component 
+if one is not already present. The "data" component is modified 
+according to the value of  #!F-adobe-times-bold-r-normal--18*   remap #!EF . The output 
+data are connection dependent. #!N #!N Example Visual Programs #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N #!N BandedColors.net #!N #!N InvalidData.net #!N 
+SIMPLE/Band.net #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Lisosurf,dxall881 h Isosurface  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcamera,dxall780 h Camera  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

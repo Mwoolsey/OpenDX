@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall561 Running .net files in script mode #!N #!EC 
+#!N #!N When you create a visual program using the User 
+Interface, the .net file saved is a script, so you can 
+run it in script mode. (User Interface-specific information, such as placement 
+of tools on the canvas, is saved as comments in the 
+script.) If you have a sequencer in your visual program, the 
+User Interface adds a "play" command as the last line of 
+the .net file. Thus you can edit this line out and 
+add your own options if you want to do something other 
+than play forward through the sequence once (see  #!Lvcrcomm,dxall549 h Sequencer  #!EL  ). If 
+you do not have a sequencer in your visual program, the 
+User Interface adds a call to "main()," the main macro which 
+is defined to be your top level visual program. If you 
+do not want the program to automatically execute when you read 
+it in as a script, remove or comment out the call 
+to "main()." #!N #!N If your visual program uses macros, the 
+user interface will add an "include" line so that the macros 
+will be included when the visual program is run as a 
+script. You can look at the top of the .net file 
+to see which macros are referenced by the program. Thus if 
+you need to send a collection of visual programs and macros 
+to another person, this can help you to make sure you 
+have sent all the necessary tools. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lappviz,dxall563 h Using Data Explorer: Some Useful Hints  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

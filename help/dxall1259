@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgpo DXGetPathOffset #!N #!N Function #!N #!N Gets the 
+offset of a Path Array in the original Field after partitioning. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> PathArray DXGetPathOffset(PathArray a, int 
+*offset) #!EF #!N #!N Functional Details #!N #!N Gets the offset 
+value  #!F-adobe-times-bold-r-normal--18*   offset #!EF for this portion of the Path Array 
+ #!F-adobe-times-bold-r-normal--18*   a #!EF relative to the original grid. In the case 
+where a Path Array is used to define a regular grid 
+of connections that is a part of a partitioned Field, it 
+is useful to know the offset of the partition within the 
+original Field. #!N #!N Path Arrays are typically used as constituents 
+in Mesh Arrays that define regular or partially regular connections grids 
+of one or more dimensions. In that case, the mesh offsets 
+of the partition within the original mesh are generally accessed at 
+the Mesh Array level through calls to  #!F-adobe-times-bold-r-normal--18*   DXSetMeshOffsets #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   DXGetMeshOffsets #!EF . #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   a #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgmo,dxall1249 h DXGetMeshOffsets  #!EL  , 
+ #!Ldxgpai,dxall1258 h DXGetPathArrayInfo  #!EL  ,  #!Ldxnpa,dxall1321 h DXNewPathArray  #!EL  ,  #!Ldxsmo,dxall1383 h DXSetMeshOffsets  #!EL  #!EF #!N #!N  #!Lphas,dxall1076 h Path Arrays  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgpp,dxall1260 h DXGetPickPoint  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

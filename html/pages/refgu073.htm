@@ -1,0 +1,403 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Import</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu072.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu074.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRIMPORT" ></A>Import</H3>
+		<A NAME="IDX545"></A><A NAME="IDX546"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATIAE">Import and Export</A>
+<P><STRONG>Function</STRONG>
+<P>
+Reads an external data file.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>data</STRONG> = Import(<STRONG>name, variable, format, start, end, delta</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>name</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">name of file containing data to
+be read, or "!command"
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>variable</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string or string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">format dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">variable to be read
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>format</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">file extension or content
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">&quot;dx,&quot;
+"general,"
+"netcdf,"
+"CDF,"
+"hdf,"
+"cm"
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>start</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">first frame
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">first data frame to be imported
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>end</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">last frame
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">last data frame to be imported
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>delta</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">increment between frames
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">object containing requested
+variables
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+From an external data file this modules creates Data Explorer objects that can
+be processed by other modules.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>name</STRONG></TT>
+</B></TD><TD><P>is the name of the data file being imported.
+If the parameter specifies an absolute path name, the system attempts
+to open the file.
+Otherwise, it first searches the current directory (i.e., the directory
+from which Data Explorer was invoked) and then, if necessary, the directories
+specified by the environment variable DXDATA (see <A
+HREF="usrgu073.htm#HDRENVVAR">C.1 , "Environment Variables"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+<P><B>Note: </B>This parameter can also specify an external filter (see
+<A HREF="#SPTEXTFLT">External filters</A>).
+<P>
+If <TT><STRONG>name</STRONG></TT> contains a series, the parameters
+<TT><STRONG>start</STRONG></TT>, <TT><STRONG>end</STRONG></TT>, and
+<TT><STRONG>delta</STRONG></TT> can be used to import a
+portion of the data (see parameter
+descriptions below).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>variable</STRONG></TT>
+</B></TD><TD><P>specifies the variable(s) to be imported.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>format</STRONG></TT>
+</B></TD><TD><P>specifies the format of the data to be imported.
+Valid format names are:
+"dx,"
+"general,"
+"netcdf,"
+"CDF,"
+"hdf," and
+"cm."
+These keywords can also be used as extensions on
+file names.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>start</STRONG></TT>
+&nbsp;and&nbsp;
+<TT><STRONG>end</STRONG></TT>
+</B></TD><TD><P>specify the first and last data frame to be imported from a data
+file containing a series.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>delta</STRONG></TT>
+</B></TD><TD><P>specifies the increment in counting the data frames in the range
+from <TT><STRONG>start</STRONG></TT> to <TT><STRONG>end</STRONG></TT>.
+For example, if the first and last frames are 10 and 20 respectively,
+and <TT><STRONG>delta</STRONG></TT> = 2, the output
+<TT><STRONG>data</STRONG></TT>
+is a series group with six members (frames 10, 12, 14,...).
+</TD></TR></TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">For Future
+Reference</TH><TR><TD>
+<P>
+If the data set being imported is changed (e.g., by editing) during a
+Data Explorer session, and if the cache is enabled (the default condition),
+it may be necessary to reinitialize the Data Explorer executive to
+access the new data.
+To do so, select <TT><STRONG>Reset Server</STRONG></TT> in the
+<TT><STRONG>Connections</STRONG></TT> pull-down menu of
+the VPE window.
+<P>
+Resetting the server flushes the executive cache.
+The next time the visual program is invoked, the entire network executes
+(not just the portions affected by changes) and Import will
+reaccess the data set.
+<P>
+Specifying that the module&#39;s output not be cached has the same
+effect.
+Select the appropriate option in:
+<UL COMPACT>
+<LI>the "Cache" option menu of the module&#39;s configuration
+dialog box, <I>or</I>
+<LI>the "Set Output Cacheability" option menu in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+<P>
+Note that it may be necessary to apply the same restriction to any
+module downstream from Import.
+<P>
+To specify that <I>no</I> outputs are to be cached, use the
+<TT><STRONG>-cache off</STRONG></TT> option when starting Data Explorer.
+</UL>
+</TD></TR></TABLE>
+<P>
+<TT><STRONG>Data Explorer format files.</STRONG></TT> A Data Explorer data file consists of one or more header and data sections that describe the structure and values of user data. The header section is a text description of one or more Data Explorer objects, and the data section is either a text or binary representation of the data values. Non-binary data in data files is limited to a 4K line limit. <P>
+If <TT><STRONG>variable</STRONG></TT> specifies more than one object, the
+module creates a group and each object is added to the group
+by name.
+If <TT><STRONG>variable</STRONG></TT> is not specified, the default object
+is imported.
+This object can be specified with the <TT><STRONG>default</STRONG></TT>
+keyword in the Data Explorer file format
+(see <A HREF="usrgu068.htm#HDREDF">B.2 , "Data Explorer Native Files"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+If it is not specified, the default object is the last object defined in
+the data file.
+<P>
+Any Data Explorer object in a Data Explorer data file can be specified for
+import,
+including Lights, Cameras, and Transforms, as well as more
+common objects such as Series, Groups, and Fields.
+The data can be in a separate file from the header, and header and
+data sections can be interspersed.
+And the data can be specified in a variety of formats (see
+see <A HREF="usrgu068.htm#HDREDF">B.2 , "Data Explorer Native Files"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+<P>
+<TT><STRONG>General array importer files.</STRONG></TT>
+You can use the general format described in <A HREF="qikgu027.htm#HDRGAI">5.1 ,
+"General Array Importer"</A> in <I>IBM Visualization Data Explorer QuickStart
+Guide</I>
+to import data from various file formats and convert the data to objects.
+This format allows you to describe the structure of your data so that
+Data Explorer can create Data Explorer objects from it.
+If you do not specify a variable, then all variables are imported.
+<P>
+Normally, the <TT><STRONG>name</STRONG></TT> parameter in this case is the
+general array header file.
+However, the <TT><STRONG>name</STRONG></TT> parameter can be the data file if
+the extended form of the <TT><STRONG>format</STRONG></TT> parameter
+includes the header file as a template.
+The <TT><STRONG>format</STRONG></TT> parameter can also include any set of
+keyword-value pairs as a comma-separated list.
+The specified values are used instead of those in the
+header file.
+This format is useful for data files with similar header files where only the
+size of the data changes.
+An example for the <TT><STRONG>grid</STRONG></TT> keyword is&#58;
+<P>
+<TT><STRONG>format</STRONG></TT>
+<TT>="general, template=headerfile, grid=num<SUB>x</SUB>
+x num<SUB>y</SUB> x num<SUB>z</SUB> ..."</TT>
+<P>
+An example parameter for the <TT><STRONG>points</STRONG></TT> keyword is&#58;
+<P>
+<TT><STRONG>format</STRONG></TT>
+<TT>= "general, template=headerfile, points=n"</TT>
+<P>
+You may also omit <TT>template=headerfile</TT> if all the necessary
+information is specified by the keyword-value pairs.
+<P>
+<TT><STRONG>netCDF files.</STRONG></TT>
+When the netCDF file is opened, variables matching the
+<TT><STRONG>variable</STRONG></TT> parameter are read in
+as field objects.
+If you give no field name, all fields are read in and placed as
+separate fields in a group.
+Each group member is named using the name of the field in the netCDF
+file.
+If more than one variable has the same field name, a composite field is
+created.
+<P>
+You can import both regular and irregular data.
+If the data are regular, nonzero origins and non-unit spacing can be
+handled.
+You can also import scalar, vector, and tensor data.
+For irregular data, "positions" and "connections" are
+determined from information in the netCDF variable attributes
+associated with the field.
+Additional components can also be read in and added to the field,
+based on netCDF attribute information.
+<P>
+For a detailed description of the attributes required in a netCDF
+file, and an example of the correct format,
+see <A HREF="usrgu070.htm#HDRNETCDF">B.4 , "netCDF Files"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I>.
+<P>
+<TT><STRONG>CDF files.</STRONG></TT>
+When the CDF is opened, variables matching the "variable" parameter
+are read in as fields.
+If "variable" is not specified, then all variables are imported
+and placed as fields in a group.
+Each group member is named using the name of the field (CDF variable)
+in the CDF.
+If the CDF contains records, then variable(s) are imported
+as a series.
+Some CDF variables become the "positions" component of the field,
+while others become the "data" component of the field.
+For a series, the values of the record-varying variable become the
+"series positions" attribute(s).
+Variable and global attributes present in the CDF are imported as
+object attributes.
+Only CDF r-variables are supported.
+See <I>IBM Visualization Data Explorer User&#39;s Guide</I> for more information
+on importing data from a CDF.
+<P>
+<TT><STRONG>HDF files.</STRONG></TT>
+Scientific DataSets are read in as fields.
+If there are more than one DataSet in the HDF file, you can specify the
+variable as a number corresponding to the position of the data set
+(0 corresponds to the first file).
+If no variable is specified, all fields are read in and placed as
+separate fields in a group.
+Each group member is named using the label (if it exists) from the HDF
+file.
+<P>
+If scales are present, they are interpreted as "positions" with
+regular "connections."
+Otherwise, the positions are a regular grid with regular
+connections.
+For more information on HDF,
+see <A HREF="usrgu072.htm#HDRHDF">B.6 , "HDF Files"</A> in <I>IBM Visualization
+Data Explorer User&#39;s Guide</I>.
+<P>
+<TT><STRONG>CM files.</STRONG></TT>
+Import will import saved color-map files.
+(To save a color map explicitly as a separate <TT><STRONG>.cm</STRONG></TT>
+file, choose <TT><STRONG>Save As...</STRONG></TT> in the
+<TT><STRONG>File</STRONG></TT> menu of the
+ColorMap Editor.)
+<P>
+The imported file will be a group containing the color map as the first
+field and the opacity map as the second field.
+(Alternatively, you can import just one of these maps by specifying
+the <TT><STRONG>variable</STRONG></TT> parameter to Import as
+"colormap" or "opacity" respectively.)
+<P>
+The color map is a field with a 1-dimensional "positions" component
+(the data values) and a 3-dimensional "data" component
+(the colors).
+Similarly the opacity map is a field with a 1-dimensional
+"positions" component (the data values) and a
+1-dimensional "data" component (the
+opacities).
+<P>
+You can pass the imported color and opacity maps to (1) the
+<TT><STRONG>color</STRONG></TT> and <TT><STRONG>opacity</STRONG></TT> tabs of
+the
+Color module or (2) the <TT><STRONG>color-map</STRONG></TT> and
+<TT><STRONG>opacity</STRONG></TT> parameters of the Colormap tool.
+<P>
+
+When a .cm file is imported, the result is
+not only information describing the color and
+opacity maps themselves, but also information specifically intended
+for the Colormap Editor regarding control points. Users are not
+expected to create their own .cm files (other than by writing them
+using the <TT><STRONG>Save As</STRONG></TT> command in the Colormap Editor),
+as the content of this file is not documented.
+However users can import any field which has the appropriate color
+or opacity map structure and use it as input to either the Color or
+the Colormap tools.  For
+more information on the structure of
+color and opacity maps, see <A HREF="refgu033.htm#HDRCOLOR">Color</A>.
+
+<P>
+<TT><STRONG>External filters.</STRONG></TT>
+<A NAME="SPTEXTFLT"></A>
+If the first character of the <TT><STRONG>name</STRONG></TT> parameter is
+"!" (e.g., "!ext2dx mydata.ext mydata.dx"), the rest of
+the string following the exclamation point is interpreted as a
+shell command to be executed.
+The command should be the name of an external filter program with any
+required arguments.
+The filter program can be any <I>user-supplied</I> program that
+reads data from other file formats or generates data, but it must
+output "dx" or "general array" format as standard
+output.
+The Import module waits for the program to execute, reads the output of
+the program, and imports the objects with the same options as if
+reading directly from a file.
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+Nearly every example visual program uses the Import module.
+Most import Data Explorer format files.
+Two example programs that import general array format files are&#58;
+<PRE>
+GeneralImport1.net
+GeneralImport2.net
+</PRE>
+<P>
+An example program that uses the external filter option is&#58;
+<PRE>
+ImportExternalFilter.net
+</PRE>
+<P>
+An example program that uses the extended form of the
+<TT><STRONG>format</STRONG></TT> parameter is:
+<PRE>
+MRI_2.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu056.htm#HDREXPORT">Export</A>,
+&nbsp;<A HREF="refgu102.htm#HDRPARTITI">Partition</A>,
+&nbsp;<A HREF="refgu110.htm#HDRREADIMA">ReadImage</A>,
+
+&nbsp;<A HREF="refgu074.htm#HDRIMPSPSH">ImportSpreadsheet</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

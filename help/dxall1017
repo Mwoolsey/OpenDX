@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall1016 Input Data #!N #!EC #!N #!N For 
+each input to the module, a count value and a pointer 
+are sent to the worker routine. These arguments are named by 
+appending  #!F-adobe-times-bold-r-normal--18*   _knt #!EF and  #!F-adobe-times-bold-r-normal--18*   _data #!EF respectively to the 
+parameter name given in the  #!F-adobe-times-bold-r-normal--18*   Individual Parameter Information #!EF section 
+of the Module Builder interface. Thus, for an input parameter named 
+ #!F-adobe-times-bold-r-normal--18*   param1 #!EF , the worker routine would add the following 
+to its argument list: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N int param1_knt 
+The number of elements in the parameter. #!N type *param1_data A 
+pointer to the data associated with the parameter. #!N The pointer 
+type is that specified in the Data type #!N field of 
+the  #!F-adobe-times-bold-r-normal--18*   Individual Parameter #!N Information #!EF section of the #!N 
+Module Builder. #!EF #!N #!N #!EC #!N #!N For a Field/Group 
+input, these arguments reflect the contents of the "data" component of 
+the leaf. For a Value input (which must be a Data 
+Explorer Array), they reflect the contents of the parameter. Because the 
+parameters are inputs to the module, the arguments are read-only. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1017,dxall1018 h Output Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

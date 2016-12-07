@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rall647 Constant Array Objects #!N #!EC #!N #!N A Constant Array 
+defines an Array whose elements all have the same value. #!T,108,252 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   object #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number 
+#!EF [  #!F-adobe-times-bold-r-normal--18*   class #!EF ]  #!F-adobe-times-bold-r-normal--18*   constantarray #!EF #!N TAB 
+"  #!F-adobe-times-bold-i-normal--18*   name #!EF " #!N [  #!F-adobe-times-bold-r-normal--18*   type #!EF TAB 
+ #!F-adobe-times-bold-r-normal--18*   [unsigned] byte #!EF ] #!N  #!F-adobe-times-bold-r-normal--18*   TAB signed byte #!N 
+TAB unsigned short #!N TAB [signed] short #!N TAB unsigned int 
+#!N TAB [signed] int #!N TAB hyper #!N TAB float #!N 
+TAB double #!N TAB string #!EF #!N [  #!F-adobe-times-bold-r-normal--18*   category TAB 
+real #!EF ] #!N  #!F-adobe-times-bold-r-normal--18*   TAB complex #!EF #!N [  #!F-adobe-times-bold-r-normal--18*   
+rank #!EF  #!F-adobe-times-bold-i-normal--18*   number #!EF ] #!N [  #!F-adobe-times-bold-r-normal--18*   shape #!EF 
+ #!F-adobe-times-bold-i-normal--18*   number ... #!EF ] #!N  #!F-adobe-times-bold-r-normal--18*   items #!EF  #!F-adobe-times-bold-i-normal--18*   number 
+#!EF #!N [  #!F-adobe-times-bold-r-normal--18*   msb #!EF ] [ TAB  #!F-adobe-times-bold-r-normal--18*   text 
+#!EF ]  #!F-adobe-times-bold-r-normal--18*   data #!EF [  #!F-adobe-times-bold-r-normal--18*   mode #!EF ] TAB 
+ #!F-adobe-times-bold-i-normal--18*   offset #!EF #!N  #!F-adobe-times-bold-r-normal--18*   lsb TAB ieee #!EF TAB  #!F-adobe-times-bold-r-normal--18*   
+file #!EF  #!F-adobe-times-bold-i-normal--18*   file #!EF ,  #!F-adobe-times-bold-i-normal--18*   offset #!EF #!N  #!F-adobe-times-bold-r-normal--18*   
+TAB binary TAB follows #!N TAB ascii #!EF #!EF #!N #!N 
+#!EC #!N #!N If  #!F-adobe-times-bold-r-normal--18*   byte #!EF ,  #!F-adobe-times-bold-r-normal--18*   short #!EF 
+, or  #!F-adobe-times-bold-r-normal--18*   int #!EF are not prefixed with either signed 
+or unsigned, by default, bytes are unsigned, shorts are signed and 
+ints are signed. For compatibility with earlier versions,  #!F-adobe-times-bold-r-normal--18*   char #!EF 
+is accepted as a synonym for  #!F-adobe-times-bold-r-normal--18*   byte #!EF . #!N 
+Note: For string type data, the Array rank should be 1 
+and the Array shape should be the length of the string 
+plus 1. #!N #!N #!N The only difference between the specification 
+of a Constant Array and the specification of an Array is 
+that for a Constant Array only one value is listed in 
+the data section. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lall648,dxall649 h gridpositions Keyword  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

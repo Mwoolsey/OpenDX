@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall1014 Positions Specification #!N #!EC #!N 
+#!N If the worker routine needs information about the positions component 
+of the first input parameter, it will use one of two 
+sets of arguments to define that information, depending on whether the 
+request is for regular or irregular positions: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N Regular positions arguments: #!N #!N int p_knt Total number of 
+positions #!N int p_dim Dimensionality of positions #!N int *p_counts Count 
+of positions along each dimension #!N float *p_origin Origin of regular 
+grid #!N float *p_deltas Delta vectors, p_dim x p_dim #!N #!N 
+Irregular positions arguments: #!N #!N int p_knt Total number of positions 
+#!N int p_dim Dimensionality of positions #!N float *p_positions Explicit list 
+of positions #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall1015,dxall1016 h Connections Specification  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

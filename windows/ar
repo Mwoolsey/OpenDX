@@ -1,0 +1,55 @@
+#!/bin/sh
+cmd=$1
+shift
+olname=$1
+msolname=`cygpath -d $1`
+lname=`echo $1 | sed -e "s/\.a//"`
+shift
+ofiles=$*
+
+case $cmd in
+	*t*) 
+		dumpbin /archivemembers $lname.a > db.$$
+		grep "Archive member name" < db.$$ > gr.$$
+		sed -e "s/^.*[	 /]\([a-zA-Z0-9_-]*\).o.*/\1.o/" gr.$$  
+		rm -f db.$$ gr.$$
+		;;
+	*x*)	if test "X$ofiles" = "X" ; then
+		    dumpbin /archivemembers \"$msolname\" > db.$$
+		    grep "Archive member name" < db.$$ > gr.$$
+		    ofiles=`sed -e "s/^.*[	 /]\([a-zA-Z0-9_-]*\).obj.*/\1.obj/"  gr.$$`
+		    rm -f db.$$ gr.$$
+		fi
+		for i in $ofiles ; do
+		    lib.exe \"$msolname\" /NOLOGO /EXTRACT:$i
+		done
+		;;
+	*d*) 	for i in $ofiles ; do
+	 	    mv $lname.a tmp$$.a
+		    lib.exe /OUT:$lname.a /NOLOGO tmp$$.a /REMOVE:$i
+		done
+		;;
+	*[qr]*) if test -e $olname ; then
+		    mv $olname tmp$$.lib
+		    lib.exe /OUT:$olname /NOLOGO /MACHINE:IX86 tmp$$.lib $ofiles
+		    rm tmp$$.lib
+		else
+		    lib.exe /OUT:$olname /NOLOGO /MACHINE:IX86 $ofiles
+		fi
+		;;
+	*c*)
+		lib.exe /OUT:$olname /NOLOGO /MACHINE:IX86 $ofiles
+		;;
+	*)	echo cmd \($cmd\) must be one of t x d r c >&2
+		exit 1
+esac
+
+
+q=`echo $cmd | sed -e 's/.*v.*/XYZZY/'` 
+if test "$q" = "XYZZY" ; then
+	for i in $ofiles ; do
+	    echo $i
+	done
+fi
+
+exit 0

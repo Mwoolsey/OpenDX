@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu174.htm">Previous Page</A> &#124; <A HREF="progu176.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXGGC" HREF="progu097.htm#PToC_269">DXGetGroupClass</A></H3>
+<A NAME="IDX1737"></A>
+<A NAME="IDX1738"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Returns the subclass of a Group Object.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Class DXGetGroupClass(Group g)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Returns the subclass of a Group Object
+<TT><STRONG>g</STRONG></TT>.  This will be
+<TT><STRONG>
+CLASS_GROUP
+</STRONG></TT>
+if the Object is a generic Group Object, or either
+<TT><STRONG>CLASS_SERIES</STRONG></TT>,
+<TT><STRONG>CLASS_MULTIGRID</STRONG></TT>,
+or
+<TT><STRONG>
+CLASS_COMPOSITEFIELD
+</STRONG></TT>
+if the Object class is a subclass of
+Group.
+<P>
+A
+<TT><STRONG>
+CLASS_GROUP
+</STRONG></TT>
+Object and its
+subclasses contain other Objects that are referred to as
+members.  The members of a
+<TT><STRONG>
+CLASS_GROUP
+</STRONG></TT>
+Object can be of any class and are not restricted as to type, whereas
+the
+<TT><STRONG>CLASS_SERIES</STRONG></TT>,
+<TT><STRONG>CLASS_MULTIGRID</STRONG></TT>,
+and
+<TT><STRONG>
+CLASS_COMPOSITEFIELD
+</STRONG></TT>
+generally contain members of
+<TT><STRONG>
+TYPE_FIELD,
+</STRONG></TT>
+and they assume the type of the first typed member to be added and are
+untyped if empty.  All of
+the subclasses require that the type of all its members is the
+same; see
+<TT><STRONG>DXSetGroupType</STRONG></TT>.  A
+<TT><STRONG>CLASS_SERIES</STRONG></TT> is generally used to maintain
+time-variant data, whereas the
+<TT><STRONG>CLASS_COMPOSITEFIELD</STRONG></TT> and
+<TT><STRONG>CLASS_MULTIGRID</STRONG></TT> are used to maintain spatially
+partitioned data within a single field.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">A Group can be structured to take advantage of more than one
+Group class.  For example, one could have a Series of Composite Fields
+where each Series member is a Field that has been partitioned into
+a Composite Field.
+</td></tr></table>
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the subclass of a Group Object or returns an undefined value if
+<TT><STRONG>g</STRONG></TT> is not a Group.
+The subclass returned will be:
+<UL COMPACT>
+<LI><TT><STRONG>CLASS_GROUP</STRONG></TT>, if the Object is a generic Group
+Object; or
+<LI><TT><STRONG>CLASS_SERIES</STRONG></TT>,
+<TT><STRONG>CLASS_MULTIGRID</STRONG></TT>,
+or <TT><STRONG>CLASS_COMPOSITEFIELD</STRONG></TT>, if the Object class is a
+subclass of <TT><STRONG>Group</STRONG></TT>.
+</UL>
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu189.htm#HDRDXGOC">DXGetObjectClass</A>,
+<A HREF="progu248.htm#HDRDXNCF">DXNewCompositeField</A>,
+<A HREF="progu252.htm#HDRDXNG">DXNewGroup</A>,
+<A HREF="progu255.htm#HDRDXNMG">DXNewMultiGrid</A>,
+<A HREF="progu261.htm#HDRDXNS">DXNewSeries</A>
+</STRONG></TT>
+<P>
+<A HREF="progu045.htm#HDRMBS">"Generic Operations"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu174.htm">Previous Page</A> &#124; <A HREF="progu176.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

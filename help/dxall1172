@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxaa DXAllocateArray #!N #!N Function Allocates space for 
+the data items of an Array. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> #!N #!N Array DXAllocateArray(Array a, 
+int n) #!EF #!EF . #!N #!N #!EC #!N #!N Functional 
+Details This routine allocates to Array  #!F-adobe-times-bold-r-normal--18*   a #!EF the space 
+for at least  #!F-adobe-times-bold-r-normal--18*   n #!EF items. It increases efficiency because 
+it allocates space in advance, eliminating the need to allocate additional 
+space at a later time. It is most useful when you 
+can specify the maximum number of items that will be added. 
+The routine changes only the amount of space allocated to Array 
+ #!F-adobe-times-bold-r-normal--18*   a #!EF , not the  #!F-adobe-times-medium-i-normal--18*   number of items #!EF 
+in it (only  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData #!EF can do that). Note: In 
+the ideal case of knowing the  #!F-adobe-times-medium-i-normal--18*   exact #!EF number of 
+items the Array will require, you can call  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(a, o, 
+n, NULL) #!EF , which will allocate the right amount of 
+space for the specified number of items (  #!F-adobe-times-bold-r-normal--18*   n #!EF 
+). The allocation routine detailed here, on the other hand, is 
+for creating Arrays when this information is  #!F-adobe-times-medium-i-normal--18*   not #!EF exact. 
+#!N #!N Return Value Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  ,  #!Ldxt,dxall1400 h DXTrim  #!EL  #!EF #!N #!N  #!Lirreg,dxall1071 h Irregular Arrays  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxatm,dxall1173 h DXApplyTransform  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

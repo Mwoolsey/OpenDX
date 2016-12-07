@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall136 Example 5. Time Series with 
+Interspersed Text #!N #!EC #!N #!N The 21 lines of data 
+in the preceding example represent a portion of a larger file 
+(/usr/lpp/dx/samples/data/CO2.lis) containing a time series with 53 members. #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. In the Data Prompter initial 
+dialog box, select  #!F-adobe-times-bold-r-normal--18*   Grid or Scattered File #!EF , then 
+click on  #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF to bring up the simplified 
+Data Prompter. #!N #!I30 #!N 2. Select  #!F-adobe-times-bold-r-normal--18*   Open #!EF from 
+the  #!F-adobe-times-bold-r-normal--18*   File #!EF menu. #!N #!I30 #!N 3. In the 
+ #!F-adobe-times-bold-r-normal--18*   Open a Data Prompter Header #!EF dialog box, select CO2fragment.lis.general 
+in the  #!F-adobe-times-bold-r-normal--18*   Files #!EF list and then click on  #!F-adobe-times-bold-r-normal--18*   
+OK #!EF . #!N #!I30 #!N 4. Change the path name 
+to: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /usr/lpp/dx/samples/data/CO2.lis #!EF #!N #!N #!EC 
+#!N #!I30 #!N 5. Activate the  #!F-adobe-times-bold-r-normal--18*   Series #!EF toggle button 
+and change the value in the  #!F-adobe-times-bold-r-normal--18*   n #!EF field from 
+"1" to "53." Do not change the  #!F-adobe-times-bold-r-normal--18*   start #!EF or 
+ #!F-adobe-times-bold-r-normal--18*   delta #!EF field. #!N #!I30 #!N 6. Save the header 
+file (Step 10 of Example 1 in  #!Lex1a,dxall116 s To save the header file  #!EL  ), which should 
+look like: #!N #!I0 #!N #!EF #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N file = /usr/lpp/dx/samples/data/CO2.lis #!N points = 21 #!N format = 
+text #!N interleaving = field #!N header = marker "CO2_CONC \n" 
+#!N series = 53, 1, 1 #!N field = locations, CO2_concentration 
+#!N structure = 2-vector, scalar #!N type = float, float #!N 
+dependency = positions, positions #!N layout = 33, 12, 0, 10 
+#!N #!N end #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall137,dxall138 h Example 6. Column Majority Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

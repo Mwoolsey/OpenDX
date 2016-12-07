@@ -1,0 +1,48 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall263 Data 
+Flow #!N #!EC #!N #!N In a true data-flow implementation, all 
+modules are pure functions (i.e., their outputs are fully defined by 
+their inputs). Hence, processes are stateless with no side effects. When 
+a module's inputs are received, it runs, and when finished it 
+distributes its results to modules waiting downstream. Note that in Data 
+Explorer, results are communicated between modules by passing pointers to data 
+objects, not by copying. Of course, when running in distributed mode 
+or when using outboard modules, data must be sent by socket 
+since the processing may occur on another host. #!N #!N Consider 
+the example illustrated in  #!Lxmodx137,dxall264 f Figure 37  #!EL  . #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx137 #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N #!N 
+Figure 37. Example 1 #!EF #!N #!EC The Collect module waits 
+for inputs from the Isosurface and MapToPlane modules. Import would send 
+its results to the waiting Isosurface and MapToPlane modules. In effect, 
+this execution model is entirely data-driven and top-down: the execution of 
+modules is dependent solely on the passage of data through the 
+system. #!N #!N While this simple data-flow execution model seems a 
+natural mechanism for the execution of visual programs, a closer examination 
+reveals that real-world problems are more complex. In order to function 
+efficiently, it is vital that the system avoid unnecessary work. In 
+general, there are two reasons why modules present in a visual 
+program may not need to be executed when their turn comes: 
+1) their results are not actually required by a result of 
+the network and 2) their inputs are unchanged from the last 
+time the module was executed (i.e. the result will be the 
+same). #!N #!N The outputs of a visualization network occur in 
+modules that have side effects. They produce results outside of the 
+visual program itself such as the display of images on a 
+workstation or the creation of output files. Unless the result of 
+a module ultimately affects a module that produces a side effect, 
+that module does not need to be executed. #!N #!N Eliminating 
+modules that are not ancestors (i.e., not upstream) of modules with 
+side effects is done in Data Explorer by preprocessing the network 
+before the actual data-flow network evaluation commences. This is done by 
+traversing the graph bottom-up, beginning at each module known to have 
+side effects and flagging each module as it is encountered. Once 
+this is complete, modules that have not been flagged do not 
+have to be executed. #!N #!N Note that the exact order 
+in which modules will be executed cannot be controlled by the 
+user; for example, modules in two parallel branches may execute in 
+any order with respect to one another; it is only guaranteed 
+that a module that depends on the results of one or 
+more modules will wait for them to be complete before it 
+is executed. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lall264,dxall265 h Iterative Execution and Caching of Intermediate Results  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

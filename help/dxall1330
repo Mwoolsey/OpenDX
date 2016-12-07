@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxpart DXPartition #!N #!N Function #!N 
+#!N Divides a Field into partitions. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Group DXPartition(Field f, int n, int size) #!EF #!N 
+#!N Functional Details #!N #!N Divides  #!F-adobe-times-bold-r-normal--18*   f #!EF into a 
+maximum of  #!F-adobe-times-bold-r-normal--18*   n #!EF spatially local pieces with at least 
+ #!F-adobe-times-bold-r-normal--18*   size #!EF points in each piece. #!N #!N The Group 
+created can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N 
+Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   f #!EF (if it is 
+already partitioned) or returns a new Composite Field; otherwise, it returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgrov,dxall1273 h DXGrow, DXGrowV  #!EL  ,  #!Ldxsk,dxall1395 h DXShrink  #!EL  #!EF #!N #!N  #!Lpttg,dxall1116 h Data Partitioning  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxptv,dxall1331 h DXPrint, DXPrintV  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

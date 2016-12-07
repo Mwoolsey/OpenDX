@@ -1,0 +1,436 @@
+#!/bin/sh
+
+##
+## Files we write must be world readable so that httpd can get them
+## and writeable so that whoever starts the server next can clean up.
+##
+umask 1
+
+
+if [ "$DXROOT" = "" ]; then
+	DXROOT=@prefix@/dx
+fi
+export DXROOT
+##
+## both java and dx script need to be in the path
+## we know where they are, so don't take any chances
+## override by having PATH intercept your preferred "java" vm or
+## custom dx script first.
+##
+PATH=$PATH:@prefix@/dx/bin
+export PATH
+if [ "$CLASSPATH" = "" ]; then
+	CLASSPATH=@DX_JAVA_CLASSPATH@:./:./server.jar
+	else
+	CLASSPATH=$CLASSPATH:@DX_JAVA_CLASSPATH@:./:./server.jar
+fi
+export CLASSPATH
+##
+## We're interested in the location of the script file so that
+## we can make an attempt at avoiding the use of DXROOT for
+## finding the location of our .class files.  We'll assume
+## that the script lives in installDir/java/server/bin
+## and that our class directory is found relative to that
+## via ../class.  That will be a default value for serverdir.
+## If it doesn't work, then we'll fall back to DXROOT/java/server/class
+##
+## ...so if the startserver script is copied outside of the install tree
+## AND the install tree isn't part of DXROOT, then the startserver
+## script won't work.
+##
+bindir=`dirname $0`
+default_serverdir=""
+if [ -r $bindir/../class/DXServer.class ]; then
+    default_serverdir=$bindir/../class
+else
+    default_serverdir=$DXROOT/java/server/class
+fi
+
+##
+## Parse cmd line args
+##
+aarg=""
+webpage=""
+help=""
+morehelp=""
+dbg_args=""
+verbose=""
+version=""
+foreground=""
+outdir=""
+outloc=""
+outurl=""
+memory=""
+dxroot=""
+user=""
+sessions=""
+numargs="0"
+shared_obj=""
+while [ ! "$*" = "" ]; do
+    case $1 in
+	-debug) aarg="${aarg} -d"; dbg_args="-DDXServerThread.debug -DDXServer.debug";;
+	-d) aarg="${aarg} -d"; dbg_args="-DDXServerThread.debug -DDXServer.debug";;
+
+	-dxroot) aarg="${aarg} -dxroot $2"; dxroot=$2; shift ;;
+	-dxlib) shared_obj="${shared_obj} -Djx.lib=$2"; shift ;;
+
+	-foreground) aarg="${aarg} -fg"; foreground="1";;
+	-fg) aarg="${aarg} -fg"; foreground="1";;
+
+	-help) help="1";;
+	-h) help="1";;
+
+	-memory) aarg="${aarg} -m $2"; memory=$2; shift;;
+	-m)  aarg="${aarg} -m $2"; memory=$2; shift;;
+
+	-morehelp) help="1"; morehelp="1";;
+
+	-outdir) aarg="${aarg} -od $2"; outdir=-DDXServer.outDir=$2 ; outloc=$2 ; shift ;;
+	-od) aarg="${aarg} -od $2"; outdir=-DDXServer.outDir=$2 ; outloc=$2 ; shift ;;
+
+	-outurl) aarg="${aarg} -outurl $2"; outurl=-DDXServer.outUrl=$2 ; shift ;;
+
+	-sessions) aarg="${aarg} -s $2"; sessions=-DDXServer.max_sessions=$2; shift ;;
+	-s) aarg="${aarg} -s $2"; sessions=-DDXServer.max_sessions=$2; shift ;;
+
+	-user) user=$2; shift ;;
+
+	-verbose) aarg="${aarg} -v"; verbose="1";;
+	-v) aarg="${aarg} -v"; verbose="1";;
+
+	-version) version="1";;
+
+	-webpage) aarg="${aarg} -w $2"; webpage="$2"; shift ;;
+	-w) aarg="${aarg} -w $2"; webpage="$2"; shift ;;
+
+	*) echo Unknown option $1; help="1" ;;
+    esac
+    numargs="nonzero"
+    shift
+done
+
+if [ "$user" != "" ]; then
+    su $user -c "$0 ${aarg}"
+    exit 0;
+fi
+
+if [ "$version" = "1" ]; then
+    echo Java Explorer startup script version 1.0.0
+    exit 0
+fi
+
+if [ "$help" = "1" ]; then
+    echo "Format: startserver [ -webpage htmlfile | [ -outdir dir -outurl url ]] [ -help ] [ -debug ] [ -verbose ] [ -memory Mbytes ] [ -dxroot dir ] [ -user user ]"
+    echo "    -webpage.......complete path of a Java Explorer web page"
+    echo "    -outdir........directory into which new images should be written"
+    echo "    -outurl........url of the -outdir argument relative to the document base"
+    echo "    -help..........this message"
+    echo "    -debug.........print message traffic"
+    echo "    -verbose.......print cmd line args passed to DXServer"
+    echo "    -version.......the software version number of this script"
+    echo "    -foreground....run in the foreground in order to satisfy init"
+    echo "    -memory........set the amount of memory dxexec uses."
+    echo "    -dxroot........use dir as DXROOT"
+    echo "    -user..........run the script under a different user id"
+    echo "    -sessions......max number of simultaneous Data Explorer sessions (default: 1)"
+    echo "    -morehelp......examples"
+    echo ""
+    echo "Format: stopserver [ host ]"
+    echo "     host..........the host machine of the DXServer. (default: localhost)"
+    echo ""
+    if [ "$morehelp" = "1" ]; then
+    echo ""
+    echo "    Example 1)"
+    echo "        You have just unpacked the Java Explorer software and "
+    echo "        have no httpd.  Point your browser at a url beginning "
+    echo "        with file:/ and start DXServer like this:"
+    echo "           $ startserver"
+    echo "    "
+    echo "    Example 2)"
+    echo "        Your httpd program supplies files underneath /usr/http.  "
+    echo "        You unpacked Java Explorer on a machine named foobar in "
+    echo "        /usr/http. Point your browser at "
+    echo "        http://foobar/java/htmlpages/Status.html and start DXServer"
+    echo "        like this:"
+    echo "            $ startserver -webpage /usr/http/java/htmlpages/Status.html"
+    echo "    "
+    echo "    Example 3)"
+    echo "        Your collection of web pages created with Java Explorer "
+    echo "        is served by an http program.  Your web site is rooted "
+    echo "        at /usr/http/sitedir.  You have created "
+    echo "        /usr/http/sitedir/output as a location into which Data "
+    echo "        Explorer can write image files.  You point your browser at "
+    echo "        http://foobar/sitedir/yourpage.html and start DXServer like "
+    echo "        this:"
+    echo "            $ startserver -webpage /usr/http/sitedir/yourpage.html"
+    echo "        or"
+    echo "            $ startserver -outdir /usr/http/sitedir/output -outurl output"
+    echo "        The purpose of the -outdir and -outurl arguments is to accommodate"
+    echo "        web pages on read-only file systems.  They shouldn't be used"
+    echo "        otherwise."
+    echo ""   
+    echo "    Example 4)"
+    echo "        You created web pages using Java Explorer and want DXServer"
+    echo "        available all the time.  Your machine has an inittab entry"
+    echo "        for an http daemon.  Make a similar entry for startserver:"
+    echo "            javadx:2:respawn:startserver -user guest -dxroot /usr/lpp/dx \ "
+    echo "            -webpage /usr/http/java/htmlpages/Status.html -foreground"
+    echo "            > /tmp/jx.log 2>&1"
+    echo ""
+    echo "    Example 5)"
+    echo "        You have several collections of web pages served by one DXServer."
+    echo "        Your http daemon accesses files underneath the the directory"
+    echo "        /usr/http.  Start DXServer like this:"
+    echo "            $ startserver -outdir /usr/http/output -outurl /output"
+    echo ""
+    echo ""
+    echo "    Installation Tips"
+    echo "        1)  The directory - java/htmlpages - within this distribution belongs"
+    echo "            in an area accessible to an http daemon.  Since these areas are "
+    echo "            typically public, you probably will want the java/server directory "
+    echo "            to reside somewhere else.  This should be taken care of by the"
+    echo "            Java Explorer installation script, however there is no such script"
+    echo "            as of 6/98."
+    echo ""
+    echo "        2)  You should be able to start the DXServer using startserver with no"
+    echo "            arguments (as in Example 1) if you simply uncompress and untar the "
+    echo "            distribution."
+    echo ""
+    echo "        3)  The organizations which provide browsers, plug-ins and development"
+    echo "            tools maintain sites from which you can download recent releases"
+    echo "            of their products.  See java/htmlapges/Status.html for pointers."
+    fi
+    exit 0 
+fi
+
+##
+## E R R O R    C H E C K I N G
+## E R R O R    C H E C K I N G
+## E R R O R    C H E C K I N G
+##
+##
+## Test for an executable java and dx commands
+##
+jcmd=`type java | sed -e 's/java is //g'`
+if [ ! -x $jcmd ] ; then
+    echo Error: no java command in PATH
+    exit 1;
+fi
+jcmd=`type dx | sed -e 's/dx is //g'`
+if [ ! -x "$jcmd" ] ; then
+    if [ "$dxroot" = "" ]; then
+	PATH=${PATH}:$DXROOT/bin
+    else 
+	PATH=${PATH}:$dxroot/bin
+    fi
+    jcmd=`type dx | sed -e 's/dx is //g'`
+fi
+if [ ! -x "$jcmd" ] ; then
+    echo Error: no dx command in PATH
+    exit 1;
+fi
+##
+##
+## default case, startserver w/o args, use default samples installation for webpage option
+##
+if [ "$numargs" = "0" ] ; then
+webpage=@prefix@/dx/java/htmlpages/Status.html
+echo "no arguments to startserver, you may wish to use startserver -help for options"
+echo "proceeding as if you invoked startserver with installation defaults"
+echo "startserver -webpage $webpage "
+fi
+
+
+
+##
+## If -webpage is specified, is it readable?
+##
+if [ "$webpage" != "" ]; then
+    if [ ! -r $webpage ]; then
+	echo Error: -webpage option $webpage is not readable.
+	exit 1;
+    fi
+fi
+
+##
+## - You can't specify webpage if you specified outdir
+## - You must specify outurl if you did specify outdir
+##
+if [ "$outdir" != "" ]; then
+    if [ "$webpage" != "" ]; then
+	echo Error: You can not specify both -outdir and -webpage. 
+	exit 1;
+    fi
+    if [ "$outurl" = "" ]; then
+	echo Error: When you specify -outdir your must also specify -outurl
+	exit 1;
+    fi
+else
+    if [ "$outurl" != "" ]; then
+	echo Error: When you specify -outurl your must also specify -outdir
+	exit 1;
+    fi
+    if [ "$webpage" = "" ]; then
+	outloc="${bindir}/../../output"
+	outurl="-DDXServer.outUrl=output"
+    fi
+fi
+
+## 
+## Require a DXROOT setting 
+## 
+if [ "$dxroot" != "" ]; then
+    DXROOT=$dxroot
+fi
+
+if [ "$DXROOT" = "" ]; then
+	echo "Error: You must set DXROOT in order to run startserver"
+	exit 1 ;
+fi
+if [ ! -d $DXROOT ]; then
+    echo Error: DXROOT: $DXROOT is not a directory.
+    exit 1;
+fi
+
+##
+## E N D    O F    E R R O R    C H E C K I N G
+## E N D    O F    E R R O R    C H E C K I N G
+## E N D    O F    E R R O R    C H E C K I N G
+##
+
+##
+## At this point in the script we know we were handed either -webpage
+## or -outdir && -outurl.  If we have -webpage, then we'll compute
+## outloc.  If we have -outdir and -outurl, we're done.
+##
+if [ "$webpage" != "" ]; then
+    if [ -d $webpage ]; then
+	echo Error: -webpage $webpage should be a file.
+	exit 1;
+    fi
+    webdir=`dirname $webpage`
+    if [ -d $webdir/../output ]; then
+	outloc=$webdir/../output
+	outurl="-DDXServer.outUrl=output"
+    else
+	echo Error: startserver expects to find a directory named output beside $webpage.
+	exit 1
+    fi
+fi
+if [ "$outdir" = "" ] ; then
+    outdir=-DDXServer.outDir=$outloc 
+fi
+
+
+##
+## $outdir must be point to a writable directory.
+##
+if [ ! -d $outloc ]; then
+    echo Error: Output location: ${outloc} is not a directory.
+    exit 1;
+else
+    if [ ! -w $outloc ]; then
+	echo Error: Output location: ${outloc} is not writable.
+	exit 1;
+    fi
+fi
+
+
+##
+## Where is the DXServer directory?  The .class files
+## are cross platform.  Starting java with jx.lib set, e.g. 
+## shared_obj="-Djx.lib=/usr/local/dx/java/server/lib_sgi/libAnyDX.so"
+## tells java to use an arch specific method of loading shared
+## objects where the complete file name including path must be
+## specified.
+##
+## The use of SERVERDIR is intended to give developers (me) a 
+## way of using this script with a local build.
+##
+serverdir=
+if [ "$SERVERDIR" = "" ]; then
+    serverdir=$default_serverdir
+else
+    serverdir=$SERVERDIR
+    shared_obj=
+fi
+
+cd $serverdir
+libarch=`dx -whicharch`
+if test "$libarch" = "macos" ; then
+  if test -z $DYLD_LIBRARY_PATH ; then
+     DYLD_LIBRARY_PATH=$serverdir/../lib_$libarch
+  else
+     DYLD_LIBRARY_PATH=$serverdir/../lib_$libarch:$DYLD_LIBRARY_PATH
+  fi
+  export DYLD_LIBRARY_PATH
+fi
+if test "$libarch" != "macos" ; then
+   if [ "$LD_LIBRARY_PATH" = "" ]; then
+   LD_LIBRARY_PATH=$serverdir/../lib_$libarch
+   else
+   LD_LIBRARY_PATH=$serverdir/../lib_$libarch:$LD_LIBRARY_PATH
+   fi
+   export LD_LIBRARY_PATH
+fi
+
+##
+## DXServer.class must be in the current working directory.
+##
+if [ ! -r ./DXServer.class ] && [ ! -r ./server.jar ]; then
+    echo "Error: Current working directory is" `pwd`
+    echo "startserver cannot run the server here."
+    exit 1;
+fi
+
+##
+## set important DX environment variable
+## DXMACROS must include ../dxmacros to get *mac.net
+## DXARGS must not be -startup, -prompter, -tutor, etc.
+##
+if [ "$DXMACROS" = "" ]; then
+    DXMACROS=$DXROOT/samples/macros:../dxmacros:../usermacros
+else
+    DXMACROS=$DXROOT/samples/macros:../dxmacros:../usermacros:$DXMACROS
+fi
+## dxexec doesn't use DXMACROS, it uses DXINCLUDES the same way
+DXINCLUDES=$DXMACROS
+
+if [ "$DXDATA" = "" ]; then
+    DXDATA=$DXROOT/samples/data:../userdata
+else
+    DXDATA=$DXROOT/samples/data:../userdata:$DXDATA
+fi
+
+if [ "$memory" = "" ]; then
+    DXARGS="-optimize memory -highlight off -execonly -processors 1"
+else
+    DXARGS="-optimize memory -memory $memory -highlight off -execonly -processors 1"
+fi
+
+export DXARGS
+export DXMACROS
+export DXDATA
+export DXINCLUDES
+
+if [ "$verbose" = "1" ]; then
+    echo "java $dbg_args $sessions $outdir $outurl $shared_obj DXServer"
+    echo ""
+    echo "     DXROOT     = "$DXROOT
+    echo "     DXARGS     = "$DXARGS
+    echo "     DXMACROS   = "$DXMACROS
+    echo "     DXINCLUDES = "$DXINCLUDES
+    echo "     DXDATA     = "$DXDATA
+    echo ""
+fi
+
+
+
+
+if [ "$foreground" = "1" ]; then
+    java $dbg_args $sessions $outdir $outurl $shared_obj DXServer
+else
+    java $dbg_args $sessions $outdir $outurl $shared_obj DXServer &
+fi
+
+exit 0

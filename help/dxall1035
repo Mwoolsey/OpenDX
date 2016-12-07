@@ -1,0 +1,79 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rexavgc AverageCell Module 
+Example--Average the Data Values of All Neighbors #!N #!EC #!N #!N 
+The AverageCell module computes, for each cell, the average of the 
+data values of that cell and all its neighbors. #!N Note: 
+This module works only on data that is cell-centered (i.e., connection-dependent) 
+and has connections of type "quads." #!N #!N #!N The AverageCell 
+module takes one input:  #!F-adobe-times-bold-r-normal--18*   input #!EF , of type  #!F-adobe-times-bold-r-normal--18*   
+field #!EF , which has no default value. The module has 
+one output:  #!F-adobe-times-bold-r-normal--18*   output #!EF , of type  #!F-adobe-times-bold-r-normal--18*   field #!EF 
+. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (1) START THE MODULE BUILDER #!EF with 
+the command: __________________________________ #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -builder #!EF 
+#!N #!N #!EC #!N #!N The Module Builder dialog box appears. 
+Note that the dialog box carries no information, since no module 
+has been specified. (For a simple example of creating a module 
+with the Module Builder, see  #!Ltmodbld,dxall1006 h Using the Module Builder: A Quick Walk Through  #!EL  ). #!N #!N  #!F-adobe-times-bold-r-normal--18*   (2) 
+SELECT ___________  #!F-adobe-times-bold-r-normal--18*   OPEN #!EF #!EF from the _______________________  #!F-adobe-times-bold-r-normal--18*   File 
+#!EF pull-down menu. An  #!F-adobe-times-bold-r-normal--18*   Open a Module Builder file... #!EF 
+dialog box appears. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (3) READ IN #!EF /usr/lpp/dx/samples/program_guide/averagecell.mb 
+as follows: __________________ #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o Type the full path name in the  #!F-adobe-times-bold-r-normal--18*   Filter #!EF 
+field of the dialog box. #!N #!I30 #!N o Click on 
+(in sequence): #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N - 
+the  #!F-adobe-times-bold-r-normal--18*   Filter #!EF button #!N #!I30 #!N - the name 
+of the file in the  #!F-adobe-times-bold-r-normal--18*   Files #!EF field #!N #!I30 
+#!N - the  #!F-adobe-times-bold-r-normal--18*   OK #!EF button. #!N #!I0 #!N #!EF 
+#!N Information describing the inputs and output of the module (extracted 
+from the averagecell.mb file) appears in the Module Builder dialog box. 
+#!N #!I0 #!N #!EF #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   (4) SAVE THE 
+.MB FILE #!EF to a writable directory (use ___________________________  #!F-adobe-times-bold-r-normal--18*   Save 
+As... #!EF in the  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu). #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   (5) SELECT #!EF ________________  #!F-adobe-times-bold-r-normal--18*   Create All #!EF from the 
+ #!F-adobe-times-bold-r-normal--18*   Build #!EF pull-down menu of the dialog box. This option 
+creates three files for the module: averagecell.c, averagecell.mdf, and averagecell.make, #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   (6) IMPLEMENT THE AVERAGECELL FUNCTION #!EF . ____________________________________________ #!N 
+#!N Use an editor to add the following lines after "User's 
+code goes here" in the averagecell.c file: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N int *itemcounts = NULL, i, neighbor; #!N #!N /* make 
+scratch space to hold the number of items added for each 
+element */ #!N itemcounts = DXAllocate(input_knt*sizeof(int)); #!N if (!itemcounts) #!N goto 
+error; #!N #!N /* #!N * first initialize the output data 
+component to zero, and itemcounts to #!N * zero. #!N */ 
+#!N for (i=0; i<input_knt; i++) { #!N output_data[i] = 0; #!N 
+itemcounts[i]=0; #!N } #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N /* for each data value, add that value to the 
+appropriate items in the #!N * output data array. Also increment 
+itemcounts for those cells. #!N */ #!N for (i=0; i<input_knt; i++) 
+{ #!N /* first do itself */ #!N output_data[i]+=input_data[i]; #!N itemcounts[i]++; 
+#!N #!N /* now do neighbors in fastest-varying dimension */ #!N 
+neighbor = i-1; #!N if (neighbor >= 0 && ((i % 
+(c_counts[1]-1)) != 0)) { #!N output_data[neighbor]+=input_data[i]; #!N itemcounts[neighbor]++; #!N } #!EF 
+#!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N neighbor = i+1; 
+#!N if (neighbor < input_knt &&(((i+1)%(c_counts[1]-1)) != 0)) { #!N output_data[neighbor]+=input_data[i]; 
+#!N itemcounts[neighbor]++; #!N } #!N #!N /* now do neighbors in 
+the slowest-varying dimension */ #!N neighbor = i - (c_counts[1]-1); #!N 
+if (neighbor >= 0) { #!N output_data[neighbor]+=input_data[i]; #!N itemcounts[neighbor]++; #!N } 
+#!N neighbor = i + (c_counts[1]-1); #!N if (neighbor < input_knt) 
+{ #!N output_data[neighbor]+=input_data[i]; #!N itemcounts[neighbor]++; #!N } #!N } #!EF #!N 
+#!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /* now divide by 
+the number of items added for that cell */ #!N for 
+(i=0; i< input_knt; i++) #!N output_data[i] = output_data[i]/itemcounts[i]; #!N #!N DXFree((Pointer)itemcounts); 
+#!N return OK; #!N error: #!N DXFree((Pointer)itemcounts); #!N return ERROR; #!N 
+} #!EF #!N #!N #!EC #!N #!N The file /usr/lpp/dx/samples/program_guide/averagecell.c contains 
+a completed version of this program. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (7) TO 
+CREATE A VERSION OF DATA EXPLORER THAT INCLUDES #!EF the AverageCell 
+module, enter the command: ____________________________________________________________ #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N make 
+-f averagecell.make dxexec #!EF #!N #!N #!EC #!N #!N (You have 
+now created an executable that contains the AverageCell module.) #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   (8) TO INVOKE THIS VERSION, ENTER: #!EF _________________________________________ #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf ./averagecell.mdf -exec ./dxexec #!EF #!N 
+#!N #!EC #!N #!N This command starts Data Explorer (the averagecell.mdf 
+file tells the graphical user interface about AverageCell and its inputs 
+and outputs). The executable dxexec invoked here is the one created 
+in Step 6. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (9) WITH THIS VERSION OF 
+DATA EXPLORER #!EF you can now run any visual program that 
+uses the AverageCell module. ____________________________________________ One such program is /usr/lpp/dx/samples/program_guide/averagecell.net #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Limptd,dxall1036 h Importing Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

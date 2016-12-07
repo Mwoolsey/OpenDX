@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Include</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu074.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu076.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRINCLUDE" ></A>Include</H3>
+		<A NAME="IDX547"></A><A NAME="IDX548"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATIAE">Import and Export</A>
+<A NAME="IDX549"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Includes data points in (or excludes them from) a data set.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+
+output</STRONG> = Include(<STRONG>data, min, max, exclude, cull, pointwise</STRONG>);
+
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the field from which to select
+points
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>min</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">min of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">minimum value to include
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>max</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">max of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">maximum value to include
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>exclude</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">
+0: include selected range
+<BR>
+1: exclude selected range
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>cull</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: culled points marked invalid
+<BR>
+1: culled points removed
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>pointwise</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">if 1, ignore connections when
+selecting points
+
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">the field with selected points
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module determines which points in a data set are to be treated
+as valid by other modules.
+It does so by removing or invalidating data values that fall within (or
+outside) a specified range, thereby <I>including</I> the
+remaining points in the set.
+
+If there are connections (or faces or polylines)
+in the field, and <TT><STRONG>pointwise</STRONG></TT>=0,
+then Include also removes all
+invalid connections (connections containing at least one invalid position)
+and all
+unreferenced positions (positions not referred to by any valid connection,
+face, or polyline element).
+
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>is the data field that the module operates on.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>min</STRONG></TT>
+&nbsp;and&nbsp; <TT><STRONG>max</STRONG></TT>
+</B></TD><TD><P>specify a range of data values whose function is determined by
+the
+<TT><STRONG>exclude</STRONG></TT> flag (see below).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>exclude</STRONG></TT>
+</B></TD><TD><P>specifies whether the values to be excluded from the data set
+lie
+within or outside the range defined by <TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT>.
+<UL COMPACT>
+<LI>0: Removes or invalidates all elements or positions whose data
+values lie <I>outside</I> the specified range.
+<LI>1: Removes or invalidates all elements or positions whose data
+values lie <I>within</I> the specified range.
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>cull</STRONG></TT>
+</B></TD><TD><P>specifies whether the excluded (culled) points are to be
+invalidated
+or actually removed from the data set.
+<UL COMPACT>
+<LI>0: Returns the field with invalid positions and invalid connections,
+
+invalid faces, or invalid polylines
+
+components.
+Since it is unnecessary to remove invalid positions, connections,
+faces,
+
+or polylines,
+
+in order to have them treated as invalid by other modules, this is
+usually the preferred setting.
+<P>
+If the module removes points from data with regular connections (e.g.,
+cubes or quads), the connections become irregular.
+<LI>1: Returns the field with invalid positions and connections
+removed.
+</UL>
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B>pointwise
+</B></TD><TD><P>if set to 1, the connections of <TT><STRONG>data</STRONG></TT>
+are removed
+before the points are selected.
+
+</TD></TR></TABLE>
+See <A HREF="usrgu025.htm#HDRINVAL">"Invalid Positions and Invalid Connections
+Components"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>
+for further discussion of invalid data.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If <TT><STRONG>data</STRONG></TT> is a vector field and
+<TT><STRONG>min</STRONG></TT> and <TT><STRONG>max</STRONG></TT>
+are:
+<UL COMPACT>
+<LI>scalars, then the module uses <TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT> to exclude points whose magnitudes
+fall inside (or outside) the limits.
+<LI>vectors matching the shape of the data field, then only those
+vector values lying between the corresponding limits are
+retained.
+<P>
+For example, if the data are 3-D vectors, the values retained are those
+for which min<SUB>x</SUB> &lt;&#61; data<SUB>x</SUB> &lt;&#61;
+max<SUB>x</SUB> and min<SUB>y</SUB> &lt;&#61;
+data<SUB>y</SUB> &lt;&#61; max<SUB>y</SUB>
+and min<SUB>z</SUB> &lt;&#61;
+data<SUB>z</SUB> &lt;&#61;
+max<SUB>z</SUB>
+are retained (assuming <TT><STRONG>exclude</STRONG></TT> = 0).
+</UL>
+</td></tr></table>
+<P><STRONG>Components</STRONG>
+<P>
+Modifies the "data," "positions," and "connections"
+components and any components that depend on "positions"
+or "connections."
+Adds an "invalid positions," "invalid connections," or
+"invalid faces" component if <TT><STRONG>cull</STRONG></TT>
+is set to 0.
+
+Removes the "connections" component if <TT><STRONG>pointwise</STRONG></TT>
+is set to 1.
+
+All other components are propagated to the output.
+<P><STRONG>Example</STRONG>
+<P>
+In the following example, the gradient of the electron density
+has been mapped onto an isosurface.
+The Include module removes all points whose data values are greater
+than 1.5.
+<PRE>
+electrondensity = Import("/usr/local/dx/samples/data/watermolecule");
+electrondensity = Partition(electrondensity);
+gradientdensity = Gradient(electrondensity);
+maggradient = Compute("mag($0)", gradientdensity);
+isosurface = Isosurface(electrondensity, 0.3);
+mappediso = Map(isosurface, maggradient);
+camera = AutoCamera(isosurface);
+included = Include(mappediso, 0, 1.5);
+Display(included, camera);
+</PRE>
+<P>
+<H5><A NAME="Header_124">Including Data Points in a Data Field</A></H5>
+<P>Consider a field containing position-dependent data and a
+"connections" component.
+
+If <TT><STRONG>pointwise</STRONG></TT>=0,
+
+after invalidating positions with data values outside the specified
+range, Include invalidates all connections that reference
+(include) an invalid position, and finally invalidates
+all positions not referred to by any valid
+connection.
+That is, no connection elements that include <I>any</I> invalid
+data values are retained--because the result of interpolation
+within such a connection element is not defined.
+For example, the following grid has valid data points (x), invalid
+points (i), and quad connections.
+<PRE>
+x--------x--------i--------i--------x
+|        |        |        |        |
+|        |        |        |        |
+|        |        |        |        |
+x--------x--------i--------i--------x
+|        |        |        |
+|        |        |        |
+|        |        |        |
+x--------x--------x--------x
+|        |        |        |
+|        |        |        |
+|        |        |        |
+x--------x--------x--------x
+</PRE>
+The removal of invalid points leaves three invalid connection elements
+(the quads marked with "o") and two data positions that have no
+valid connection to any other data point:
+<PRE>
+x--------x--------                  x
+|        |
+|        |   o
+|        |
+x--------x--------                  x
+|        |        |        |
+|        |   o    |   o    |
+|        |        |        |
+x--------x--------x--------x
+|        |        |        |
+|        |        |        |
+|        |        |        |
+x--------x--------x--------x
+</PRE>
+The field returned by Include is represented by the grid shown below.
+<PRE>
+x--------x
+|        |
+|        |
+|        |
+x--------x
+|        |
+|        |
+|        |
+x--------x--------x--------x
+|        |        |        |
+|        |        |        |
+|        |        |        |
+x--------x--------x--------x
+</PRE>
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+GeneralImport1.net
+Thunder&#95;cellcentered.net
+SIMPLE/Include.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu115.htm#HDRREGRID">Regrid</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

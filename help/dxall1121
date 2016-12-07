@@ -1,0 +1,58 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rhash Hashing 
+#!N #!EC #!N #!N This section describes a set of routines 
+for storing an arbitrary number of elements with a fixed access 
+time. This implementation is designed for general-purpose use in many applications. 
+Copies of the elements are stored in a hash table. #!N 
+#!N The elements may be of any fixed size, set at 
+the time that the hash table is created. Each element contains 
+a key identifying the element, along with whatever data you choose 
+to associate with that key. For example, a key might be 
+an x, y, z point, with an associated data value for 
+that point. #!N #!N Elements are stored in the table using 
+long integer pseudokeys. These pseudokeys should be uniformly distributed in any 
+range beginning at zero. #!N Note: Pseudokey 0xFFFFFFFF is reserved. Items 
+cannot not be placed in the hash table using this pseudokey 
+value. #!N #!N #!N The elements themselves may contain the pseudokey 
+as their first long integer word. Alternatively, the pseudokey may be 
+derived from the element through a call-back function provided at the 
+time the hash table is created. #!N #!N More than one 
+element may be stored under the same pseudokey if a compare 
+function is provided at the time the hash table was created. 
+Whenever the hash table query function is called with the same 
+search key, the hash table is searched for an element whose 
+pseudokey matches the key either in or derived from the search 
+key. If no compare function has been provided, the found element 
+is returned. However, if a compare function has been provided, it 
+is called by the hash table query routine to match the 
+search key against each element in the hash table that matches 
+the pseudokey. When the compare function succeeds (returns a 0), the 
+element is returned. #!N #!N A similar sequence is used to 
+either insert a unique element (if a compare function was provided) 
+or to overwrite a previously inserted element of the same key 
+(if a compare function was not provided). #!N Note: Only 16 
+elements may be stored using the same pseudokey. #!N #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   HashTable DXCreateHash() #!EF #!EF #!I50 
+#!N Creates a hash table. See  #!Lun10,dxall1122 h Examples  #!EL  . See  #!Ldxch,dxall1190 h DXCreateHash  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Element DXQueryHashElement() #!EF #!EF #!I50 #!N 
+Searches a hash table for an element matching a specified key. 
+See  #!Lun10,dxall1122 h Examples  #!EL  . See  #!Ldxqhe,dxall1345 h DXQueryHashElement  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Error DXInsertHashElement() #!EF #!EF #!I50 #!N Inserts an element into a 
+hash table. See  #!Lun10,dxall1122 h Examples  #!EL  . See  #!Ldxihe,dxall1283 h DXInsertHashElement  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXDeleteHashElement() #!EF #!EF #!I50 #!N Removes any element 
+that matches a search key. See  #!Ldxdhe,dxall1197 h DXDeleteHashElement  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXInitGetNextHashElement() #!EF #!EF #!I50 #!N Initializes the pointer 
+to the next element for  #!F-adobe-times-bold-r-normal--18*   GetNextHashElement #!EF . See  #!Ldxignhe,dxall1279 h DXInitGetNextHashElement  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXGetNextHashElement() #!EF #!EF #!I50 
+#!N Returns the next element in a hash table. See  #!Ldxgnhe,dxall1251 h DXGetNextHashElement  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXDestroyHash() #!EF #!EF #!I50 
+#!N Deletes a hash table. See  #!Ldxdhsh,dxall1198 h DXDestroyHash  #!EL  . #!I0 #!N #!N 
+#!N #!N Optional routines provided by the caller at the time 
+of creation of the hash table follow: #!N #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   hashFunc() #!EF #!EF #!I50 #!N Converts 
+a search key to a long integer pseudokey. Called on insertion 
+and query. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   cmpFunc() #!EF #!EF #!I50 
+#!N Determines whether elements with the same pseudokey are unique. Called 
+on insertion and query. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lun10,dxall1122 h Examples  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

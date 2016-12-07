@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdlaycol Delayed Colors #!N #!N #!N If you are coloring 
+your objects (using AutoColor, AutoGrayScale, or Colormap/Color), you might want to 
+use "delayed" colors. #!N #!N To do this, convert the data 
+component to unsigned bytes and set the "delayed" parameter of the 
+coloring module to 1. Using delayed colors means that rather than 
+a 3-vector being used for each data point, a single scalar 
+byte is used to index into a color table with 256 
+entries. #!N #!N If you are using ReadImage, you may want 
+to set the DXDELAYEDCOLORS environment variable. See  #!Lreadima,dxall915 h ReadImage  #!EL  in IBM Visualization 
+Data Explorer User's Reference. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ltall578,dxall578 h Converting Data Types  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

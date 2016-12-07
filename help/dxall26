@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rapg Tutorial II: Editing and Creating Visual 
+Programs #!N #!EC #!N #!N This tutorial will show you how 
+to modify existing visual programs and create new ones. In the 
+process, it will also introduce you to a number of the 
+most commonly used modules. As you become more experienced using Data 
+Explorer, you can explore more of each module's many options. #!CIndianRed 
+#!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Tutorial II Topics #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o  #!Ltedvp,dxall27 h Editing a Visual Program: The Basics  #!EL  #!N #!I30 #!N o  #!Ltimpdat,dxall37 h Importing Data  #!EL  
+#!N #!I30 #!N o  #!Ltyod,dxall41 h Importing Your Own Data  #!EL  #!N #!I30 #!N o  #!Lt2ddat,dxall42 h Visualizing 2-Dimensional Data  #!EL  #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N -  #!Ltcolor,dxall43 h Colors  #!EL  #!N #!I30 
+#!N -  #!Ltcntln,dxall44 h Contour Lines  #!EL  #!N #!I30 #!N -  #!Ltstmln2,dxall45 h Streamlines  #!EL  #!N #!I30 #!N 
+-  #!Ltrbrsht,dxall46 h RubberSheet  #!EL  #!N #!I30 #!N -  #!Lt2dsgly,dxall47 h 2-D Scalar Glyphs  #!EL  #!N #!I30 #!N - 
+ #!Lt2dvgly,dxall48 h 2-D Vector Glyphs  #!EL  #!N #!I0 #!N #!EF #!N #!N #!I30 #!N o  #!Lt3ddat,dxall49 h Visualizing 3-Dimensional Data  #!EL  
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N -  #!Ltisosrf,dxall50 h Isosurfaces  #!EL  #!N 
+#!I30 #!N -  #!Ltslice,dxall51 h Slices  #!EL  #!N #!I30 #!N -  #!Ltstmln3,dxall52 h Streamlines  #!EL  #!N #!I30 
+#!N -  #!Lt3dsgly,dxall53 h 3-D Scalar Glyphs  #!EL  #!N #!I30 #!N -  #!Lt3dvgly,dxall54 h 3-D Vector Glyphs  #!EL  #!N #!I30 #!N 
+-  #!Ltvolrnd,dxall55 h Volume Rendering  #!EL  #!N #!I0 #!N #!EF #!N #!N #!I30 #!N o 
+ #!Lttandt,dxall56 h Tasks and Tools  #!EL  #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N -  #!Ltcaps,dxall57 h Adding Captions  #!EL  
+#!N #!I30 #!N -  #!Ltadts,dxall58 h Adding Input Tabs to Tool Icons  #!EL  #!N #!I30 #!N -  #!Ltscdps,dxall59 h Connecting Scattered Data Points  #!EL  #!N 
+#!I30 #!N -  #!Ltcntxec,dxall60 h Controlling Execution with Switch  #!EL  #!N #!I30 #!N -  #!Ltcnfgbx,dxall61 h Controlling Inputs: Configuration Dialog Boxes  #!EL  #!N #!I30 
+#!N -  #!Ltconpan,dxall64 h Controlling Inputs: Interactors  #!EL  #!N #!I30 #!N -  #!Ltanimat,dxall72 h Creating Animations  #!EL  #!N #!I30 #!N 
+-  #!Ltmacro,dxall74 h Creating and Using Macros  #!EL  #!N #!I30 #!N -  #!Ltddint,dxall75 h Data-driven Tools  #!EL  #!N #!I30 #!N - 
+ #!Ltautcol,dxall80 h Modules: Using AutoColor  #!EL  #!N #!I30 #!N -  #!Ltcmpmod,dxall81 h Modules: Using Compute  #!EL  #!N #!I30 #!N -  #!Ltmappng,dxall82 h Modules: Using Map  #!EL  
+#!N #!I30 #!N -  #!Ltplot,dxall83 h Modules: Using Plot  #!EL  #!N #!I30 #!N -  #!Ltimproc,dxall84 h Processing Images  #!EL  #!N 
+#!I30 #!N -  #!Ltsandp,dxall85 h Saving and Printing Images  #!EL  #!N #!I0 #!N #!EF #!N #!N #!I30 
+#!N o  #!Ltsclang,dxall86 h Scripting Language  #!EL  #!N #!I30 #!N o  #!Lsamples,dxall87 h Sample Visual Programs and Sample Macros  #!EL  #!N #!I0 #!N 
+#!EF #!N #!N #!N #!EC #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Tutorial 
+II Visual Programs #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o Visual programs and files required for Tutorial II all reside 
+in the same directory and therefore have the same path name 
+except for file name and extension. Thus where a visual program 
+is referred to only by its file name and extension (i.e., 
+.../filename.ext), the full path name is easily derived if needed: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /usr/lpp/dx/samples/tutorial/  #!F-adobe-times-medium-i-normal--18*   filename.ext #!EF #!EF #!N #!N 
+#!EC #!N #!I30 #!N o The procedures you will be using 
+most are: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N - 
+ #!Ltuta2,dxall7 h Opening and Executing a Visual Program  #!EL  #!N #!I30 #!N - selecting tools and placing their icons 
+in the Visual Program Editor canvas (see  #!Ltstapi,dxall28 h Selecting tools and placing icons  #!EL  ) #!N #!I30 
+#!N - opening and modifying a configuration dialog box (see  #!Lcdb,dxall30 h Specifying inputs: configuration dialog boxes  #!EL  
+and also  #!Ltcnfgbx,dxall61 h Controlling Inputs: Configuration Dialog Boxes  #!EL  ). #!N #!I0 #!N #!EF #!N #!N #!I0 
+#!N #!EF #!N #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ltedvp,dxall27 h Editing a Visual Program: The Basics  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

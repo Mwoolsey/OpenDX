@@ -1,0 +1,84 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rhistogr Histogram #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N 
+Function #!N #!N Constructs a histogram from input data and computes 
+the median. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   
+histogram, median #!EF = Histogram(  #!F-adobe-times-bold-r-normal--18*   data, bins, min, max, out); 
+#!EF #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Default TAB Description #!EF #!N 
+TAB data TAB scalar list or vector list or TAB none 
+TAB field to be operated on #!N TAB - TAB scalar 
+field or vector field or TAB - TAB #!N TAB - 
+TAB series TAB - TAB #!N TAB bins TAB integer or 
+vector TAB 256 for bytes, 100 otherwise TAB number of bins 
+in histogram #!N TAB min TAB scalar or vector or field 
+TAB min. of data TAB minimum value to operate on #!N 
+TAB max TAB scalar or vector or field TAB max. of 
+data TAB maximum value to operate on #!N TAB out TAB 
+flag or vector TAB 0 TAB 0: exclude out-of-range values #!N 
+TAB - TAB - TAB - TAB 1: include out-of-range values 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!N #!N #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Description #!EF #!N TAB histogram TAB field or series TAB 
+the histogram #!N TAB median TAB scalar TAB median of the 
+input data #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N The median is determined from an interpolation 
+performed in the bin containing the median element (or elements, if 
+there are an even number of samples). #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N is the 
+data whose frequency distribution is to be computed and then represented 
+in a histogram.  #!F-adobe-times-bold-r-normal--18*   data #!EF can consist of scalars, 2-vectors, 
+or 3-vectors, with resulting one-dimensional, two-dimensional, or three-dimensional histograms, respectively. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   bins #!EF #!EF #!I50 #!N specifies the 
+number of bins into which the range from  #!F-adobe-times-bold-r-normal--18*   min #!EF 
+to  #!F-adobe-times-bold-r-normal--18*   max #!EF will be divided. If  #!F-adobe-times-bold-r-normal--18*   data #!EF 
+consists of vectors, then  #!F-adobe-times-bold-r-normal--18*   bins #!EF can be a vector 
+of the same length specifying the number of bins in each 
+dimension. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   min #!EF  #!F-adobe-times-medium-r-normal--18*   and #!EF 
+ #!F-adobe-times-bold-r-normal--18*   max #!EF #!EF #!I50 #!N specify the range of values 
+for which the histogram is computed. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o If neither parameter is specified, the values 
+used are the minimum and maximum of the input data values. 
+#!N #!I30 #!N o If  #!F-adobe-times-bold-r-normal--18*   min #!EF is a scalar 
+value, it is the value used. #!N #!I30 #!N o If 
+ #!F-adobe-times-bold-r-normal--18*   min #!EF is a data field, the minimum data value 
+of that field is used. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   max 
+#!EF is similarly interpreted. #!N #!I30 #!N o If  #!F-adobe-times-bold-r-normal--18*   min 
+#!EF is a data field and  #!F-adobe-times-bold-r-normal--18*   max #!EF is unspecified, 
+the module uses the minimum and maximum values of that field. 
+#!N #!I30 #!N o If  #!F-adobe-times-bold-r-normal--18*   data #!EF consists of vectors, 
+then  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF may also consist 
+of vectors of the same length to specify the range in 
+each dimension. Otherwise, the values given for  #!F-adobe-times-bold-r-normal--18*   min #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   max #!EF will apply to each dimension. #!N #!I0 #!N 
+#!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   out #!EF #!EF #!I50 
+#!N specifies whether the module ignores data values outside the range 
+of  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF or includes them 
+in the first and last bins respectively. If  #!F-adobe-times-bold-r-normal--18*   data #!EF 
+consists of vectors, then  #!F-adobe-times-bold-r-normal--18*   out #!EF may be a vector 
+of the same length specifying how to treat each dimension. #!I0 
+#!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. 
+For the output, a "positions" component is constructed that consists of 
+ #!F-adobe-times-bold-r-normal--18*   bins #!EF +1 points, corresponding to the boundaries between bins. 
+#!N #!I30 #!N 2. A regular "connections" component is constructed that 
+consists of a set of line segments connecting the end points. 
+#!N #!I30 #!N 3. The "data" component, which is connection dependent, 
+contains the counts for the corresponding bin. #!N #!I30 #!N 4. 
+The interval for each bin is closed on the  #!F-adobe-times-bold-r-normal--18*   min 
+#!EF side and open on the  #!F-adobe-times-bold-r-normal--18*   max #!EF side. To 
+include the maximum data value: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o set  #!F-adobe-times-bold-r-normal--18*   out #!EF to include outlying values 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   or #!EF #!N #!I30 #!N o set  #!F-adobe-times-bold-r-normal--18*   
+max #!EF to a value slightly larger than the maximum data 
+value. #!N #!I0 #!N #!EF #!N #!I0 #!N #!N #!N #!N 
+To see the results of Histogram for scalar data, pass its 
+output to the Plot module. For 2-vector data, pass its output 
+to the RubberSheet module with a scale factor of 1. For 
+3-vector data, use either the Isolate module or use Include followed 
+by ShowBoundary. #!N #!N Components #!N #!N Creates new "positions," "connections," 
+and "data" components. The data, representing the number of items in 
+each bin, is connections dependent. #!N #!N Example Visual Program #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingEqualize.net #!N SIMPLE/Histogram.net #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lequaliz,dxall831 h Equalize  #!EL  ,  #!Lplot,dxall904 h Plot  #!EL  ,  #!Lscale,dxall934 h Scale  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Limage,dxall860 h Image  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

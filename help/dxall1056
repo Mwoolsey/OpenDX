@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N 
+ #!Rall1055 Running an outboard on another machine: #!N #!EC #!N #!N 
+If an outboard module should be run on one particular machine 
+(perhaps because it is compute intensive and needs to run on 
+a fast machine, or because it needs to access a peripheral 
+that is connected to only one machine), the OUTBOARD line can 
+specify a host name as well as an executable name. The 
+Data Explorer libraries will take care of establishing a connection between 
+where the main Data Explorer executive is running and the outboard 
+host machine. The DXMODULES environment variable or the -modules flag can 
+be used to specify a search path for outboard module executables, 
+or the OUTBOARD line can specify a fully qualified path name. 
+#!N #!N A valid .rhosts file must be present to allow 
+Data Explorer to use the "rsh" command to start a process 
+on another machine. (See the UNIX manual page for "rsh" or 
+"remsh" for more information.) #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall1056,dxall1057 h Miscellaneous information  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

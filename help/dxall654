@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall653 Mesh Array Objects #!N #!EC #!N #!N A 
+Mesh Array is a compact encoding of a generalized notion of 
+a regular grid of connections. It is frequently used to describe 
+a rectangular grid of connections as a product of Path Arrays; 
+in such a case, it is generally more convenient to use 
+the  #!F-adobe-times-bold-r-normal--18*   gridconnections #!EF keyword described earlier. #!N #!N A Mesh 
+Array encodes multidimensional regularity of connections. It is a product of 
+connection Arrays. The product is a set of interpolation elements where 
+the product has one interpolation element for each pair of interpolation 
+elements in the two multiplicands, and the number of sample points 
+in each interpolation element is the product of the number of 
+sample points in each of the multiplicands' interpolation elements. A Mesh 
+Array is specified by a list of  #!F-adobe-times-bold-r-normal--18*   term #!EF clauses 
+naming the Arrays that form the product. The last term varies 
+fastest in the resulting list of connections. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N  #!F-adobe-times-bold-r-normal--18*   object #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number #!EF [  #!F-adobe-times-bold-r-normal--18*   class 
+#!EF ]  #!F-adobe-times-bold-r-normal--18*   mesharray #!EF #!N TAB "  #!F-adobe-times-bold-i-normal--18*   name #!EF 
+" #!N  #!F-adobe-times-bold-r-normal--18*   term #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number #!EF #!N TAB 
+"  #!F-adobe-times-bold-i-normal--18*   name #!EF " #!N TAB  #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   
+file #!EF #!N TAB  #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   file #!EF , 
+ #!F-adobe-times-bold-i-normal--18*   number #!EF #!N TAB  #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   file #!EF 
+,"  #!F-adobe-times-bold-i-normal--18*   name #!EF " #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall654,dxall655 h Xform Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

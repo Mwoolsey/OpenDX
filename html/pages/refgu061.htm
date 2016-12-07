@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Filter</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu060.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu062.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRFILTER" ></A>Filter</H3>
+		<A NAME="IDX496"></A><A NAME="IDX497"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<A NAME="IDX498"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Filters a field.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>output</STRONG> = Filter(<STRONG>input, filter, component, mask</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<P>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">data to be filtered
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>filter</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">value or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;gaussian&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">filter to be used
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>component</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;data&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component to be operated on
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>mask</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">value or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;box&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">rank-value filter mask
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<P>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">filtered data
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The specified filter can be convolution or rank-value type.
+<A NAME="IDX499"></A>
+<A NAME="IDX500"></A>
+<P>
+Convolution filters, as the name implies, perform a convolution of the
+filter coefficients with the input data (i.e., the output value at
+a given point is the sum of the product of the filter coefficients
+and the corresponding values neighboring the point
+in question).
+<P>
+Rank-value filters sort all of the elements under a mask surrounding the
+point in question and either select or interpolate the value specified
+by the given rank.
+For "min," "max," and "median" (special cases of
+rank-value filters), the rank values are respectively
+<I>1</I>, <I>n</I>, and (<I>n</I> +
+<I>1</I>)&#47;2, where <I>n</I>
+is the number of nonzero elements in
+the mask.
+<P>
+Convolution filters are useful for neighborhood smoothing, edge
+detection, and other gradient-based operations.
+Rank-value filters are useful for random-noise removal and morphological
+operations.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is the object to be filtered.
+Each field containing the component to be filtered must also contain
+both a "positions" and a "connections" component.
+The "connections" component must be regular.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>filter</STRONG></TT>
+</B></TD><TD><P>specifies, by name, the filter to be used on
+<TT><STRONG>input</STRONG></TT>.
+See <A HREF="#TBLFILTTAB">Table 2</A> for valid names.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>component</STRONG></TT>
+</B></TD><TD><P>specifies the field component to be filtered.
+By default, Filter operates on "data."
+To filter an image, this parameter should specify "colors."
+<P>
+If the component to be filtered contains several channels (e.g., red,
+green, and blue in an image), each channel is filtered
+independently.
+</TD></TR></TABLE>
+<P>
+<A HREF="#TBLFILTTAB">Table 2</A> defines the filters and masks that can be
+specified by name.
+While most of these are 2-dimensional, some are also available in 1- and
+3-dimensional versions (as indicated by "1d" or "3d" after
+their names).
+If possible, the module selects a filter that matches the dimensionality
+of <TT><STRONG>input</STRONG></TT>.
+However, if a filter of lower dimensionality is available, it can (and
+must) be specified by appending "1d" or "2d"
+to the name.
+That is, to specify a filter of lower dimensionality, the specification
+must be explicit.
+<BR>
+<P><B><A NAME="TBLFILTTAB" HREF="refgu002.htm#FT_TBLFILTTAB">Table 2. Filter
+Names</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2">The names listed here are all valid
+specifications for the
+<TT><STRONG>filter</STRONG></TT> parameter.
+The specification is not case sensitive.
+</TD></TR><TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Filter Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>4-connected</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">
+&#91; &#91;0 1 0&#93; &#91;1 1 1&#93; &#91;0 1 0&#93; &#93; &#47; 5
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>8-connected</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">[ [ 1 1 1 ][ 1 1 1 ][ 1 1 1 ] ] /&nbsp;9 = box:2d</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>6-connected</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">3-D analog of 4-connected
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>26-connected</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">3-D analog of 8-connected
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>box</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Box filter
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>box&#58;1d</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>box&#58;2d</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>box&#58;3d</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>compass&#58;e</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>compass&#58;n</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>compass&#58;ne</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>compass&#58;nw</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>compass&#58;s</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>compass&#58;se</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>compass&#58;sw</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>compass&#58;w</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>gaussian</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Same as gaussian&#58;3x3
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>gaussian&#58;2d</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Same as gaussian&#58;3x3; can be
+used to force a 2-D gaussian
+to be applied to 3-D data.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>gaussian&#58;3x3</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">3 &times; 3 Gaussian, &sigma;. =
+1.0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>gaussian&#58;5x5</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">5 &times; 5 Gaussian, &sigma;. =
+1.0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>gaussian&#58;7x7</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">7 &times; 7 Gaussian, &sigma;. =
+1.0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>isotropic</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>kirsch</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>laplacian</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Same as laplacian&#58;2d
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>laplacian&#58;1d</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>laplacian&#58;2d</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>laplacian&#58;3d</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>line&#58;e-w</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>line&#58;n-s</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>line&#58;ne-sw</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>line&#58;nw-se</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>prewitt</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>roberts</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>smoothed</STRONG>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Same as prewitt
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><STRONG>sobel</STRONG>
+<BR>
+<P>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">&nbsp;
+</TD></TR></TABLE>
+<A NAME="IDX501"></A>
+<A NAME="IDX502"></A>
+<A NAME="IDX503"></A>
+<A NAME="IDX504"></A>
+<A NAME="IDX505"></A>
+<A NAME="IDX506"></A>
+<A NAME="IDX507"></A>
+<A NAME="IDX508"></A>
+<A NAME="IDX509"></A>
+<A NAME="IDX510"></A>
+<A NAME="IDX511"></A>
+<A NAME="IDX512"></A>
+<P><B>Notes: </B><OL>
+<P><LI>When a lower-dimensional filter is applied to higher-dimensional
+input, the input is separated into lower-dimensional units that
+are filtered and then reassembled into a higher-dimensional
+structure.
+For example, a 2-dimensional filter applied to a 3-dimensional field
+will result in individual slices of the input being filtered and
+then restacked.
+<P><LI>Arbitrary filter kernels and masks may also be specified
+as matrices.
+<P><LI>If the value specified by <TT><STRONG>filter</STRONG></TT> is a matrix,
+the module performs convolution filtering and uses the values
+given as the filter coefficients.
+Filters must have odd dimensions (e.g., 5 &times; 5), since the active
+point is defined as the central point in the filter.
+<P><LI>If the value specified in <TT><STRONG>filter</STRONG></TT> is a scalar
+or one of the strings "min," "median," or "max,"
+the module performs rank-value filtering and uses the value
+of <TT><STRONG>mask</STRONG></TT> for sorting the elements.
+<P>
+Masks, like filters, must have odd dimensions (e.g., 5 &times; 5).
+When specifying a mask, remember that nonzero elements in the mask
+matrix signify inclusion; zeros signify exclusion.
+In this way, the built-in matrices (e.g., "box") can be used
+interchangeably as filters or masks.
+<P><LI>Data along the boundary are replicated to fill the overlap region
+for the filter.
+</OL>
+<P><STRONG>Components</STRONG>
+<P>
+Modifies the component specified by <TT><STRONG>component</STRONG></TT>.
+All other input components are propagated to the output.
+<P><STRONG>Example Visual Program</STRONG>
+<PRE>
+UsingFilter.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu036.htm#HDRCOMPUTE">Compute</A>,
+&nbsp;<A HREF="refgu096.htm#HDRMORPH">Morph</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

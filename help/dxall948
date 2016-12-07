@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rlod Generating surface levels 
+of detail. #!N #!EC #!N #!N SimplifySurface adds a "positional error" 
+component to the  #!F-adobe-times-bold-r-normal--18*   simplified #!EF surface. "positional error" is a 
+component dependent on "positions" that provides for each vertex of  #!F-adobe-times-bold-r-normal--18*   
+simplified #!EF a positive number. This positive number, the error value, 
+represents the radius of a sphere centered on the vertex, that 
+is guaranteed to intersect the original surface. The union of such 
+spheres represents the error volume of the simplified surface, which is 
+guaranteed to enclose the original surface. Points inside triangles are assigned 
+an error value that is interpolated from the error values at 
+the triangle vertices using barycentric coordinates. #!N #!N Using the "positional 
+error" component, a simplified surface can be re-simplified to any  #!F-adobe-times-bold-r-normal--18*   
+max_error #!EF while still guaranteeing a bound with respect to the 
+original surface. This is useful for generating successive levels of detail. 
+#!N #!N If the same error bound is used, a marginal 
+additional simplification can be observed: the algorithm implements a greedy method, 
+and does not guarantee to find the minimum number of triangles 
+that respects a given error bound. #!N #!N The use of 
+the "positional error" component by SimplifySurface is transparent to you, but 
+you may occasionally want to visualize the simplification error, using the 
+Mark module. An example is provided in SimplifySurface.net. #!N #!N Components 
+#!N #!N SimplifySurface adds a "positional error" component that is dependent 
+on "positions" (see  #!Llod,dxall948 h Generating surface levels of detail.  #!EL  ). #!N #!N In general  #!F-adobe-times-bold-r-normal--18*   simplified 
+#!EF has the same components as  #!F-adobe-times-bold-r-normal--18*   original_surface #!EF except for 
+"invalid positions," "invalid connections," "neighbors," and components that are  #!F-adobe-times-bold-r-normal--18*   TYPE_STRING 
+#!EF . #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N SimplifySurface.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lrefine,dxall919 h Refine  #!EL  ,  #!Lreduce,dxall918 h Reduce  #!EL  ,  #!Lisosurf,dxall881 h Isosurface  #!EL  ,  #!Lmap,dxall891 h Map  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lslab,dxall949 h Slab  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

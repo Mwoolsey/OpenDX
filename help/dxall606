@@ -1,0 +1,53 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtrastr Transformations and Structuring #!N #!EC #!N #!N 
+Rotate, Scale, Translate, and Transform are all special types of operations 
+that change the location, orientation, or size of objects in your 
+scene. These operations can be performed anywhere in a visual program. 
+You can create "hierarchical" motion by attaching Rotates and Translates to 
+individual objects, then Collect these objects together and attach another Rotate 
+and Translate to the Group (output of Collect). In this fashion, 
+you can individually rotate members of the group independently of each 
+other, or you can rotate the entire group as one. #!N 
+#!N By default, many modules operate on the "data" component. We 
+have been treating "data" as a special kind of numeric Array, 
+separate from "positions" and "connections." We mentioned earlier that you can 
+have several different "data" components, but each must have a unique 
+name; for example, your input data file can contain "positions," "connections," 
+"temperature" (data), and "wind" (data). For this example, assume that "wind" 
+is a 3-D vector. #!N #!N Using the Structuring category tools 
+Mark and Unmark, you can convert any Field component into the 
+"data" component. When you Mark "wind" for example, the old "data" 
+component (if any) is moved into a safe place called "saved 
+data" and the "wind" values are copied into the "data" component. 
+Since "wind" is a 3-D vector, the new (current) data component 
+becomes a 3-D vector also. The Compute module is used to 
+make changes in the data component of a Field. So by 
+multiplying the first (x) component of our 3-D "data" we are, 
+in effect, scaling in X. For example, the Compute expression in 
+this case would be "[a.x * 2.0, a.y, a.z]" to double 
+the size of each x component of each "data" point while 
+leaving the y and z components the same. Any module connected 
+to the output of Compute will see the scaled "wind" values 
+as the "data" component of the Field. However, the old unscaled 
+"wind" values are still kept in memory, also. By connecting other 
+modules to the originally imported "wind" values, you still have access 
+to those original values, at the same time. To operate on 
+the "temperature" data, first use Unmark to return the "data" to 
+the "wind" component. The result will be to place the scaled 
+"wind" values into the "wind" component for all modules connected to 
+the output of Unmark. Unmark also copies back all values from 
+"saved data" into the "data" component. Then, you can Mark "temperature" 
+as "data" and perform operations on it, if you like. #!N 
+#!N Since "positions" are also 2-D or 3-D vectors, you can 
+Mark "positions," perform operations on the grid itself, then Unmark "positions" 
+to perform operations on the "data." With a little knowledge of 
+the correct matrix operations, it is possible to simulate the effects 
+of rotations, translations, and scalings using this Mark technique. You can 
+warp flat grids into cylinders or polar coordinate systems or create 
+more complex objects like cones. In fact, there are already many 
+macros available in the Data Explorer Repository that handle these types 
+of operations using this technique, which you may wish to download 
+and use yourself. (For the Data Explorer Repository, see -- Heading 
+'MOREINF' unknown --.) #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lvecfld,dxall607 h Vector Fields  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

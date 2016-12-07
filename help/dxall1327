@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnsg DXNewString #!N #!N Function #!N #!N Creates a 
+new String Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> String 
+DXNewString(char *s) #!EF #!N #!N Functional Details #!N #!N The new 
+String Object is initialized with a copy of the specified  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF -terminated string  #!F-adobe-times-bold-r-normal--18*   s #!EF . #!N #!N The 
+Object created can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N 
+#!N Return Value #!N #!N Returns the Object or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgsg,dxall1267 h DXGetString  #!EL  #!EF #!N #!N  #!Lsgos,dxall1080 h String Class  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxnxf,dxall1328 h DXNewXform  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

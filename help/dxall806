@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdirect Direction #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  
+#!N #!N Function #!N #!N Converts azimuth, elevation, and distance to 
+an [x, y, z] position. #!N #!N Syntax #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N point #!EF = Direction(  #!F-adobe-times-bold-r-normal--18*   azimuth, elevation, distance 
+#!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB azimuth TAB scalar TAB 0 TAB azimuth in degrees 
+#!N TAB elevation TAB scalar TAB 0 TAB elevation in degrees 
+#!N TAB distance TAB scalar TAB 1 TAB distance #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB point TAB vector TAB x, y, z position #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+The output of Direction can be used, for example, as input 
+to the Camera or AutoCamera module to set the look-from direction. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   azimuth #!EF #!EF 
+#!I50 #!N the angular distance (in degrees) from the positive  #!F-adobe-times-medium-i-normal--18*   
+z #!EF -axis to the positive  #!F-adobe-times-medium-i-normal--18*   x #!EF -axis. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   elevation #!EF #!EF #!I50 #!N the angular 
+distance (in degrees) from the positive  #!F-adobe-times-medium-i-normal--18*   xz #!EF plane toward 
+the positive  #!F-adobe-times-medium-i-normal--18*   y #!EF -axis. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+distance #!EF #!EF #!I50 #!N is measured in user units. #!I0 
+#!N #!N #!N #!N Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N MovingCamera.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lautocam,dxall771 h AutoCamera  #!EL  ,  #!Lcamera,dxall780 h Camera  #!EL  ,  #!Lclippla,dxall787 h ClipPlane  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldisplay,dxall807 h Display  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

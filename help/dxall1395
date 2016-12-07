@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsk DXShrink 
+#!N #!N Function #!N #!N Removes information added to an Object 
+by  #!F-adobe-times-bold-r-normal--18*   DXGrow #!EF . #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> Object DXShrink(Object object) #!EF #!N #!N Functional Details #!N #!N 
+Removes information from Object  #!F-adobe-times-bold-r-normal--18*   object #!EF added onto each partition 
+of Composite Field members of  #!F-adobe-times-bold-r-normal--18*   object #!EF by  #!F-adobe-times-bold-r-normal--18*   DXGrow 
+#!EF . #!N #!N Each "original  #!F-adobe-times-medium-i-normal--18*   component #!EF " in 
+ #!F-adobe-times-bold-r-normal--18*   object #!EF is renamed "  #!F-adobe-times-medium-i-normal--18*   component, #!EF " replacing 
+any existing components of that name. To prevent this, the "original 
+ #!F-adobe-times-medium-i-normal--18*   component #!EF " can be deleted with  #!F-adobe-times-bold-r-normal--18*   DXRemove #!EF 
+or  #!F-adobe-times-bold-r-normal--18*   DXDeleteComponent #!EF before  #!F-adobe-times-bold-r-normal--18*   DXShrink #!EF is called. #!N 
+#!N Return Value #!N #!N Returns the Object with added data 
+removed or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxdc,dxall1196 h DXDeleteComponent  #!EL  ,  #!Ldxgrov,dxall1273 h DXGrow, DXGrowV  #!EL  , 
+ #!Ldxrem,dxall1355 h DXRemove  #!EL  #!EF #!N #!N  #!Lgns,dxall1120 h Growing and Shrinking Partitioned Data  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxs,dxall1396 h DXStatistics  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

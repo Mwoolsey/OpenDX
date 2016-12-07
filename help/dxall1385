@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsp DXSetPart #!N #!N Function 
+#!N #!N Adds a Field to an Object. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXSetPart(Object o, int n, Field field) 
+#!EF #!N #!N Functional Details #!N #!N Performs a depth-first traversal 
+of the Object  #!F-adobe-times-bold-r-normal--18*   c #!EF , and replaces the  #!F-adobe-times-bold-r-normal--18*   
+n #!EF th occurrence of a subObject with class  #!F-adobe-times-bold-r-normal--18*   CLASS_FIELD 
+#!EF with the Field  #!F-adobe-times-bold-r-normal--18*   field #!EF given. If the root 
+of the Object given is not one of  #!F-adobe-times-bold-r-normal--18*   CLASS_GROUP #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   CLASS_XFORM #!EF ,  #!F-adobe-times-bold-r-normal--18*   CLASS_CLIP #!EF , or  #!F-adobe-times-bold-r-normal--18*   
+CLASS_SCREEN #!EF , this function has no effect. #!N #!N For 
+applying a function to every Field in a Group,  #!F-adobe-times-bold-r-normal--18*   DXProcessParts 
+#!EF is a more efficient interface. #!N #!N The parts of 
+a Group may be indexed by calling  #!F-adobe-times-bold-r-normal--18*   DXSetPart #!EF with 
+successive values of  #!F-adobe-times-bold-r-normal--18*   n #!EF , starting at 0 until 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF is returned, provided the replacement part contains the 
+same number of subObjects of  #!F-adobe-times-bold-r-normal--18*   CLASS_FIELD #!EF . This is 
+because the replacement part will be traversed (and counted) in subsequent 
+calls to  #!F-adobe-times-bold-r-normal--18*   DXSetPart #!EF . #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgp,dxall1256 h DXGetPart  #!EL  ,  #!Ldxgpc,dxall1257 h DXGetPartClass  #!EL  ,  #!Ldxpp,dxall1336 h DXProcessParts  #!EL  #!EF #!N #!N  #!Lprts,dxall1068 h Parts  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxspo,dxall1386 h DXSetPathOffset  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

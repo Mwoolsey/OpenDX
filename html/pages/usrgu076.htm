@@ -1,0 +1,987 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Appendix E. Data Explorer Fonts</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu075.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu077.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu073.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRAPC" ></A>Appendix E. Data Explorer Fonts
+</H2>
+		<P>
+All fonts used by Data Explorer are stored as files in the
+<TT>/usr/local/dx/fonts</TT>
+directory.
+Users can add their own fonts by creating a file in the
+correct format and using the DXFONTS environment variable to list
+the directory or directories where the additional font files are stored.
+
+		<P>Fonts are stored in the standard Data Explorer file format.
+A font file
+must contain the following information (for more information on the
+Data Explorer file format, see <A HREF="usrgu067.htm#HDRIMD">Appendix B.
+"Importing Data: File Formats"</A>).
+<P>
+The font is a group that contains 256 fields, one for each ASCII
+character value, and two attributes describing the height of the font.
+For example:
+<PRE>
+ object "myfont" class group
+    member 0 value "empty"
+    member 1 value "control-a"
+   &#46;
+   &ratio;
+    member 65 value "A"
+    member 66 value "B"
+   &#46;
+   &ratio;
+    member 255 value "empty"
+    attribute "font ascent" number 0.75
+    attribute "font descent" number 0.25
+</PRE>
+<P>
+The attributes describe the maximum height above and below the baseline
+for all characters in this font.
+The values should be positive floating
+point numbers and they should add to 1.0.
+<P>
+Each member of the group must be a field.
+<P>
+Each field must contain a 2-D or 3-D
+"positions"
+component, and a
+"connections"
+component with element type
+"lines" or "triangles".
+<PRE>
+ object "positions1" class array type float rank 1 shape 3  items 3
+   data follows  0.1 0.5 0.0   0.3 0.6 0.0    0.5 0.5 0.0
+ object "connections1" class array type int rank 1 shape 2 items 2
+   data follows  0 1   1 2
+   attribute "element type" string "lines"
+   attribute "ref" string "positions"
+</PRE>
+<P>
+The character positions
+are assumed to have their horizontal (X) origin at the
+left edge and their vertical (Y) origin at the baseline.
+<P>
+Each field must have a "char width"
+attribute describing the character
+width for spacing when combining characters into strings.
+<PRE>
+ object "circumflex" class field
+   component "positions" value "positions1"
+   component "connections1" value "connections1"
+   attribute "char width" number 0.55
+</PRE>
+<P>
+The fields can contain other components (such as
+"colors"
+or
+"normals"
+),
+although the standard Data Explorer
+modules will not process this information.
+<P>
+Those ASCII codes for which
+there is no representation should be empty fields:
+<PRE>
+object "empty" class field
+</PRE>
+<P>
+A space character can be generated by making an
+empty field with a positive width:
+<PRE>
+ object "wide" class field
+   attribute "char width" number 0.3
+ object "myfont" class group
+  &#46;
+  &ratio;
+   member 32 value "wide"
+  &#46;
+  &ratio;
+</PRE>
+Overstrike characters can be generated by making a
+field with a zero or negative width:
+<PRE>
+ object "umlaut" class field
+   component "connections" value "con1"
+   component "positions"   value "pos1"
+   component "char width"  number 0.0
+</PRE>
+<P>
+The following fonts are supplied with Data Explorer, and may be found
+in this directory <TT>/usr/local/dx/fonts</TT>.
+Each one is a Data Explorer
+format file.
+If you would like to look at the structure of
+a font file, simply Import the data using the Import module, and
+Export it in text format.
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>default
+fonts</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">area
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">an area font (same as pitman)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">fixed
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a fixed width font (same as
+roman&#95;sfix)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">variable
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a variable width font (same as
+roman&#95;s)
+<P>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>cyrilic font</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">cyril&#95;d
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a cyrilic double-line font
+<P>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Gothic fonts</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">gothiceng&#95;t
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">an English gothic triple-line
+font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">gothicger&#95;t
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a German gothic triple-line font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">gothicit&#95;t
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">an Italian gothic triple-line
+font
+<P>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Greek fonts</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">greek&#95;s
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a Greek single-line font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">greek&#95;d
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a Greek double-line font
+<P>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>italic fonts</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">italic&#95;d
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">an italic double-line font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">italic&#95;t
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">an italic triple-line font
+<P>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>area (filled)
+font</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">pitman
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">an area typewriter style font
+that includes European National Language
+characters
+<P>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Roman fonts</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">roman&#95;s
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a Roman single-line sans serif
+font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">roman&#95;d
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a Roman double-line sans serif
+font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">roman&#95;dser
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a Roman double-line serif font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">roman&#95;tser
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a Roman triple-line serif font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">roman&#95;ext
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">an extended character set Roman
+single-line sans-serif font
+that includes European National Language characters
+<P>
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>script fonts</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">script&#95;s
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a script single-line font
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">script&#95;d
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">a script double-line font
+</TD></TR></TABLE>
+<P>
+The default font directory is <TT>/usr/local/dx/fonts.</TT>
+For user-added fonts, the DXFONTS variable can contain a colon-separated
+list of directories to search for fonts before searching the default
+directory.
+A font file name must be the same as the font name.
+For example, the font "cursive" should be stored in the
+"cursive.dx" file, and the <TT><STRONG>font</STRONG></TT> parameter
+to the Caption module should be "cursive" to use
+this font.
+The names of user-supplied fonts should be all lowercase.
+<P>
+Since font files are in the standard Data Explorer file format, in addition to
+being used by Caption, Plot, AutoAxes, and ColorBar, they can be
+read into Data Explorer with Import and processed like any other
+group.
+Individual characters can be selected with Select, colored with Color,
+and displayed with ShowConnections.
+Newly constructed fonts can be exported with Export.
+<P><A HREF="#TBLROM1">Table 8</A> and <A HREF="#TBLROM2">Table 9</A> illustrate
+those characters
+that are part of the roman&#95;ext font.
+The appearance of a character may differ from that illustrated in the
+tables.
+<BR>
+<P><B><A NAME="TBLROM1" HREF="usrgu002.htm#FT_TBLROM1">Table 8. roman&#95;ext
+Font Characters (Part 1)</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">Octal Value
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">          40
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">          60
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         100
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         120
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         140
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         160
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         200
+</TH></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">0
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">Blank
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">0
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#64;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">P
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#39;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">p
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Ccedil;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">1
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#33;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">1
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">A
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">Q
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">a
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">q
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&uuml;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">2
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&quot;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">2
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">B
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">R
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">b
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">r
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&eacute;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">3
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#35;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">3
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">C
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">S
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">c
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">s
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&acirc;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">4
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#36;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">4
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">D
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">T
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">d
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">t
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&auml;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">5
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#37;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">5
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">E
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">U
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">e
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">u
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&agrave;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">6
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&amp;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">6
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">F
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">V
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">f
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">v
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&aring;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">7
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#39;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">7
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">G
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">W
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">g
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">w
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ccedil;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">10
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#40;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">8
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">H
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">X
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">h
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">x
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ecirc;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">11
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#41;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">9
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">I
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">Y
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">i
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">y
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&euml;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">12
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#42;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#58;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">J
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">Z
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">j
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">z
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&egrave;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">13
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#43;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#59;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">K
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#91;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">k
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#123;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&iuml;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">14
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#44;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&lt;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">L
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#92;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">l
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&splitvbar;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&icirc;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">15
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#45;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#61;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">M
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#93;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">m
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#125;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&igrave;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">16
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#46;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&gt;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">N
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">-&#94;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">n
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#126;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Auml;
+</TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">17
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#47;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#63;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">O
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&#95;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">o
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ballot;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&angstrom;
+</TD></TR></TABLE>
+<BR>
+<P><B><A NAME="TBLROM2" HREF="usrgu002.htm#FT_TBLROM2">Table 9. roman&#95;ext
+Font Characters (Part 2)</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">Octal Value
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         220
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         240
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         260
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         300
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         320
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         340
+</TH><TH ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">         360
+</TH></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">0
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Eacute;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&aacute;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&alpha;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&rho;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&iota;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">1
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&aelig;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&iacute;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">B
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&sigma;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&kappa;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">2
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&AElig;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&oacute;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&gamma;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&tau;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&lambda;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">3
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ocirc;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&uacute;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&delta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&upsilon;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&mu;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">4
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ouml;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ntilde;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&epsilon;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&phi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&nu;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">5
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ograve;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ntilde;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&zeta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&chi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&xi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">6
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ucirc;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%"><U>a</U>
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&eta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&psi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&omicron;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">7
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&ugrave;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%"><U>o</U>
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&theta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&omega;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&pi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">8
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&yuml;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&invq;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Iota;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&alpha;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&rho;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">9
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Ouml;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Kappa
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&beta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&sigma;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">10
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Uuml;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Lambda
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&gamma;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&tau;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">11
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&cent;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Mu;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&delta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&upsilon;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">12
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&pound;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Nu;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&epsilon;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&phi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">13
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&yen;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&iexcl;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Xi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&zeta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&chi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">14
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&peseta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&quot;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Omicron;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&eta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&psi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR><TR>
+<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="13%">15
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&florin;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&quot;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&integral;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&Pi;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&theta;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">&omega;
+</TD><TD ALIGN="CENTER" VALIGN="TOP" WIDTH="13%">
+<BR></TD></TR></TABLE>
+<BR>
+<P><B><A NAME="TBLEUR1" HREF="usrgu002.htm#FT_TBLEUR1">Table 10. Additional
+Symbols \001 - \035</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">apostrophe curly open
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&#39;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">2
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">apostrophe curly close
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&#39;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">3
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">backslash
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&#92;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">4
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">bullet
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">*
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">5
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">cent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&cent;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">6
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">copyright
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&copy;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">7
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">cross product
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&times;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">10
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">degree
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&deg;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">11
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">emdash
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">--
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">12
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">endash
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">-
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">13
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">exclamation
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&iexcl;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">14
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">franc
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&florin;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">15
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">guillemet open
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&quot;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">16
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">guillemet close
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&quot;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">17
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">guillemet single open
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">20
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">guillemet single close
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">21
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">infinity
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&infinity;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">22
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">integral
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&integral;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">23
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">interrogatory
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&invq;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">24
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">minus
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&#45;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">25
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">notequal
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&lt;&gt;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">26
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">plusminus
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&plusmn;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">27
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">pound
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&pound;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">30
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">quote Open
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">"
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">31
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">quote close
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">"
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">32
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">registered
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&reg;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">33
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">similar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&similar;
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">34
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">trademark
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">(TM)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">35
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">yen
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">&yen;
+</TD></TR></TABLE>
+<P>The octal values for the English and Greek character sets in
+the pitman (or area) font are the same as those illustrated in
+<A HREF="#TBLROM1">Table 8</A> and <A HREF="#TBLROM2">Table 9</A>.
+European National Languages
+characters are provided using single octal values or using a combination
+of values (see <A HREF="#TBLEUR2">Table 11</A>).
+For example,
+&auml; is produced using <TT>252a</TT>, and
+&icirc; is produced using <TT>\221\237</TT>.
+Additional special symbols
+are provided with octal values 001 to 035 (see <A HREF="#TBLEUR1">Table 10</A>).
+<P>The following illustrates how you could produce a caption
+that contains the string
+"Jag &auml;r h&auml;r p&aring; semester".
+<PRE>
+caption = Caption&#40;"Jag \252ar h\252ar p\213a semester"; font="pitman"&#41;;
+camera = AutoCamera (caption);
+Display(caption,camera);
+</PRE>
+<BR>
+<P><B><A NAME="TBLEUR2" HREF="usrgu002.htm#FT_TBLEUR2">Table 11. European
+National Language Symbols and Characters \200 to \255</A></B><BR>
+		<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">200
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">aBar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">201
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">accentAcute
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&acute;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">To type a acute, enter \201a.
+To type i acute, enter\201\237.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">202
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">AccentAcute
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&acute;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase except I)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">203
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">IAccentAcute
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&Iacute;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase I Acute)
+To type A acute, enter \202A.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">204
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">accentGrave
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&#96;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(lowercase)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">205
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">AccentGrave
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&#96;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase except I)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">206
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">IAccentGrave
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&Igrave;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase I)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">207
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">accentHungarian
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Double quote accent over o
+and u)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">210
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">AccentHungarian
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Double quote accent over O
+and U)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">211
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">ae
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&aelig;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Ligature)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">212
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">AE
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&AElig;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Ligature)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">213
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">angstrom
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Lowercase)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">214
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Angstrom
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">215
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">breve
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Lowercase)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">216
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Breve
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">217
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">c cedilla
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&ccedil;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Lowercase c cedilla)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">220
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">C cedilla
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&Ccedil;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase C cedilla)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">221
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">widecircumflex
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&#94;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Looks better than ASCII
+Circumflex when used as a lowercase accent)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">222
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">WideCircumflex
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&#94;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase except for I and O)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">223
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">WideCircumflex
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&Icirc;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase I)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">224
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">WideCircumflex
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&Ocirc;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase O)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">225
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Clicka
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Used in Lithuanian over C,
+S, Z, c, s, and z; also called
+<I>hacek</I> or <I>caron</I>)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">226
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">CommaRomanian
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Used in Romanian under S, T,
+s, and t)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">227
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">enya
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Lowercase for Spanish n, and
+Portuguese a and o)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">230
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Enya
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase for Spanish N, and
+Portuguese A and O)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">231
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">eth
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&eth;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Icelandic)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">232
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Eth
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&ETH;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Icelandic)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">233
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">hookLithuanian
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Cedilla-like hook used under
+Lithuanian a, e, and u)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">234
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">ihookLithuanian
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Cedilla-like hook used under
+Lithuanian i)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">235
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">HookLithuanian
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Cedilla-like hook used under
+Lithuanian A, E, and U)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">236
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">IHookLithuanian
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Cedilla-like hook used under
+Lithuanian I)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">237
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">i dotless
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Dotless i to be accented
+with acute, grave, etc.)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">240
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">l slash
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Slashed l used in Polish)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">241
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">L slash
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Slashed L used in Polish)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">242
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">macron
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Lowercase)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">243
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Macron
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">244
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">oBar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">245
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">o slash
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&oslash;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Danish slashed o)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">246
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">O slash
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&Oslash;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Danish slashed O)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">247
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Overdot
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%"><SUP>&#46;</SUP>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Dot placed over Polish Z and z)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">250
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">thorn
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&thorn;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Icelandic)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">251
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Thorn
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&THORN;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Icelandic)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">252
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">umlaut
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&umlaut;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Lowercase, also called diaresis)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">253
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Umlaut
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&umlaut;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(Uppercase, except for I and O)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">254
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">IUmlaut
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&umlaut;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(I umlaut)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">255
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">OUmlaut
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">&umlaut;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">(O umlaut)
+</TD></TR></TABLE>
+		<P></P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

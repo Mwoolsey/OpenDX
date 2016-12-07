@@ -1,0 +1,52 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rinadmg Interpolation and Mapping #!N #!EC #!N #!N The 
+interpolation service described here performs linear interpolations on the values of 
+a Field or Composite Field. The values are those of a 
+function  #!F-adobe-times-medium-i-normal--18*   y #!EF (  #!F-adobe-times-medium-i-normal--18*   x #!EF ) defined in 
+terms of points  #!F-adobe-times-medium-i-normal--18*   x[i] #!EF ("positions"), values  #!F-adobe-times-medium-i-normal--18*   y[i] #!EF 
+("data"), and basis functions  #!F-adobe-times-medium-i-normal--18*   b[i] #!EF (  #!F-adobe-times-medium-i-normal--18*   x #!EF 
+) (implicitly defined by the element type or by the faces). 
+#!N #!N Interpolator Objects are the interface to calling applications. They: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Provide interpolation 
+methods that are appropriate to the values in the Field Object 
+operated on. The choice of method is based on factors such 
+as the hierarchical structure of the data model, data formats, primitive 
+types, and interpolation model. #!N #!I30 #!N o Contain data structures 
+that facilitate interpolation. These structures are initialized either: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N - immediately, when the interpolator is 
+created, or #!N #!I30 #!N - on demand, during the interpolation 
+process. This delayed initialization is especially useful when the data being 
+interpolated is partitioned and only some of the partitions require interpolation. 
+However, if the interpolator is intended for sharing, it must be 
+fully initialized before it is copied. This initialization can be done 
+in parallel prior to the creation of subtasks. #!N #!I0 #!N 
+#!EF #!N #!N #!I30 #!N o Use information gathered in previous 
+interpolations to speed subsequent interpolations. For that reason, Interpolator Objects contain 
+data specific to the process that uses the interpolator. Consequently, each 
+parallel process must be provided with its own interpolator. The most 
+efficient way of creating such "individualized" interpolators is to generate a 
+single, fully initialized interpolator; pass it to the parallel subtasks that 
+need to use it; and have the subtasks then  #!F-adobe-times-medium-i-normal--18*   copy 
+#!EF that interpolator for local operation. When this approach is used, 
+the parent interpolator cannot delay initialization: it must be fully initialized 
+before it is copied. #!N #!I0 #!N #!EF #!N Note: Fields 
+interpolated through this interface must have the same dimensionality as the 
+space in which they are embedded. For example, triangles embedded in 
+a 2-dimensional plane can be interpolated; triangles in 3-dimensional space cannot. 
+For interpolation, faces must link 2-dimensional positions, and data must be 
+dependent on "faces." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N enum interp_init { 
+#!N INTERP_INIT_DELAY, #!N INTERP_INIT_IMMEDIATE, #!N INTERP_INIT_PARALLEL #!N }; #!EF #!N #!N 
+#!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Interpolator DXNewInterpolator() 
+#!EF #!EF #!I50 #!N Creates an Interpolator Object. See  #!Ldxni,dxall1318 h DXNewInterpolator  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Interpolator DXInterpolate() #!EF #!EF #!I50 #!N 
+Interpolates data values in a Field. See  #!Ldxie,dxall1284 h DXInterpolate  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Interpolator DXLocalizeInterpolator() #!EF #!EF #!I50 #!N Copies the 
+interpolator structures into local memory. See  #!Ldxli,dxall1293 h DXLocalizeInterpolator  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXMap() #!EF #!EF #!I50 #!N Interpolates data values 
+at sample points. See  #!Ldxmp,dxall1303 h DXMap  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Array DXMapArray() #!EF #!EF #!I50 #!N Provides an intermediate-level mapping function. 
+See  #!Ldxmpa,dxall1304 h DXMapArray  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXMapCheck() #!EF 
+#!EF #!I50 #!N Verifies that Objects are valid for mapping. See 
+ #!Ldxmpc,dxall1305 h DXMapCheck  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rmeml Memory Leaks #!N #!EC #!N #!N A 
+memory leak will occur if the memory allocated by a module 
+is not freed before that module returns its output(s). (See  #!Lmemalc,dxall1024 h Allocating and Freeing Memory  #!EL  
+for a list of Objects that typically need freeing.) Typically, if 
+there is a memory leak, Data Explorer runs for some time. 
+Then, after allocating all available memory, it stops executing and generates 
+an error message that it is out of memory. It can 
+resume execution only after the server has been disconnected and restarted. 
+#!N #!N You can check a module for a memory leak 
+by running it several times, together with the Usage module. If 
+the memory managed by the executive is flushed after each execution, 
+memory that is allocated by a module and not freed before 
+returning will cause the Usage module to report an increase in 
+memory. The following Data Explorer script checks for a leak: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro showleak() #!N { #!N output = 
+YourModule(input, ...); #!N Print(output); #!N } #!N . . . #!N 
+(any modules necessary to produce input for your module) #!N . 
+. . #!N #!N showleak(); #!N showleak(); #!N Executive( "flush cache"); 
+#!N Usage( "memory," 0) #!N showleak(); #!N Executive( "flush cache"); #!N 
+Usage( "memory," 0) #!N showleak(); #!N Executive( "flush cache"); #!N Usage( 
+"memory," 0) #!EF #!N #!N #!EC #!N #!N Each call to 
+Usage prints out the amount of memory used in both the 
+small and the large arena. Unless there is a memory leak 
+in the module, these amounts will remain constant. #!N Note: It 
+is important to run the executable in "readahead off" mode. The 
+amounts reported by Usage will be distorted if the Data Explorer 
+executive reads the script ahead of execution. Specify: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N dx -exec  #!F-adobe-times-bold-i-normal--18*   your_directory/your_executable #!EF -readahead off -script #!EF 
+#!N #!N #!EC #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldatachp,dxall1061 h Working with Data Model Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

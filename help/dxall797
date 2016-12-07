@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rconnect Connect #!N #!N Category 
+#!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N #!N Creates triangle connections 
+for a field of scattered positions. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Connect(  #!F-adobe-times-bold-r-normal--18*   input, method, 
+normal #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB input TAB field or vector list TAB none 
+TAB field with positions to be #!N TAB - TAB - 
+TAB - TAB connected #!N TAB method TAB string TAB "triangulation" 
+TAB connection method to be used #!N TAB normal TAB vector 
+TAB [0 0 1] TAB normal to the projection plane #!N 
+TAB - TAB - TAB - TAB #!EF #!N #!N Outputs 
+#!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF 
+#!N TAB output TAB field TAB connected field #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N The 
+triangle connections created by this module form a surface. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N 
+should be (1) a field with a 2- or 3-dimensional component 
+or (2) a list of 2- or 3-dimensional vectors. In the 
+second case, the vectors are interpreted as positions. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   method #!EF #!EF #!I50 #!N specifies the method of 
+connection. At present, Delaunay "triangulation" (involving Voronoi tesselation of a plane) 
+is the only method supported. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   normal 
+#!EF #!EF #!I50 #!N specifies the plane to which 3-dimensional positions 
+are projected before triangulation is computed. Note that the output positions 
+will be the original 3-dimensional points. #!I0 #!N #!N #!N #!N 
+Degenerate triangles (i.e., those with colinear vertices) are not included in 
+the output object. #!N #!N Components #!N #!N Adds a "connections" 
+component. All components that depend on the "positions" component are unchanged 
+in the output. #!N #!N Example Visual Program #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N ConnectingScatteredPoints.net #!N #!N SIMPLE/Connect.net #!N #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lregrid,dxall920 h Regrid  #!EL  ,  #!Lautgrid,dxall778 h AutoGrid  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lconstru,dxall798 h Construct  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

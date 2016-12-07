@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxafns 
+DXAddFaceNormal, DXAddFaceNormals #!N #!N Function Adds connection-dependent normals to a Field. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> 
+#!N #!N Field DXAddFaceNormal(Field f, int id, Vector v) #!N Field 
+DXAddFaceNormals(Field f, int start, int n, Vector *v) #!EF #!EF . 
+#!N #!N #!EC #!N #!N Functional Details A Field may contain 
+connection-dependent normals that can be used to flat-shade a polygonal object. 
+If so, the normals component is expected to have the same 
+size as the "connections" component, as indicated by its having a 
+"dep" attribute of "connections." Both routines aid in constructing such a 
+component. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAddFaceNormal #!EF 
+#!EF #!I50 #!N Adds one normal (  #!F-adobe-times-bold-r-normal--18*   v #!EF ) 
+to  #!F-adobe-times-bold-r-normal--18*   f #!EF with the specified zero-based  #!F-adobe-times-bold-r-normal--18*   id #!EF 
+. If  #!F-adobe-times-bold-r-normal--18*   f #!EF does not contain a "normals" component, 
+one is added. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAddFaceNormals #!EF #!EF 
+#!I50 #!N Adds  #!F-adobe-times-bold-r-normal--18*   n #!EF normals (  #!F-adobe-times-bold-r-normal--18*   *v #!EF 
+) to  #!F-adobe-times-bold-r-normal--18*   f #!EF . Identifiers begin with  #!F-adobe-times-bold-r-normal--18*   start 
+#!EF . If  #!F-adobe-times-bold-r-normal--18*   f #!EF does not contain a "normals" 
+component, one is added. #!I0 #!N #!N #!N Note: Both routines 
+are suitable for adding a small number of face normals and 
+for rapid prototyping, but they are included here mainly for backward 
+compatibility. For better performance, see  #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  and  #!Lirreg,dxall1071 h Irregular Arrays  #!EL  . #!N #!N 
+#!N Normals are specified as  #!F-adobe-times-bold-r-normal--18*   Vectors #!EF and defined as 
+follows: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   #!N typedef struct point 
+{ #!N float x, y, z; #!N } Point, Vector; #!N 
+#!EF #!EF #!N #!N #!EC #!N Note: These routines do not 
+check the "dep" attribute of the "normals" component. Thus, if a 
+"normals" component that is "dep" on "positions" already exists in  #!F-adobe-times-bold-r-normal--18*   
+f #!EF , the routine adds one or more normals to 
+the normals component, leaving the attribute unchanged. The result may be 
+a component with the wrong number of items for "dep." #!N 
+#!N #!N Return Value Returns  #!F-adobe-times-bold-r-normal--18*   f #!EF or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  ,  #!Ldxaddm,dxall1169 h DXAddPoint, ...Color, ...FrontColor, ...BackColor, ...Opacity, ...Normal, DXAddPoints, ...Colors, ...FrontColors, ...BackColors, ...Opacities, ...Normals  #!EL  #!EF #!N #!N  #!Lppoints,dxall1084 h Points and Dependent Data  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxals,dxall1167 h DXAddLine, ...Triangle, ...Quad, ...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

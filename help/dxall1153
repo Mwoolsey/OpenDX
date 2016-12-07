@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall1152 Loading programs and macros #!N #!EC #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError exDXLBeginMacroDefinition(DXLConnection *conn, const 
+char *mhdr) #!EF #!EF #!I50 #!N Defines the beginning of a 
+macro definition. The macro header  #!F-adobe-times-bold-r-normal--18*   *mhdr #!EF specifies the macro 
+name, inputs, and outputs. For example: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+#!N mhdr = "macro SUM(arg1, arg2) --> (sum)" #!EF #!EF #!N 
+#!N #!EC #!N #!N This routine should be followed by a 
+series of DXLSend commands that send the macro definition, and finally 
+by exDXLEndMacroDefinition (see following). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError exDXLEndMacroDefinition(DXLConnection 
+*conn) #!EF #!EF #!I50 #!N Defines the end of a macro 
+definition. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLLoadVisualProgram(DXLConnection *conn, const char 
+*file) #!EF #!EF #!I50 #!N Loads the visual program specified by 
+the file name  #!F-adobe-times-bold-r-normal--18*   *file #!EF . The path to this 
+file is relative to the startup directory of the server. Returns 
+OK or ERROR. #!N #!N If this routine is called when 
+the application is communicating directly with the executive, an execution will 
+occur after the visual program is loaded, because visual programs saved 
+by the user interface include a call to the main macro. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLLoadMacroFile(DXLConnection *conn, const char *file); 
+#!EF #!EF #!I50 #!N Causes Data Explorer to load the macro 
+contained in file 'file'. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError DXLLoadMacroDirectory(DXLConnection 
+*conn, const char *dir); #!EF #!EF #!I50 #!N Causes Data Explorer 
+to load all macros contained in directory 'dir'. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError exDXLLoadScript(DXLConnection *conn, const char *file) #!EF #!EF #!I50 
+#!N Loads the specified script (  #!F-adobe-times-bold-r-normal--18*   *file #!EF ) and 
+executes it immediately. The path to this file is relative to 
+the startup directory of the server. Returns OK or ERROR. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLLoadConfig(DXLConnection *conn, const char *file) #!EF 
+#!EF #!I50 #!N Opens the configuration file specified by its file 
+name (  #!F-adobe-times-bold-r-normal--18*   *file #!EF ). The path to this file 
+is relative to the startup directory of the user interface. Returns 
+OK or ERROR. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lsetvars,dxall1154 h Setting Variables  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

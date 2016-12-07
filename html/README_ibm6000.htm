@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>./README_ibm6000</TITLE>
+
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer 
+(ibmdx@watson.ibm.com)">                                                        
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer 
+(ibmdx@watson.ibm.com)">                                                        
+<META HTTP-EQUIV="updated" CONTENT="Thu, 12 Feb 1998 23:15:12">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 23:15:12">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA 
+MINING">                                                                        
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+<IMG SRC="images/dxicon8.gif" ALT=""><BR>
+
+<A NAME="Top_Of_Page"></A>
+<H1>./README_ibm6000</H1>
+<PRE>
+* 
+* RISC System/6000 specific README for IBM Visualization Data Explorer 
+* 
+* 
+* 
+  
+  
+The information contained in this file consists of architecture specific 
+hints for using the system, help with functions that may not be apparent, 
+and last minute updates to the existing documentation.  It is advisable to 
+review this file any time Data Explorer updates are applied. 
+  
+======================================================================== 
+  
+CONTENTS 
+  
+    To go directly to an item, search for the item number beginning 
+    at the left margin. 
+  
+     1. System configuration 
+        A. User Limits 
+        B. Prerequisite Software 
+        C. "OS page space is low, terminating execution" 
+     2. Hardware Rendering Considerations 
+        A. Shared Library Support for Hardware Rendering 
+        B. Hardware Rendering Not Available Message 
+        C. The Gto 
+        D. Gt4x under Sequencer control 
+        E. 2D Graphics Cards with AIX Option X11_3d.gl.rte 
+        F. The Gto does not support transparency 
+        G. OpenGL vs GL hardware renderer 
+        H. Backing store performance using the OpenGL renderer 
+        I. The GXT1000 
+     3. User Interface Notes  
+        A. Visual Program line connections 
+        B. Differences for AIX 4.1 desktop 
+  
+======================================================================== 
+  
+1. System configuration 
+  
+A. User Limits 
+AIX enforces per process limits on the amount of physical memory used by a 
+process.  When you want Data Explorer to use large amounts of physical memory, 
+it is advised that you change these per process limits using 'smit' by 
+traversing the following menu selections: 
+  
+        Security & Users 
+        Users 
+        Change / Show Characteristics of a User 
+  
+You may want to change "Max physical MEMORY" to be some number a few megabytes 
+less than the machine size.  This number is specified in 512 byte blocks. 
+For example, a machine with 64MB may have this limit set to 114688, 56MB. 
+  
+B. Prerequisite Software 
+The following are required and must be at or greater than the given release 
+level... 
+                  bos.obj             03.02.0000 
+                  bosext1.csh.obj     03.02.0000 
+                  X11rte.obj          01.02.0000 
+                  X11rte.ext.obj      01.02.0000 
+  
+If present, the following are required to be at or greater than the given 
+release level... 
+                  X11_3d.gl.rte.obj   01.02.0000 
+                  X11_3d.obj          01.02.0000 
+                  X11dev.obj          01.02.0000 
+   
+C. "OS page space is low, terminating execution" 
+This message occurs when there is not enough page space allocated. 
+See "Paging Space" in the general README file. 
+  
+2. Hardware Rendering Considerations 
+The behavior of Data Explorer on the RISC System/6000 differs in a few 
+ways when using the hardware rendering option. 
+  
+A. Shared Library Support for Hardware Rendering 
+When hardware rendering is requested for the first time, the executive 
+dynamically loads /usr/local/dx/bin_ibm6000/DXhwddOGL.o and the OpenGL shared 
+libraries.  If one of these is not present then hardware rendering will 
+be disabled. See G "OpenGL vs GL hardware renderer". 
+  
+B. Hardware Rendering Not Available Message 
+When the message 'Hardware rendering not available: /usr/lib/libgl.a not 
+found' appears, then GL shared library or run-time support has 
+not been installed. 
+  
+C. The Gto 
+The Gto drawing processor card should have a Date Code greater than 9052, 
+and any EC Level except S24699. To determine the Date Code and EC Level, 
+type "lscfg -v -l hispddrp*". If either requirement is not met, contact  
+IBM Service to request an upgrade to the Drawing Processor Card (hispddrp*). 
+  
+D. Gt4x under Sequencer control 
+When users of the Gt4x hardware accelerator cards run visual programs 
+which generate simple images, either small or with few objects, 
+quickly under Sequencer control, their system may be bogged down with  
+graphics work.  To avoid this situation, set the throttle parameter either 
+to the Display module or with the Throttle dialog for an Image module 
+to some small number (e.g. 0.25 seconds). 
+  
+E. 2D Graphics Cards with AIX Option X11_3d.gl.rte 
+When users try to use hardware rendering on machines which don't support 
+3D rendering but on which the X11_3d.gl.rte option is installed, Data 
+Explorer may abnormally exit. 
+  
+F. The Gto does not support transparency 
+The High Speed 3D Graphics Accelerator (Gto) does not support transparency 
+when Hardware Rendering is selected. 
+  
+G. OpenGL vs GL hardware renderer 
+The default hardware renderer on AIX platforms is OpenGL.  To use 
+OpenGL, you must start the X server as follows: 
+   xinit -- -x mbx -x abx -x GLX 
+To use the GL hardware renderer export the environment variable DXHWMOD: 
+  Korn shell (ksh):  export DXHWMOD=DXhwdd.o 
+  C shell    (csh):  setenv DXHWMOD DXhwdd.o 
+(The alternative is DXHWMOD=DXhwddOGL.o) 
+You can also choose between OpenGL and GL on the command line to dx 
+by specifying -hwrender [gl|opengl] 
+  
+H. Backing store performance using the OpenGL renderer 
+When DX is in hardware rendering mode it uses a pixel read function 
+to read back the image after each complete display.  The saved image is 
+used to refresh the window when an area is later obscured and exposed 
+(e.g. pop-up menus) and also for erasing lines drawn during use of the 
+direct interactors (e.g. zoom box).  When using the OpenGL renderer on 
+adapters where the time to read and write pixels is slow relative to  
+drawing geometry, it may be preferable to disable this mechanism by  
+exporting the environment variable DXNO_BACKING_STORE: 
+  
+  Korn shell (ksh):  export DXNO_BACKING_STORE=1 
+  C shell    (csh):  setenv DXNO_BACKING_STORE 1 
+  
+This will cause the image to be redrawn when image areas are exposed 
+and will cause the direct interactors to erase lines by using black. 
+The black lines will persist until the image is redrawn. 
+  
+I. The GXT1000 
+In order to use hardware rendering of any type (GL 3.2 or OpenGL) on 
+the GXT1000, users must start the X server with the GLX, abx and mbx 
+server extensions as described in 2G. 
+  
+The GXT1000's X server may sometimes leave black rubberbanding 
+lines in place when using the Colormap editor or when 
+moving icons around on the canvas. These lines will disappear if the 
+window is obscured and then exposed. 
+  
+If you resize a window which is using hardware rendering on an 
+object with non-opaque objects, it is possible that you will see only 
+the opaque object in the original location of the window. This is true 
+only for GL 3.2 (not OpenGL). 
+  
+You should apply the following ptf's. They will fix many of the above 
+problems. 
+U433080 GXT1000 Maint Package 1 -- superceded by U437136 
+U433283 GXT1000 Maint Package 2 
+U434859 GXT1000 Maint Package 3 -- superceded by U437136 
+U437136 GXT1000 Enhancement Package 4 
+  
+3. User Interface Notes  
+  
+A. Visual Program line connections 
+Graphical objects in the Visual Program Editor (VPE) may not be shown if the 
+workspace is larger than 1280x1024 pixels. 
+  
+B. Differences for AIX 4.1 desktop 
+Some user interface features may look different than they appear 
+on other architectures and in the documentation. You can change 
+this behavior by setting the following X resources: 
+*enableEtchedInMenu: False  
+*enableToggleVisual: False  
+  
+  
+---------------------------------------------------------------------- 
+  
+The following trademarks apply to this information: 
+  
+IBM is a registered trademark of International Business Machines Corporation. 
+IBM Visualization Data Explorer AIX, AIXwindows, and RISC System/6000 
+    are trademarks of International Business Machines Corporation. 
+OpenGL is a trademark of Silicon Graphics, Inc. 
+</PRE>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcmany DXComponentReq, DXComponentOpt, DXComponentReqLoc, DXComponentOptLoc #!N #!N 
+Function #!N #!N Access or typecheck a component in a Field. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXComponentReq(Array a, Pointer 
+*data, int *n, int nreq, Type t, int dim) Error DXComponentOpt(Array 
+a, Pointer *data, int *n, int nreq, Type t, int dim) 
+Error DXComponentReqLoc(Array a, Pointer *data, int *n, int nreq, Type t, 
+int dim) Error DXComponentOptLoc(Array a, Pointer *data, int *n, int nreq, 
+Type t, int dim) #!EF #!N #!N Functional Details #!N #!N 
+Note: These routines will become obsolete in a future version of 
+Data Explorer. In their place, it is recommended that you now 
+use  #!F-adobe-times-bold-r-normal--18*   DXGetComponentValue #!EF and  #!F-adobe-times-bold-r-normal--18*   DXGetArrayInfo #!EF . #!N #!N 
+#!N The four routines have identical calling sequences, but differ as 
+follows. #!N #!N First,  #!F-adobe-times-bold-r-normal--18*   DXComponentOpt #!EF and  #!F-adobe-times-bold-r-normal--18*   DXComponentReq #!EF 
+return pointers to the global copy of the Array data, while 
+ #!F-adobe-times-bold-r-normal--18*   DXComponentOptLoc #!EF and  #!F-adobe-times-bold-r-normal--18*   DXComponentReqLoc #!EF return pointers to a 
+local copy of the Array data, and should be matched by 
+a  #!F-adobe-times-bold-r-normal--18*   DXFreeArrayDataLocal #!EF call. #!N #!N Second,  #!F-adobe-times-bold-r-normal--18*   DXComponentReq #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   DXComponentReqLoc #!EF consider it an error if the component 
+is missing (  #!F-adobe-times-bold-r-normal--18*   a #!EF is  #!F-adobe-times-bold-r-normal--18*   NULL #!EF ), 
+while  #!F-adobe-times-bold-r-normal--18*   DXComponentOpt #!EF and  #!F-adobe-times-bold-r-normal--18*   DXComponentOptLoc #!EF consider the component 
+optional and do not consider a  #!F-adobe-times-bold-r-normal--18*   NULL #!EF  #!F-adobe-times-bold-r-normal--18*   a 
+#!EF to be an error. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   data #!EF 
+is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , a pointer to a global 
+or local copy of the data is returned in  #!F-adobe-times-bold-r-normal--18*   *data 
+#!EF . If  #!F-adobe-times-bold-r-normal--18*   n #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+, the number of items in the Array is returned in 
+ #!F-adobe-times-bold-r-normal--18*   *n #!EF . If  #!F-adobe-times-bold-r-normal--18*   n #!EF is  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , the number of Array items must be  #!F-adobe-times-bold-r-normal--18*   nreq 
+#!EF . The type of the Array must be  #!F-adobe-times-bold-r-normal--18*   t 
+#!EF . If  #!F-adobe-times-bold-r-normal--18*   dim #!EF is 0, the Array must 
+have rank 0 (scalar). If  #!F-adobe-times-bold-r-normal--18*   dim #!EF is nonzero, the 
+Array must have rank 1 and shape equal to  #!F-adobe-times-bold-r-normal--18*   dim 
+#!EF . #!N #!N The type is one of the following: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N TYPE_BYTE TYPE_HYPER TYPE_SHORT #!N TYPE_UBYTE 
+TYPE_INT TYPE_USHORT #!N TYPE_DOUBLE TYPE_UINT TYPE_STRING #!N TYPE_FLOAT #!EF #!EF #!N 
+#!N #!EC #!N Note: These functions will expand compact data Arrays 
+and use extra memory. #!N #!N #!N Return Value #!N #!N 
+Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets 
+an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  
+,  #!Ldxgai,dxall1222 h DXGetArrayInfo  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  #!EF #!N #!N  #!Lfieldsc,dxall1062 h Field Class  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxcplus,dxall1185 h DXConcatenate, DXInvert, DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

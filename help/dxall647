@@ -1,0 +1,62 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rall646 Array Objects #!N #!EC #!N #!N An Array Object 
+specifies the type (default float), category (default real), rank (default 0), 
+shape, and number of items. The types are defined as follows: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N signed byte #!N 
+#!I30 #!N unsigned byte #!N #!I30 #!N signed 2-byte integer #!N 
+#!I30 #!N unsigned 2-byte integer #!N #!I30 #!N signed 4-byte integer 
+#!N #!I30 #!N unsigned 4-byte integer #!N #!I30 #!N signed 8-byte 
+integer #!N #!I30 #!N 4 byte floating point #!N #!I30 #!N 
+8 byte floating point #!N #!I30 #!N character string #!N #!I0 
+#!N #!EF #!N Note: Lists are simply Arrays. Thus a list 
+of integers is an Array of type "int"; a list of 
+strings, an Array of type "string." #!N #!N The categories are: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N real--A number #!N 
+#!I30 #!N complex--Two numbers representing the real and imaginary components. #!N 
+#!I0 #!N #!EF #!N The data is specified by an offset 
+in bytes in the data section of the current file, an 
+offset within the data section of another Data Explorer file, or 
+by the keyword  #!F-adobe-times-bold-r-normal--18*   follows #!EF , indicating that the data 
+begins immediately following the newline after the  #!F-adobe-times-bold-r-normal--18*   follows #!EF keyword. 
+The offset is specified in bytes for both binary and text 
+files. #!N #!N Optional keywords before the  #!F-adobe-times-bold-r-normal--18*   data #!EF keyword 
+specify the format and byte order of the data. The  #!F-adobe-times-bold-r-normal--18*   
+mode #!EF keyword before a data-location specification sets the default data 
+encoding for all subsequent  #!F-adobe-times-bold-r-normal--18*   data #!EF clauses to be the 
+most recently defined data encoding. The default data encoding is  #!F-adobe-times-bold-r-normal--18*   
+text #!EF (or  #!F-adobe-times-bold-r-normal--18*   ascii #!EF on all currently supported systems). 
+The  #!F-adobe-times-bold-r-normal--18*   ieee #!EF keyword specifies the ANSI/IEEE standard 754 data 
+format. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   binary #!EF (or  #!F-adobe-times-bold-r-normal--18*   ieee #!EF 
+on all currently supported systems) is specified, the default byte order 
+depends on the platform on which Data Explorer is running. On 
+the DEC Alpha, the default byte order is  #!F-adobe-times-bold-r-normal--18*   lsb #!EF 
+(least significant byte first). On all other platforms, the default byte 
+order is  #!F-adobe-times-bold-r-normal--18*   msb #!EF (most significant byte first). The  #!F-adobe-times-bold-r-normal--18*   
+'data mode' #!EF clause can be used outside an Array Object 
+definition; see  #!Ldatmodc,dxall661 h Data Mode Clause  #!EL  for more information. #!T,108,252 #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N  #!F-adobe-times-bold-r-normal--18*   object #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number #!EF [  #!F-adobe-times-bold-r-normal--18*   class 
+#!EF ]  #!F-adobe-times-bold-r-normal--18*   array #!EF #!N TAB "  #!F-adobe-times-bold-i-normal--18*   name #!EF 
+" #!N [  #!F-adobe-times-bold-r-normal--18*   type #!EF TAB  #!F-adobe-times-bold-r-normal--18*   [unsigned] byte #!EF 
+] #!N  #!F-adobe-times-bold-r-normal--18*   TAB signed byte #!N TAB unsigned short #!N 
+TAB [signed] short #!N TAB unsigned int #!N TAB [signed] int 
+#!N TAB hyper #!N TAB float #!N TAB double #!N TAB 
+string #!EF #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+[  #!F-adobe-times-bold-r-normal--18*   category TAB real #!EF ] #!N  #!F-adobe-times-bold-r-normal--18*   TAB complex 
+#!EF #!N [  #!F-adobe-times-bold-r-normal--18*   rank #!EF  #!F-adobe-times-bold-i-normal--18*   number #!EF ] #!N 
+[  #!F-adobe-times-bold-r-normal--18*   shape #!EF  #!F-adobe-times-bold-i-normal--18*   number ... #!EF ] #!N  #!F-adobe-times-bold-r-normal--18*   
+items #!EF  #!F-adobe-times-bold-i-normal--18*   number #!EF #!N [  #!F-adobe-times-bold-r-normal--18*   msb #!EF ] 
+[ TAB  #!F-adobe-times-bold-r-normal--18*   text #!EF ]  #!F-adobe-times-bold-r-normal--18*   data #!EF [  #!F-adobe-times-bold-r-normal--18*   
+mode #!EF ] TAB  #!F-adobe-times-bold-i-normal--18*   offset #!EF #!N  #!F-adobe-times-bold-r-normal--18*   lsb TAB 
+ieee #!EF TAB  #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   file #!EF ,  #!F-adobe-times-bold-i-normal--18*   
+offset #!EF #!N  #!F-adobe-times-bold-r-normal--18*   TAB binary TAB follows #!N TAB ascii 
+#!EF #!EF #!N #!N #!EC #!N #!N If  #!F-adobe-times-bold-r-normal--18*   byte #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   short #!EF , or  #!F-adobe-times-bold-r-normal--18*   int #!EF are not 
+prefixed with either signed or unsigned, by default, bytes are unsigned, 
+shorts are signed and ints are signed. For compatibility with earlier 
+versions,  #!F-adobe-times-bold-r-normal--18*   char #!EF is accepted as a synonym for  #!F-adobe-times-bold-r-normal--18*   
+byte #!EF . #!N Note: For string-type data, the Array rank 
+should be 1 and the Array shape should be the length 
+of the longest string plus 1. #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall647,dxall648 h Constant Array Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

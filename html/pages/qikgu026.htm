@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Sample Macros</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu025.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu027.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu016.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>4.2 Sample Macros</H2>
+		<A NAME="IDX189"></A><A NAME="IDX190"></A>
+<P>Found in directory <TT>&#36;DXROOT/samples/macros</TT>. 
+<P>
+<TT><STRONG>ArrangeMemberMacro.net</STRONG></TT>
+Allows you to independently arrange a number of interactive windows
+within a larger window.
+<P>
+<TT><STRONG>AutoScaleMacro.net</STRONG></TT>
+Automatically scales an object to a user-specified aspect ratio. It is
+used by the ScatterData example visual program.
+<P>
+<TT><STRONG>BandColorsMacro.net</STRONG></TT>
+"Bands" a 2-dimensional data set and applies a user-specified set
+of colors to the bands. It is used by the BandedColors example visual
+program.
+<P>
+<TT><STRONG>CappedIsoMacro.net</STRONG></TT>
+caps an isosurface by the boundary of the data. Used by CappedIso.net.
+<P>
+<TT><STRONG>ClipSurfaceMacro.net</STRONG></TT>
+clips a surface by a plane. Is used by the macro ClipVolumeMacro.net.
+<P>
+<TT><STRONG>ClipVolumeMacro</STRONG></TT>
+clips a surface in a volume by a plane, capping the hole with a plane
+from the volume. Can be nested. Is used by VolumeClip.net.
+<P>
+<TT><STRONG>ConvertColorNameListMacro.net</STRONG></TT>
+Converts a list of color names to a list of RGB vectors. It is used by
+the BandedColorsMacro macro.
+<P>
+<TT><STRONG>DrapeMacro.net</STRONG></TT>
+drapes one 2-dimensional field over another, using one of them to deform
+the surface.
+
+<P>
+<TT><STRONG>FactorialMacro.net</STRONG></TT>
+Used by Factorial.net to compute a factorial.
+<P>
+<TT><STRONG>FormatListMacro.net</STRONG></TT>
+Formats a list of values into a list of strings.
+<P><TT><STRONG>Image2Macro.net</STRONG></TT>
+Implements much of the functionality
+of the Image tool with SuperviseWindow, SuperviseState, and Display.
+Used by Image_wo_UI.net.
+<P>
+<TT><STRONG>InsetImageMacro.net</STRONG></TT>
+Allows you to inset an independently interactive window within a larger
+window.
+
+<P>
+<TT><STRONG>InterpolatePositionsMacro.net</STRONG></TT>
+Used by the FlyThrough example visual program (see <A
+HREF="qikgu025.htm#HDR3DDAT">"3-Dimensional Data"</A>).
+It interpolates data values within a list of 3-dimensional positions.
+<P>
+<TT><STRONG>MakeLineMacro.net</STRONG></TT>
+Used by the PlotLine2 example visual program (see <A
+HREF="qikgu025.htm#HDR3DDAT">"3-Dimensional Data"</A>).
+
+<P>
+The macro takes as input a data field, two points defining the start
+and end of a line, and the number of samples to be placed along
+the line.
+The macro has two outputs:
+
+
+<LI>a line that can be displayed in the Image
+window
+<LI>the data to be plotted, which has two components:
+
+<UL COMPACT>
+<LI>the
+"positions"
+component is the distance along the line
+<LI>the
+"data"
+component is the data value at each position.
+</UL>
+<P>
+
+<TT><STRONG>Make3DFieldMacro.net</STRONG></TT>
+Given three fields with scalar data components, creates an output field
+where the x's are the data components of the first field, the y's are the
+data components of the second field, and the z's are the date components
+of the third field. It is used by the ScatterData example visual program.
+
+<P>
+
+<TT><STRONG>MapOnStatesMacro.net</STRONG></TT>
+Allows you to map data onto a map of the United States. It is used by
+the CensusData and ZipCodes example visual programs.
+
+<P>
+<TT><STRONG>MatteMacro.net</STRONG></TT>
+Used by Bounce.net.
+It mattes two images together.
+<P><TT><STRONG>PickPlotMacro.net</STRONG></TT>
+Extracts the transformed x,y position from a picked point in a plot.
+<P>
+<TT><STRONG>UnsquishGlyphMacro.net</STRONG></TT>
+Provides a simple solution for the "squished glyph" syndrome, when
+data are scaled before rendering. It is used by the ScatterData example
+visual program.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

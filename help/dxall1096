@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rstoral Memory Allocation #!N 
+#!EC #!N #!N Data Explorer recognizes two kinds of memory--local and 
+global. Stack variables and memory allocated by  #!F-adobe-times-bold-r-normal--18*   DXAllocateLocal() #!EF are 
+local to the processor. Memory allocated by  #!F-adobe-times-bold-r-normal--18*   DXAllocate() #!EF (including 
+all Objects) is global and may or may not reside in 
+the processor. (On some platforms, such as those without per-processor local 
+memory, there is no distinction between global and local.) #!N #!N 
+Data Explorer's memory-allocation routines, which provide hooks for debugging, also distinguish 
+between local and global allocation. These, rather than the standard system 
+memory-allocation routines (such as  #!F-adobe-times-bold-r-normal--18*   malloc() #!EF ), are recommended, to 
+ensure consistent management of memory. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Pointer DXAllocate() #!EF #!N Pointer DXAllocateZero(); #!EF #!I50 #!N 
+Allocate global memory. See  #!Ldxalp,dxall1171 h DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly, DXAllocateLocalOnlyZero  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Pointer DXAllocateLocal() #!EF #!N Pointer DXAllocateLocalZero(); #!EF #!I50 #!N Allocate local 
+memory if available; otherwise, global memory. See  #!Ldxalp,dxall1171 h DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly, DXAllocateLocalOnlyZero  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Pointer DXAllocateLocalOnly() #!EF #!N Pointer DXAllocateLocalOnlyZero(); #!EF #!I50 
+#!N Allocate local memory. See  #!Ldxalp,dxall1171 h DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly, DXAllocateLocalOnlyZero  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Pointer DXReAllocate() #!EF #!EF #!I50 #!N Changes the size of 
+a previously allocated block of memory. See  #!Ldxrea,dxall1352 h DXReAllocate  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXFree() #!EF #!EF #!I50 #!N Frees a 
+previously allocated block of memory. See  #!Ldxfre,dxall1212 h DXFree  #!EL  . #!I0 #!N #!N 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   LESS COMMONLY USED ROUTINES #!EF __________________________________ #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void DXPrintAlloc() #!EF #!EF #!I50 
+#!N Prints out a summary of memory use. See  #!Ldxpa,dxall1332 h DXPrintAlloc  #!EL  . 
+#!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lobjsec,dxall1097 h Object Class  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

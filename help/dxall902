@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rpartiti Partition #!N #!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N Function 
+#!N #!N Partitions a data set for parallel processing. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N partitioned #!EF = Partition( 
+ #!F-adobe-times-bold-r-normal--18*   input, n, size #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB input TAB field or group 
+TAB none TAB field to be partitioned #!N TAB n TAB 
+integer TAB machine dependent TAB maximum number of subparts #!N TAB 
+size TAB integer TAB one primitive TAB threshold for partitioning #!N 
+TAB - TAB - TAB - TAB #!EF #!N #!N Outputs 
+#!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF 
+#!N TAB partitioned TAB field or group TAB set of partitioned 
+fields #!N TAB - TAB - TAB #!EF #!N #!N Functional 
+Details #!N #!N This module partitions a data set for parallel 
+processing on an SMP multiprocessor machine. (You must be using Data 
+Explorer SMP to take advantage of this feature.) Its output is 
+a composite field, which is treated as a single entity by 
+other modules. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input 
+#!EF #!EF #!I50 #!N is the input object to be partitioned. 
+If this parameter specifies a group, each group member is partitioned 
+with the same  #!F-adobe-times-bold-r-normal--18*   n #!EF and  #!F-adobe-times-bold-r-normal--18*   size #!EF parameters. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   n #!EF #!EF #!I50 #!N is 
+the approximate number of partitions to be created. However, the module 
+will not create partitions smaller than  #!F-adobe-times-bold-r-normal--18*   size #!EF (see below). 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   size #!EF #!EF #!I50 #!N is 
+the minimum number of connection elements per partition. #!N #!N If 
+ #!F-adobe-times-bold-r-normal--18*   n #!EF *  #!F-adobe-times-bold-r-normal--18*   size #!EF is larger than the 
+total number of points, the output number of partitions may be 
+smaller than  #!F-adobe-times-bold-r-normal--18*   n #!EF #!N #!N If you do not 
+specify  #!F-adobe-times-bold-r-normal--18*   n #!EF or  #!F-adobe-times-bold-r-normal--18*   size #!EF , appropriate default 
+values are supplied, depending on the number of processors available. #!I0 
+#!N #!N Note: On a uniprocessor machine, n = 1 by 
+default. Consequently, the same programs can be run on uniprocessor and 
+multiprocessor machines without modification. #!N #!N Components #!N #!N All components 
+in the input are propagated to the output. #!N #!N Example 
+Visual Programs #!N #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N ExampleSMP.net #!EF 
+#!N #!N #!EC #!N #!N See Also #!N #!N  #!Limport,dxall871 h Import  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lpick,dxall903 h Pick  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

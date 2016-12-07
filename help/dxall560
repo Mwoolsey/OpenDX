@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rall559 Assignment and Function Call Semantics #!N #!EC #!N #!N 
+As stated earlier, all assignment statements and function calls initiated at 
+the top-level environment are executed. In a macro, the process is 
+slightly different. When a macro is expanded, its statements are first 
+analyzed to determine whether they need to be executed. The rule 
+of thumb for determining if a statement will be executed is 
+that it must contribute, either directly or indirectly, to: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o One of the values 
+passed into a module that has a side effect #!N #!I30 
+#!N o A value assigned to a top-level variable, using a 
+macro's formal output parameters. #!N #!I0 #!N #!EF #!N #!N #!N 
+There are two kinds of "side effect" modules: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Those that do not produce 
+any Object outputs. Display and WriteImage are examples of this kind 
+of module because they modify things such as monitors and files, 
+which are outside of the language's domain and control. This type 
+of module is represented in the graphical user interface as having 
+no output tabs. #!N #!I30 #!N o Those that make use 
+of internal executive features. These modules are specially marked in their 
+.mdf (module description) files as ones that can cause side effects. 
+#!N #!I0 #!N #!EF #!N Side effect modules are always executed. 
+(For information on the SIDE_EFFECT flag, see  #!Lmdfsec,dxall1046 h Module Description Files  #!EL  in IBM Visualization 
+Data Explorer Programmer's Reference.) #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall560,dxall561 h Execution Example  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

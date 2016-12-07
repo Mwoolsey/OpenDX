@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rscatplt Scatter 
+Plots #!N To create a scatter plot (with no line drawn 
+between markers), set the "scatter" attribute on the line to 1 
+(one). (The default is a line between markers.) #!N #!N #!N 
+#!N #!I0 #!N Notes: #!N #!I30 #!N 1. If  #!F-adobe-times-bold-r-normal--18*   corners 
+#!EF is more restrictive than the  #!F-adobe-times-bold-r-normal--18*   ticklocations #!EF , then 
+the given locations outside the corners are not shown. #!N #!I30 
+#!N 2. If  #!F-adobe-times-bold-r-normal--18*   corners #!EF is less restrictive than the 
+given  #!F-adobe-times-bold-r-normal--18*   ticklocations #!EF , or if  #!F-adobe-times-bold-r-normal--18*   corners #!EF is 
+not specified, then all given tick locations are shown, whether or 
+not there is data there. #!N #!I30 #!N 3. If  #!F-adobe-times-bold-r-normal--18*   
+ticklocations #!EF is specified, then the data range determines the extent 
+of the axes, unless  #!F-adobe-times-bold-r-normal--18*   corners #!EF is specified, in which 
+case the given corners are used. #!I0 #!N #!N #!N #!N 
+Bar Charts #!N #!N If the input to Plot has a 
+"data" component that is dependent on "connections" rather than "positions," a 
+bar chart is created. #!N #!N Components #!N #!N Creates "positions," 
+"connections," and "colors" components. #!N #!N Example Visual Programs #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N PlotLine.net #!N PlotLine2.net #!N PlotTwoLines.net #!N #!N PlotSpecifyTicks.net 
+#!N #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Lcompute,dxall795 h Compute  #!EL  ,  #!Lconstru,dxall798 h Construct  #!EL  ,  #!Lhistogr,dxall859 h Histogram  #!EL  ,  #!Loptions,dxall898 h Options  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lpost,dxall910 h Post  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

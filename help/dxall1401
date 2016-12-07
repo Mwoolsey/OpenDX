@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxtbe DXTube #!N #!N Function #!N #!N Produces a 
+tube of specified diameter from a path or group of paths 
+in a specified Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Object DXTube(Object o, double diameter, int n) #!EF #!N #!N Functional 
+Details #!N #!N The cross section of the tube is an 
+ #!F-adobe-times-bold-r-normal--18*   n #!EF -gon in a plane parallel to the normal 
+and perpendicular to the tangent at each point on the path, 
+where the normals are provided by a "normals" component if present 
+or approximated from the path otherwise. Normals to the tube are 
+computed and associated with the tube for shading. #!N #!N For 
+more information, see  #!Ltube,dxall971 h Tube  #!EL  in IBM Visualization Data Explorer User's Reference. 
+See also  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N #!N Returns 
+the tube or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error 
+code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxrib,dxall1361 h DXRibbon  #!EL  #!EF #!N 
+#!N  #!Lphos,dxall1128 h Path Operations  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxtcv,dxall1402 h DXTypeCheck, DXTypeCheckV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

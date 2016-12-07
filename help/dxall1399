@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxtpp DXTraversePickPath 
+#!N #!N Function #!N #!N Returns the subObject of the current 
+Object selected by a pick path. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Object DXTraversePickPath(Object current, int index, Matrix *matrix) #!EF #!N 
+#!N Functional Details #!N #!N Traverses a data Object to reach 
+the picked Field, element, and vertex. Given an Object  #!F-adobe-times-bold-r-normal--18*   current 
+#!EF (initially the root of the data Object), a pointer to 
+a matrix  #!F-adobe-times-bold-r-normal--18*   matrix #!EF (initially identity), and a path index 
+ #!F-adobe-times-bold-r-normal--18*   index #!EF , returns the subObject of the current Object. 
+#!N #!N When Xform Objects are encountered, the matrix associated with 
+the Xform is concatenated onto the matrix pointed to by the 
+ #!F-adobe-times-bold-r-normal--18*   matrix #!EF parameter (if one was passed in). When the 
+end of the path is found (either by recognizing that the 
+returned Object is a Field or that the returned Object is 
+the same as the current Object), the caller is left with 
+the picked Field and a transform carrying the coordinate system of 
+that Field to the eye coordinate system. #!N #!N Return Value 
+#!N #!N Returns the subObject or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgpp,dxall1260 h DXGetPickPoint  #!EL  ,  #!Ldxqpic,dxall1348 h DXQueryPickCount  #!EL  ,  #!Ldxqpp,dxall1349 h DXQueryPickPath  #!EL  ,  #!Ldxqpoc,dxall1350 h DXQueryPokeCount  #!EL  #!EF #!N #!N  #!Lpies,dxall1123 h Pick-Assistance Routines  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxt,dxall1400 h DXTrim  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

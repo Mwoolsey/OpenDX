@@ -1,0 +1,58 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rcatrel Realization #!N #!EC #!N #!N These tools 
+create structures for rendering and display (e.g., bands, triangle connections, isosurfaces, 
+and boundary boxes). #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lautgrid,dxall778 h AutoGrid  #!EL  
+#!EF #!I50 #!N Maps a set of scattered points onto a 
+grid. The grid will be created automatically by Data Explorer. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lband,dxall779 h Band  #!EL  #!EF #!I50 #!N Divides a Field into 
+bands based on given division values. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lconnect,dxall797 h Connect  #!EL  
+#!EF #!I50 #!N Creates triangle connections for a Field of scattered 
+positions. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lconstru,dxall798 h Construct  #!EL  #!EF #!I50 #!N Constructs an 
+arbitrary Field. You can specify the origin, the deltas, the counts 
+in each dimension, and the data. You can also use Construct 
+to create a Field containing a "positions" component with given position 
+values (e.g., the output of the ProbeList tool). #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lenumer,dxall830 h Enumerate  #!EL  #!EF #!I50 #!N Generates a numeric list. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lgrid,dxall858 h Grid  #!EL  #!EF #!I50 #!N Produces a set of points 
+on a grid. You can construct rectangles, ellipses, lines, crosshairs, and 
+bricks. You can specify the size of the object and the 
+number of points in the grid. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lisolate,dxall880 h Isolate  #!EL  
+#!EF #!I50 #!N Shrinks the connections elements of a Field so 
+that they can be individually seen. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lisosurf,dxall881 h Isosurface  #!EL  
+#!EF #!I50 #!N Creates surfaces or lines of constant value. For 
+volumetric inputs, it creates isosurfaces; for surface inputs, contour lines. Use 
+the ClipPlane module to display the interior of an isosurface. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lmaptopl,dxall892 h MapToPlane  #!EL  #!EF #!I50 #!N Maps a 3-dimensional data 
+Field onto an arbitrary plane. You can specify a point and 
+a normal to define the plane. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lregrid,dxall920 h Regrid  #!EL  
+#!EF #!I50 #!N Maps a set of scattered points onto a 
+specified grid. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lrubbers,dxall930 h RubberSheet  #!EL  #!EF #!I50 #!N Deforms 
+a surface field (composed of triangles, quads, or lines) by an 
+amount proportional to the data value at each point. You can 
+use the Normals or FaceNormals module to add shading before rendering. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lsample,dxall931 h Sample  #!EL  #!EF #!I50 #!N Produces a set 
+of points in an arbitrary field. For example, you can produce 
+a set of approximately evenly spaced samples on an isosurface. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lshowbou,dxall943 h ShowBoundary  #!EL  #!EF #!I50 #!N Creates a renderable object 
+that is the boundary of a volumetric field. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lshowbox,dxall944 h ShowBox  #!EL  #!EF #!I50 #!N Creates a set of renderable lines 
+that represent the bounding box of a field. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lshowcon,dxall945 h ShowConnections  #!EL  #!EF #!I50 #!N Creates a set of renderable lines 
+that represent the connections of elements in a field. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Lshowpos,dxall946 h ShowPositions  #!EL  #!EF #!I50 #!N Creates a set of renderable 
+points that represent the positions of a field. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lstreakl,dxall954 h Streakline  #!EL  #!EF #!I50 #!N Computes a line that traces the 
+path of a particle through a changing vector field. The data 
+input to the module is a vector field series, or a 
+single field that is a member of a vector field series. 
+You can control the starting points of the streaklines, and can 
+optionally provide a curl field to produce twist on any ribbons 
+or tubes constructed from the streakline. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lstreaml,dxall955 h Streamline  #!EL  
+#!EF #!I50 #!N Computes a line that traces the path of 
+a particle through a constant vector field. The data input to 
+the module is a vector field. You can control the starting 
+points of the streamlines, and can optionally provide a curl field 
+to produce twist on any ribbons or tubes constructed from the 
+streamline. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

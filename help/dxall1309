@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnal DXNewAmbientLight #!N #!N 
+Function #!N #!N Creates a light Object representing an ambient light 
+source. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Light DXNewAmbientLight(RGBColor color) 
+#!EF #!N #!N Functional Details #!N #!N Creates a light Object 
+of the color  #!F-adobe-times-bold-r-normal--18*   color #!EF that produces a constant illumination 
+on all rendered Objects regardless of surface orientation. #!N #!N An 
+ #!F-adobe-times-bold-r-normal--18*   RGBColor #!EF is defined as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct 
+rgbcolor { float r, g, b; } RGBColor; #!EF #!N #!N 
+Return Value #!N #!N Returns the light or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and sets an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxndl,dxall1315 h DXNewDistantLight  #!EL  ,  #!Ldxqal,dxall1338 h DXQueryAmbientLight  #!EL  ,  #!Ldxqdl,dxall1342 h DXQueryDistantLight  #!EL  #!EF #!N #!N  #!Llightsc,dxall1139 h Light Class  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxnav,dxall1310 h DXNewArray, DXNewArrayV  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Understanding the Data Model</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu023.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu025.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu022.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRDATMOD" ></A>Chapter 3. Understanding the Data Model
+</H2>
+		
+<P><A NAME="PToC6" HREF="../usrguide.htm">Partial Table-of-Contents</A> 
+<MENU>
+<LI><A NAME="PToC_50" HREF="#Header_50">3.1 Introduction to the Data Model</A>
+<LI><A NAME="PToC_51" HREF="usrgu025.htm#Header_51">3.2 Object Types</A>
+<MENU>
+<LI><A NAME="PToC_52" HREF="usrgu025.htm#Header_52">Fields</A>
+<LI><A NAME="PToC_83" HREF="usrgu025.htm#HDRARRAYS">Arrays</A>
+<LI><A NAME="PToC_90" HREF="usrgu025.htm#Header_90">Groups</A>
+</MENU></MENU><HR><P>
+<A NAME="IDX484"></A>
+<A NAME="IDX485"></A>
+<A NAME="IDX486"></A>
+<P>
+This chapter describes the concepts and terminology of the data
+model for data stored in the Data Explorer system, whether in memory
+or on disk.
+<P>
+A complete understanding of this chapter is not required for the
+effective use of Data Explorer, and the brief discussion of a Field
+in <A HREF="usrgu022.htm#HDRVIS">Chapter 2. "Introduction to Visualization"</A>
+should get you started.
+However, the more detailed information here is useful when you have
+specific questions about the data model.
+<HR>
+<H2><A NAME="Header_50" ></A>3.1 Introduction to the Data Model
+</H2>
+<P>
+The Data Explorer data model supports various types of simulation
+and observational data.
+Data structures that can be represented include:
+<UL COMPACT>
+<A NAME="IDX487"></A>
+<LI>Data defined on a regular orthogonal grid
+<LI>Data defined on a deformed regular or curvilinear grid
+<LI>Data defined on various irregular grids,
+such as triangular, quadrilateral, and tetrahedral meshes
+<LI>Unstructured data with no connections between the data samples.
+</UL>
+The data samples can be defined over spaces of any dimensionality, and,
+independently, can also be connected by primitives of various
+dimensionalities (allowing, for example, triangular and
+quadrilateral meshes defined over 2- or
+3-dimensional points).
+The data values can be associated either with the sample points or with
+the connections between the sample points.
+Available data types include:
+<UL COMPACT>
+<LI>Real and complex data
+<LI>Scalar, vector and tensor data
+<LI>Byte, short, integer (signed and unsigned), and floating-point data
+</UL>
+<P>
+<A NAME="IDX488"></A>
+Data are stored in the form of <I>Objects</I> for use by Data Explorer
+modules.
+An Object is a data structure stored in memory that contains an
+indication of the Object&#39;s type, along with additional
+type-dependent information.
+The bulk of the data is encapsulated in <I>Array</I> Objects.
+<P>
+The data model centers on the notion of a <I>sampled field</I>.
+The next section describes the <I>Field, Array,</I> and
+<I>Group</I> Objects that implement sampled  fields
+in Data Explorer.
+In addition to these basic Object types, other types are used to
+construct models for rendering (e.g., Transforms, Clipped
+Objects, Lights, and Cameras).
+These are described in <A HREF="usrgu068.htm#HDREDF">B.2 , "Data Explorer Native
+Files"</A> and in <I>IBM Visualization Data Explorer Programmer&#39;s
+Reference</I>.
+<P>
+Data are also stored in permanent file storage in the form of the same
+Objects.
+Although Data Explorer supports the creation of Objects from data stored in
+other file formats (such as netCDF), the Data Explorer file format offers
+significant additional functionality and flexibility.
+<P>
+Note that the Data Explorer file format is versatile, allowing for future
+expansion of the capabilities of the system without requiring
+changes to the file format.
+It is possible to represent data types in a Data Explorer file that cannot be
+processed by the current version of Data Explorer.
+For example, in the current release of Data Explorer, only single-precision
+floating-point positions are universally supported.
+Also, most modules support only 1-, 2-, or 3-dimensional positions.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

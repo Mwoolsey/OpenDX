@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqdl 
+DXQueryDistantLight #!N #!N Function #!N #!N Returns information about a distant 
+Light. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Light DXQueryDistantLight(Light l, 
+Vector *direction, RGBColor *color) #!EF #!N #!N Functional Details #!N #!N 
+Determines whether  #!F-adobe-times-bold-r-normal--18*   l #!EF is a distant Light and returns 
+in  #!F-adobe-times-bold-r-normal--18*   *direction #!EF and  #!F-adobe-times-bold-r-normal--18*   *color #!EF the information specified 
+when the light was created. The light source is located at 
+an infinite distance from the scene in the direction specified by 
+ #!F-adobe-times-bold-r-normal--18*   direction #!EF . #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   l #!EF (if it is a Distant Light) or  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF (if it is another type) without setting an error 
+code; otherwise, returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxndl,dxall1315 h DXNewDistantLight  #!EL  #!EF #!N #!N 
+ #!Llightsc,dxall1139 h Light Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxqgc,dxall1343 h DXQueryGridConnections  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu089.htm">Previous Page</A> &#124; <A HREF="progu091.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDREXECCTL" HREF="progu084.htm#PToC_180">17.7 Execution
+Control</A></H2>
+<A NAME="IDX1372"></A>
+<P>
+These routines allow an application program to control the execution of
+an instance of Data Explorer (represented by <TT><STRONG>*conn</STRONG></TT>).
+<DL>
+<P><DT><B><TT><STRONG>DXLError DXLEndExecution(DXLConnection
+*conn)</STRONG></TT>
+<A NAME="IDX1373"></A>
+<A NAME="IDX1374"></A>
+</B><DD>Terminates execution of a program running in Data Explorer.
+Returns OK or ERROR.
+
+<P><DT><B><TT><STRONG>DXLError DXLEndExecuteOnChange(DXLConnection
+*conn)</STRONG></TT>
+<A NAME="IDX1375"></A>
+<A NAME="IDX1376"></A>
+</B><DD>Takes Data Explorer out of Execute on Change mode, but
+does not terminate the current execution.
+
+<P><DT><B><TT><STRONG>DXLError DXLExecuteOnChange(DXLConnection
+*conn)</STRONG></TT>
+<A NAME="IDX1377"></A>
+<A NAME="IDX1378"></A>
+</B><DD>Puts Data Explorer into execute-on-change mode: the main macro
+reexecutes each time any of its inputs or referenced global
+variables changes value.
+Returns OK or ERROR.
+
+<P><DT><B><TT><STRONG>DXLError DXLEndExecuteOnChange(DXLConnection
+*conn);</STRONG></TT>
+<A NAME="IDX1379"></A>
+<A NAME="IDX1380"></A>
+</B><DD>ends execute-on-change mode.
+
+<P><DT><B><TT><STRONG>DXLError DXLExecuteOnce(DXLConnection *conn)</STRONG></TT>
+<A NAME="IDX1381"></A>
+<A NAME="IDX1382"></A>
+</B><DD>Initiates a single execution of the macro called main.
+Returns OK or ERROR.
+<P><DT><B><TT><STRONG>DXLError DXLGetExecutionStatus(DXLConnection *conn, int
+*state)</STRONG></TT>
+<A NAME="IDX1383"></A>
+<A NAME="IDX1384"></A>
+</B><DD>Gets the execution status of Data Explorer.
+The parameter state is returned with a nonzero value if the executive
+is currently executing.
+<P><DT><B><TT><STRONG>DXLError DXLSequencerCtl(DXLConnection *conn,
+DXLSequencerCtlEnum action)</STRONG></TT>
+<A NAME="IDX1385"></A>
+<A NAME="IDX1386"></A>
+</B><DD>Causes the specified action to occur.
+Valid arguments for <TT><STRONG>action</STRONG></TT> are:
+<P>
+<BR>
+SeqLoopOff<BR>
+SeqLoopOn<BR>
+SeqPalindromeOff<BR>
+SeqPalindromeOn<BR>
+SeqPause<BR>
+SeqPlayBackward<BR>
+SeqPlayForward<BR>
+SeqStep<BR>
+SeqStop<BR>
+<P><DT><B><TT><STRONG>DXLError DXLSync(DXLConnection *conn)</STRONG></TT>
+<A NAME="IDX1387"></A>
+<A NAME="IDX1388"></A>
+</B><DD>Sends a message to the server and does not return until an
+acknowledgment is received.
+(This is a one-time synchronization.
+Compare with DXLSetSynchronization in <A HREF="progu088.htm#HDRINITEX">17.5 ,
+"Initialization and Exit"</A>.
+<P><DT><B><TT><STRONG>DXLError uiDXLSyncExecutive(DXLConnection
+*conn)</STRONG></TT>
+<A NAME="IDX1389"></A>
+<A NAME="IDX1390"></A>
+</B><DD>Sends a message through the user interface to the executive and
+does not return until the executive has acknowledged the message.
+
+<P><DT><B><TT><STRONG>DXLError uiDXLSetRenderMode(DXLConnection *conn, char
+*title, int rmode)</STRONG></TT>
+<A NAME="IDX1391"></A>
+<A NAME="IDX1392"></A>
+</B><DD>lets you set the rendering mode of a window specified by
+<TT><STRONG>title</STRONG></TT>. The title of the window (accessible through
+the <TT><STRONG>Image Name</STRONG></TT> option in the
+<TT><STRONG>Options</STRONG></TT> pull-down menu of the Image window, the
+<TT><STRONG>title</STRONG></TT> parameter of the Image tool, or the
+<TT><STRONG>where</STRONG></TT> parameter of the Display module.
+
+<TT><STRONG>rmode</STRONG></TT> must be either 0 (for software) or 1 (for
+hardware).
+<P><DT><B><TT><STRONG>DXLError uiDXLResetServer()</STRONG></TT>
+<A NAME="IDX1393"></A>
+<A NAME="IDX1394"></A>
+</B><DD>effectively does a "reset server". That is, it flushes
+the Data Explorer software cache.
+<P><DT><B><TT><STRONG>DXLError exDXLExecuteOnceNamed(DXLConnection *conn, char
+*name);</STRONG></TT>
+<A NAME="IDX1395"></A>
+<A NAME="IDX1396"></A>
+</B><DD>
+<P><DT><B><TT><STRONG>DXLError exDXLExecuteOnceNamedWithArgs(DXLConnection
+*conn, char *name, . ..);</STRONG></TT>
+<A NAME="IDX1397"></A>
+<A NAME="IDX1398"></A>
+</B><DD>
+<P><DT><B><TT><STRONG>DXLError exDXLExecuteOnceNamedWithArgsV(DXLConnection
+*conn, char *name, char **args);</STRONG></TT>
+<A NAME="IDX1399"></A>
+<A NAME="IDX1400"></A>
+</B><DD>
+<P><DT><B><TT><STRONG>DXLError exDXLExecuteOnChangeNamed(DXLConnection *conn,
+char *name);</STRONG></TT>
+<A NAME="IDX1401"></A>
+<A NAME="IDX1402"></A>
+</B><DD>
+<P><DT><B><TT><STRONG>DXLError exDXLExecuteOnChangeNamedWithArgs(DXLConnection
+*conn, char  *name, ...);</STRONG></TT>
+<A NAME="IDX1403"></A>
+<A NAME="IDX1404"></A>
+</B><DD>
+<P><DT><B><TT><STRONG>DXLError exDXLExecuteOnChangeNamedWithArgsV(DXLConnection
+*conn, char *name , char **args);</STRONG></TT>
+<A NAME="IDX1405"></A>
+<A NAME="IDX1406"></A>
+</B><DD>
+These routines, used ONLY when the application is connected directly to
+the Data Explorer executive, allow the application to execute macros by name.
+The
+application can cause the named macro to be executed once or to be
+executed whenever a macro global input changes (such as when a value is sent
+to a DXLInput or DXLInputNamed module). The macro may be given a
+NULL-terminated list of arguments (the ...WithArgs form) or a
+NULL-terminated vector of arguments (the ...WithArgsV form).
+
+</DL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu089.htm">Previous Page</A> &#124; <A HREF="progu091.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

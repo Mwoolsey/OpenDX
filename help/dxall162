@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rdprfile Data Prompter File Pull-down Menu #!N #!EC 
+#!N #!N The following functions are available in this pull-down menu: 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   New #!EF #!I50 #!N 
+Resets the Data Prompter by setting all fields to their default 
+values. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Open... #!EF #!I50 #!N Invokes a 
+standard Motif file-selection dialog box that prompts for a choice of 
+file. You can read in an existing General Array Importer header 
+file, whether or not it was created with the Data Prompter. 
+However, the Data Prompter does  #!F-adobe-times-medium-i-normal--18*   not #!EF support header files 
+containing the data to be imported: the data is assumed to 
+exist in a separate file. To read an existing header from 
+a file that also contains the data to be visualized, the 
+header should be written out to a separate file. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   Save #!EF #!I50 #!N Writes the Data Prompter header 
+file out, using the current file name. The current file name 
+is set by opening a file or by executing the  #!F-adobe-times-bold-r-normal--18*   
+Save As... #!EF command. The Data Prompter will check the correctness 
+of most aspects of the header file to be saved. Any 
+problems are reported and the  #!F-adobe-times-bold-r-normal--18*   Save #!EF operation is terminated. 
+You may then correct the indicated problem and save the header 
+file again. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Save As... #!EF #!I50 #!N 
+Is the same as  #!F-adobe-times-bold-r-normal--18*   Save #!EF except that you must 
+specify a name for the header file. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Quit #!EF #!I50 #!N Terminates the Data Prompter application. It also 
+gives you the option of saving any changes not already saved. 
+#!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldpredit,dxall163 h Data Prompter Edit Pull-down Menu  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

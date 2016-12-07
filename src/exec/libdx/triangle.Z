@@ -1,0 +1,511 @@
+/***********************************************************************/
+/* Open Visualization Data Explorer                                    */
+/* (C) Copyright IBM Corp. 1989,1999                                   */
+/* ALL RIGHTS RESERVED                                                 */
+/* This code licensed under the                                        */
+/*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
+/***********************************************************************/
+
+
+INCLUDE3 <dxconfig.h>
+
+INCLUDE1 "triangles.h"
+INCLUDE2 "triangles.h"
+
+INCLUDE3 <string.h>
+INCLUDE3 <dx/dx.h>
+INCLUDE3 "render.h"
+INCLUDE3 "internals.h"
+
+
+DEFINE3 CAT(a,b) a##b
+
+#define TRIANGLES(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL) {  $\
+									    $\
+    Point *p;								    $\
+    int v1, v2, v3, i, width, height;					    $\
+    int i1, i2, i3;							    $\
+    float ox, oy;							    $\
+    InvalidComponentHandle iElts;					    $\
+    RGBColor vcolors[6];						    $\
+    int shademe;							    $\
+    char fcst = xf->fcst, bcst = xf->bcst, ncst = xf->ncst;		    $\
+    char fbyte = xf->fbyte, bbyte = xf->bbyte;				    $\
+									    $\
+    iElts = (invalid_status == INV_UNKNOWN) ? xf->iElts : NULL;		    $\
+									    $\
+    width = buf->width, height = buf->height;				    $\
+    ox = buf->ox, oy = buf->oy;						    $\
+									    $\
+    if (shrgb && xf->lights) {						    $\
+	fcolors = (Pointer)vcolors;					    $\
+	bcolors = (Pointer)(vcolors+3);					    $\
+	_dxfInitApplyLights(xf->kaf, xf->kdf, xf->ksf, xf->kspf,	    $\
+			    xf->kab, xf->kdb, xf->ksb, xf->kspb,            $\
+			    xf->fcolors, xf->bcolors, xf->cmap,		    $\
+			    xf->normals, xf->lights,			    $\
+			    xf->colors_dep, xf->normals_dep,		    $\
+			    fcolors, bcolors, 3, fcst, bcst, ncst,	    $\
+			    fbyte, bbyte);			    	    $\
+	cmap    = NULL;							    $\
+	shademe = 1;							    $\
+    } else {								    $\
+	shademe = 0;							    $\
+	if (fbyte || bbyte)						    $\
+	    _dxf_initUbyteToFloat();					    $\
+    }									    $\
+									    $\
+    for (i=0; i<ntri; i++, tri++) {					    $\
+	int index = (indices == NULL) ? i : indices[i];			    $\
+									    $\
+	if (iElts && DXIsElementInvalid(iElts, index))			    $\
+	    continue;							    $\
+									    $\
+	/* points */							    $\
+	v1=tri->p, p= &xf->positions[v1], x1=p->x, y1=p->y, z1=p->z;	    $\
+	v2=tri->q, p= &xf->positions[v2], x2=p->x, y2=p->y, z2=p->z;	    $\
+	v3=tri->r, p= &xf->positions[v3], x3=p->x, y3=p->y, z3=p->z;	    $\
+									    $\
+	if (shademe)							    $\
+	{ 								    $\
+	    i1 = 0; i2 = 1; i3 = 2;					    $\
+	    if (! _dxfApplyLights((int *)tri, &index, 1))	    	    $\
+		return ERROR;						    $\
+	}								    $\
+									    $\
+	if (xf->tile.perspective) {					    $\
+	    if (z1>nearPlane || z2>nearPlane || z3>nearPlane)		    $\
+		continue;						    $\
+	    z1=(float)-1.0/z1;  x1*=z1;  y1*=z1;			    $\
+	    z2=(float)-1.0/z2;  x2*=z2;  y2*=z2;			    $\
+	    z3=(float)-1.0/z3;  x3*=z3;  y3*=z3;			    $\
+	}								    $\
+	if ((x1<minx && x2<minx && x3<minx) ||				    $\
+	    (x1>maxx && x2>maxx && x3>maxx) ||				    $\
+	    (y1<miny && y2<miny && y3<miny) ||				    $\
+	    (y1>maxy && y2>maxy && y3>maxy))				    $\
+		continue;						    $\
+									    $\
+	buf->triangles++;						    $\
+	TRIANGLEX1(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 1)   $\
+	TRIANGLEX2(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 1);  $\
+ CAT(LABEL,1) :								    $\
+	continue;							    $\
+    }									    $\
+}
+
+#define TRI_VOLUME1(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL) {$\
+									    $\
+    Point *p;								    $\
+    int v1, v2, v3, i, width, height, valid;				    $\
+    float ox, oy;							    $\
+    InvalidComponentHandle iElts;					    $\
+    char fbyte = xf->fbyte, bbyte = xf->bbyte;				    $\
+									    $\
+    /* for volume triangles, we either determine validity here (if the      $\
+     * input was triangles) or we determined it earlier (if the input was   $\
+     * quads which were subdivided.					    $\
+     */									    $\
+    switch(invalid_status) {						    $\
+	case INV_VALID:   iElts = NULL;      valid = 1; break;		    $\
+	case INV_INVALID: iElts = NULL;      valid = 0; break;		    $\
+	case INV_UNKNOWN: iElts = xf->iElts;            break;		    $\
+    }									    $\
+									    $\
+    width = buf->width, height = buf->height;				    $\
+    ox = buf->ox, oy = buf->oy;						    $\
+									    
+#define TRI_VOLUME2(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL)  $\
+    for (i=0; i<ntri; i++, tri++) {					    $\
+	/*int index = (indices == NULL) ? i : indices[i];*/		    $\
+									    $\
+	if (iElts)							    $\
+	    valid = DXIsElementValid(iElts, i);		    		    $\
+									    $\
+	/* points */							    $\
+	v1=tri->p, p= &xf->positions[v1], x1=p->x, y1=p->y, z1=p->z;	    $\
+	v2=tri->q, p= &xf->positions[v2], x2=p->x, y2=p->y, z2=p->z;	    $\
+	v3=tri->r, p= &xf->positions[v3], x3=p->x, y3=p->y, z3=p->z;	    $\
+									    $\
+	if ((x1<minx && x2<minx && x3<minx) ||				    $\
+	    (x1>maxx && x2>maxx && x3>maxx) ||				    $\
+	    (y1<miny && y2<miny && y3<miny) ||				    $\
+	    (y1>maxy && y2>maxy && y3>maxy))				    $\
+		continue;						    $\
+									    $\
+	buf->triangles++;						    $\
+	TRIANGLEV1(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 1)   $\
+	TRIANGLEV2(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 1);  $\
+ CAT(LABEL,1) :								    $\
+	continue;							    $\
+    }									    $\
+}
+
+
+#define TRIANGLEDCL							    $\
+    RGBColor *c1, *c2, *c3;						    $\
+    float x1, y1, x2, y2, x3, y3;					    $\
+    float r1, g1, b1, o1, z1, r2, g2, b2, o2, z2, r3, g3, b3, o3, z3;	    $\
+    float Qx, dxo, dxz, dxr, dxg, dxb;					    $\
+    float Qy, dyr, dyg, dyb, dyo, dyz, dyA, dyB;			    $\
+    float r, g, b, o, obar, z, nearPlane=xf->nearPlane ;		    $\
+    float A, B, d, d1, d2, d3;						    $\
+    int iy1, iy2, iy3;							    $\
+    int iA, iB, iy, i, n, nn, left, right;				    $\
+    float minx = buf->min.x, miny = buf->min.y;				    $\
+    float maxx = buf->max.x, maxy = buf->max.y
+
+
+/*
+ * We split the code for the different triangle cases into separate
+ * routines, which we generate "automatically" using TRIPROLOGUE
+ * and TRIEPILOGUE, and the call from _dxf_Triangle.  We take this slightly
+ * convoluted path to avoid overflowing some compiler limits.
+ */
+
+#define TRIPROLOGUE(name)			$\
+    static Error				$\
+    name(					$\
+	struct buffer *buf,			$\
+	struct xfield *xf,			$\
+	int ntri,				$\
+	Triangle *tri,				$\
+	int *indices,				$\
+	int surface,				$\
+	int clip_status,			$\
+	inv_stat invalid_status			$\
+    ) {						$\
+	TRIANGLEDCL;				$\
+	Pointer fcolors = xf->fcolors;		$\
+	Pointer bcolors = xf->bcolors;		$\
+	Pointer opacities = xf->opacities;	$\
+	RGBColor *cmap = xf->cmap;		$\
+	float *omap = xf->omap;
+
+#define TRIEPILOGUE				$\
+	return OK;				$\
+    }
+
+
+
+TRIPROLOGUE(tri_vol)
+    float cmul = xf->tile.color_multiplier;
+    float omul = xf->tile.opacity_multiplier / cmul;
+    ASSERT(buf->pix_type==pix_big);
+    if (xf->tile.perspective)
+	DXErrorReturn(ERROR_BAD_PARAMETER,
+		    "perspective volume rendering is not supported");
+    if (!buf->merged)
+	_dxf_MergeBackIntoZ(buf);
+    if (opacities) {
+	TRI_VOLUME1(struct big, u.big, SHRGB, SHO, COL, 0, 1, VOLUME, tvo)
+	TRI_VOLUME2(struct big, u.big, SHRGB, SHO, COL, 0, 1, VOLUME, tvo);
+    } else {
+	TRI_VOLUME1(struct big, u.big, SHRGB,NOSHO, COL, 0, 1, VOLUME, tvno)
+	TRI_VOLUME2(struct big, u.big, SHRGB,NOSHO, COL, 0, 1, VOLUME, tvno);
+    }
+TRIEPILOGUE
+
+TRIPROLOGUE(tri_translucent)
+  /*
+   * If lighting is needed, that will be discovered later.  However,
+   * we need to decide whether we interpolate opacity or not.
+   */
+  if (xf->colors_dep == dep_connections)
+  {
+    if (clip_status) {
+      ASSERT(buf->pix_type==pix_big);
+      TRIANGLES(struct big,u.big,SHRGB,NOSHO,COL,
+					0,TRANSCLIPZ,TRANSLUCENT,ttcdc);
+    } else if (buf->pix_type==pix_fast) {
+      TRIANGLES(struct fast,u.fast,SHRGB,NOSHO,COL,
+					0,NOCLIPZ,TRANSLUCENT,ttfdc);
+    } else if (buf->pix_type==pix_big) {
+      TRIANGLES(struct big,u.big,SHRGB,NOSHO,COL,
+					0,NOCLIPZ,TRANSLUCENT,ttbdc);
+    } else {
+      DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type); 
+      return ERROR;
+    }
+  }
+  else 
+  {
+    if (clip_status) {
+      ASSERT(buf->pix_type==pix_big);
+      TRIANGLES(struct big,u.big,SHRGB,SHO,COL,
+					0,TRANSCLIPZ,TRANSLUCENT,ttcdp);
+    } else if (buf->pix_type==pix_fast) {
+      TRIANGLES(struct fast,u.fast,SHRGB,SHO,COL,
+					0,NOCLIPZ,TRANSLUCENT,ttfdp);
+    } else if (buf->pix_type==pix_big) {
+      TRIANGLES(struct big,u.big,SHRGB,SHO,COL,
+					0,NOCLIPZ,TRANSLUCENT,ttbdp);
+    } else {
+      DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type); 
+      return ERROR;
+    }
+  }
+TRIEPILOGUE
+
+
+TRIPROLOGUE(tri_opaque)
+    if (clip_status) {
+      ASSERT(buf->pix_type==pix_big);
+      TRIANGLES(struct big,u.big,SHRGB,NOSHO,COL,0,CLIPZ,OPAQUE,toc);
+    } else if (buf->pix_type==pix_fast) {
+      TRIANGLES(struct fast,u.fast,SHRGB,NOSHO,COL,0,NOCLIPZ,OPAQUE,tof);
+    } else if (buf->pix_type==pix_big) {
+      TRIANGLES(struct big,u.big,SHRGB,NOSHO,COL,0,NOCLIPZ,OPAQUE,tob);
+    } else {
+      DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type); 
+      return ERROR;
+    }
+TRIEPILOGUE
+
+
+Error
+_dxf_Triangle(
+    struct buffer *buf,
+    struct xfield *xf,
+    int ntri,
+    Triangle *tri,
+    int *indices,
+    int surface,
+    int clip_status,
+    inv_stat invalid_status
+) {
+    int i;
+
+    if (xf->tile.perspective) {
+	struct xfield xx;
+	for (i=0; i<ntri; ) {
+	    i = _dxf_zclip_triangles(xf, (int *)tri, i, indices, ntri,
+							&xx, invalid_status);
+	    if (xx.nconnections)
+		_dxf_Triangle(buf, &xx, xx.nconnections, xx.c.triangles,
+			  xx.indices, surface, clip_status, INV_VALID);
+	}
+    }
+
+    if (xf->volume)
+	return tri_vol(buf, xf, ntri, tri, indices, surface, 
+					clip_status, invalid_status);
+    else if (xf->opacities)
+	return tri_translucent(buf, xf, ntri, tri, indices, surface, 
+					clip_status, invalid_status);
+    else
+	return tri_opaque(buf, xf, ntri, tri, indices, surface, 
+					clip_status, invalid_status);
+}
+
+/*
+ * We split the code for the different flat triangle cases into separate
+ * routines, which we generate "automatically" using TRIFLATPROLOGUE
+ * and TRIFLATEPILOGUE, and the call from _dxf_TriangleFlat.  We take this
+ * slightly convoluted path to avoid overflowing some compiler limits.
+ */
+
+#define TRIFLATPROLOGUE(name)		$\
+    static Error			$\
+    name(				$\
+	struct buffer *buf,		$\
+	struct xfield *xf,		$\
+	int ntri,			$\
+	Triangle *tri,			$\
+	int *indices,			$\
+	Pointer fcolors,		$\
+	Pointer bcolors,		$\
+	Pointer opacities,		$\
+	int surface,			$\
+	int clip_status,		$\
+	inv_stat invalid_status		$\
+    ) {					$\
+	TRIANGLEDCL;			$\
+	RGBColor *cmap = xf->cmap;	$\
+	float *omap = xf->omap;
+
+#define TRIFLATEPILOGUE			$\
+	return OK;			$\
+    }
+
+
+TRIFLATPROLOGUE(tri_flat_face)
+    ASSERT(buf->pix_type==pix_big);
+    TRIANGLES(struct big, u.big, NOSHRGB, NOSHO, COL, 1, 1, FACE, tff);
+TRIFLATEPILOGUE
+
+
+TRIFLATPROLOGUE(tri_flat_vol)
+    float cmul = xf->tile.color_multiplier;
+    float omul = xf->tile.opacity_multiplier / cmul;
+    ASSERT(buf->pix_type==pix_big);
+    if (xf->tile.perspective)
+	DXErrorReturn(ERROR_BAD_PARAMETER,
+		    "perspective volume rendering is not supported");
+    if (!buf->merged)
+        _dxf_MergeBackIntoZ(buf);
+    TRI_VOLUME1(struct big, u.big, NOSHRGB, NOSHO, COL, 0, 1, VOLUME, tfv)
+    TRI_VOLUME2(struct big, u.big, NOSHRGB, NOSHO, COL, 0, 1, VOLUME, tfv);
+TRIFLATEPILOGUE
+
+
+TRIFLATPROLOGUE(tri_flat_translucent)
+    if (clip_status) {
+      ASSERT(buf->pix_type==pix_big);
+      TRIANGLES(struct big,u.big,NOSHRGB,NOSHO,COL,
+					0,TRANSCLIPZ,TRANSLUCENT, tftc);
+    } else if (buf->pix_type==pix_fast) {
+      TRIANGLES(struct fast,u.fast,NOSHRGB,NOSHO,COL,
+					0,NOCLIPZ,TRANSLUCENT, tftf);
+    } else if (buf->pix_type==pix_big) {
+      TRIANGLES(struct big,u.big,NOSHRGB,NOSHO,COL,
+					0,NOCLIPZ,TRANSLUCENT,tftb);
+    } else {
+      DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type); 
+      return ERROR;
+    }
+TRIFLATEPILOGUE
+
+
+TRIFLATPROLOGUE(tri_flat_opaque)
+    if (clip_status) {
+      ASSERT(buf->pix_type==pix_big);
+      TRIANGLES(struct big,u.big,NOSHRGB,NOSHO,COL,
+					0,CLIPZ,OPAQUE,tfoc);
+    } else if (buf->pix_type==pix_fast) {
+      TRIANGLES(struct fast,u.fast,NOSHRGB,NOSHO,COL,
+					0,NOCLIPZ,OPAQUE,tfof);
+    } else if (buf->pix_type==pix_big) {
+      TRIANGLES(struct big,u.big,NOSHRGB,NOSHO,COL,
+					0,NOCLIPZ,OPAQUE,tfob);
+    } else {
+      DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type); 
+      return ERROR;
+    }
+TRIFLATEPILOGUE
+    
+
+Error
+_dxf_TriangleFlat(
+    struct buffer *buf,
+    struct xfield *xf,
+    int ntri,
+    Triangle *tri,
+    int *indices,
+    Pointer fcolors,
+    Pointer bcolors,
+    Pointer opacities,
+    int surface,
+    int clip_status,
+    inv_stat invalid_status
+) {
+    TRIANGLEDCL;
+    RGBColor *cmap = xf->cmap;
+    float *omap = xf->omap;
+
+
+    if (xf->tile.perspective) {
+	struct xfield xx;
+	for (i=0; i<ntri; ) {
+	    i = _dxf_zclip_triangles(xf, (int *)tri, i, indices,
+					ntri, &xx, invalid_status);
+	    if (xx.nconnections)
+		_dxf_TriangleFlat(buf, &xx, xx.nconnections, xx.c.triangles,
+			      xx.indices, xx.fcolors, xx.bcolors, xx.opacities,
+			      surface, clip_status, invalid_status);
+	}
+    }
+
+
+
+    if (xf->ct!=ct_triangles && xf->ct!=ct_quads)
+	return tri_flat_vol(buf, xf, ntri, tri, indices,
+			    fcolors, bcolors, opacities,
+			    surface, clip_status, invalid_status);
+    else if (xf->opacities)
+	return tri_flat_translucent(buf, xf, ntri, tri, indices,
+				    fcolors, bcolors, opacities,
+				    surface, clip_status, invalid_status);
+    else
+	return tri_flat_opaque(buf, xf, ntri, tri, indices,
+			       fcolors, bcolors, opacities,
+			       surface, clip_status, invalid_status);
+}
+
+
+
+
+/*
+ *
+ */
+
+
+Error
+_dxf_TriangleClipping(
+    struct buffer *buf,
+    struct xfield *xf,
+    int ntri,
+    Triangle *tri, 
+    int *indices)
+{
+    TRIANGLEDCL;
+    Pointer fcolors = NULL;		/* UNCOL guarantees not ref'ed */
+    Pointer bcolors = NULL;		/* UNCOL guarantees not ref'ed */
+    Pointer opacities = NULL;
+    RGBColor *cmap = NULL;
+    float *omap = NULL;
+    inv_stat invalid_status = INV_VALID;
+
+    if (xf->tile.perspective) {
+	struct xfield xx;
+	for (i=0; i<ntri; ) {
+	    i = _dxf_zclip_triangles(xf, (int *)tri, i,
+				indices, ntri, &xx, INV_VALID);
+	    if (xx.nconnections)
+		_dxf_TriangleClipping(buf, &xx, xx.nconnections,
+		xx.c.triangles, xx.indices);
+	}
+    }
+
+    ASSERT(buf->pix_type==pix_big);
+    TRIANGLES(struct big,u.big,NOSHRGB,NOSHO,UNCOL,0,1,CLIPPINGPIXEL,tc);
+    return OK;
+}
+
+
+static Error
+_dxf_TriangleComposite(
+    struct buffer *buf,
+    struct xfield *xf,
+    int ntri,
+    Triangle *tri,
+    int *indices,
+    int clip_status,
+    inv_stat invalid_status
+) {
+    TRIANGLEDCL;
+    Pointer fcolors = xf->fcolors;
+    Pointer bcolors = xf->bcolors;
+    Pointer opacities = xf->opacities;
+    RGBColor *cmap = xf->cmap;
+    float *omap = xf->omap;
+
+    if (xf->tile.perspective)
+	DXErrorReturn(ERROR_BAD_PARAMETER,
+		    "perspective volume rendering is not supported");
+
+    if (clip_status) {
+      ASSERT(buf->pix_type==pix_big);
+      TRIANGLES(struct big,u.big,SHRGB,SHO,COL,0,TRANSCLIPZ,COMPOSITE,tcc);
+    } else if (buf->pix_type==pix_fast) {
+      TRIANGLES(struct fast,u.fast,SHRGB,SHO,COL,0,NOCLIPZ,COMPOSITE,tcf);
+    } else if (buf->pix_type==pix_big) {
+      TRIANGLES(struct big,u.big,SHRGB,SHO,COL,0,NOCLIPZ,COMPOSITE,tcb);
+    } else {
+      DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type); 
+      return ERROR;
+    }
+
+    return OK;
+}
+

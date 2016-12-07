@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall843 
+System Functions #!N #!N #!N The following commands execute system functions: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o To flush 
+all variables in the internal cache: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+Executive("flush cache"); #!EF #!N #!N #!EC #!N #!I30 #!N o To 
+flush all variables in the system dictionary: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N Executive("flush dictionary"); #!EF #!N #!N #!EC #!N #!I30 #!N o 
+To flush all macro definitions from the system: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N Executive("flush macros"); #!EF #!N #!N #!EC #!N #!I0 #!N 
+#!EF #!N #!N #!N Example #!N #!N In this example, the 
+execution groups "mine" and "yours" are attached to hosts "ours" and 
+"theirs" respectively. Also, Data Explorer is started with a memory allocation 
+of 50MB on the host "theirs." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+Executive("group attach",{"mine:ours","yours:theirs -memory 50"}); #!EF #!N #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lexport,dxall844 h Export  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

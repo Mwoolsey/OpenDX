@@ -1,0 +1,728 @@
+! Global tags
+ 
+OnHelp dxall292
+onHelpOption dxall292
+aboutAppOption dxall292
+onWindowOption dxall292
+onContextOption dxall292
+helpCloseOption dxall292
+helpTutorialOption dxall292
+techSupportOption dxall292
+helpOnNetworkDialog dxall354
+OnManual svsmstrh
+onManualOption svsmstrh
+Tutorial dxall6
+vpeOnVisualProgramOption dxall283
+openFileDialog dxall443
+dxAnchor dxall744
+ 
+ 
+!Tool categories
+Annotation dxall752
+DXLink dxall753
+Debugging dxall754
+Flow-Control dxall755
+Import-and-Export dxall756
+Interactor dxall757
+Interface-Control dxall758
+Realization dxall759
+Rendering dxall760
+Special dxall761
+Structuring dxall762
+Transformation dxall763
+Windows dxall764
+'{'-ALL-'}' dxall750
+ 
+! general vpe entries
+vpeCanvas dxall337
+toolSelector dxall339
+tab dxall341
+configurationDialog dxall346
+parameterConfigurationDialog dxall436
+computeConfigurationDialog dxall351
+descrDialog dxall346
+copyrightMessage dxall181
+editorWindow dxall337
+ 
+!VPE menu option entries
+!   File Menu
+vpeNewOption dxall443
+vpeOpenOption dxall443
+vpeSaveCfgOption dxall443
+vpeOpenCfgOption dxall443
+openCFGDialog dxall443
+vpeSaveAsOption dxall443
+vpeSaveOption dxall443
+vpeLoadMacroOption dxall443
+vpeLoadMDFOption dxall443
+vpePrintProgramOption dxall443
+quitOption dxall443
+vpeCloseOption dxall443
+!   Edit Menu
+vpeValuesOption dxall444
+vpeFindToolOption dxall444
+vpeAddInputTabOption dxall444
+vpeRemoveInputTabOption dxall444
+vpeAddOutputTabOption dxall444
+vpeRemoveOutputTabOption dxall444
+vpeRevealAllTabsOption dxall444
+vpeHideAllTabsOption dxall444
+vpeSelectAllOption dxall444
+vpeSelectConnectedOption dxall444
+vpeSelectUnconnectedOption dxall444
+vpeSelectUpwardOption dxall444
+vpeSelectDownwardOption dxall444
+vpeDeselectAllOption dxall444
+vpeDeleteOption dxall444
+vpeInsertNetOption dxall444
+vpeMacroNameOption dxall444
+vpeCreateProcessGroupOption dxall444
+vpeCommentOption dxall444
+!   Execute Menu
+executeOnceOption dxall445
+executeOnChangeOption dxall445
+endExecutionOption dxall445
+sequencerOption dxall445
+!   Windows Menu
+vpeNewControlPanelOption dxall446
+vpeOpenControlPanelOption dxall446
+vpeOpenAllControlPanelsOption dxall446
+vpeOpenImageOption dxall446
+vpeOpenMacroOption dxall446
+vpeOpenColormapEditorOption dxall446
+vpeMessageWindowOption dxall446
+!   Open Control Panel By Name Cascading Menu
+panel1 dxall446
+panel2 dxall446
+panel3 dxall446
+panel4 dxall446
+ 
+!   Connection Menu
+startServerOption dxall447
+disconnectFromServerOption dxall447
+resetServerOption dxall447
+processGroupAssignmentOption dxall447
+!   Options Menu
+vpeToolPalettesOption dxall448
+vpePanelAccessOption dxall448
+vpePanelGroupOption dxall448
+vpeGridOption dxall448
+!   Help Menu
+vpeOnVisualProgramOption dxall293
+ 
+!dialog box entries
+!VPE Window
+!   File Menu
+openNetworkDialog dxall364
+saveAsDialog dxall359
+loadMacroDialog dxall437
+loadMDFDialog dxall443
+printProgramDialog dxall443
+!   Edit Menu
+findTool dxall352
+processGroupCreateDialog dxall490
+setNameDialog dxall436
+setNetworkComment dxall354
+openNetComment dxall358
+insertNetworkDialog dxall444
+createMacroDialog dxall444
+setMacroNameDialog dxall444
+!   Execute Menu
+! same as vpe execute menu
+!   Windows Menu
+integerAttr dxall397
+scalarAttr dxall397
+stringAttr dxall397
+valueAttr dxall397
+vectorAttr dxall397
+listAttr dxall397
+selectorAttr dxall397
+toggleAttr dxall397
+setPanelComment dxall391
+setInteractorLabel dxall397
+setInteractorNameDialog dxall397
+OpenControlPanel dxall380
+fileSelectorDialog dxall431
+ 
+!   Connect Menu
+startServerDialog dxall797
+startOptionsDialog dxall797
+processGroupAssignDialog dxall486
+!   Options Menu
+panelAccessManager dxall404
+panelGroupDialog dxall405
+gridDialog dxall455
+ 
+!   Image Window Menu Options
+imageWindow dxall299
+!   File Menu
+imageOpenOption dxall458
+imageSaveOption dxall458
+imageSaveAsOption dxall458
+imageSettingsCascade dxall458
+imageLoadMacroOption dxall458
+imageLoadMDFOption dxall458
+imageSaveImageOption dxall458
+imagePrintImageOption dxall458
+imageCloseOption dxall458
+imageQuitOption dxall458
+ 
+!  Execute Menu Options
+!  same as vpe execute menu
+ 
+!  Windows Menu Options
+imageOpenVisualProgramEditorOption dxall460
+imageOpenAllControlPanelsOption dxall460
+imageOpenAllColormapEditorsOption dxall460
+imageMessageWindowOption dxall460
+ 
+!  Connection Menu Options
+!  same as vpe Connections Menu
+ 
+!  Options Menu Options
+imageViewControlOption dxall462
+imageUndoOption dxall462
+imageRedoOption dxall462
+imageResetOption dxall462
+imageAutoAxesOption dxall462
+imageBackgroundColorOption dxall462
+imageDisplayRotationGlobeOption dxall462
+imageRenderingOptionsOption dxall462
+!imageRenderingOptions                   imwinom
+imageThrottleOption dxall462
+imageChangeImageNameOption dxall462
+imageSetPanelAccessOption dxall462
+ 
+! View Control Dialog
+imageViewControl dxall300
+viewControl dxall300
+resetButton dxall321
+undoButton dxall321
+ 
+!  View Control Set View
+setViewTop dxall301
+setViewBottom dxall301
+setViewFront dxall301
+setViewBack dxall301
+setViewLeft dxall301
+setViewRight dxall301
+setViewDiagonal dxall301
+setViewOffTop dxall301
+setViewOffBottom dxall301
+setViewOffFront dxall301
+setViewOffBack dxall301
+setViewOffLeft dxall301
+setViewOffRight dxall301
+setViewOffDiagonal dxall301
+ 
+!  View Control Projection
+orthographic dxall302
+perspective dxall302
+ 
+!  View Control Modes
+modeRotate dxall305
+modeZoom dxall306
+modeRoam dxall307
+modePanZoom dxall308
+modeNavigate dxall309
+modeCamera dxall310
+modeCursors dxall322
+modePick dxall322
+ 
+! Dialogs that come up from the Image/Display
+! windows
+autoAxesDialog dxall324
+setBGColorDialog dxall325
+renderingOptions dxall327
+saveImageDialog dxall332
+printImageDialog dxall334
+throttleDialog dxall329
+setImageNameDialog dxall330
+ 
+!  Rendering Options Dialog
+upNone dxall328
+upDots dxall328
+upBox dxall328
+upWireframe dxall328
+downNone dxall328
+downDots dxall328
+downBox dxall328
+downWireframe dxall328
+!  ImageDepthOption
+8 dxall329
+12 dxall329
+24 dxall329
+ 
+!Control Panel
+! Note: Because of inconsistencies in text
+!strings returned by control panel
+!entries, some of these mappings are
+!inconsistent or at a higher level than
+!they would otherwise be,
+controlPanel dxall380
+panelCanvas dxall380
+! Menu Options
+!  File Menu
+panelOpenOption dxall451
+panelSaveAsOption dxall451
+panelCloseOption dxall451
+panelCloseAllOption dxall451
+!  Edit Menu
+!   SetStyle
+panelMenuOption dxall452
+panelRadioButton dxall452
+panelToggle dxall452
+!   SetLayout
+panelVerticalOption dxall452
+panelHorizontalOption dxall452
+panelSetAttributesOption dxall452
+panelSetInteractorLabelOption dxall452
+panelDeleteOption dxall452
+panelAddSelectedInteractorsOption dxall452
+panelShowSelectedInteractorsOption dxall452
+panelShowSelectedStandInsOption dxall452
+panelCommentOption dxall452
+!  Execute Menu
+!                                        cpxmen
+ 
+!  Panels Menu
+panelOpenAllControlPanelsOption dxall454
+ 
+!  Options Menu
+panelChangeControlPanelNameOption dxall455
+panelSetAccessOption dxall455
+panelGridOption dxall455
+panelStartupControlPanelOption dxall455
+toggleWindowStartupOption dxall455
+!panelGridDialog                         cppmen
+ 
+! Panel Interactors
+IntegerInteractor dxall410
+ScalarInteractor dxall410
+StringInteractor dxall418
+ValueInteractor dxall419
+VectorInteractor dxall420
+ValueListInteractor dxall421
+VectorListInteractor dxall421
+StringListInteractor dxall421
+IntegerListInteractor dxall421
+ScalarListInteractor dxall421
+SelectorInteractor dxall430
+SelectorListInteractor dxall430
+FileSelectorInteractor dxall431
+ResetInteractor dxall432
+ToggleInteractor dxall433
+ 
+! Colormap Editor
+colormapEditor dxall365
+ 
+!  File Menu
+cmeNewOption dxall465
+cmeOpenOption dxall465
+cmeSaveAsOption dxall465
+cmeCloseOption dxall465
+ 
+!  Edit Menu
+cmeUndoOption dxall466
+cmeCopyOption dxall466
+cmePasteOption dxall466
+cmeAddControlOption dxall466
+cmeWaveformOption dxall466
+cmeHorizontalOption dxall466
+cmeVerticalOption dxall466
+cmeDeleteSelectedOption dxall466
+cmeSelectAllOption dxall466
+cmdResetCascade dxall466
+cmeTicksOption dxall466
+cmeHistogramOption dxall466
+cmeLogHistogramOption dxall466
+ 
+!  Options Menu
+cmeSetBackgroundOption dxall468
+ 
+!  Axis Display
+panelTicks dxall375
+panelHistogram dxall375
+panelLogHistogram dxall375
+!!!cmeHorizontalOption                      axdisp
+cmeHorizontalOption dxall466
+!!!cmeVerticalOption                        axdisp
+cmeVerticalOption dxall466
+ 
+!  Display Control Point Data Value
+displayCPAllOption dxall368
+displayCPOffOption dxall368
+displayCPSelectedOption dxall368
+setColormapNameOption dxall376
+ 
+! Dialogs that can be brought up from the
+! colormap editor
+addControlPoints dxall367
+generateWaveforms dxall372
+setColormapNameDialog dxall376
+nBins dxall375
+openColormapDialog dxall365
+ 
+ 
+! Message Window
+messageWindow dxall482
+ 
+!  File Menu
+msgClearOption dxall477
+msgLogOption dxall477
+msgSaveOption dxall477
+msgCloseOption dxall477
+!  Edit Menu
+msgNextErrorOption dxall478
+msgPrevErrorOption dxall478
+!  Command menu
+!                                        msgwcm
+!  Execute menu, except that the widget names
+!  clash with VPE''s
+!executeOnceOption                       msgwxm
+!executeOnChangeOption                   msgwxm
+!endExecutionOption                      msgwxm
+!sequencerOption                         msgwxm
+!  Options Menu
+msgInfoOption dxall481
+msgWarningOption dxall481
+msgErrorOption dxall481
+msgExecScriptOption dxall481
+!  Message Window Dialogs
+mwFileDialog dxall477
+execCommandDialog dxall477
+ 
+! Sequencer Window
+sequencerWindow dxall267
+ 
+! Data Prompter
+helpPB dxall157
+helpGAFormatOption dxall110
+SMDName dxall157
+OptionButton dxall166
+GARMWName dxall157
+mainWindow dxall157
+fileMenu dxall162
+editMenu dxall163
+optionMenu dxall164
+helpMenu dxall165
+ 
+newOption dxall162
+!!!openOption                               dprfile
+openOption dxall443
+!!!openFileDialog                           dprfile
+openFileDialog dxall443
+!!!saveAsFileDialog                         dprfile
+saveAsFileDialog dxall443
+!!!saveOption                               dprfile
+saveOption dxall443
+!!!saveAsOption                             dprfile
+saveAsOption dxall443
+optionSeparator dxall162
+!!!quitOption                               dprfile
+quitOption dxall443
+commentOption dxall163
+fullOption dxall163
+simplifyOption dxall163
+ 
+topform dxall160
+filenameSelectDialog dxall167
+generalform dxall166
+fieldform dxall166
+file_label dxall166
+grid_text[0] dxall166
+grid_text[1] dxall166
+grid_text[2] dxall166
+grid_text[3] dxall166
+Points dxall166
+Series dxall166
+n dxall166
+x dxall166
+start dxall166
+delta dxall166
+!Removed. Seems unused and conflicts with Format module
+!Format                                   fulldpr
+Majority dxall166
+Row dxall166
+Column dxall166
+row_tb dxall166
+col_tb dxall166
+Header dxall166
+header_text dxall166
+Positions dxall166
+field_interleaving_label dxall166
+vector_interleaving_label dxall166
+series_interleaving_label dxall166
+series_separator_label dxall166
+series_sep_text dxall166
+series_n_text dxall166
+series_start_text dxall166
+series_delta_text dxall166
+od dxall166
+position_text[0] dxall166
+position_text[1] dxall166
+position_text[2] dxall166
+position_text[3] dxall166
+Type dxall166
+Structure dxall166
+Layout dxall166
+skip dxall166
+width dxall166
+Block dxall166
+skip dxall166
+num_el_label dxall166
+Separator dxall166
+Dependency dxall166
+modify_tb dxall166
+file_text dxall166
+field_text dxall166
+points_text dxall166
+field_list_label dxall166
+Add dxall166
+Delete dxall166
+Insert dxall166
+Modify dxall166
+field_name_label dxall166
+popup dxall166
+fieldlist dxall166
+layout_skip_text dxall166
+layout_width_text dxall166
+block_skip_text dxall166
+block_element_text dxall166
+block_width_text dxall166
+record_sep_text dxall166
+... dxall166
+om_cascadeBtn dxall166
+ 
+! Browser tags
+GARBrowser dxall170
+browForm dxall170
+ 
+browFileMenu dxall172
+browMarkMenu dxall173
+browPageMenu dxall174
+browSearchMenu dxall175
+ 
+browCloseOption dxall172
+browPlaceMarkOption dxall173
+browClearMarkOption dxall173
+browGotoMarkOption dxall173
+browFirstPageOption dxall174
+browLastPageOption dxall174
+browSearchOption dxall175
+ 
+Btext dxall176
+browByteOffsets dxall177
+browLineOffsets dxall177
+browFromMark dxall177
+browFromTopOfFile dxall177
+browFromStartOfLine dxall177
+byte_mark_offset dxall177
+line_mark_offset dxall177
+byte_start_offset dxall177
+byte_top_offset dxall177
+line_top_offset dxall177
+ 
+! Module Builder
+!!!openFileDialog                           mblder
+openFileDialog dxall443
+MBMWName dxall1003
+!!!openFileDialog                           tmodbld
+openFileDialog dxall443
+!!!saveAsFileDialog                         tmodbld
+saveAsFileDialog dxall443
+!   File menu
+!!!newOption                                bldfile
+newOption dxall162
+!!!openOption                               bldfile
+openOption dxall443
+!!!saveOption                               bldfile
+saveOption dxall443
+!!!saveAsOption                             bldfile
+saveAsOption dxall443
+!!!quitOption                               bldfile
+quitOption dxall443
+!!!openFileDialog                           bldfile
+openFileDialog dxall443
+!!!saveAsFileDialog                         bldfile
+saveAsFileDialog dxall443
+!   Edit menu
+!!!commentOption                            bldedit
+commentOption dxall163
+optionsOption dxall1009
+commentD dxall1009
+optionsD dxall1009
+! Build menu
+buildMDFOption dxall1010
+buildCOption dxall1010
+buildMakefileOption dxall1010
+buildAllOption dxall1010
+buildExecutableOption dxall1010
+buildRunOption dxall1010
+ 
+ 
+! Man page entries (modules)
+AmbientLight dxall766
+Append dxall767
+Arrange dxall768
+Attribute dxall769
+AutoAxes dxall770
+AutoCamera dxall771
+AutoColor dxall772
+AutoGlyph dxall773
+AutoGrayScale dxall777
+AutoGrid dxall778
+Band dxall779
+Camera dxall780
+Caption dxall781
+Categorize dxall782
+CategoryStatistics dxall783
+ChangeGroupMember dxall784
+ChangeGroupType dxall785
+ClipBox dxall786
+ClipPlane dxall787
+Collect dxall788
+CollectMultiGrid dxall789
+CollectNamed dxall790
+CollectSeries dxall791
+Color dxall792
+ColorBar dxall793
+Colormap dxall794
+Compute dxall795
+Compute2 dxall796
+Connect dxall797
+Construct dxall798
+Convert dxall799
+CopyContainer dxall800
+DFT dxall801
+DXLInput dxall802
+DXLInputNamed dxall803
+DXLOutput dxall804
+Describe dxall805
+Direction dxall806
+Display dxall807
+DivCurl dxall827
+Done dxall828
+Echo dxall829
+Enumerate dxall830
+Equalize dxall831
+Execute dxall832
+Executive dxall833
+Export dxall844
+Extract dxall845
+FFT dxall846
+FaceNormals dxall847
+FileSelector dxall848
+Filter dxall849
+First dxall850
+ForEachMember dxall851
+ForEachN dxall852
+Format dxall853
+GetGlobal dxall854
+GetLocal dxall855
+Glyph dxall856
+Gradient dxall857
+Grid dxall858
+Histogram dxall859
+Image dxall860
+Import dxall871
+ImportSpreadsheet dxall872
+Include dxall873
+Input dxall876
+Inquire dxall877
+Integer dxall878
+IntegerList dxall879
+Isolate dxall880
+Isosurface dxall881
+KeyIn dxall882
+Legend dxall883
+Light dxall884
+List dxall885
+Lookup dxall886
+ManageColormapEditor dxall887
+ManageControlPanel dxall888
+ManageImageWindow dxall889
+ManageSequencer dxall890
+Map dxall891
+MapToPlane dxall892
+Mark dxall893
+Measure dxall894
+Message dxall895
+Morph dxall896
+Normals dxall897
+Options dxall898
+Output dxall899
+Overlay dxall900
+Parse dxall901
+Partition dxall902
+Pick dxall903
+Plot dxall904
+Post dxall910
+Print dxall911
+Probe dxall912
+ProbeList dxall913
+QuantizeImage dxall914
+ReadImage dxall915
+ReadImageWindow dxall916
+Receiver dxall917
+Reduce dxall918
+Refine dxall919
+Regrid dxall920
+Remove dxall921
+Rename dxall922
+Render dxall923
+Reorient dxall924
+Replace dxall925
+Reset dxall926
+Ribbon dxall927
+Rotate dxall928
+Route dxall929
+RubberSheet dxall930
+Sample dxall931
+Scalar dxall932
+ScalarList dxall933
+Scale dxall934
+ScaleScreen dxall935
+Select dxall936
+Selector dxall937
+SelectorList dxall938
+Sequencer dxall939
+SetGlobal dxall940
+SetLocal dxall941
+Shade dxall942
+ShowBoundary dxall943
+ShowBox dxall944
+ShowConnections dxall945
+ShowPositions dxall946
+SimplifySurface dxall947
+Slab dxall949
+Slice dxall950
+Sort dxall951
+Stack dxall952
+Statistics dxall953
+Streakline dxall954
+Streamline dxall955
+String dxall956
+StringList dxall957
+SuperviseState dxall958
+SuperviseWindow dxall961
+Switch dxall962
+System dxall963
+Text dxall964
+Toggle dxall965
+Trace dxall966
+Transform dxall967
+Translate dxall968
+Transmitter dxall969
+Transpose dxall970
+Tube dxall971
+Unmark dxall972
+UpdateCamera dxall973
+Usage dxall974
+Value dxall975
+ValueList dxall976
+Vector dxall977
+VectorList dxall978
+Verify dxall979
+VisualObject dxall980
+WriteImage dxall981

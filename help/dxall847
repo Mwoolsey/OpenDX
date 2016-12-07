@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rfacenor FaceNormals #!N #!N Category #!N #!N 
+ #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N Computes face normals for flat 
+shading. #!N #!N Syntax #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   normals #!EF = 
+FaceNormals(  #!F-adobe-times-bold-r-normal--18*   surface #!EF ); #!EF #!N #!N #!EC #!N #!N 
+Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default 
+TAB Description #!EF #!N TAB surface TAB geometry field TAB none 
+TAB surface on which to compute face #!N TAB - TAB 
+- TAB - TAB normals #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Description #!EF #!N TAB normals TAB field 
+TAB the surface with face normals #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N This module computes 
+face normals for a surface. A "normals" component is necessary to 
+produce shading when an object is rendered. In contrast to the 
+output of the Normals module, the normals produced by this module 
+are always connection dependent rather than position dependent. Therefore, when they 
+are rendered, the result is faceted shading. #!N #!N When this 
+module is used, any colors that reside at vertices are averaged 
+for each face at the time of rendering, resulting in a 
+single color for each face. #!N #!N The FaceNormals module assumes 
+that the triangles or quads have consistent point orderings (i.e., so 
+that the directions of the face normals will be consistent throughout 
+the mesh). #!N #!N The Shade module can also be used 
+to compute normals for shading. #!N #!N Components #!N #!N Creates 
+a "normals" component that is dependent on connections. All other components 
+are propagated to the output. #!N #!N Example Visual Program #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Thunder_cellcentered.net #!N SIMPLE/FaceNormals.net #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lisosurf,dxall881 h Isosurface  #!EL  ,  #!Lnormals,dxall897 h Normals  #!EL  ,  #!Lshade,dxall942 h Shade  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lfilesel,dxall848 h FileSelector  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rarrays Arrays #!N #!EC #!N #!N Array 
+Objects hold the actual data, positions, connections, and so on. An 
+Array consists of some number of  #!F-adobe-times-medium-i-normal--18*   items #!EF numbered consecutively 
+starting at 0. Each item has a  #!F-adobe-times-medium-i-normal--18*   type, category, rank 
+#!EF and  #!F-adobe-times-medium-i-normal--18*   shape, #!EF defined as follows: #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Type #!EF #!I50 #!N Types include  #!F-adobe-times-bold-r-normal--18*   
+double #!EF ,  #!F-adobe-times-bold-r-normal--18*   float #!EF ,  #!F-adobe-times-bold-r-normal--18*   int #!EF , 
+ #!F-adobe-times-bold-r-normal--18*   uint #!EF ,  #!F-adobe-times-bold-r-normal--18*   short #!EF ,  #!F-adobe-times-bold-r-normal--18*   ushort #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   byte #!EF ,  #!F-adobe-times-bold-r-normal--18*   ubyte #!EF , and  #!F-adobe-times-bold-r-normal--18*   
+string #!EF . (For example,  #!F-adobe-times-bold-r-normal--18*   byte #!EF is signed byte 
+and  #!F-adobe-times-bold-r-normal--18*   ubyte #!EF is unsigned byte.) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Category #!EF #!I50 #!N A category can be  #!F-adobe-times-bold-r-normal--18*   real #!EF 
+or  #!F-adobe-times-bold-r-normal--18*   complex #!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Rank #!EF 
+#!I50 #!N Rank 0 corresponds to scalars, rank 1 to vectors, 
+rank 2 to matrices or rank-2 tensors; higher ranks correspond to 
+higher-order tensors. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Shape #!EF #!I50 #!N The 
+shape is defined as the list of dimensions of the structure. 
+For rank-0 items (scalars), there is no shape. For rank-1 structures 
+(vectors), the shape is a single number corresponding to the number 
+of dimensions. For rank-2 structures, shape is two numbers, and so 
+on. #!I0 #!N #!N The following are examples of these classifications: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Three-dimensional points 
+have type  #!F-adobe-times-bold-r-normal--18*   float #!EF or  #!F-adobe-times-bold-r-normal--18*   double #!EF , category 
+ #!F-adobe-times-bold-r-normal--18*   real #!EF , rank 1, and shape 3. #!N #!I30 
+#!N o Two-vectors typically have type  #!F-adobe-times-bold-r-normal--18*   float #!EF . They 
+are category  #!F-adobe-times-bold-r-normal--18*   real #!EF , rank 1, and shape 2. 
+Three-vectors are shape 3. #!N #!I30 #!N o Tetrahedra have type 
+ #!F-adobe-times-bold-r-normal--18*   int #!EF , category  #!F-adobe-times-bold-r-normal--18*   real #!EF , rank 1, 
+and shape 4. #!N #!I30 #!N o Scalar values typically have 
+type  #!F-adobe-times-bold-r-normal--18*   int #!EF or  #!F-adobe-times-bold-r-normal--18*   float #!EF . They are 
+category  #!F-adobe-times-bold-r-normal--18*   real #!EF and rank 0, with no shape. #!N 
+#!I30 #!N o Strain tensors typically have type  #!F-adobe-times-bold-r-normal--18*   float #!EF 
+or  #!F-adobe-times-bold-r-normal--18*   double #!EF . They are category  #!F-adobe-times-bold-r-normal--18*   real #!EF 
+, rank 2, and shape  #!F-adobe-times-medium-i-normal--18*   3*3 #!EF . #!N #!I0 
+#!N #!EF #!N Data Explorer uses six types of Array:  #!F-adobe-times-medium-i-normal--18*   
+Irregular Arrays #!EF and five types of compact Array:  #!F-adobe-times-medium-i-normal--18*   Regular 
+#!EF ,  #!F-adobe-times-medium-i-normal--18*   Product #!EF ,  #!F-adobe-times-medium-i-normal--18*   Path #!EF ,  #!F-adobe-times-medium-i-normal--18*   
+Mesh #!EF , and  #!F-adobe-times-medium-i-normal--18*   Constant #!EF . #!N #!N The 
+Array types are discussed in the following sections. #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall252,dxall253 h Irregular Arrays  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

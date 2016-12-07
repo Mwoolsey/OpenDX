@@ -1,0 +1,1481 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Object Types</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu024.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu026.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu024.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="Header_51" ></A>3.2 Object Types</H2>
+		<A NAME="IDX489"></A><A NAME="IDX490"></A>
+<P>
+Field, Array, and Group Objects implement sampled fields in Data Explorer.
+Additional Object types, used to construct models for rendering, are
+described in <A HREF="usrgu067.htm#HDRIMD">Appendix B. "Importing Data: File
+Formats"</A>.
+<P>
+<H3><A NAME="Header_52" ></A>Fields</H3>
+<P>
+<I>Field</I> Objects are the fundamental Objects in the Data Explorer data
+model.
+A Field represents a mapping from some <I>domain</I> to some
+<I>data space</I>.
+The domain of the mapping is specified by a set of <I>positions</I>
+<A NAME="IDX491"></A>
+and (generally) a set of <I>connections</I> that allow interpolation
+of data values for points in the domain between specified positions.
+<A NAME="IDX492"></A>
+The mapping at all points in the domain is represented
+implicitly by specifying data that are dependent
+on (located at) the sample points or on the
+connections between the sample points
+(cell-centered data).
+<P>
+This simple abstraction is sufficient for representing a wide range
+of things.
+For example, you can describe 3-dimensional volumetric data, whose
+domain is the region specified by the positions, and whose data
+space is the value associated with each position.
+Two-dimensional images have a domain that is the set of pixel locations,
+and a data space that consists of the pixel color.
+Two-dimensional surfaces imbedded in 3-space (that is, traditional
+graphical models) can have a domain that is the set of positions
+on the surface, and a data space that is, for example, the set
+of data values on that surface.
+<P>
+If the data are dependent on the given positions, then a data value at
+<A NAME="IDX493"></A>
+a point other than those given is found by interpolation within the
+connection in which the point resides.
+If the data is dependent on connections, then the data value is assumed
+to be constant within each connection.
+If no connections are specified, then there is no implied information
+about data values at positions other than those given.
+<P>
+The information in a Field is represented by some number of named
+<I>components</I>.
+Each component has a <I>value,</I> that is an Object.
+<A NAME="IDX494"></A>
+In general, components are <I>Array</I> Objects (described in
+more detail in the next section).
+For example, the "positions" component is an Array specifying the
+set of sample points; the "connections" component is an Array
+specifying a means to interpolate between the positions; and the
+"data" component is an Array specifying the data values.
+<P><B><A NAME="FIGFOBJ" HREF="../usrguide.htm#FT_FIGFOBJ">Figure 2. Example of a
+Field Object</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<A NAME="IDX495"></A>
+<B><BR><CENTER><IMG SRC="../images/fldobj.gif" ALT="Figure fldobj not
+displayed." width="450" height="447"></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>
+<A HREF="#FIGFOBJ">Figure 2</A> shows an example of a Field Object with
+four components.
+The "data" component specifies the user&#39;s data as an Array of
+data of arbitrary type (e.g., integer), which is dependent on
+(i.e., in one-to-one correspondence with) the
+"positions" component;
+the "positions" component specifies the sample points as an Array
+of 3-dimensional vectors;
+the "connections" component specifies a set of tetrahedra as
+vectors of four integers that refer to the "positions"
+component;
+and the "box" component lists the eight points that define the
+bounding box of the positions (i.e., of the Field itself).
+A complete list of defined component types is given in
+<A HREF="#HDRSTANCOM">"Standard Components"</A>.
+<P>
+Field components (and Objects in general) can have <I>attributes</I>
+associated with them.
+For example, the "dep" attribute of a component records the
+dependency of that component on another component;
+thus the "data" component will have a "dep" attribute of
+"positions" or "connections," depending on whether the
+data are associated with the sample points or with the
+connections between them.
+A component can also have a "ref" attribute, indicating that it
+refers to another component.
+Typically, the "connections" component has a "ref" attribute
+of "positions," signifying that the items in the connections
+component refer to the positions component.
+A "connections" component must have an "element type"
+attribute naming the type of connections, such as
+"triangles", "quads", or
+"tetrahedra".
+A complete list of defined attributes is given in <A HREF="#HDRSCA">"Standard
+Attributes"</A>;
+the complete list of element types is given in <A
+HREF="#HDRCONCOMP">"Connections Component"</A>.
+<P>
+Note that Fields can share components.
+This allows, for example, several Fields to share the same positions
+and connections while having different data, colors, and so on.
+<A HREF="#FIGFSHARE">Figure 3</A> illustrates two such Fields that share
+3-dimensional positions and tetrahedral connections, but
+each of which has separate (but still both
+position-dependent) data.
+The sharing is possible because the Arrays are Objects with a reference
+count stored in the Array header.
+<P><B><A NAME="FIGFSHARE" HREF="../usrguide.htm#FT_FIGFSHARE">Figure 3. Shared
+Components among Different Fields</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<A NAME="IDX496"></A>
+<B><BR><CENTER><IMG SRC="../images/shcomps.gif" ALT="Figure shcomps not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>
+For example, this sharing allows members of a time series, defined on a
+fixed grid and represented by two Fields, to share positions and
+connections while each has different data.
+<P>
+In addition, sharing is vital to an efficient implementation of the data
+flow programming model, in which a module may not modify its inputs.
+In the example in <A HREF="#FIGFSHARE">Figure 3</A>, the first Field
+might represent the input to a module (e.g., a vector Field),
+while the second Field might represent the output from
+a module that computes the length of each vector.
+The module has constructed a Field with a separate "data" component
+representing the calculated result, but has not had to copy the
+portions of the Field that remained the same (positions
+and connections), because they could be shared between
+the input and output Fields.
+<P>
+<H4><A NAME="HDRSTANCOM"></A><U>Standard Components</U></H4>
+The standard defined Field components are listed in <A HREF="#TBLCOMPT">Table
+1</A>,
+and further described in the subsequent paragraphs.
+<BR>
+<P><B><A NAME="TBLCOMPT" HREF="usrgu002.htm#FT_TBLCOMPT">Table 1. Standard Field
+Components</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="BOTTOM">Component
+</TH><TH ALIGN="LEFT" VALIGN="BOTTOM">Type
+</TH><TH ALIGN="LEFT" VALIGN="BOTTOM">Meaning
+<P>
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">
+"data"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="14%">arbitrary
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="57%">user&#39;s data (dependent
+variable)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">
+"positions"
+<BR>
+"invalid positions"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="14%">float&#91;<I>n</I>&#93;
+<BR>
+char
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="57%">
+<I>n</I>&#45;space sample points
+<BR>
+which sample points are invalid
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">
+"colors"
+<BR>
+"colors"
+<BR>
+"color map"
+<BR>
+"front colors"
+<BR>
+"back colors"
+<BR>
+"opacities"
+<BR>
+"opacities"
+<BR>
+"opacity map"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="14%">float&#91;3&#93;
+<BR>
+char
+<BR>
+float&#91;3&#93;
+<BR>
+float&#91;3&#93;
+<BR>
+float&#91;3&#93;
+<BR>
+float
+<BR>
+char
+<BR>
+float
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="57%">surface or volume colors
+<BR>
+color index (see "color map")
+<BR>
+color map indexed by "colors" component
+<BR>
+colors of front of surface
+<BR>
+colors of back of surface
+<BR>
+opacity of surface or volume
+<BR>
+opacity index (see "opacity map")
+<BR>
+opacity map indexed by "opacities" component
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">
+"tangents"
+<BR>
+"normals"
+<BR>
+"binormals"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="14%">float&#91;3&#93;
+<BR>
+float&#91;3&#93;
+<BR>
+float&#91;3&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="57%">
+curve tangent
+<BR>
+curve or surface normal
+<BR>
+second curve normal
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">
+"connections"
+<BR>
+"invalid connections"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="14%">int&#91;<I>k</I>&#93;
+<BR>
+char
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="57%">interpolation elements
+<BR>
+which interpolation elements are invalid
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">
+"faces"
+<BR>
+"loops"
+<BR>
+"edges"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="14%">int
+<BR>
+int
+<BR>
+int
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="57%">faces described as a collection
+of loops
+<BR>
+loops described as a series of edges
+<BR>
+edges described as a series of points
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">
+"pick"
+<BR>
+"paths"
+<BR>
+"pickpaths"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="14%">
+<BR>
+<P>
+<BR>
+<P>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="57%">picks
+<BR>
+paths
+<BR>
+pickpaths
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="29%">
+"neighbors"
+<BR>
+"box"
+<BR>
+"data statistics"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="14%">int&#91;<I>p</I>&#93;
+<BR>
+float&#91;<I>2<SUP>n</SUP></I>&#93;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="57%">pointers to connection neighbors
+<BR>
+<I>2<SUP>n</SUP></I> corners of a bounding box
+<BR>
+statistics for data component
+</TD></TR></TABLE>
+<P>
+<H5><U>Positions Component</U></H5>
+<A NAME="IDX497"></A>
+<A NAME="IDX498"></A>
+<P>
+The "positions" component is an Array Object specifying a set of
+<I>n</I>-dimensional positions.
+For data on a grid with regular positions, the positions can be encoded
+compactly by <I>Regular</I> and <I>Product</I> Arrays, which
+are described in <A HREF="#HDRARRAYS">"Arrays"</A>.
+<P>
+<H5><A NAME="HDRCONCOMP"></A><U>Connections Component</U></H5>
+<A NAME="IDX499"></A>
+<A NAME="IDX500"></A>
+<A NAME="IDX501"></A>
+<P>
+The "connections" component provides a means for interpolating data
+values between the positions.
+Each item of the "connections" Array describes an
+<I>interpolation element</I> such as a line,
+triangle, tetrahedron or cube.
+The vertices of each such interpolation element are specified by one
+Array item consisting of a list of indices into the "positions"
+Array, one index per vertex of the interpolation element.
+(Position index numbers begin at 0.)
+<P>
+The type
+of the interpolation elements is specified by the
+"element type"
+attribute of the "connections" component.
+Two open-ended series of
+element types are currently defined: the
+<I>n</I>-dimensional
+simplexes,
+and the
+<I>n</I>-dimensional cuboids.
+<P>
+The <I>n</I>-dimensional simplexes are represented by
+"connections" components with "element type"
+attributes of "triangles" (2-D) or "tetrahedra" (3-D).
+Each item of such a "connections" component is a list of
+<I>n+1</I> integer indices referring to items in the
+"positions" component representing the
+<I>n+1</I> vertices of an
+<I>n</I>-dimensional
+simplex.
+These vertices are ordered as illustrated in <A HREF="#FIGSIMPL">Figure 4</A>.
+<A NAME="IDX502"></A>
+For tetrahedra, the parity of all tetrahedra in a given Field must be
+consistent.
+<A HREF="#FIGSIMPL">Figure 4</A> illustrates the two possible parities for
+tetrahedra.
+In addition, for triangles there is a convention for which face is the
+front (using the right-hand rule).
+<P><B><A NAME="FIGSIMPL" HREF="../usrguide.htm#FT_FIGSIMPL">Figure 4. Order of
+Vertices in Triangles and Tetrahedra</A></B>. In the tetrahedron at right,
+<B>s</B> is the point nearest the viewer; at center, the point furthest from the
+viewer.<BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/vrtordu1.gif" ALT="Figure vrtordu1 not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>
+The <I>n</I>-dimensional cuboids are represented by
+"connections" components with "element type"
+attributes of "lines" (1D), "quads" (2-D),
+"cubes" (3-D), "cubes4D", and so on in
+the format "cubes<I>n</I>D", where
+<I>n</I> represents the number of
+dimensions.
+Each item of such a "connections" component is a list of
+<I>2<SUP>n</SUP></I> integer indices referring to items in the
+"positions" component representing the
+<I>2<SUP>n</SUP></I> vertices of an
+<I>n</I>-dimensional
+<A NAME="IDX503"></A>
+cuboid.
+The ordering of these vertices is illustrated in <A HREF="#FIGCUBOI">Figure
+5</A>.
+For cubes, the parity of all cubes in a given Field must be
+consistent.
+In addition, for quads there is a convention that determines the
+front face.
+<P><B><A NAME="FIGCUBOI" HREF="../usrguide.htm#FT_FIGCUBOI">Figure 5. Order of
+Vertices in Quads and Cuboids</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/vrtordu2.gif" ALT="Figure vrtordu2 not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><A HREF="#FIGCUBOI">Figure 5</A> does not indicate the
+correspondence between
+the edges of the cubes or quads and the spatial dimensions.
+For example, the cubes or quads can be "irregular," in which case
+the positions of each vertex are specified explicitly.
+Regular "positions" components can specify an arbitrary
+correspondence between the spatial dimensions and the
+edges of the cube, as illustrated in
+<A HREF="#FIGPRODA">Figure 10</A>.
+</td></tr></table>
+<P>
+For data on grids with regular connections, the connections can be
+encoded compactly by <I>Path</I> and <I>Mesh</I> Arrays,
+which are described in <A HREF="#HDRARRAYS">"Arrays"</A> and in more
+detail in <A HREF="usrgu067.htm#HDRIMD">Appendix B. "Importing Data: File
+Formats"</A>.
+<P>
+<A HREF="#FIGEXGRID">Figure 6</A> illustrates the various types of grids formed
+with
+<A NAME="IDX504"></A>
+different kinds of "positions" and "connections" components.
+<P><B><A NAME="FIGEXGRID" HREF="../usrguide.htm#FT_FIGEXGRID">Figure 6. Examples of
+Grid Types</A></B>. The three grids in the top row represent surfaces; those in
+the bottom row, volumes. Reading from left to right, the three grid types are:
+irregular (irregular positions, irregular connections), deformed regular
+(irregular positions, regular connections), and regular (regular positions,
+regular connections).<BR>
+<B><BR><CENTER><IMG SRC="../images/gridtype.gif" ALT="Figure gridtype not
+displayed." width="525" height="304"></CENTER><BR></B><BR>
+<P>
+<H5><U>Data Component</U></H5>
+<A NAME="IDX505"></A>
+<A NAME="IDX506"></A>
+<P>
+The "data" component stores the user&#39;s data values.
+The data values can be position- or connection-dependent, as specified
+by the value of the "dep" attribute (described in
+<A HREF="#HDRSCA">"Standard Attributes"</A>) of the "data" component.
+If the values are position-dependent, then the "connections"
+component supplies a means of interpolating data values between
+the samples.
+If the values are connection-dependent, the data value is constant for
+each interpolation element.
+Data can also be dependent on "faces" or "polylines" (see
+<A HREF="#HDREGNPOLS">"Edges and Polylines"</A>), in which case the data is
+constant for either the face or the polyline.
+<P>
+The data are in one-to-one correspondence with the component upon which
+they are dependent.
+This means that they are specified in the same order as the items in
+the corresponding component.
+If that component is specified in a compact form, its contents are
+ordered as described in <A HREF="#HDRARRAYS">"Arrays"</A>.
+<P>
+<H5><A NAME="HDRCOLCOM"></A><U>Colors, Front Colors, and Back Colors Components</U></H5>
+<A NAME="IDX507"></A>
+<A NAME="IDX508"></A>
+<A NAME="IDX509"></A>
+<A NAME="IDX510"></A>
+<P>
+The "colors", "front colors", and "back colors"
+components are a means of specifying another, specialized
+type of dependent data.
+Specifically, the renderer requires that each object in a scene have
+at least one of these components.
+The "front colors" and "back colors" components specify colors
+to be associated with the front and back sides, respectively, of a
+surface.
+The "colors" component specifies colors to be associated with both
+sides of a surface, or with a volume.
+If only "front colors" or only "back colors" are specified,
+then only the "front" or "back" sides, respectively, of
+the polygons are rendered.
+If present, "front colors" or "back colors" override the
+specification of the "colors" component.
+<P>
+Each item of a color component Array consists of three floating-point
+numbers specifying the red, green, and blue component of a color
+respectively.
+The color components can use the entire floating-point range, but by
+convention the range from 0 to 1 is mapped onto the available
+range of the output device.
+Like the "data" component, the color components can be
+position- or connection-dependent.
+<P>
+The front of a triangle is defined to be the side such that the path
+traversing the vertices in the order that they are listed for the
+triangle appears to go counterclockwise.
+The front of a quad is the side from which the vertex numbering appears
+(<A HREF="#FIGCUBOI">Figure 5</A>).
+<P>
+The interpretation of colors differs between surfaces and volumes.
+For surfaces, the color values in the range from 0 to 1 are mapped onto
+the range of colors values possible for the display.
+For volumes, the interpretation of colors follows the "dense
+emitter" model described in the next section.
+<P>
+<H5><A NAME="HDROPACOM"></A><U>Opacities Component</U></H5>
+<A NAME="IDX511"></A>
+<A NAME="IDX512"></A>
+<P>
+The "opacities" component plays a role similar to that of colors
+components, except that it specifies a floating-point opacity for
+rendering.
+Its interpretation differs depending on whether the connections
+represent a surface (triangles or quads), or a volume
+(tetrahedra, cubes, and so on).
+In the surface case, the opacity is a number from 0 to 1 specifying the
+opacity of the surface.
+In the volume case, the opacity represents the instantaneous attenuation
+of light per unit distance traveled.
+Like the colors components,
+it can be position- or connection-dependent.
+<P>
+The interpretation of "colors" and "opacities" differs
+between surfaces and volumes.
+For surfaces, a surface of color <I>c<SUB>f</SUB></I>
+and opacity <I>o</I>
+is combined with the color <I>c<SUB>b</SUB></I> of the objects behind it
+resulting in a combined color
+<I>c<SUB>f</SUB>o&nbsp;&#43;&nbsp;c<SUB>b</SUB>(1&nbsp;&#45;&nbsp;o)</I>.
+
+		<P>
+For volumes, the "dense emitter" model is used, in which the
+opacity represents the instantaneous rate of absorption of light
+passing through the volume per unit thickness, and the color
+represents the instantaneous rate of light emission per
+unit thickness.
+If <I>c(z)</I> represents the color of the object at <I>z</I>
+and <I>o(z)</I> represents its opacity at <I>z</I>, then the total color of a ray passing through the volume is given by: 
+		<DIV align="center">
+			<P><IMG src="../images/opacintg.gif" width="220" height="37" border="0"></P>
+		</DIV>
+		<P></P>
+		<P>
+<H5><U>Color Map and Opacity Map Components</U></H5>
+<A NAME="IDX513"></A>
+<A NAME="IDX514"></A>
+<A NAME="IDX515"></A>
+<A NAME="IDX516"></A>
+<P>
+There is an alternative to having the "colors" component and
+"opacities" component explicitly list the color and
+opacity associated with each position or connection
+element.
+If each element of the "colors" and "opacities" components is
+a single byte, then it is interpreted as an index into the "color
+map" or "opacity map" component.
+The "color map" component is a 256-element table of three
+floating-point values (representing red, green, and blue,
+typically with values between 0 and 1).
+The "opacity map" component is a 256-element table of
+floating-point values between 0 and 1.
+<P>
+<H5><A NAME="HDRINVAL"></A><U>Invalid Positions and Invalid Connections Components</U></H5>
+<A NAME="IDX517"></A>
+<A NAME="IDX518"></A>
+<P>
+The "invalid positions" and "invalid connections" components
+allow positions or connections to be marked as not having
+valid data.
+This is useful, for example, for observational data defined on a regular
+grid but with occasional missing observations, or for simulation data
+defined on a regular grid but with a "hole" covered by another
+grid, perhaps at a higher resolution.
+The "invalid positions" component can be an Array of bytes or
+unsigned bytes, one for each position, where the component is
+dependent on positions (i.e., has a "dep" attribute of
+"positions.").
+In that case, the value 1 indicates that the corresponding position
+is invalid, and 0 that the corresponding position is valid.
+Alternatively, the "invalid positions" component can be an Array
+of signed or unsigned integers, where the component references
+the positions (i.e., has a "ref" attribute of
+"positions").
+In that case, the component contains a list of the indices of the
+invalid positions.
+The first method is more space-conserving when there are a large number
+of invalid elements; the second, when there are a relatively small
+number.
+
+See <A HREF="refgu036.htm#HDRCOMPUTE">Compute</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for a way to convert from the
+"ref" type to the "dep" type.
+
+<P>
+The "invalid connections," "invalid faces," and "invalid
+polylines" components can be defined in an analogous
+way.
+<P>
+<H5><U>Tangents, Normals, and Binormals Components</U></H5>
+<A NAME="IDX519"></A>
+<A NAME="IDX520"></A>
+<A NAME="IDX521"></A>
+<A NAME="IDX522"></A>
+<P>
+The "normals" component is used to specify a local surface normal
+for rendering purposes.
+The "tangents", "normals" and "binormals" components
+specify a local reference frame on a path; this is useful, for
+example, for twisted-ribbon representations of streamlines.
+<P>
+Normals are used for, among other things, surface shading.
+By convention, the normals are expected to point out from the front of
+a surface, as defined in <A HREF="#HDRCOLCOM">"Colors, Front Colors, and Back
+Colors Components"</A>.
+Normals are expected to have unit length.
+<P>
+<H5><U>Neighbors Component</U></H5>
+<A NAME="IDX523"></A>
+<A NAME="IDX524"></A>
+<P>
+The "neighbors" component represents information about the
+neighbors of each connection element.
+The number of items in this component must match the number of items in
+the "connections" component.
+The number of entries in each item must match the number of faces (for
+3-D) or edges (for 2-D) in the connection element.
+For example, each item in the "neighbors" component for triangle
+connections has three entries, while each item in the
+"neighbors" component for tetrahedral
+connections has four entries.
+<P>
+For simplexes in <I>n</I> dimensions (for example, triangles and
+tetrahedra), each item of the neighbors Array consists of
+<I>n+1</I> integer indices into the connections
+Array identifying the <I>n+1</I> neighbors
+of the simplex;
+the <I>i</I>th of the <I>n+1</I> indices corresponds to the
+face opposite the <I>i</I>th vertex of the simplex.
+For quads, cubes, and so on, each item of the neighbors Array contains
+2<I>n</I> integer indices into the connections Array
+identifying the 2<I>n</I> neighbors of the
+polyhedron.
+The pointers are in the order
+<I>-x<SUB>1</SUB>+x<SUB>1</SUB>-x<SUB>2</SUB>+x<SUB>2</SUB>
+... -x<SUB>n</SUB>+x<SUB>n</SUB></I>,
+meaning that the first index points to the neighbor in
+the <I>&#45;x<SUB>1</SUB></I> direction, the second to
+the neighbor in the <I>&#43;x<SUB>1</SUB></I>
+direction, and so on, where the
+<I>x<SUB>n</SUB></I> dimension varies
+fastest in the representation
+of the point indices in the
+interpolation element.
+Faces without neighbors are indicated by an index of &#45;1.
+
+		<p>Data with irregular connections without a &quot;neighbors&quot; component will have one automatically generated for it. Neighbors are not computed for connections with element type &quot;lines&quot;. </p>
+		<P>
+<H5><U>Box Component</U></H5>
+<A NAME="IDX525"></A>
+<A NAME="IDX526"></A>
+<P>
+The "box" component consists of <I>2<SUP>n</SUP></I>
+
+<I>n</I>-dimensional points, where <I>n</I>
+is the dimensionality of the positions component,
+identifying the corners of a bounding box that
+contains the positions of this Field.
+<P>
+<H5><U>Data Statistics Component</U></H5>
+<A NAME="IDX527"></A>
+<A NAME="IDX528"></A>
+<P>
+The "data statistics" component contains statistics of the
+"data" component.
+The information in this component should be accessed using the
+Statistics module or the <TT><STRONG>DXStatistics()</STRONG></TT>
+function, as the exact contents are undefined.
+If DXStatistics is called on other components (e.g., "positions"),
+an analogous component (in this case "positions statistics")
+will be created.
+<P>
+<H5><A NAME="HDRFLEC"></A><U>Faces, Loops, and Edges Components</U></H5>
+<A NAME="IDX529"></A>
+<A NAME="IDX530"></A>
+<A NAME="IDX531"></A>
+<A NAME="IDX532"></A>
+<P>
+The "faces", "loops", and "edges" components are used
+for special-purpose applications, such as fonts or geometric
+models.
+The "faces" component represents a set of faces, each described as
+a set of loops.
+Each entry in the face Array is a single integer index into the
+"loops" Array identifying the first of a consecutive set
+of loops for this face.
+The loops are listed in order of the faces they are associated with,
+so that the list of loops for face <I>i</I> ends in the loops
+Array just before the first loop for face <I>i+1</I>.
+Each entry in the "loops" Array is a single integer index into the
+"edges" Array, identifying the first of a consecutive set of
+edges for this loop.
+The edges are listed in order of the loops they are associated with,
+so that the list of edges for loop <I>i</I> in the edges
+Array ends just before the first edge for loop
+<I>i+1</I>.
+Each entry in the edges Array is a single integer index into the
+"points" Array identifying one vertex of an edge;
+the other vertex of an edge is the next entry in the "edges" Array,
+except that the last edge in a loop that connects the last point to
+the first point is not listed explicitly.
+This is illustrated in <A HREF="#FIGEDARRAY">Figure 7</A>.
+<P><B><A NAME="FIGEDARRAY" HREF="../usrguide.htm#FT_FIGEDARRAY">Figure 7. Use of
+Faces, Loops, and Edge Components</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/usefle.gif" ALT="Figure usefle not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>If you can guarantee that the first loop for each face is an enclosing loop, and that any subsequent loops, are completely enclosed holes in the face, then you may be able to increase performance when processing faces, loops, and edges data by setting the <TT>DX_SIMPLE_LOOPS</TT> environment variable (see
+<A HREF="usrgu073.htm#HDRMOREVAR">"Other Environment Variables"</A>). However, setting this environment variable may cause the executive to crash if data is not conformant. <P>
+<H5><A NAME="HDREGNPOLS"></A><U>Edges and Polylines</U></H5>
+<A NAME="IDX533"></A>
+<A NAME="IDX534"></A>
+<P>
+"Polylines" are a way of collecting a set of line segments into a
+single object with which data can be associated.
+They are implemented much as faces, loops, and edges are
+(see above).
+An "edges" component contains the indices of the vertices along
+polylines.
+A "polylines" component contains the indices of the first element
+in the "edges" component of each polyline sequence.
+In other words, the <I>i</I><SUP>th</SUP> element of the
+"polylines" component is the index in the
+"edges"  component at which the sequence
+of vertex indices of polyline <I>i</I>
+starts.
+The sequence corresponding to polyline&#91;<I>i</I>&#93;
+continues to the beginning of the next polyline sequence
+(or to the end of the "edges" component).
+Polyline data may be dependent on either "polylines" or
+"positions".
+<P>
+<H5><A NAME="HDRTRIPPP"></A><U>Pokes, Picks, and Pick Paths Components</U></H5>
+<A NAME="IDX535"></A>
+<A NAME="IDX536"></A>
+<A NAME="IDX537"></A>
+<A NAME="IDX538"></A>
+<A NAME="IDX539"></A>
+<P>
+The pokes, picks, and pick paths components are created as part of the
+picking process, as implemented by the Pick tool.
+A user writing a module that uses the pick structure output by the Pick
+tool is expected to use the pick structure manipulation routines
+(as described in <I>IBM Visualization Data Explorer Programmer&#39;s
+Reference</I>) rather than accessing the pick
+structure directly.
+The contents of the pick structure are not defined.
+<P>
+<H4><A NAME="HDRSCA"></A><U>Standard Attributes</U></H4>
+<P>
+The standard defined attributes are listed in <A HREF="#TBLCOMPATT">Table 2</A>
+and
+<A HREF="#TBLOBJATT">Table 3</A>, and
+are further described in the subsequent paragraphs.
+Attributes associated with <I>rendering properties</I> are
+described under the Display module in
+<A HREF="refgu008.htm#HDRMDA">Chapter 1. "Data Explorer Tools"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Reference</I>.
+
+<BR>
+<P><B><A NAME="TBLCOMPATT" HREF="usrgu002.htm#FT_TBLCOMPATT">Table 2. Component
+attributes</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Attribute
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Meaning
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"dep"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">component that this component
+depends on
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"ref"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">component that this component
+refers to
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"der"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">component that this component is
+derived from
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"element type"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">interpolation method for
+connections component
+</TD></TR></TABLE>
+<P>
+<BR>
+<P><B><A NAME="TBLOBJATT" HREF="usrgu002.htm#FT_TBLOBJATT">Table 3. Object
+attributes</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Object
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Relevant module
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">label
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">scatter
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">mark
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">mark every
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">mark scale
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">fuzz
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Render, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">ambient
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Render, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">diffuse
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Render, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">specular
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Render, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">shininess
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Render, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">shade
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Render, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">opacity multiplier
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Render, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">color multiplier
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Render, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">texture
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">direct color map
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">cache
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">rendering mode
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Image
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">rendering approximation
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">render every
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Display, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">pickable
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Pick
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">marked component
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="67%">Mark, Unmark
+</TD></TR></TABLE>
+
+<P>
+<H5><U>dep Attribute</U></H5>
+<A NAME="IDX540"></A>
+<A NAME="IDX541"></A>
+<A NAME="IDX542"></A>
+<A NAME="IDX543"></A>
+<P>
+The "dep" attribute specifies which component the given component
+depends on.
+The dependent component is specified by a String Object naming the
+component it depends on.
+For example, if the data is position-dependent, it has a "dep"
+attribute that is a String Object naming the "positions"
+component.
+A component with a this attribute is expected to be in a one-to-one
+correspondence with the component named in the attribute.
+<P>
+<H5><U>ref Attribute</U></H5>
+<A NAME="IDX544"></A>
+<A NAME="IDX545"></A>
+<A NAME="IDX546"></A>
+<P>
+The "ref" attribute specifies which component the given component
+refers to.
+The referent component is specified by a String Object naming the
+component it refers to.
+For example, the "connections" component generally has a "ref"attribute that is
+a String Object naming
+the "positions" component.
+A component with this attribute consists of indices into the component
+named in the attribute.
+<P>
+<H5><U>der Attribute</U></H5>
+<A NAME="IDX547"></A>
+<A NAME="IDX548"></A>
+<A NAME="IDX549"></A>
+<P>
+The "der" attribute specifies that a component is derived from
+another component, and so should be recalculated or deleted when
+the component it is derived from changes.
+For example, the "box" component has a "der" attribute that is
+a String Object naming the "positions" component.
+<P>
+<H5><U>element type Attribute</U></H5>
+<A NAME="IDX550"></A>
+<A NAME="IDX551"></A>
+<A NAME="IDX552"></A>
+<P>
+The "element type" attribute is an attribute of the
+"connections" component.
+It is a String Object naming the type of the interpolation primitives.
+See <A HREF="#HDRCONCOMP">"Connections Component"</A> for a list of the possible
+values of the
+"element type" attribute.
+
+<P>
+<H5><A NAME="Header_73"></A><U>label, scatter, mark, mark every, mark scale Attributes</U></H5>
+Specifies characteristics of a plotted line. Affects the
+behavior of the Plot module.
+See <A HREF="refgu104.htm#HDRPLOT">Plot</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for more information.
+<P>
+<H5><A NAME="Header_74"></A><U>fuzz, ambient, diffuse, specular, shininess, shade Attributes</U></H5>
+Specifies various rendering characteristics of an object. Affects
+the behavior of the rendering modules (Display, Render, and Image).
+See <A HREF="refgu048.htm#HDRDISPLAY">Display</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for more information.
+<P>
+<H5><U>opacity multiplier, color multiplier Attributes</U></H5>
+<A NAME="IDX553"></A>
+<A NAME="IDX554"></A>
+<A NAME="IDX555"></A>
+<A NAME="IDX556"></A>
+<A NAME="IDX557"></A>
+<A NAME="IDX558"></A>
+<A NAME="IDX559"></A>
+Specifies opacity and color values for volume rendering. Affects the
+behavior of the rendering modules (Display, Render, and Image).
+See <A HREF="refgu048.htm#HDRDISPLAY">Display</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for more information.
+<P>
+<H5><U>texture Attribute</U></H5>
+Specifies a texture map which is to be applied to
+an object.  Affects the behavior of Display and Image.
+See <A HREF="refgu048.htm#HDRDISPLAY">Display</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for more information.
+<P>
+<H5><U>direct color map Attribute</U></H5>
+Specifies whether or not a direct
+color map should be used when displaying images. Affects the
+behavior of the Display module.
+See <A HREF="refgu048.htm#HDRDISPLAY">Display</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for more information.
+<P>
+<H5><U>cache Attribute</U></H5>
+Specifies whether the rendered
+image should be cached. Affects the behavior of Display and Image
+modules.
+See <A HREF="refgu048.htm#HDRDISPLAY">Display</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for more information.
+<P>
+<H5><U>rendering mode Attribute</U></H5>
+Specifies the rendering mode to be
+either hardware or software. Affects the behavior of Display and
+Image modules.
+See <A HREF="refgu048.htm#HDRDISPLAY">Display</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for more information.
+<P>
+<H5><A NAME="Header_80"></A><U>rendering approximation, render every Attributes</U></H5>
+Specify hardware rendering characteristics for an object. Affect the
+behavior of Display and Image modules.
+See <A HREF="refgu048.htm#HDRDISPLAY">Display</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for more information.
+<P>
+<H5><U>pickable Attribute</U></H5>
+Specifies whether or not an object should be
+pickable.
+See <A HREF="refgu103.htm#HDRPICK">Pick</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I> for more information.
+<P>
+<H5><U>marked component Attribute</U></H5>
+Specify which component in an object was previously
+marked. This attribute is set by the Mark module; affects the
+behavior of the Unmark module.
+See <A HREF="refgu093.htm#HDRMARK">Mark</A> and <A
+HREF="refgu164.htm#HDRUNMARK">Unmark</A> in <I>IBM Visualization Data Explorer
+User&#39;s Reference</I> for more
+information.
+
+<P>
+<H3><A NAME="HDRARRAYS" ></A>Arrays</H3>
+<A NAME="IDX560"></A>
+<P>
+Array Objects hold the actual data, positions, connections, and so on.
+An Array consists of some number of <I>items</I> numbered
+consecutively starting at 0.
+<A NAME="IDX561"></A>
+Each item has a <I>type, category, rank</I> and <I>shape,</I>
+defined as follows:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Type
+<A NAME="IDX563"></A>
+<A NAME="IDX564"></A>
+<A NAME="IDX565"></A>
+</B></TD><TD><P>Types include
+<TT><STRONG>double</STRONG></TT>,
+<TT><STRONG>float</STRONG></TT>,
+<TT><STRONG>int</STRONG></TT>,
+<TT><STRONG>uint</STRONG></TT>,
+<TT><STRONG>short</STRONG></TT>,
+<TT><STRONG>ushort</STRONG></TT>,
+<TT><STRONG>byte</STRONG></TT>,
+<TT><STRONG>ubyte</STRONG></TT>,
+and
+<TT><STRONG>string</STRONG></TT>.
+(For example, <TT><STRONG>byte</STRONG></TT> is signed byte and
+<TT><STRONG>ubyte</STRONG></TT> is unsigned byte.)
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Category
+<A NAME="IDX566"></A>
+<A NAME="IDX567"></A>
+</B></TD><TD><P>A category can be <TT><STRONG>real</STRONG></TT> or
+<TT><STRONG>complex</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Rank
+<A NAME="IDX568"></A>
+<A NAME="IDX569"></A>
+</B></TD><TD><P>Rank 0 corresponds to scalars, rank 1 to vectors, rank 2 to
+matrices or rank-2 tensors;
+higher ranks correspond to higher-order tensors.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Shape
+<A NAME="IDX570"></A>
+<A NAME="IDX571"></A>
+</B></TD><TD><P>The shape is defined as the list of dimensions of the structure.
+For rank-0 items (scalars), there is no shape.
+For rank-1 structures (vectors), the shape is a single number
+corresponding to the number of dimensions.
+For rank-2 structures, shape is two numbers, and so on.
+</TD></TR></TABLE>
+The following are examples of these classifications:
+<UL COMPACT>
+<LI>Three-dimensional points have type <TT><STRONG>float</STRONG></TT> or
+<TT><STRONG>double</STRONG></TT>, category <TT><STRONG>real</STRONG></TT>,
+rank 1, and shape 3.
+<LI>Two-vectors typically have type <TT><STRONG>float</STRONG></TT>.
+They are category <TT><STRONG>real</STRONG></TT>, rank 1, and
+shape 2.
+Three-vectors are shape 3.
+<LI>Tetrahedra have type <TT><STRONG>int</STRONG></TT>, category
+<TT><STRONG>real</STRONG></TT>, rank 1, and shape 4.
+<LI>Scalar values typically have type <TT><STRONG>int</STRONG></TT> or
+<TT><STRONG>float</STRONG></TT>.
+They are category <TT><STRONG>real</STRONG></TT> and rank 0, with
+no shape.
+<LI>Strain tensors typically have type <TT><STRONG>float</STRONG></TT> or
+<TT><STRONG>double</STRONG></TT>.
+They are category <TT><STRONG>real</STRONG></TT>, rank 2, and shape
+<I>3&times;3</I>.
+</UL>
+Data Explorer uses six types of Array: <I>Irregular Arrays</I> and five
+types of compact Array:
+<I>Regular</I>,
+<I>Product</I>,
+<I>Path</I>,
+<I>Mesh</I>, and
+<I>Constant</I>.
+<P>
+The Array types are discussed in the following sections.
+<P>
+<H4><U>Irregular Arrays</U></H4>
+
+<A NAME="IDX572"></A>
+<A NAME="IDX573"></A>
+<P>
+The most general way to specify the contents (item values) of an Array
+is to list the values; this is called <I>irregular</I> data.
+An example of such an Array Object is illustrated in
+<A HREF="#FIGIRARRAY">Figure 8</A>.
+<P><B><A NAME="FIGIRARRAY" HREF="../usrguide.htm#FT_FIGIRARRAY">Figure 8. Example
+of an Irregular Array</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/xirega.gif" ALT="Figure xirega not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<A NAME="IDX574"></A>
+<A NAME="IDX575"></A>
+<P>
+<H4><U>Regular Array</U></H4>
+<A NAME="IDX576"></A>
+<P>
+A set of <I>n</I>-dimensional points lying on a line in
+<I>n</I>-space with a constant <I>n</I>-dimensional
+delta between them, represents, for example, one edge of
+a grid of regular positions.
+Regular Arrays are frequently combined as the terms of a Product Array.
+An example of a Regular Array is illustrated in <A HREF="#FIGREGA">Figure 9</A>.
+<P>This example represents (in compact form) the same information as the following irregular Array: 
+		<P>[ x<SUB>o</SUB> , &nbsp; y<SUB>o</SUB> ]<BR>
+			[ x<SUB>o</SUB> + x<SUB>d</SUB> ,  y<SUB>o</SUB> + y<SUB>d</SUB> ]<BR>
+			[ x<SUB>o</SUB> + 2x<SUB>d</SUB> ,  y<SUB>o</SUB> + 2y<SUB>d</SUB> ]<BR>
+			.<BR>
+			.<BR>
+			.<BR>
+			[ x<SUB>o</SUB> + (n - 1) x<SUB>d</SUB> ,  y<SUB>o</SUB> + (n - 1) y<SUB>d</SUB> ]</P>
+		<P>&nbsp;
+<P><B><A NAME="FIGREGA" HREF="../usrguide.htm#FT_FIGREGA">Figure 9. Example of a
+Regular Array</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<PRE><STRONG>
+ type   = float, real, vector&#91;2&#93;
+ items  = n
+ origin = &#91;x<SUB>o</SUB>, y<SUB>o</SUB>&#93;
+ delta  = &#91;x<SUB>d</SUB>, y<SUB>d</SUB>&#93;
+</STRONG>
+</PRE><BR>
+</TD></TR></TABLE>
+<A NAME="IDX577"></A>
+<P>
+<H4><U>Product Array</U></H4>
+<A NAME="IDX578"></A>
+<P>
+Encodes multidimensional positional regularity.
+It is the set of points obtained by summing one point from each of the
+terms of the product in all possible combinations.
+For example, the product of a set of Regular Arrays is a regular grid
+whose basis vectors are the deltas of the Regular Arrays that are
+the terms of the product, and whose origin is the sum of the
+origins of the terms.
+An example of a Product Array Object is illustrated in
+<A HREF="#FIGPRODA">Figure 10</A>.
+A Product Array can have terms that are Regular Arrays, irregular
+Arrays, or any combination of Regular and irregular Arrays.
+<P><B><A NAME="FIGPRODA" HREF="../usrguide.htm#FT_FIGPRODA">Figure 10. Example of a
+Product Array</A></B><BR>
+<TABLE BORDER  WIDTH="100%"><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/xproda.gif" ALT="Figure xproda not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+		<P>
+The example in <A HREF="#FIGPRODA">Figure 10</A> represents (in compact form) the same information as the following irregular Array: <BR>
+			[ x<SUB>o</SUB> + u<SUB>o</SUB> ,  y<SUB>o</SUB> + v<SUB>o</SUB> ]<BR>
+			[ x<SUB>o</SUB> + u<SUB>o</SUB> + u<SUB>d</SUB> ,  y<SUB>o</SUB> + v<SUB>o</SUB> + v<SUB>d</SUB> ]<BR>
+			[ x<SUB>o</SUB> + u<SUB>o</SUB> + 2u<SUB>d</SUB> ,  y<SUB>o</SUB> + v<SUB>o</SUB> + 2v<SUB>d</SUB> ]<BR>.<BR>
+			.<BR>
+			.<BR>
+			[ x<SUB>1</SUB> + u<SUB>o</SUB> ,  y<SUB>1</SUB> + v<SUB>o</SUB> ]<BR>
+			[ x<SUB>1</SUB> + u<SUB>o</SUB> + u<SUB>d</SUB> ,  y<SUB>1</SUB> + v<SUB>o</SUB> + v<SUB>d</SUB> ]<BR>.<BR>
+			.<BR>
+			.<BR>
+			[ x<SUB>&lt;n - 1&gt;</SUB> + u<SUB>o</SUB> + (m - 1) u<SUB>d</SUB> ,  y<SUB>&lt;n - 1&gt;</SUB> + v<SUB>o</SUB> + (m - 1) v<SUB>d</SUB> ]
+
+		<P>
+An important special case of the more general Product Array Object is
+the <I>n</I>-dimensional geometrically regular grid.
+<A HREF="#FIGPRODX">Figure 11</A> is an example that shows two ways to describe
+a Product Array composed of two Regular Arrays.
+
+		<P><B><A NAME="FIGPRODX" HREF="../usrguide.htm#FT_FIGPRODX">Figure 11. Product
+Array of Two Regular Arrays</A></B><BR>
+<TABLE BORDER  WIDTH="100%"><TR><TD><BR>
+<BR>
+<TABLE>
+<TR><BR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2">The order of the specification of the
+counts and deltas implicitly<BR>
+creates a list of positions.<BR>
+<P><BR>
+</TD></TR><TR><BR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%"><BR>
+<P><BR>
+<I>x</I> is the fastest-varying dimension.<BR>
+<B><BR><CENTER><IMG SRC="../images/patrx1.gif" ALT="Figure patrx1 not
+displayed."></CENTER><BR></B><BR>
+<B><BR><CENTER><IMG SRC="../images/patrx2.gif" ALT="Figure patrx2 not
+displayed."></CENTER><BR></B><BR>
+This represents (in compact form) the same information as the<BR>
+following irregular Array:<BR>
+<BR>
+&#91;0 0&#93;<BR>
+<BR>
+&#91;1 0&#93;<BR>
+<BR>
+&#91;2 0&#93;<BR>
+<BR>
+&#91;3 0&#93;<BR>
+<BR>
+&#91;0 1&#93;<BR>
+<BR>
+&#91;1 1&#93;<BR>
+<BR>
+&#91;2 1&#93;<BR>
+<BR>
+&middot;<BR>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%"><BR>
+<P><BR>
+<I>y</I> is the fastest-varying dimension.<BR>
+<B><BR><CENTER><IMG SRC="../images/patry1.gif" ALT="Figure patry1 not
+displayed."></CENTER><BR></B><BR>
+<B><BR><CENTER><IMG SRC="../images/patry2.gif" ALT="Figure patry2 not
+displayed."></CENTER><BR></B><BR>
+This represents (in compact form) the same information as the following<BR>
+irregular Array:<BR>
+<BR>
+&#91;0 0&#93;<BR>
+<BR>
+&#91;0 1&#93;<BR>
+<BR>
+&#91;0 2&#93;<BR>
+<BR>
+&#91;1 0&#93;<BR>
+<BR>
+&#91;1 1&#93;<BR>
+<BR>
+&#91;1 2&#93;<BR>
+<BR>
+&#91;2 0&#93;<BR>
+<BR>
+&middot;<BR>
+</TD></TR></TABLE><BR>
+</TD></TR></TABLE>
+<A NAME="IDX579"></A>
+<P>
+<H4><U>Path Array</U></H4>
+<A NAME="IDX580"></A>
+<P>
+Encodes linear regularity of connections.
+It is a set of <I>n-1</I> line segments joining <I>n</I>
+points, where the <I>i</I>th line segment joins points
+<I>i</I> and <I>i+1</I>.
+Path Arrays are frequently combined as the terms of a Mesh Array.
+An example of a Path Array is illustrated in
+<A HREF="#FIGPATHA">Figure 12</A>.
+<P><B><A NAME="FIGPATHA" HREF="../usrguide.htm#FT_FIGPATHA">Figure 12. Example of a
+Path Array</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<PRE><STRONG>
+  type  = int, real, vector&#91;2&#93;
+  items = n
+</STRONG>
+</PRE><BR>
+</TD></TR></TABLE>
+<A NAME="IDX581"></A>
+<P>This example represents (in compact form) the same information as the following irregular Array: <BR>
+			[ 0 &nbsp; 1 ]<BR>
+[ 1 &nbsp; 2 ]<BR>
+[ 2 &nbsp; 3 ]<BR>.<BR>
+			.<BR>
+			.<BR>
+			[ n - 2 &nbsp; n - 1 ]<P>
+<H4><U>Mesh Array</U></H4>
+<A NAME="IDX582"></A>
+<P>
+Encodes multidimensional regularity of connections.
+It is a product of connection Arrays.
+The product is a set of interpolation elements where the product has
+one interpolation element for each pair of interpolation elements
+in the two multiplicands, and the number of sample points in
+each interpolation element is the product of the number
+of sample points in each of the multiplicands&#39;
+interpolation elements.
+An example of a Mesh Array is illustrated in <A HREF="#FIGMESHA">Figure 13</A>.
+<P><B><A NAME="FIGMESHA" HREF="../usrguide.htm#FT_FIGMESHA">Figure 13. Example of a
+Mesh Array</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/xmesha.gif" ALT="Figure xmesha not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+This example represents (in compact form) the same information as the
+following irregular Array:
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="220">[ 0 , 1 , m , m + 1 ]<BR>[ 1 , 2 , m + 1 , m + 2 ]<BR>.<BR>
+					.<BR>
+					.<BR>
+					[ m - 2 , m - 1 , 2m - 2 , 2m - 1 ]<BR>[ m , m + 1 , 2m , 2m + 1 ]<BR>.<BR>
+					.<BR>
+					.<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">
+<B><BR><CENTER><IMG SRC="../images/txtmesh.gif" ALT="Figure txtmesh not
+displayed."></CENTER><BR></B>
+<BR></TD></TR></TABLE>
+<P>
+An important special case of the more general Mesh Array Object is the
+<I>n</I>-dimensional cuboidal connections of a regular grid.
+<A HREF="#FIGMESHX">Figure 14</A> is an example that shows a Mesh Array
+composed of two Path Arrays.
+<P>
+See <A HREF="usrgu067.htm#HDRIMD">Appendix B. "Importing Data: File Formats"</A>
+for a detailed description of how to
+specify these compact Arrays.
+<P><B><A NAME="FIGMESHX" HREF="../usrguide.htm#FT_FIGMESHX">Figure 14. Mesh Array
+of Two Path Arrays (with Regular Connections)</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<BR>
+<TABLE>
+<TR><BR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2">The order of the specification of the counts implicitly creates a list of position indices in the order of &quot;last index varies fastest.&quot;
+								<P>The location in space of each vertex is determined by the value of the position referred to by that index.
+								<P></P>
+							</TD></TR><TR><BR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%"><BR>
+<B><BR><CENTER><IMG SRC="../images/matpa1.gif" ALT="Figure matpa1 not
+displayed." width="197" height="144"></CENTER><BR></B><BR>
+<B><BR><CENTER><IMG SRC="../images/matpa2.gif" ALT="Figure matpa2 not
+displayed." height="106" width="203"></CENTER></B>
+            <p><B><BR>
+              </B><BR>
+              This represents (in compact form) the same information as the<BR>
+              following irregular Array:</p>
+            <p>[ 0 &nbsp; 1 &nbsp; 3 &nbsp; 4 ]<BR>
+              [ 1 &nbsp; 2 &nbsp; 4 &nbsp; 5 ]<BR>
+              [ 3 &nbsp; 4 &nbsp; 6 &nbsp; 7 ]<BR>
+              &middot;<BR>
+            </p>
+          </TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%"><BR>
+<B><BR><CENTER><IMG SRC="../images/matpa3.gif" ALT="Figure matpa3 not
+displayed." width="197" height="144"></CENTER><BR></B><BR>
+<B><BR><CENTER><IMG SRC="../images/matpa4.gif" ALT="Figure matpa4 not
+displayed." width="205" height="155"></CENTER></B>
+            <p><B><BR>
+              </B><BR>
+              This represents (in compact form) the same information as the following 
+              irregular Array:</p>
+            <p>[ 0 &nbsp; 1 &nbsp; 5 &nbsp; 6 ]<BR>
+              [ 1 &nbsp; 2 &nbsp; 6 &nbsp; 7 ]<BR>
+              [ 2 &nbsp; 3 &nbsp; 7 &nbsp; 8 ]<BR>
+              &middot;<BR>
+            </p>
+          </TD></TR></TABLE><BR>
+</TD></TR></TABLE>
+<A NAME="IDX583"></A>
+<A NAME="IDX584"></A>
+<P>
+<H4><U>Constant Array</U></H4>
+<P>
+Encodes a set of numbers all with the same value.
+This can be useful, for example, for specifying the colors associated
+with an object if the object has a single color.
+An example of a Constant Array is shown in <A HREF="#FIGCONA">Figure 15</A>.
+<P>&nbsp;
+<P><B><A NAME="FIGCONA" HREF="../usrguide.htm#FT_FIGCONA">Figure 15. Example of a
+Constant Array</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<PRE><STRONG>
+  type   = float, real, vector&#91;3&#93;
+  items  = n
+  origin = &#91;x<SUB>o</SUB>, y<SUB>o</SUB>, z<SUB>o</SUB>&#93;
+</STRONG>
+</PRE><BR>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="Header_90" ></A>Groups</H3>
+<A NAME="IDX585"></A>
+<A NAME="IDX586"></A>
+<P>
+Fields can be combined into <I>Groups</I>.
+A Group is a collection of <I>members</I> that themselves may be
+Fields or other Groups.
+A member can be referred to either by name or by index.
+An example of a Group is given in <A HREF="#FIGGROUP">Figure 16</A>.
+<P><B><A NAME="FIGGROUP" HREF="../usrguide.htm#FT_FIGGROUP">Figure 16. Example of a
+Group</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/xgroup.gif" ALT="Figure xgroup not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<P>
+This example shows a Group describing a visualization scene composed of
+two parts.
+The member named "pressure" is a Field of volumetric data to be
+volume rendered, representing pressure in an airflow around an
+airplane.
+The member named "airplane" is a geometric model describing the
+surface of the airplane.
+It, in turn, can be a Group, where each member is one of the constituent
+parts of the airplane, such as "wing," "fuselage,"
+and so on.
+The top-level Group could then be passed into the renderer to produce
+an image of the airplane combined with a volume rendering of the
+pressure Field.
+<P>
+Named Group members can be retrieved by name or by index number;
+the <I>n</I> members of a Group are numbered from 0 to
+<I>n-1</I>.
+Group members can also be stored by index number without a name, in
+which case they can be retrieved only by index number.
+The members of a Group are always numbered consecutively starting at 0,
+and gaps in the numbering are not allowed.
+<P>
+In addition to generic Groups used to collect related information,
+there are three subclasses of Group used to combine related
+Objects with additional semantics:
+<I>Multigrid</I> Groups, <I>Composite Field</I> Groups, and
+<I>Series</I> Groups.
+<P>
+<H4><U>Multigrid Groups</U></H4>
+<A NAME="IDX587"></A>
+<A NAME="IDX588"></A>
+<A NAME="IDX589"></A>
+<A NAME="IDX590"></A>
+<P>
+It is often necessary to represent a Field as a collection of
+separate Fields, each with its own grid.
+For example, this is the case in some kinds of simulations using
+multiple grids.
+The data structure used to hold such Fields is a subclass of Group
+called a <I>Multigrid</I> Object.
+It is the same as a generic Group in most respects, except that it
+requires all members to be Fields holding data of the same type.
+The "connections" component of each member must also be of the same
+type.
+Grids may be completely disjoint or may overlap.
+For overlapping grids,  the "invalid positions" or "invalid
+connections" components may be used to define which grid is
+valid in a particular region.
+<P>
+<H4><U>Composite Field Groups</U></H4>
+<A NAME="IDX591"></A>
+<A NAME="IDX592"></A>
+<P>
+A Composite Field is another kind of Group that is treated as a single
+entity.
+For example, parallelism in Data Explorer is achieved by explicitly partitioning
+Fields into abutting, spatially disjoint
+primitive Fields.
+Positions on the boundaries must be replicated identically.
+Like Multigrid Groups, all members must have the same type of data and
+the same type of connections.
+<P>
+<H4><A NAME="HDRSERGRP"></A><U>Series Groups</U></H4>
+<A NAME="IDX593"></A>
+<A NAME="IDX594"></A>
+<P>
+Series of various types, such as time series, are stored in a subclass
+of Group called a <I>Series</I> Object.
+A
+Series Object is the same as a generic Group in most respects, except
+that it associates a series value, such as a time stamp, with
+each member.
+Members are stored in and retrieved from a Series Group by index.
+Members cannot be retrieved by series value.
+Fields in a Series Group must all have the same data type and connection
+element type.&nbsp;
+<A HREF="#FIGSERIESX">Figure 17</A> shows an example of a Series Group, where
+the
+three members have series positions of 1.2, 2.7, and 8.4
+respectively.
+<P><B><A NAME="FIGSERIESX" HREF="../usrguide.htm#FT_FIGSERIESX">Figure 17. Example
+of a Series Group</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/sgroup.gif" ALT="Figure sgroup not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

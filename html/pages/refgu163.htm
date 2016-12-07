@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Tube</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu162.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu164.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRTUBE" ></A>Tube</H3>
+		<A NAME="IDX757"></A><A NAME="IDX758"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATANN">Annotation</A>
+<P><STRONG>Function</STRONG>
+<P>
+Changes a specified line into a tube.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+tube</STRONG> = Tube(<STRONG>line, diameter, ngon, style</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>line</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">line to be drawn as a tube
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>diameter</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">tube diameter
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>ngon</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">8
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of sides to the tube
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>style</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;sphere&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">style of tube caps
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>tube</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">a renderable tube
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module is intended for use with any module that creates lines
+(e.g., Streamline).
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>line</STRONG></TT>
+</B></TD><TD><P>specifies the line that is to be changed into a tube.
+If a "normals" component is present (as would occur if the input
+field <TT><STRONG>curl</STRONG></TT> were used with Streamline or if
+the <TT><STRONG>flag</STRONG></TT> parameter is set in Streamline),
+the tube shows a corresponding twist.
+To show the twist most effectively, use the Ribbon module.
+Excessive amounts of twist can produce a pinching effect.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>diameter</STRONG></TT>
+</B></TD><TD><P>specifies the tube diameter in the same units as those of the
+original space.
+If this parameter is not specified, the module provides an appropriate
+value (1/50 of the diagonal of the boundary box of
+<TT><STRONG>line</STRONG></TT>.
+This value is attached to the output <TT><STRONG>tube</STRONG></TT>
+as an attribute called "Tube diameter," which can
+be extracted with the Attribute module.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>ngon</STRONG></TT>
+</B></TD><TD><P>specifies the number of sides of the cross-sectional polygon of
+the
+tube.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>style</STRONG></TT>
+</B></TD><TD><P>in the current version of Data Explorer has no effect.
+</TD></TR></TABLE>
+<P>Any transformation matrix applied to Tube, such as those created by the <A HREF="refgu129.htm">Scale</A> module, may produce an unwanted effect of tranforming the Tube's geometry. To just transform the line but not the Tube, insert an <a href="refgu077.htm">Inquire</a> module immediately before the Tube module, and set the <tt>inquiry</tt> option to &quot;apply transform&quot;. This operation applies all transformation matrices changing the line's geometry, but prevents the transform from being carried forward onto the Tube geometry.
+		<p><STRONG>Components</STRONG></p>
+		<P>
+Creates new "positions," "connections," and "normals"
+components.
+All other components are propagated to the output.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+Imide&#95;potential.net
+Interop.net
+PlotLine2.net
+RubberTube.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu059.htm#HDRFACENOR">FaceNormals</A>,
+&nbsp;<A HREF="refgu122.htm#HDRRIBBON">Ribbon</A>,
+&nbsp;<A HREF="refgu148.htm#HDRSTREAKL">Streakline</A>,
+&nbsp;<A HREF="refgu149.htm#HDRSTREAML">Streamline</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

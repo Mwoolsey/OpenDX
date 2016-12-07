@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall735 DXSHMEM #!N specifies 
+whether or not shared memory should be used. The amount of 
+memory allocated by Data Explorer for its data and object management 
+can be set at runtime with the -memory command line option. 
+At startup, Data Explorer either allocates a shared memory segment or 
+expands the existing data segment to create this space. #!N #!N 
+SMP (multiprocessor) systems are required to use shared memory so each 
+processor can share a common data space. SGI systems also use 
+shared memory for space. IBM systems use shared memory if the 
+size to be allocated is larger than 256 MB. In all 
+other cases Data Explorer extends the existing data segment using the 
+brk() system call. #!N #!N Each architecture (SGI, IBM, HP, ...) 
+has a different way of configuring the maximum user data segment 
+size, and a different way of setting the limit on the 
+maximum size of a single shared memory segment. Consult your system 
+administrator or system documentation if you have problems getting Data Explorer 
+to use the amount of memory which should be available to 
+you. #!N #!N If you have problems using a large data 
+segment, you can force Data Explorer to use shared memory by 
+setting the DXSHMEM environment variable to any value other than -1. 
+This will override the defaults and use shared memory for space. 
+Alternatively, you can force Data Explorer to extend the data segment 
+(if allowed for the architecture) by setting DXSHMEM to -1. Note: 
+Regardless of the setting of DXSHMEM, the aviion and sun4 architectures 
+always use the data segment. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ltall737,dxall737 h DXSHMEMSEGMAX  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,189 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rplot Plot 
+#!N #!N Category #!N #!N  #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N Function #!N #!N 
+Creates a 2-dimensional plot. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   #!N plot #!EF = Plot(  #!F-adobe-times-bold-r-normal--18*   input, labels, ticks, corners, 
+adjust, frame, type, grid, #!N aspect, colors, annotation, labelscale, font, input2, 
+#!N label2, ticks2, corners2, type2, #!N #!N xticklocations, y1ticklocations, y2ticklocations, #!N 
+xticklabels, y1ticklabels, y2ticklabels #!EF ); #!N #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB input TAB field or group 
+TAB none TAB data to be plotted #!N TAB labels TAB 
+string list TAB {"x," "y"} TAB axis label #!N TAB ticks 
+TAB integer list TAB 10 TAB approximate number of tick marks 
+#!N TAB corners TAB vector list or object TAB {[xmin, ymin], 
+TAB plot limits #!N TAB - TAB - TAB [xmax, ymax]} 
+TAB #!N TAB adjust TAB flag TAB input dependent TAB 0: 
+end points not adjusted #!N TAB - TAB - TAB - 
+TAB 1: end points adjusted to match #!N TAB - TAB 
+- TAB - TAB tick marks #!N TAB frame TAB integer 
+TAB 0 TAB framing style for plot #!N TAB type TAB 
+string list TAB "lin" TAB plot type #!N TAB grid TAB 
+integer TAB 0 TAB grid style #!N TAB aspect TAB scalar 
+or string TAB 1.0 TAB y:x (aspect) ratio of resulting #!N 
+TAB - TAB - TAB - TAB plot #!N TAB colors 
+TAB vector list or string list TAB appropriate TAB colors for 
+annotation #!N TAB annotation TAB string list TAB "all" TAB annotation 
+objects to be colored #!N TAB labelscale TAB scalar TAB 1.0 
+TAB scale factor for labels #!N TAB font TAB string TAB 
+standard TAB font for labels #!N TAB input2 TAB field or 
+group TAB no default TAB second set of data to be 
+plotted #!N TAB label2 TAB string TAB {"y2"} TAB label for 
+second y-axis #!N TAB ticks2 TAB integer TAB input dependent TAB 
+approximate number of tick marks #!N TAB - TAB - TAB 
+- TAB for second y-axis. #!N TAB corners2 TAB vector or 
+object TAB {[ymin, ymax]} TAB plot limits for second y-axis #!N 
+TAB type2 TAB string TAB "lin" TAB plot type for second 
+y-axis #!N TAB xticklocations TAB scalar list TAB appropriate TAB x 
+tick locations #!N TAB y1ticklocations TAB scalar list TAB appropriate TAB 
+y1 tick locations #!N TAB y2ticklocations TAB scalar list TAB appropriate 
+TAB y2 tick locations #!N TAB xticklabels TAB string list TAB 
+xticklocations TAB x tick labels #!N TAB y1ticklabels TAB string list 
+TAB y1ticklocations TAB y1 tick labels #!N TAB y2ticklabels TAB string 
+list TAB y2ticklocations TAB y2 tick labels #!N TAB - TAB 
+- TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB plot 
+TAB field TAB the plot #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N This module creates a 
+2-dimensional plot from a line or set of lines. The following 
+plot characteristics can be set on the line or lines with 
+the Options module (in the  #!F-adobe-times-bold-r-normal--18*   Structuring #!EF category) before they 
+are passed to Plot: line label, line marker type, marker size, 
+number of markers, and the choice of creating a scatter plot 
+or not (see  #!Lcrelegd,dxall905 h Creating a Legend  #!EL  ,  #!Llinmark,dxall906 h Using Line Markers  #!EL  , and  #!Lscatplt,dxall909 h Scatter Plots  #!EL  ). #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 
+#!N is a field or group of fields, where each field 
+has 1-dimensional positions representing the "x"-values, and 1-dimensional data representing the 
+"y"-values. If the input is a group of Fields, each Field 
+is plotted as a separate line. #!N #!N There can be 
+a "connections" component of element type "lines" connecting the positions; if 
+a connections component for a given Field does not exist, the 
+module adds one. The input can have a "colors" component, in 
+which case the output plot preserves those colors. If the input 
+does not have a "colors" component, the line is colored white. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   labels #!EF #!EF #!I50 #!N specifies 
+the labels for the axes of the plot. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   ticks #!EF #!EF #!I50 #!N specifies the number of 
+tick marks to be placed on the plot axes. The default 
+is 10. #!N #!N If the parameter value is a single 
+integer, then approximately that many tick marks are placed along the 
+axes. If the parameter list is a two-element integer list, the 
+first element is interpreted as the approximate number of tick marks 
+to be placed on the x-axis; the second element, the approximate 
+number to be placed on the y-axis. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   corners #!EF #!EF  #!Rcorners #!I50 #!N specifies the limits of 
+the plot axes. (The default limits are set by the input 
+line or lines.) The specification can be a vector list or 
+an object. If the specification is a vector list, then all 
+points that lie outside of  #!F-adobe-times-bold-r-normal--18*   corners #!EF are eliminated from 
+the plot. If the specification is an object (such as a 
+group of lines), the module determines the minimum and maximum x- 
+and y-values for the entire object and uses those to set 
+the plot limits. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   adjust #!EF #!EF 
+#!I50 #!N determines whether the axes end at tick marks or 
+not. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   frame #!EF #!EF #!I50 #!N 
+determines how the plot is framed. In all cases, axes and 
+tick labels are drawn on the left side and bottom of 
+the plot. For  #!F-adobe-times-bold-r-normal--18*   frame #!EF = 1, additional lines (without 
+ticks) are drawn on the right side and top of the 
+plot. For  #!F-adobe-times-bold-r-normal--18*   frame #!EF = 2, lines and major and 
+minor ticks are drawn on the right side and top of 
+the plot. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   type #!EF #!EF #!I50 
+#!N specifies the plot type. It is a string or string 
+list and must be: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N 1. "lin" (linear plot) #!N #!I30 #!N 2. "log" (logarithmic 
+plot) #!N #!I30 #!N 3. any two-element combination of these (e.g., 
+{"lin," "lin"} or {"log," "lin"}). If  #!F-adobe-times-bold-r-normal--18*   type #!EF is a 
+single string, both the  #!F-adobe-times-medium-i-normal--18*   x- #!EF and the  #!F-adobe-times-medium-i-normal--18*   y- 
+#!EF axis are of that type. If type is two strings, 
+then the first string applies to the  #!F-adobe-times-medium-i-normal--18*   x #!EF -axis 
+while the second string applies to the  #!F-adobe-times-medium-i-normal--18*   y #!EF -axis. 
+#!N #!I0 #!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   grid 
+#!EF #!EF #!I50 #!N specifies whether and how to draw grid 
+lines along major ticks. If  #!F-adobe-times-bold-r-normal--18*   grid #!EF = 0, no 
+grid lines are drawn. If  #!F-adobe-times-bold-r-normal--18*   grid #!EF = 1, then 
+grid lines are drawn horizontally along major ticks. If  #!F-adobe-times-bold-r-normal--18*   grid 
+#!EF = 2, then grid lines are drawn vertically along major 
+ticks. If  #!F-adobe-times-bold-r-normal--18*   grid #!EF = 3, grid lines are drawn 
+both horizontally and vertically along major ticks. If  #!F-adobe-times-bold-r-normal--18*   grid #!EF 
+is not equal to 0,  #!F-adobe-times-bold-r-normal--18*   adjust #!EF is set to 
+1. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   aspect #!EF #!EF #!I50 #!N 
+allows you to set the approximate  #!F-adobe-times-medium-i-normal--18*   y #!EF :  #!F-adobe-times-medium-i-normal--18*   
+x #!EF aspect ratio of the resulting plot. You can also 
+use the Scale module before Plot to adjust the aspect ratio. 
+The default is an aspect ratio of 1.0. If you want 
+Plot to simply use the actual aspect ratio of the data, 
+set  #!F-adobe-times-bold-r-normal--18*   aspect #!EF to "inherent." Note that if a second 
+plot is drawn (i.e.  #!F-adobe-times-bold-r-normal--18*   input2 #!EF is provided),  #!F-adobe-times-bold-r-normal--18*   aspect 
+#!EF is set to 1.0 even if "inherent" is specified. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   colors #!EF #!EF #!I50 #!N together with 
+ #!F-adobe-times-bold-r-normal--18*   annotation #!EF (see below), can be used to set the 
+color of one or more components of the plot. #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   colors #!EF : specifies a single color (an RGB vector 
+or color-name string) or a list of colors. Color-name strings must 
+be from the list of defined color strings (see  #!Lcolor,dxall792 h Color  #!EL  ). 
+#!N #!N If  #!F-adobe-times-bold-r-normal--18*   colors #!EF is a single string and 
+ #!F-adobe-times-bold-r-normal--18*   annotation #!EF is not specified or is "all," then that 
+color is used for all axes annotation. Otherwise, the number of 
+colors in  #!F-adobe-times-bold-r-normal--18*   colors #!EF must match the number of  #!F-adobe-times-bold-r-normal--18*   
+annotation #!EF strings exactly and in one-to-one correspondence. By default, a 
+background is not drawn. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   annotation #!EF 
+#!EF #!I50 #!N can be one of the following: "all," "axes," 
+"background," "grid," "labels," or "ticks." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   labelscale 
+#!EF #!EF #!I50 #!N allows you to change the size of 
+the axes and tick labels. For example, to make the labels 
+twice as large, specify  #!F-adobe-times-bold-r-normal--18*   labelscale #!EF = 2. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   font #!EF #!EF #!I50 #!N specifies the font 
+used for labels. The default is "standard," which uses a fixed 
+font for the tick-mark labels and a variable font for the 
+axes labels. You may specify  #!F-adobe-times-bold-r-normal--18*   font #!EF as any of 
+the defined fonts supplied with Data Explorer: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N area gothicit_t pitman roman_ext #!N cyril_d greek_d roman_d script_d #!N 
+fixed greek_s roman_dser script_s #!N gothiceng_t italic_d roman_s variable #!N gothicger_t 
+italic_t roman_tser #!EF #!N #!N #!EC For more information, see  #!Lapc,dxall746 h Data Explorer Fonts  #!EL  
+in IBM Visualization Data Explorer User's Guide. #!I0 #!N #!N #!N 
+#!N The Plot module can also generate a second set of 
+lines and a second y-axis on the right side of the 
+plot. If a second plot is drawn, the  #!F-adobe-times-bold-r-normal--18*   aspect #!EF 
+ratio defaults to 1. For this second plot and axis, you 
+must repeat several specifications: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   input2 #!EF #!EF #!I50 #!N is a second field or 
+group of fields (see  #!F-adobe-times-bold-r-normal--18*   input #!EF above). #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   label2 #!EF #!EF #!I50 #!N is the label for 
+the second  #!F-adobe-times-medium-i-normal--18*   y #!EF -axis. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+ticks2 #!EF #!EF #!I50 #!N is the approximate number of ticks 
+for the second  #!F-adobe-times-medium-i-normal--18*   y #!EF -axis. A negative integer specifies 
+outward, as opposed to inward, pointing ticks. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   corners2 #!EF #!EF  #!F-adobe-times-medium-r-normal--18*   (see  #!F-adobe-times-bold-r-normal--18*    #!Lcorners,dxall904 s corners  #!EL  #!EF ) #!EF 
+#!I50 #!N specifies the  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF 
+for the second "y"-axis. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   type2 #!EF 
+#!EF #!I50 #!N specifies the type of second  #!F-adobe-times-medium-i-normal--18*   y #!EF 
+-axis and must be either "log" or "lin." #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   xticklocations #!EF #!EF #!I50 #!N explicit set of tick 
+locations for the x axis. If specified, overrides the values for 
+tick locations as determined from  #!F-adobe-times-bold-r-normal--18*   ticks #!EF . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   y1ticklocations #!EF #!EF #!I50 #!N explicit set of 
+tick locations for the first y axis. If specified, overrides the 
+values for tick locations as determined from  #!F-adobe-times-bold-r-normal--18*   ticks #!EF . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   y2ticklocations #!EF #!EF #!I50 #!N explicit 
+set of tick locations for the second y axis. If specified, 
+overrides the values for tick locations as determined from  #!F-adobe-times-bold-r-normal--18*   ticks 
+#!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   xticklabels #!EF #!EF #!I50 
+#!N list of labels to be associated with the specified  #!F-adobe-times-bold-r-normal--18*   
+xticklocations #!EF . If  #!F-adobe-times-bold-r-normal--18*   xticklabels #!EF is specified and  #!F-adobe-times-bold-r-normal--18*   
+xticklocations #!EF is not specified, then  #!F-adobe-times-bold-r-normal--18*   xticklocations #!EF to the 
+integers 0 to n-1, where n is the number of items 
+in  #!F-adobe-times-bold-r-normal--18*   xticklabels #!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   y1ticklabels 
+#!EF #!EF #!I50 #!N list of labels to be associated with 
+the specified  #!F-adobe-times-bold-r-normal--18*   y1ticklocations #!EF . If  #!F-adobe-times-bold-r-normal--18*   y1ticklabels #!EF is 
+specified and  #!F-adobe-times-bold-r-normal--18*   y1ticklocations #!EF is not specified, then  #!F-adobe-times-bold-r-normal--18*   y1ticklocations 
+#!EF to the integers 0 to n-1, where n is the 
+number of items in  #!F-adobe-times-bold-r-normal--18*   y1ticklabels #!EF . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   y2ticklabels #!EF #!EF #!I50 #!N list of labels to 
+be associated with the specified  #!F-adobe-times-bold-r-normal--18*   y2ticklocations #!EF . If  #!F-adobe-times-bold-r-normal--18*   
+y2ticklabels #!EF is specified and  #!F-adobe-times-bold-r-normal--18*   y2ticklocations #!EF is not specified, 
+then  #!F-adobe-times-bold-r-normal--18*   y2ticklocations #!EF to the integers 0 to n-1, where 
+n is the number of items in  #!F-adobe-times-bold-r-normal--18*   y2ticklabels #!EF . 
+#!I0 #!N #!N #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lcrelegd,dxall905 h Creating a Legend  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

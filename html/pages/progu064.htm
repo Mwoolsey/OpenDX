@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu063.htm">Previous Page</A> &#124; <A HREF="progu065.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRMODACSS" HREF="progu055.htm#PToC_142">13.10 Module
+Access</A></H2>
+<A NAME="IDX1029"></A>
+<P>
+The module-access routines listed here enable the programmer to call
+other modules through an interface similar to the scripting
+language.
+<P>
+Modules are called by name, and parameters are specified as name-value
+pairs, freeing the programmer from having to supply values for all
+possible parameters.
+Optional parameters use the same defaults as they would
+if being executed directly by the executive.
+(If other parameters are added in subsequent releases, the call remains
+upwardly compatible.)
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">The following modules cannot be called by DXCallModule:
+<UL COMPACT>
+<LI>Interactors
+<TT>
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP">FileSelector
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP">IntegerList
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Reset
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP">Scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP">ScalarList
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Selector
+</TD><TD ALIGN="LEFT" VALIGN="TOP">SelectorList
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP">StringList
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Toggle
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Value
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP">ValueList
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP">VectorList
+</TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD></TR></TABLE>
+</TT>
+<LI>Flow Control
+
+<TT>
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP">Done
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Execute
+</TD><TD ALIGN="LEFT" VALIGN="TOP">First
+</TD><TD ALIGN="LEFT" VALIGN="TOP">ForEachMember
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP">ForEachN
+</TD><TD ALIGN="LEFT" VALIGN="TOP">GetGlobal
+</TD><TD ALIGN="LEFT" VALIGN="TOP">GetLocal
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Route
+</TD></TR><TR><TD ALIGN="LEFT" VALIGN="TOP">SetGlobal
+</TD><TD ALIGN="LEFT" VALIGN="TOP">SetLocal
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Switch
+</TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD></TR></TABLE>
+</TT>
+<LI>Interface Control
+<TT>
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP">ManageColormapEditor
+</TD><TD ALIGN="LEFT" VALIGN="TOP">ManageControlPanel
+</TD><TD ALIGN="LEFT" VALIGN="TOP">ManageImageWindow
+</TD><TD ALIGN="LEFT" VALIGN="TOP">ManageSequencer
+</TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD></TR></TABLE>
+</TT>
+<LI>Special
+<TT>
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP">Colormap
+</TD><TD ALIGN="LEFT" VALIGN="TOP">Sequencer
+</TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD></TR></TABLE>
+</TT>
+<LI>DXLink
+<TT>
+<BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP">DXLInput
+</TD><TD ALIGN="LEFT" VALIGN="TOP">DXLInputNamed
+</TD><TD ALIGN="LEFT" VALIGN="TOP">DXLOutput
+</TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><BR></TD><TD ALIGN="LEFT" VALIGN="TOP"><BR></TD></TR></TABLE>
+</TT>
+
+</UL>
+</td></tr></table>
+<P>
+Data Explorer modules can be called by inboard, outboard, and runtime-loadable
+modules linked to Data Explorer.
+They can also be called by stand-alone programs (for examples, see
+/usr/local/dx/samples/callmodule).
+<P><B>Note: </B>Use of DXCallModule in a stand-alone program or outboard module
+requires linking to the library libDXcallm.a.
+<TABLE CELLPADDING="3">
+<BR>
+<TR VALIGN="TOP"><TD><P><B> <TT><STRONG>Error DXCallModule();<BR>
+object DXModSetFloatInput();<BR>
+object DXModSetIntegerInput();<BR>
+  void DXModSetObjectInput();<BR>
+  void DXModSetObjectOutput();<BR>
+object DXModSetStringInput();<BR>
+       DXSetModuleInput();<BR>
+       DXSetModuleOutput();</STRONG></TT><BR>
+</B></TD><TD><P>Allow a module to call another module (see
+<A HREF="#SPTUN77">Note on Use</A>).
+<A NAME="IDX1030"></A>
+<A NAME="IDX1031"></A>
+<A NAME="IDX1032"></A>
+<A NAME="IDX1033"></A>
+<A NAME="IDX1034"></A>
+<A NAME="IDX1035"></A>
+<A NAME="IDX1036"></A>
+<A NAME="IDX1037"></A>
+<A NAME="IDX1038"></A>
+<A NAME="IDX1039"></A>
+<A NAME="IDX1040"></A>
+<A NAME="IDX1041"></A>
+<A NAME="IDX1042"></A>
+<A NAME="IDX1043"></A>
+<A NAME="IDX1044"></A>
+<A NAME="IDX1045"></A>
+See  <A HREF="progu112.htm#HDRDXCMPLU">DXCallModule, DXModSet...,
+DXSetModule...</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Void
+DXInitModules()</STRONG></TT>
+<A NAME="IDX1046"></A>
+</B></TD><TD><P>Must be called when using DXCallModule in a stand-alone program
+or
+outboard module.
+See  <A HREF="progu215.htm#HDRDXIMOD">DXInitModules</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Void
+DXSetErrorExit()</STRONG></TT>
+<A NAME="IDX1047"></A>
+</B></TD><TD><P>Determines the action taken when DXSetError is called by a
+stand-alone program.
+See  <A HREF="progu313.htm#HDRDXSETEX">DXSetErrorExit</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Void
+DXGetErrorExit()</STRONG></TT>
+<A NAME="IDX1048"></A>
+</B></TD><TD><P>Returns the current error-handling level as set by
+DXSetErrorExit.
+See  <A HREF="progu171.htm#HDRDXGETEX">DXGetErrorExit</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error
+DXCheckRIH()</STRONG></TT>
+<A NAME="IDX1049"></A>
+</B></TD><TD><P>Checks registered input handlers.
+See  <A HREF="progu114.htm#HDRDXCRIH">DXCheckRIH</A>.
+</TD></TR></TABLE>
+<A NAME="IDX1050"></A>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<A NAME="SPTUN77"></A>
+<P>
+This example calls the Slab module.
+<PRE>
+Error Slab1(Object toBeSlabbed, int dimension, int position
+      Object *slabbedObject)
+{
+    ModuleInput in&#91;3&#93;;
+    ModuleOutput out&#91;1&#93;;
+    Error result;
+</PRE>
+<PRE>
+    DXModSetObjectInput(&amp;in&#91;0&#93;, &quot;input&quot;, toBeSlabbed);
+    DXModSetIntegerInput(&amp;in&#91;1&#93;, &quot;dimension&quot;, dimension);
+    DXModSetIntegerInput(&amp;in&#91;2&#93;, &quot;position&quot;, position);
+    DXModSetObjectOutput(&amp;out&#91;0&#93;, &quot;output&quot;, SlabbedObject);
+    result = DXCallModule("Slab", 3, in, 1, out);
+    return result;
+}
+</PRE>
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu063.htm">Previous Page</A> &#124; <A HREF="progu065.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

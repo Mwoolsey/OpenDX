@@ -1,0 +1,30 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall639 Data Section #!N #!EC #!N #!N The data 
+section is used for Array data when either an offset in 
+the current file or in a separate file is specified in 
+the Array Object definition. All other Objects, including Array Objects whose 
+definitions use the  #!F-adobe-times-bold-r-normal--18*   'data follows' #!EF specification, are self-contained; their 
+definitions include all necessary information. These Objects do not use a 
+data section. #!N #!N The Data Explorer file format is flexible 
+enough to describe many existing data formats without having to reformat 
+the data. It allows you to specify byte order, which index 
+varies fastest, whether the data type is floating point or byte, 
+and whether the file format is binary or ASCII. #!N #!N 
+For data that is not in a format accepted by the 
+Data Explorer native file format, you can either reformat the data 
+so it is acceptable, or import the data using a general 
+importer specification (see  #!Lgai,dxall110 h General Array Importer  #!EL  in IBM Visualization Data Explorer QuickStart Guide). 
+#!N #!N The data section consists of a set of data 
+items specified as text or binary by the  #!F-adobe-times-bold-r-normal--18*   data #!EF 
+clauses in the various Array Object definitions. Text and binary can 
+be mixed in the same data section, because the  #!F-adobe-times-bold-r-normal--18*   data 
+#!EF clauses specify portions of the data section by byte offsets. 
+Binary representations can be in most-significant-byte-first (  #!F-adobe-times-bold-r-normal--18*   msb #!EF ) 
+or least-significant-byte-first (  #!F-adobe-times-bold-r-normal--18*   lsb #!EF ) format, as specified by 
+the relevant  #!F-adobe-times-bold-r-normal--18*   data #!EF or  #!F-adobe-times-bold-r-normal--18*   'data mode' #!EF clause. 
+Binary floating-point numbers currently must be in IEEE format. #!N #!N 
+If a Data Explorer file does not begin with a valid 
+header (at least an  #!F-adobe-times-bold-r-normal--18*   end #!EF clause), it is assumed 
+not to have a header section. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lobj,dxall641 h Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

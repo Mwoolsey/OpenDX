@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rssgs Series Groups #!N #!EC #!N #!N Series 
+Groups are a subclass of Group. A Series represents a single 
+Field sampled across some parameter (e.g., a simulation of a CMOS 
+device across a temperature range). Members of a Series have a 
+position. A copy of the position is found in the "series 
+position" attribute. #!N #!N Every member of the Series must have 
+the same dimensionality, the same data type, and the same connections 
+element type. Members are stored in and retrieved from a Series 
+Group by index rather than by name. Members cannot be retrieved 
+by Series value. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+DXSeries NewSeries() #!EF #!EF #!I50 #!N Creates a new Series Object. 
+See  #!Ldxns,dxall1326 h DXNewSeries  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Series DXSetSeriesMember() #!EF 
+#!EF #!I50 #!N Adds an indexed member to a Series Object. 
+See  #!Ldxssm,dxall1391 h DXSetSeriesMember  #!EL  . #!N Note:  #!F-adobe-times-bold-r-normal--18*   DXSetMember() #!EF and  #!F-adobe-times-bold-r-normal--18*   DXSetEnumeratedMember() 
+#!EF can also be used: the position is assumed to be 
+the same as the sequence number of the member. #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXGetSeriesMember() #!EF #!EF #!I50 #!N Returns 
+an indexed member from a Series Object. See  #!Ldxgsm,dxall1266 h DXGetSeriesMember  #!EL  . #!N 
+Note:  #!F-adobe-times-bold-r-normal--18*   DXGetMember() #!EF and  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedMember() #!EF can also be 
+used for this purpose, but they do not return the  #!F-adobe-times-bold-r-normal--18*   
+position #!EF value. #!N #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lmigd,dxall1066 h MultiGrid Groups  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall540 Missing Arguments #!N #!EC #!N #!N Any 
+formal parameter of a module that has not had a value 
+passed to it, either by position or by name, is initialized 
+to the value  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . If  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+is explicitly passed into the module, the module may still use 
+the default value, provided it is designed to do so. The 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF value allows modules to use internal defaults for 
+those values that are not specified in a function call. The 
+default value must be specified in the code of the module 
+(see IBM Visualization Data Explorer Programmer's Reference for information). #!N #!N 
+If the function is a macro, a missing argument or an 
+argument explicitly specified as  #!F-adobe-times-bold-r-normal--18*   NULL #!EF causes the default value 
+to be used. If no default is specified, the parameter is 
+set to  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall541,dxall542 h Example  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

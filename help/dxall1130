@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rtransec Transformation #!N #!EC #!N #!N Transformation is the 
+process of computing pixel coordinates from model coordinates (i.e., the coordinates 
+of the Object). Because  #!F-adobe-times-bold-r-normal--18*   DXRender() #!EF performs necessary transformations, most 
+applications do not need  #!F-adobe-times-bold-r-normal--18*   DXTransform() #!EF . #!N #!N Transformation 
+is essentially a two-step operation: (1) transform the model coordinates of 
+an Object into world coordinates; and (2) transform the world coordinates 
+into image coordinates (see  #!Lao6afg2127,dxall1130 f Figure 127  #!EL  ). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rao6afg2127 #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N #!N 
+Figure 127. Transformation of Coordinates #!EF #!N #!EC The transformation from 
+model to world coordinates is specified by transform nodes (see  #!Lxformsc,dxall1135 h Xform Class  #!EL  
+) in the description of the input Object. The transformation from 
+world coordinates to image coordinates is specified by a camera Object. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXApplyTransform() #!EF 
+#!EF #!I50 #!N Recursively applies a transform to an Object. See 
+ #!Ldxatm,dxall1173 h DXApplyTransform  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall1130,dxall1131 h Surface Shading  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,479 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - AutoGlyph</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu016.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu018.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRAUTOGLY" ></A>AutoGlyph</H3>
+		<A NAME="IDX381"></A><A NAME="IDX382"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATANN">Annotation</A>
+<A NAME="IDX383"></A>
+<A NAME="IDX384"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Assigns an appropriate glyph to each point in a data field.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+glyphs</STRONG> = AutoGlyph(<STRONG>data, type, shape, scale, ratio, min, max</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">data field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">set of points to which glyphs
+will be assigned
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>type</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar, string, field, or group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">glyph type
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>shape</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1.0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">factor to describe shape of glyph
+(must be greater than 0)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>scale</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1.0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">scale factor for size of glyphs
+(must be greater than 0)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>ratio</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0.05 or 0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">ratio in size (scalars or
+vectors) between smallest and largest
+glyphs (must be greater than or equal to 0)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>min</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">min of data value or 0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">data value that gets minimum-size
+glyph
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>max</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">max of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">data value that gets maximum-size
+glyph
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>glyphs</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">color field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">set of glyphs
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module creates a glyph, or representation (e.g., an arrow), for
+each data value in a data field  <TT><STRONG>data</STRONG></TT>.
+For data dependent on positions, a glyph is placed at the corresponding
+position.
+For data dependent on connections, a glyph is placed at the center of
+the corresponding connection element.
+If there is no "data" component, a glyph is placed at each
+position.
+<P>
+The "base" size
+
+(i.e. size of a glyph for the average data value)
+
+is based on AutoGlyph&#39;s estimate of an appropriate glyph
+size, as modified by <TT><STRONG>scale</STRONG></TT>.
+<P>
+For "text" glyphs, a "data" component is required.
+<P>
+AutoGlyph differs from the Glyph module in the interpretation of the
+<TT><STRONG>scale</STRONG></TT> parameter.
+For AutoGlyph, you specify the size of the glyphs relative to
+the default-size glyph chosen by AutoGlyph.
+In contrast, when using Glyph, you may specify a scaling factor that is
+multiplied by the data value to obtain the size of the glyph in
+world units.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>is the data field for which glyphs are to be created.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>type</STRONG></TT>
+</B></TD><TD><P>specifies the kind of glyph to be used.
+<P>
+By default, scalar fields are represented by filled circles or spheres,
+vector fields by arrows, tensor fields by groups of arrows, and
+string data by text.
+For 2-dimensional scalar fields, the glyphs are circles, and for
+2-dimensional vector fields, the arrows are flat.
+For 3-dimensional fields, spheres or rounded arrows (rockets)
+are used.
+<P>
+The <TT><STRONG>type</STRONG></TT> parameter will override a default glyph.
+If <TT><STRONG>type</STRONG></TT> is a string, it must specify one
+of the following:
+"arrow,"
+"arrow2D,"
+"circle,"
+"colored text,"
+
+"cube,"
+
+"diamond,"
+"needle,"
+"needle2D,"
+"rocket,"
+"rocket2D,"
+"sphere,"
+"speedy,"
+"spiffy,"
+
+"square,"
+
+"standard,"
+or
+"text."
+The value "standard" specifies the default glyph type and is a
+medium-quality glyph appropriate to the data; "spiffy,"
+a higher-quality glyph; and "speedy," a lower-quality,
+but more quickly rendered glyph.
+
+Lower quality glyphs also consume less memory.
+
+<P>
+You may alternatively specify <TT><STRONG>type</STRONG></TT> as a scalar
+value between 0 and 1, where&#58;
+<UL COMPACT>
+<LI>0 is the same as "speedy"
+<LI>1 is the same as "spiffy"
+<LI>0.5 is the same as "standard"
+</UL>
+There are approximately 5 different quality glyphs for each glyph type.
+The one closest to the value specified is used.
+<P>
+Specifying "text" or "colored text" for
+<TT><STRONG>type</STRONG></TT> puts a text representation of the data value
+at each point.
+For text glyphs, the text is by default 15 pixels high, and the
+<TT><STRONG>shape</STRONG></TT>, <TT><STRONG>ratio</STRONG></TT>,
+<TT><STRONG>min</STRONG></TT>, and
+<TT><STRONG>max</STRONG></TT>
+parameters have no effect.
+The <TT><STRONG>scale</STRONG></TT> parameter can be used to increase or
+decrease the size of the text glyphs.
+For example, specifying <TT><STRONG>scale</STRONG></TT> = 2 makes the text 30
+pixels high.
+The difference between "text" and "colored text" is that text
+is always white when "text" is specified, but will be the color
+of the input if "colored text" is specified.
+Note that after the AutoGlyph module, Color can be used to color text
+glyphs to a different color if desired.
+The font for the text glyphs can be specified by appending
+"font = <I>fontname</I>" to "text" or
+"colored text," where <I>fontname</I> is
+any of the defined fonts supplied with Data Explorer:
+<PRE>
+area          gothicit_t       pitman                roman_ext
+cyril_d       greek_d          roman_d               script_d
+fixed         greek_s          roman_dser            script_s
+gothiceng_t   italic_d         roman_s               variable
+gothicger_t   italic_t         roman_tser
+</PRE>
+For more information,
+see <A HREF="usrgu076.htm#HDRAPC">Appendix E. "Data Explorer Fonts"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+In addition, you may supply user-defined fields and groups to the
+<TT><STRONG>type</STRONG></TT> parameter (see
+<A HREF="#SPTTYPE">reference #1</A>).
+</TD></TR></TABLE>
+<P>
+The remaining five parameters are interpreted somewhat differently,
+depending on whether the type of data involved are (1) scalar
+or (2) vector or tensor.
+<P>
+<H4><A NAME="Header_37">Scalar Data</A></H4>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>shape</STRONG></TT>
+</TD><TD><P>is ignored for scalar data
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>scale</STRONG></TT>
+</TD><TD><P>sets the scale factor for the size of the glyphs relative to the
+default glyph.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>ratio</STRONG></TT>
+</TD><TD><P>controls the ratio between the smallest and the largest glyphs.
+The default value is 0.05.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT>
+</TD><TD><P>are the data values used to set glyph sizes.
+Their default values are the minimum and maximum data values
+respectively.
+Unless you change <TT><STRONG>ratio</STRONG></TT> from its default value of
+0.05, the glyphs representing data with a value of
+<TT><STRONG>min</STRONG></TT> are 5 percent the size
+of the glyphs representing data with a value
+of <TT><STRONG>max</STRONG></TT>.
+You can make the size of the glyphs directly proportional to the data
+value by setting both <TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>ratio</STRONG></TT> to 0.
+<P>
+Data values smaller than <TT><STRONG>min</STRONG></TT> are colored pale pink,
+unless the original positions already had colors, in which
+case the colors are left unchanged.
+These data values are represented by glyphs of a size proportional to
+<BR>
+<TT><STRONG>min</STRONG></TT> &#45; <I>datavalue</I>.
+</TD></TR></TABLE>
+<P>
+<H4><A NAME="Header_38">Vector and Tensor Data</A></H4>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>shape</STRONG></TT>
+</B></TD><TD><P>is used to change the thickness of the glyph relative to
+its length.
+The default value for <TT><STRONG>shape</STRONG></TT> is 1 (e.g., to make a
+glyph twice as thick, set this parameter to twice the default
+value (i.e., to 2).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>scale</STRONG></TT>
+</B></TD><TD><P>sets the scale factor for the size of the glyphs relative to the
+default glyph.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>ratio</STRONG></TT>
+</B></TD><TD><P>determines which data values are displayed.
+To display only those values larger than
+0.5 * <TT><STRONG>max</STRONG></TT>,
+set this parameter to 0.5.
+The default value is 0.0.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT>
+</B></TD><TD><P>are the data values used to set glyph sizes.
+<P>
+For <I>
+
+3x3 symmetric
+
+tensor data</I>
+three arrows are drawn, representing the
+eigenvectors of the matrix.
+
+For <I> 2x2 symmetric tensor data</I>
+two arrows are drawn, representing the
+eigenvectors of the matrix.
+
+For <I>vector data</I>, one arrow is drawn, representing the
+magnitude of the data.
+The default value of <TT><STRONG>min</STRONG></TT> is 0 (zero), and the
+length of the glyphs is always directly proportional to the
+magnitude of the data
+(or the magnitude of the eigenvector).
+If you set <TT><STRONG>min</STRONG></TT> to a value greater than zero, all
+data with a magnitude smaller than <TT><STRONG>min</STRONG></TT> are
+represented by a dot if <TT><STRONG>type</STRONG></TT> is
+"needle," and by a small sphere otherwise.
+This can be useful to weed out small and perhaps noisy vectors.
+You can also set <TT><STRONG>ratio</STRONG></TT> to a value larger than zero;
+in that case, all data with a magnitude smaller than
+<TT><STRONG>ratio</STRONG></TT> &times;
+<TT><STRONG>max</STRONG></TT> is shown
+by a small sphere or dot.
+This allows you, for example, to set <TT><STRONG>ratio</STRONG></TT> = 0.5
+to see only those vectors with a magnitude greater than half of
+<TT><STRONG>max</STRONG></TT>.
+<P>
+If you have vector data and want to show all the vectors as having the
+same length, you can use the <TT><STRONG>norm</STRONG></TT> function in
+the Compute module to normalize all the vectors to unit
+magnitude before passing them to AutoGlyph.
+</TD></TR></TABLE>
+<P>
+You can also use a field as the input for <TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT>, in which case the statistics of that
+field are used instead.
+If the input <TT><STRONG>data</STRONG></TT> is changing from frame to frame,
+and you want to keep the glyph sizes consistent from frame to frame,
+you can use the entire field or series as the input for
+<TT><STRONG>min</STRONG></TT> and <TT><STRONG>max</STRONG></TT>.
+<P>
+Note that if you set <TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT>, and there are data
+values far outside that range, then it is
+possible to get very large glyphs.
+This is because <TT><STRONG>max</STRONG></TT> is used to set the size scaling
+for the glyphs.
+Data values much larger in absolute value than <TT><STRONG>max</STRONG></TT>
+have proportionally larger-sized glyphs.
+<P>
+<H4><A NAME="Header_39">User-supplied and Annotation Glyphs</A></H4>
+<P>
+You may also pass your own glyph in as <TT><STRONG>type</STRONG></TT> as the
+object to place at each data point.
+The dimensionality of the positions of the glyph must be either 2-D or
+3-D, and the connections type must be "triangles" or
+"lines."
+This glyph can be any Data Explorer field (e.g., an imported object, an
+isosurface, or a constructed object).
+<A NAME="SPTTYPE"><I>(Ref #1.)</I></A>
+<P>
+There are two ways to use your own glyphs: as user-supplied glyphs and
+as annotation glyphs.
+<P>
+<I>User-supplied Glyphs</I>
+<P>
+If you pass in a single field as <TT><STRONG>type</STRONG></TT>, that object
+is used as a glyph.
+It is drawn large or small depending on the data value, and it inherits
+the color of the data point, if present.
+The size of the object should be approximately unity for the default
+sizing of AutoGlyph to work well.  Glyphs for scalar fields should
+be centered at the origin; glyphs for vector fields should have
+their base at the origin and the end that you want to point
+in the direction of the vector field at (0, 1, 0);
+that is, the glyph will be stretched along its
+y-dimension.
+You can use any combination of Scale, Rotate, and Translate to scale,
+orient, and position your template glyph before passing it to
+AutoGlyph.
+<P>
+<I>Annotation Glyphs</I>
+<P>
+If you pass in a group of objects as <TT><STRONG>type</STRONG></TT>,
+AutoGlyph interprets these as "annotation glyphs."
+Each object in the group must be a single field.
+It is assumed that you want data values equal to zero to be represented
+by the zero<SUP>th</SUP> glyph in the group, data values equal to
+one to be represented by the first glyph in the group,
+and so on.
+<P>
+Thus the data component of <TT><STRONG>data</STRONG></TT> in this case must
+be of the type integer, unsigned integer, byte, unsigned byte,
+short, or unsigned short.
+The size of the glyph in the resulting output will be the size of the
+glyph in the glyph group, modified by the scaling factor
+<TT><STRONG>scale</STRONG></TT>.
+Colors and other components will be maintained from the <I>input
+glyphs</I> to the output object, rather than from the colors
+of <TT><STRONG>data</STRONG></TT>.
+The
+<TT><STRONG>shape</STRONG></TT>,
+<TT><STRONG>ratio</STRONG></TT>,
+<TT><STRONG>min</STRONG></TT>,
+and
+<TT><STRONG>max</STRONG></TT>
+parameters are ignored for annotation glyphs.
+Annotation glyphs should be positioned at the origin.
+You can use any combination of Scale, Rotate, and Translate to scale,
+orient, and position your template glyph before passing it
+to AutoGlyph.
+<P><STRONG>Components</STRONG>
+<P>
+Creates new "positions" and "connections" components.
+In the case of a 3-D glyph, a "normals" component is added for
+shading purposes.
+All components that match the dependency of the "data" component
+are propagated to the output;
+all others are not.
+If the input has "binormals" and "tangent" components, they
+are not propagated to the output.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+AnnotationGlyphs.net              ThunderGlyphSheet.net
+ConnectingScatteredPoints.net     UsingGlyphs.net
+PickStreamline.net                UsingTextAndTextGlyphs.net
+ProbeText.net                     SIMPLE/AutoGlyph.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu068.htm#HDRGLYPH">Glyph</A>,
+&nbsp;<A HREF="refgu126.htm#HDRSAMPLE">Sample</A>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">How to Avoid Stretching or
+Squashing Glyphs</TH><TR><TD>
+<A NAME="SPTAVOID"></A>
+<P>
+Users often use the Scale module to scale a collection of objects
+prior to rendering, if the axes have very different scales.
+This can cause a problem if the visualization includes glyphs, as the
+glyphs will be stretched or squashed as well.
+You can place the Scale module before Glyph or AutoGlyph, but if you
+want AutoAxes to show the original (rather than the scaled)
+position values, this will not work.
+One way of solving this problem lies in the fact that Glyph and
+AutoGlyph can accept a user-defined Glyph:
+<P>
+Give either module a "user-defined" glyph that is
+<I>inversely</I> squashed, so that when you use
+Scale, the glyph ends up with the correct shape.
+Proceed as follows:
+<UL COMPACT>
+<LI>
+Create a field with a single point at the origin, using Construct
+(&#91;0 0 0&#93;, data = 0) for scalar (sphere) glyphs
+<LI>Feed this field to either module to make a single sphere
+or arrow.
+<LI>Now scale the glyph, using a scale factor that is the inverse of
+the one you want to use on the entire data set.
+For example, if you are going to scale your data by
+&#91;1 1 .001&#93;, then scale the single glyph
+by &#91;.001 .001 1&#93;.
+<LI>Feed this scaled glyph to the second parameter of the module, which
+puts glyphs on all the data points.
+The module will use the squashed glyph as its template.
+After the template is scaled by &#91;1 1 .001&#93;, the glyphs
+won&#39;t be squashed anymore.
+
+<LI>A macro, UnsquishGlyphMacro.net, which performs this operation, can
+be found in <TT>/usr/local/dx/samples/macros</TT>. This macro (and this
+technique) works only for scalar data.
+
+</UL>
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

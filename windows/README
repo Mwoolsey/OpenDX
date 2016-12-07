@@ -1,0 +1,13 @@
+Thes files in this directory set up MS Visual Studio to run 
+within the cygwin environment to create an OpenDX executable. 
+The compiler wrappers setup the command line VS tools to run
+more like UNIX compilers. 
+
+You must make sure to set up 3 environment variables before
+using. The variables are listed in msenv.
+
+Make sure that this directory is included in the beginning
+of your path so that the scripts find these executables first.
+
+Check to make sure that cc, cxx are truly the functions in
+this directory. Use which cc to see.

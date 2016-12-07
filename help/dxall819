@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rchrndpr Changing 
+Rendering Properties #!N #!N #!N You can change the rendering properties 
+of an object by using the Options module. The following table 
+lists the shading attributes that can be set by the Options 
+module for interpretation by the Display tool. (See the section on 
+surface shading in IBM Visualization Data Explorer Programmer's Reference for more 
+information.) #!T,1,121,241,361,641  #!F-adobe-times-bold-r-normal--18*   #!N TAB Attribute TAB Type TAB Default TAB 
+Description #!EF #!N TAB "ambient" TAB scalar TAB 1 TAB coefficient 
+of ambient light k[a] #!N TAB "diffuse" TAB scalar TAB .7 
+TAB coefficient of diffuse reflection k[d] #!N TAB "specular" TAB scalar 
+TAB .5 TAB coefficient of specular reflection k[s] #!N TAB "shininess" 
+TAB integer TAB 10 TAB exponent of specular reflection sp As 
+a rule of thumb, except for purposes of special effects,  #!F-adobe-times-medium-i-normal--18*   
+k[a] #!EF should be  #!F-adobe-times-medium-i-normal--18*   1 #!EF and  #!F-adobe-times-medium-i-normal--18*   k[d] + 
+k[s] #!EF should be about 1. The larger  #!F-adobe-times-medium-i-normal--18*   k[s] #!EF 
+, the brighter the highlight, and the larger  #!F-adobe-times-medium-i-normal--18*   e #!EF 
+, the sharper the highlight. The Shade module provides a shortcut 
+for setting rendering properties. #!N #!N The attributes listed above apply 
+to both the front and back of an object. In addition, 
+for each attribute "  #!F-adobe-times-medium-i-normal--18*   x #!EF " there is also 
+a "front  #!F-adobe-times-medium-i-normal--18*   x #!EF " and a "back  #!F-adobe-times-medium-i-normal--18*   x 
+#!EF " attribute that applies only to the front and back 
+of the surface, respectively. So, for example, to disable specular reflections 
+from the back surfaces of an object, use the Options module 
+to set the "back specular" attribute of the object to 0. 
+#!N #!N The determination of which faces are "front" and which 
+are "back" depends on the way in which the "connections" component 
+of the faces is defined. "Front colors" applies to clockwise faces, 
+and "back colors" applies to counterclockwise faces. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lcvolrnd,dxall820 h Coloring Objects for Volume Rendering  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

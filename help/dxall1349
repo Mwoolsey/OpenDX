@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqpp DXQueryPickPath #!N #!N Function #!N 
+#!N Returns information about a pick path. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXQueryPickPath(Field picks, int poke, int pick, int 
+*pathLength, int **path, int *elementId, int *vertexId) #!EF #!N #!N Functional 
+Details #!N #!N For the specified Field, poke number, and pick, 
+this routine returns: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o the length of the pick path (in  #!F-adobe-times-bold-r-normal--18*   pathLength #!EF 
+) #!N #!I30 #!N o the pick path (in  #!F-adobe-times-bold-r-normal--18*   path 
+#!EF ) #!N #!I30 #!N o the index of the picked 
+element (in  #!F-adobe-times-bold-r-normal--18*   elementId #!EF ) #!N #!I30 #!N o the 
+index of the closest vertex of the picked element (in terms 
+of screen space) to the poke (in  #!F-adobe-times-bold-r-normal--18*   vertexId #!EF ). 
+#!N #!I0 #!N #!EF #!N #!N #!N The input to the 
+routine is a Field (  #!F-adobe-times-bold-r-normal--18*   picks #!EF , containing pick 
+information), a poke number (  #!F-adobe-times-bold-r-normal--18*   poke #!EF ), and the 
+number of the pick in that poke. The pick Field is 
+created by the Pick tool. #!N #!N Return Value #!N #!N 
+Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets 
+an error code. Errors include a nonexistent poke number and a 
+nonexistent pick number. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgpp,dxall1260 h DXGetPickPoint  #!EL  
+,  #!Ldxqpic,dxall1348 h DXQueryPickCount  #!EL  ,  #!Ldxqpoc,dxall1350 h DXQueryPokeCount  #!EL  ,  #!Ldxtpp,dxall1399 h DXTraversePickPath  #!EL  #!EF #!N #!N  #!Lpies,dxall1123 h Pick-Assistance Routines  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxqpoc,dxall1350 h DXQueryPokeCount  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

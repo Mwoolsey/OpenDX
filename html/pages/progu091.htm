@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu090.htm">Previous Page</A> &#124; <A HREF="progu092.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRPRGCTL" HREF="progu084.htm#PToC_181">17.8 Program
+Control</A></H2>
+<A NAME="IDX1407"></A>
+<P>
+The following routines allow an application program to open visual
+programs and configuration files, set inputs and outputs of
+tools, and set up handlers for objects and values sent by
+the server to the calling program.
+<P>
+<H3><A NAME="Header_182" HREF="progu084.htm#PToC_182">Loading programs and
+macros</A></H3>
+<DL>
+<P><DT><B><TT><STRONG>DXLError exDXLBeginMacroDefinition(DXLConnection *conn,
+const char *mhdr)</STRONG></TT>
+<A NAME="IDX1408"></A>
+<A NAME="IDX1409"></A>
+</B><DD>Defines the beginning of a macro definition.
+The macro header <TT><STRONG>*mhdr</STRONG></TT> specifies the macro name,
+inputs, and outputs.
+For example:
+<PRE><STRONG>
+mhdr = &quot;macro SUM(arg1, arg2) -&gt; (sum)&quot;
+</STRONG>
+</PRE>
+<P>
+This routine should be followed by a series of DXLSend commands that
+send the macro definition, and finally by exDXLEndMacroDefinition
+(see following).
+<P><DT><B><TT><STRONG>DXLError exDXLEndMacroDefinition(DXLConnection
+*conn)</STRONG></TT>
+<A NAME="IDX1410"></A>
+<A NAME="IDX1411"></A>
+</B><DD>Defines the end of a macro definition.
+<P><DT><B><TT><STRONG>DXLError DXLLoadVisualProgram(DXLConnection *conn, const
+char *file)</STRONG></TT>
+<A NAME="IDX1412"></A>
+<A NAME="IDX1413"></A>
+</B><DD>Loads the visual program specified by the file name
+<TT><STRONG>*file</STRONG></TT>.
+The path to this file is relative to the startup directory of the server.
+Returns OK or ERROR.
+<P>
+If this routine is called when the application is communicating directly
+with the executive, an execution will occur after the visual program is
+loaded, because visual programs saved by the user interface include
+a call to the main macro.
+
+<P><DT><B><TT><STRONG>DXLError DXLLoadMacroFile(DXLConnection *conn, const char
+*file);</STRONG></TT>
+<A NAME="IDX1414"></A>
+<A NAME="IDX1415"></A>
+</B><DD>Causes Data Explorer to load the macro contained in file 'file'.
+<P><DT><B><TT><STRONG>DXLError DXLLoadMacroDirectory(DXLConnection *conn, const
+char *dir);</STRONG></TT>
+<A NAME="IDX1416"></A>
+<A NAME="IDX1417"></A>
+</B><DD>Causes Data Explorer to load all macros contained in directory 'dir'.
+
+<P><DT><B><TT><STRONG>DXLError exDXLLoadScript(DXLConnection *conn, const char
+*file)</STRONG></TT>
+<A NAME="IDX1418"></A>
+<A NAME="IDX1419"></A>
+</B><DD>Loads the specified script (<TT><STRONG>*file</STRONG></TT>) and
+executes
+it immediately.
+The path to this file is relative to the startup directory of the server.
+Returns OK or ERROR.
+<P><DT><B><TT><STRONG>DXLError uiDXLLoadConfig(DXLConnection *conn, const char
+*file)</STRONG></TT>
+<A NAME="IDX1420"></A>
+<A NAME="IDX1421"></A>
+</B><DD>Opens the configuration file specified by its file name
+(<TT><STRONG>*file</STRONG></TT>).
+The path to this file is relative to the startup directory of the user
+interface.
+Returns OK or ERROR.
+</DL>
+<P>
+<H3><A NAME="HDRSETVARS" HREF="progu084.htm#PToC_183">Setting Variables</A></H3>
+<A NAME="IDX1422"></A>
+<P>
+DXLink enables a program to set (and retrieve) Data Explorer values in a visual
+program or macro.
+It is important to understand the distinction between a Data Explorer object and
+a
+Data Explorer value.
+A Data Explorer object is the basic data structure of the Data Explorer data
+model (see
+<A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data Model"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+A Data Explorer value is a character representation of a Data Explorer object
+(as would
+be used in the scripting language).
+The following are common examples of Data Explorer values:
+<PRE>
+      string:  "123"
+     integer:  123
+      scalar:  1.23
+      vector:  &#91;1 2 3&#93;
+ string list:  { "123", "456" }
+integer list:  { 123, 456 }
+ scalar list:  { 1.23, 4.56 }
+ vector list:  { &#91;1 2 3 &#93;, &#91;4 5 6&#93; }
+</PRE>
+<P>
+Not all Data Explorer objects can be represented by strings (e.g., fields
+and groups).
+<DL>
+<P><DT><B><TT><STRONG>DXLError DXLSetValue(DXLConnection *conn, const char
+*varname,
+                                  const char *value)</STRONG></TT>
+<A NAME="IDX1423"></A>
+<A NAME="IDX1424"></A>
+</B><DD>Sets the global variable specified by <TT><STRONG>*varname</STRONG></TT>
+to the value given in <TT><STRONG>*value</STRONG></TT> (double quotation
+marks--for strings and string lists-- must be
+escaped with a backslash (\), as in the example below.)
+Returns OK or ERROR.
+<P>
+This function is used primarily to set global variables in a macro and
+is the mechanism to set "inputs" to a module in a program.
+</DL>
+<P>
+Global variables are variables that have been assigned or referenced
+outside a macro (the global scope) or are defined by a reference
+in a nested scope.
+Variables assigned with a nested scope are
+considered local.
+For example, in the following macro, the variables <TT><STRONG>a</STRONG></TT>
+and <TT><STRONG>b</STRONG></TT> are local to the macro (their first
+occurrence is an assignment),
+while <TT><STRONG>c</STRONG></TT> is a global variable (its first
+occurrence is a reference).
+<PRE>
+   macro foo( ) -&gt; ( )
+   {
+     a = "1";
+     b = c;
+   . . . .
+   }
+   foo( );
+</PRE>
+<P>
+See <A HREF="usrgu057.htm#HDRVUIM">"Variables Used in Macros"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I> for the rules of scoping
+variables.
+<P>
+You might use DXLSetValue to control the name of a data set imported
+with the Import tool, as in the following Data Explorer macro:
+<PRE>
+   macro main( )
+   {
+      object = Import(MyFileNameHere);
+      ....
+      Display(...)
+   }
+</PRE>
+<P>
+The following C code invokes the main macro to import data from the
+file foobar.dx and render it:
+<PRE>
+   . . .
+   DXLSetValue(conn, "MyFileNameHere", "\"foobar.dx\"");
+   DXLExecuteOnce(conn);
+   . . .
+</PRE>
+<P>
+The Data Explorer user interface provides a convenient mechanism for
+placing global variables in a visual program.
+The DXLInput tool (see <A HREF="refgu043.htm#HDRDXLINPT">DXLInput</A> in
+<I>IBM Visualization Data Explorer User&#39;s Reference</I>) implements a global
+variable inside the
+macro main( ).
+By changing the label in the <TT><STRONG>Notation</STRONG></TT> field of the
+DXLInput tool&#39;s configuration dialog box, you can change
+the name of the global variable.
+This mechanism provides a clean interface between the visual program
+and the DXLink application.
+Named DXLInput tools are simply placed in the program and connected to
+the module input that needs to be controlled from the application.
+In the preceding example, a DXLInput tool named MyFileNameHere
+would be connected to the first input of the Import tool.
+Then, the same piece of C code could be used to control the program.
+<P>
+<PRE><STRONG>
+DXLError DXLSetInteger(DXLConnection *conn, const char *varname, int value)
+DXLError DXLSetScalar(DXLConnection *conn, const char *varname,
+                      const double value)
+DXLError DXLSetString(DXLConnection *conn, const char *varname,
+                      const char *value)
+</STRONG>
+</PRE>
+<P>
+Set the variable specified by <TT><STRONG>*varname</STRONG></TT> to
+<TT><STRONG>value</STRONG></TT> (or <TT><STRONG>*value</STRONG></TT>).
+These are convenience functions that use DXLSetValue.
+They return OK or ERROR.
+<P>
+<H3><A NAME="Header_184" HREF="progu084.htm#PToC_184">Retrieving Values Sent
+From Data Explorer</A></H3>
+<A NAME="IDX1425"></A>
+<P>
+The DXLOutput tool provides the means to retrieve values from Data Explorer
+asynchronously.
+This tool is used much like the macro Output tool in the Data Explorer user
+interface.
+It has two inputs: the first associates a label with an object or value
+(much like the name of a global variable);
+the second is the input object to be sent to the DXLink application.
+Currently, DXLOutput sends only those values that can be represented
+as strings.
+<P>
+When the module is executed, it communicates its input values to the
+DXLink application.
+<P>
+In order to retrieve the values in the application, a function must be
+defined and installed to accept them when they are available.
+A function is installed as follows:
+<PRE><STRONG>
+DXLError DXLSetValueHandler(DXLConnection *c, const char *label,
+                            DXLValueHandler h, const void *data);
+</STRONG>
+</PRE>
+<P>
+where <TT><STRONG>*label</STRONG></TT> is the value of the first input to
+the corresponding DXLOutput for which the function is being
+installed.
+(In the user interface, the label corresponds to the
+<TT><STRONG>Notation</STRONG></TT> field in the
+configuration dialog box.)
+When the labeled value is received, the function, or handler
+<TT><STRONG>h</STRONG></TT>, is called as follows:
+<PRE><STRONG>
+(*h) (c, label, value, data)
+</STRONG>
+</PRE>
+<P>
+where <TT><STRONG>label</STRONG></TT> and <TT><STRONG>data</STRONG></TT> are the
+values that were passed to DXLSetValueHandler( );
+<TT><STRONG>data</STRONG></TT> is a user-defined value, and
+<TT><STRONG>value</STRONG></TT> is the value being received
+for the corresponding label.
+The handler (like message handlers in general) is called when
+DXLHandlePendingMessages( ) is called and a corresponding
+message is pending.
+<P>
+The definition of the value-handler function is:
+<PRE><STRONG>
+typedef void (*DXLValueHandler)(DXLConnection *conn, const char *label,
+                                const char *value, void *data);
+</STRONG>
+</PRE>
+<P><B>Note: </B>The same handler can be installed for values with different
+labels.
+See also DXLRemoveValueHandler().
+<P>
+<PRE><STRONG>
+DXLError DXLRemoveValueHandler(DXLConnection *c, const char *label);
+</STRONG>
+</PRE>
+<P>
+specifies that the value handler (<TT><STRONG>h</STRONG></TT>)
+for the value <TT><STRONG>*label</STRONG></TT> is to be
+removed (<TT><STRONG>*label</STRONG></TT> is the name
+associated with the value that is to be
+passed to DXLink).
+Returns OK or ERROR.
+
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu090.htm">Previous Page</A> &#124; <A HREF="progu092.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

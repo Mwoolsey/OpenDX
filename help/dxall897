@@ -1,0 +1,45 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rnormals Normals 
+#!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N 
+Computes normals for shading a specified surface. #!N #!N Syntax #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N normals #!EF = Normals(  #!F-adobe-times-bold-r-normal--18*   surface, 
+method #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB surface TAB geometry field TAB none TAB surface 
+on which to compute #!N TAB - TAB - TAB - 
+TAB normals #!N TAB method TAB string TAB "positions" TAB component 
+on which to base normals #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Description #!EF #!N TAB normals TAB field 
+TAB the surface with normals #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   surface #!EF #!EF #!I50 #!N is the surface 
+for which normals are to be created. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   method #!EF #!EF #!I50 #!N is the computational method used 
+to create normals for the specified surface. If the parameter specifies: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o "connections," the 
+normal for each connection in the field is computed as the 
+perpendicular to that element. #!N #!I30 #!N o "faces," the normal 
+for each face is computed as the perpendicular to that face. 
+This method is intended for use with faces, loops, and edges 
+data (see  #!Lflec,dxall220 h Faces, Loops, and Edges Components  #!EL  in IBM Visualization Data Explorer User's Guide). #!N 
+#!I30 #!N o "positions," the normal at each position in the 
+field is determined by averaging the face normals of the quads 
+or triangles incident on the point. Each face normal is weighted 
+by the distance between the position and the centroid of the 
+face. #!N #!I0 #!N #!EF #!N #!I0 #!N #!N #!N #!N 
+#!I0 #!N Notes: #!N #!I30 #!N 1. The Normals module assumes 
+that the triangles or quads have consistent point orderings so that 
+the average of the face normals at a given point is 
+meaningful. #!N #!I30 #!N 2. The Shade module also adds normals 
+to a surface. #!N #!I30 #!N 3. Smooth shading (  #!F-adobe-times-bold-r-normal--18*   
+method #!EF ="positions") is not supported for faces, loops, and edges 
+data. However, you can convert faces, loops, and edges data to 
+triangles using Refine, and then perform smooth shading. #!I0 #!N #!N 
+#!N #!N Components #!N #!N Creates a "normals" component that is 
+position dependent. All other input components are propagated to the output. 
+#!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N WarpingPositions.net 
+#!EF #!N #!N #!EC #!N #!N See Also #!N #!N  #!Lfacenor,dxall847 h FaceNormals  #!EL  
+,  #!Lshade,dxall942 h Shade  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  ,  #!Lrender,dxall923 h Render  #!EL  ,  #!Limage,dxall860 h Image  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Loptions,dxall898 h Options  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

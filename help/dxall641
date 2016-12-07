@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Robj 
+Objects #!N #!EC #!N #!N Every Object has a class and 
+an identifying numeric or string name whose scope is the file 
+containing the Object. The definition of an Object is introduced by 
+an  #!F-adobe-times-bold-r-normal--18*   object #!EF clause that specifies the Object number or 
+name and its class. The  #!F-adobe-times-bold-r-normal--18*   class #!EF keyword is optional 
+(as are many of the keywords in the following list). #!T,60,168 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   object #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number 
+#!EF [  #!F-adobe-times-bold-r-normal--18*   class #!EF ] TAB  #!F-adobe-times-bold-r-normal--18*   group #!EF #!N 
+TAB "  #!F-adobe-times-bold-i-normal--18*   name #!EF " TAB  #!F-adobe-times-bold-r-normal--18*   series #!EF #!T,168 
+#!N  #!F-adobe-times-bold-r-normal--18*   TAB multigrid #!N TAB compositefield #!N TAB field #!N 
+TAB array #!N TAB constantarray #!N TAB gridpositions #!N TAB regulararray 
+#!N TAB productarray #!N TAB gridconnections #!N TAB patharray #!N TAB 
+mesharray #!N TAB xform #!N TAB string #!N TAB light #!N 
+TAB camera #!N TAB clipped #!N TAB screen #!EF #!EF #!N 
+#!N #!EC #!N #!N The numeric or string name of an 
+Object is used to refer to that Object in the definitions 
+of other Objects. In general such references can take one of 
+several forms: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-i-normal--18*   number #!EF #!N 
+"  #!F-adobe-times-bold-i-normal--18*   name #!EF " #!N  #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   file 
+#!EF #!N  #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   file #!EF ,  #!F-adobe-times-bold-i-normal--18*   number 
+#!EF #!N  #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   file #!EF ,"  #!F-adobe-times-bold-i-normal--18*   name 
+#!EF " #!EF #!N #!N #!EC #!N #!N An Object that 
+has a string name can be imported with the Import module 
+by specifying that string as the  #!F-adobe-times-bold-r-normal--18*   variable #!EF parameter of 
+Import. #!N #!N All Objects can have any number of named 
+attributes specified by  #!F-adobe-times-bold-r-normal--18*   attribute #!EF clauses. The value of an 
+attribute is an Object. The value can be specified as a 
+string or list of strings by using the  #!F-adobe-times-bold-r-normal--18*   string #!EF 
+keyword (in which case a String Object is created to hold 
+the string), as a number by using the  #!F-adobe-times-bold-r-normal--18*   number #!EF 
+keyword (in which case an Array Object is created to hold 
+the number), or as an Object reference. #!T,240 #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   attribute #!EF "  #!F-adobe-times-bold-i-normal--18*   attribute-name #!EF " [ 
+ #!F-adobe-times-bold-r-normal--18*   value #!EF ] TAB  #!F-adobe-times-bold-r-normal--18*   string #!EF "  #!F-adobe-times-bold-i-normal--18*   string 
+#!EF " ... #!N TAB  #!F-adobe-times-bold-r-normal--18*   number #!EF  #!F-adobe-times-bold-i-normal--18*   number #!EF 
+#!N TAB  #!F-adobe-times-bold-i-normal--18*   number #!EF #!N TAB "  #!F-adobe-times-bold-i-normal--18*   name #!EF 
+" #!N TAB  #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   file #!EF #!N TAB 
+ #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   file #!EF ,  #!F-adobe-times-bold-i-normal--18*   number #!EF #!N 
+TAB  #!F-adobe-times-bold-r-normal--18*   file #!EF  #!F-adobe-times-bold-i-normal--18*   file #!EF ,"  #!F-adobe-times-bold-i-normal--18*   name #!EF 
+" #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall641,dxall642 h Group Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

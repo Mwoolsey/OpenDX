@@ -1,0 +1,43 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall623 
+Overview of the Native File Format #!N #!EC #!N #!N A 
+Data Explorer file consists of a header section followed by an 
+optional data section. The header section consists of a textual description 
+of a collection of Objects. The data section contains the Array 
+Object data, either as text or in binary, and is referred 
+to by the header section. A header section can refer to 
+Objects and data either in the current file or in other 
+files. #!N #!N  #!Ldefex1102,dxall624 f Figure 102  #!EL  shows data imbedded in its header. Another 
+file cannot refer to data in this file because there is 
+no specified data section. However, header sections in this file can 
+refer to data sections in other files. This method is sometimes 
+more convenient when creating data files with simple programs. #!N #!N 
+ #!Ldefex2103,dxall624 f Figure 103  #!EL  shows a header section referring to a data section in 
+another file. The header refers to the data using the data 
+file name and an offset location (in bytes from the beginning 
+of the data section) in the file. #!N #!N  #!Ldefex3104,dxall624 f Figure 104  #!EL  shows 
+a header section and data section in the same file. The 
+header refers to the data section using a byte offset, relative 
+to the start of the data section. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rdefex1102 
+#!N Graphics omitted from Online Documentation. Please see the manual. #!N 
+#!N Figure 102. Data Imbedded in a Header Section #!EF #!N 
+#!EC #!N #!N #!Cbrown  #!F-adobe-times-medium-r-normal--18*    #!Rdefex2103 #!N Graphics omitted from Online 
+Documentation. Please see the manual. #!N #!N Figure 103. Header Referring 
+to Data in Another File #!EF #!N #!EC #!N #!N #!Cbrown 
+ #!F-adobe-times-medium-r-normal--18*    #!Rdefex3104 #!N Graphics omitted from Online Documentation. Please see the 
+manual. #!N #!N Figure 104. Header and Data in the Same 
+File #!EF #!N #!EC #!N #!N These configurations can be used 
+in conjunction with each other. For example, a file can contain 
+both a header and data and can refer to data both 
+in the same file and in another file. A file can 
+also have only a header and refer to data in either 
+a data-only file or in a file that contains both a 
+header and data. This flexibility allows you to construct a header 
+that points to data in existing files, and lets you view 
+and edit the header information (if necessary), using standard tools. #!N 
+#!N The following examples illustrate some of the ways you can 
+import data using the Data Explorer native file format. You may 
+wish to refer to the full specification of the syntax (see 
+ #!Lsynff,dxall638 h Syntax of the Native File Format  #!EL  ). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lxmples,dxall625 h Examples  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

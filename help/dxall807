@@ -1,0 +1,74 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdisplay Display 
+#!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N 
+Displays an image or renders a scene and displays an image. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N  #!F-adobe-times-bold-r-normal--18*   where 
+#!EF = Display(  #!F-adobe-times-bold-r-normal--18*   object, camera, where, throttle #!EF ); #!N 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+object TAB object TAB none TAB object to render or image 
+to #!N TAB - TAB - TAB - TAB display #!N 
+TAB camera TAB camera TAB no default TAB camera if rendering 
+is required #!N TAB where TAB window or string TAB the 
+user's terminal TAB host and window for display #!N TAB throttle 
+TAB scalar TAB 0 TAB minimum time between image frames #!N 
+TAB - TAB - TAB - TAB (in seconds) #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB where TAB window TAB window identifier for Display window #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF 
+#!I50 #!N is the object to be displayed or to be 
+rendered and displayed. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   camera #!EF #!EF 
+#!I50 #!N is the camera to be used to render  #!F-adobe-times-bold-r-normal--18*   
+object #!EF . If  #!F-adobe-times-bold-r-normal--18*   camera #!EF is not specified, the 
+system assumes that  #!F-adobe-times-bold-r-normal--18*   object #!EF is an image to be 
+displayed (e.g., the output of the Render module). Note: A transformed 
+camera cannot be used for this parameter. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   where #!EF #!EF #!I50 #!N specifies the host and window 
+for displaying the image. On a workstation, the format of the 
+parameter string is: #!N  #!F-adobe-times-bold-r-normal--18*   X #!EF ,  #!F-adobe-times-bold-i-normal--18*   display, window 
+#!EF where  #!F-adobe-times-bold-r-normal--18*   X #!EF refers to the X Window System; 
+ #!F-adobe-times-bold-i-normal--18*   display #!EF is an X server name (e.g., host:0); and 
+ #!F-adobe-times-bold-i-normal--18*   window #!EF is a window name (and must not begin 
+with two #-characters). As a rule, it is not necessary to 
+set this parameter. But when it is set, the resulting Image 
+window is not controlled by the user interface (e.g., it has 
+no menu options). The function of this parameter is to specify 
+another workstation on which to display an image (e.g., by setting 
+it to "  #!F-adobe-times-medium-i-normal--18*   X, #!EF workstationname  #!F-adobe-times-medium-i-normal--18*   :0, #!EF message"). 
+Using the Image tool, you can display the same image to 
+another workstation simply by connecting the module's two outputs to the 
+two inputs of Display and setting  #!F-adobe-times-bold-r-normal--18*   where #!EF . #!N 
+#!N If you are using SuperviseState or SuperviseWindow to control user 
+interactions in the Display window, then  #!F-adobe-times-bold-r-normal--18*   where #!EF should be 
+set with the  #!F-adobe-times-bold-r-normal--18*   where #!EF output of SuperviseWindow. Note: If 
+you are using the  #!F-adobe-times-bold-r-normal--18*   where #!EF parameter, it is important 
+to set its value  #!F-adobe-times-medium-i-normal--18*   before #!EF the first execution of 
+Display. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   throttle #!EF #!EF #!I50 #!N 
+specifies a minimum interval between successive image displays. The default is 
+0 (no delay). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   where #!EF #!EF 
+#!I50 #!N The output can be used, for example, by ReadImageWindow 
+to retrieve the pixels of an image after Display has run. 
+#!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 
+1. In the user interface, you must use the Image tool 
+rather than Display if you want to use many of the 
+interactive image-manipulation functions provided by Data Explorer. For more information, see 
+ #!Lchav,dxall300 h Controlling the Image: View Control...  #!EL  in IBM Visualization Data Explorer User's Guide. However, see  #!Lsupwind,dxall961 h SuperviseWindow  #!EL  
+and  #!Lsupstat,dxall958 h SuperviseState  #!EL  for a discussion of how to create your own 
+interaction modes when using the Display window. #!N #!I30 #!N 2. 
+The Display module can render surfaces, volumes, and arbitrary combinations of 
+surfaces and volumes. (However, the current volume-rendering algorithm does not support 
+coincident or perspective volumes.) To render an object, that object must 
+contain a "colors" component. Many modules add a default color. In 
+addition, volume rendering (e.g., of cubes, as opposed to lines) requires 
+an "opacities" component. all surfaces, the lack of an "opacities" component 
+implies an opaque surface. #!N #!I30 #!N 3. Choosing appropriate color 
+and opacity maps for volume rendering can be difficult. The AutoColor, 
+AutoGrayScale, and Color modules use heuristics to generate good values; as 
+a rule of thumb, the opacity should be &approx.0.7/T, and the 
+color value &approx.1.4/T (where T is the thickness of the object 
+in user units). See also  #!Lcvolrnd,dxall820 h Coloring Objects for Volume Rendering  #!EL  . #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltall809,dxall809 h Changing the Resolution of an Image  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Version 4.3.0 Changes</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu009.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu011.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu006.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<h2><a name="HDRWHATNEW"></a>Summary of Changes in Data Explorer Version 4.4.0</h2>
+		<p><a name="PToC3" href="../usrguide.htm">Partial Table-of-Contents</a></p>
+		<menu>
+			<li><a name="PToC_16" href="#Header_16">User Interface</a>
+				<menu>
+				<LI><a href="#MACLDTAB">Macro Loading</a>
+				<LI><a href="#XINWINPL">Xinerama Window Placement</a>
+				</menu>
+		<li><a name="PToC_27" href="usrgu011.htm">Changed Modules</a>
+		<li><a href="usrgu012.htm">Java Explorer</a>
+		<li><a name="PToC_29" href="usrgu013.htm">Backward Incompatibilities</a>
+		<li><a href="usrgu014.htm">Fixes</a>
+		<li><a name="PToC_31" href="#Header_31">Previous Update</a>
+		</MENU>
+			<hr>
+			<p>The following are changes to OpenDX since version 4.3.0.</p>
+			<hr>
+			<h2><a name="Header_16"></a>User Interface</h2>
+			<h3><a name="MACLDTAB"></a>Macro Loading</h3>
+		In previous versions of OpenDX if a Macro had a space in it's pathname, the User Inteface could not use its auto-load feature to load the macro when opening a network. The User Interface now fully supports auto-loading macros with spaces in their name or path.
+		
+			<h3><a id="XINWINPL" name="XINWINPL"></a>Xinerama Window Placement</h3>
+		For users who have multiple monitors hooked up to their system and are using the Xinerama extension, OpenDX will now try and place windows and size them much better. It will choose the largest most main monitor by default, but saved networks will retain information with regards to multiple monitors. When networks saved on multiple monitors are then run on single monitor systems, it places windows on the single monitor respective to the multiple monitor setup. For multiple monitor systems, this solves the issue with Image Windows opening extremely wide.
+		
+			<hr>
+		
+			<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+			<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+		</DIV>
+			<HR>
+	</BODY></HTML>

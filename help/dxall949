@@ -1,0 +1,69 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rslab Slab #!N #!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N Function 
+#!N #!N Creates a "slab" of data. #!N #!N Syntax #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Slab(  #!F-adobe-times-bold-r-normal--18*   input, 
+dimension, position, thickness #!EF ); #!EF #!N #!N #!EC #!N #!N 
+Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default 
+TAB Description #!EF #!N TAB input TAB field TAB none TAB 
+object to be "slabbed" #!N TAB dimension TAB integer or string 
+TAB 0 TAB spatial orientation of the slab #!N TAB position 
+TAB integer or integer list TAB all TAB starting position(s) #!N 
+TAB thickness TAB integer TAB 0 or 1 TAB thickness of 
+slab (in number of #!N TAB - TAB - TAB - 
+TAB elements) #!N TAB - TAB - TAB - TAB #!EF 
+#!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Description #!EF #!N TAB output TAB field or field series 
+TAB slabbed data #!N TAB - TAB - TAB #!EF #!N 
+#!N Functional Details #!N #!N This module creates a multidimensional object 
+consisting of a selected subset of input data. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N specifies 
+the data field to be slabbed. This field must have regular 
+connections. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   dimension #!EF #!EF #!I50 #!N 
+specifies the dimension in which the slab should be oriented relative 
+to the input object (the output slab will have the same 
+orientation). The  #!F-adobe-times-medium-i-normal--18*   n #!EF dimensions of the object can be 
+specified by number (from 0 to  #!F-adobe-times-medium-i-normal--18*   n #!EF - 1). 
+The first three dimensions can also be specified as  #!F-adobe-times-medium-i-normal--18*   x 
+#!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF , and  #!F-adobe-times-medium-i-normal--18*   z #!EF , 
+respectively. #!N #!N The default for this parameter is dimension 0 
+(zero). #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. The 
+ #!F-adobe-times-bold-r-normal--18*   dimension #!EF number refers to the ordering of positions in 
+the "connections" component. Thus,  #!F-adobe-times-medium-i-normal--18*   x #!EF corresponds to 0 only 
+if the positions have been specified as  #!F-adobe-times-medium-i-normal--18*   x #!EF varies 
+slowest. #!N #!I30 #!N 2. Slab can also be used on 
+deformed grids, in which case the connections do not align with 
+any particular axis. #!N #!I30 #!N 3. Transposing the positions (i.e., 
+with Transpose) does  #!F-adobe-times-medium-i-normal--18*   not #!EF change the order in the 
+"connections" component. #!I0 #!N #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   position 
+#!EF #!EF #!I50 #!N specifies the position from which the slab 
+is generated. #!N #!N If the specified value is a single 
+integer, the module creates a single field, with the slab oriented 
+in the specified dimension and containing the number of volume elements 
+specified by  #!F-adobe-times-bold-r-normal--18*   thickness #!EF (see below). #!N #!N If  #!F-adobe-times-bold-r-normal--18*   
+position #!EF is a list of integers, the module creates a 
+series of specified slabs, and the default value of  #!F-adobe-times-bold-r-normal--18*   thickness 
+#!EF is 1 (one). #!N #!N If this parameter is not 
+specified, the output is a series of slabs (  #!F-adobe-times-bold-r-normal--18*   thickness 
+#!EF = 1) that begin at every grid position along  #!F-adobe-times-bold-r-normal--18*   
+dimension #!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   thickness #!EF #!EF 
+#!I50 #!N specifies the thickness of the slab (in volume elements). 
+A specified value of 0 (the default when  #!F-adobe-times-bold-r-normal--18*   position #!EF 
+is a single number) will produce a 2-dimensional slice in a 
+3-dimensional object. #!I0 #!N #!N #!N #!N #!I0 #!N Notes: #!N 
+#!I30 #!N 1. This module performs no interpolation, and only data 
+with regular connections can be slabbed. #!N #!I30 #!N 2. If 
+the input object is already colored, the colors are passed through 
+unaltered. #!N #!I30 #!N 3. If the input object is a 
+volume and the requested slab is much thinner than the input 
+object, the colors for volume rendering may be dim. #!N #!I30 
+#!N 4. If the data are connection dependent, a request for 
+a slab of  #!F-adobe-times-bold-r-normal--18*   thickness #!EF = 0 is ill-defined and 
+the module returns an error. #!I0 #!N #!N #!N #!N Components 
+#!N #!N All input components are propagated to the output. #!N 
+#!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Imide_potential.net #!N 
+RubberTube.net #!N Streamline.net #!N SIMPLE/Slab.net #!EF #!N #!N #!EC #!N #!N 
+See Also #!N #!N  #!Lmaptopl,dxall892 h MapToPlane  #!EL  ,  #!Lselect,dxall936 h Select  #!EL  ,  #!Lslice,dxall950 h Slice  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lslice,dxall950 h Slice  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

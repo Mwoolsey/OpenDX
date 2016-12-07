@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall215 Neighbors Component #!N #!N 
+#!N The "neighbors" component represents information about the neighbors of each 
+connection element. The number of items in this component must match 
+the number of items in the "connections" component. The number of 
+entries in each item must match the number of faces (for 
+3-D) or edges (for 2-D) in the connection element. For example, 
+each item in the "neighbors" component for triangle connections has three 
+entries, while each item in the "neighbors" component for tetrahedral connections 
+has four entries. #!N #!N For simplexes in  #!F-adobe-times-medium-i-normal--18*   n #!EF 
+dimensions (for example, triangles and tetrahedra), each item of the neighbors 
+Array consists of  #!F-adobe-times-medium-i-normal--18*   n+1 #!EF integer indices into the connections 
+Array identifying the  #!F-adobe-times-medium-i-normal--18*   n+1 #!EF neighbors of the simplex; the 
+ #!F-adobe-times-medium-i-normal--18*   i #!EF th of the  #!F-adobe-times-medium-i-normal--18*   n+1 #!EF indices corresponds 
+to the face opposite the  #!F-adobe-times-medium-i-normal--18*   i #!EF th vertex of 
+the simplex. For quads, cubes, and so on, each item of 
+the neighbors Array contains 2  #!F-adobe-times-medium-i-normal--18*   n #!EF integer indices into 
+the connections Array identifying the 2  #!F-adobe-times-medium-i-normal--18*   n #!EF neighbors of 
+the polyhedron. The pointers are in the order  #!F-adobe-times-medium-i-normal--18*   -x[1]+x[1]-x[2]+x[2] ... 
+-x[n]+x[n] #!EF , meaning that the first index points to the 
+neighbor in the  #!F-adobe-times-medium-i-normal--18*   -x[1] #!EF direction, the second to the 
+neighbor in the  #!F-adobe-times-medium-i-normal--18*   +x[1] #!EF direction, and so on, where 
+the  #!F-adobe-times-medium-i-normal--18*   x[n] #!EF dimension varies fastest in the representation of 
+the point indices in the interpolation element. Faces without neighbors are 
+indicated by an index of -1. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ltall217,dxall217 h Box Component  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

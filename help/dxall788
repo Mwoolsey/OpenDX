@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcollect Collect #!N #!N 
+Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N Collects objects 
+into a group. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+#!N group #!EF = Collect(  #!F-adobe-times-bold-r-normal--18*   object, ... #!EF ); #!EF 
+#!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Default TAB Description #!EF #!N TAB object 
+TAB object TAB no default TAB object to be collected #!N 
+TAB ... TAB - TAB - TAB more objects to be 
+collected #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB group TAB group TAB the group of 
+objects #!N TAB - TAB - TAB #!EF #!N #!N Functional 
+Details #!N #!N This module creates a group from a set 
+of input objects. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+object #!EF #!EF #!I50 #!N is an object to be placed 
+in a group. #!I0 #!N #!N #!N #!N Note that fields 
+placed in the generic group created by the module retain their 
+individuality. For example, AutoColor colors each field in the group based 
+on its own minimum and maximum data values; and Sample samples 
+each field individually. These examples contrast with the composite fields created 
+by Partition and the multigrid field created by CollectMultigrid. #!N #!N 
+The Collect module adds objects to the group without assigning them 
+names. Use the Select module to select an object from the 
+group by number, where the first object is number 0. #!N 
+#!N If Collect is called without parameters--Collect()--then the output is an 
+empty group. #!N #!N A single module can collect a maximum 
+of 21 objects. In the user interface, the default number of 
+enabled tabs is two. However, tabs can be added and removed 
+with the appropriate  #!F-adobe-times-bold-r-normal--18*   Input/Output Tab #!EF options in the  #!F-adobe-times-bold-r-normal--18*   
+Edit #!EF pull-down menu of the VPE. #!N #!N Components #!N 
+#!N All input components are propagated to the output. #!N #!N 
+Example Visual Programs #!N #!N Nearly every example visual program uses 
+Collect. #!N #!N See Also #!N #!N  #!Lappend,dxall767 h Append  #!EL  ,  #!Lmultigr,dxall789 h CollectMultiGrid  #!EL  , 
+ #!Lcollecn,dxall790 h CollectNamed  #!EL  ,  #!Lcollecs,dxall791 h CollectSeries  #!EL  ,  #!Lselect,dxall936 h Select  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lmultigr,dxall789 h CollectMultiGrid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

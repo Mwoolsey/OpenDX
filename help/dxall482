@@ -1,0 +1,73 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rdebug Using the Message Window #!N 
+#!EC #!N #!N The Message window allows you to monitor the 
+progress of a visual program as it executes. It displays information, 
+warning and error messages from the executive and output from the 
+Print and Echo modules (if you include them in your visual 
+program). #!N #!N You can use the Print module, for example, 
+to print the contents of an object. See Print in IBM 
+Visualization Data Explorer User's Reference for more information. You can use 
+the Echo module to print values or strings. See Echo in 
+IBM Visualization Data Explorer User's Reference. #!N #!N To open the 
+Message window, select the  #!F-adobe-times-bold-r-normal--18*   Open Message Window #!EF option from 
+the  #!F-adobe-times-bold-r-normal--18*   Windows #!EF pull-down menu of either the Image window 
+or the VPE window. The Message window consists of a text 
+window and various pull-down menus. When a visual program is running, 
+any information, warnings, or errors sent by the server to the 
+user interface are shown in the display area. (See also  #!Lermsgs,dxall297 h Error Messages  #!EL  
+.) #!N #!N The Message window allows users to save the 
+contents of the text window in two different ways. The  #!F-adobe-times-bold-r-normal--18*   
+Save As... #!EF command of the Message window's  #!F-adobe-times-bold-r-normal--18*   File #!EF 
+menu brings up a File Selection dialog box that allows the 
+user to designate a file to which the current contents of 
+text window are to be saved. Alternatively, the  #!F-adobe-times-bold-r-normal--18*   Log... #!EF 
+command of the  #!F-adobe-times-bold-r-normal--18*   File #!EF menu brings up a File 
+Selection dialog box that allows the user to designate a file 
+that will receive all subsequent messages displayed in the text window. 
+#!N #!N The Message window provides a number of techniques to 
+help the user locate the source of errors and warnings. Before 
+each successful execution of the visual program, the string "Begin execution" 
+is placed in the text window. This allows the user to 
+more easily determine whether messages are the result of the most 
+recent execution. Also, any line in the text window can be 
+highlighted before execution. Highlighted lines remain highlighted over executions, making it 
+easy to locate a marker indicating the beginning of execution. This 
+technique is particularly useful when a large amount of information (from 
+Print or Echo) is being displayed in the Message window. Alternatively, 
+the contents of the text window can be removed with the 
+ #!F-adobe-times-bold-r-normal--18*   Clear #!EF option of the Message window's  #!F-adobe-times-bold-r-normal--18*   File #!EF 
+menu. #!N #!N When an error occurs during the execution of 
+a module, the errant module can be located in the VPE 
+by double-clicking on the line in the Message window's text window 
+containing the error message. This selection causes the VPE's canvas to 
+shift so that the indicated module is within the canvas's scrolled 
+viewing area. Errors for the last execution can also be located 
+using the  #!F-adobe-times-bold-r-normal--18*   Next Error #!EF and  #!F-adobe-times-bold-r-normal--18*   Previous Error #!EF 
+commands of the Message window's  #!F-adobe-times-bold-r-normal--18*   Edit #!EF menu. These commands 
+expose and highlight errors that occurred before or after the currently 
+highlighted error. If no error is currently highlighted, then  #!F-adobe-times-bold-r-normal--18*   Previous 
+Error #!EF indicates the last error during execution and  #!F-adobe-times-bold-r-normal--18*   Next 
+Error #!EF indicates the first error. #!N #!N The Message window 
+can be configured so that it does not display certain message 
+types in the text window (by using the  #!F-adobe-times-bold-r-normal--18*   Error Messages 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   Warning Messages #!EF , and  #!F-adobe-times-bold-r-normal--18*   Information Messages 
+#!EF buttons in the Message window's  #!F-adobe-times-bold-r-normal--18*   Options #!EF pull-down menu). 
+If a toggle button is activated (colored), the corresponding message type 
+is displayed. The default behavior is to display all error, warning, 
+and information messages. You can change this default behavior with the 
+infoEnabled, warningEnabled, and errorEnabled configuration options described in  #!Lapf,dxall745 h User Interface Configuration  #!EL  . By 
+default, the Message window pops up when an error is displayed 
+in the text window and does not automatically pop up when 
+information or warning messages are displayed. You can also change this 
+default behavior with the infoOpensMessage, warningOpensMessage, and errorOpensMessage configuration options described 
+in  #!Lapf,dxall745 h User Interface Configuration  #!EL  . #!N #!N Lastly, when connected to the server, 
+the  #!F-adobe-times-bold-r-normal--18*   Execute Script Command... #!EF command of the Message window's 
+ #!F-adobe-times-bold-r-normal--18*   Options #!EF menu allows commands to be issued directly to 
+the server. However, only advanced users should use this feature, as 
+the results of the commands entered can upset the state of 
+the visual program. This command brings up the  #!F-adobe-times-bold-r-normal--18*   Execute Script 
+Command #!EF dialog box, which will accept a single command in 
+a 1-line text window. Any messages that result from this command 
+appear in the Message window's text window. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lundus5,dxall483 h Graphical User Interface: For Advanced Users  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

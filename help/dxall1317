@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxng DXNewGroup #!N #!N Function #!N #!N 
+Creates a new generic Group Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Group DXNewGroup() #!EF #!N #!N Functional Details #!N #!N 
+A generic Group consists of a number of members that may 
+optionally be named. There is no restriction on the class of 
+Objects in a generic Group and no requirement that the type 
+of the members be the same. This is in contrast to 
+the Composite Field, MultiGrid, and Series subgroups of the class Group, 
+which generally contain members of class Field and are typed. Generic 
+Groups may be explicitly typed using  #!F-adobe-times-bold-r-normal--18*   DXSetGroupType #!EF if all 
+the members are of the same type. #!N #!N Named members 
+are added to a Group with  #!F-adobe-times-bold-r-normal--18*   DXSetMember #!EF . Unnamed 
+members are added to a Group with  #!F-adobe-times-bold-r-normal--18*   DXSetEnumeratedMember #!EF . 
+#!N #!N The Group created can be deleted with DXDelete. See 
+ #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N #!N Returns the Group 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxncf,dxall1313 h DXNewCompositeField  #!EL  ,  #!Ldxnmg,dxall1320 h DXNewMultiGrid  #!EL  ,  #!Ldxns,dxall1326 h DXNewSeries  #!EL  
+,  #!Ldxsem,dxall1376 h DXSetEnumeratedMember  #!EL  ,  #!Ldxsgtv,dxall1380 h DXSetGroupType, DXSetGroupTypeV  #!EL  ,  #!Ldxsm,dxall1382 h DXSetMember  #!EL  #!EF #!N #!N  #!Lmbs,dxall1064 h Generic Operations  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxni,dxall1318 h DXNewInterpolator  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

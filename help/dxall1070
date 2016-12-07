@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall1069 Generic Operations #!N #!EC #!N #!N Each 
+Array  #!F-adobe-times-bold-r-normal--18*   a #!EF contains some number of items  #!F-adobe-times-medium-i-normal--18*   n 
+#!EF (numbered  #!F-adobe-times-medium-i-normal--18*   0 #!EF to  #!F-adobe-times-medium-i-normal--18*   n-1 #!EF ). Each 
+item consists of a fixed number of elements of one type, 
+specified when the array is created (see  #!Ltipes,dxall1101 s TIPES  #!EL  for the constants 
+used to specify types). Note: The routines listed in this subsection 
+apply to both compact and irregular Arrays. #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Class DXGetArrayClass() #!EF #!EF #!I50 #!N Returns 
+the subclass of an Array Object. See  #!Ldxgac,dxall1218 h DXGetArrayClass  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXGetArrayInfo() #!EF #!EF #!I50 #!N Returns the 
+number of items, type, category, rank, and shape of an Array. 
+See  #!Ldxgai,dxall1222 h DXGetArrayInfo  #!EL  . (For information on rank and shape, see  #!Larrays,dxall252 h Arrays  #!EL  
+in IBM Visualization Data Explorer User's Guide.) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Array DXTypeCheck() #!EF #!N Array DXTypeCheckV(); #!EF #!I50 #!N Check 
+that an Array matches a set of specifications. See  #!Ldxtcv,dxall1402 h DXTypeCheck, DXTypeCheckV  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Pointer DXGetArrayData() #!EF #!EF  #!Rpgdxgad #!I50 
+#!N Returns a pointer to the start of a global memory 
+area containing the items constituting the data stored in an Array. 
+See  #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  . #!N Note: To reduce memory requirements, it is 
+preferable, where possible, to recognize compact arrays with  #!F-adobe-times-bold-r-normal--18*   DXGetArrayClass() #!EF 
+, and not to expand them by calling  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData() #!EF 
+. An alternative is the set of Array-handling routines described in 
+ #!Larhand,dxall1073 h Array Handling  #!EL  . #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int DXGetItemSize() #!EF 
+#!EF #!I50 #!N Returns the size in bytes of each individual 
+item of an Array. See  #!Ldxgis,dxall1245 h DXGetItemSize  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Pointer DXGetArrayDataLocal() #!EF #!EF #!I50 #!N Returns a pointer to 
+the start of memory of a local copy of the data 
+stored in an Array. See  #!Ldxgadl,dxall1220 h DXGetArrayDataLocal  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Array DXFreeArrayDataLocal() #!EF #!EF #!I50 #!N Frees space allocated by 
+ #!F-adobe-times-bold-r-normal--18*   DXGetArrayDataLocal() #!EF . See  #!Ldxfadl,dxall1213 h DXFreeArrayDataLocal  #!EL  . #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lirreg,dxall1071 h Irregular Arrays  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

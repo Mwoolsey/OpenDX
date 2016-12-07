@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu164.htm">Previous Page</A> &#124; <A HREF="progu166.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXGCAD"
+HREF="progu097.htm#PToC_259">DXGetConstantArrayData</A></H3>
+<A NAME="IDX1717"></A>
+<A NAME="IDX1718"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Returns a pointer to the value stored in a Constant Array.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Pointer DXGetConstantArrayData (Array a)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The data pointed to
+by this pointer should be interpreted by the user
+according the type, category, rank, and shape parameters associated
+with
+<TT><STRONG>a</STRONG></TT>.
+<P>
+While a Constant Array may contain numerous items, as may be
+indicated by either
+<TT><STRONG>
+DXGetArrayInfo
+</STRONG></TT>
+or
+<TT><STRONG>DXQueryConstantArray</STRONG></TT>,
+the pointer returned by
+<TT><STRONG>
+DXGetConstantArrayData
+</STRONG></TT>
+should not be incremented beyond the amount necessary to index a
+single item since the value of all items in a Constant Array is
+actually stored in a single item.
+<P>
+For compatibility with previous versions, this routine will also
+work with Regular Arrays where the delta vectors consist solely of
+zeros.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns a pointer to the data contained in the Constant Array or
+returns <TT><STRONG>NULL</STRONG></TT> and sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu154.htm#HDRDXGAD">DXGetArrayData</A>,
+<A HREF="progu157.htm#HDRDXGAI">DXGetArrayInfo</A>,
+<A HREF="progu249.htm#HDRDXNCAV">DXNewConstantArray, DXNewConstantArrayV</A>,
+<A HREF="progu276.htm#HDRDXQCA">DXQueryConstantArray</A>
+</STRONG></TT>
+<P>
+<A HREF="progu046.htm#HDRCTAS">"Constant Arrays"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu164.htm">Previous Page</A> &#124; <A HREF="progu166.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

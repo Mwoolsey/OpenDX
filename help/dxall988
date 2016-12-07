@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall987 Controlling the Data Explorer Executive or 
+User Interface from a Separate Program #!N #!EC #!N #!N You 
+may want to write a program which controls the Data Explorer 
+Executive. For example, you could write your own user interface, providing 
+a custom "look and feel," and send Data Explorer script language 
+commands to the Data Explorer executive. In this case you would 
+get all of the functionality provided by the executive (cache management, 
+control of execution order, and object management). You could also directly 
+control the Data Explorer User Interface from a separate program, loading 
+and executing visual programs. For example, you may wish to fire 
+up Data Explorer with a "canned" visualization program once a simulation 
+is complete, with parameters within the visual program preset to particular 
+values. #!N #!N Graphically, both of these are represented by the 
+upper "User Program" in  #!Larch118,dxall984 f Figure 118  #!EL  , which controls the Data Explorer 
+Executive or User Interface from the user's program. The libDXL.a library 
+(DXLink) provides this functionality, and is discussed in  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  . Examples 
+of DXLink programs can be found in /usr/lpp/dx/samples/dxlink. #!N #!N With 
+the functionality provided by SuperviseWindow and SuperviseState (see  #!Lsupwind,dxall961 h SuperviseWindow  #!EL  and  #!Lsupstat,dxall958 h SuperviseState  #!EL  
+in IBM Visualization Data Explorer User's Reference), your program does not 
+need the Image tool (which is provided only within the Data 
+Explorer User Interface) in order to provide direct user interaction in 
+the image window. Thus a custom GUI communicating only with the 
+Data Explorer Executive can implement all of the user-interaction provided by 
+the Data Explorer User Interface. Examples of custom direct interactors can 
+be found in /usr/lpp/dx/samples/supervise; while these examples are demonstrated using the 
+Data Explorer User Interface, there is no necessity that they do 
+so, as all of the modules used in these examples (SuperviseWindow, 
+SuperviseState, and Display, in particular) are available directly from the Data 
+Explorer Executive. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lwritmod,dxall989 h Writing a Simple Module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

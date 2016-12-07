@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxrem DXRemove #!N #!N Function 
+#!N #!N Deletes a component from a Field. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXRemove(Object o, char *name) #!EF #!N 
+#!N Functional Details #!N #!N Deletes a component of the specified 
+ #!F-adobe-times-bold-r-normal--18*   name #!EF , for each Field in Object  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF . Object  #!F-adobe-times-bold-r-normal--18*   o #!EF can be a single Field 
+or any Object that can contain Fields (for example, Group or 
+Series). For a single Field, this is equivalent to calling  #!F-adobe-times-bold-r-normal--18*   
+DXDeleteComponentValue #!EF . #!N #!N Return Value #!N #!N It is 
+an error if no components of the specified  #!F-adobe-times-bold-r-normal--18*   name #!EF 
+are found in any of the Fields of  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+. Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF on success, or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and sets the error code to indicate an error. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxdc,dxall1196 h DXDeleteComponent  #!EL  ,  #!Ldxexi,dxall1204 h DXExists  #!EL  ,  #!Ldxext,dxall1206 h DXExtract  #!EL  
+,  #!Ldxins,dxall1282 h DXInsert  #!EL  ,  #!Ldxren,dxall1356 h DXRename  #!EL  ,  #!Ldxrep,dxall1358 h DXReplace  #!EL  ,  #!Ldxswp,dxall1397 h DXSwap  #!EL  #!EF #!N #!N 
+ #!Lctmn,dxall1089 h Component Manipulation  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxren,dxall1356 h DXRename  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

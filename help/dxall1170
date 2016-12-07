@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxat DXAddTask #!N #!N Function Adds a 
+task to the current task Group. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> #!N #!N Error DXAddTask(Error(*proc)(Pointer), Pointer 
+arg, int size, double work) #!EF #!EF . #!N #!N #!EC 
+#!N #!N Functional Details The task to be added is defined 
+by the following parameters: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   proc #!EF #!EF #!I50 #!N A pointer to a function 
+that performs the task. It takes one argument of type  #!F-adobe-times-bold-r-normal--18*   
+Pointer #!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   arg #!EF #!EF 
+#!I50 #!N A pointer to an argument block. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   size #!EF #!EF #!I50 #!N The size of the 
+argument block in bytes. If  #!F-adobe-times-bold-r-normal--18*   size #!EF is nonzero, the 
+argument block is copied. Otherwise, the value of  #!F-adobe-times-bold-r-normal--18*   arg #!EF 
+is passed to  #!F-adobe-times-bold-r-normal--18*   proc #!EF without copying, which is useful 
+for passing integers or Objects. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   work 
+#!EF #!EF #!I50 #!N The estimated amount of time required by 
+the task in arbitrary units. #!I0 #!N #!N #!N #!N Tasks 
+are executed, in parallel if possible, by  #!F-adobe-times-bold-r-normal--18*   DXExecuteTaskGroup #!EF . 
+Executing a task consists of calling  #!F-adobe-times-bold-r-normal--18*   (*proc)(arg) #!EF . To 
+facilitate load balancing, tasks are executed in order of decreasing work 
+estimates. Once  #!F-adobe-times-bold-r-normal--18*   DXExecuteTaskGroup #!EF has been called, additional tasks can 
+be created only from other tasks in the current task Group, 
+and they are run as soon as possible, without regard to 
+ #!F-adobe-times-bold-r-normal--18*   work #!EF or the status of the original tasks. #!N 
+#!N Return Value Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR 
+#!EF and sets an error code. #!N #!N See Also  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxatg,dxall1163 h DXAbortTaskGroup  #!EL  ,  #!Ldxctg,dxall1192 h DXCreateTaskGroup  #!EL  ,  #!Ldxetg,dxall1203 h DXExecuteTaskGroup  #!EL  ,  #!Ldxproi,dxall1334 h DXProcessorId  #!EL  ,  #!Ldxproc,dxall1335 h DXProcessors  #!EL  #!EF #!N 
+#!N  #!Lplsm,dxall1105 h Parallelism  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxalp,dxall1171 h DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly, DXAllocateLocalOnlyZero  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

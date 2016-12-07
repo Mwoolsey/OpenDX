@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu085.htm">Previous Page</A> &#124; <A HREF="progu087.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+
+<HR>
+<H2><A NAME="Header_173" HREF="progu084.htm#PToC_173">17.3 Example 2:
+maptoplane.c</A></H2>
+<P>The second example which we will discuss is maptoplane.c. This sample
+program starts the Data Explorer user interface in
+<TT><STRONG>-edit</STRONG></TT> mode,
+and then loads a visual program (see <A HREF="#FIGMAP2PLA">Figure 13</A>).
+<P><B><A NAME="FIGMAP2PLA" HREF="../proguide.htm#FT_FIGMAP2PLA">Figure 13.
+maptoplane.net</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/map2plan.gif" ALT="Figure map2plan not
+displayed."></CENTER><BR></B><BR>
+The visual program contains two DXLInput tool which can receive
+values from the DXLink program. One is named
+<TT><STRONG>file_to_import</STRONG></TT>,
+and the other is named <TT><STRONG>maptoplane_point</STRONG></TT>.
+The DXLink program sends the filename to
+<TT><STRONG>file_to_import</STRONG></TT>, and then
+sends several different values to
+<TT><STRONG>maptoplane_point</STRONG></TT>. The program
+is run and for each execution, statistics are computed on
+the resulting MapToPlane. The maximum value on the plane is passed
+to a DXLOutput tool labeled <TT><STRONG>maptoplane_max</STRONG></TT>.
+In maptoplane.c,
+a handler has been installed for output coming from
+<TT><STRONG>maptoplane_max</STRONG></TT>,
+and the handler simply prints the value to the terminal.
+<P>
+<PRE>
+#include &lt;stdio.h&gt;
+#include "dx/dxl.h"
+#ifndef BASE
+#define BASE "/usr/local/dx"
+#endif
+void SyncAfterExecute(DXLConnection *conn)
+{
+  int status=1;
+   while (status) {
+      sleep(1);
+      if (DXLIsMessagePending(conn))
+         DXLHandlePendingMessages(conn);
+      DXLGetExecutionStatus(conn, &status);
+   }
+}
+/*
+ * this routine simply prints the maximum value as received from the
+ * DXLOutput tool
+ */
+void max_handler(DXLConnection *conn, const char *name, const char *value,
+                 void *data)
+{
+   printf("max value = %s\n", value);
+}
+main(int argc, char *argv&#91;&#93;)
+{
+    DXLConnection *conn = NULL;
+    char result&#91;100&#93;;
+    int status;
+    /*
+     * Start Data explorer user interface in -edit mode, with certain
+     * in -edit mode, with certain menus turned off.
+     */
+    conn = DXLStartDX("dx -edit -noExitOptions -noExecuteMenus -noConnectionMenus",
+                      NULL);
+    if (conn == NULL)
+    {
+        fprintf(stderr,"Could not connect\n");
+        perror("DXLStartDX");
+        exit(1);
+    }
+    /*
+     *  Set the handler for the DXLOutput tool which is labelled
+     *  "maptoplane_max"
+     */
+    DXLSetValueHandler(conn, "maptoplane_max", max_handler, NULL);
+    /*
+     * Load the visual program to run. Set the value of the DXLInput
+     * tool which is labelled "file_to_import".
+     * Also set the value of the DXLInput tool which is labelled
+     * "maptoplane_point".
+     */
+    DXLLoadVisualProgram(conn, BASE"/samples/dxlink/maptoplane.net");
+    DXLSetString(conn, "file_to_import","/usr/local/dx/samples/data/temperature");
+    DXLSetValue(conn, "maptoplane_point", "&#91;0 5000 5000&#93;");
+    /*
+     * Execute the visual program and check for input from maptoplane_max.
+     */
+    DXLExecuteOnce(conn);
+    SyncAfterExecute(conn);
+    /* Change the value for the DXLInput tool labelled "maptoplane_point
+     * and execute again.
+     */
+    DXLSetValue(conn, "maptoplane_point", "&#91;10000 5000 5000&#93;");
+    DXLExecuteOnce(conn);
+    SyncAfterExecute(conn);
+    /* Change the value for the DXLInput tool labelled "maptoplane_point
+     * and execute again.
+     */
+    DXLSetValue(conn, "maptoplane_point", "&#91;20000 5000 5000&#93;");
+    DXLExecuteOnce(conn);
+    SyncAfterExecute(conn);
+    /* Change the value for the DXLInput tool labelled "maptoplane_point
+     * and execute again.
+     */
+    DXLSetValue(conn, "maptoplane_point", "&#91;30000 5000 5000&#93;");
+    DXLExecuteOnce(conn);
+    SyncAfterExecute(conn);
+    /* Change the value for the DXLInput tool labelled "maptoplane_point
+     * and execute again.
+     */
+    DXLSetValue(conn, "maptoplane_point", "&#91;50000 5000 5000&#93;");
+    DXLExecuteOnce(conn);
+    SyncAfterExecute(conn);
+    printf("Hit return to quit:");
+    gets(result);
+    DXLExitDX(conn);
+}
+</PRE>
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu085.htm">Previous Page</A> &#124; <A HREF="progu087.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

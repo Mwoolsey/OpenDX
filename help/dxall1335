@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxproc DXProcessors #!N #!N Function #!N #!N Returns the number 
+of processors. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> int DXProcessors(int 
+n) #!EF #!N #!N Functional Details #!N #!N Queries the number 
+of processors available for running tasks, if  #!F-adobe-times-bold-r-normal--18*   n=0 #!EF , 
+and may be used to determine task allocation for parallelism. #!N 
+#!N Values of  #!F-adobe-times-bold-r-normal--18*   n!=0 #!EF are ignored and reserved for 
+future use. #!N #!N Return Value #!N #!N Returns the number 
+of processors. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxat,dxall1170 h DXAddTask  #!EL  , 
+ #!Ldxctg,dxall1192 h DXCreateTaskGroup  #!EL  ,  #!Ldxetg,dxall1203 h DXExecuteTaskGroup  #!EL  ,  #!Ldxproi,dxall1334 h DXProcessorId  #!EL  #!EF #!N #!N  #!Lplsm,dxall1105 h Parallelism  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxpp,dxall1336 h DXProcessParts  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

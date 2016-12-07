@@ -1,0 +1,46 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmngcmpe ManageColormapEditor #!N #!N Category #!N #!N  #!Lcatictl,dxall758 h Interface Control  #!EL  #!N #!N 
+Function #!N #!N Allows colormap editors to be opened and closed 
+from within a visual program. #!N #!N Syntax #!N #!N Available 
+only in the user interface. #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Default TAB Description #!EF #!N 
+TAB name TAB string TAB no default TAB name of the 
+colormap editor(s) to #!N TAB - TAB - TAB - TAB 
+be opened or closed #!N TAB open TAB flag, flag list, 
+or string list TAB 0 TAB 0: close the colormap editor(s) 
+#!N TAB - TAB - TAB - TAB 1: open the 
+colormap editor(s) #!N TAB how TAB string or string list TAB 
+"title" TAB open or close the colormap #!N TAB - TAB 
+- TAB - TAB editor(s) by title or label #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Functional Details 
+#!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF 
+#!EF #!I50 #!N specifies the name(s) of the colormap editor(s) to 
+be opened. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   open #!EF #!EF #!I50 
+#!N determines whether the specified editor(s) will be opened (1) or 
+closed (0). The effect of this parameter depends on the type 
+of argument supplied: #!N #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o If the argument is a  #!F-adobe-times-medium-i-normal--18*   single integer #!EF 
+, all the specified Colormap editors will either be opened or 
+they will all be closed. #!N #!I30 #!N o If the 
+argument is an  #!F-adobe-times-medium-i-normal--18*   integer list #!EF , it must have 
+the same number of items as the list of strings given 
+in  #!F-adobe-times-bold-r-normal--18*   name #!EF , and the flags are associated one-to-one 
+with the named editors. #!N #!I30 #!N o If the argument 
+is a  #!F-adobe-times-medium-i-normal--18*   string list #!EF , the Colormap editors listed 
+in  #!F-adobe-times-bold-r-normal--18*   open #!EF will be opened, and those listed in 
+ #!F-adobe-times-bold-r-normal--18*   name #!EF but not in  #!F-adobe-times-bold-r-normal--18*   open #!EF will be 
+closed. #!N #!I0 #!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+how #!EF #!EF #!I50 #!N if specified, determines how the  #!F-adobe-times-bold-r-normal--18*   
+name #!EF parameter is to be interpreted: #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "title": #!EF #!I50 #!N the name specified is 
+the title of the colormap editor (accessible through the  #!F-adobe-times-bold-r-normal--18*   Change 
+Colormap Name #!EF option in the  #!F-adobe-times-bold-r-normal--18*   Option #!EF pull-down menu 
+of the Colormap Editor) or the  #!F-adobe-times-bold-r-normal--18*   title #!EF parameter of 
+the Colormap tool. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "label": #!EF #!I50 #!N 
+the name specified is the label of the colormap editor (accessible 
+the  #!F-adobe-times-bold-r-normal--18*   Notation #!EF field of the Colormap Editor configuration dialog 
+box). #!I0 #!N #!N #!I0 #!N #!N #!N #!N Example Visual 
+Program InterfaceControl1.net #!N #!N See Also  #!Lexecute,dxall832 h Execute  #!EL  ,  #!Lmngcntp,dxall888 h ManageControlPanel  #!EL  ,  #!Lmngimgw,dxall889 h ManageImageWindow  #!EL  
+,  #!Lmngseq,dxall890 h ManageSequencer  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lmngcntp,dxall888 h ManageControlPanel  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

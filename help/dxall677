@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall676 Separate Files #!N #!EC 
+#!N #!N When there are netCDF variables in separate files that 
+make up the steps of a series, use the following global 
+attribute tags: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N :series  #!F-adobe-times-bold-i-normal--18*   xxx #!EF 
+= "  #!F-adobe-times-bold-i-normal--18*   fieldname #!EF , files; #!N  #!F-adobe-times-bold-i-normal--18*   filename1 #!EF 
+; #!N  #!F-adobe-times-bold-i-normal--18*   filename2 #!EF ; #!N . #!N . #!N 
+. #!N  #!F-adobe-times-bold-i-normal--18*   filenameN #!EF "; #!EF #!N #!N #!EC or 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N :series  #!F-adobe-times-bold-i-normal--18*   xxx #!EF = " 
+ #!F-adobe-times-bold-i-normal--18*   fieldname #!EF , files; #!N  #!F-adobe-times-bold-i-normal--18*   filename1 #!EF ,  #!F-adobe-times-bold-i-normal--18*   
+float_value #!EF ; #!N  #!F-adobe-times-bold-i-normal--18*   filename2 #!EF ,  #!F-adobe-times-bold-i-normal--18*   float_value #!EF 
+; #!N . #!N . #!N . #!N  #!F-adobe-times-bold-i-normal--18*   filenameN #!EF 
+,  #!F-adobe-times-bold-i-normal--18*   float_value #!EF "; #!EF #!N #!N #!EC where the 
+global tag must have the first 6 characters series. Global tags 
+must be unique, so additional characters can be added to distinguish 
+them. #!N #!N Each  #!F-adobe-times-bold-i-normal--18*   filename #!EF N is the name 
+of the netCDF file that contains the data variables for that 
+step. In the first format, the spacing of the steps is 
+1.0. In the second format, the  #!F-adobe-times-bold-i-normal--18*   float_value #!EF is the 
+value of each step. All other specifications are the same as 
+for simple fields. #!N #!N This format can be used to 
+create short term series within a file, and then have a 
+series of these smaller series. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall677,dxall678 h Examples  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

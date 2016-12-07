@@ -1,0 +1,40 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdlacoop Delayed Colors and Opacities (Color and Opacity Lookup 
+Tables) #!N Delayed colors are a way of compactly storing color 
+and opacity information. By default, whenever you use one of the 
+coloring modules (AutoColor, AutoGrayScale, Color), the colors and opacities are stored 
+one-per-data value as a floating point RGB 3-vector or floating point 
+value, respectively, ranging from 0 to 1. However, if you have 
+unsigned byte data, then it is much more efficient to use 
+"delayed colors" and "delayed opacities." When you use delayed colors or 
+opacities, the "colors" or "opacities" component is simply a copy of 
+(actually a reference to) the "data" component. When rendering occurs, these 
+components are interpreted as indices with which to look up a 
+color or opacity value in a table. #!N #!N If you 
+specify the  #!F-adobe-times-bold-r-normal--18*   delayed #!EF parameter as 1 to any of 
+the coloring modules, they will automatically perform this "copy" of the 
+"data" component, and will attach a "color map" or "opacity map" 
+component which contains 256 RGB colors, or 256 opacities. If you 
+already have a color or opacity map, either imported or created 
+using the Colormap Editor, and wish to use delayed colors or 
+delayed opacities, you can pass your color map or opacity map 
+to the Color module as the  #!F-adobe-times-bold-r-normal--18*   color #!EF or  #!F-adobe-times-bold-r-normal--18*   
+opacity #!EF parameter, and set the  #!F-adobe-times-bold-r-normal--18*   delayed #!EF parameter to 
+Color as 1. #!N #!N The structure of a color map 
+or opacity map is described in  #!Lcolor,dxall792 h Color  #!EL  . The Colormap Editor 
+produces as its two outputs well-formed color maps and opacity maps. 
+Alternatively, if you already have a simple list of 3-vectors or 
+list of scalar values, and want to create a color map 
+or opacity map, you can do this using Construct. The first 
+parameter to Construct should be [0], the second should be [1], 
+and the third should be 256. This will create a "positions" 
+component with positions from 0 to 255. The last parameter to 
+Construct should be your list of 256 colors or opacities. #!N 
+#!N If you are reading a stored image using ReadImage, and 
+the image is stored with a colormap, you can specify that 
+the image should be stored internally in Data Explorer with delayed 
+colors by using the  #!F-adobe-times-bold-r-normal--18*   delayed #!EF parameter to ReadImage. #!N 
+#!N You can also convert an image (or object) to a 
+delayed colors version by using QuantizeImage. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ludcmps,dxall813 h Using Direct Color Maps  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

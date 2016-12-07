@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxndl DXNewDistantLight #!N #!N 
+Function #!N #!N Creates a distant light Object of specified  #!F-adobe-times-bold-r-normal--18*   
+color #!EF and  #!F-adobe-times-bold-r-normal--18*   direction #!EF . #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Light DXNewDistantLight(Vector direction, RGBColor color) #!EF #!N #!N 
+Functional Details #!N #!N The light source is located at an 
+infinite distance from the scene in the specified direction. Shading from 
+distant lights differs with orientation in relation to the light and 
+not with the distance from the light. #!N #!N The Light 
+created can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N 
+A  #!F-adobe-times-bold-r-normal--18*   Vector #!EF is defined as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef 
+struct point { float x, y, z; } Point, Vector; #!EF 
+#!N #!N An  #!F-adobe-times-bold-r-normal--18*   RGBColor #!EF is defined as follows: #!N 
+ #!F-adobe-times-bold-r-normal--18*   typedef struct rgbcolor { float r, g, b; } RGBColor; 
+#!EF #!N #!N Return Value #!N #!N Returns the Light or 
+returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxqdl,dxall1342 h DXQueryDistantLight  #!EL  #!EF #!N #!N  #!Llightsc,dxall1139 h Light Class  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxnf,dxall1316 h DXNewField  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

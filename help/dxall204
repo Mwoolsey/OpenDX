@@ -1,0 +1,59 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rconcomp Connections Component #!N #!N #!N The "connections" 
+component provides a means for interpolating data values between the positions. 
+Each item of the "connections" Array describes an  #!F-adobe-times-medium-i-normal--18*   interpolation element 
+#!EF such as a line, triangle, tetrahedron or cube. The vertices 
+of each such interpolation element are specified by one Array item 
+consisting of a list of indices into the "positions" Array, one 
+index per vertex of the interpolation element. (Position index numbers begin 
+at 0.) #!N #!N The type of the interpolation elements is 
+specified by the "element type" attribute of the "connections" component. Two 
+open-ended series of element types are currently defined: the  #!F-adobe-times-medium-i-normal--18*   n 
+#!EF -dimensional simplexes, and the  #!F-adobe-times-medium-i-normal--18*   n #!EF -dimensional cuboids. #!N 
+#!N The  #!F-adobe-times-medium-i-normal--18*   n #!EF -dimensional simplexes are represented by "connections" 
+components with "element type" attributes of "triangles" (2-D) or "tetrahedra" (3-D). 
+Each item of such a "connections" component is a list of 
+ #!F-adobe-times-medium-i-normal--18*   n+1 #!EF integer indices referring to items in the "positions" 
+component representing the  #!F-adobe-times-medium-i-normal--18*   n+1 #!EF vertices of an  #!F-adobe-times-medium-i-normal--18*   n 
+#!EF -dimensional simplex. These vertices are ordered as illustrated in  #!Lsimpl23,dxall204 f Figure 23  #!EL  
+. For tetrahedra, the parity of all tetrahedra in a given 
+Field must be consistent.  #!Lsimpl23,dxall204 f Figure 23  #!EL  illustrates the two possible parities for 
+tetrahedra. In addition, for triangles there is a convention for which 
+face is the front (using the right-hand rule). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*   
+ #!Rsimpl23 #!N Graphics omitted from Online Documentation. Please see the manual. 
+#!N #!N Figure 23. Order of Vertices in Triangles and Tetrahedra. 
+In the tetrahedron at right,  #!F-adobe-helvetica-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   s #!EF #!EF is 
+the point nearest the viewer; at center, the point furthest from 
+the viewer. #!EF #!N #!EC #!N #!N The  #!F-adobe-times-medium-i-normal--18*   n #!EF 
+-dimensional cuboids are represented by "connections" components with "element type" attributes 
+of "lines" (1D), "quads" (2-D), "cubes" (3-D), "cubes4D," and so on 
+in the format "cubes  #!F-adobe-times-medium-i-normal--18*   n #!EF D," where  #!F-adobe-times-medium-i-normal--18*   n 
+#!EF represents the number of dimensions. Each item of such a 
+"connections" component is a list of  #!F-adobe-times-medium-i-normal--18*   2(n) #!EF integer indices 
+referring to items in the "positions" component representing the  #!F-adobe-times-medium-i-normal--18*   2(n) 
+#!EF vertices of an  #!F-adobe-times-medium-i-normal--18*   n #!EF -dimensional cuboid. The ordering 
+of these vertices is illustrated in  #!Lcuboi24,dxall204 f Figure 24  #!EL  . For cubes, the 
+parity of all cubes in a given Field must be consistent. 
+In addition, for quads there is a convention that determines the 
+front face. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rcuboi24 #!N #!N Graphics omitted from 
+Online Documentation. Please see the manual. #!N Figure 24. Order of 
+Vertices in Quads and Cuboids #!EF #!N #!EC #!N Note:  #!Lcuboi24,dxall204 f Figure 24  #!EL  
+does not indicate the correspondence between the edges of the cubes 
+or quads and the spatial dimensions. For example, the cubes or 
+quads can be "irregular," in which case the positions of each 
+vertex are specified explicitly. Regular "positions" components can specify an arbitrary 
+correspondence between the spatial dimensions and the edges of the cube, 
+as illustrated in  #!Lproda29,dxall255 f Figure 29  #!EL  . #!N #!N #!N For data on 
+grids with regular connections, the connections can be encoded compactly by 
+ #!F-adobe-times-medium-i-normal--18*   Path #!EF and  #!F-adobe-times-medium-i-normal--18*   Mesh #!EF Arrays, which are described 
+in  #!Larrays,dxall252 h Arrays  #!EL  and in more detail in  #!Limd,dxall618 h Importing Data: File Formats  #!EL  . #!N #!N 
+ #!Lexgrid25,dxall204 f Figure 25  #!EL  illustrates the various types of grids formed with different kinds 
+of "positions" and "connections" components. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rexgrid25 #!N Graphics 
+omitted from Online Documentation. Please see the manual. #!N #!N Figure 
+25. Examples of Grid Types. The three grids in the top 
+row represent surfaces; those in the bottom row, volumes. Reading from 
+left to right, the three grid types are: irregular (irregular positions, 
+irregular connections), deformed regular (irregular positions, regular connections), and regular (regular 
+positions, regular connections). #!EF #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ltall206,dxall206 h Data Component  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu031.htm">Previous Page</A> &#124; <A HREF="progu033.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu031.htm#PToC10">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRWRIMP" HREF="progu031.htm#PToC_67">8.2 Writing an Import
+Module</A></H2>
+<A NAME="IDX251"></A>
+<A NAME="IDX252"></A>
+<A NAME="IDX253"></A>
+<A NAME="IDX254"></A>
+<A NAME="IDX255"></A>
+<A NAME="IDX256"></A>
+Any external filter, like the one just illustrated, has the disadvantage
+of running more slowly than an import module because it sends the
+data to a file or through a socket.
+A built-in module reads the data into memory, where Data Explorer uses it
+directly.
+In this example, the import module SimpleImport reads the same HDF file
+as the external filter did.
+<P><B>Note: </B>Because the import module is very simple and does not require
+the
+traversal of input Fields, the Module Builder is not used in
+this example.
+(This C program is also found in
+<TT><STRONG>/usr/local/dx/samples/program_guide/simpleimportfilter.c</STRONG>
+</TT>
+<PRE>
+01   #include &lt;dx/dx.h&gt;
+</PRE>
+<P>
+<TT><STRONG> df.h </STRONG></TT> is a necessary include file for HDF library
+routines.
+<PRE>
+02   #include &lt;df.h&gt;
+03
+04   #define MAXRANK 3
+05
+06   Error m_SimpleImport(Object *in, Object *out)
+07   {
+08     Array a=NULL;
+09     Field f=NULL;
+10     char *filename;
+11     int dims, counts&#91;MAXRANK&#93;, numelements, i, j;
+12     float deltas&#91;MAXRANK*MAXRANK&#93;, origins&#91;MAXRANK&#93;, *data;
+</PRE>
+<P>
+Extract the file name from <TT><STRONG>in&#91;0&#93;</STRONG></TT>, and
+check that it is a string.
+<PRE>
+13   if (!in&#91;0&#93;) {
+14     DXSetError(ERROR_BAD_PARAMETER,"missing filename");
+15     goto error;
+16   }
+17   else if (!DXExtractString(in&#91;0&#93;, &filename)) {
+18     DXSetError(ERROR_BAD_PARAMETER, "filename must be a string");
+19     goto error;
+20   }
+</PRE>
+<P>
+The HDF library routine <TT><STRONG>DFishdf</STRONG></TT> checks the file
+for accessibility and for the correct (HDF) format.
+If the file is not accessible or is not an HDF file, the routine
+generates an error message.
+<PRE>
+21   if (DFishdf(filename) != 0) {
+22      DXSetError(ERROR_BAD_PARAMETER,
+23                 "file \"%s\" is not accessible, or is not an hdf file",
+24                  filename);
+25      goto error;
+26   }
+27
+</PRE>
+<P>
+Initialize the HDF library.
+<PRE>
+28   DFSDrestart();
+</PRE>
+<P>
+The HDF library routine <TT><STRONG>DFSDgetdims</STRONG></TT> returns the
+dimensionality of the grid (1D, 2D, etc.) in
+<TT><STRONG>dims</STRONG></TT>.
+The number of positions in each dimension is returned in the Array
+<TT><STRONG>counts</STRONG></TT>.
+<PRE>
+29   DFSDgetdims(filename, &dims, counts, MAXRANK);
+</PRE>
+<P>
+Make a new Array (scalar).
+<PRE>
+30   a = DXNewArray(TYPE_FLOAT, CATEGORY_REAL, 0);
+31   if (!a)
+32     goto error;
+</PRE>
+<P>
+Determine the number of elements in the data Array.
+<PRE>
+33   numelements=1;
+34   for (i=0; i&lt;dims; i++)  {
+35      numelements= numelements * counts&#91;i&#93;;
+36   }
+</PRE>
+<P>
+Allocate space to the data Array.
+<PRE>
+37   if (!DXAddArrayData(a, 0, numelements, NULL))
+38      goto error;
+</PRE>
+<P>
+Get a pointer to memory for the data Array.
+<PRE>
+39   data = (float *)DXGetArrayData(a);
+40   if (!data)
+41      goto error;
+</PRE>
+<P>
+The HDF library routine <TT><STRONG>DFSDgetdata</STRONG></TT> reads the data
+from the HDF file to the data Array.
+<PRE>
+42   DFSDgetdata(filename, dims, counts, data);
+</PRE>
+<P>
+Create a new Field.
+<PRE>
+43   f = DXNewField();
+44   if (!f)
+45     goto error;
+</PRE>
+<P>
+Set the dependency of the data to "positions."
+<PRE>
+46   if (!DXSetStringAttribute((Object)a, "dep", "positions"))
+47     goto error;
+</PRE>
+<P>
+Set the data Array as the data component of <TT><STRONG>f</STRONG></TT>.
+<PRE>
+48   if (!DXSetComponentValue(f, "data", (Object)a))
+49     goto error;
+50   a=NULL;
+</PRE>
+<P>
+Create the connections Array.
+<TT><STRONG>DXMakeGridConnections</STRONG></TT> sets up the element type.
+Place the connections in the Field.
+<PRE>
+51   a = DXMakeGridConnectionsV(dims, counts);
+52   if (!a)
+53      goto error;
+54   if (!DXSetComponentValue(f, "connections", (Object)a))
+55      goto error;
+56   a=NULL;
+</PRE>
+<P>
+Now create the position origin and deltas for the position (origin 0
+and deltas 1 in each dimension).
+<PRE>
+57   for (i=0; i&lt;dims; i++) {
+58      origins&#91;i&#93; = 0.0;
+59      for (j=0; j&lt;dims; j++) {
+60        if (i==j)
+61          deltas&#91;i*dims + j&#93; = 1.0;
+62        else
+63          deltas&#91;i*dims + j&#93; = 0.0;
+64      }
+65   }
+</PRE>
+<P>
+Create the positions Array and place it in the Field.
+<PRE>
+66
+67   a = DXMakeGridPositionsV(dims, counts, origins, deltas);
+68   if (!a)
+69     goto error;
+70   if (!DXSetComponentValue(f, "positions", (Object)a))
+71     goto error;
+72   a=NULL;
+</PRE>
+<P>
+<TT><STRONG>DXEndField</STRONG></TT> sets default attributes and creates
+the bounding box.
+<PRE>
+73   if (!DXEndField(f))
+74     goto error;
+75
+</PRE>
+<P>
+Set <TT><STRONG>f</STRONG></TT> as the first output of the
+module.
+<PRE>
+76   out&#91;0&#93;=f;
+77   return OK;
+78
+</PRE>
+<P>
+On error, delete <TT><STRONG>f</STRONG></TT> and
+<TT><STRONG>a</STRONG></TT>.
+<PRE>
+79  error:
+80   DXDelete((Object)f);
+81   DXDelete((Object)a);
+82   return ERROR;
+83 }
+</PRE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu031.htm">Previous Page</A> &#124; <A HREF="progu033.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu031.htm#PToC10">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

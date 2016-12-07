@@ -1,0 +1,54 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Run9 Examples #!N 
+#!EC #!N #!N #!N #!N Invalid-component handles have a variety of 
+uses, as shown in these examples. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o The call to DXCreate... creates an invalid-component 
+handle that stores the validity state of the data associated with 
+the positions. If there is an initial "invalid positions" component, its 
+contents initialize the handle. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N handle = 
+DXCreateInvalidComponentHandle(field, NULL, "positions") #!EF #!N #!N #!EC #!N #!I30 #!N o 
+Here the call to DXCreate... creates an invalid-component handle associated with 
+ #!F-adobe-times-bold-r-normal--18*   array #!EF (in this case a connections component). No initialization 
+takes place; the handle is initialized to "all valid." #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N array = (Array)DXGetComponentValue(field, NULL, "connections"); #!N handle = 
+DXCreateInvalidComponentHandle(array, NULL, NULL); #!EF #!N #!N #!EC #!N #!N Note that 
+in this example DXCreate... has no way of determining the component 
+name of  #!F-adobe-times-bold-r-normal--18*   array #!EF and, when the handle is converted 
+to an Array, cannot attach a "dep" or "ref" attribute. It 
+is therefore the caller's responsibility to attach the appropriate attribute before 
+placing the Array in a Field. You can determine whether a 
+"dep" or "ref" attribute is needed by examining the type of 
+the invalid Array:  #!F-adobe-times-bold-r-normal--18*   TYPE_INT #!EF or  #!F-adobe-times-bold-r-normal--18*   TYPE_UINT #!EF implies 
+references. As noted earlier, if this component is added to a 
+Field, any previous component of the same name must be explicitly 
+deleted. #!N #!N Since it is easier to create an invalid-component 
+handle from a Field and component name (as in the first 
+example),  #!F-adobe-times-bold-r-normal--18*   DXSaveInvalidComponent() #!EF can be used to add the modified 
+validity information to the Field. #!N #!I30 #!N o Here the 
+call to DXCreate... creates an invalid-component handle associated with the positions 
+component and initializes it with the invalid-positions Array. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N array = (Array)DXGetComponentValue(field, "positions"); #!N iarray = (Array)DXGetComponentValue(field, "invalid 
+positions"); #!N handle = DXCreateInvalidComponentHandle(array, iarray, NULL); #!EF #!N #!N #!EC 
+This example is similar in concept to the first except that 
+it prevents the user from calling  #!F-adobe-times-bold-r-normal--18*   DXSaveInvalidComponent() #!EF . #!N 
+#!I30 #!N o This example performs part of the Include operation: 
+it invalidates all connections that reference an invalid position. Any invalid 
+connections remain. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N inv_pos_h = DXCreateInvalidComponentHandle(field, NULL, 
+"positions"); #!N inv_con_h = DXCreateInvalidComponentHandle(field, NULL, "connections"); #!N if (!inv_pos_h || 
+!inv_con_h) #!N goto error; #!EF #!N #!N #!EC #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N for (i = 0; i < nConnections; i++) #!N 
+{ #!N elt = (int *) DXCalculateArrayEntry(array_handle, i, scratch); #!N for 
+(j=0; j < vertsPerElement; j++) #!N if (DXIsElementInvalid(inv_pos_h, elt[j])) #!N { 
+#!N DXSetElementInvalid(inv_con_h, i); #!N break; #!N } #!N } #!N if 
+(!DXSaveInvalidComponent(field, inv_con_h)) #!N goto error: #!EF #!N #!N #!EC #!N #!I30 
+#!N o The following example initially invalidates all connections, and then, 
+for each point, validates the connection that contains it. "IndexOfElementContainingPoint" is 
+a user-supplied routine. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N inv_con_h = DXCreateInvalidComponentHandle(field, 
+NULL, "connections"); #!N if (!inv_con_h) #!N goto error; #!N #!N DXSetAllInvalid(inv_con_h); 
+#!N #!N for (i=0; i < nPoints; i++) #!N { #!N 
+#!N j =  #!F-adobe-times-medium-r-normal--18*    #!F-adobe-times-medium-i-normal--18*   IndexOfElementContainingPoint #!EF #!EF (field, point[i]); #!N 
+#!N DXSetElementInvalid(inv_con_h, j); #!N break; #!N } #!N #!N if (!DXSaveInvalidComponent(field, 
+inv_con_h)) #!N goto error: #!EF #!N #!N #!EC #!N #!I0 #!N 
+#!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lgns,dxall1120 h Growing and Shrinking Partitioned Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

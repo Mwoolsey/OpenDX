@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu267.htm">Previous Page</A> &#124; <A HREF="progu269.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXPT" HREF="progu097.htm#PToC_362">DXPrintTimes</A></H3>
+<A NAME="IDX1953"></A>
+<A NAME="IDX1954"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Prints time marks.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+void DXPrintTimes()<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Prints a merged summary of
+the "global" time events recorded by
+<TT><STRONG>
+DXMarkTime
+</STRONG></TT>
+and the "local" time events recorded by
+<TT><STRONG>
+DXMarkTimeLocal
+</STRONG></TT>
+since the last call to
+<TT><STRONG>DXPrintTimes</STRONG></TT>.
+<P>
+For each global event, the following are printed:
+<UL COMPACT>
+<LI>The identifying tag that was specified by the
+<TT><STRONG>
+DXMarkTime
+</STRONG></TT>
+call
+<LI>The time of the last previous global event
+<LI>The difference in
+time between that previous event and this event
+<LI>The time of this event.
+</UL>
+<P>
+For each local event, the following are printed:
+<UL>
+<P><LI>The processor on which the event occurred
+<P><LI>The time of the last previous local
+event on this processor or the last
+previous global event, whichever occurred later
+<P><LI>The difference in
+time between that previous event and this event
+<P><LI>The time of this event.
+</UL>
+<P>
+All times are printed in seconds.  In addition, on some
+architectures the difference
+in user and system times are printed, as recorded
+by the operating system.  These times are not printed on the
+IBM POWER Visualization System,
+and appear as zeros.
+<P><STRONG>Return Value</STRONG>
+<P>
+None.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu204.htm#HDRDXGT">DXGetTime</A>,
+<A HREF="progu241.htm#HDRDXMT">DXMarkTime, DXMarkTimeLocal</A>,
+<A HREF="progu333.htm#HDRDXTT">DXTraceTime</A>
+</STRONG></TT>
+<P>
+<A HREF="progu056.htm#HDRTIMG">13.2 , "Timing"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu267.htm">Previous Page</A> &#124; <A HREF="progu269.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,48 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxep DXExtractParameter #!N #!N Function #!N #!N Determines whether 
+an Object can be converted to a specific value type and, 
+if so, returns the value in the user-provided buffer. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXExtractParameter(Object o, Type t, int 
+dim, int count, Pointer p) #!EF #!N #!N Functional Details #!N 
+#!N If Object  #!F-adobe-times-bold-r-normal--18*   o #!EF can be converted to Type 
+ #!F-adobe-times-bold-r-normal--18*   t #!EF with dimensionality  #!F-adobe-times-bold-r-normal--18*   dim #!EF and  #!F-adobe-times-bold-r-normal--18*   count 
+#!EF elements, this routine performs the conversion and returns the data 
+in the buffer pointed to by  #!F-adobe-times-bold-r-normal--18*   p #!EF . #!N 
+#!N For a successful conversion, Object  #!F-adobe-times-bold-r-normal--18*   o #!EF must be 
+either an Array or a String. If  #!F-adobe-times-bold-r-normal--18*   o #!EF is 
+an Array, then its Category must be  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL #!EF , 
+its rank must be either 0 or 1, and it must 
+have  #!F-adobe-times-bold-r-normal--18*   count #!EF items contained within. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   
+dim #!EF is greater than 1, then  #!F-adobe-times-bold-r-normal--18*   o #!EF 's 
+rank must be 1 and its shape must match  #!F-adobe-times-bold-r-normal--18*   dim 
+#!EF in order for this conversion to be successful. If  #!F-adobe-times-bold-r-normal--18*   
+dim #!EF is either 0 or 1, then both rank 0 
+and rank 1 shape 1 Arrays will match in size. #!N 
+#!N Once it is known that the sizes match, the Array's 
+Type is examined to determine whether it can be converted to 
+the Type specified by  #!F-adobe-times-bold-r-normal--18*   t #!EF . In general, smaller 
+signed (or unsigned) types can be converted to larger signed (or 
+unsigned) types as follows: #!N #!N  #!F-adobe-times-bold-r-normal--18*   TYPE_BYTE ==> TYPE_SHORT ==> 
+TYPE_INT ==> TYPE_FLOAT ==> TYPE_DOUBLE #!EF #!N #!N and #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   TYPE_UBYTE ==> TYPE_USHORT ==> TYPE_UINT #!EF #!N #!N Signed and 
+unsigned versions of the same type cannot be converted between each 
+other (e.g.,  #!F-adobe-times-bold-r-normal--18*   TYPE_BYTE #!EF and  #!F-adobe-times-bold-r-normal--18*   TYPE_UBYTE #!EF ). However, 
+unsigned types can be converted to larger signed types (e.g.,  #!F-adobe-times-bold-r-normal--18*   
+TYPE_UBYTE #!EF ==>  #!F-adobe-times-bold-r-normal--18*   TYPE_SHORT #!EF ). #!N #!N If the 
+Types are identical, the data contained in  #!F-adobe-times-bold-r-normal--18*   o #!EF is 
+copied to the buffer pointed to by  #!F-adobe-times-bold-r-normal--18*   p #!EF . 
+If (without violating any of the rules just given)  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF can be converted to the Type specified in  #!F-adobe-times-bold-r-normal--18*   t 
+#!EF , it is, and the converted data is copied to 
+the buffer (  #!F-adobe-times-bold-r-normal--18*   p #!EF ). #!N #!N If  #!F-adobe-times-bold-r-normal--18*   
+o #!EF is a String, then  #!F-adobe-times-bold-r-normal--18*   t #!EF must be 
+ #!F-adobe-times-bold-r-normal--18*   TYPE_STRING #!EF and  #!F-adobe-times-bold-r-normal--18*   dim #!EF must be either 0 
+or 1. If  #!F-adobe-times-bold-r-normal--18*   dim #!EF is 0, then the string 
+contained in  #!F-adobe-times-bold-r-normal--18*   o #!EF must consist only of a single 
+character. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+if the conversion is valid; otherwise, returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF without 
+setting an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxef,dxall1207 h DXExtractFloat  #!EL  ,  #!Ldxei,dxall1208 h DXExtractInteger  #!EL  ,  #!Ldxens,dxall1209 h DXExtractNthString  #!EL  ,  #!Ldxes,dxall1211 h DXExtractString  #!EL  ,  #!Ldxqacv,dxall1340 h DXQueryArrayConvert, DXQueryArrayConvertV  #!EL  ,  #!Ldxqp,dxall1347 h DXQueryParameter  #!EL  
+#!EF #!N #!N  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxes,dxall1211 h DXExtractString  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

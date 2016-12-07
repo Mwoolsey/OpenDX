@@ -1,0 +1,64 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsequenc 
+Sequencer #!N #!N Category #!N #!N  #!Lcatspe,dxall761 h Special  #!EL  #!N #!N Function #!N 
+#!N Generates a sequence of integers. #!N #!N Syntax #!N #!N 
+The sequencer is available in script mode and in the user 
+interface. However, it can be data driven only in the user 
+interface (see  #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  in IBM Visualization Data Explorer User's Guide, and 
+the example later in this section.) #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB min TAB integer TAB 1 TAB minimum of integer 
+sequence #!N TAB max TAB integer TAB 100 TAB maximum of 
+integer sequence #!N TAB delta TAB integer TAB 1 TAB numerical 
+interval between #!N TAB - TAB - TAB - TAB successive 
+integers in the #!N TAB - TAB - TAB - TAB 
+sequence #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB frame TAB integer TAB frame number #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module allows a user to "animate" a visualization. Through 
+inputs to the module (outputs from other tools or values set 
+in its configuration dialog box) the interactor can be "data driven." 
+#!N #!N If the interactor is not data-driven, its attributes are 
+taken from its  #!F-adobe-times-bold-r-normal--18*   Frame Control #!EF dialog box (accessed from 
+the  #!F-adobe-times-bold-r-normal--18*   ... #!EF button). #!N #!N The configuration dialog box 
+for Sequencer can be accessed by selecting the Sequencer icon in 
+the VPE and then choosing  #!F-adobe-times-bold-r-normal--18*   Configuration #!EF in the  #!F-adobe-times-bold-r-normal--18*   
+Edit #!EF menu. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+min #!EF  #!F-adobe-times-medium-r-normal--18*   and #!EF  #!F-adobe-times-bold-r-normal--18*   max #!EF #!EF #!I50 #!N 
+specify the minimum and maximum integer values (frame numbers) for an 
+"animation" sequence. By default,  #!F-adobe-times-bold-r-normal--18*   min #!EF = 1 and  #!F-adobe-times-bold-r-normal--18*   
+max #!EF = 100. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   delta #!EF 
+#!EF #!I50 #!N specifies the increment between integers in the output 
+sequence. If  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF are equal, 
+ #!F-adobe-times-bold-r-normal--18*   delta #!EF is ignored. By default,  #!F-adobe-times-bold-r-normal--18*   delta #!EF = 
+1. #!I0 #!N #!N Note: If  #!F-adobe-times-bold-r-normal--18*   min #!EF is specified, 
+and either  #!F-adobe-times-bold-r-normal--18*   min #!EF or  #!F-adobe-times-bold-r-normal--18*   max #!EF change, the 
+output value (  #!F-adobe-times-bold-r-normal--18*   frame #!EF ) is set to the 
+new  #!F-adobe-times-bold-r-normal--18*   min #!EF value and the Start and Stop values 
+in the Frame Control dialog box are set to the new 
+minimum and maximum, respectively. #!N #!N However, if  #!F-adobe-times-bold-r-normal--18*   min #!EF 
+is not specified and  #!F-adobe-times-bold-r-normal--18*   max #!EF is and then changes 
+on the next execution, the output frame value becomes the current 
+Start value as set in the Frame Control dialog box. #!N 
+#!N Script Language Example #!N #!N The following example uses the 
+Sequencer in script mode to display a series of isosurfaces. The 
+input to the macro do_each_frame is the frame number, which is 
+converted into an isosurface value by multiplying it by 0.05. The 
+initialization values are set by @startframe, @endframe, and @nextframe. The sequence 
+command invokes the macro for each step of the sequence. Finally, 
+the play command starts the Sequencer running. For more information about 
+using the sequencer in script mode, see  #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  in IBM Visualization 
+Data Explorer User's Guide. #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro 
+do_each_frame(frame) #!N ¤ #!N isovalue = frame*.05; #!N isosurface = Isosurface(data,isovalue); 
+#!N Display(isosurface,camera); #!N ‡ #!N #!N data = Import("/usr/lpp/dx/samples/data/cloudwater"); #!N camera 
+= AutoCamera(data); #!N @startframe = 1; #!N @endframe = 5; #!N 
+@nextframe = @startframe; #!N sequence do_each_frame(@frame); #!N play; #!EF #!N #!N 
+#!EC #!N #!N Example Visual Programs #!N #!N Many of the 
+example visual programs use a sequencer, including: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N ContoursAndCaption.net #!N GeneralImport1.net #!N MovingCamera.net #!EF #!N #!N #!EC #!N 
+#!N The following example visual program uses a data-driven Sequencer: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Imide_potential.net #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lsetglo,dxall940 h SetGlobal  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgecv DXGetEnumeratedComponentValue #!N #!N Function #!N #!N Provides access 
+to the components of a Field by index rather than by 
+name. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGetEnumeratedComponentValue(Field f, 
+int n, char **name) #!EF #!N #!N Functional Details #!N #!N 
+Provides access to all components of the Field  #!F-adobe-times-bold-r-normal--18*   f #!EF 
+without requiring a list of component names. We might, for example, 
+find all components that are dependent on positions by using  #!F-adobe-times-bold-r-normal--18*   
+DXGetEnumeratedComponentValue #!EF in a looping construct in which  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedComponentAttribute #!EF 
+(or, using the name returned by  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedComponentValue #!EF , using 
+ #!F-adobe-times-bold-r-normal--18*   DXGetComponentAttribute #!EF ) is used to access the "dep" attribute 
+of each component. #!N #!N The components of Field  #!F-adobe-times-bold-r-normal--18*   f 
+#!EF may be indexed by calling  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedComponentValue #!EF with successive 
+values of  #!F-adobe-times-bold-r-normal--18*   n #!EF until  #!F-adobe-times-bold-r-normal--18*   NULL #!EF is returned. 
+The name of the component is returned in  #!F-adobe-times-bold-r-normal--18*   *name #!EF 
+. #!N Note:  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedComponentAttribute #!EF would not be suitable for 
+use in the looping construct because it will return  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF if the  #!F-adobe-times-bold-r-normal--18*   n #!EF th component doesn't have the 
+specified component, even if there are more than  #!F-adobe-times-bold-r-normal--18*   n #!EF 
+components. #!N #!N #!N Return Value #!N #!N Returns the value 
+of the component or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF but does not 
+set an error code if  #!F-adobe-times-bold-r-normal--18*   n #!EF is out of 
+range. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgca,dxall1227 h DXGetComponentAttribute  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  
+,  #!Ldxgeca,dxall1232 h DXGetEnumeratedComponentAttribute  #!EL  #!EF #!N #!N  #!Lfieldsc,dxall1062 h Field Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxgem,dxall1234 h DXGetEnumeratedMember  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rudfcmps Using 
+Default Color Maps #!N #!N #!N When displaying non-delayed color images 
+in 8-bit windows, Display assumes that it can specify 225 individual 
+colors. If this number is not currently available in the shared 
+color map, Display will find the best approximations available. However, this 
+may lead to a visible degradation of image quality. Display may 
+instead use a private color map. This decision is based on 
+the worst-case approximation that it must use with the default color 
+map. If this approximation exceeds a threshold, a private color map 
+will be used. The approximation quality is measured as Euclidean distance 
+between the desired color and the best approximation for that color, 
+in an RGB unit cube. #!N #!N An environment variable, DX8BITCMAP, 
+sets the level at which the change to using a private 
+color map is made. The value of DX8BITCMAP should be a 
+number between 0 (zero) and 1 (one), and it represents the 
+Euclidean distance in RGB color space, normalized to 1, for the 
+maximum allowed discrepancy. If you set DX8BITCMAP to 1, then a 
+private color map will never be used. On the other hand, 
+if you set DX8BITCMAP to -1, then a private color map 
+will always be used. The default is 0.1. See also the 
+-8bitcmap command line option for Data Explorer in  #!Lclopts6,dxall744 t Table 6  #!EL  in IBM 
+Visualization Data Explorer User's Guide. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lgammaco,dxall815 h Gamma Correction  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

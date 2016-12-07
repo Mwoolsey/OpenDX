@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxloutp DXLOutput #!N #!N Category #!N #!N  #!Lcatdxl,dxall753 h DXLink  #!EL  #!N #!N 
+Function #!N #!N Sends a value to a remote application. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N DXLOutput(  #!F-adobe-times-bold-r-normal--18*   label #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   value #!EF ); #!EF #!N #!N #!EC #!N #!N 
+Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default 
+TAB Description #!EF #!N TAB label TAB string TAB none TAB 
+name associated with value #!N TAB value TAB value list or 
+string list TAB none TAB value sent to a DXLink application 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N This module sends variable values from a 
+visual program to a remote application that uses the DXLink library 
+of function calls (see  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  in IBM Visualization Data Explorer Programmer's 
+Reference). Values are sent as strings and in the same format 
+as that used by the Echo tool. #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   label #!EF #!EF #!I50 #!N is similar 
+in function to the label set in the DXLInput configuration dialog 
+box in that it associates a name (i.e., a global variable 
+name) with a value. This global variable name is used in 
+the  #!F-adobe-times-bold-r-normal--18*   DXLSetValueHandler() #!EF routine of the DXLink library (see  #!Lrcvmsg,dxall1149 h Receiving Messages from the Server  #!EL  
+in IBM Visualization Data Explorer Programmer's Reference). #!N #!N The remote 
+application should install a handler for the various  #!F-adobe-times-bold-r-normal--18*   label #!EF 
+ed global variable names in a program (see DXLSetValueHandler in  #!Lrcvmsg,dxall1149 h Receiving Messages from the Server  #!EL  
+in IBM Visualization Data Explorer Programmer's Reference). In general,  #!F-adobe-times-bold-r-normal--18*   label 
+#!EF values should be unique within a program. Note: If you 
+are using the Data Explorer user interface,  #!F-adobe-times-bold-r-normal--18*   label #!EF does 
+not appear as an input parameter but is set in the 
+ #!F-adobe-times-bold-r-normal--18*   notation #!EF field of the DXLOutput configuration dialog box. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   value #!EF #!EF #!I50 #!N is the 
+value that is to be converted to a string and sent 
+to a remote application. This value must be a Data Explorer 
+value list or string (e.g., a scalar, integer list, matrix, etc.). 
+It cannot be a Field or Group object. #!I0 #!N #!N 
+#!N #!N See Also  #!Ldxlinpt,dxall802 h DXLInput  #!EL  ,  #!Linput,dxall876 h Input  #!EL  ,  #!Loutput,dxall899 h Output  #!EL  ,  #!Ldxlinpn,dxall803 h DXLInputNamed  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldescrib,dxall805 h Describe  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

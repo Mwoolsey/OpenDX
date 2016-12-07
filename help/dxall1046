@@ -1,0 +1,164 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Rmdfsec Module Description Files #!N #!EC #!N #!N A module description 
+file (  #!F-adobe-times-bold-r-normal--18*   .mdf #!EF file) contains essential information about Data 
+Explorer modules, including their inputs and outputs. Data Explorer uses this 
+information for various executive and user-interface operations, among them the creation 
+of tool icons. #!N #!N A module description file consists of 
+one or more "definition" sections, one section for each module described. 
+Every section must contain the first two statements shown here, along 
+with  #!F-adobe-times-bold-r-normal--18*   INPUT  #!F-adobe-times-medium-r-normal--18*   and #!EF OUTPUT #!EF : #!N #!N 
+#!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N MODULE  #!F-adobe-times-bold-i-normal--18*   name #!EF #!N CATEGORY 
+ #!F-adobe-times-bold-i-normal--18*   category name #!EF #!N DESCRIPTION  #!F-adobe-times-bold-i-normal--18*   module description #!EF #!N 
+FLAGS  #!F-adobe-times-bold-i-normal--18*   optional flags #!EF #!N OUTBOARD "  #!F-adobe-times-bold-i-normal--18*   executable #!EF 
+" ;  #!F-adobe-times-bold-i-normal--18*   host #!EF #!N #!N LOADABLE "  #!F-adobe-times-bold-i-normal--18*   executable 
+#!EF " #!N #!N INPUT  #!F-adobe-times-bold-i-normal--18*   name #!EF [  #!F-adobe-times-bold-i-normal--18*   visible 
+#!EF ];  #!F-adobe-times-bold-i-normal--18*   type #!EF ;  #!F-adobe-times-bold-i-normal--18*   default #!EF ;  #!F-adobe-times-bold-i-normal--18*   
+description #!EF #!N #!N OPTIONS  #!F-adobe-times-bold-i-normal--18*   option1; option2;... #!EF ; #!N 
+#!N OUTPUT  #!F-adobe-times-bold-i-normal--18*   name #!EF [  #!F-adobe-times-bold-i-normal--18*   cache #!EF ];  #!F-adobe-times-bold-i-normal--18*   
+type #!EF ;  #!F-adobe-times-bold-i-normal--18*   description #!EF #!N REPEAT  #!F-adobe-times-bold-i-normal--18*   n #!EF 
+#!EF #!EF #!N #!N #!EC Note: A module description may contain 
+an  #!F-adobe-times-bold-r-normal--18*   OUTBOARD #!EF or a  #!F-adobe-times-bold-r-normal--18*   LOADABLE #!EF statement, but 
+not both. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   MODULE 
+#!EF #!EF #!I50 #!N Is required and must be the first 
+statement in the definition section. It assigns a name to the 
+module being described. #!N #!N  #!F-adobe-times-medium-i-normal--18*   name #!EF must be a 
+single alphanumeric word, with a letter for the first character. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   CATEGORY #!EF #!EF #!I50 #!N Is required. 
+It assigns the module to a Data Explorer or user-defined category. 
+(Categories function as tool menus in the VPE window; see  #!Lundus2,dxall298 h Graphical User Interface: Important Windows  #!EL  
+in IBM Visualization Data Explorer User's Guide.) #!N #!N  #!F-adobe-times-medium-i-normal--18*   category 
+name #!EF may contain more than one word (e.g., "Import and 
+Export"). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DESCRIPTION #!EF #!EF #!I50 #!N 
+Is optional. It serves as a help function. #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+module description #!EF should briefly describe the module function. Brevity is 
+recommended since this description shares limited space with other information (accessed 
+with the  #!F-adobe-times-bold-r-normal--18*   Description... #!EF button in the module's configuration dialog 
+box). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   FLAGS #!EF #!EF #!I50 #!N 
+Is optional. Most modules do not need to set flags. #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   PIN #!EF 
+: Specifies that a module is always to execute on the 
+same processor. Applicable only to multiprocessor systems. #!N #!I30 #!N o 
+ #!F-adobe-times-bold-r-normal--18*   PERSISTENT #!EF : Specifies that the outboard  #!Rprsflag executable is 
+not to be terminated after each execution of the visual program. 
+#!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   ERR_CONT #!EF : Specifies that modules 
+downstream are to continue to execute even when this module returns 
+ #!F-adobe-times-bold-r-normal--18*   ERROR #!EF . #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   SIDE_EFFECT #!EF 
+: Specifies that the module has side effects and must execute 
+each time the visual program is executed, even if its inputs 
+have not changed. #!N #!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   ASYNC 
+#!EF : Identifies the module as being able to initiate execution 
+in response to an external event. (See also  #!Lasynmod,dxall1048 h Asynchronous Modules  #!EL  .) #!N 
+#!I0 #!N #!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   OUTBOARD #!EF 
+#!EF #!I50 #!N Is optional. It identifies the module as a 
+separate executable program. Note: If this statement is included, the module 
+definition must not have a  #!F-adobe-times-bold-r-normal--18*   LOADABLE #!EF statement (see below). 
+#!N #!N "  #!F-adobe-times-medium-i-normal--18*   executable #!EF " specifies the name of 
+the executable and any arguments to be passed. (Quotation marks are 
+required for executable specifications containing spaces or tabs; otherwise they are 
+optional.) Note: If you are running Data Explorer on the IBM 
+POWER Visualization System**, the name of the executable must be preceded 
+by the term "os," and the combination enclosed in quotation marks 
+(e.g., "os executable"). #!N #!N  #!F-adobe-times-medium-i-normal--18*   host #!EF is optional and 
+specifies a remote machine on which the executable is to be 
+run. The default host is the one on which the executive 
+runs. (See also  #!Lclo,dxall998 h ...as an outboard module  #!EL  and  #!Lclo2,dxall1051 h Compiling, Linking, and Debugging an Outboard Module  #!EL  .) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   LOADABLE #!EF #!EF #!I50 #!N Is optional. It identifies the 
+module as being runtime loadable (i.e., compiled separately and loaded into 
+Data Explorer at run time. Note: If this statement is included, 
+the module definition must not have an  #!F-adobe-times-bold-r-normal--18*   OUTBOARD #!EF statement 
+(see above). #!N #!N "  #!F-adobe-times-medium-i-normal--18*   executable #!EF " specifies the 
+name of the executable and any arguments to be passed. (Quotation 
+marks are required for executable specifications containing spaces or tabs; otherwise 
+they are optional.) #!N #!N See also  #!Lclrtlm,dxall999 h ...as a runtime-loadable module  #!EL  and  #!Lmodruns,dxall1059 h Compiling, Linking, and Debugging a Runtime-loadable Module  #!EL  #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   INPUT #!EF #!EF #!I50 #!N Is required 
+for each input parameter (i.e., two input parameters, two statements). A 
+statement consists of four fields separated by semicolons: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1.  #!F-adobe-times-medium-i-normal--18*   name #!EF (of a 
+parameter) must be one word and must conform to the executive's 
+lexical conventions (see  #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  in IBM Visualization Data Explorer User's Guide). 
+#!N #!N [  #!F-adobe-times-medium-i-normal--18*   visible #!EF ] is optional.  #!F-adobe-times-bold-r-normal--18*   visible: 
+#!EF  #!F-adobe-times-bold-i-normal--18*   n #!EF specifies the accessibility and initial visibility of 
+input tabs: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 0: 
+Not initially visible. #!N #!I30 #!N 1: Initially visible (default). #!N 
+#!I30 #!N 2: Not available to the user interface. #!N #!I0 
+#!N #!EF #!N #!N #!N A hidden parameter (  #!F-adobe-times-bold-r-normal--18*   visible:0 
+#!EF ) can be exposed with the  #!F-adobe-times-bold-r-normal--18*   Expand #!EF button 
+in the module's configuration dialog box. Less commonly used parameters are 
+often hidden by default. #!N #!I30 #!N 2.  #!F-adobe-times-bold-i-normal--18*   type #!EF 
+specifies the type(s) of the input and is used for type 
+matching in the Visual Program Editor. The valid types are: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N camera integer list scalar value #!N 
+field matrix scalar list value list #!N flag matrix list series 
+vector #!N group object string vector list #!N integer #!EF #!EF 
+#!N #!N #!EC #!N #!N To specify more than one type, 
+use the word  #!F-adobe-times-bold-r-normal--18*   or #!EF as a separator (see, for 
+example, the description file for Filter in  #!Lexmdf,dxall1047 h Examples of Module Description Files  #!EL  ). #!N #!N 
+If the type of the input value is not explicit (e.g., 
+a string without quotation marks or a vector without brackets), the 
+user interface attempts to match the input against the type(s) specified 
+in the  #!F-adobe-times-bold-r-normal--18*   INPUT #!EF statement. It reads from left to 
+right and stops at the first successful match. For this reason, 
+ #!F-adobe-times-bold-r-normal--18*   string #!EF should be specified last, because any series of 
+characters can always be converted to a string by adding double-quotation 
+marks. #!N #!I30 #!N 3.  #!F-adobe-times-bold-i-normal--18*   default #!EF identifies the value 
+to be used if none has been specified. #!N Note: This 
+part of the  #!F-adobe-times-bold-r-normal--18*   INPUT #!EF statement is informational only: it 
+is the module writer's responsibility to implement a default value. #!N 
+By convention, parentheses identify a description of default behavior rather than 
+an actual value. If no default is applicable, specify  #!F-adobe-times-bold-r-normal--18*   (no 
+default) #!EF . If the parameter is required, specify  #!F-adobe-times-bold-r-normal--18*   (none) 
+#!EF . #!N #!I30 #!N 4.  #!F-adobe-times-bold-i-normal--18*   description #!EF should contain 
+a short phrase describing the parameter. #!N #!I0 #!N #!EF #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   OPTIONS #!EF #!EF #!I50 #!N Is 
+optional. It identifies a list of possible values for the parameter. 
+This list can be accessed by clicking on the  #!F-adobe-times-bold-r-normal--18*   ... 
+#!EF button to the right of the  #!F-adobe-times-bold-r-normal--18*   Value #!EF field 
+in the module's configuration dialog box. #!N #!N Options in the 
+list are separated by a semicolon (;). If the option itself 
+includes a semicolon, use a back slash (\) to escape it 
+with. To accommodate inputs that have more options than will fit 
+on a single line, use multiple OPTIONS statements. If the REPEAT 
+statement is used, the OPTIONS statement must precede it. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   OUTPUT #!EF #!EF #!I50 #!N Is required for 
+each output parameter (i.e., two output parameters, two statements). A statement 
+consists of three fields separated by semicolons: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1.  #!F-adobe-times-bold-i-normal--18*   name #!EF (of a parameter) 
+must be one word and must conform to the executive's lexical 
+conventions (see  #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  in IBM Visualization Data Explorer User's Guide). #!N 
+#!N [  #!F-adobe-times-bold-i-normal--18*   attribute #!EF ] is optional.  #!F-adobe-times-bold-r-normal--18*   cache: #!EF 
+ #!F-adobe-times-bold-i-normal--18*   n #!EF specifies the caching to be performed by the 
+executive: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 0: Do 
+not cache the output. #!N #!I30 #!N 1: Cache all outputs 
+(default). #!N #!I30 #!N 2: Cache the output of the last 
+execution only. #!N #!I0 #!N #!EF #!N #!N #!N Output caching 
+is similar to module caching (see  #!Lfca,dxall543 h Function Call Attributes  #!EL  in IBM Visualization Data 
+Explorer User's Guide.) Cache specifications for outputs override those for the 
+module. #!N #!I30 #!N 2.  #!F-adobe-times-bold-i-normal--18*   type #!EF specifies the type 
+of the output and is used for type matching in the 
+Visual Program Editor. The valid types are: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   #!N camera integer list scalar value #!N field matrix scalar 
+list value list #!N flag matrix list series vector #!N group 
+object string vector list #!N integer #!EF #!EF #!N #!N #!EC 
+#!N #!N To specify more than one type, use the word 
+ #!F-adobe-times-bold-r-normal--18*   or #!EF as a separator. #!N #!I30 #!N 3.  #!F-adobe-times-bold-i-normal--18*   
+description #!EF should be a short phrase describing the parameter. #!N 
+#!I0 #!N #!EF #!N #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   REPEAT 
+#!EF #!EF #!I50 #!N Is optional. It specifies some number of 
+ #!F-adobe-times-bold-r-normal--18*   INPUT #!EF or  #!F-adobe-times-bold-r-normal--18*   OUTPUT #!EF statements to be repeated. 
+The parameter  #!F-adobe-times-bold-i-normal--18*   n #!EF specifies the number of statements (input 
+or output) affected: "1" specifies the first immediately preceding statement; "2," 
+the first and second preceding statements; and so on. #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   REPEAT #!EF must come immediately after  #!F-adobe-times-bold-r-normal--18*   INPUT #!EF (after 
+the last input statement if there are two or more) or 
+after  #!F-adobe-times-bold-r-normal--18*   OPTIONS #!EF if  #!F-adobe-times-bold-r-normal--18*   OPTIONS #!EF is used. The 
+same requirement applies to  #!F-adobe-times-bold-r-normal--18*   OUTPUT #!EF . That is, one 
+ #!F-adobe-times-bold-r-normal--18*   REPEAT #!EF for all inputs and another for all outputs. 
+#!N #!N The number of repetitions of a single statement is 
+determined by the number of corresponding tabs on the module icon 
+(up to a maximum of 21). Thus,  #!F-adobe-times-bold-r-normal--18*   REPEAT #!EF makes 
+it possible to add input and output tabs to (or delete 
+them from) a module icon, thereby adding or deleting inputs and 
+outputs. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lexmdf,dxall1047 h Examples of Module Description Files  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

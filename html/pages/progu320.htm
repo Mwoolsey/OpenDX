@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu319.htm">Previous Page</A> &#124; <A HREF="progu321.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXSP" HREF="progu097.htm#PToC_414">DXSetPart</A></H3>
+<A NAME="IDX2093"></A>
+<A NAME="IDX2094"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Adds a Field to an Object.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXSetPart(Object o, int n, Field field)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Performs a depth-first traversal of the Object
+<TT><STRONG>c</STRONG></TT>,
+and replaces the
+<TT><STRONG>n</STRONG></TT>th occurrence of a subObject with class
+<TT><STRONG>CLASS_FIELD</STRONG></TT> with the Field
+<TT><STRONG>field</STRONG></TT>
+given.  If the root of the Object given is not one of
+<TT><STRONG>CLASS_GROUP</STRONG></TT>,
+<TT><STRONG>CLASS_XFORM</STRONG></TT>,
+<TT><STRONG>CLASS_CLIP</STRONG></TT>,
+or
+<TT><STRONG>CLASS_SCREEN</STRONG></TT>, this function has no effect.
+<P>
+For applying a function to every Field in a Group,
+<TT><STRONG>DXProcessParts</STRONG></TT> is a more efficient interface.
+<P>
+The parts of a Group may be indexed by calling
+<TT><STRONG>DXSetPart</STRONG></TT> with successive values of
+<TT><STRONG>n</STRONG></TT>,
+starting
+at 0 until
+<TT><STRONG>NULL</STRONG></TT> is returned, provided the replacement part
+contains the same number of subObjects of
+<TT><STRONG>CLASS_FIELD</STRONG></TT>.  This is because the replacement part
+will be traversed (and counted) in subsequent calls to
+<TT><STRONG>DXSetPart</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>o</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+and
+sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu191.htm#HDRDXGP">DXGetPart</A>,
+<A HREF="progu192.htm#HDRDXGPC">DXGetPartClass</A>,
+<A HREF="progu271.htm#HDRDXPP">DXProcessParts</A>
+</STRONG></TT>
+<P>
+<A HREF="progu045.htm#HDRPRTS">"Parts"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu319.htm">Previous Page</A> &#124; <A HREF="progu321.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

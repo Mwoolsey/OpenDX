@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcctrlex 
+Cache Control: Executive #!N #!N #!N In general, it is not 
+necessary to change how the executive caches intermediate results. However, in 
+a few cases, it may be advantageous to do so. For 
+example, if you are reading a live data feed into your 
+program, it is probably not necessary to cache the downstream outputs. 
+#!N #!N You can change how and if the executive caches 
+intermediate output values by opening the Configuration dialog box of a 
+module and changing the option menu to the right of each 
+output. You can also choose  #!F-adobe-times-bold-r-normal--18*   Output Cacheability #!EF from the 
+ #!F-adobe-times-bold-r-normal--18*   Edit #!EF menu of the VPE, and set the cacheability 
+of a group of modules, show the cacheability of a group 
+of modules, or ask Data Explorer to use a heuristic to 
+automatically optimize the caching for the current visual program. #!N #!N 
+In general, it is most efficient to cache only the results 
+of the last module in a single file line of modules; 
+for example to cache the output of Isosurface, but not Import. 
+Note that if you do this, however, if you need to 
+change the isosurface value, the data file will need to be 
+reimported, slowing execution. #!N #!N If you want to turn off 
+caching altogether you can use the -cache off command-line option to 
+Data Explorer. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ltall589,dxall589 h Cache Control: Display  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

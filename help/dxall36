@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rall35 A simple three-dimensional field #!N #!EC #!N #!N In this 
+second example, we will import a three-dimensional field on a regular 
+grid. The data describe the cloud water density in a simulation 
+of a storm. #!N #!N As before, place an Import tool 
+from the Import and Export Category on the canvas. Place an 
+Isosurface tool from the Realization Category below Import. Place an Image 
+tool from the Rendering Category below Isosurface. Connect the output of 
+Import to the first input of Isosurface, and connect the output 
+of Isosurface to the input of Image. #!N #!N Open the 
+configuration dialog box for Import, and type in the  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF parameter as /usr/lpp/dx/samples/data/cloudwater. #!N #!N Execute. You will see an 
+isosurface (constant value surface) of the cloudwater density. Not that if 
+you are using the same Image tool as in the previous 
+example, you may need to "reset the camera" for the new 
+data set. Choose  #!F-adobe-times-bold-r-normal--18*   Reset #!EF from the  #!F-adobe-times-bold-r-normal--18*   Options #!EF 
+menu of the Image window. #!N #!N Open the configuration dialog 
+box for Isosurface. Notice that the default for the isovalue (the 
+second input) is the data mean. Change it to the value 
+0.1 by typing over the  #!F-adobe-times-bold-r-normal--18*   Value #!EF field. Execute. #!N 
+#!N For more complex visualizations, continue with the examples in  #!Lt2ddat,dxall42 h Visualizing 2-Dimensional Data  #!EL  
+,  #!Lt3ddat,dxall49 h Visualizing 3-Dimensional Data  #!EL  , and  #!Lttandt,dxall56 h Tasks and Tools  #!EL  . A short tutorial on importing 
+data may be found in  #!Ltimpdat,dxall37 h Importing Data  #!EL  and  #!Ltyod,dxall41 h Importing Your Own Data  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltimpdat,dxall37 h Importing Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

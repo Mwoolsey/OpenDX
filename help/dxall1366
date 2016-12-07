@@ -1,0 +1,12 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsav DXSetAllValid 
+#!N #!N Function #!N #!N Sets all elements valid. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXSetAllValid(InvalidComponentHandle handle) #!EF #!N #!N 
+Functional Details #!N #!N Sets the validity state of all elements 
+in invalid-component handle  #!F-adobe-times-bold-r-normal--18*   handle #!EF to  #!F-adobe-times-bold-r-normal--18*   DATA_VALID #!EF . 
+#!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or 
+returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets an error code. #!N #!N 
+See Also  #!F-adobe-times-bold-r-normal--18*    #!Ldxcich,dxall1191 h DXCreateInvalidComponentHandle  #!EL  ,  #!Ldxfich,dxall1215 h DXFreeInvalidComponentHandle  #!EL  #!EF #!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

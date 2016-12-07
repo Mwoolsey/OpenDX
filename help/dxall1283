@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxihe DXInsertHashElement #!N #!N Function #!N #!N Inserts an element 
+into a hash table. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Error DXInsertHashElement(HashTable hashtable, Element element) #!EF #!N #!N Functional Details #!N 
+#!N If a hash function was provided at the time the 
+hash table was created, then that function will be used to 
+derive a pseudokey from the contents of  #!F-adobe-times-bold-r-normal--18*   element #!EF . 
+If no hash function was provided, then the first long integer 
+of  #!F-adobe-times-bold-r-normal--18*   element #!EF is assumed to be the pseudokey. #!N 
+#!N If there is already an element stored in the hash 
+table with that pseudokey, the behavior will depend on whether or 
+not a compare function was provided at the time the hash 
+table was created. If one was not provided, the already-stored element 
+will be overwritten with the new one. If a compare function 
+was provided, then it will be used to determine whether the 
+keys associated with the elements are in fact unique. If they 
+are, then each will be stored, up to a maximum of 
+16 for a given pseudokey. #!N #!N  #!F-adobe-times-bold-r-normal--18*   Element #!EF is 
+defined as: #!N  #!F-adobe-times-bold-r-normal--18*   typedef Pointer Element; #!EF #!N #!N Return 
+Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR 
+#!EF and sets an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxch,dxall1190 h DXCreateHash  #!EL  #!EF #!N #!N  #!Lhash,dxall1121 h Hashing  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxie,dxall1284 h DXInterpolate  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

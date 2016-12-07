@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxssm DXSetSeriesMember 
+#!N #!N Function #!N #!N Adds an indexed member to a 
+Series Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Series DXSetSeriesMember(Series 
+s, int n, double position, Object o) #!EF #!N #!N Functional 
+Details #!N #!N Adds the Object  #!F-adobe-times-bold-r-normal--18*   o #!EF as the 
+ #!F-adobe-times-bold-r-normal--18*   n #!EF th member (as specified by the zero-based index 
+ #!F-adobe-times-bold-r-normal--18*   n #!EF ) to the Series  #!F-adobe-times-bold-r-normal--18*   s #!EF . 
+It also sets the Series position to the floating-point value  #!F-adobe-times-bold-r-normal--18*   
+position #!EF . A Series is intended to represent a single 
+Field sampled across some parameter, such as time or temperature ( 
+ #!F-adobe-times-bold-r-normal--18*   position #!EF contains the value of this sampled parameter). #!N 
+#!N Generally, members of a Series  #!F-adobe-times-bold-r-normal--18*   s #!EF must be 
+added sequentially, with indices starting at 0. If, however, an already 
+existing index is given in  #!F-adobe-times-bold-r-normal--18*   n #!EF , then that 
+member in  #!F-adobe-times-bold-r-normal--18*   s #!EF will be replaced by the Object 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF . The type of a Series is set 
+the first time a typed member is added; subsequent members are 
+required to match this type. #!N #!N The index  #!F-adobe-times-bold-r-normal--18*   n 
+#!EF provides a convenient mechanism for indexing the members of a 
+Series. The position value is actually a piece of metadata to 
+be associated with each member of the Series, which when used 
+with the values associated with the other members, provides a means 
+of generating intermember data (e.g., when using the Streakline module). #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   DXSetSeriesMember #!EF does not enforce any restrictions on the 
+Series  #!F-adobe-times-bold-r-normal--18*   position #!EF value; duplicate or non-monotonic values can be 
+set. However, many Realization modules require the position values to form 
+a monotonic sequence, and if the value does represent time, some 
+modules also require the values to be positive. #!N #!N For 
+an example of one use of Series, see  #!Lstreakl,dxall954 h Streakline  #!EL  in IBM 
+Visualization Data Explorer User's Reference. #!N #!N Return Value #!N #!N 
+Returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgmc,dxall1247 h DXGetMemberCount  #!EL  ,  #!Ldxgsm,dxall1266 h DXGetSeriesMember  #!EL  ,  #!Ldxns,dxall1326 h DXNewSeries  #!EL  , 
+ #!Ldxsem,dxall1376 h DXSetEnumeratedMember  #!EL  ,  #!Ldxsm,dxall1382 h DXSetMember  #!EL  #!N #!N  #!Lstreakl,dxall954 h Streakline  #!EL  in IBM Visualization Data Explorer 
+User's Reference #!EF #!N #!N  #!Lssgs,dxall1065 h Series Groups  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxssa,dxall1392 h DXSetStringAttribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

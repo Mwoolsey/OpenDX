@@ -1,0 +1,62 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rexport Export #!N #!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N Function 
+#!N #!N Writes an external data file. #!N #!N Syntax #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Export(  #!F-adobe-times-bold-r-normal--18*   object, name, format #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+object TAB object TAB none TAB object to write #!N TAB 
+name TAB string TAB none TAB file name to write to 
+#!N TAB format TAB string TAB "dx" TAB format in which 
+to write the file #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N The Export module 
+writes  #!F-adobe-times-bold-r-normal--18*   object #!EF to the file  #!F-adobe-times-bold-r-normal--18*   name #!EF in 
+the specified  #!F-adobe-times-bold-r-normal--18*   format #!EF . #!N #!N You can specify 
+ #!F-adobe-times-bold-r-normal--18*   format #!EF as dx, array, or vrml. #!N #!N If 
+ #!F-adobe-times-bold-r-normal--18*   format #!EF = dx, this specification can be followed by 
+one or more of the following modifiers: #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   byteorder #!EF #!I50 #!N Can be "msb" or 
+"lsb" for most significant byte first or least significant byte first, 
+respectively. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   dxformat #!EF #!I50 #!N Can be 
+"ieee," or "text" for IEEE floating point or ASCII format, respectively. 
+You can also specify "ascii" as a synonym for "text," and 
+"binary" as a synonym for "ieee." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-i-normal--18*   
+where #!EF #!EF #!I50 #!N Can be one of the following 
+three keywords: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "follows" #!EF 
+#!I50 #!N The data for each object follows the header for 
+that object. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "1" #!EF #!I50 #!N The 
+data for each object is contained in a separate data section 
+in the file. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "2" #!EF #!I50 #!N 
+The data for each object is contained in a separate file. 
+#!I0 #!N #!N For "follows" and "1," the module writes a 
+single file with the file name (  #!F-adobe-times-medium-i-normal--18*   name #!EF .dx). 
+For "2," the module writes files. The object headers are written 
+to  #!F-adobe-times-medium-i-normal--18*   name #!EF .dx; the data are written to  #!F-adobe-times-medium-i-normal--18*   
+name #!EF .bin (binary data) or  #!F-adobe-times-medium-i-normal--18*   name #!EF .data (text 
+data). For more information, see  #!Limd,dxall618 h Importing Data: File Formats  #!EL  in IBM Visualization Data Explorer 
+User's Guide. #!I0 #!N #!N #!N #!N If  #!F-adobe-times-bold-r-normal--18*   format #!EF 
+= "array," this specification can be followed by one or both 
+of the following modifiers: #!N #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-i-normal--18*   quotes #!EF #!EF #!I50 #!N Puts quotation marks around 
+string data. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-i-normal--18*   headers #!EF #!EF #!I50 
+#!N Puts a header of descriptive information at the top of 
+the file. #!I0 #!N #!N #!N #!N The data are written 
+out in ASCII spreadsheet format (in columns). Only position-dependent data are 
+supported. All position-dependent data are written to the output file. The 
+first column will contain the positions themselves. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   
+object #!EF contains a group of fields, these are written out 
+one after the other. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   format #!EF = 
+"vrml," or the extension of the filename is .wrl, then a 
+VRML 2.0 format file will be written. Because VRML files are 
+written out in ASCII they can be very large, so you 
+should reduce the number of polygons before exporting if possible, for 
+example by using SimplifySurface. The object exported must be a field 
+or group with two- or three-dimensional positions. Data Explorer objects are 
+exported using VRML geometry nodes IndexFaceSet, IndexLineSet, PointSet, or ElevationGrid depending 
+on the connections element type and regularity of positions. Colors and 
+normals are exported with each object, if they exist. #!N #!N 
+Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingSwitchAndRoute.net #!N #!N 
+SimplifySurface.net #!N #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Limport,dxall871 h Import  #!EL  ,  #!Lsimpsur,dxall947 h SimplifySurface  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lextract,dxall845 h Extract  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

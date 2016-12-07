@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxren DXRename #!N #!N Function #!N 
+#!N Renames a component in a Field. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXRename(Object o, char *oldname, char *newname) #!EF 
+#!N #!N Functional Details #!N #!N Renames a component of the 
+specified  #!F-adobe-times-bold-r-normal--18*   oldname #!EF to  #!F-adobe-times-bold-r-normal--18*   newname #!EF , for each 
+Field in Object  #!F-adobe-times-bold-r-normal--18*   o #!EF . Object  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+can be a single Field or any Object that can contain 
+Fields (for example, Groups or Series). If a  #!F-adobe-times-bold-r-normal--18*   newname #!EF 
+already exists in a Field, it is replaced. #!N #!N Return 
+Value #!N #!N It is an error if no components of 
+the specified  #!F-adobe-times-bold-r-normal--18*   name #!EF are found in any of the 
+Fields of  #!F-adobe-times-bold-r-normal--18*   o #!EF . Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF on 
+success, or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets the error code 
+to indicate an error. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxexi,dxall1204 h DXExists  #!EL  ,  #!Ldxext,dxall1206 h DXExtract  #!EL  ,  #!Ldxins,dxall1282 h DXInsert  #!EL  ,  #!Ldxrem,dxall1355 h DXRemove  #!EL  ,  #!Ldxrep,dxall1358 h DXReplace  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  
+,  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  ,  #!Ldxswp,dxall1397 h DXSwap  #!EL  #!EF #!N #!N  #!Lctmn,dxall1089 h Component Manipulation  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxrndr,dxall1357 h DXRender  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

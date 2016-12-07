@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu322.htm">Previous Page</A> &#124; <A HREF="progu324.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXSPE" HREF="progu097.htm#PToC_417">DXSetPerspective,
+DXGetPerspective</A></H3>
+<A NAME="IDX2098"></A>
+<A NAME="IDX2099"></A>
+<A NAME="IDX2100"></A>
+<A NAME="IDX2101"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Set or retrieve a perspective view.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Camera DXSetPerspective(Camera c, double fov, double aspect)<BR>
+Camera DXGetPerspective(Camera c, float *fov, float *aspect)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+A camera defines the position and orientation of the viewer, the
+volume of interest of the Object being viewed, and the size
+of the image to contain the resulting view.
+<P>
+<TT><STRONG>DXSetPerspective</STRONG></TT> defines the volume of interest
+of a perspective camera
+<TT><STRONG>c</STRONG></TT>.
+This is a pyramid with an apex at the <TT><STRONG>from</STRONG></TT> position,
+and a base centered on <TT><STRONG>to</STRONG></TT> point, perpendicular
+to the <TT><STRONG>to</STRONG></TT>-<TT><STRONG>from</STRONG></TT> vector.
+The width of the base is defined by the angle formed by the sides of
+the pyramid at the apex and the distance between the
+<TT><STRONG>to</STRONG></TT> and <TT><STRONG>from</STRONG></TT>
+points.
+This angle is also known as the "field of view" and is specified
+by the <TT><STRONG>fov</STRONG></TT> parameter.
+<P>
+The <TT><STRONG>fov</STRONG></TT> is defined as twice the tangent of half
+the angle (e.g, for a 90-degree sweep, the <TT><STRONG>fov</STRONG></TT>
+setting should be 2 * tan(45-degrees), or 2.0).
+The <TT><STRONG>fov</STRONG></TT> can also be thought of as the ratio of the
+width of the base to the distance from the viewer (e.g., for a
+view of a 20-meter wide area from a distance of 10 meters,
+the <TT><STRONG>fov</STRONG></TT> setting should be 20/10,
+or 2.0).
+The height is defined by width of the base times the
+<TT><STRONG>aspect</STRONG></TT>.
+With a perspective camera, objects appear smaller with increasing
+distance.
+<P>
+<TT><STRONG>DXGetPerspective</STRONG></TT> returns the
+<TT><STRONG>fov</STRONG></TT> and
+<TT><STRONG>aspect</STRONG></TT> parameters of a perspective camera
+<TT><STRONG>c</STRONG></TT>.  If
+<TT><STRONG>fov</STRONG></TT> is not
+<TT><STRONG>NULL</STRONG></TT>, returns the camera fov in
+<TT><STRONG>*fov</STRONG></TT>.  If <TT><STRONG>aspect</STRONG></TT> is not
+<TT><STRONG>NULL</STRONG></TT>, returns the camera aspect ratio in
+<TT><STRONG>*aspect</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+<TT><STRONG>DXSetPerspective</STRONG></TT> returns the camera or returns
+<TT><STRONG>NULL</STRONG></TT> and sets an error code.
+<P>
+<TT><STRONG>DXGetPerspective</STRONG></TT> returns as follows:
+<UL COMPACT>
+<LI><TT><STRONG>If the object is a perspective camera&#58;</STRONG></TT>
+returns the camera and the camera parameters.
+<LI><TT><STRONG>If the object is not a perspective camera&#58;</STRONG></TT>
+returns <TT><STRONG>NULL</STRONG></TT> without setting an error code.
+<LI><TT><STRONG>If the object is not a valid camera&#58;</STRONG></TT>
+returns <TT><STRONG>NULL</STRONG></TT> and sets an error code.
+</UL>
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu160.htm#HDRDXGCMP">DXGetCameraMatrix, DXGetCameraRotation,
+DXGetCameraMatrixWithFuzz</A>,
+<A HREF="progu246.htm#HDRDXNCA">DXNewCamera</A>,
+<A HREF="progu292.htm#HDRDXRNDR">DXRender</A>,
+<A HREF="progu319.htm#HDRDXSOC">DXSetOrthographic, DXGetOrthographic</A>,
+<A HREF="progu324.htm#HDRDXSRN">DXSetResolution, DXGetCameraResolution</A>,
+<A HREF="progu328.htm#HDRDXSVW">DXSetView, DXGetView</A>
+</STRONG></TT>
+<P>
+<A HREF="progu081.htm#HDRCAMSEC">16.7 , "Camera Class"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu322.htm">Previous Page</A> &#124; <A HREF="progu324.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

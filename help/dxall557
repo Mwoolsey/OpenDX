@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rvalsv Variables as Left-Side Values #!N #!EC #!N #!N All 
+assignments in a macro's environment affect variables that are local to 
+the macro. These variables, if they do not already exist, are 
+created in the macro's environment when they are first used on 
+the left-hand side of an assignment expression. Thus, a variable outside 
+of a macro cannot be modified with that macro. #!N #!N 
+The only way to make such a change is to propagate 
+a new value out of the macro using its output formal 
+parameters, and to use this returned value in an assignment statement 
+in the enclosing environment. #!N #!N Given these semantics, it is 
+possible for a local version of a variable to come into 
+existence and obscure a more global version of a variable, midway 
+through a macro's execution. #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lvarsv,dxall558 h Variables as Right-Side Values  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

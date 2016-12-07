@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxsbc DXSetBackgroundColor, DXGetBackgroundColor #!N #!N Function #!N #!N Operate on a 
+scene background color. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Camera 
+DXSetBackgroundColor(Camera c, RGBColor *background) Camera DXGetBackgroundColor(Camera c, RGBColor background) #!EF #!N 
+#!N Functional Details #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXSetBackgroundColor #!EF sets a scene 
+background color for use at render time.  #!F-adobe-times-bold-r-normal--18*   DXRender #!EF applies 
+ #!F-adobe-times-bold-r-normal--18*   background #!EF to all pixels at the start of rendering 
+so that unobscured pixels will have this color in the final 
+image. The unset default background color is black, {0,0,0}. #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXGetBackgroundColor #!EF returns the value of the camera background color 
+in  #!F-adobe-times-bold-r-normal--18*   *background #!EF .  #!F-adobe-times-bold-r-normal--18*   DXRender #!EF initializes the output 
+image to this color when using camera  #!F-adobe-times-bold-r-normal--18*   c #!EF . 
+#!N #!N Return Value #!N #!N Return  #!F-adobe-times-bold-r-normal--18*   c #!EF or 
+return  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and set an error code. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxnca,dxall1311 h DXNewCamera  #!EL  ,  #!Ldxrndr,dxall1357 h DXRender  #!EL  #!EF #!N #!N 
+ #!Lcamsec,dxall1138 h Camera Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxscev,dxall1369 h DXSetCacheEntry, DXSetCacheEntryV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

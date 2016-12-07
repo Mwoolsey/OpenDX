@@ -1,0 +1,612 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Compute</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu035.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu037.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRCOMPUTE" ></A>Compute</H3>
+		<A NAME="IDX428"></A><A NAME="IDX429"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<A NAME="IDX430"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Evaluates an expression on each data point in a specified field or
+value list.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+output</STRONG> = Compute(<STRONG>expression, input, ...</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>expression</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">expression to be computed
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field or value list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">input value
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>...</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>...</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>...</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">more input values
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field, value, or value list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">output values
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module applies an expression to every data value in a field.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>expression</STRONG></TT>
+</B></TD><TD><P>is the mathematical expression to be applied to
+<TT><STRONG>input</STRONG></TT>.
+<A HREF="#TBLOPER">Table 1</A> lists the operators.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is the field or value list to which
+<TT><STRONG>expression</STRONG></TT>
+is to be applied.
+If there are more than one, the input fields must be isomorphic
+(i.e., their hierarchies must match exactly).
+</TD></TR></TABLE>
+A single Compute module can operate on a maximum of 21
+<TT><STRONG>input</STRONG></TT> values.
+In the user interface, the default number of enabled input tabs is two.
+The default number of enabled input tabs is two.
+(Tabs can be added to the module icon and removed with the appropriate
+<TT><STRONG>...Input Tab</STRONG></TT> options in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu of
+the VPE.)
+<P>
+In the user interface, variables have names and
+<TT><STRONG>expression</STRONG></TT> does not
+require quotation marks.
+If the vector variable is "sample," the vector elements are
+"sample.x," "sample.y," ... or "sample.0,"
+"sample.1," ....
+<P>
+In the scripting language, the parameters of an expression are indicated
+by $<I>n</I>, where <I>n</I> is the index of the parameter,
+and counting begins at 0.
+The first three components of a vector can be expressed
+by  "<I>.x</I>," "<I>.y</I>," and
+"<I>.z</I>," or by "<I>.0</I>,"
+"<I>.1</I>," and "<I>.2</I>."
+The syntax for creating a vector from multiple inputs is
+&#91;<I>$0, $1, $2, ... </I> &#93;, where the
+commas separators are required.
+<P>
+Thus, in the user interface the expression used to add the value 3 to
+every data value of the input field would be "a &#43; 3.,"
+while in the scripting language it would be "$0 &#43; 3."
+<P>
+Multiple expressions can be entered if they are separated by
+semicolons; the final expression is used as the output.
+
+For example, "temp=a.x; sin(temp)" is equivalent to "sin(a.x)".
+
+<P>
+Compute uses C-language-style order of precedence for mathematical
+operations.
+<P>
+Operations applied to invalid elements of fields typically
+result in invalid elements.  (For more information,
+see <A HREF="usrgu025.htm#HDRINVAL">"Invalid Positions and Invalid Connections
+Components"</A> in the <I>IBM Visualization Data Explorer User&#39;s Guide</I>.)
+For example, if at a particular element field <I>"a"</I> and
+<I>"c"</I> are valid, but field <I>"b"</I> is not,
+<I>"a+b"</I> is invalid, and <I>"a? b: c"</I>
+is valid only if <I>"a"</I> is 0;
+otherwise, it is invalid.
+An exception is the "invalid" function, which returns the integer
+1 if the entry is invalid and 0 otherwise.
+<P>
+Operations such as multiplying a vector by a scalar have the expected
+effect&#58; each element of the vector is multiplied by the
+scalar.
+Likewise, the addition of two equal-length vectors or equal-size
+matrices results in an element-by-element sum.
+The Compute module defines the multiplication (<TT><STRONG>*</STRONG></TT>)
+of two equal-length vectors as an element-by-element
+multiplication (as opposed to the dot product).
+Other operations, such as the sine of a vector, are defined similarly.
+<P>
+Constants may be specified as double precision by using scientific
+notation with "d" indicating the exponent (e.g.,
+<TT>1d0</TT> is double-precision <TT>1</TT>).
+<P>
+
+Note that you can convert a "ref" type invalid component (see
+<A HREF="usrgu025.htm#HDRINVAL">"Invalid Positions and Invalid Connections
+Components"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>)
+using the expression "byte
+(invalid (a))". Then use Replace to substitute this new array into
+the original field as the "invalid positions" or "invalid
+connections" component.
+
+<P>
+<BR>
+<P><B><A NAME="TBLOPER" HREF="refgu002.htm#FT_TBLOPER">Table 1. Operators for
+the Compute Module</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Functions
+</B></TH><TH ALIGN="LEFT" VALIGN="TOP"><B>Types of Operands
+</B></TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Trigonometric Functions (argument
+in radians)
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;sin(a), cos(a),
+tan(a), asin(a), acos(a), atan(a), atan2(a, b)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float, double
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Hyperbolic Functions
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;sinh(a), cosh(a),
+tanh(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float, double
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Logarithmic Functions
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;log(a), In(a)
+(natural logarithm), log10(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;(log base 10--see
+Note 1), exp(a)
+<P>
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float, double
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>IEEE inquiry functions
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;isnan(a), finite(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float, double
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Unary Functions
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;&#43;a, &#45;a
+(negation)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;any type
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Binary Functions
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;a&#43;b, a&#45;b,
+a*b, a/b,
+a%b (modulus--see Note 1),
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;a&#94;b or a**b
+(exponentiation--see Note 4)
+<P>
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;any type
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Vector Functions (see Note 1)
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;a dot b or dot(a, b)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float vector
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;a cross b or
+cross(a,b)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float 3-vector
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;mag(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;double, float vector
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;norm(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float vector
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Miscellaneous Functions
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;sqrt(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float, double,
+complex
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;pow(a, b) (see Note
+4)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float, double,
+complex
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;abs(a) (see Note 2)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;double, float,
+integer, complex
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;arg(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;complex only
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;sign(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;all real types
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;min(a, b, ...),
+max(a, b, ...)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;scalar
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;invalid(a) (see Note
+5)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;any type
+
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;random(a,seed) (see
+note 8)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;produces random
+values in the range
+0&lt;=r&lt;1 for each item in a.
+
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Type Manipulation Functions
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;int(a), float(a),
+byte(a), char(a), double(a), short(a),
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float, integer, byte,
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;   sbyte, ubyte,
+ushort, uint (see Note 6)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;   short, double
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;trunc(a), floor(a),
+ceil(a), rint(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float, double
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;complex(a,b) or
+complex(a),
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;float, integer, byte,
+short,
+&nbsp;
+   double
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;real(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;complex only
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;imag(a)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;complex only
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Vector Construction
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;&#91;a, b, ...&#93;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;any type
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Vector Selection Functions
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;a.x or a.0, a.y or
+a.1, and so on
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;vector
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;select(a,b) (selects
+b<SUP>th</SUP> element of a,
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;         where
+element is of rank r&#45;1)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;a is a vector, b is
+an integer
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Conditional Functions
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;a?b&#58;c
+<BR>
+if a != 0, then b, else c. (b and
+c must be of the same type.)  Expressions b and c
+are always evaluated, and the output value depends on the value of a.
+<P>
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;a is an integer
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Logical Operations
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;binary&#58;  &lt;,
+&gt;, &lt;=, &gt;= (true = 1; false = 0)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;any scalar type
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;binary: ==, !=
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;any type
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;Unary: ! (not), binary: &amp;&amp; (and), || (or) &nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;integer
+<P>
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>Bitwise Operations
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;and(a,b), xor(a,b),
+or(a,b), not(a) (one&#39;s complement)
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;byte, int
+<P>
+
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2"><B>String functions (see Note 7)
+</B></TD><TD ALIGN="LEFT" VALIGN="TOP"><B><BR></B></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;strcmp(a,b)
+<BR>
+compares strings a and b and returns 0 if a==b, a negative integer if
+a&lt;b, and a positive integer if a&gt;b
+<BR>
+stricmp is identical to strcmp except
+that it ignores case
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;strings
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;strlen(a)
+<BR>
+returns the length of string a
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;string
+&nbsp;</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="4%">&nbsp;&nbsp;
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="69%">&nbsp;strstr(a,b)
+<BR>
+finds substring b in string a and returns 1-based offset of b in a.
+Thus strstr('artist','art') = 1 strstr('artist','picasso') = 0
+strstr('monet','one') = 2
+<BR>
+stristr(a,b)
+is identical to strstr except that it
+ignores case
+&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&nbsp;strings
+<P>
+
+&nbsp;</TD></TR><TR>
+				
+			
+				
+			
+				
+			
+			
+			
+				
+			
+				
+			
+				
+			
+			
+			
+				
+			
+				
+			
+				
+			
+			
+			
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="3"><B>Notes&#58; </B>
+<OL>
+<P><LI>The vector functions, modulus function, and log10() function
+do not accept complex numbers as arguments.
+<P><LI>Given an integer or floating-point value, the abs() function
+yields the absolute value.  Given a complex number,
+the abs() function yields a real absolute value.
+<P><LI>If a string is passed as a parameter to Compute, it is
+treated as an array of bytes, with its values being the ASCII
+values of the string elements.
+<P><LI>This function returns a floating-point value if inputs are floating
+point or integer.
+It returns a complex if the first input is complex.
+<P><LI>Returns integer 1 if entity is marked invalid, and 0 otherwise.
+<P><LI>Byte and char are same as ubyte.
+
+<P><LI>Strings can be passed into Compute as the
+data component or directly from String and StringList interactors.
+Strings can also be specified in the Compute expression
+directly by enclosing them in single quotes.  A single
+quote character is represented by a pair of single
+quotes. Thus if a is the string "can't", then
+strcmp(a,'can''t') = 0.
+<P><LI>The random number generator will be seeded by the integer
+<TT><STRONG>seed</STRONG></TT>. If <TT><STRONG>a</STRONG></TT> corresponds to a
+group then each member of <TT><STRONG>a</STRONG></TT> will be seeded by
+<TT><STRONG>seed</STRONG></TT>+n, where n corresponds to the member's
+enumerated location in <TT><STRONG>a</STRONG></TT>. This results in repeatable
+behavior even when a composite field is being processed in parallel on
+an SMP machine. To generate different random results, use a different
+<TT><STRONG>seed</STRONG></TT>.
+
+</OL>
+<P>
+</TD></TR></TABLE>
+To operate on a component other than "data," use the Mark and
+Unmark modules together with Compute.
+<P>
+A single Compute module can operate on a maximum of 21
+<TT><STRONG>...Input</STRONG></TT> values.
+The default number of enabled input tabs is two.
+(Tabs can be added to the module icon and removed with the appropriate
+<TT><STRONG>...Input Tab</STRONG></TT> options in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu
+of the VPE.)
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Other than a divide by zero, Compute operations are unchecked.
+</td></tr></table>
+<P><STRONG>Components</STRONG>
+<P>
+Modifies the "data" and "invalid positions" or
+"invalid connections" components.
+All other components are propagated to the output.
+<P><STRONG>Script Language Examples</STRONG>
+<OL>
+<P><LI>The Compute module converts all the temperature data to Fahrenheit.
+<PRE>
+tempf = Compute("$0*(9.0/5.0) + 32", tempc);
+&middot;
+</PRE>
+<P><LI>The input field is a vector field of dimension 9.
+The output field is scalar, consisting of the sixth component of the
+input field.
+<PRE>
+new_field = Compute("$0.5",field);
+</PRE>
+<P><LI>The input field is a vector field, and the output field is also a
+vector field, with the <I>x</I> component multiplied by 2.
+<PRE>
+new_field = Compute("&#91;2*$0.x, $0.y, $0.z&#93;", field);
+</PRE>
+<I>or</I>
+<PRE>
+new_field = Compute("&#91;2, 1, 1&#93;*$0", field);
+</PRE>
+<P><LI>Here <TT><STRONG>field1</STRONG></TT> is a vector field and
+<TT><STRONG>field2</STRONG></TT> and <TT><STRONG>field3</STRONG></TT>
+are scalar.
+Therefore, the output field will have a data component equal
+(on a point-by-point basis) to the magnitude of
+<TT><STRONG>field1</STRONG></TT> added to the
+quantity <TT><STRONG>field2</STRONG></TT>
+divided by 4.5 times
+<TT><STRONG>field3</STRONG></TT>.
+<PRE>
+new_field = Compute("mag($0) + $1/($2*4.5)", field1, field2, field3);
+</PRE>
+<P><LI>The Mark module to place the "positions" component of the
+2-dimensional object <TT><STRONG>slice</STRONG></TT> in the "data"
+component, allowing Compute to operate on the positions.
+The formula string is assigned to <TT><STRONG>function</STRONG></TT> to
+simplify the call to Compute and is equivalent to the following
+formula for converting <TT><STRONG>slice</STRONG></TT> positions to 2-dimensional vectors: [ x, y, z ] = [ sin  ( 2 &pi; &times; ((x + 1) / 3.9) ) , y , - cos ( 2 &pi; &times; ((x + 1) / 3.9) )]. When the computation is done, the Unmark module replaces the original &quot;data&quot; component for use in <TT><STRONG>warped</STRONG></TT>.
+The resulting positions are warped onto the shape of a cylinder.
+<PRE>
+&middot;
+slice = Slice(electrondensity, "z", 5);
+    // Mark the positions so that they can be computed on
+    // The original x positions go from -1 to 2.9
+    // The original y positions go from -3 to 2.9
+markedslice = Mark(slice,"positions");
+    // Warp the positions onto the shape of a cylinder
+pi = 3.14159;
+exp = "&#91;sin(2*$1*($0.x+1)/3.9), $0.y, -cos(2*$1*($0.x+1)/3.9)&#93;";
+warped = Compute(exp, markedslice, pi);
+    // Unmark the warped positions, returning them to the positions
+    // component
+warped = Unmark(warped, "positions");
+&middot;
+</PRE>
+<P><LI>This example differs from the previous one in that the
+<TT><STRONG>exp</STRONG></TT>) function warps the positions onto a double cone shape, by implementing the following formula: [ x, y, z ] = [ y &times; sin( 2 &pi; &times; ((x + 1) / 3.9) ) , y , -y &times; cos ( 2 &pi; &times; ((x + 1) / 3.9)  ) ]<PRE>
+&middot;
+    // Now warp the positions onto the shape of a doubled cone
+    // by multiplying the x and z positions by the original
+    // y value, which goes from -3 to 2.9
+exp = "&#91;$0.y*sin(2*$1*($0.x+1)/3.9),$0.y, -$0.y*cos(2*$1*($0.x+1)/3.9)&#93;";
+warped = Compute(exp, markedslice, pi);
+    // Unmark the warped positions, returning them to the positions
+    // component
+warped = Unmark(warped, "positions");
+&middot;
+</PRE>
+</OL>
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+Many of the example visual programs use Compute, including&#58;
+<PRE>
+ComputeOnData.net
+DataDrivenInteractors.net
+PlotTwoLines.net
+WarpingPositions.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu093.htm#HDRMARK">Mark</A>,
+&nbsp;<A HREF="refgu164.htm#HDRUNMARK">Unmark</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>
+	

@@ -1,0 +1,50 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxc DXCopy #!N #!N Function #!N #!N 
+Performs various copying operations. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Object DXCopy(Object o, enum copy copy) #!EF #!N #!N Functional Details 
+#!N #!N The DXCopy operations differ in the depth to which 
+they copy the structure of an Object  #!F-adobe-times-bold-r-normal--18*   o #!EF . 
+Depth is specified by the  #!F-adobe-times-bold-r-normal--18*   copy #!EF parameter, which may 
+be one of the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   COPY_STRUCTURE #!EF : #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N - For Groups, copies the Group header 
+and recursively copies all Group members. #!N #!I30 #!N - For 
+Fields, copies the Field header but  #!F-adobe-times-medium-i-normal--18*   does not #!EF copy 
+the components (which are generally Arrays); instead it puts references to 
+the components of the given Object into the resulting Field. #!N 
+#!I30 #!N - For Arrays, passes back a pointer to the 
+data and makes no copy. #!N #!I0 #!N #!EF #!N #!N 
+#!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   COPY_HEADER #!EF : Copies only the header 
+of the immediate Object but  #!F-adobe-times-medium-i-normal--18*   does not #!EF copy attributes, 
+members, components, and so on; instead it puts references to them 
+into the new Object. #!N #!N The Object created can be 
+deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   
+COPY_ATTRIBUTES #!EF : Creates a new Object of the same type 
+as the old, and copies all attributes and type information, but 
+ #!F-adobe-times-medium-i-normal--18*   does not #!EF put references (to members, components, and so 
+on) in the new Object. #!N #!I0 #!N #!EF #!N #!N 
+#!N #!I0 #!N Notes: #!N #!I30 #!N 1. Because of the 
+data-flow execution model used by Data Explorer, it is critical that 
+no module actually alter its inputs. Instead,  #!F-adobe-times-bold-r-normal--18*   DXCopy #!EF is 
+generally used to create a modifiable copy of the input that 
+is then altered and produced as output. This is most often 
+done by using the  #!F-adobe-times-bold-r-normal--18*   COPY_STRUCTURE #!EF form. This produces a 
+copy of the structure of the input, but uses references to 
+the Arrays of the input, rather than actual copies. Once a 
+structure has been copied in this manner, the Arrays (which are 
+most often found as components of Fields) may be replaced in 
+the copied Field by new results. The result will be a 
+copy of the input that shares all  #!F-adobe-times-medium-i-normal--18*   unchanged #!EF data 
+with the original, thereby saving memory space. #!N #!I30 #!N 2. 
+ #!F-adobe-times-bold-r-normal--18*   DXCopy #!EF applied to an Object of type Array performs 
+no copy and simply returns its input. This presents the problem 
+that in order to clean up, copied Objects of other types 
+may be deleted without deleting the original, while the result of 
+applying  #!F-adobe-times-bold-r-normal--18*   DXCopy #!EF to Arrays  #!F-adobe-times-medium-i-normal--18*   may not #!EF be 
+deleted without deleting the original. #!I0 #!N #!N #!N #!N Return 
+Value #!N #!N Returns the copy or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxca,dxall1187 h DXCopyAttributes  #!EL  ,  #!Ldxnf,dxall1316 h DXNewField  #!EL  ,  #!Ldxng,dxall1317 h DXNewGroup  #!EL  #!EF #!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxca,dxall1187 h DXCopyAttributes  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

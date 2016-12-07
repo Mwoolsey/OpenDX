@@ -1,0 +1,50 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rfieldsc Field Class #!N #!EC #!N #!N Each 
+Field has some number of named components. Each component has a 
+value (usually an Array) and some number of attributes, whose values 
+are often strings or numbers. However, in the data model both 
+components and attributes can be any Object. The defined components and 
+attributes are listed in  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in IBM Visualization Data Explorer User's 
+Guide. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXNewField() 
+#!EF #!EF #!I50 #!N Creates a new Field Object. See  #!Lun1,dxall1062 s Note on Use  #!EL  
+, and  #!Ldxnf,dxall1316 h DXNewField  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXSetComponentValue() 
+#!EF #!EF #!I50 #!N Adds a component to a Field. See 
+ #!Lun1,dxall1062 s Note on Use  #!EL  , and  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field 
+DXSetComponentAttribute() #!EF #!EF #!I50 #!N Adds or removes a named attribute 
+from a component of a Field. See  #!Ldxsca,dxall1371 h DXSetComponentAttribute  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXGetComponentValue() #!EF #!EF #!I50 #!N Returns a 
+specified component of a Field. See  #!Lun1,dxall1062 s Note on Use  #!EL  See  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  . #!I0 
+#!N #!N #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Note on Use  #!Run1 
+#!N #!N The following code segment illustrates how to make a 
+component of one Field also a component of another Field: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N f = DXNewField(); #!N if (!f) #!N 
+return ERROR; #!N c = DXGetComponentValue(oldfield, "positions"); #!N if (!DXSetComponentValue(f, "positions", 
+c)) #!N return ERROR; #!EF #!N #!N #!EC #!N #!N #!EC 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXGetComponentAttribute() #!EF 
+#!EF #!I50 #!N Returns a named attribute of a specified component 
+of a Field. See  #!Ldxgca,dxall1227 h DXGetComponentAttribute  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Object DXGetEnumeratedComponentValue() #!EF #!N Object DXGetEnumeratedComponentAttribute() #!EF #!I50 #!N Return a 
+component or component attribute by index. These routines can be used 
+to retrieve the components or component attributes when their names are 
+not known. See  #!Ldxgecv,dxall1233 h DXGetEnumeratedComponentValue  #!EL  and  #!Ldxgeca,dxall1232 h DXGetEnumeratedComponentAttribute  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Field DXDeleteComponent() #!EF #!EF #!I50 #!N Deletes a named component 
+from a Field. See  #!Ldxdc,dxall1196 h DXDeleteComponent  #!EL  . #!I0 #!N #!N #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   LESS COMMONLY USED ROUTINES #!EF __________________________________ #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXComponentReq() #!EF #!N Error DXComponentOpt(); #!N 
+Error DXComponentReqLoc(); #!N Error DXComponentOptLoc(); #!EF #!I50 #!N Access or type-check 
+a component in a Field. See  #!Lun2,dxall1062 s Note on Use  #!EL  . See also  #!Ldxcmany,dxall1184 h DXComponentReq, DXComponentOpt, DXComponentReqLoc, DXComponentOptLoc  #!EL  
+. #!I0 #!N #!N #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Note on 
+Use  #!Run2 #!N #!N An example of the expected use of 
+ #!F-adobe-times-bold-r-normal--18*   DXComponentReq() #!EF follows: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N a = 
+DXGetComponentValue(f, "positions"); #!N if (!DXComponentReq(a, &points, &npoints, 0, TYPE_FLOAT, 3)) #!N 
+return NULL; #!N #!N a = DXGetComponentValue(f, "colors"); #!N if (!DXComponentOpt(a, 
+&colors, NULL, npoints, TYPE_FLOAT, 3)) #!N return NULL; #!N if (colors) 
+... #!EF #!N #!N #!EC #!N #!N The first two statements 
+check and retrieve a required "positions" component, while the next two 
+check and retrieve an optional "colors" component that must have the 
+same number of elements. Since the second call uses  #!F-adobe-times-bold-r-normal--18*   DXComponentOpt() 
+#!EF , the program must check  #!F-adobe-times-bold-r-normal--18*   colors #!EF for  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF to determine whether the colors were present. #!N #!N 
+#!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1062,dxall1063 h Group Class  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

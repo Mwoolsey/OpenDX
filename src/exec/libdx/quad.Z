@@ -1,0 +1,551 @@
+/***********************************************************************/
+/* Open Visualization Data Explorer                                    */
+/* (C) Copyright IBM Corp. 1989,1999                                   */
+/* ALL RIGHTS RESERVED                                                 */
+/* This code licensed under the                                        */
+/*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
+/***********************************************************************/
+
+
+INCLUDE3 <dxconfig.h>
+
+INCLUDE1 "triangles.h"
+INCLUDE2 "triangles.h"
+
+INCLUDE3 <string.h>
+INCLUDE3 <dx/dx.h>
+INCLUDE3 "render.h"
+INCLUDE3 "internals.h"
+
+DEFINE3 CAT(a,b) a##b
+
+
+#define QUADS(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL) { 	    $\
+									    $\
+    Point *p;								    $\
+    int v1, v2, v3, i, width, height;					    $\
+    int i1, i2, i3;							    $\
+    float ox, oy;							    $\
+    InvalidComponentHandle iElts;					    $\
+    RGBColor vcolors[8];						    $\
+    int shademe;							    $\
+    char fcst = xf->fcst, bcst = xf->bcst, ncst = xf->ncst;		    $\
+									    $\
+    iElts = (invalid_status == INV_UNKNOWN) ? xf->iElts : NULL;		    $\
+									    $\
+    width = buf->width, height = buf->height;				    $\
+    ox = buf->ox, oy = buf->oy;						    $\
+									    $\
+    if (shrgb && xf->lights) {						    $\
+	fcolors = (Pointer)vcolors;					    $\
+	bcolors = (Pointer)(vcolors+4);					    $\
+	_dxfInitApplyLights(xf->kaf, xf->kdf, xf->ksf, xf->kspf,	    $\
+			    xf->kab, xf->kdb, xf->ksb, xf->kspb,            $\
+			    xf->fcolors, xf->bcolors, xf->cmap,		    $\
+			    xf->normals, xf->lights,			    $\
+			    xf->colors_dep, xf->normals_dep,		    $\
+			    fcolors, bcolors, 4, fcst, bcst, ncst, 	    $\
+			    fbyte, bbyte);				    $\
+	cmap    = NULL;							    $\
+	shademe = 1;							    $\
+    } else {								    $\
+	shademe = 0;							    $\
+	if (fbyte || bbyte)						    $\
+	    _dxf_initUbyteToFloat();                                        $\
+    }									    $\
+									    $\
+    for (i=0; i<nquad; i++, quad++) {					    $\
+	int index = (indices == NULL) ? i : indices[i];			    $\
+									    $\
+	if (iElts && DXIsElementInvalid(iElts, index))			    $\
+	    continue;							    $\
+									    $\
+	/* points */							    $\
+	v1=quad->p, p= &xf->positions[v1], x1=p->x, y1=p->y, z1=p->z;	    $\
+	v2=quad->r, p= &xf->positions[v2], x2=p->x, y2=p->y, z2=p->z;	    $\
+	v3=quad->s, p= &xf->positions[v3], x3=p->x, y3=p->y, z3=p->z;	    $\
+									    $\
+	if (shademe)							    $\
+	{ 								    $\
+	    i1 = 0; i2 = 2; i3 = 3;					    $\
+	    if (! _dxfApplyLights((int *)quad, &index, 1))	    	    $\
+		return ERROR;						    $\
+	}								    $\
+									    $\
+	if (xf->tile.perspective) {					    $\
+	    if (z1>nearPlane || z2>nearPlane || z3>nearPlane)		    $\
+		goto CAT(LABEL,1);					    $\
+	    z1=(float)-1.0/z1;  x1*=z1;  y1*=z1;			    $\
+	    z2=(float)-1.0/z2;  x2*=z2;  y2*=z2;			    $\
+	    z3=(float)-1.0/z3;  x3*=z3;  y3*=z3;			    $\
+	}								    $\
+	if (!((x1<minx && x2<minx && x3<minx) ||			    $\
+	      (x1>maxx && x2>maxx && x3>maxx) ||			    $\
+	      (y1<miny && y2<miny && y3<miny) ||			    $\
+	      (y1>maxy && y2>maxy && y3>maxy)))				    $\
+	{								    $\
+									    $\
+	  buf->triangles++;						    $\
+	  TRIANGLEX1(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 1) $\
+	  TRIANGLEX2(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 1);$\
+	}								    $\
+									    $\
+ CAT(LABEL,1) :								    $\
+	/* points */							    $\
+	v1=quad->p, p= &xf->positions[v1], x1=p->x, y1=p->y, z1=p->z;	    $\
+	v2=quad->s, p= &xf->positions[v2], x2=p->x, y2=p->y, z2=p->z;	    $\
+	v3=quad->q, p= &xf->positions[v3], x3=p->x, y3=p->y, z3=p->z;	    $\
+									    $\
+	if (shademe) i1 = 0, i2 = 3, i3 = 1;				    $\
+									    $\
+	if (xf->tile.perspective) {					    $\
+	    if (z1>nearPlane || z2>nearPlane || z3>nearPlane)		    $\
+		continue;						    $\
+	    z1=(float)-1.0/z1;  x1*=z1;  y1*=z1;			    $\
+	    z2=(float)-1.0/z2;  x2*=z2;  y2*=z2;			    $\
+	    z3=(float)-1.0/z3;  x3*=z3;  y3*=z3;			    $\
+	}								    $\
+	if ((x1<minx && x2<minx && x3<minx) ||				    $\
+	    (x1>maxx && x2>maxx && x3>maxx) ||				    $\
+	    (y1<miny && y2<miny && y3<miny) ||				    $\
+	    (y1>maxy && y2>maxy && y3>maxy))				    $\
+		continue;						    $\
+									    $\
+	buf->triangles++;						    $\
+	TRIANGLEX1(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 2) $\
+	TRIANGLEX2(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 2);$\
+									    $\
+ CAT(LABEL,2) :								    $\
+	continue;							    $\
+    }									    $\
+}
+
+/*
+ * Quads
+ *
+ * p q
+ * r s
+ */
+
+#define TRI_QR_1 v1=quad[i].p, v2=quad[i].r, v3=quad[i].q
+#define TRI_QR_2 v1=quad[i].q, v2=quad[i].r, v3=quad[i].s
+
+#define TRI_PS_1 v1=quad[i].p, v2=quad[i].r, v3=quad[i].s
+#define TRI_PS_2 v1=quad[i].q, v2=quad[i].p, v3=quad[i].s
+
+
+#define DIFF(i1, i2) (							$\
+	c1 = cmap? &cmap[((unsigned char *)colors)[i1]]			$\
+		 : &((RGBColor *)colors)[i1],				$\
+	c2 = cmap? &cmap[((unsigned char *)colors)[i2]]			$\
+		 : &((RGBColor *)colors)[i2],				$\
+	dr = c1->r - c2->r,						$\
+	dg = c1->g - c2->g,						$\
+	db = c1->b - c2->b,						$\
+	dr*dr + dg*dg + db*db						$\
+)
+
+#define QUAD_VOLUME(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL){ $\
+									    $\
+    Point *p;								    $\
+    int v1, v2, v3, width, height, valid;				    $\
+    float ox, oy;							    $\
+    InvalidComponentHandle iElts;					    $\
+    RGBColor *colors;							    $\
+    /*int cstcolors;*/							    $\
+									    $\
+    if (xf->fcolors) {							    $\
+	colors = xf->fcolors /*, cstcolors = xf->fcst */;		    $\
+    } else {								    $\
+	colors = xf->bcolors /*, cstcolors = xf->bcst */;		    $\
+    }									    $\
+									    $\
+    if (! colors)							    $\
+	DXErrorReturn(ERROR_MISSING_DATA, "no colors in field");	    $\
+									    $\
+    /* for volume quads, we determine validity here			    $\
+     */									    $\
+    switch(invalid_status) {						    $\
+	case INV_VALID:   iElts = NULL;      valid = 1; break;		    $\
+	case INV_INVALID: iElts = NULL;      valid = 0; break;		    $\
+	case INV_UNKNOWN: iElts = xf->iElts;            break;		    $\
+    }									    $\
+									    $\
+    width = buf->width, height = buf->height;				    $\
+    ox = buf->ox, oy = buf->oy;						    $\
+									    $\
+    for (i=0; i<nquad; i++, quad++) {					    $\
+	int index = (indices == NULL) ? i : indices[i];			    $\
+									    $\
+	if (iElts)							    $\
+	    valid = DXIsElementValid(iElts, index);	    		    $\
+									    $\
+	TRI_PS_1;							    $\
+									    $\
+	/* points */							    $\
+	p = &xf->positions[v1], x1=p->x, y1=p->y, z1=p->z;	    	    $\
+	p = &xf->positions[v2], x2=p->x, y2=p->y, z2=p->z;	    	    $\
+	p = &xf->positions[v3], x3=p->x, y3=p->y, z3=p->z;	    	    $\
+									    $\
+	if (!((x1<minx && x2<minx && x3<minx) ||			    $\
+	      (x1>maxx && x2>maxx && x3>maxx) ||			    $\
+	      (y1<miny && y2<miny && y3<miny) ||			    $\
+	      (y1>maxy && y2>maxy && y3>maxy)))				    $\
+	{								    $\
+	  buf->triangles++;						    $\
+	  TRIANGLEV1(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 1) $\
+	  TRIANGLEV2(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 1);$\
+	}								    $\
+									    $\
+ CAT(LABEL,1) :								    $\
+	TRI_PS_2;							    $\
+									    $\
+	/* points */							    $\
+	p = &xf->positions[v1], x1=p->x, y1=p->y, z1=p->z;	    	    $\
+	p = &xf->positions[v2], x2=p->x, y2=p->y, z2=p->z;	    	    $\
+	p = &xf->positions[v3], x3=p->x, y3=p->y, z3=p->z;	    	    $\
+									    $\
+	if ((x1<minx && x2<minx && x3<minx) ||				    $\
+	    (x1>maxx && x2>maxx && x3>maxx) ||				    $\
+	    (y1<miny && y2<miny && y3<miny) ||				    $\
+	    (y1>maxy && y2>maxy && y3>maxy))				    $\
+		continue;						    $\
+									    $\
+	buf->triangles++;						    $\
+	TRIANGLEV1(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 2);$\
+	TRIANGLEV2(pstr, pptr, shrgb, sho, col, face, TEST, PIXEL, LABEL, 2);$\
+ CAT(LABEL,2) :								    $\
+	continue;							    $\
+    }									    $\
+}
+
+#define QUADDCL								    $\
+    RGBColor *c1, *c2, *c3;						    $\
+    float x1, y1, x2, y2, x3, y3;					    $\
+    float r1, g1, b1, o1, z1, r2, g2, b2, o2, z2, r3, g3, b3, o3, z3;	    $\
+    float Qx, dxo, dxz, dxr, dxg, dxb;					    $\
+    float Qy, dyr, dyg, dyb, dyo, dyz, dyA, dyB;			    $\
+    float r, g, b, o, obar, z, nearPlane=xf->nearPlane ;		    $\
+    float A, B, d, d1, d2, d3;						    $\
+    int iy1, iy2, iy3;							    $\
+    int iA, iB, iy, i, n, nn, left, right;				    $\
+    float minx = buf->min.x, miny = buf->min.y;				    $\
+    float maxx = buf->max.x, maxy = buf->max.y
+
+
+
+/*
+ * The following are the templates for the quad rendering routines
+ */
+
+#define QUADPROLOGUE(name)						    $\
+    static Error							    $\
+    name(								    $\
+	struct buffer *buf,						    $\
+	struct xfield *xf,						    $\
+	int nquad,							    $\
+	Quadrilateral *quad,						    $\
+	int *indices,							    $\
+	int surface,							    $\
+	int clip_status,						    $\
+	inv_stat invalid_status						    $\
+    ) {									    $\
+	QUADDCL;							    $\
+	Pointer fcolors = xf->fcolors;					    $\
+	Pointer bcolors = xf->bcolors;					    $\
+	Pointer opacities = xf->opacities;				    $\
+	RGBColor *cmap = xf->cmap;					    $\
+	float *omap = xf->omap;						    $\
+	char fbyte = xf->fbyte, bbyte = xf->bbyte;			    $\
+
+#define QUADEPILOGUE							    $\
+	return OK;							    $\
+    }
+
+
+
+QUADPROLOGUE(quad_vol)
+    float cmul = xf->tile.color_multiplier;
+    float omul = xf->tile.opacity_multiplier / cmul;
+    if (xf->tile.perspective)
+	DXErrorReturn(ERROR_BAD_PARAMETER,
+		    "perspective volume rendering is not supported");
+    if (!buf->merged)
+	_dxf_MergeBackIntoZ(buf);
+    if (opacities) {
+	QUAD_VOLUME(struct big, u.big, SHRGB, SHO, COL, 0, 1, VOLUME, qvo);
+    } else {
+	QUAD_VOLUME(struct big, u.big, SHRGB,NOSHO, COL, 0, 1, VOLUME, qvno);
+    }
+QUADEPILOGUE
+
+
+QUADPROLOGUE(quad_translucent)
+    if (xf->colors_dep == dep_connections)
+    {
+	if (clip_status) {
+	    QUADS(struct big,u.big,SHRGB,NOSHO,COL,
+				0,TRANSCLIPZ,TRANSLUCENT, qtcdc);
+	} else if (buf->pix_type==pix_fast) {
+	    QUADS(struct fast,u.fast,SHRGB,NOSHO,COL,
+				0,NOCLIPZ,TRANSLUCENT, qtfdc);
+	} else if (buf->pix_type==pix_big) {
+	    QUADS(struct big,u.big,SHRGB,NOSHO,COL,
+				0,NOCLIPZ,TRANSLUCENT, qtbdc);
+	} else {
+	    DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type);
+	    return ERROR;
+	}
+    }
+    else
+    {
+	if (clip_status) {
+	    QUADS(struct big,u.big,SHRGB,SHO,COL,
+				0,TRANSCLIPZ,TRANSLUCENT,qtcdp);
+	} else if (buf->pix_type==pix_fast) {
+	    QUADS(struct fast,u.fast,SHRGB,SHO,COL,
+				0,NOCLIPZ,TRANSLUCENT,qtfdp);
+	} else if (buf->pix_type==pix_big) {
+	    QUADS(struct big,u.big,SHRGB,SHO,COL,
+				0,NOCLIPZ,TRANSLUCENT,qtbdp);
+	} else {
+	    DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type);
+	    return ERROR;
+	}
+    }
+QUADEPILOGUE
+
+
+QUADPROLOGUE(quad_opaque)
+    if (clip_status) {
+	QUADS(struct big,u.big,SHRGB,NOSHO,COL,0,CLIPZ,OPAQUE,qoc);
+    } else if (buf->pix_type==pix_fast) {
+	QUADS(struct fast,u.fast,SHRGB,NOSHO,COL,0,NOCLIPZ,OPAQUE,qof);
+    } else if (buf->pix_type==pix_big) {
+	QUADS(struct big,u.big,SHRGB,NOSHO,COL,0,NOCLIPZ,OPAQUE,qob);
+    } else {
+	DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type);
+	return ERROR;
+    }
+QUADEPILOGUE
+
+Error
+_dxf_QuadClipping(
+    struct buffer *buf,
+    struct xfield *xf,
+    int nquad,
+    Quadrilateral *quad,
+    int *indices)
+{
+    QUADDCL;
+    Pointer fcolors = NULL;		/* UNCOL guarantees not ref'ed */
+    Pointer bcolors = NULL;		/* UNCOL guarantees not ref'ed */
+    Pointer opacities = NULL;
+    RGBColor *cmap = NULL;
+    float *omap = NULL;
+    inv_stat invalid_status = INV_VALID;
+    char fbyte = xf->fbyte, bbyte = xf->bbyte;
+
+    if (xf->tile.perspective) {
+	struct xfield xx;
+	for (i=0; i<nquad; ) {
+	    i = _dxf_zclip_quads(xf, (int *)quad, i, indices, nquad, &xx, INV_VALID);
+	    if (xx.nconnections)
+		_dxf_TriangleClipping(buf, &xx, xx.nconnections,
+		xx.c.triangles, xx.indices);
+	}
+    }
+
+    QUADS(struct big,u.big,NOSHRGB,NOSHO,UNCOL,0,1,CLIPPINGPIXEL, qc);
+    return OK;
+}
+
+static Error
+_dxf_QuadComposite(
+    struct buffer *buf,
+    struct xfield *xf,
+    int nquad,
+    Quadrilateral *quad,
+    int *indices,
+    int clip_status,
+    inv_stat invalid_status
+) {
+    QUADDCL;
+    Pointer fcolors = xf->fcolors;
+    Pointer bcolors = xf->bcolors;
+    Pointer opacities = xf->opacities;
+    RGBColor *cmap = xf->cmap;
+    float *omap = xf->omap;
+    char fbyte = xf->fbyte, bbyte = xf->bbyte;
+
+    if (xf->tile.perspective)
+	DXErrorReturn(ERROR_BAD_PARAMETER,
+		    "perspective volume rendering is not supported");
+
+    if (clip_status) {
+	QUADS(struct big,u.big,SHRGB,SHO,COL,0,TRANSCLIPZ,COMPOSITE,qcc);
+    } else if (buf->pix_type==pix_fast) {
+	QUADS(struct fast,u.fast,SHRGB,SHO,COL,0,NOCLIPZ,COMPOSITE,qcf);
+    } else if (buf->pix_type==pix_big) {
+	QUADS(struct big,u.big,SHRGB,SHO,COL,0,NOCLIPZ,COMPOSITE,qcb);
+    } else {
+	DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type);
+	return ERROR;
+    }
+
+    return OK;
+}
+
+Error
+_dxf_Quad(struct buffer *buf,
+	  struct xfield *xf,
+	  int nquad,
+	  Quadrilateral *quad,
+	  int *indices,
+	  int surface,
+	  int clip_status,
+	  inv_stat invalid_status)
+{
+    int i;
+
+    if (xf->tile.perspective) {
+	struct xfield xx;
+	for (i=0; i<nquad; ) {
+	    i = _dxf_zclip_quads(xf, (int *)quad, i, indices, nquad, &xx, invalid_status);
+	    if (xx.nconnections)
+		_dxf_Triangle(buf, &xx, xx.nconnections, xx.c.triangles,
+			xx.indices, surface, clip_status, INV_VALID);
+	}
+    }
+
+    if (xf->volume)
+	return quad_vol(buf, xf, nquad, quad, indices, surface, 
+				    clip_status, invalid_status);
+    if (xf->opacities)
+	return quad_translucent(buf, xf, nquad, quad, indices, surface, 
+				    clip_status, invalid_status);
+    else
+	return quad_opaque(buf, xf, nquad, quad, indices, surface, 
+				    clip_status, invalid_status);
+}
+
+
+#define QUADFLATPROLOGUE(name)				$\
+    static Error					$\
+    name(						$\
+	struct buffer *buf,				$\
+	struct xfield *xf,				$\
+	int nquad,					$\
+	Quadrilateral *quad,				$\
+	int *indices,					$\
+	Pointer fcolors,				$\
+	Pointer bcolors,				$\
+	Pointer opacities,				$\
+	int surface,					$\
+	int clip_status,				$\
+	inv_stat invalid_status				$\
+    ) {							$\
+	QUADDCL;					$\
+	RGBColor *cmap = xf->cmap;			$\
+	float *omap = xf->omap;				$\
+	char fbyte = xf->fbyte, bbyte = xf->bbyte;	$\
+	/*char obyte = xf->obyte;*/
+
+#define QUADFLATEPILOGUE				$\
+	return OK;					$\
+    }
+
+
+QUADFLATPROLOGUE(quad_flat_face)
+    QUADS(struct big, u.big, NOSHRGB, NOSHO, COL, 1, 1, FACE,qff);
+QUADFLATEPILOGUE
+
+
+QUADFLATPROLOGUE(quad_flat_vol)
+    float cmul = xf->tile.color_multiplier;
+    float omul = xf->tile.opacity_multiplier / cmul;
+    if (xf->tile.perspective)
+	DXErrorReturn(ERROR_BAD_PARAMETER,
+		    "perspective volume rendering is not supported");
+    if (!buf->merged)
+        _dxf_MergeBackIntoZ(buf);
+    QUAD_VOLUME(struct big, u.big, NOSHRGB, NOSHO, COL, 0, 1, VOLUME, qfv);
+QUADFLATEPILOGUE
+
+
+QUADFLATPROLOGUE(quad_flat_translucent)
+    if (clip_status) {
+	QUADS(struct big,u.big,NOSHRGB,NOSHO,COL,
+					0,TRANSCLIPZ,TRANSLUCENT,qftc);
+    } else if (buf->pix_type==pix_fast) {
+	QUADS(struct fast,u.fast,NOSHRGB,NOSHO,COL,
+					0,NOCLIPZ,TRANSLUCENT,qftf);
+    } else if (buf->pix_type==pix_big) {
+	QUADS(struct big,u.big,NOSHRGB,NOSHO,COL,
+					0,NOCLIPZ,TRANSLUCENT,qftb);
+    } else {
+	DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type);
+	return ERROR;
+    }
+QUADFLATEPILOGUE
+
+
+QUADFLATPROLOGUE(quad_flat_opaque)
+    if (clip_status) {
+	QUADS(struct big,u.big,NOSHRGB,NOSHO,COL,
+					0,CLIPZ,OPAQUE,qfoc);
+    } else if (buf->pix_type==pix_fast) {
+	QUADS(struct fast,u.fast,NOSHRGB,NOSHO,COL,
+					0,NOCLIPZ,OPAQUE,qfof);
+    } else if (buf->pix_type==pix_big) {
+	QUADS(struct big,u.big,NOSHRGB,NOSHO,COL,
+					0,NOCLIPZ,OPAQUE,qfob);
+    } else {
+	DXSetError(ERROR_INTERNAL, "unknown pix_type %d", buf->pix_type);
+	return ERROR;
+    }
+QUADFLATEPILOGUE
+    
+
+Error
+_dxf_QuadFlat(
+    struct buffer *buf,
+    struct xfield *xf,
+    int nquad,
+    Quadrilateral *quad,
+    int *indices,
+    Pointer fcolors,
+    Pointer bcolors,
+    Pointer opacities,
+    int surface,
+    int clip_status,
+    inv_stat invalid_status
+) {
+    QUADDCL;
+
+    if (xf->tile.perspective) {
+	struct xfield xx;
+	for (i=0; i<nquad; ) {
+	    i = _dxf_zclip_quads(xf, (int *)quad, i, indices, nquad, &xx, invalid_status);
+	    if (xx.nconnections)
+		_dxf_TriangleFlat(buf, &xx, xx.nconnections, xx.c.triangles,
+			      xx.indices, xx.fcolors, xx.bcolors, xx.opacities,
+			      surface, clip_status, invalid_status);
+	}
+    }
+
+
+
+    if (xf->ct!=ct_triangles && xf->ct!=ct_quads)
+	return quad_flat_vol(buf, xf, nquad, quad, indices,
+			    fcolors, bcolors, opacities,
+			    surface, clip_status, invalid_status);
+    else if (xf->opacities)
+	return quad_flat_translucent(buf, xf, nquad, quad, indices,
+				    fcolors, bcolors, opacities,
+				    surface, clip_status, invalid_status);
+    else
+	return quad_flat_opaque(buf, xf, nquad, quad, indices,
+			       fcolors, bcolors, opacities,
+			       surface, clip_status, invalid_status);
+}

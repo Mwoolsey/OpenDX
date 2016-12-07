@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall509 Example 4. Using Route in the 
+Script Language #!N #!EC #!N #!N The Route module is used 
+to choose between different destinations for a particular object. For example, 
+you could choose to either write an image to a file 
+or display the image to the screen. #!N #!N In order 
+to use Route in a script, the Route module and the 
+tools that consume the outputs of Route must be contained in 
+a macro. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N data = Import("/usr/lpp/dx/samples/data/cloudwater"); #!N 
+iso = Isosurface(data); #!N camera = Autocamera(iso); #!N image= Render(iso, camera); 
+#!N #!N macro do_which(which, image) #!N { #!N image_to_display, image_to_write = 
+Route(which, image); #!N Display(image_to_display); #!N WriteImage(image_to_write); #!N } #!N do_which(1, image); 
+#!EF #!N #!N #!EC #!N #!N The call to the macro 
+do_which with a value of 1 causes the first output branch 
+(Display) to be executed. WriteImage is  #!F-adobe-times-medium-i-normal--18*   not #!EF executed. If 
+do_which had been called with a value of 2, however, then 
+WriteImage (and not Display) would have been executed. #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall510,dxall511 h Example 5. Using the Sequencer  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

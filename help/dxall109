@@ -1,0 +1,55 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rqimd Importing Data #!N #!EC #!N #!N Importing data 
+into Data Explorer is the first step in creating a visualization 
+of that data. Data Explorer supports the importation of a number 
+of data formats: General Array Importer, Data Explorer native, CDF, netCDF, 
+and HDF (see  #!Limd,dxall618 h Importing Data: File Formats  #!EL  in IBM Visualization Data Explorer User's Guide). 
+The General Array Importer is discussed here not only because it 
+can import a variety of data types but because its supporting 
+interface makes it useful to the broadest range of users. This 
+interface consists of the Data Prompter, for describing the data to 
+be imported, and the Data Browser, for viewing the data. #!N 
+#!N This chapter deals with the importation of data in the 
+following sections: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+ #!Lgai,dxall110 h General Array Importer  #!EL  #!N #!I30 #!N o  #!Lgaiexs,dxall114 h Importing Data: Header File Examples  #!EL  #!N #!I30 #!N o  #!Lsydfgi,dxall139 h Header File Syntax: Keyword Statements  #!EL  
+#!N #!I30 #!N o  #!Lprompt,dxall157 h Data Prompter  #!EL  #!N #!I30 #!N o  #!Lbrowse,dxall169 h Data Prompter Browser  #!EL  #!N 
+#!I0 #!N #!EF #!N #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   An Important 
+Note on Fields #!N #!N Importing data into Data Explorer requires 
+some knowledge of the Data Explorer data model and at least 
+a working knowledge of a  #!F-adobe-times-medium-i-normal--18*   field #!EF . #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Fields #!EF are the fundamental objects in the Data Explorer 
+data model. A field represents a mapping from some  #!F-adobe-times-medium-i-normal--18*   domain 
+#!EF to some  #!F-adobe-times-medium-i-normal--18*   data space #!EF . The domain of 
+the mapping is specified by a set of  #!F-adobe-times-medium-i-normal--18*   positions #!EF 
+and (generally) a set of  #!F-adobe-times-medium-i-normal--18*   connections #!EF that allow interpolation 
+of data values for points between positions. Positions represent what can 
+be thought of as (and often really are) locations in space; 
+the data are the values associated with the space of the 
+positions. The mapping at all points in a domain (not just 
+those specified by the given positions) is represented implicitly by specifying 
+that the data are dependent on (located at) the sample points 
+or on the connections between points. #!N #!N This simple abstraction 
+is sufficient for representing a wide range of information. For example, 
+you can describe 3-dimensional volumetric data whose domain is the region 
+specified by positions and whose data space is the set of 
+values associated with those positions. The domain of a 2-dimensional image 
+on a monitor screen is a set of pixel locations, and 
+the data space consists of the pixel color. For 2-dimensional surfaces 
+imbedded in 3-dimensional space (e.g., traditional graphical models) the domain may 
+be a set of positions on the surface, and the data 
+space a set of data values on that surface. #!N #!N 
+In Data Explorer the positions and data are said to be 
+ #!F-adobe-times-medium-i-normal--18*   components #!EF of a field, and every field must contain 
+at least a "positions" component and a "data" component. Fields may 
+also contain other components (e.g., "connections"). Thus a Data Explorer field 
+consists of data and the additional components needed to describe that 
+data so that Data Explorer can process it. #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+(cont.) #!EF #!N #!N #!EC #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   An 
+Important Note on Fields (cont.) #!N #!N Components are represented as 
+arrays of numbers with some auxiliary information specifying  #!F-adobe-times-medium-i-normal--18*   attributes #!EF 
+(e.g., type of data dependency). The syntax of defining fields in 
+the General Array format is described in  #!Lsydfgi,dxall139 h Header File Syntax: Keyword Statements  #!EL  . The various 
+components are described in IBM Visualization Data Explorer User's Guide. #!N 
+#!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lgai,dxall110 h General Array Importer  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

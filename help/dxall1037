@@ -1,0 +1,86 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1036 Writing 
+a Filter #!N #!EC #!N #!N The filters used to create 
+a Data Explorer format file on disk and on standard output 
+are essentially the same. #!N #!N Assume a single data set 
+of scalar data stored in an HDF file. All HDF files 
+are gridded. The dimensionality and size of the grid are to 
+be determined from queries to the data set. #!N #!N The 
+following C program requires the HDF file name as an argument. 
+It is found in  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/simpleimportfilter.c #!EF . #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N 01 #!N 02 #!N 03 #include <stdio.h> #!EF #!N 
+#!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   df.h #!EF is a necessary include 
+file for HDF library routines. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 04 
+#include <df.h> #!N 05 #!N 06 #define MAXRANK 3 #!N 07 
+#!N 08 main(argc, argv) #!N 09 char *argv[]; #!N 10 { 
+#!N 11 FILE *in; #!N 12 char filename[80]; #!N 13 int 
+dims, counts[MAXRANK], numelements, i, j; #!N 14 float deltas[MAXRANK*MAXRANK], origins[MAXRANK], *databuf=NULL; 
+#!N 15 #!EF #!N #!N #!EC #!N #!N Check that the 
+user has supplied the name of the file to be opened. 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 16 if (argc < 2) { 
+#!N 17 fprintf(stderr,"Usage: simpleimportfilter <filename> \n"); #!N 18 return 0; #!N 
+19 } #!N 20 #!N 21 strcpy(filename, argv[1]); #!N 22 } 
+#!EF #!N #!N #!EC #!N #!N The HDF library routine  #!F-adobe-times-bold-r-normal--18*   
+DFishdf #!EF checks the file for accessibility and for the correct 
+(HDF) format. If the file is not accessible or is not 
+an HDF file, the routine generates an error message. #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N 23 if (DFishdf(filename) != 0) { #!N 24 
+fprintf(stderr, #!N 25 "file \"%s\" is not accessible, or is not 
+an hdf file\n", #!N 26 filename); #!N 27 return 0; #!N 
+28 } #!EF #!N #!N #!EC #!N #!N Initialize the HDF 
+library. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 29 DFSDrestart(); #!EF #!N #!N 
+#!EC #!N #!N The HDF library routine  #!F-adobe-times-bold-r-normal--18*   DFSDgetdims #!EF returns 
+the dimensionality of the grid (1D, 2D, etc.) in  #!F-adobe-times-bold-r-normal--18*   dims 
+#!EF . The number of positions in each dimension is returned 
+in the Array  #!F-adobe-times-bold-r-normal--18*   counts #!EF . #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N 30 DFSDgetdims(filename, &dims, counts, MAXRANK); #!EF #!N #!N #!EC #!N 
+#!N Determine the number of elements in the data Array. #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 31 numelements=1; #!N 32 for (i=0; i<dims; 
+i++) { #!N 33 numelements= numelements * counts[i]; #!N 34 } 
+#!EF #!N #!N #!EC #!N #!N Create a buffer for the 
+data. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 35 databuf = (float *)malloc(numelements*sizeof(float)); 
+#!N 36 if (!databuf) { #!N 37 fprintf(stderr,"out of memory\n"); #!N 
+38 return 0; #!N 39 } #!EF #!N #!N #!EC #!N 
+#!N The HDF library routine  #!F-adobe-times-bold-r-normal--18*   DFSDgetdata #!EF reads the data 
+from the HDF file to the data Array. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N 40 DFSDgetdata(filename, dims, counts, databuf); #!EF #!N #!N #!EC 
+#!N #!N Write the Data Explorer file format description of the 
+data Array on standard output. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 41 
+printf("object 1 class array type float rank 0 items %d data 
+follows\n", #!N 42 numelements); #!N 43 for (i=0; i<numelements; i++) #!N 
+44 printf(" %f\n ", databuf[i]); #!EF #!N #!N #!EC #!N #!N 
+Set the dependency of the data to "positions." #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N 45 printf("attribute \"dep\" string \"positions\"\n "); #!EF #!N #!N 
+#!EC #!N #!N Now create the position origin and deltas (origin 
+0 and deltas 1 in each dimension). #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N 46 for (i=0; i<dims; i++) { #!N 47 origins[i] = 
+0.0; #!N 48 for (j=0; j<dims; j++) { #!N 49 if 
+(i==j) #!N 50 deltas[i*dims + j] = 1.0; #!N 51 else 
+#!N 52 deltas[i*dims + j] = 0.0; #!N 53 } #!N 
+54 } #!EF #!N #!N #!EC #!N #!N Write out the 
+connections and positions. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 55 switch (dims) 
+{ #!N 56 case (1): #!N 57 printf("object 2 class gridconnections 
+counts %d\n", counts[0]); #!N 58 printf("object 3 class gridpositions counts %d\n", 
+counts[0]); #!N 59 printf(" origin %f\n", origins[0]); #!N 60 printf(" delta 
+%f\n", deltas[0]); #!N 61 break; #!N 62 case (2): #!N 63 
+printf("object 2 class gridconnections counts %d %d\n", #!N 64 counts[0], counts[1]); 
+#!N 65 printf("object 3 class gridpositions counts %d %d\n", #!N 66 
+counts[0], counts[1]); #!N 67 printf(" origin %f %f\n", origins[0], origins[1]); #!N 
+68 printf(" delta %f %f\n", deltas[0], deltas[1]); #!N 69 printf(" delta 
+%f %f\n", deltas[2], deltas[3]); #!N 70 break; #!N 71 case (3): 
+#!N 72 printf("object 2 class gridconnections counts %d %d %d\n", #!N 
+73 counts[0], counts[1], counts[2]); #!N 74 printf("object 3 class gridpositions counts 
+%d %d %d\n", #!N 75 counts[0], counts[1], counts[2]); #!N 76 printf(" 
+origin %f %f %f\n", origins[0], origins[1], origins[2]); #!N 77 printf(" delta 
+%f %f %f\n", deltas[0], deltas[1], deltas[2]); #!N 78 printf(" delta %f 
+%f %f\n", deltas[3], deltas[4], deltas[5]); #!N 79 printf(" delta %f %f 
+%f\n", deltas[6], deltas[7], deltas[8]); #!N 80 break; #!N 81 default: #!N 
+82 printf(stderr,"dimensionality must be 1D, 2D, or 3D"); #!N 83 return 
+0; #!N 84 } #!EF #!N #!N #!EC #!N #!N Write 
+out the description of the Field. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+85 printf("object 4 class field\n"); #!N 86 printf(" component \"data\" value 
+1\n"); #!N 87 printf(" component \"connections\" value 2\n"); #!N 88 printf(" 
+component \"positions\" value 3\n"); #!N 89 #!N 90 return 1; #!N 
+91 #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lwrimp,dxall1038 h Writing an Import Module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rrstsrv Resetting the Server #!N 
+#!EC #!N #!N If the data set your visual program is 
+using changes (e.g., by being edited) during your Data Explorer session, 
+and the  #!F-adobe-times-bold-r-normal--18*   cache #!EF is enabled (the default condition), it 
+may be necessary to force Data Explorer to reinitialize the server 
+executive to access the new data. To do this, select the 
+ #!F-adobe-times-bold-r-normal--18*   Reset Server #!EF option from the  #!F-adobe-times-bold-r-normal--18*   Connections #!EF pull-down 
+menu. #!N #!N The action of resetting the server flushes the 
+executive cache. The next time you execute the visual program, it 
+executes the entire network, not just the portions affected by changes 
+internal to the Data Explorer session, and will thus reaccess the 
+data set. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

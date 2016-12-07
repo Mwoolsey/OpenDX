@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rappend Append #!N #!N Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  
+#!N #!N Function #!N #!N Adds one or more specified Objects 
+to an existing Group. #!N #!N Syntax #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+group #!EF = Append(  #!F-adobe-times-bold-r-normal--18*   input, object, id,... #!EF ); #!EF 
+#!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Default TAB Description #!EF #!N TAB input 
+TAB Group TAB (no default) TAB group to which an object 
+is to be #!N TAB - TAB - TAB - TAB 
+added #!N TAB object TAB Object TAB (no default) TAB Object 
+to be added #!N TAB id TAB scalar or string TAB 
+(no default) TAB series position or name of Object #!N TAB 
+... TAB ... TAB ... TAB additional object-id pair(s) #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB group TAB group TAB the group with Objects added #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module differs from Collect, CollectNamed, CollectMultiGrid, and CollectSeries, which 
+create a new Group with the specified Objects as members. For 
+example, if the input to the module is a series with 
+four members, the output will be a series with four + 
+ #!F-adobe-times-medium-i-normal--18*   n #!EF members, where  #!F-adobe-times-medium-i-normal--18*   n #!EF is the number 
+of objects specified. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+input #!EF #!EF #!I50 #!N must be a Group. The type 
+of this Group determines the type of the output Group. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N is an 
+Object to be added as a member to the Group  #!F-adobe-times-bold-r-normal--18*   
+input #!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   id #!EF #!EF 
+#!I50 #!N specifies additional information to be associated with the appended 
+Object. For a named Group, this could be the name of 
+the member. For a Series, it is the series position value. 
+If  #!F-adobe-times-bold-r-normal--18*   input #!EF is a series, then  #!F-adobe-times-bold-r-normal--18*   id #!EF 
+is a required parameter. Otherwise, it is optional. #!I0 #!N #!N 
+A single Append module can specify a maximum of 21  #!F-adobe-times-bold-r-normal--18*   
+object #!EF -  #!F-adobe-times-bold-r-normal--18*   id #!EF pairs. In the user interface, 
+the default number of enabled parameter tabs is two. (Tabs can 
+be added to the module icon and removed with the appropriate 
+ #!F-adobe-times-bold-r-normal--18*   ...Input Tab #!EF options in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down 
+menu of the VPE.) #!N #!N Components #!N #!N All components 
+are propagated to the output. #!N #!N See Also #!N #!N 
+ #!Lcollect,dxall788 h Collect  #!EL  ,  #!Lmultigr,dxall789 h CollectMultiGrid  #!EL  ,  #!Lcollecn,dxall790 h CollectNamed  #!EL  ,  #!Lcollecs,dxall791 h CollectSeries  #!EL  ,  #!Lselect,dxall936 h Select  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Larrange,dxall768 h Arrange  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

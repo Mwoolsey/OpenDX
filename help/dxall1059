@@ -1,0 +1,43 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rmodruns 
+Compiling, Linking, and Debugging a Runtime-loadable Module #!N #!EC #!N #!N 
+The following sample makefile templates for creating runtime-loadable modules can be 
+found in  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/user #!EF : #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o RISC System/6000* Systems:  #!F-adobe-times-bold-r-normal--18*   Makefile_loadable_ibm6000 #!EF #!N 
+#!I30 #!N o Silicon Graphics**:  #!F-adobe-times-bold-r-normal--18*   Makefile_loadable_sgi #!EF #!N #!I30 #!N 
+o Sun Microsystems**:  #!F-adobe-times-bold-r-normal--18*   Makefile_loadable_solaris #!EF #!N #!I30 #!N o Hewlett-Packard**: 
+ #!F-adobe-times-bold-r-normal--18*   Makefile_loadable_hp700 #!EF #!N #!I30 #!N o DEC Alpha**:  #!F-adobe-times-bold-r-normal--18*   Makefile_loadable_alphax 
+#!EF #!N #!I0 #!N #!EF #!N #!N #!N The makefile target 
+"loadablelib" is an example of how to make a "library" of 
+runtime-loadable modules. Replace  #!F-adobe-times-bold-r-normal--18*   makex.o #!EF ,  #!F-adobe-times-bold-r-normal--18*   add.o #!EF , 
+and  #!F-adobe-times-bold-r-normal--18*   hello.o #!EF with the names of your modules. The 
+makefile target  #!F-adobe-times-bold-r-normal--18*   hello #!EF is an example of how to 
+make an executable containing a single module. See also the files 
+ #!F-adobe-times-bold-r-normal--18*   hello_loadable.mdf #!EF and  #!F-adobe-times-bold-r-normal--18*   user_loadable.mdf #!EF . Starting Data Explorer 
+requires specifying the module description file to the user interface: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf my.mdf #!EF #!N #!N 
+#!EC Note: You can also load a .mdf file after Data 
+Explorer has started. Use the  #!F-adobe-times-bold-r-normal--18*   Load Module Description(s) #!EF option 
+in the  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu of the VPE window. 
+#!N #!N To debug a module you must first modify the 
+CFLAGS line of the makefile to compile your source code as 
+debuggable (  #!F-adobe-times-bold-r-normal--18*   -g #!EF ) rather than optimized (  #!F-adobe-times-bold-r-normal--18*   
+-O #!EF ). Note: Data Explorer library routines are available only 
+as optimized object code. #!N #!N To debug a module: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Start up just 
+the user interface: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -uionly -mdf 
+yourmdf.mdf #!EF #!N #!N #!EC #!N #!I30 #!N 2. Start a 
+debugging session with the  #!F-adobe-times-bold-r-normal--18*   -r #!EF (remote) flag on /usr/lpp/dx/bin_ 
+ #!F-adobe-times-bold-i-normal--18*   workstation #!EF /dxexec. #!N #!I30 #!N 3. Connect the user 
+interface to the debugging session by selecting  #!F-adobe-times-bold-r-normal--18*   Connect to already 
+running server #!EF in the  #!F-adobe-times-bold-r-normal--18*   Options #!EF dialog box of 
+the  #!F-adobe-times-bold-r-normal--18*   Start Server... #!EF dialog box. You should check the 
+port number specified when you start your executable from the debugging 
+session, and ensure that the port number listed in the  #!F-adobe-times-bold-r-normal--18*   
+Options #!EF dialog box is the same. #!N #!I30 #!N 4. 
+Set your breakpoints in the debugger and continue. Note: On some 
+architectures it may be necessary to build a module as inboard 
+in order to debug it. #!N #!I0 #!N #!EF #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmeml,dxall1060 h Memory Leaks  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

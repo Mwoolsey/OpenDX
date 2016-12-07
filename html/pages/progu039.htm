@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu038.htm">Previous Page</A> &#124; <A HREF="progu040.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRMODSIOR" HREF="progu037.htm#PToC_78">11.3 Inboard, Outboard, and
+Runtime-loadable Modules</A></H2>
+<A NAME="IDX329"></A>
+<A NAME="IDX330"></A>
+<A NAME="IDX331"></A>
+<P>
+The chief differences between inboard, outboard, and runtime-loadable
+modules lies in the following features:
+<UL COMPACT>
+<LI>the module description file (<TT><STRONG>&#46;mdf</STRONG></TT>)
+<LI>the compilation and linking process (i.e., the Makefile)
+<LI>the command that starts Data Explorer using the module.
+</UL>
+<P>
+Module description files are discussed in <A HREF="progu037.htm#HDRMDFSEC">11.1
+, "Module Description Files"</A>.
+The other two features are discussed in the three sections following
+this brief summary.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>inboard modules</STRONG></TT>
+</B></TD><TD><P>Are compiled into Data Explorer.
+That is, the version of dxexec found (usually) in
+/usr/local/dx/bin&#95;architecture is replaced
+with your own copy (i.e., a copy
+incorporating your module).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>outboard modules</STRONG></TT>
+</B></TD><TD><P>Run as separate processes.
+Linking an outboard module is quick, since it does not involve creating
+an entire new version of dxexec (as the compilation of
+inboard modules does).
+Thus an outboard module is also easier to debug because it can be
+relinked more quickly.
+<P>
+However, outboard modules are typically less efficient than other
+modules, especially if significant amounts of data must be
+transferred: data objects are transferred to and from an
+outboard module via sockets rather than as the pointers
+to shared memory that inboard and runtime-loadable
+modules use.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>runtime-loadable
+modules</STRONG></TT>
+</B></TD><TD><P>Can be loaded when Data Explorer is started or at any time
+after, and they
+do not require a separate copy of dxexec, as inboard modules do.
+Thus these modules have the advantage of portability without the
+disadvantage of the data-transfer overhead associated with
+outboard modules.
+A single executable can contain multiple modules that can be used
+like a library.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu038.htm">Previous Page</A> &#124; <A HREF="progu040.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

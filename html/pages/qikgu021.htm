@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Visualizing 2-Dimensional Data</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu020.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu022.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu016.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>3.6 Visualizing 2-Dimensional Data</H2>
+		<A NAME="IDX106"></A><A NAME="IDX107"></A>
+<P>
+This section describes several ways of visualizing 2-dimensional
+scalar and vector data.
+<P>
+<H3><A NAME="HDRTCOLOR" ></A>Colors</H3>
+<A NAME="IDX108"></A>
+<A NAME="IDX109"></A>
+<A NAME="IDX110"></A>
+<P>
+Using the AutoColor tool to color 2-dimensional data is the simplest
+visualization method available.
+By default, AutoColor assigns blue to the smallest values and red to the
+largest.
+(If the data are vector, the colors are based on the magnitude
+of the vectors).
+<OL COMPACT>
+<LI>Open and execute visual program <TT>.../AutoColor2D.net</TT>.
+<P>
+The resulting image is a map of temperatures around the world: highest
+near the equator and over continents; lowest near the poles and
+in the oceans.
+<LI>To display the temperature values associated with each color,
+connect the output tab of the <TT><STRONG>ColorBar</STRONG></TT>
+icon in the VPE window to the open input tab on the
+<TT><STRONG>Collect</STRONG></TT> icon.
+<LI>Reexecute the visual program.
+</OL>
+<P>
+The <TT><STRONG>Color</STRONG></TT> tool and the <TT><STRONG>Colormap
+Editor</STRONG></TT> provide additional control of the
+color map:
+<OL COMPACT>
+<LI>Open and execute visual program <TT>.../Color2D.net</TT>.
+<LI>Open the <TT><STRONG>Colormap Editor</STRONG></TT> by double clicking on
+the <TT><STRONG>Colormap</STRONG></TT> icon.
+<LI>Select <TT><STRONG>Execute on Change</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu.
+Any change you now make in the <TT><STRONG>Colormap Editor</STRONG></TT>
+appears immediately in the image.
+For example, you can experiment with:
+<UL COMPACT>
+<LI>moving control points (clicking on and dragging)
+<LI>adding control points (double clicking at the desired location)
+<LI>deleting control points (double clicking on individual points).
+</UL>
+<LI>Connect the output tab of the <TT><STRONG>ColorBar</STRONG></TT> icon in
+the VPE window to the open input tab on the
+<TT><STRONG>Collect</STRONG></TT> icon.
+<LI>Select <TT><STRONG>Execute on Change</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu.
+The color bar from the <TT><STRONG>Colormap Editor</STRONG></TT> now also
+appears in the image.
+Again, a change made in the editor is immediately reflected in the
+image.
+</OL>
+<P>
+For more information, see
+<A HREF="refgu016.htm#HDRAUTOCOL">AutoColor</A>,
+<A HREF="refgu033.htm#HDRCOLOR">Color</A>, and
+<A HREF="refgu034.htm#HDRCOLORBA">ColorBar</A>,
+in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H3><A NAME="HDRTCNTLN" ></A>Contour Lines</H3>
+<A NAME="IDX111"></A>
+<A NAME="IDX112"></A>
+<P>
+Contour lines connect points of the same value in a 2-dimensional
+data set.
+The visual program in this example uses elevation data for the
+southeastern United States.
+<OL COMPACT>
+<LI>Open and execute visual program <TT>.../Isosurface2D.net</TT>.
+<P>
+The contour line that appears in the image has an isosurface value of
+0 meters (sea level).
+<LI>Open the <TT><STRONG>Isosurface</STRONG></TT> configuration dialog box.
+<LI>In the <TT><STRONG>value</STRONG></TT> parameter field, change
+"0.0" to "20" and click on <TT><STRONG>OK</STRONG></TT>.
+The dialog box closes.
+<LI>Select <TT><STRONG>Execute on Change</STRONG></TT> in the
+<TT><STRONG>Execute</STRONG></TT> pull-down menu and note
+the change in the contour line.
+<LI>Reopen the Isosurface configuration dialog box and type "0
+20" in the <TT><STRONG>value</STRONG></TT> parameter field.
+<LI>Click on <TT><STRONG>OK</STRONG></TT>.
+The image now consists of two contour lines.
+</OL>
+<P>
+For more information, see Isosurface in <I>IBM Visualization Data Explorer
+User&#39;s Reference</I>.
+<P>
+<H3><A NAME="HDRTSTMLN2" ></A>Streamlines</H3>
+<A NAME="IDX113"></A>
+<A NAME="IDX114"></A>
+<P>
+If your 2-dimensional data set consists of vectors, you can create
+streamlines that trace the path of a massless particle in
+a vector field.
+<P>
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../Streamlines2D.net</TT>.
+The image is a set of streamlines that follow a wind field over the
+surface of the earth.
+<LI>Change the number of streamlines by changing the value of the
+<TT><STRONG>density</STRONG></TT> parameter in the configuration dialog box
+of the <TT><STRONG>Sample</STRONG></TT> tool.
+<LI>Reexecute the visual program.
+</OL>
+<P><B>Note: </B>Streamlines can be generated in other ways as well.
+For example:
+<OL COMPACT>
+<LI>Pass a list of 2-dimensional positions to the
+<TT><STRONG>start</STRONG></TT> parameter in the
+<TT><STRONG>Streamline</STRONG></TT>
+configuration dialog
+box by either:
+<OL COMPACT>
+<LI>inserting a <TT><STRONG>VectorList</STRONG></TT> interactor stand-in
+(from <TT><STRONG>Interactor</STRONG></TT> in the categories palette)
+into the visual program, and connecting it to the
+<TT><STRONG>start</STRONG></TT> parameter tab of
+Streamline <I>or</I>
+<LI>typing the start positions in the configuration dialog box for
+<TT><STRONG>Streamline</STRONG></TT>.
+</OL>
+<P>
+<LI>Use the <TT><STRONG>Grid</STRONG></TT> tool (from
+<TT><STRONG>Realization</STRONG></TT> in the
+categories palette) to create a
+particular set of start
+positions.
+Any field that contains positions can be used as the starting point
+for streamlines.
+<P>
+This sample visual program contains a Grid tool.
+Connect it to the <TT><STRONG>start</STRONG></TT> parameter tab of Streamline.
+It generates a 3 &times; 3 grid of points.
+Modify it to create a 10 &times; 3 grid of starting points.
+<LI>Use the <TT><STRONG>Probe</STRONG></TT> tool (from
+<TT><STRONG>Special</STRONG></TT> in the
+categories palette) to select starting points in
+the Image window.
+<P>
+This sample visual program contains a Probe tool.
+(Compute is used to make the value of the probe point 2-dimensional.)
+Connect the output of Compute to the <TT><STRONG>start</STRONG></TT>
+input tab of Streamline, and then move the probe (i.e.,
+enter cursor mode, using the <TT><STRONG>View
+Control</STRONG></TT> dialog box).
+</OL>
+<P>
+See Grid, Probe, and Streamline in <I>IBM Visualization Data Explorer User&#39;s
+Reference</I>.
+<P>
+<H3><A NAME="HDRTRBRSHT" ></A>RubberSheet</H3>
+<A NAME="IDX115"></A>
+<A NAME="IDX116"></A>
+<A NAME="IDX117"></A>
+<P>
+You can "warp" the representation of 2-dimensional data with the
+<TT><STRONG>RubberSheet</STRONG></TT> tool.
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../RubberSheet.net</TT>.
+The image represents elevation above sea level in the southeastern
+United States.
+Regions of greatest elevation are colored red; regions of lowest
+elevation, blue.
+<LI>Open the <TT><STRONG>RubberSheet</STRONG></TT> configuration dialog box.
+<LI>Change the value in the <TT><STRONG>scale</STRONG></TT> parameter field to
+".002."
+<LI>Click on <TT><STRONG>OK</STRONG></TT> and reexecute the
+visual program.
+The contrast of variation is greatly increased.
+</OL>
+<P>
+For more information, see RubberSheet in <I>IBM Visualization Data Explorer
+User&#39;s Reference</I>.
+<P>
+You can also add contour lines to a Rubbersheet image:
+<OL COMPACT>
+<LI>Select <TT><STRONG>Realization</STRONG></TT> in the categories palette and
+then
+<TT><STRONG>Isosurface</STRONG></TT> in the tools palette.
+<LI>Place the icon to the right of <TT><STRONG>RubberSheet</STRONG></TT>.
+<LI>Connect the output of <TT><STRONG>RubberSheet</STRONG></TT> to the first
+input tab of <TT><STRONG>Isosurface</STRONG></TT> (the only connection
+that Data Explorer will allow you to make).
+Make sure that you do not break the connection to
+<TT><STRONG>Shade</STRONG></TT>.
+<LI>Open the <TT><STRONG>Isosurface</STRONG></TT> configuration dialog box.
+<LI>Change the <TT><STRONG>number</STRONG></TT> parameter value to "10"
+and click on <TT><STRONG>OK</STRONG></TT>.
+<LI>Select <TT><STRONG>Structuring</STRONG></TT> in the categories palette
+and <TT><STRONG>Collect</STRONG></TT> in the tools
+palette.
+<LI>Place the <TT><STRONG>Collect</STRONG></TT> icon below
+<TT><STRONG>Isosurface</STRONG></TT>.
+<LI>Connect the outputs of both <TT><STRONG>Shade</STRONG></TT> and
+<TT><STRONG>Isosurface</STRONG></TT> to the inputs of
+<TT><STRONG>Collect</STRONG></TT> (again, Data Explorer will
+allow only valid connections).
+<LI>Disconnect <TT><STRONG>Image</STRONG></TT> from
+<TT><STRONG>Shade</STRONG></TT>.
+<LI>Connect the output of <TT><STRONG>Collect</STRONG></TT> to the input of
+<TT><STRONG>Image</STRONG></TT>.
+<LI>Reexecute the visual program.
+The result is a set of colored contour lines combined with the
+Rubbersheet image.
+</OL>
+<P>
+You can change the color of the contour lines:
+<OL COMPACT>
+<LI>Select <TT><STRONG>Transformation</STRONG></TT> in the categories palette
+and then <TT><STRONG>Color</STRONG></TT> in the tools palette.
+<LI>Place the <TT><STRONG>Color</STRONG></TT> icon to the right of
+<TT><STRONG>RubberSheet</STRONG></TT> and
+<TT><STRONG>Collect</STRONG></TT>.
+<LI>Open the <TT><STRONG>Color</STRONG></TT> configuration dialog box.
+<LI>Delete "(no color added)" in the <TT><STRONG>color</STRONG></TT>
+parameter field and type in "black"
+(the quotation marks are unnecessary and will be added
+by Data Explorer).
+<LI>Click on <TT><STRONG>OK</STRONG></TT>.
+<LI>Move the output of <TT><STRONG>Isosurface</STRONG></TT> from
+<TT><STRONG>Collect</STRONG></TT> to <TT><STRONG>Color</STRONG></TT>.
+<LI>Connect the output of <TT><STRONG>Color</STRONG></TT> to the input of
+<TT><STRONG>Collect</STRONG></TT>.
+<LI>Reexecute the visual program.
+</OL>
+<P>
+See Color and Isosurface in <I>IBM Visualization Data Explorer User&#39;s
+Reference</I>.
+<P>
+<H3><A NAME="HDRT2DSGLY" ></A>2-D Scalar Glyphs</H3>
+<A NAME="IDX118"></A>
+<A NAME="IDX120"></A>
+<P>
+In this example, elevation data are represented both by color and by
+glyphs (the black circles).
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../AutoGlyph2DScalar.net</TT>.
+The elevation values range from higher (orange; larger circles) to lower
+(blue; smaller circles).
+The size of each glyph (circle) is proportional to the data value it
+represents.
+To display these values:
+<LI>Open the configuration dialog box for <TT><STRONG>AutoGlyph</STRONG></TT>.
+<LI>In the <TT><STRONG>type</STRONG></TT> parameter field, replace "(input
+dependent)" with "text" and click on <TT><STRONG>OK</STRONG></TT>.
+<LI>Reexecute the program.
+The actual data values that appear are called <I>text</I> glyphs.
+</OL>
+<P>
+See AutoGlyph in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H3><A NAME="HDRT2DVGLY" ></A>2-D Vector Glyphs</H3>
+<A NAME="IDX121"></A>
+<A NAME="IDX122"></A>
+<A NAME="IDX123"></A>
+<P>
+Glyphs can be used to represent vector as well as scalar data.
+<UL COMPACT>
+<LI>Open and execute visual program
+<TT>.../AutoGlyph2DVector.net</TT>.
+<P>
+Again, data values are represented by color and by glyphs (arrows).
+In this example of wind velocity data, colors represent the magnitude
+and arrows the direction.
+(The black squares signify missing data or data omitted as invalid
+by the <TT><STRONG>Include</STRONG></TT> module in the program.)
+</UL>
+<P>
+See AutoGlyph in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

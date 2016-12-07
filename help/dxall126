@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall125 Example 2. 
+Cell-Centered Data #!N #!EC #!N #!N This example is identical to 
+the preceding one except that each of the data variables is 
+dependent on the connections between data points rather than on their 
+positions. Thus there are only six data values per field (3 
+* 1 * 2). The data file looks like: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N Energy #!N 2.158719 1.45419 1.566509 1.551361 2.215095 1.726923 
+#!N Pressure #!N 34.81398 18.81529 29.65139 42.499 22.96053 31.41604 #!N Temperature 
+#!N 295.3329 302.5431 301.835 296.0127 297.8344 295.5451 #!EF #!N #!N #!EC 
+#!N #!N The header file to import this data should look 
+like: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/record_multiscalardepconn #!N grid 
+= 4 x 2 x 3 #!N format = test #!N 
+interleaving = record #!N majority = row #!N header = lines 
+1 #!N field = Energy, Pressure, Temperature #!N recordseparator = lines 
+1 #!N dependency = connections #!N #!N end #!EF #!N #!N 
+#!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall126,dxall127 h Example 3. Multiple Scalars with Mixed Dependencies  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

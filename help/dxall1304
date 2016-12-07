@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxmpa DXMapArray #!N #!N Function #!N #!N Provides 
+an intermediate-level mapping function. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Array DXMapArray(Array index, Interpolator map, Array *invalid) #!EF #!N #!N Functional 
+Details #!N #!N This function is lower-level than  #!F-adobe-times-bold-r-normal--18*   DXMap #!EF 
+but higher than  #!F-adobe-times-bold-r-normal--18*   DXInterpolate #!EF . #!N #!N The parameter 
+ #!F-adobe-times-bold-r-normal--18*   index #!EF specifies an Array containing points to be sampled 
+from the Interpolator  #!F-adobe-times-bold-r-normal--18*   map #!EF . The result is returned 
+as an Array. If  #!F-adobe-times-bold-r-normal--18*   invalid #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , an Array that indicates invalid data in which uninterpolated 
+elements are tagged  #!F-adobe-times-bold-r-normal--18*   DATA_INVALID #!EF is returned. If an invalid-data 
+Array corresponding to  #!F-adobe-times-bold-r-normal--18*   index #!EF exists prior to the call 
+to  #!F-adobe-times-bold-r-normal--18*   DXMapArray #!EF , it should be passed in through 
+ #!F-adobe-times-bold-r-normal--18*   *invalid #!EF . See  #!Ldxie,dxall1284 h DXInterpolate  #!EL  for valid types of  #!F-adobe-times-bold-r-normal--18*   
+index #!EF and  #!F-adobe-times-bold-r-normal--18*   map #!EF data. #!N #!N Return Value 
+#!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   index #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxie,dxall1284 h DXInterpolate  #!EL  ,  #!Ldxmp,dxall1303 h DXMap  #!EL  ,  #!Ldxmpc,dxall1305 h DXMapCheck  #!EL  ,  #!Ldxni,dxall1318 h DXNewInterpolator  #!EL  #!EF #!N #!N 
+ #!Linadmg,dxall1117 h Interpolation and Mapping  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxmpc,dxall1305 h DXMapCheck  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

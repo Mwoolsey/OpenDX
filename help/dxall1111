@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rmatrxsc Transformation Matrices #!N #!EC 
+#!N #!N Transformation matrices (or transforms) specify the relationship between Objects. 
+For example, when a renderable object is included in a model, 
+a transformation matrix specifies its placement. In Data Explorer, a transform 
+is a 4*3 matrix specifying rotation and translation. This is a 
+homogeneous matrix without the part that computes the  #!F-adobe-times-medium-i-normal--18*   w #!EF 
+component of the result. (The  #!F-adobe-times-medium-i-normal--18*   w #!EF component is used 
+for perspective, which is specified by a camera and is not 
+needed here.) #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct matrix { 
+#!N /* xA + b */ #!N float A[3][3]; #!N float 
+b[3]; #!N } Matrix; #!N #!N static Matrix mdentity = { 
+#!N 1, 0, 0, #!N 0, 1, 0, #!N 0, 0, 
+1, #!N 0, 0, 0 #!N }; #!EF #!N #!N #!EC 
+#!N #!N Transforms can be specified in a number of ways: 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Matrix DXRotateX() #!EF 
+#!N Matrix DXRotateY(); #!N Matrix DXRotateZ(); #!EF #!I50 #!N Return a 
+Matrix that specifies a rotation (in radians) about the  #!F-adobe-times-medium-i-normal--18*   x 
+#!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF or  #!F-adobe-times-medium-i-normal--18*   z #!EF axis by 
+angle  #!F-adobe-times-bold-r-normal--18*   angle #!EF . See  #!Ldxrxyz,dxall1362 h DXRotateX, DXRotateY, DXRotateZ, DXScale, DXTranslate, DXMat  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Matrix DXScale() #!EF #!EF #!I50 #!N Returns a Matrix 
+that specifies a scaling by amounts  #!F-adobe-times-bold-r-normal--18*   x #!EF ,  #!F-adobe-times-bold-r-normal--18*   
+y #!EF , and  #!F-adobe-times-bold-r-normal--18*   z #!EF along the  #!F-adobe-times-medium-i-normal--18*   x 
+#!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF and  #!F-adobe-times-medium-i-normal--18*   z #!EF axes. See 
+ #!Ldxrxyz,dxall1362 h DXRotateX, DXRotateY, DXRotateZ, DXScale, DXTranslate, DXMat  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Matrix DXTranslate() #!EF #!EF 
+#!I50 #!N Returns a Matrix that specifies a translation by vector 
+ #!F-adobe-times-bold-r-normal--18*   v #!EF . See  #!Ldxrxyz,dxall1362 h DXRotateX, DXRotateY, DXRotateZ, DXScale, DXTranslate, DXMat  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Matrix DXMat() #!EF #!EF #!I50 #!N Returns a Matrix with 
+the specified components. See  #!Ldxrxyz,dxall1362 h DXRotateX, DXRotateY, DXRotateZ, DXScale, DXTranslate, DXMat  #!EL  . #!I0 #!N #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lbops,dxall1112 h Basic Operations  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

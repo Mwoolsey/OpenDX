@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rstdcs Standard 
+Components #!N #!EC #!N #!N The following routines create and manipulate 
+standard components of a Field. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXEndField() #!EF #!EF #!I50 #!N Creates the standard 
+components that a Field is expected to contain if they do 
+not already exist. See  #!Ldxendf,dxall1201 h DXEndField  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Error DXEndObject() #!EF #!EF #!I50 #!N Creates the standard components that 
+Fields are expected to contain, sharing the results when components are 
+shared between Fields. See  #!Ldxeo,dxall1202 h DXEndObject  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+int DXEmptyField() #!EF #!EF #!I50 #!N Determines whether a Field contains 
+information. See  #!Ldxemf,dxall1200 h DXEmptyField  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Field DXChangedComponentValues() 
+#!EF #!N Field DXChangedComponentStructure(); #!EF #!I50 #!N Both routines delete all 
+components of a Field that are derived from a specified component. 
+ #!F-adobe-times-bold-r-normal--18*   DXChangedComponentStructure() #!EF also deletes all Field components that are dependent 
+on or refer to a specified component. See  #!Lun6,dxall1086 s Note on Use  #!EL  . See 
+ #!Ldxccvs,dxall1178 h DXChangedComponentValues, DXChangedComponentStructure  #!EL  . #!I0 #!N #!N #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Note 
+on Use  #!Run6 #!N #!N This example illustrates one use of 
+ #!F-adobe-times-bold-r-normal--18*   DXChangedComponentValues() #!EF : #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N g = 
+DXCopy(f, COPY_STRUCTURE); #!N a = DXGetComponentValue(g, "positions"); #!N b = ... 
+modification of a ... #!N DXSetComponentValue(g, "positions", b); #!N DXChangedComponentValues(g, "positions"); 
+#!EF #!N #!N #!EC #!N #!N #!EC #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXBoundingBox() #!EF #!EF #!I50 #!N Computes 
+the bounding box of an Object. See  #!Ldxbb,dxall1176 h DXBoundingBox  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXNeighbors() #!EF #!EF #!I50 #!N Returns the 
+neighbors Array of a Field. See  #!Ldxn,dxall1308 h DXNeighbors  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXStatistics() #!EF #!EF #!I50 #!N Returns statistical information 
+for an Object. See  #!Ldxs,dxall1396 h DXStatistics  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Object DXValidPositionsBoundingBox() #!EF #!EF #!I50 #!N Computes the bounding box of 
+the valid positions of an Object. See  #!Ldxvpbb,dxall1406 h DXValidPositionsBoundaryBox  #!EL  . #!I0 #!N 
+#!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxgft DXGetFont #!N #!N Function #!N #!N Returns a Group representing 
+the named font. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object 
+DXGetFont(char *name, float *ascent, float *descent) #!EF #!N #!N Functional Details 
+#!N #!N The Group has as many members as there are 
+characters in the named font (  #!F-adobe-times-bold-r-normal--18*   name #!EF ). Typically, 
+the returned font is passed to  #!F-adobe-times-bold-r-normal--18*   DXGeometricText #!EF to construct 
+a text Object from a given string. Alternatively, individual characters can 
+be extracted using  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedMember #!EF . The member number is 
+the same as the ASCII character code. #!N #!N The font 
+has an overall height of 1. If  #!F-adobe-times-bold-r-normal--18*   ascent #!EF is 
+not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the portion of the overall height 
+above the baseline is returned in  #!F-adobe-times-bold-r-normal--18*   *ascent #!EF . If 
+ #!F-adobe-times-bold-r-normal--18*   descent #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the portion 
+of the overall height below the baseline is returned in  #!F-adobe-times-bold-r-normal--18*   
+*descent #!EF . The sum of the ascent and the descent 
+is the overall height 1. #!N #!N This routine checks the 
+environment variables DXFONTS, DXEXECROOT, and DXROOT for directories to search for 
+fonts. The routine also checks in /usr/lpp/dx and in the subdirectory 
+ #!F-adobe-times-bold-r-normal--18*   fonts #!EF of each of these directories. #!N #!N Return 
+Value #!N #!N Returns the font or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxgtt,dxall1217 h DXGeometricText  #!EL  ,  #!Ldxgem,dxall1234 h DXGetEnumeratedMember  #!EL  #!EF #!N #!N  #!Ltt,dxall1126 h Text  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxggc,dxall1240 h DXGetGroupClass  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

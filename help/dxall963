@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsystem System #!N #!N Category #!N #!N 
+ #!Lcatdbg,dxall754 h Debugging  #!EL  #!N #!N Function #!N #!N Executes a system function. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N System(  #!F-adobe-times-bold-r-normal--18*   string #!EF 
+); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Default TAB Description #!EF #!N 
+TAB string TAB string TAB none TAB shell command to be 
+executed #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Functional Details #!N #!N The System module uses the C 
+library  #!F-adobe-times-bold-r-normal--18*   system() #!EF function to execute operating system commands. #!N 
+#!N If the characters %, \, or " occur in the 
+command string, they must be escaped: the percent sign must be 
+preceded by another percent sign; backslashes and double quotes must be 
+preceded by a backslash. #!N #!N Script Language Example #!N #!N 
+This example creates a sequence of captioned images using different isosurface 
+values. The Format module creates a different image file name for 
+each image. The System module executes the compress function to minimize 
+the amount of disk space used. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+electrondensity = Import("/usr/lpp/dx/samples/data/watermolecule"); #!N electrondensity = Partition(electrondensity); #!N camera = AutoCamera(electrondensity,resolution=300,aspect=1,width=2.5); 
+#!N macro makeiso(isoval) #!N ¤ #!N isosurface = Isosurface(electrondensity, isoval); #!N 
+caption = Format("isoval = %g", isoval); #!N caption = Caption(caption); #!N 
+imagename = Format("iso%4.2f.rgb", isoval); #!N collected = Collect(caption, isosurface); #!N image 
+= Render(collected, camera); #!N Display(image); #!N WriteImage(image, imagename); #!N command = 
+Format("compress %s", imagename); #!N System(command); #!N ‡ #!N makeiso(0.1); #!N makeiso(0.2); 
+#!N makeiso(0.3); #!N makeiso(0.33); #!N makeiso(0.36); #!N makeiso(0.39); #!EF #!N #!N 
+#!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltext,dxall964 h Text  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsetex DXSetErrorExit 
+#!N #!N Function #!N #!N Determines the action taken when DXSetError 
+is called in a stand-alone program. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Void DXSetErrorExit(int level); #!EF #!N #!N Functional Details #!N 
+#!N Valid arguments for  #!F-adobe-times-bold-r-normal--18*   level #!EF are: #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   0 #!EF #!EF #!I50 #!N = 
+store error message. Use  #!F-adobe-times-bold-r-normal--18*   DXPrintError() #!EF to print when ready. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   1 #!EF #!EF #!I50 #!N = 
+print error message and return. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   2 
+#!EF #!EF #!I50 #!N = print error message and exit. #!I0 
+#!N #!N #!N #!N This routine is intended for those using 
+Data Explorer library routines in their own programs, and for use 
+only in stand-alone programs. By default,  #!F-adobe-times-bold-r-normal--18*   DXInitModules #!EF sets  #!F-adobe-times-bold-r-normal--18*   
+level #!EF to 1 (one).  #!F-adobe-times-bold-r-normal--18*   DXSetErrorExit #!EF affects the behavior 
+of  #!F-adobe-times-bold-r-normal--18*   DXSetError #!EF only outside those built-in Data Explorer modules 
+called with  #!F-adobe-times-bold-r-normal--18*   DXCallModule #!EF . #!N #!N Return Value #!N 
+#!N No return value. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgetex,dxall1236 h DXGetErrorExit  #!EL  #!EF #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxsfa,dxall1379 h DXSetFloatAttribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

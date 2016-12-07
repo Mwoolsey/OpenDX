@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu039.htm">Previous Page</A> &#124; <A HREF="progu041.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRMODLINK" HREF="progu037.htm#PToC_79">11.4 Compiling, Linking,
+and Debugging an Inboard Module</A></H2>
+<A NAME="IDX332"></A>
+<A NAME="IDX333"></A>
+<A NAME="IDX334"></A>
+<A NAME="IDX335"></A>
+<A NAME="IDX336"></A>
+<A NAME="IDX337"></A>
+<A NAME="IDX338"></A>
+<P>
+The following sample makefile templates for creating inboard modules
+can be found in <TT><STRONG>/usr/local/dx/samples/user</STRONG></TT>:
+<A NAME="IDX339"></A>
+<A NAME="IDX340"></A>
+<A NAME="IDX341"></A>
+<A NAME="IDX342"></A>
+<A NAME="IDX343"></A>
+<A NAME="IDX344"></A>
+<UL COMPACT>
+<LI>RISC System/6000&#42; Systems:
+<TT><STRONG>Makefile&#95;inboard&#95;ibm6000</STRONG></TT>
+<LI>Silicon Graphics&#42;&#42;:
+<TT><STRONG>Makefile&#95;inboard&#95;sgi</STRONG></TT>
+<LI>Sun Microsystems&#42;&#42;:
+<TT><STRONG>Makefile&#95;inboard&#95;solaris</STRONG></TT> or
+<TT><STRONG>Makefile&#95;inboard&#95;sun4</STRONG></TT>
+<LI>Hewlett-Packard&#42;&#42;:
+<TT><STRONG>Makefile&#95;inboard&#95;hp700</STRONG></TT>
+<LI>Data General AViiON&#42;&#42;:
+<TT><STRONG>Makefile&#95;inboard&#95;aviion</STRONG></TT>
+<LI>DEC Alpha&#42;&#42;:
+<TT><STRONG>Makefile&#95;inboard&#95;alphax</STRONG></TT>
+</UL>
+<P>
+Replace <TT><STRONG>makex.o</STRONG></TT>, <TT><STRONG>add.o</STRONG></TT>, and
+<TT><STRONG>hello.o</STRONG></TT> with the names of your
+<TT><STRONG>.o</STRONG></TT> files.
+These makefiles assume that <TT><STRONG>user&#95;inboard.mdf</STRONG></TT> is
+the name of the module description file that describes all
+your modules.
+<P>
+Starting Data Explorer requires specifying the module description file and a
+dxexec to the user interface:
+<PRE>
+dx  -mdf my.mdf -exec mydxexec
+</PRE>
+<P><B>Notes: </B><OL>
+<P><LI>You can also load a &#46;mdf file after Data Explorer has
+started.
+Use the <TT><STRONG>Load Module Description(s)</STRONG></TT> option in
+the <TT><STRONG>File</STRONG></TT> pull-down menu of the VPE
+window.
+<P><LI>You must then restart the executive using the <TT><STRONG>Disconnect
+from Server</STRONG></TT> and <TT><STRONG>Start Server</STRONG></TT> options
+in the <TT><STRONG>Connection</STRONG></TT> pull-down menu of the
+VPE window (you would need to specify the dxexec,
+using <TT><STRONG>Options</STRONG></TT> in the
+<TT><STRONG>Start Server...</STRONG></TT>
+dialog box).
+</OL>
+<P>
+To debug a module you must first modify the CFLAGS line of the makefile
+to compile your source code as debuggable (<TT><STRONG>-g</STRONG></TT>)
+rather than optimized (<TT><STRONG>-O</STRONG></TT>).
+<P><B>Note: </B>Data Explorer library routines are available only as optimized
+object code.
+<P>
+To debug a module:
+<OL COMPACT>
+<LI>Start up just the user interface: <TT>dx -uionly</TT>
+
+<LI>Start a debugging session on your executable program.
+<LI>Run the executable from the debugger with the <TT><STRONG>-r</STRONG></TT>
+(remote) flag.
+
+<LI>Connect the user interface to the debugging session by selecting
+<TT><STRONG>Connect to already running server</STRONG></TT> in the
+<TT><STRONG>Options</STRONG></TT> dialog box of the
+<TT><STRONG>Start Server...</STRONG></TT>
+dialog box.
+
+You should check the port number specified when you start your
+executable from the debugging session, and ensure that the port number
+listed in the <TT><STRONG>Options</STRONG></TT> dialog box is the same.
+
+</OL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu039.htm">Previous Page</A> &#124; <A HREF="progu041.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

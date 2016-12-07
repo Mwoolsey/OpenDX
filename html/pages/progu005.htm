@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu004.htm">Previous Page</A> &#124; <A HREF="progu006.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu003.htm#PToC1">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+
+<HR>
+<H2><A NAME="Header_6" HREF="progu003.htm#PToC_6">Copyright notices</A></H2>
+<P>IBM Visualization Data Explorer contains software copyrighted as follows:
+<UL>
+<P><LI>E. I. du Pont de Nemours and Company
+<BR>
+&copy; Copyright 1997 E. I. du Pont de Nemours and Company<BR>
+<P>
+Permission to use, copy, modify, distribute, and sell this software and
+its documentation for any purpose is hereby granted without fee,
+provided that the above copyright notice appear in all copies and that
+both that copyright notice and this permission notice appear in
+supporting documentation, and that the name of E. I. du Pont de Nemours
+and Company not be used in advertising or publicity pertaining to
+distribution of the software without specific, written prior permission.
+E. I. du Pont de Nemours and Company makes no representations about the
+suitability of this software for any purpose. It is provided &quot;as
+is&quot; without express or implied warranty.
+<P>
+E. I. du Pont de Nemours and Company disclaims all warranties with
+regard to this software, including all implied warranties of
+merchantability and fitness, in no event shall E. I. du Pont de Nemours
+and Company be liable for any special, indirect or consequential damages
+or any damages whatsoever resulting from loss of use, data or profits,
+whether in an action of contract, negligence or other tortious action,
+arising out of or in connection with the use or performance of this
+software.
+<P><LI>National Space Science Data Center
+<BR>
+&copy; Copyright 1990-1994 NASA/GSFC<BR>
+<P>
+<BR>
+National Space Science Data Center<BR>
+NASA/Goddard Space Flight Center<BR>
+Greenbelt, Maryland 20771 USA<BR>
+(NSI/DECnet -- NSSDCA&#58;&#58;CDFSUPPORT)<BR>
+(Internet   -- CDFSUPPORT@NSSDCA.GSFC.NASA.GOV)<BR>
+<P><LI>University Corporation for Atmospheric Research/Unidata
+<BR>
+&copy; Copyright 1993, University Corporation for Atmospheric Research<BR>
+<P>
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose without fee is hereby granted, provided
+that the above copyright notice appear in all copies, that both that
+copyright notice and this permission notice appear in supporting
+documentation, and that the name of UCAR/Unidata not be used in
+advertising or publicity pertaining to distribution of the software
+without specific, written prior permission. UCAR makes no
+representations about the suitability of this software for any purpose.
+It is provided &quot;as is&quot; without express or implied warranty. It
+is provided with no support and without obligation on the part of UCAR
+Unidata, to assist in its use, correction, modification, or enhancement.
+<P><LI>NCSA
+<BR>
+NCSA HDF version 3.2r4<BR>
+March 1, 1993<BR>
+<P>
+NCSA HDF Version 3.2 source code and documentation are in the public
+domain. Specifically, we give to the public domain all rights for future
+licensing of the source code, all resale rights, and all publishing
+rights.
+<P>
+We ask, but do not require, that the following message be included in
+all derived works:
+<P>
+Portions developed at the National Center for Supercomputing
+Applications at the University of Illinois at Urbana-Champaign, in
+collaboration with the Information Technology Institute of Singapore.
+<P>
+THE UNIVERSITY OF ILLINOIS GIVES NO WARRANTY, EXPRESSED OR IMPLIED, FOR
+THE SOFTWARE AND/OR DOCUMENTATION PROVIDED, INCLUDING, WITHOUT
+LIMITATION, WARRANTY OF MERCHANTABILITY AND WARRANTY OF FITNESS FOR A
+PARTICULAR PURPOSE
+<P><LI>Gradient Technologies, Inc. and Hewlett-Packard Co.
+<BR>
+&copy; Copyright Gradient Technologies, Inc. 1991,1992,1993<BR>
+&copy; Copyright Hewlett-Packard Co. 1988,1990<BR>
+<P>
+June, 1993
+<P>
+UNIX is a registered trademark of UNIX Systems Laboratories, Inc.
+<P>
+Gradient is a registered trademark of Gradient Technologies, Inc.
+<P>
+NetLS and Network Licensing System are trademarks of Apollo Computer,
+Inc., a subsidiary of Hewlett-Packard Co.
+<P><LI>Sam Leffler and Silicon Graphics
+<BR>
+&copy; Copyright 1988-1996 Sam Leffler<BR>
+&copy; Copyright 1991-1996 Silicon Graphics, Inc.<BR>
+<P>
+Permission to use, copy, modify, distribute, and sell this software and
+its documentation for any purpose is hereby granted without fee, provided
+that (i) the above copyright notices and this permission notice appear in
+all copies of the software and related documentation, and (ii) the names of
+Sam Leffler and Silicon Graphics may not be used in any advertising or
+publicity relating to the software without the specific, prior written
+permission of Sam Leffler and Silicon Graphics.
+<P>
+THE SOFTWARE IS PROVIDED &quot;AS-IS&quot; AND WITHOUT WARRANTY OF ANY KIND,
+EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
+WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+<P>
+IN NO EVENT SHALL SAM LEFFLER OR SILICON GRAPHICS BE LIABLE FOR
+ANY SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND,
+OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON ANY THEORY OF
+LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
+OF THIS SOFTWARE.
+<P><LI>Compuserve Incorporated
+<P>
+The Graphics Interchange Format &copy; is the copyright property of
+Compuserve Incorporated. GIF(SM) is a Service Mark property of Compuserve
+Incorporated.
+<P>
+				<LI>MOTIF
+					<p>&copy; Copyright 1989 - 1994, 1996 - 1999 The Open Group<br>
+						&copy; Copyright 1987 - 1999 Hewlett-Packard Company<br>
+						&copy; Copyright 1987 - 1999 Digital Equipment Corporation, Maynard, Mass.<br>
+						&copy; Copyright 1988 Massachusetts Institute of Technology<br>
+						&copy; Copyright 1988 Microsoft Corporation<br>
+						&copy; Copyright 1990 Motorola Inc.<br>
+						&copy; Copyright 1989 - 1994 Groupe Bull<br>
+						&copy; Copyright 1991 Joseph Friedman<br>
+						&copy; Copyright 1995 - 1999 International Business Machines Corp.<br>
+						&copy; Copyright 1995 - 1999 Sun Microsystems, Inc.<br>
+						&copy; Copyright 1995 - 1999 Santa Cruz Organization, Inc.<br>
+						&copy; Copyright 1995, 1996 Fujitsu Limited<br>
+						&copy; Copyright 1995, 1996 Hitachi, Ltd.<br>
+					</p>
+					<p>ALL RIGHTS RESERVED<br>
+						This software is furnished under a license and may be used and copied only in accordance with the terms of such license and with the inclusion of this copyright notice. No title to and ownership of the software is hereby transferred.<br>
+					</p>
+					<p>This software is subject to an open license. It may only be used on, with or for operating systems which are themselves open source systems. You must contact The Open Group for a license allowing distribution and sublicensing of this software on, with, or for operating systems which are not Open Source programs.</p>
+					<p>See http://www.opengroup.org/openmotif/license for full details of the license agreement. Any use, reproduction, or distribution of the program constitutes recipient's acceptance of this agreement.</p>
+					<p>THE OPEN GROUP AND ITS THIRD PARTY SUPPLIERS, ASSUME NO RESPONSIBILITY FOR THE USE OR INABILITY TO USE ANY OF ITS SOFTWARE.</p>
+					<p>EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, THE PROGRAM IS PROVIDED ON AN &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OR CONDITIONS OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</p>
+					<p>EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, NEITHER RECIPIENT NOR ANY CONTRIBUTORS SHALL HAVE ANY LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING WITHOUT LIMITATION LOST PROFITS), HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OR DISTRIBUTION OF THE PROGRAM OR THE EXERCISE OF ANY RIGHTS GRANTED HEREUNDER, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+					<p>The information in this software is subject to change without notice and should not be construed as a commitment by The Open Group or its third party suppliers.</p>
+					<p>Notice: Notwithstanding any other lease or license that may pertain to, or accompany the delivery of, this computer software, the rights of the Government regarding its use, reproduction and disclosure are as set forth in Section 52.227-19 of the FARS Computer Software-Restricted Rights clause.</p>
+					<p>&copy; Copyright 1990, 1991, 1992, 1993, 1994, 1996 Open Software Foundation, Inc.<br>
+						&copy; Copyright 1996, 1997, 1998, 1999, 2000 The Open Group. Unpublished - all rights reserved under the Copyright laws of the United States.</p>
+					<p>RESTRICTED RIGHTS NOTICE: Use, duplication, or disclosure by the Government is subject to the restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in Technical Data and Computer Software clause at DFARS 52.227-7013.</p>
+					<p>The Open Group LLC<br>
+						Apex Plaza, Forbury Road<br>
+						Reading, Berkshire,<br>
+						RG1 1AX, UK.<br>
+					</p>
+					<p>RESTRICTED RIGHTS LEGEND: This computer software is submitted with &quot;restricted rights.&quot; Use, duplication or disclosure is subject to the restrictions as set forth in NASA FAR SUP 18-52.227-79 (April 1985) &quot;Commercial Computer Software- Restricted Rights (April 1985).&quot; The Open Group, Apex Plaza, Forbury Road, Reading, Berkshire, RG1 1AX, UK. If the contract contains the Clause at 18-52.227-74 &quot;Rights in Data General&quot; then the &quot;Alternate III&quot; clause applies.</p>
+					<p>&copy; Copyright 1990, 1991, 1992, 1993, 1994, 1996 Open Software Foundation,Inc. ALL RIGHTS RESERVED<br>
+						&copy; Copyright 1996, 1997, 1998, 1999, 2000 The Open Group. ALL RIGHTS RESERVED<br>
+					</p>
+					<p>The Open Group, Open Software Foundation, OSF, OSF/Motif, and Motif are Trademarks of The Open Group DEC and DIGITAL are registered trademarks of Digital Equipment Corporation HP is a trademark of Hewlett-Packard Company X Window System is a trademark of the Massachusetts Institute of Technology
+					<P></p>
+				<LI>OMRON Corporation, NTT Software Corporation, and MIT
+<BR>
+&copy; Copyright 1990, 1991 by OMRON Corporation, NTT Software Corporation,<BR>
+and Nippon Telegraph and Telephone Corporation<BR>
+&copy; Copyright 1991 by the Massachusetts Institute of Technology<BR>
+<P>
+Permission to use, copy, modify, distribute, and sell this software and its
+documentation for any purpose is hereby granted without fee, provided that
+the above copyright notice appear in all copies and that both that
+copyright notice and this permission notice appear in supporting
+documentation, and that the names of OMRON, NTT Software, NTT, and M.I.T.
+not be used in advertising or publicity pertaining to distribution of the
+software without specific, written prior permission. OMRON, NTT Software,
+NTT, and M.I.T. make no representations about the suitability of this
+software for any purpose. It is provided &quot;as is&quot; without express or
+implied warranty.
+<P>
+OMRON, NTT SOFTWARE, NTT, AND M.I.T. DISCLAIM ALL WARRANTIES WITH REGARD
+TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS, IN NO EVENT SHALL OMRON, NTT SOFTWARE, NTT, OR M.I.T. BE
+LIABLE FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+			</UL>
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu004.htm">Previous Page</A> &#124; <A HREF="progu006.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu003.htm#PToC1">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

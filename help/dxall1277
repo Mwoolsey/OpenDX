@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxihdf DXImportHDF 
+#!N #!N Function #!N #!N Imports data from an HDF file. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Field DXImportHDF(char *filename, char 
+*variable) #!EF #!N #!N Functional Details #!N #!N Imports data from 
+an HDF (Hierarchical Data Format) file.  #!F-adobe-times-bold-r-normal--18*   variable #!EF , though 
+represented as a string, is a number corresponding to the (zero-based) 
+position of the dataset in the file  #!F-adobe-times-bold-r-normal--18*   filename #!EF . 
+If  #!F-adobe-times-bold-r-normal--18*   variable #!EF is NULL, all fields are read in 
+and placed in a group. #!N #!N For additional information on 
+the HDF file format, see  #!Limd,dxall618 h Importing Data: File Formats  #!EL  in IBM Visualization Data Explorer 
+User's Guide. #!N #!N Return Value #!N #!N Returns a pointer 
+to the Object or returns NULL and sets an error code. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxinc,dxall1278 h DXImportNetCDF  #!EL  ,  #!Ldxidx,dxall1276 h DXImportDX  #!EL  , 
+ #!Ldxicm,dxall1275 h DXImportCM  #!EL  ,  #!Ldxicdf,dxall1274 h DXImportCDF  #!EL  #!EF #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxinc,dxall1278 h DXImportNetCDF  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

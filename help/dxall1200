@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxemf DXEmptyField #!N #!N Function #!N #!N 
+Determines whether a Field contains information. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> int DXEmptyField(Field f) #!EF #!N #!N Functional Details #!N 
+#!N A Field is considered to be empty under any of 
+the following conditions: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o It has no components. #!N #!I30 #!N o It has 
+no "positions" component. #!N #!I30 #!N o Its "positions" component does 
+not contain any elements. #!N #!I0 #!N #!EF #!N #!N #!N 
+Modules may use this call to avoid processing empty Fields so 
+that the absence of required components in an empty Field is 
+not treated as an error. #!N #!N Return Value #!N #!N 
+Returns 1 if the Field is empty (see above); otherwise, returns 
+0. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxexi,dxall1204 h DXExists  #!EL  #!EF #!N 
+#!N  #!Lstdcs,dxall1086 h Standard Components  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxendf,dxall1201 h DXEndField  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

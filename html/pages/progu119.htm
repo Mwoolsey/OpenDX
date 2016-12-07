@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu118.htm">Previous Page</A> &#124; <A HREF="progu120.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXCMANY" HREF="progu097.htm#PToC_213">DXComponentReq,
+DXComponentOpt, DXComponentReqLoc, DXComponentOptLoc</A></H3>
+<A NAME="IDX1591"></A>
+<A NAME="IDX1592"></A>
+<A NAME="IDX1593"></A>
+<A NAME="IDX1594"></A>
+<A NAME="IDX1595"></A>
+<A NAME="IDX1596"></A>
+<A NAME="IDX1597"></A>
+<A NAME="IDX1598"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Access or typecheck a component in a Field.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Error DXComponentReq(Array a, Pointer *data, int *n, int nreq, Type t, int
+dim)<BR>
+Error DXComponentOpt(Array a, Pointer *data, int *n, int nreq, Type t, int
+dim)<BR>
+Error DXComponentReqLoc(Array a, Pointer *data, int *n, int nreq, Type t, int
+dim)<BR>
+Error DXComponentOptLoc(Array a, Pointer *data, int *n, int nreq, Type t, int
+dim)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">These routines will become obsolete in a future version of Data
+Explorer.  In
+their place, it is recommended that you now use
+<TT><STRONG>DXGetComponentValue</STRONG></TT>
+and
+<TT><STRONG>DXGetArrayInfo</STRONG></TT>.
+</td></tr></table>
+<P>
+The four routines have identical
+calling sequences, but differ as follows.
+<P>
+First,
+<TT><STRONG>DXComponentOpt</STRONG></TT>
+and
+<TT><STRONG>DXComponentReq</STRONG></TT>
+return pointers to the global copy of the
+Array data, while
+<TT><STRONG>DXComponentOptLoc</STRONG></TT>
+and
+<TT><STRONG>DXComponentReqLoc</STRONG></TT>
+return pointers to a local copy of the Array data, and should be
+matched by a
+<TT><STRONG>DXFreeArrayDataLocal</STRONG></TT>
+call.
+<P>
+Second,
+<TT><STRONG>DXComponentReq</STRONG></TT>
+and
+<TT><STRONG>DXComponentReqLoc</STRONG></TT>
+consider it an error if the component is
+missing
+(<TT><STRONG>a</STRONG></TT> is
+<TT><STRONG>NULL</STRONG></TT>), while
+<TT><STRONG>DXComponentOpt</STRONG></TT>
+and
+<TT><STRONG>DXComponentOptLoc</STRONG></TT>
+consider the component optional and do not consider
+a
+<TT><STRONG>
+NULL
+</STRONG></TT>
+<TT><STRONG>a</STRONG></TT>
+to be an error.
+<P>
+If
+<TT><STRONG>data</STRONG></TT>
+is not
+<TT><STRONG>NULL</STRONG></TT>, a pointer
+to a global or local copy of the data is returned in
+<TT><STRONG>*data</STRONG></TT>.  If
+<TT><STRONG>n</STRONG></TT>
+is not
+<TT><STRONG>NULL</STRONG></TT>,
+the number of items in the Array is returned in
+<TT><STRONG>*n</STRONG></TT>.  If
+<TT><STRONG>n</STRONG></TT>
+is
+<TT><STRONG>NULL</STRONG></TT>,
+the number of Array items must be
+<TT><STRONG>nreq</STRONG></TT>.
+The type of the Array must be <TT><STRONG>t</STRONG></TT>.
+If <TT><STRONG>dim</STRONG></TT> is 0, the Array must have rank
+0 (scalar).
+If <TT><STRONG>dim</STRONG></TT> is nonzero, the Array must have rank 1 and
+shape equal to <TT><STRONG>dim</STRONG></TT>.
+<P>
+The type is one of the following:
+<PRE><STRONG>
+TYPE_BYTE            TYPE_HYPER        TYPE_SHORT
+TYPE_UBYTE           TYPE_INT          TYPE_USHORT
+TYPE_DOUBLE          TYPE_UINT         TYPE_STRING
+TYPE_FLOAT
+</STRONG>
+</PRE>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">These functions will expand compact data Arrays and use
+extra memory.
+</td></tr></table>
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>OK</STRONG></TT> or returns <TT><STRONG>ERROR</STRONG></TT>
+and sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu154.htm#HDRDXGAD">DXGetArrayData</A>,
+<A HREF="progu157.htm#HDRDXGAI">DXGetArrayInfo</A>,
+<A HREF="progu163.htm#HDRDXGCV">DXGetComponentValue</A>
+</STRONG></TT>
+<P>
+<A HREF="progu044.htm#HDRFIELDSC">12.1 , "Field Class"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu118.htm">Previous Page</A> &#124; <A HREF="progu120.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

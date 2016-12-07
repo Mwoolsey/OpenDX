@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxidx DXImportDX #!N #!N Function 
+#!N #!N Imports data from a Data Explorer file. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXImportDX(char *filename, char **variable, int 
+*start, int *end, int *delta) #!EF #!N #!N Functional Details #!N 
+#!N Imports data from a Data Explorer file specified by the 
+ #!F-adobe-times-bold-r-normal--18*   filename #!EF parameter. The  #!F-adobe-times-bold-r-normal--18*   variable #!EF parameter specifies a 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF -terminated list of strings that identify which variables 
+to import. This parameter identifies Objects in the file that have 
+the names specified by  #!F-adobe-times-bold-r-normal--18*   variable #!EF . If more than 
+one variable is specified, the Objects are collected together and a 
+Group is returned. #!N #!N For Series data,  #!F-adobe-times-bold-r-normal--18*   *start, *end, 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   *delta #!EF are used to control which indexed 
+Series members are read in. If  #!F-adobe-times-bold-r-normal--18*   start #!EF is  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF , it defaults to the beginning of the series; 
+if  #!F-adobe-times-bold-r-normal--18*   end #!EF is  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it defaults 
+to the end of the series; if  #!F-adobe-times-bold-r-normal--18*   delta #!EF is 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it defaults to one. #!N #!N For 
+additional information on the Data Explorer file format, see  #!Limd,dxall618 h Importing Data: File Formats  #!EL  . 
+in IBM Visualization Data Explorer User's Guide. #!N #!N Return Value 
+#!N #!N Returns a pointer to the Object or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxihdf,dxall1277 h DXImportHDF  #!EL  ,  #!Ldxinc,dxall1278 h DXImportNetCDF  #!EL  ,  #!Ldxihdf,dxall1277 h DXImportHDF  #!EL  ,  #!Ldxicm,dxall1275 h DXImportCM  #!EL  , 
+ #!Ldxicdf,dxall1274 h DXImportCDF  #!EL  #!EF #!N #!N  #!Ldef,dxall1091 h Data Explorer Format Files  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxihdf,dxall1277 h DXImportHDF  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

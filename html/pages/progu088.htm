@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu087.htm">Previous Page</A> &#124; <A HREF="progu089.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRINITEX" HREF="progu084.htm#PToC_175">17.5 Initialization and
+Exit</A></H2>
+<A NAME="IDX1336"></A>
+<P>
+These routines enable an application to initiate and terminate
+connections with Data Explorer.
+DXLStartDX establishes a connection <TT><STRONG>*conn</STRONG></TT> for
+a Data Explorer instance.
+It is through this connection that information is sent and received
+during a Data Explorer session.
+<DL>
+<P><DT><B><TT><STRONG>void DXLCloseConnection(DXLConnection *conn)</STRONG></TT>
+<A NAME="IDX1338"></A>
+<A NAME="IDX1339"></A>
+</B><DD>Closes the connection to Data Explorer (<TT><STRONG>*conn</STRONG></TT>)
+and frees the memory allocated to <TT><STRONG>*conn</STRONG></TT>
+but does not terminate the Data Explorer session.
+<P><DT><B><TT><STRONG>DXLConnection *DXLConnectToRunningServer(int port, const
+char *host)</STRONG></TT>
+<A NAME="IDX1340"></A>
+<A NAME="IDX1341"></A>
+</B><DD>This routine is used primarily for debugging purposes, to connect
+to a server (i.e., dxexec or dxui) that has already been started
+externally and is waiting for a connection
+(see <TT>-exonly</TT> and <TT>-appPort</TT> options).
+The routine creates a connection between the calling application and
+Data Explorer at the specified port on the specified host.
+<P>
+The parameter <TT><STRONG>port</STRONG></TT> must be greater than or equal
+to zero.
+If <TT><STRONG>host</STRONG></TT> is specified as NULL, the function uses
+"localhost".
+<P><DT><B><TT><STRONG>DXLError DXLExitDX(DXLConnection *conn)</STRONG></TT>
+<A NAME="IDX1342"></A>
+<A NAME="IDX1343"></A>
+</B><DD>Closes the connection to Data Explorer
+(<TT><STRONG>*conn</STRONG></TT>)
+and terminates the Data Explorer session.
+Returns OK or ERROR.
+<P><DT><B><TT><STRONG>int DXLGetSocket(DXLConnection *conn)</STRONG></TT>
+<A NAME="IDX1344"></A>
+<A NAME="IDX1345"></A>
+</B><DD>Returns the socket number associated with connection
+<TT><STRONG>*conn</STRONG></TT>.
+<P><DT><B><TT><STRONG>DXLError DXLInitializeXMainLoop(XtAppContext app,
+DXLConnection *conn)</STRONG></TT>
+<A NAME="IDX1346"></A>
+<A NAME="IDX1347"></A>
+</B><DD>Initializes the X11 window system so that calls to
+XtAppMainLoop will cause messages to be processed.
+(See <A HREF="progu089.htm#HDRMSGSYS">17.6 , "Messaging System"</A>.)
+<P><DT><B><TT><STRONG>int DXLSetMessageDebugging(DXLConnection *c, int on)
+</STRONG></TT>
+<A NAME="IDX1348"></A>
+<A NAME="IDX1349"></A>
+</B><DD>Specifies the on-off status of message debugging.
+If it is enabled, messages are printed to the terminal window as they
+are sent or received.
+The return value identifies the previous state of message debugging.
+<P><DT><B><TT><STRONG>void DXLSetSynchronization(DXLConnection *conn, const int
+onoff)</STRONG></TT>
+<A NAME="IDX1350"></A>
+<A NAME="IDX1351"></A>
+</B><DD>Sets the synchronization status of the connection
+to Data Explorer.
+When <TT><STRONG>onoff</STRONG></TT> is set to 1, the connection is
+synchronized; when set to 0, it is not.
+With the connection synchronized, routines wait for a response from
+the "server" (i.e., UI or exec) after a message is sent.
+For example, if synchronization has been turned on, a call to
+DXLSetValue will not return until the server has
+processed the set value.
+<P><DT><B><TT><STRONG>DXLConnection *DXLStartDX(const char *string, char
+*host)</STRONG></TT>
+<A NAME="IDX1352"></A>
+<A NAME="IDX1353"></A>
+</B><DD>Starts Data Explorer and creates a connection to it.
+The parameter <TT><STRONG>*string</STRONG></TT> is the command that would be
+used to start Data Explorer at the command line.
+For example, <TT><STRONG>string</STRONG></TT> could be:
+<PRE>
+   dx -image -mdf user.mdf
+</PRE>
+<P>
+
+Note that you must specify either -image, -edit, or -menubar in order
+to bypass the Data Explorer Startup window. It is not possible to use
+DXLStartDX to start Data Explorer via the Startup window.
+
+The parameter <TT><STRONG>*host</STRONG></TT> is the name of the host on which
+Data Explorer is to be run.
+If specified as NULL, the local host is assumed.
+<P>
+The routine returns a pointer to a DXLConnection on success or it
+returns NULL and sets an error code (available in the global
+variable <TT><STRONG>errno</STRONG></TT>).
+The connection structure, specified by
+<PRE><STRONG>
+   typedef struct DXLConnection DXLConnection;
+</STRONG>
+</PRE>
+<P>
+is the primary structure used by DXLink for maintaining information
+about the connection to the server.
+This DXLConnection is passed to most DXLink routines to indicate the
+relevant server connection.
+<P>
+To start the Data Explorer executive and connect DXLink to it, you might issue
+the following call:
+<PRE>
+   DXLStartDX("dx -cache off -exonly");
+</PRE>
+<P>
+The <TT>-exonly</TT> flag causes the executive to start up and to
+wait for a connection from DXLink.
+It is therefore required when connecting to the executive.
+Note that the "-script" option should not be used, as it causes
+the executive to start up in script mode, which requires commands
+typed directly at a prompt, bypassing the message system.
+<P>
+Similarly, a connection to the Data Explorer user interface can be initiated
+with the command:
+<P>
+<TT>
+   DXLStartDX("dx  -mdf my.mdf -image");
+</TT>
+
+<P><DT><B><TT><STRONG>void DXLSetBrokenConnectionCallback(DXLConnection *conn,
+                  void (*proc)(DXLConnection *, void *), void *data);
+                  </STRONG></TT>
+<A NAME="IDX1354"></A>
+<A NAME="IDX1355"></A>
+</B><DD>Allows the application to install a routine to be called when the
+connection to Data Explorer is broken.
+
+</DL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu087.htm">Previous Page</A> &#124; <A HREF="progu089.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

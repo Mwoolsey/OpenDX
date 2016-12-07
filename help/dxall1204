@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxexi DXExists #!N #!N Function #!N 
+#!N Determines if a component exists in a Field. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXExists(Object o, char *name) #!EF 
+#!N #!N Functional Details #!N #!N If any Field in Object 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF contains a component of the specified  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF , this routine returns  #!F-adobe-times-bold-r-normal--18*   o #!EF . Object  #!F-adobe-times-bold-r-normal--18*   
+o #!EF can be a single Field or any Object that 
+can contains Fields (e.g., Groups or Series). #!N #!N Return Value 
+#!N #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF if any Field in 
+Object  #!F-adobe-times-bold-r-normal--18*   o #!EF contains a  #!F-adobe-times-bold-r-normal--18*   name #!EF component; otherwise, 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF but does not set an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxext,dxall1206 h DXExtract  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  ,  #!Ldxins,dxall1282 h DXInsert  #!EL  
+,  #!Ldxrem,dxall1355 h DXRemove  #!EL  ,  #!Ldxren,dxall1356 h DXRename  #!EL  ,  #!Ldxrep,dxall1358 h DXReplace  #!EL  ,  #!Ldxswp,dxall1397 h DXSwap  #!EL  #!EF #!N #!N 
+ #!Lctmn,dxall1089 h Component Manipulation  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxedx,dxall1205 h DXExportDX  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

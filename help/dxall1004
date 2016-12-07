@@ -1,0 +1,40 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1003 Overview #!N #!EC From specifications supplied 
+by the user, the Module Builder generates three files: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. a module description file 
+(with the extension  #!F-adobe-times-bold-r-normal--18*   .mdf #!EF ); #!N #!I30 #!N 2. 
+a C-code framework file that implements the structure of the module; 
+and #!N #!I30 #!N 3. a makefile. #!N #!I0 #!N #!EF 
+#!N #!N #!N #!N #!N The C-code framework file itself consists 
+of three major routines: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o The first routine checks input parameters and creates output 
+Objects. It is named by prefixing  #!F-adobe-times-bold-r-normal--18*   m_ #!EF to the 
+module name (e.g., the entry point for a module named Example 
+is  #!F-adobe-times-bold-r-normal--18*   m_Example #!EF ). #!N #!I30 #!N o The second 
+routine traverses hierarchically defined data Objects. When this routine (  #!F-adobe-times-bold-r-normal--18*   
+Traverse #!EF ) encounters a Data Explorer Field Object, it calls 
+the third routine. #!N #!I30 #!N o The third routine ( 
+ #!F-adobe-times-bold-r-normal--18*   doLeaf #!EF ) creates a "worker routine" as an interface 
+to the user's application-specific code: it extracts the input arguments, sets 
+up the outputs, and calls the user-supplied code. (See  #!Lmbwrkrt,dxall1014 h Worker Routine  #!EL  and 
+ #!Lwrkrxmp,dxall1020 h Worker Routine Examples  #!EL  .). The worker routine appears at the end of the 
+C-code framework file. #!N #!I0 #!N #!EF #!N #!N #!N To 
+complete a customized module, the user need only: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N add the application-specific code to the 
+worker routine (after the line "User's code goes here" at the 
+end of the C-code framework file) by: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N using an "include" file,  #!F-adobe-times-medium-i-normal--18*   or #!EF 
+#!N #!I30 #!N adding the application code directly to the framework 
+file. #!N #!I0 #!N #!EF #!N #!N #!I0 #!N #!EF #!N 
+#!N #!N Using an include file is recommended because (1) if 
+you rerun the module builder, it will overwrite the  #!F-adobe-times-bold-r-normal--18*   .c 
+#!EF file, and (2) it makes replacing your own code easy. 
+#!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. The Module 
+Builder is designed to accommodate the most common form of customized 
+module, in which the output Object is a copy of the 
+input, but the data component is modified. #!N #!I30 #!N 2. 
+Other inputs can be constant parameters or other hierarchically defined data 
+Objects (note that the hierarchy of the data Objects must match 
+exactly). #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall1004,dxall1005 h Creating a Module with the Module Builder: A Summary  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

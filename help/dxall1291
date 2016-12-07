@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxia DXIterateArray 
+#!N #!N Function #!N #!N Iterates through an Array. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Pointer DXIterateArray(ArrayHandle handle, int offset, Pointer 
+last, Pointer scratch) #!EF #!N #!N Functional Details #!N #!N This 
+routine can be used when an Array is accessed sequentially. The 
+Array handle  #!F-adobe-times-bold-r-normal--18*   handle #!EF is that obtained through the use 
+of  #!F-adobe-times-bold-r-normal--18*   DXCreateArrayHandle #!EF . #!N #!N If the Array is 
+constant, a pointer to the constant value is immediately returned. If 
+the Array is irregular and the given  #!F-adobe-times-bold-r-normal--18*   offset #!EF is 
+0, the Array data pointer (which is a pointer to the 
+0th element of the Array) is returned. If the  #!F-adobe-times-bold-r-normal--18*   offset 
+#!EF is not 0, then the  #!F-adobe-times-bold-r-normal--18*   last #!EF parameter should 
+point to the prior Array element, and (  #!F-adobe-times-bold-r-normal--18*   last #!EF 
++ itemSize) is returned, where itemSize is the size in bytes 
+of an item of the Array described by  #!F-adobe-times-bold-r-normal--18*   handle #!EF 
+. If the Array is compact, the desired element is calculated. 
+ #!F-adobe-times-bold-r-normal--18*   scratch #!EF should be of a size large enough to 
+hold a single Array item. #!N #!N Return Value #!N #!N 
+Returns a pointer to the next item in an Array or 
+returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF (but does not set an error) code 
+when there are no more items. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  ,  #!Ldxfah,dxall1214 h DXFreeArrayHandle  #!EL  ,  #!Ldxgaey,dxall1221 h DXGetArrayEntry, DXGetArrayEntries  #!EL  ,  #!Ldxgis,dxall1245 h DXGetItemSize  #!EL  #!EF #!N 
+#!N  #!Larhand,dxall1073 h Array Handling  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxltqt,dxall1292 h DXLn, DXTri, DXQuad, DXTetra  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

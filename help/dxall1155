@@ -1,0 +1,41 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rall1154 Retrieving Values Sent From Data Explorer #!N #!EC #!N #!N 
+The DXLOutput tool provides the means to retrieve values from Data 
+Explorer asynchronously. This tool is used much like the macro Output 
+tool in the Data Explorer user interface. It has two inputs: 
+the first associates a label with an object or value (much 
+like the name of a global variable); the second is the 
+input object to be sent to the DXLink application. Currently, DXLOutput 
+sends only those values that can be represented as strings. #!N 
+#!N When the module is executed, it communicates its input values 
+to the DXLink application. #!N #!N In order to retrieve the 
+values in the application, a function must be defined and installed 
+to accept them when they are available. A function is installed 
+as follows: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N DXLError DXLSetValueHandler(DXLConnection *c, 
+const char *label, #!N DXLValueHandler h, const void *data); #!EF #!EF 
+#!N #!N #!EC #!N #!N where  #!F-adobe-times-bold-r-normal--18*   *label #!EF is the 
+value of the first input to the corresponding DXLOutput for which 
+the function is being installed. (In the user interface, the label 
+corresponds to the  #!F-adobe-times-bold-r-normal--18*   Notation #!EF field in the configuration dialog 
+box.) When the labeled value is received, the function, or handler 
+ #!F-adobe-times-bold-r-normal--18*   h #!EF , is called as follows: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N (*h) (c, label, value, data) #!EF #!EF #!N 
+#!N #!EC #!N #!N where  #!F-adobe-times-bold-r-normal--18*   label #!EF and  #!F-adobe-times-bold-r-normal--18*   data 
+#!EF are the values that were passed to DXLSetValueHandler( );  #!F-adobe-times-bold-r-normal--18*   
+data #!EF is a user-defined value, and  #!F-adobe-times-bold-r-normal--18*   value #!EF is 
+the value being received for the corresponding label. The handler (like 
+message handlers in general) is called when DXLHandlePendingMessages( ) is called 
+and a corresponding message is pending. #!N #!N The definition of 
+the value-handler function is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N typedef 
+void (*DXLValueHandler)(DXLConnection *conn, const char *label, #!N const char *value, void 
+*data); #!EF #!EF #!N #!N #!EC Note: The same handler can 
+be installed for values with different labels. See also DXLRemoveValueHandler(). #!N 
+#!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N DXLError DXLRemoveValueHandler(DXLConnection *c, const char 
+*label); #!EF #!EF #!N #!N #!EC #!N #!N specifies that the 
+value handler (  #!F-adobe-times-bold-r-normal--18*   h #!EF ) for the value  #!F-adobe-times-bold-r-normal--18*   
+*label #!EF is to be removed (  #!F-adobe-times-bold-r-normal--18*   *label #!EF is 
+the name associated with the value that is to be passed 
+to DXLink). Returns OK or ERROR. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall1155,dxall1156 h Window Control  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

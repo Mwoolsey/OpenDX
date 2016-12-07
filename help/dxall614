@@ -1,0 +1,54 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall613 TV Line Resolution 
+#!N #!EC #!N #!N Resolution losses are most evident if you 
+use single-width lines. Workstations have both a higher number of vertical 
+and horizontal lines on the screen, and a much higher "refresh" 
+rate than consumer TV. However, on TV, the alternating lines (odd 
+numbered, even numbered) are "refreshed" or painted on the monitor at 
+slightly different times. As long as the scene contains objects that 
+span more than one of these lines, our eye-brain system is 
+fooled into believing that the entire object is always present, due 
+to the phenomenon of "persistence of vision." But when you use 
+single-line width horizontal lines, the lines will visibly flash, clearly showing 
+that they are being drawn only half of the time. #!N 
+#!N Related to this problem is the condition in which you 
+rotate a grid of single-width lines slightly away from horizontal. This 
+will generate an optical effect called a "moire pattern," in which 
+curved lines appear where none are actually present, and, this frequently 
+causes colors to appear that are not in the original signal. 
+Both of these effects can be very distracting. #!N #!N Finally, 
+single-width vertical lines will not have the same color! Because of 
+the way consumer TV color phosphors are aligned, a vertical line 
+at one location may be blue, but if you move it 
+slightly it will become red. A grid with single-width vertical lines 
+will appear to change color as you translate the grid in 
+a horizontal direction. #!N #!N So what is the solution to 
+all these problems? Do not use single-width lines, ever. Data Explorer's 
+Tube module is the easiest way to fix most of these 
+problems. Tube generates cylinders around any kind of field with line 
+connections. If you have created a mesh of lines with ShowConnections, 
+for example, you can run this visual object through Tube to 
+"fatten" up the lines. Tube permits you to choose a diameter 
+that looks right. As long as you make the tubed lines 
+bigger than one TV line width, you will have solved the 
+problem. #!N #!N Be aware that single-width line text or captions 
+will become virtually illegible on TV. To get better-looking results using 
+the "stroke" fonts (originally designed for plotters), you can use Tube. 
+Another technique is to use a multiple-line font, such as the 
+"roman_d" font supplied with Data Explorer. The best solution is to 
+use an "area" font that is made up of characters containing 
+polygonal faces rather than single lines. Data Explorer provides a font 
+called "area," or "pitman," which uses polygonal faces. #!N #!N Another 
+tip about text is that due to the much lower resolution 
+of TV, you must be careful to keep text large! Ideally, 
+use a size that permits only about 30 to 40 characters 
+to fit across the width of the screen. Fine detailed text 
+annotations may look good on the workstation, but will become blurry 
+little globs on TV, defeating the whole purpose of annotating your 
+video for your viewers. Try making some text in different sizes, 
+then dub to VHS videotape. Can you still read the text? 
+If so, the size is probably sufficient for general use. If 
+it is too mushy to read, increase the size. For best 
+legibility use white or yellow colored text. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall614,dxall615 h TV Color Resolution  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

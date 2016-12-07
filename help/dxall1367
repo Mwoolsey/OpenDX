@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxseta DXSetAttribute, DXDeleteAttribute #!N #!N Function #!N #!N 
+Add or remove a named attribute from an Object. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXSetAttribute(Object o, char *name, Object 
+value) Object DXDeleteAttribute(Object o, char *name) #!EF #!N #!N Functional Details 
+#!N #!N If  #!F-adobe-times-bold-r-normal--18*   value #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   DXSetAttribute #!EF adds an attribute/value pair to Object  #!F-adobe-times-bold-r-normal--18*   
+o #!EF . The reference count of the attribute Object  #!F-adobe-times-bold-r-normal--18*   
+value #!EF is incremented. For  #!F-adobe-times-bold-r-normal--18*   DXSetAttribute #!EF ,  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF specifies the name of the associated attribute and  #!F-adobe-times-bold-r-normal--18*   value 
+#!EF represents its value. If  #!F-adobe-times-bold-r-normal--18*   name #!EF specifies an attribute 
+that the Object  #!F-adobe-times-bold-r-normal--18*   o #!EF already has, then its value 
+is replaced by  #!F-adobe-times-bold-r-normal--18*   value #!EF . #!N #!N If  #!F-adobe-times-bold-r-normal--18*   
+value #!EF is  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the attribute referred to 
+by  #!F-adobe-times-bold-r-normal--18*   name #!EF is removed from the Object  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF , if it exists. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXDeleteAttribute #!EF deletes 
+the attribute. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF without setting an error code. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxsca,dxall1371 h DXSetComponentAttribute  #!EL  ,  #!Ldxsfa,dxall1379 h DXSetFloatAttribute  #!EL  , 
+ #!Ldxsia,dxall1381 h DXSetIntegerAttribute  #!EL  ,  #!Ldxssa,dxall1392 h DXSetStringAttribute  #!EL  #!EF #!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxsbc,dxall1368 h DXSetBackgroundColor, DXGetBackgroundColor  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

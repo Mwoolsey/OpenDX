@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Creating a Visual Program: Two short examples</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu016.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu018.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu016.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>3.2 Creating a Visual Program: Two short examples</H2>
+		<P>If necessary, review <A HREF="qikgu016.htm#HDRTEDVP">3.1 , "Editing a Visual
+Program: The Basics"</A>.
+
+		<P>
+<H3><A NAME="Header_45" ></A>A simple two-dimensional field
+</H3>
+<P>In this first example, we will import a two-dimensional field on
+a regular grid. The data describe the topography (elevation) of the
+southeastern United States.
+First start Data Explorer by typing
+<PRE>
+dx -edit
+</PRE>
+or choose <TT><STRONG>New Visual Program</STRONG></TT> from the Data Explorer
+Startup
+window.
+<P>
+From the Import and Export Category in the top left palette, choose
+the Import module. Place it on the large blank canvas area.
+<P>
+From the Realization Category choose the RubberSheet module.
+Place it below the Import module.
+From the Rendering Category choose the Image module. Place it
+below the RubberSheet module.
+<P>
+Now connect the output of Import to the first input of RubberSheet,
+and connect the output of Rubbersheet to the input of Image. Notice
+that the first tab of Import is colored differently than any other
+tabs visible. This is because this parameter is <I>required</I>.
+This is the file name of the data file to import.
+<P>
+Open the configuration dialog box for Import. Specify the first
+parameter (name) as <TT>/usr/local/dx/samples/data/southeastern_topo.dx</TT>.
+<P>
+Execute the visual program by selecting <TT><STRONG>Execute Once</STRONG></TT>
+from
+the <TT><STRONG>Execute</STRONG></TT> menu. You should see an image showing the
+topography as a deformed surface.
+<P>
+To add colors, insert an AutoColor module (Transformation Category)
+between RubberSheet and Image (or between Import and RubberSheet).
+<P>
+<H3><A NAME="Header_46" ></A>A simple three-dimensional field
+</H3>
+<P>In this second example, we will import a three-dimensional field on
+a regular grid. The data describe the cloud water density
+in a simulation of a storm.
+<P>
+As before, place an Import tool from the Import and Export Category
+on the canvas. Place an Isosurface tool from the Realization Category
+below Import. Place an Image tool from the Rendering Category below
+Isosurface. Connect the output of Import to the first input of Isosurface,
+and connect the output of Isosurface to the input of Image.
+<P>
+Open the configuration dialog box for Import, and type in the
+<TT><STRONG>name</STRONG></TT> parameter as
+<TT>/usr/local/dx/samples/data/cloudwater</TT>.
+<P>
+Execute. You will see an isosurface (constant value surface)
+of the cloudwater density.
+Not that if you are using the same Image tool as in the previous example,
+you may need to "reset the camera" for the new data set.
+Choose <TT><STRONG>Reset</STRONG></TT> from the
+<TT><STRONG>Options</STRONG></TT>
+menu of the Image window.
+<P>
+Open the configuration dialog box for Isosurface. Notice that the
+default for the isovalue (the second input) is the data mean. Change
+it to the value 0.1 by typing over the <TT><STRONG>Value</STRONG></TT>
+field. Execute.
+<P>
+For more complex visualizations, continue with the examples in
+<A HREF="qikgu021.htm">3.6 , "Visualizing 2-Dimensional Data"</A>, <A
+HREF="qikgu022.htm">3.7 , "Visualizing 3-Dimensional Data"</A>, and <A
+HREF="qikgu023.htm">3.8 , "Tasks and Tools"</A>. A
+short tutorial on importing data may be found in <A
+HREF="qikgu018.htm">3.3 , "Importing Data"</A>
+and <A HREF="qikgu020.htm">3.5 , "Importing Your Own Data"</A>.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu100.htm">Previous Page</A> &#124; <A HREF="progu102.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXAFNS" HREF="progu097.htm#PToC_195">DXAddFaceNormal,
+DXAddFaceNormals</A></H3>
+<A NAME="IDX1484"></A>
+<A NAME="IDX1485"></A>
+<A NAME="IDX1486"></A>
+<A NAME="IDX1487"></A>
+<P><STRONG>Function</STRONG>
+Adds connection-dependent normals to a Field.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+&#35;include &lt;dx/dx.h&gt;
+Field DXAddFaceNormal(Field f, int id, Vector v)
+Field DXAddFaceNormals(Field f, int start, int n, Vector *v)
+</STRONG>
+</PRE>.
+<P><STRONG>Functional Details</STRONG>
+A Field may contain connection-dependent normals that can be used to
+flat-shade a polygonal object.
+If so, the normals component is expected to have the same size as the
+"connections" component, as indicated by its having a
+"dep" attribute of "connections."
+Both routines aid in constructing such a component.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXAddFaceNormal</STRONG></TT>
+</B></TD><TD><P>Adds one normal (<TT><STRONG>v</STRONG></TT>) to
+<TT><STRONG>f</STRONG></TT>
+with the specified zero-based <TT><STRONG>id</STRONG></TT>.
+If <TT><STRONG>f</STRONG></TT> does not contain a "normals" component,
+one is added.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXAddFaceNormals</STRONG></TT>
+</B></TD><TD><P>Adds <TT><STRONG>n</STRONG></TT> normals
+(<TT><STRONG>*v</STRONG></TT>) to
+<TT><STRONG>f</STRONG></TT>.
+Identifiers begin with <TT><STRONG>start</STRONG></TT>.
+If <TT><STRONG>f</STRONG></TT> does not contain a "normals" component,
+one is added.
+</TD></TR></TABLE>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Both routines are suitable for adding a small number of face
+normals and for rapid prototyping, but they are included here
+mainly for backward compatibility.
+For better performance, see <A HREF="progu100.htm#HDRDXAAD">DXAddArrayData</A>
+and <A HREF="progu046.htm#HDRIRREG">"Irregular Arrays"</A>.
+</td></tr></table>
+<P>
+Normals are specified as <TT><STRONG>Vectors</STRONG></TT>
+and defined as follows:
+<PRE>
+<STRONG>
+typedef struct point {
+    float x, y, z;
+} Point, Vector;
+</STRONG>
+</PRE>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">These routines do not check the "dep" attribute of the
+"normals" component.
+Thus, if a "normals" component that is "dep" on
+"positions" already exists in <TT><STRONG>f</STRONG></TT>,
+the routine adds one or more normals to the normals
+component, leaving the attribute unchanged.
+The result may be a component with the wrong number of items for
+"dep."
+</td></tr></table>
+<P><STRONG>Return Value</STRONG>
+Returns <TT><STRONG>f</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+and sets an error code.
+<P><STRONG>See Also</STRONG>
+<TT><STRONG>
+<A HREF="progu100.htm#HDRDXAAD">DXAddArrayData</A>,
+<A HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color, ...FrontColor,
+...BackColor, ...Opacity, ...Normal,</A>
+</STRONG></TT>
+<P>
+<A HREF="progu050.htm#HDRPPOINTS">"Points and Dependent Data"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu100.htm">Previous Page</A> &#124; <A HREF="progu102.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

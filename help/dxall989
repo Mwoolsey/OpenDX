@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rwritmod Writing a Simple Module 
+#!N #!EC #!N #!N This chapter discusses the basics of writing 
+a simple module for Data Explorer. Subsequent chapters cover some typical 
+types of modules you might want to write. Although Data Explorer 
+modules support a broad range of data and connections types, your 
+module need support only those types it can be expected to 
+encounter. Moreover, it is not necessary to manipulate all the components 
+of a Data Explorer Field. The programming examples in later chapters 
+illustrate modules that manipulate particular components (e.g., "data"). #!N #!N Before 
+writing a module, you should have a general understanding of the 
+Data Explorer data model and be familiar with the way data 
+is carried in Fields, Groups, and components (see  #!Ldatam,dxall1022 h Data Explorer Data Model  #!EL  ). For 
+a detailed treatment of the data model, see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in IBM 
+Visualization Data Explorer User's Guide. In this manual,  #!Ldatachp,dxall1061 h Working with Data Model Objects  #!EL  , summarizes 
+the routines that implement the model. #!N #!N Two other important 
+topics are briefly reviewed in subsequent sections: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. managing the memory allocated to and 
+used by visual programs and their constituent modules (see  #!Lmemng,dxall1023 h Memory Management  #!EL  ) 
+and #!N #!I30 #!N 2. the Data Explorer execution model (see 
+ #!Lexecm,dxall1026 h Data Explorer Execution Model  #!EL  ). #!N #!I0 #!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall989,dxall990 h Getting Started Writing a Module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

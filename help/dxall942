@@ -1,0 +1,75 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rshade Shade #!N #!N 
+Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N Specifies the 
+shading attributes of an object. #!N #!N Syntax #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Shade(  #!F-adobe-times-bold-r-normal--18*   input, shade, how, 
+specular, shininess, diffuse, #!N ambient #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB input TAB object TAB 
+none TAB object to be shaded #!N TAB shade TAB flag 
+TAB 1 TAB 0: object not shaded #!N TAB - TAB 
+- TAB - TAB 1: object shaded #!N TAB how TAB 
+string TAB none TAB ("smooth" or "faceted") #!N TAB specular TAB 
+scalar TAB none TAB specular coefficient #!N TAB - TAB - 
+TAB - TAB (standard = 0.5) #!N TAB shininess TAB integer 
+TAB none TAB shininess exponent #!N TAB - TAB - TAB 
+- TAB (standard = 10) #!N TAB diffuse TAB scalar TAB 
+none TAB diffuse coefficient #!N TAB - TAB - TAB - 
+TAB (standard = 0.7) #!N TAB ambient TAB scalar TAB none 
+TAB ambient coefficient #!N TAB - TAB - TAB - TAB 
+(standard = 1.0) #!N TAB - TAB - TAB - TAB 
+#!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Description #!EF #!N TAB output TAB field TAB shaded 
+object #!N TAB - TAB - TAB #!EF #!N #!N Functional 
+Details #!N #!N This module is applicable only to surface objects 
+(i.e., objects with connections of type "triangle" or "quad"). #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N 
+specifies the object whose shading attributes are to be modified. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   shade #!EF #!EF #!I50 #!N turns shading 
+on or off. By default, the module turns shading on. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   how #!EF #!EF #!I50 #!N specifies whether 
+the shading is to be smooth or faceted. If this parameter 
+is not set, and: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o if the input object is already shaded, the shading 
+method is not changed. #!N #!I30 #!N o if the object 
+is not shaded, the choice between smooth and faceted shading is 
+determined by the dependency of the "data" component, if it has 
+a data dependency: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+smooth shading is used for position-dependent data. #!N #!I30 #!N faceted 
+shading is used for connection-dependent data. #!N #!I0 #!N #!EF #!N 
+#!N #!I30 #!N o if no data are present, smooth shading 
+is used. #!N #!I0 #!N #!EF #!N #!N #!N An explicit 
+specification of "smooth" or "faceted" shading will apply to all objects. 
+However, if a "normals" component of the requested type ("dep" "positions" 
+or "dep" "connections") is already present, the normals are not recomputed. 
+#!I0 #!N #!N #!N #!N The next four parameters specify the 
+particular shading attributes of the object. If any of these parameters 
+are not explicitly set, the corresponding attributes remain unchanged. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   specular #!EF #!EF #!I50 #!N 
+specifies the amount of light reflected by the object (as from 
+a very smooth, highly reflective surface). The specified value must be 
+between 0 and 1. The default is 0.5. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   shininess #!EF #!EF #!I50 #!N specifies how sharp the 
+specular highlight is. The specified value must be an integer. Larger 
+numbers result in a smaller, sharper, specular highlight. The default is 
+10. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   diffuse #!EF #!EF #!I50 #!N 
+specifies how much light is diffused by the object (as from 
+a rough non-reflective surface). The specified value must be between 0 
+and 1. The default is 1 (one). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   ambient #!EF #!EF #!I50 #!N specifies how much light is 
+reflected equally in all directions. The specified value must be between 
+0 and 1. #!I0 #!N #!N #!N #!N #!N #!N #!I0 
+#!N Notes: #!N #!I30 #!N 1. The Shade module will also 
+check whether the orientation of the "connections" component is consistent with 
+the directions of the "normals." If they are not consistent, it 
+will modify the directions of the normals. #!N #!I30 #!N 2. 
+Smooth shading is not supported for faces, loops, and edges data. 
+However, faces, loops, and edges can be converted to triangles using 
+Refine, and can then be smooth-shaded. #!I0 #!N #!N #!N #!N 
+Components #!N #!N May add or modify the "normals" component. All 
+other components are unchanged. #!N #!N Example Visual Programs #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N Imide_potential.net #!N UsingShade.net #!EF #!N #!N 
+#!EC #!N #!N See Also #!N #!N  #!Lrender,dxall923 h Render  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  , 
+ #!Limage,dxall860 h Image  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lshowbou,dxall943 h ShowBoundary  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

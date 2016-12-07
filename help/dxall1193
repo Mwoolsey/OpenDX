@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcul DXCull #!N #!N Function #!N #!N 
+Removes invalid positions, connections, faces, or polylines (and their dependent information) 
+from the Fields of an Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Object DXCull(Object object) #!EF #!N #!N Functional Details #!N 
+#!N Validity is determined from the contents of the "invalid" components: 
+positions, connections, faces, or polylines. In any components that are dependent 
+on these, elements corresponding to removed positions, connections, faces, or polylines 
+are themselves removed. In any components that reference positions, connections, faces, 
+or polylines, indices are renumbered, with the value -1 inserted for 
+indices that reference removed elements. The "invalid" components are removed. #!N 
+#!N In general,  #!F-adobe-times-bold-r-normal--18*   DXInvalidateConnections #!EF and  #!F-adobe-times-bold-r-normal--18*   DXInvalidateUnreferencedPositions #!EF should 
+be called before  #!F-adobe-times-bold-r-normal--18*   DXCull #!EF is called. This ensures that 
+all connection, face, or polyline elements that reference invalid positions will 
+be removed, along with all positions no longer referenced by any 
+connections, faces, or polylines. #!N #!N Return Value #!N #!N Returns 
+the updated Object or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxic,dxall1285 h DXInvalidateConnections  #!EL  , 
+ #!Ldxiup,dxall1287 h DXInvalidateUnreferencedPositions  #!EL  #!EF #!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxdb,dxall1194 h DXDebug, DXEnableDebug, DXQueryDebug  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

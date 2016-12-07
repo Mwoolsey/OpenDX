@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu252.htm">Previous Page</A> &#124; <A HREF="progu254.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXNI" HREF="progu097.htm#PToC_347">DXNewInterpolator</A></H3>
+<A NAME="IDX1916"></A>
+<A NAME="IDX1917"></A>
+<A NAME="IDX1918"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Creates an Interpolator Object for interpolating in Object
+<TT><STRONG>o</STRONG></TT>.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Interpolator DXNewInterpolator(Object o, enum interp_init init, float fuzz)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<P>
+Object <TT><STRONG>o</STRONG></TT> should be a Field or an Object that
+contains Fields (e.g., a Group).
+An Interpolator builds and stores the information about the Field
+or Fields to speed up searching for and computing data values
+corresponding to any location enclosed by the positions of
+the Object.
+This is particularly useful with irregular meshes.
+<P>
+The initialization type is specified by setting the
+<TT><STRONG>init</STRONG></TT> argument to
+<TT><STRONG>INTERP_INIT_DELAY</STRONG></TT>,
+<TT><STRONG>INTERP_INIT_IMMEDIATE</STRONG></TT>
+or <TT><STRONG>INTERP_INIT_PARALLEL</STRONG></TT>.
+<TT><STRONG>INTERP_INIT_DELAY</STRONG></TT> does not initialize the
+Interpolator
+until the information is actually needed.  This
+is fastest if a small number of points will be interpolated.
+<TT><STRONG>
+INTERP_INIT_IMMEDIATE
+</STRONG></TT>
+does all initialization before returning.
+<TT><STRONG>INTERP_INIT_PARALLEL</STRONG></TT>
+does all initialization in parallel if running in a multiprocessor
+machine before returning.
+<P>
+The <TT><STRONG>fuzz</STRONG></TT> value assigns a fuzz factor to the
+interpolation process: any sample falling within this
+distance of a valid primitive of the Object
+<TT><STRONG>o</STRONG></TT> is assumed to be
+inside that primitive.
+When this point lies geometrically outside the primitive, an appropriate
+result is extrapolated.
+Any positive or zero value is used as the fuzz factor; a negative
+value indicates that the interpolator should determine its
+own fuzz factor.
+<P>
+Interpolators can be used with the <TT><STRONG>DXMap</STRONG></TT> call.
+See <A HREF="progu238.htm#HDRDXMP">DXMap</A> for additional details.
+<P>
+The interpolator created can be deleted with DXDelete.
+See <A HREF="progu023.htm#HDRMEMNG">4.2 , "Memory Management"</A>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the Interpolator or returns <TT><STRONG>NULL</STRONG></TT> and
+sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu219.htm#HDRDXIE">DXInterpolate</A>,
+<A HREF="progu238.htm#HDRDXMP">DXMap</A>,
+<A HREF="progu239.htm#HDRDXMPA">DXMapArray</A>
+</STRONG></TT>
+<P>
+<A HREF="progu067.htm#HDRINADMG">14.2 , "Interpolation and Mapping"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu252.htm">Previous Page</A> &#124; <A HREF="progu254.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

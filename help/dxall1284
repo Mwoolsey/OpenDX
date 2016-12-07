@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxie DXInterpolate #!N #!N Function #!N #!N Interpolates data values in 
+a Field. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Interpolator DXInterpolate(Interpolator 
+interpolator, int *n, float *points, Pointer result) #!EF #!N #!N Functional 
+Details #!N #!N Interpolates up to  #!F-adobe-times-bold-r-normal--18*   *n #!EF points in 
+the data Object associated with  #!F-adobe-times-bold-r-normal--18*   interpolator #!EF . The  #!F-adobe-times-bold-r-normal--18*   
+points #!EF parameter is a pointer to a list of sample 
+points to be interpolated. The  #!F-adobe-times-bold-r-normal--18*   result #!EF is a pointer 
+to a buffer large enough to hold  #!F-adobe-times-bold-r-normal--18*   *n #!EF elements 
+of the type of the data Object associated with  #!F-adobe-times-bold-r-normal--18*   interpolator 
+#!EF . The input sample points are interpolated sequentially until a 
+point lying outside the data model is encountered, at which time 
+interpolation terminates. This routine returns in  #!F-adobe-times-bold-r-normal--18*   *n #!EF the number 
+of points that remained to be interpolated when a point outside 
+the data Object is found; this is not considered to be 
+an error. #!N Points must be of the same dimensionality as 
+the positions in the interpolation Object; thus, (  #!F-adobe-times-medium-i-normal--18*   x #!EF 
+) points are used to interpolate along the line, (  #!F-adobe-times-medium-i-normal--18*   
+x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF ) points are used to 
+interpolate in the plane and (  #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   
+y #!EF ,  #!F-adobe-times-medium-i-normal--18*   z #!EF ) points in 3-dimensional space. 
+#!N #!N Return Value #!N #!N This routine returns  #!F-adobe-times-bold-r-normal--18*   interpolator 
+#!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxli,dxall1293 h DXLocalizeInterpolator  #!EL  ,  #!Ldxmp,dxall1303 h DXMap  #!EL  , 
+ #!Ldxmpa,dxall1304 h DXMapArray  #!EL  ,  #!Ldxni,dxall1318 h DXNewInterpolator  #!EL  #!EF #!N #!N  #!Linadmg,dxall1117 h Interpolation and Mapping  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxic,dxall1285 h DXInvalidateConnections  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

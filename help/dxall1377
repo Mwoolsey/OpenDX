@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxse DXSetError, DXErrorReturn, DXErrorGoto #!N #!N 
+Function #!N #!N Set an error code and an explanatory message. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXSetError(ErrorCode e, char 
+*message, ...) #define DXErrorReturn(e,s) {DXSetError(e,s); return ERROR;} #define DXErrorGoto(e,s) {DXSetError(e,s); goto 
+error;} #!EF #!N #!N Functional Details #!N #!N Modules that return 
+ #!F-adobe-times-bold-r-normal--18*   ERROR #!EF should in many cases also set the error 
+code and error message.  #!F-adobe-times-bold-r-normal--18*   DXSetError #!EF provides the interface to 
+do this, and needs to be called only once for each 
+error. #!N #!N If a Data Explorer function returns an error 
+and sets an error code, the caller should usually return  #!F-adobe-times-bold-r-normal--18*   
+ERROR #!EF without using one of these routines, since the error 
+message set by the Data Explorer function will usually be more 
+informative. If the error code is set by the Data Explorer 
+function and the calling program proceeds without returning  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   DXResetError #!EF should be called. #!N #!N If the 
+Data Explorer function does not set the error code, it is 
+the calling function's responsibility to do so using one of these 
+routines. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   message #!EF may be a  #!F-adobe-times-bold-r-normal--18*   
+printf #!EF format string, in which case additional arguments as required 
+by the format string must be specified. Messages beginning with the 
+pound sign,  #!F-adobe-times-bold-r-normal--18*   # #!EF , are reserved for system use. 
+#!N #!N Additional information can be added to an error message 
+using the  #!F-adobe-times-bold-r-normal--18*   DXAddMessage #!EF function. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXErrorReturn #!EF 
+calls  #!F-adobe-times-bold-r-normal--18*   DXSetError #!EF and returns from the caller with return 
+value  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF . #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXErrorGoto #!EF calls 
+ #!F-adobe-times-bold-r-normal--18*   DXSetError #!EF and goes to the label "error." This is 
+useful when some clean-up activity is required (e.g., freeing allocated memory). 
+It is the caller's responsibility to provide the "error" label in 
+the code. #!N #!N The error code  #!F-adobe-times-bold-r-normal--18*   e #!EF must 
+be one of the following: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N 
+ERROR_ASSERTION ERROR_INTERNAL ERROR_NO_CAMERA #!N ERROR_BAD_CLASS ERROR_INVALID_DATA ERROR_NO_MEMORY #!N ERROR_BAD_PARAMETER ERROR_MISSING_DATA ERROR_NOT_IMPLEMENTED 
+#!N ERROR_BAD_TYPE ERROR_UNEXPECTED #!EF #!EF #!N #!N #!EC #!N #!N Return 
+Value #!N #!N Always return  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF . #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxam,dxall1168 h DXAddMessage, DXMessageReturn, DXMessageGoto  #!EL  ,  #!Ldxmess,dxall1307 h DXMessage  #!EL  ,  #!Ldxre,dxall1359 h DXResetError  #!EL  , 
+ #!Ldxw,dxall1407 h DXWarning  #!EL  #!EF #!N #!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxsetex,dxall1378 h DXSetErrorExit  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

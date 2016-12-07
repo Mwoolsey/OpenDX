@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu128.htm">Previous Page</A> &#124; <A HREF="progu130.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXDB" HREF="progu097.htm#PToC_223">DXDebug, DXEnableDebug,
+DXQueryDebug</A></H3>
+<A NAME="IDX1628"></A>
+<A NAME="IDX1629"></A>
+<A NAME="IDX1630"></A>
+<A NAME="IDX1631"></A>
+<A NAME="IDX1632"></A>
+<A NAME="IDX1633"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Perform operations on global debug keys.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+void DXDebug(char *classes, char *message, ...)<BR>
+void DXEnableDebug(char *classes, int enable)<BR>
+int DXQueryDebug(char *classes)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TT><STRONG>DXDebug</STRONG></TT> compares the array of 1-character keys in
+<TT><STRONG>classes</STRONG></TT> to the set of keys that have been
+enabled with <TT><STRONG>DXEnableDebug</STRONG></TT>.
+If it finds a match, <TT><STRONG>DXDebug</STRONG></TT> calls
+<TT><STRONG>DXMessage</STRONG></TT> with
+<TT><STRONG>message</STRONG></TT> and
+any parameters that follow
+<TT><STRONG>message</STRONG></TT>.
+<P>
+<TT><STRONG>DXEnableDebug</STRONG></TT> enables or disables
+(<TT><STRONG>enable</STRONG></TT> = 1 or 0, respectively)
+the global key corresponding to each key in the
+array of 1-character <TT><STRONG>keys</STRONG></TT>.
+Usually, this routine is not called directly but is accessed at run time
+by calling the <TT><STRONG>Trace</STRONG></TT> module
+(see <I>IBM Visualization Data Explorer User&#39;s Reference</I>).
+<P>
+<TT><STRONG>DXQueryDebug</STRONG></TT> compares the array of 1-character
+<TT><STRONG>keys</STRONG></TT> to the set of keys that have been
+enabled with <TT><STRONG>DXEnableDebug</STRONG></TT>.
+It returns 1 if any key matches; otherwise, it returns 0.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">The upper-case letters A-Z and the numbers 0-9 are
+reserved for system use.
+Module writers may use the lowercase letters a-z.
+</td></tr></table>
+<P>
+Example: If the module code for <TT><STRONG>MyModule()</STRONG></TT>
+contained the following lines:
+<PRE>
+  DXDebug("aqr", "the value of the index is %d",i);
+  DXDebug("ar", "the last value was %d", last);
+  DXDebug("asq", "entering for loop");
+  DXDebug("a", "function foo() returned an error ");
+</PRE>
+<P>
+Then after executing the following modules:
+<BR>
+<TT><BR>
+  Trace("q",1);<BR>
+  MyModule();<BR>
+</TT><BR>
+<P>
+Messages 1 and 3 would be printed.
+<P>
+If the following modules are then
+executed:
+<BR>
+<TT><BR>
+  Trace("r",1);<BR>
+  MyModule();<BR>
+</TT><BR>
+<P>
+Messages 1, 2, and 3 would be printed, since both
+"q" and "r" are now
+enabled.
+<P>
+If the following modules were then executed:
+<BR>
+<TT><BR>
+  Trace("qr",0);<BR>
+  MyModule();<BR>
+</TT><BR>
+<P>
+None of the messages would be printed, as "a," "q," "s,"
+and "r" are now all disabled.
+<P>
+Messages are printed using the
+<TT><STRONG>DXMessage</STRONG></TT> function (see <A
+HREF="progu242.htm#HDRDXMESS">DXMessage</A>).
+<P><STRONG>Return Value</STRONG>
+<P>
+<TT><STRONG>DXDebug</STRONG></TT> and <TT><STRONG>DXEnableDebug</STRONG></TT>
+have no return value.
+<TT><STRONG>DXQueryDebug</STRONG></TT> returns 0 or 1.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu242.htm#HDRDXMESS">DXMessage</A>
+</STRONG></TT>
+<P>
+<A HREF="progu055.htm#HDRERRSEC">13.1 , "Error Handling and Messages"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu128.htm">Previous Page</A> &#124; <A HREF="progu130.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

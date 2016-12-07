@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgem 
+DXGetEnumeratedMember #!N #!N Function #!N #!N Returns the members of a 
+Group by index. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object 
+DXGetEnumeratedMember(Group g, int n, char **name) #!EF #!N #!N Functional Details 
+#!N #!N Returns the  #!F-adobe-times-bold-r-normal--18*   n #!EF th member of Group 
+ #!F-adobe-times-bold-r-normal--18*   g #!EF . The members of a Group may be 
+indexed by calling this routine with successive values of  #!F-adobe-times-bold-r-normal--18*   n 
+#!EF starting with 0 until  #!F-adobe-times-bold-r-normal--18*   NULL #!EF is returned. This 
+routine returns the name of the  #!F-adobe-times-bold-r-normal--18*   n #!EF th member 
+in  #!F-adobe-times-bold-r-normal--18*   *name #!EF if  #!F-adobe-times-bold-r-normal--18*   name #!EF is not  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF . #!N Note: The numbering changes as members are 
+added and deleted. #!N #!N #!N Return Value Returns the  #!F-adobe-times-bold-r-normal--18*   
+n #!EF th member or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF but does 
+not set an error code if  #!F-adobe-times-bold-r-normal--18*   n #!EF is out 
+of range. Sets an error code if  #!F-adobe-times-bold-r-normal--18*   g #!EF is 
+not a Group. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgm,dxall1246 h DXGetMember  #!EL  
+,  #!Ldxgmc,dxall1247 h DXGetMemberCount  #!EL  ,  #!Ldxng,dxall1317 h DXNewGroup  #!EL  ,  #!Ldxsem,dxall1376 h DXSetEnumeratedMember  #!EL  #!EF #!N #!N  #!Lmbs,dxall1064 h Generic Operations  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxge,dxall1235 h DXGetError  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

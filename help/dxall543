@@ -1,0 +1,95 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rfca Function Call Attributes #!N #!EC #!N #!N Functions may 
+optionally have attributes associated with each invocation of the functions, and 
+attributes may also be associated with specific outputs of a module. 
+The Data Explorer scripting language provides three function call attributes: #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   instance #!EF #!I50 #!N Identifies 
+the instance of a function call. This can help you locate 
+errors in scripts. To use the  #!F-adobe-times-bold-r-normal--18*   instance #!EF attribute, follow 
+the function call with instance and the instance number separated by 
+a colon and enclosed in brackets. For example: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N out1 = Color(surface,"blue") [instance:1]; #!N out2 = Color(surface,"green") [instance:2]; 
+#!EF #!N #!N #!EC #!N #!N In this example, each instance 
+of the Color module is identified uniquely. If an error occurs, 
+the error message will report the module name, in this case 
+Color, plus its instance number. If the instance numbering was not 
+used, the error message will only report the name of the 
+module. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   cache #!EF #!I50 #!N Specifies whether 
+the system writes the outputs of a module into the cache. 
+The cache is a portion of memory in which results of 
+previously executed functions are stored. If the inputs to a module 
+do not change the module will not be invoked in subsequent 
+executions, rather the module results are retrieved from the cache. If 
+the module results are not found in the cache, because they 
+were purged in order to make room for some other result 
+or they were never stored in the cache, the module will 
+be reexecuted. #!N #!N The cache attribute can have one of 
+three values: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N [cache:0] 
+- Do not cache the module outputs #!N #!I30 #!N [cache:1] 
+- Cache all the results of the modules outputs #!N #!I30 
+#!N [cache:2] - Cache only the results of the modules outputs 
+for the last execution of the module #!N #!I0 #!N #!EF 
+#!N #!N #!N The  #!F-adobe-times-bold-r-normal--18*   cache #!EF attribute can be associated 
+with the individual outputs of a module, with the entire module 
+(affecting all the outputs) or a combination of both. When output-associated 
+and module-associated  #!F-adobe-times-bold-r-normal--18*   cache #!EF attributes are used in combination the 
+output-associated attributes override the effects of the module-associated attributes. #!N #!N 
+The following two examples illustrate how the  #!F-adobe-times-bold-r-normal--18*   cache #!EF attribute 
+can be used. In the first example the attribute is associated 
+with the module. In the second example the attribute is associated 
+with the module output. The results of both of these examples 
+are identical since Isosurface has only one output. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N iso = Isosurface(data,value) [cache:0]; #!N #!N iso [cache:0] = 
+Isosurface(data,value); #!EF #!N #!N #!EC #!N #!N The following examples look 
+similar to those above, but there is a difference because DivCurl 
+produces two outputs. In the first example, only the last result 
+of both outputs of DivCurl are stored in the cache. In 
+the second example the last result of  #!F-adobe-times-bold-r-normal--18*   div #!EF is 
+placed in the cache, but all results of curl are placed 
+in the cache. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N div, curl = 
+DivCurl(data) [cache:2]; #!N #!N div [cache:2], curl = DivCurl(data); #!EF #!N 
+#!N #!EC #!N #!N In the following example all outputs of 
+Statistics are not cached except for  #!F-adobe-times-bold-r-normal--18*   min #!EF . Since 
+a  #!F-adobe-times-bold-r-normal--18*   cache #!EF attribute with a value of 2 was 
+associated with  #!F-adobe-times-bold-r-normal--18*   min #!EF , the last result of the 
+ #!F-adobe-times-bold-r-normal--18*   min #!EF output of Statistics will be stored in the 
+cache. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N mean, sd, var, min [cache:2], 
+max = Statistics(data) [cache:0] #!EF #!N #!N #!EC #!N #!N If 
+no  #!F-adobe-times-bold-r-normal--18*   cache #!EF attribute is associated with the module, all 
+results of the outputs will be cached unless an individual output 
+has a  #!F-adobe-times-bold-r-normal--18*   cache #!EF attribute associated with it. The following 
+example is similar to the one above, except that all results 
+of module outputs are cached with the exception of min. Since 
+a  #!F-adobe-times-bold-r-normal--18*   cache #!EF attribute with a value of 2 was 
+associated with min only the last result of the min output 
+of Statistics will be stored in the cache. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N mean, sd, var, min [cache:2], max = Statistics(data); #!EF 
+#!N #!N #!EC #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   group #!EF #!I50 #!N 
+Identifies which execution group a module belongs to. This attribute is 
+used to distribute parts of a visualization across multiple workstations. This 
+attribute does not bind a module to a specific workstation, but 
+identifies it to be a member of a group that may 
+be assigned to a workstation. The assignment of an execution group 
+to a workstation is done using the Executive module (see  #!Lexectv,dxall833 h Executive  #!EL  
+in IBM Visualization Data Explorer User's Reference). #!N #!N The following 
+example illustrates how the  #!F-adobe-times-bold-r-normal--18*   group #!EF attribute can be used. 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N cwater = Import("cloudwater"); #!N iso = 
+Isosurface(cwater); #!N wind = Import("wind") [group: "group2"]; #!N x = Compute("$0.x",wind) 
+[group: "group2"]; #!N mapped = Map(iso,x); #!N colored = Color(mapped); #!N 
+camera = Camera(colored); #!N Display(colored,camera); #!EF #!N #!N #!EC #!N #!N 
+The second Import and the Compute will be placed into an 
+execution group called "group2." All other modules will be placed into 
+one default execution group. #!N #!N You can combine the various 
+attributes for a single function call by separating them with commas, 
+as in the following examples: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N wind 
+= Import("wind") [instance:2, group: "group2"]; #!N #!N Colored = Color(iso,"blue") [instance:1, 
+cache:2]; #!N #!N Colored = Color(iso,"green") [instance:2, cache:2, group:"group"]; #!EF #!N 
+#!N #!EC #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   one shot #!EF #!I50 #!N 
+Represents the script language implementation of the Reset interactor in the 
+user interface. It sets the value of a variable to one 
+value for the first execution and a different value (resetvalue) there 
+after. The syntax is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N x[oneshot:resetvalue] = 
+value; #!EF #!N #!N #!EC #!I0 #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmacrdef,dxall544 h Defining Macros  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

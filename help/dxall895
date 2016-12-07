@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmessage Message #!N #!N Category #!N 
+#!N  #!Lcatdbg,dxall754 h Debugging  #!EL  #!N #!N Function #!N #!N Displays a message to 
+the user. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Message( 
+ #!F-adobe-times-bold-r-normal--18*   message, type, popup #!EF ) #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB message TAB string TAB none 
+TAB message to be displayed #!N TAB type TAB string TAB 
+"message" TAB type of information: error, #!N TAB - TAB - 
+TAB - TAB warning, or message #!N TAB popup TAB flag 
+TAB 0 TAB 0: Do not display message in #!N TAB 
+- TAB - TAB - TAB pop-up window #!N TAB - 
+TAB - TAB - TAB 1: Display message in pop-up #!N 
+TAB - TAB - TAB - TAB window #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   message #!EF #!EF 
+#!I50 #!N specifies the message to be displayed. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   type #!EF #!EF #!I50 #!N specifies the kind of 
+message. Information messages are presented unaccompanied, but error messages are preceded 
+by  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF , and warnings by  #!F-adobe-times-bold-r-normal--18*   WARNING #!EF 
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   popup #!EF #!EF #!I50 #!N 
+specifies whether the message is to be displayed in a pop-up 
+window as well as in the Message Window. In script mode, 
+messages are sent to the xterm, regardless of the pop-up setting. 
+#!I0 #!N #!N Note: The display of any or all categories 
+of message can be prevented by deactivating the appropriate toggle buttons 
+in the  #!F-adobe-times-bold-r-normal--18*   Options #!EF pull-down menu of the Message Window. 
+#!N #!N Example Visual Program #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+UsingMessage.net #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Lecho,dxall829 h Echo  #!EL  ,  #!Lformat,dxall853 h Format  #!EL  ,  #!Lprint,dxall911 h Print  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lmorph,dxall896 h Morph  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

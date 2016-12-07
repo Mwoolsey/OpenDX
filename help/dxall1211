@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxes DXExtractString #!N 
+#!N Function #!N #!N Determines whether an Object can be converted 
+to a String, and if so, extracts it. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXExtractString(Object o, char **cp) #!EF #!N 
+#!N Functional Details #!N #!N If Object  #!F-adobe-times-bold-r-normal--18*   o #!EF contains 
+a string, the routine extracts it and places a pointer to 
+its first character in  #!F-adobe-times-bold-r-normal--18*   *cp #!EF . Strings may be 
+extracted from any of the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o String Objects #!N #!I30 #!N o String 
+lists containing a single element, such as those created by  #!F-adobe-times-bold-r-normal--18*   
+DXMakeStringList #!EF and  #!F-adobe-times-bold-r-normal--18*   DXMakeStringListV #!EF #!N #!I30 #!N o Array 
+Objects containing data of Type  #!F-adobe-times-bold-r-normal--18*   TYPE_UBYTE #!EF with a single 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF at the end and no embedded  #!F-adobe-times-bold-r-normal--18*   NULLS 
+#!EF . This is for backward compatibility only; its use is 
+ #!F-adobe-times-medium-i-normal--18*   not #!EF recommended. #!N #!I0 #!N #!EF #!N #!N #!N 
+Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   o #!EF and sets  #!F-adobe-times-bold-r-normal--18*   
+cp #!EF if a string can be extracted from  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF ; otherwise, returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF without setting an error 
+code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxef,dxall1207 h DXExtractFloat  #!EL  ,  #!Ldxei,dxall1208 h DXExtractInteger  #!EL  
+,  #!Ldxens,dxall1209 h DXExtractNthString  #!EL  ,  #!Ldxep,dxall1210 h DXExtractParameter  #!EL  ,  #!Ldxmslv,dxall1302 h DXMakeStringList, DXMakeStringListV  #!EL  ,  #!Ldxqacv,dxall1340 h DXQueryArrayConvert, DXQueryArrayConvertV  #!EL  ,  #!Ldxqp,dxall1347 h DXQueryParameter  #!EL  #!EF 
+#!N #!N  #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxfre,dxall1212 h DXFree  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

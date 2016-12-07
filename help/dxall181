@@ -1,0 +1,47 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rovedx Overview of Data Explorer #!N 
+#!EC #!N #!N The Data Explorer graphical user interface allows end 
+users to perform tasks at various levels of sophistication. For example, 
+a user can use the user interface to apply data and 
+adjust input values to an existing visualization process. A slightly more 
+advanced user can construct a new visualization process, called a visual 
+program, by connecting a network of Data Explorer's modules. An expert 
+programmer can create new modules, using C or FORTRAN, for use 
+with the system modules. Besides the user interface, Data Explorer also 
+provides a scripting language interface, for users who want to build 
+their own visualization functions in a more traditional programming style. #!N 
+#!N Data Explorer's graphical user interface provides an integrated online help 
+facility. This facility provides users with online access to the Data 
+Explorer user manuals, as well as with context-sensitive help information. In 
+addition to the help information provided with Data Explorer, the online 
+help facility allows users to document various aspects of their particular 
+visual programs. Other users of these visual programs then have online 
+access to this program-specific documentation. #!N #!N Data Explorer provides an 
+extensive set of modules that you can use to visualize your 
+data. For example, the Isosurface, Streamline, and AutoColor modules perform the 
+standard visualization functions of creating constant-value surfaces, tracing particle paths through 
+velocity fields, and coloring objects based on a data value, respectively. 
+#!N #!N In addition to these expected functions, Data Explorer also 
+provides tools to perform more sophisticated manipulation of data. The Map 
+module is a general purpose module that can map a data 
+field onto an arbitrary object--whether it is a streamline, an isosurface, 
+or even another data field's computational mesh. The Compute module can 
+perform arithmetic or trigonometric operations point-by-point not only on your data 
+but also on the grid itself. Thus warping a grid, for 
+example, is a simple matter of entering an expression. #!N #!N 
+Even standard tools, such as Isosurface, operate on multiple types of 
+input grids. For example, if the input field to Isosurface is 
+2-dimensional, the module automatically creates contour lines. #!N #!N The Data 
+Explorer renderer can handle opaque or translucent surfaces, translucent volumes, and 
+opaque or translucent lines or points--all in the same image. In 
+addition, data on different computational or observational grids can be visualized 
+together, allowing you to correlate disparate data fields without requiring you 
+to force the data onto the same grid. #!N #!N The 
+power and interoperability of the modules is possible because of the 
+underlying data model, which is capable of describing a wide variety 
+of types of input data. Because the data itself is self-describing, 
+modules can be flexible in the types of data they accept, 
+and can perform their actions appropriately based on their input. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lc11,dxall182 h System Structure  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

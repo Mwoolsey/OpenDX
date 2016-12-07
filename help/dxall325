@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rstbkcl Set Background Color... 
+#!N #!EC #!N #!N This option displays a dialog box that 
+will accept either a color-name string or an RGB vector as 
+the specification of a background color for the Image window. Valid 
+strings are listed in a user-specified lookup table or a file 
+supplied with Data Explorer (see Color in IBM Visualization Data Explorer 
+User's Reference). If neither is available, Data Explorer uses a smaller, 
+internal list (see  #!Lintcols,dxall747 h Data Explorer Colors  #!EL  ). #!N #!N #!I0 #!N Notes: #!N 
+#!I30 #!N 1. Although each defined color has a corresponding RGB 
+vector, the range of possible vectors is continuous from black ([0 
+0 0]) to white ([1 1 1]). Thus you can specify 
+an RGB vector for which there is no corresponding string (i.e., 
+no defined color). Nonetheless, Data Explorer will accept the vector as 
+valid and generate the corresponding color. #!N #!I30 #!N 2. Data 
+Explorer supplies double quotation marks for color-name strings, and brackets, commas, 
+and terminal zeros for vectors. For example, either green or 0 
+1 0 is sufficient to specify the color green. #!N #!I30 
+#!N 3. It is also possible to set the background color 
+using the  #!F-adobe-times-bold-r-normal--18*   bkgrdColor #!EF parameter to the Image tool (see 
+Image in IBM Visualization Data Explorer User's Reference). #!I0 #!N #!N 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall325,dxall326 h Display Rotation Globe  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

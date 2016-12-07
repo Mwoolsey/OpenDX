@@ -1,0 +1,49 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rmbmdf (2) Create a module description file #!N 
+#!EC #!N #!N Data Explorer's graphical user interface and executive access 
+the module description file to determine the names of the modules 
+and their inputs and outputs. #!N Note: This type of file 
+is commonly referred to as an "mdf" file (because of its 
+file extension) and is created automatically from user input to the 
+Module Builder, as described in  #!Lmblder,dxall1003 h Module Builder  #!EL  . However, for very simple 
+modules like the one in this example, it is usually easier 
+and quicker to create the file with a text editor. #!N 
+#!N #!N Parameter names are a part of the module interface 
+that can be seen by the user. In the graphical user 
+interface, parameter names appear in the configuration dialog box and also 
+serve as default names for interactors. In the scripting language, module 
+parameters can be specified by name. #!N #!N A new module 
+cannot have the name of an existing Data Explorer module (see 
+IBM Visualization Data Explorer User's Reference for a complete list). You 
+should also be aware of the following requirements: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o A Data Explorer module name 
+must be a single alphanumeric string and its first character must 
+be a letter. (Standard Data Explorer module names capitalize the first 
+character of each "word" in a name, as in Attribute and 
+AutoAxes. You may observe this convention or not, as you wish, 
+for the modules you create.) #!N #!I30 #!N o The module 
+must be assigned to a tool category--in a  #!F-adobe-times-bold-r-normal--18*   CATEGORY #!EF 
+statement in the module description file. The category can be any 
+of those listed in the Category palette of the VPE window 
+or a new one that you create by naming it in 
+the statement. #!N #!I0 #!N #!EF #!N #!N #!N In the 
+following example, the mdf file consists of five statements: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N MODULE Hello #!N CATEGORY Greetings #!N DESCRIPTION 
+Prefixes "hello" to the input string #!N INPUT value; string; "world"; 
+input string #!N OUTPUT greeting; string; prefixed string #!N #!EF #!N 
+#!N #!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   MODULE 
+#!EF #!EF #!I50 #!N Specifies the module name as Hello. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   CATEGORY #!EF #!EF #!I50 #!N Assigns the 
+module to a new, user-specified category (Greetings). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DESCRIPTION #!EF #!EF #!I50 #!N Describes Hello's purpose: to affix 
+"hello" to the input string. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   INPUT 
+#!EF #!EF #!I50 #!N Assigns the name  #!F-adobe-times-bold-r-normal--18*   value #!EF to 
+the input parameter; specifies its parameter type as  #!F-adobe-times-bold-r-normal--18*   string #!EF 
+; specifies its default value as "world"; and describes it as 
+an input string. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   OUTPUT #!EF #!EF 
+#!I50 #!N Assigns the name  #!F-adobe-times-bold-r-normal--18*   greeting #!EF to the output 
+parameter; specifies its parameter type as  #!F-adobe-times-bold-r-normal--18*   string #!EF ; and 
+describes it as a prefixed string. #!I0 #!N #!N #!N #!N 
+For details, see  #!Lmdfsec,dxall1046 h Module Description Files  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall993,dxall994 h (3) Write the module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

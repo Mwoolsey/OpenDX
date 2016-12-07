@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsm DXSetMember #!N 
+#!N Function #!N #!N Adds a member to a Group. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Group DXSetMember(Group g, char *name, 
+Object value) #!EF #!N #!N Functional Details #!N #!N Adds  #!F-adobe-times-bold-r-normal--18*   
+value #!EF as a member of Group  #!F-adobe-times-bold-r-normal--18*   g #!EF . 
+The  #!F-adobe-times-bold-r-normal--18*   name #!EF may be  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , in 
+which case a new member is added that may be accessed 
+only using  #!F-adobe-times-bold-r-normal--18*   DXGetEnumeratedMember #!EF . If  #!F-adobe-times-bold-r-normal--18*   name #!EF is 
+the same as the name of an existing member, then the 
+new member will have the same index in the Field as 
+the old member and the value of that member is overwritten 
+with the new value. Setting a member to  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+deletes the member. #!N #!N If the Group is typed, and 
+the new Object  #!F-adobe-times-bold-r-normal--18*   value #!EF is typed, then  #!F-adobe-times-bold-r-normal--18*   value 
+#!EF must be of the same type as the Group. This 
+is generally the case for Series, Composite Fields, and MultiGrids. The 
+first time  #!F-adobe-times-bold-r-normal--18*   DXSetMember #!EF is called for one of these 
+generally typed Groups with a typed  #!F-adobe-times-bold-r-normal--18*   value #!EF ,  #!F-adobe-times-bold-r-normal--18*   
+DXSetMember #!EF sets the type of the Group to be the 
+type of the Object. #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   g #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgem,dxall1234 h DXGetEnumeratedMember  #!EL  , 
+ #!Ldxggc,dxall1240 h DXGetGroupClass  #!EL  ,  #!Ldxgm,dxall1246 h DXGetMember  #!EL  ,  #!Ldxng,dxall1317 h DXNewGroup  #!EL  ,  #!Ldxsem,dxall1376 h DXSetEnumeratedMember  #!EL  ,  #!Ldxsgtv,dxall1380 h DXSetGroupType, DXSetGroupTypeV  #!EL  #!EF #!N 
+#!N  #!Lmbs,dxall1064 h Generic Operations  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxsmo,dxall1383 h DXSetMeshOffsets  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

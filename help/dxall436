@@ -1,0 +1,132 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rcremac Creating Macros 
+#!N #!EC  #!Rtoolnot #!N #!N Macros are themselves visual programs and 
+are created in much the same way. For example, the macro 
+represented in  #!Lmacex94,dxall436 f Figure 94  #!EL  maps data onto a plane, colors it, and 
+then performs a deformation using the RubberSheet module. It is constructed 
+by placing the appropriate tool icons on the VPE canvas and 
+connecting them. Note: You can also create a macro directly from 
+a visual program in the VPE window. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rmacex94 
+#!N Graphics omitted from Online Documentation. Please see the manual. #!N 
+#!N Figure 94. Example of a Macro #!EF #!N #!EC See 
+"Creating Macros the Easy Way" on page  #!Lcmtew,dxall436 s CMTEW  #!EL  . #!N #!N 
+Macro's inputs and outputs are represented by the  #!F-adobe-times-bold-r-normal--18*   Input #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   Output #!EF tools from the  #!F-adobe-times-bold-r-normal--18*   Special #!EF category. 
+A macro has at least one input or output. #!N Note: 
+Macros cannot include interactors, Sequencers, colormaps, probes, picks, Display, or Image 
+tools. #!N #!N #!N Place the  #!F-adobe-times-bold-r-normal--18*   Input #!EF icon on 
+the canvas and connect it to the appropriate tool icon input 
+tab. The  #!F-adobe-times-bold-r-normal--18*   Input #!EF type conforms to that of the 
+input tab to which it is connected. Like other tools, the 
+ #!F-adobe-times-bold-r-normal--18*   Input #!EF icon can be connected to multiple input tabs. 
+You can use the Configuration dialog box for the  #!F-adobe-times-bold-r-normal--18*   Input 
+#!EF tool (  #!Lmaccf95,dxall436 f Figure 95  #!EL  ) to specify: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o Tab position in the macro #!N 
+#!I30 #!N o Name of the input #!N #!I30 #!N o 
+Default value for the input #!N #!I30 #!N o Description of 
+the input #!N #!I30 #!N o Whether the input is a 
+required parameter #!N #!I30 #!N o Whether the input has a 
+descriptive default value. #!N #!I0 #!N #!EF #!N #!N #!N Some 
+of these values are, by default, inherited from the input tab 
+to which the  #!F-adobe-times-bold-r-normal--18*   Input #!EF tool is connected, but many 
+of them can be changed from the Configuration dialog box. #!Cbrown 
+#!N  #!F-adobe-times-medium-r-normal--18*    #!Rmaccf95 #!N Graphics omitted from Online Documentation. Please see 
+the manual. #!N #!N Figure 95. Input Configuration Dialog Box #!EF 
+#!N #!EC The fields in the Configuration dialog box for the 
+ #!F-adobe-times-bold-r-normal--18*   Input #!EF tool are: #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Position #!EF #!I50 #!N Specifies the tab position this input 
+occupies on the resulting macro icon. By default, the tab positions 
+are assigned in the order that you select the  #!F-adobe-times-bold-r-normal--18*   Input 
+#!EF icons from the tool palette. For example, the first icon 
+you drag over to the canvas has position 1, the second 
+has position 2, and so on. #!N #!N If an input 
+is deleted from a macro, the position of the other inputs 
+are  #!F-adobe-times-medium-i-normal--18*   not #!EF automatically changed. For example, if the input 
+at position 2 of a macro with three inputs is deleted, 
+the other two inputs remain at positions 1 and 3, with 
+position 2 left empty. Each input  #!F-adobe-times-medium-i-normal--18*   must #!EF have a 
+different value for position. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Name #!EF #!I50 
+#!N Specifies the name of the input. This field must begin 
+with a letter, and no spaces or special characters, except for 
+the at-symbol (@) and the underscore character (_), are allowed. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Type #!EF #!I50 #!N Specifies the type of 
+the input. The type conforms to the inputs that the  #!F-adobe-times-bold-r-normal--18*   
+Input #!EF tool is connected to. When connecting it to more 
+than one input, the  #!F-adobe-times-bold-r-normal--18*   Input #!EF tool assumes the type 
+of the most restrictive input to which it is connected. For 
+example, if the  #!F-adobe-times-bold-r-normal--18*   Input #!EF tool is connected to two 
+inputs, an object and a scalar, the  #!F-adobe-times-bold-r-normal--18*   Input #!EF tool 
+type would become a scalar type. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Default 
+Value #!EF #!I50 #!N Specifies a default value for the input. 
+If the  #!F-adobe-times-bold-r-normal--18*   descriptive value #!EF toggle button is activated, the 
+default value field of the macro is treated as a description, 
+not an actual value. You can use this to indicate to 
+users of the macro what sort of parameter this input should 
+be. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Description #!EF #!I50 #!N Provides a 
+short description of the input for your own documentation purposes. This 
+description is used to generate the Description window for the resulting 
+macro tool, which you can access through its Configuration dialog box. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Options #!EF #!I50 #!N The  #!F-adobe-times-bold-r-normal--18*   required 
+parameter #!EF toggle button, when activated, indicates that the input is 
+required for the macro. The corresponding input tab of resulting macro 
+icon is highlighted with a different color. This option is inherited 
+from the input to which the  #!F-adobe-times-bold-r-normal--18*   Input #!EF tool is 
+connected. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   descriptive value #!EF toggle button is 
+used with the  #!F-adobe-times-bold-r-normal--18*   Default Value #!EF field, as described above. 
+#!I0 #!N #!N #!N #!N Specify the macro's outputs with the 
+ #!F-adobe-times-bold-r-normal--18*   Output #!EF tool from the  #!F-adobe-times-bold-r-normal--18*   Special #!EF category. Place 
+the  #!F-adobe-times-bold-r-normal--18*   Output #!EF tool icon on the canvas and connect 
+it to the appropriate output tab from another tool icon. The 
+ #!F-adobe-times-bold-r-normal--18*   Output #!EF also inherits its type from the output tab 
+to which it is connected. #!N #!N The Configuration dialog box 
+for the  #!F-adobe-times-bold-r-normal--18*   Output #!EF tool is similar to the one 
+for  #!F-adobe-times-bold-r-normal--18*   Input #!EF , but the  #!F-adobe-times-bold-r-normal--18*   Options #!EF toggle 
+buttons and the  #!F-adobe-times-bold-r-normal--18*   Default Value #!EF field are grayed-out. #!N 
+#!N Before you can use the macro, you must first name 
+it, save it, and then load it, making it available in 
+the tool palette. #!N #!N To name the macro, select the 
+ #!F-adobe-times-bold-r-normal--18*   Macro Name #!EF option from the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down 
+menu. The  #!F-adobe-times-bold-r-normal--18*   Name... #!EF dialog box opens. The  #!F-adobe-times-bold-r-normal--18*   Name 
+#!EF dialog box for the example macro is illustrated in  #!Lmacname96,dxall436 f Figure 96  #!EL  
+. Type a name for the macro in the  #!F-adobe-times-bold-r-normal--18*   Name 
+#!EF field. The name must consist only of letters and numbers 
+(no spaces or underscores), and must begin with a letter. By 
+default, the macro is assigned to the "Macros" category. You can 
+assign the macro to a different category by typing a new 
+name in the  #!F-adobe-times-bold-r-normal--18*   Category #!EF field. The category you choose 
+can be a new or existing category. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rmacname96 
+#!N Graphics omitted from Online Documentation. Please see the manual. #!N 
+#!N Figure 96. Macro Name Dialog Box #!EF #!N #!EC #!N 
+#!N To save the macro after it has been named, use 
+the  #!F-adobe-times-bold-r-normal--18*   Save As... #!EF option of the  #!F-adobe-times-bold-r-normal--18*   File #!EF 
+pull-down menu. Because macro files are saved as visual programs, and 
+therefore have  #!F-adobe-times-bold-r-normal--18*   .net #!EF extensions, it may be helpful to 
+organize them in a separate directory to distinguish them from other 
+visual programs. #!N #!N #!CIndianRed #!N #!N  #!F-adobe-times-bold-r-normal--18*   Creating Macros the 
+Easy Way  #!Rcmtew #!N #!N For use in other visual programs 
+or to simplify the "network" that appears in the VPE canvas, 
+you may want to combine some of the tools of a 
+visual program in a single macro. This can be done directly 
+and easily in the VPE window if the selection includes only 
+allowed tools (see preceding  #!F-adobe-times-bold-r-normal--18*   Note #!EF , page  #!Ltoolnot,dxall436 s TOOLNOT  #!EL  ). 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. On the 
+VPE canvas, use the left mouse button to create a selection 
+box around the tool icons to be included in the macro. 
+(It may be necessary to first reposition some of the icons 
+in order to simplify this "boxing" process.) Note: Alternatively, you can 
+"shift click" on all the desired tools. #!N #!I30 #!N 2. 
+Select  #!F-adobe-times-bold-r-normal--18*   Create Macro #!EF from the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down 
+menu. #!N #!I30 #!N 3. In the  #!F-adobe-times-bold-r-normal--18*   Create Macro #!EF 
+dialog box that appears, enter the required information: macro name, category, 
+description, and file or path name. The default category ("macro") and 
+description ("new macro") can be changed or left as they are. 
+#!N #!I30 #!N 4. Click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF . Unless 
+you specified otherwise, the macro will be saved in the directory 
+from which Data Explorer was started, under the name you specified 
+(input and output names can be changed by editing this saved 
+file) using the Visual Program Editor. The new macro will appear 
+in the category specified, under the name specified in the dialog 
+box. #!N #!I0 #!N #!EF #!N #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Llodmac,dxall437 h Loading Macros  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

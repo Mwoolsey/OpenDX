@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Iteration using Looping</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu029.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu031.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu026.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRLOOP" ></A>4.5 Iteration using Looping</H2>
+		<A NAME="IDX600"></A><A NAME="IDX601"></A>
+<P>
+The sequencer provides a basic loop; however it has some limitations.
+Only one sequencer per visual program is allowed, and, as it executes,
+everything in the visual program executes (subject to the
+optimization for deciding which modules need to be
+executed, discussed above).
+Additional functionality is provided using the
+ForEachN, ForEachMember, Done, and First modules.
+<P>
+ForEachN and ForEachMember
+essentially implement a standard programming-language "for" loop;
+in the case of ForEachN iterating over a specified list of integers,
+and in the case of ForEachMember iterating over the members in a
+group or the items in a list (or array).
+<A HREF="#FIGXMODX4">Figure 21</A> shows a simple loop that
+outputs the integers 0 to 10 and Echo's them (the
+<TT><STRONG>start</STRONG></TT> and <TT><STRONG>end</STRONG></TT>
+parameters to ForEachN have been set to 0 and 10 respectively). This
+is roughly equivalent to the C-language statements
+<PRE>
+ for (i=0; i&lt;=10; i++)
+    printf("%d", i);
+</PRE>
+<P><B><A NAME="FIGXMODX4" HREF="../usrguide.htm#FT_FIGXMODX4">Figure 21. Example
+4</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmodf4.gif" ALT="Figure xmodf4 not
+displayed."></CENTER><BR></B><BR>
+<P>
+Data Explorer provides you with two other tools for control looping,
+Done and First.
+Done enables you to exit a loop.
+Examples
+of its use can be found in "Advanced Loop Constructs" (see below).
+The First module provides
+a way to recognize the first pass through a loop; this is
+particularly useful, for example, as a way to reset the GetGlobal module
+if you are using GetGlobal and SetGlobal (see below) to store information
+during the execution of a loop.
+
+Note that First is not necessary if you are using GetLocal and SetLocal.
+
+<P>
+When a loop is present in a visual program, it causes the execution of
+all modules in the visual program containing the looping tool (ForEachN,
+ForEachMember, or Done), subject to optimization.
+For this reason it is strongly suggested that looping
+modules NOT be placed in the top level visual program, but rather
+be used only within macros. If used within a macro, the macro
+will not output any values until the loop is complete, when
+the ForEachN or ForEachMember list is exhausted or
+when the Done module causes an exit.
+<P>
+If a loop occurs inside a macro, and you reexecute a visual program
+calling this macro, the loop will not be reexecuted as long as the
+result of the macro remains in the cache.
+However, the presence of a
+side effect module (such as WriteImage or Print) inside of a loop will
+cause the loop to be reexecuted regardless of whether the output of
+the macro
+remains in the cache.
+If this is not the desired behavior,
+Route can be used to turn off the entire macro.
+<P>
+For efficiency you might find it desirable to set the caching option to
+<TT><STRONG>Last Result</STRONG></TT> for modules within the loop.
+In this way, multiple intermediate values within a loop will not use up
+valuable cache space.
+<P>
+Note that the full execution of a loop is considered to occur within
+a single execution of the graph (as would occur if you select
+Execute Once from the Execute menu). Thus if you change any interactor
+values DURING the execution of the loop, those interactor values will
+not take effect until the loop is complete. This is an important
+way in which looping differs from using the Sequencer; if you
+change the value of an interactor while the Sequencer is running,
+the value will be updated on the next frame of the sequence.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

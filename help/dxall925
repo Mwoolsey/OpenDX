@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rreplace Replace #!N #!N Category #!N #!N 
+ #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N Replaces a component in a 
+field or inserts a value list as a component. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   out #!EF = Replace( 
+ #!F-adobe-times-bold-r-normal--18*   srcfield, dstfield, srcname, dstname #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB srcfield TAB field or 
+value list TAB none TAB the field containing the #!N TAB 
+- TAB - TAB - TAB replacement component #!N TAB dstfield 
+TAB field TAB none TAB the field in which the replacement 
+#!N TAB - TAB - TAB - TAB component is to 
+be placed #!N TAB srcname TAB string TAB "data" TAB the 
+component of srcfield that is #!N TAB - TAB - TAB 
+- TAB to be placed in dstname #!N TAB dstname TAB 
+string TAB "data" TAB the new name of the replacement #!N 
+TAB - TAB - TAB - TAB component #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N TAB 
+out TAB field TAB dstfield with component from srcfield #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+If  #!F-adobe-times-bold-r-normal--18*   srcfield #!EF is a field: the module puts the 
+specified replacement component (  #!F-adobe-times-bold-r-normal--18*   srcname #!EF ) from  #!F-adobe-times-bold-r-normal--18*   srcfield 
+#!EF into  #!F-adobe-times-bold-r-normal--18*   dstfield #!EF and gives it a new component 
+name (  #!F-adobe-times-bold-r-normal--18*   dstname #!EF ). #!N If  #!F-adobe-times-bold-r-normal--18*   srcfield #!EF 
+is a value list: the module inserts  #!F-adobe-times-bold-r-normal--18*   srcfield #!EF into 
+ #!F-adobe-times-bold-r-normal--18*   dstfield #!EF as the  #!F-adobe-times-bold-r-normal--18*   dstname #!EF component (  #!F-adobe-times-bold-r-normal--18*   
+srcname #!EF is ignored). #!N If  #!F-adobe-times-bold-r-normal--18*   dstfield #!EF is a 
+group: the hierarchy of  #!F-adobe-times-bold-r-normal--18*   srcfield #!EF must match exactly. #!N 
+#!N Components #!N #!N All components of  #!F-adobe-times-bold-r-normal--18*   dstfield #!EF are 
+propagated to the output. The  #!F-adobe-times-bold-r-normal--18*   srcname #!EF component of  #!F-adobe-times-bold-r-normal--18*   
+srcfield #!EF replaces or is added as the  #!F-adobe-times-bold-r-normal--18*   dstname #!EF 
+component in the output. #!N #!N Example Visual Programs #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N Imide_potential.net #!N UsingStreakline.net #!EF #!N #!N 
+#!EC #!N #!N See Also #!N #!N  #!Lextract,dxall845 h Extract  #!EL  ,  #!Lmark,dxall893 h Mark  #!EL  , 
+ #!Lrename,dxall922 h Rename  #!EL  ,  #!Lunmark,dxall972 h Unmark  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lreset,dxall926 h Reset  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

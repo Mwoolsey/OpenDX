@@ -1,0 +1,107 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmap Map #!N #!N Category #!N 
+#!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N #!N Applies a map to 
+a field or value list. #!N #!N Syntax #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   output #!EF = Map(  #!F-adobe-times-bold-r-normal--18*   input, map, source, 
+destination #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB input TAB field, value, or value list TAB 
+none TAB field to be mapped #!N TAB map TAB scalar, 
+vector, or field TAB identity TAB map to be used #!N 
+TAB source TAB string TAB "positions" TAB component used as index 
+into map #!N TAB destination TAB string TAB "data" TAB component 
+in which to place the #!N TAB - TAB - TAB 
+- TAB interpolated data. #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB output TAB field, value, 
+or value list TAB mapped input field #!N TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N Map is 
+a general purpose module which maps from one field to another. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF 
+#!I50 #!N is the field or value list to which  #!F-adobe-times-bold-r-normal--18*   
+map #!EF is applied. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   map #!EF 
+#!EF #!I50 #!N is the map to be applied to the 
+input object. Unless this parameter specifies a single value, it should 
+contain both a "positions" and a "data" component. #!N #!N Because 
+the module performs interpolation, the map it applies to the input 
+must also contain either (1) a "connections" component or (2) "faces," 
+"loops," and "edges" (see  #!Lflec,dxall220 h Faces, Loops, and Edges Components  #!EL  in IBM Visualization Data Explorer User's 
+Guide). The "data" component may be dependent on "positions," "connections," or 
+"faces." (If the field contains faces, loops, and edges, the data 
+ #!F-adobe-times-medium-i-normal--18*   must #!EF be dependent on faces.) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   source #!EF #!EF #!I50 #!N specifies the component of  #!F-adobe-times-bold-r-normal--18*   
+input #!EF that is to be used for indexing into the 
+"positions" component of  #!F-adobe-times-bold-r-normal--18*   map #!EF . The value of the 
+corresponding "data" in  #!F-adobe-times-bold-r-normal--18*   map #!EF is determined by interpolation between 
+the "positions" in  #!F-adobe-times-bold-r-normal--18*   map #!EF , using the interpolation elements 
+of  #!F-adobe-times-bold-r-normal--18*   map #!EF (either "connections" or "faces," "loops," and "edges"). 
+ #!F-adobe-times-bold-r-normal--18*   source #!EF is ignored if  #!F-adobe-times-bold-r-normal--18*   input #!EF is a 
+value list. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   destination #!EF #!EF #!I50 
+#!N specifies the  #!F-adobe-times-bold-r-normal--18*   output #!EF component in which interpolated values 
+should be placed. If  #!F-adobe-times-bold-r-normal--18*   input #!EF is a value list, 
+then the interpolated values simply replace the values in  #!F-adobe-times-bold-r-normal--18*   input 
+#!EF . #!I0 #!N #!N #!N #!N The Map module steps 
+through the  #!F-adobe-times-bold-r-normal--18*   source #!EF component of  #!F-adobe-times-bold-r-normal--18*   input #!EF . 
+For each item in that component, the module looks up that 
+value in the "positions" component of  #!F-adobe-times-bold-r-normal--18*   map #!EF and finds 
+the corresponding value in the "data" component of  #!F-adobe-times-bold-r-normal--18*   map #!EF 
+, interpolating if necessary. The resulting value is placed in the 
+ #!F-adobe-times-bold-r-normal--18*   destination #!EF component of  #!F-adobe-times-bold-r-normal--18*   output #!EF (see  #!Lmap116,dxall891 f Figure 116  #!EL  ). 
+#!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rmap116 #!N Figure 116. Mapping from one field 
+to another. This figure shows an input field and a map 
+field, both with two-dimensional positions and triangle connections. The figure shows 
+how a data value is found for the position (a,b) in 
+the input field by interpolating in the map field when the 
+parameters to the Map module are  #!F-adobe-times-bold-r-normal--18*   input #!EF = Input 
+Field,  #!F-adobe-times-bold-r-normal--18*   map #!EF = Map Field, and  #!F-adobe-times-bold-r-normal--18*   source #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   destination #!EF default to "positions" and "data" respectively. #!N 
+#!N As with all maps in Data Explorer, the map field 
+must have "positions," "data," and "connections." Since the  #!F-adobe-times-bold-r-normal--18*   source #!EF 
+component is "positions," the "positions" component of  #!F-adobe-times-bold-r-normal--18*   input #!EF is 
+used to index into the "positions" component of  #!F-adobe-times-bold-r-normal--18*   map #!EF 
+. Thus we lookup the position (a,b) in the map field. 
+This leads us to the triangle connecting positions 0, 1, and 
+2 in the map field. The data values corresponding to positions 
+0, 1, and 2 are interpolated to yield the result 1.3, 
+which is then placed in the "data" component of the output 
+of Map (since  #!F-adobe-times-bold-r-normal--18*   destination #!EF is "data"). #!N Graphics omitted 
+from Online Documentation. Please see the manual. #!N #!EF #!N #!EC 
+#!N #!N So, for example, if  #!F-adobe-times-bold-r-normal--18*   source #!EF is "positions," 
+ #!F-adobe-times-bold-r-normal--18*   destination #!EF is "data,"  #!F-adobe-times-bold-r-normal--18*   input #!EF is an isosurface, 
+and  #!F-adobe-times-bold-r-normal--18*   map #!EF is a 3-D field with temperature values, 
+then Map steps through the "positions" component of the isosurface and 
+finds the temperature value for each position, interpolating if necessary. The 
+resulting temperature value is placed in the "data" component of the 
+output field. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   map #!EF is a value, 
+the Map module adds to  #!F-adobe-times-bold-r-normal--18*   output #!EF a  #!F-adobe-times-bold-r-normal--18*   destination 
+#!EF component that (1) contains one element for each element of 
+the  #!F-adobe-times-bold-r-normal--18*   source #!EF component and (2) derives its dependency from 
+the  #!F-adobe-times-bold-r-normal--18*   source #!EF component. All elements in this component have 
+the value given them by  #!F-adobe-times-bold-r-normal--18*   map #!EF . #!N #!N 
+The following table summarizes some of the uses of Map. #!T,1,161,321,646 
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Source TAB Destination TAB Use #!EF #!N TAB 
+"data" TAB "colors" TAB color mapping #!N TAB "positions" TAB "data" 
+TAB data mapping #!N TAB "data" TAB "data" TAB arbitrary tabular 
+function #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. The 
+dimensionality of the positions in  #!F-adobe-times-bold-r-normal--18*   input #!EF and in  #!F-adobe-times-bold-r-normal--18*   
+map #!EF must agree and must also match the dimensionality of 
+the connections in  #!F-adobe-times-bold-r-normal--18*   map #!EF . That is, if  #!F-adobe-times-bold-r-normal--18*   
+map #!EF has 2-D connections (quads or triangles), the positions must 
+also be 2-D. #!N #!I30 #!N 2. There are few constraints 
+on Map' functionality. For instance, the Color module is generally preferable 
+for performing mapping, because that module prevents the formation of invalid 
+colors, whereas Map does not. #!I0 #!N #!N #!N #!N Components 
+#!N #!N If  #!F-adobe-times-bold-r-normal--18*   input #!EF is a field, a new 
+component name, specified by  #!F-adobe-times-bold-r-normal--18*   destination #!EF , is created. All 
+other input components are propagated to the output. #!N #!N If 
+ #!F-adobe-times-bold-r-normal--18*   input #!EF is an array, the output is an array. 
+#!N #!N If any  #!F-adobe-times-bold-r-normal--18*   source #!EF values cannot be interpolated, 
+an "invalid positions" or "invalid connections" component (depending on the dependency 
+of the  #!F-adobe-times-bold-r-normal--18*   source #!EF parameter) will be created, and values 
+that are not interpolated will be marked invalid. #!N #!N Example 
+Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N Interop.net #!N 
+#!N ManipulateGroups.net #!N #!N MappedIso.net #!N PlotTwoLines.net #!N Thunder_cellcentered.net #!N UsingMap.net 
+#!N SIMPLE/Map.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lautocol,dxall772 h AutoColor  #!EL  ,  #!Lcolor,dxall792 h Color  #!EL  ,  #!Lmaptopl,dxall892 h MapToPlane  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lmaptopl,dxall892 h MapToPlane  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

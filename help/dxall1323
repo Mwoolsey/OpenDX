@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnpav DXNewProductArray, DXNewProductArrayV #!N #!N 
+Function #!N #!N Create an Array that is the product of 
+a set of regular or irregular position Arrays. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> ProductArray DXNewProductArray(int n, ...) ProductArray DXNewProductArrayV(int n, 
+Array *terms) #!EF #!N #!N Functional Details #!N #!N All of 
+the Array types must be floating-point and of the same rank 
+and shape. The Array created will have the same rank and 
+shape as the input Arrays. The terms of the product are 
+given by the Array pointer  #!F-adobe-times-bold-r-normal--18*   terms #!EF (for  #!F-adobe-times-bold-r-normal--18*   DXNewProductArrayV 
+#!EF ) or by the last  #!F-adobe-times-bold-r-normal--18*   n #!EF arguments (for 
+ #!F-adobe-times-bold-r-normal--18*   DXNewProductArray #!EF ). #!N #!N Product Arrays are most often 
+used to construct regular or partially regular "positions" components. In the 
+case of fully regular positions (e.g., when each of the items 
+is a Regular Array), it is often be easier to use 
+ #!F-adobe-times-bold-r-normal--18*   DXMakeGridPositions #!EF . #!N #!N The Array created can be 
+deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N 
+#!N Return the Product Array or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+set an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgpai,dxall1258 h DXGetPathArrayInfo  #!EL  ,  #!Ldxmgpv,dxall1298 h DXMakeGridPositions, DXMakeGridPositionsV  #!EL  #!EF #!N #!N  #!Lptas,dxall1077 h Product Arrays  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxnra,dxall1324 h DXNewRegularArray  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

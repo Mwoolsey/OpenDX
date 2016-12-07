@@ -1,0 +1,40 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rfields Fields #!N #!EC #!N #!N 
+Given the sets of numbers, "positions," "connections," and "data," we can 
+define a  #!F-adobe-times-medium-i-normal--18*   Field #!EF , as it is called in 
+Data Explorer. The positions identify locations in space, the (optional) connections 
+define logical continuities (interpolation paths) between positions, and the data are 
+the values measured either at each position or within each connection 
+element. Data Explorer calls each of these sets of numbers (positions, 
+connections, data) a Field  #!F-adobe-times-medium-i-normal--18*   component #!EF . Components are represented 
+as arrays of numbers with some auxiliary information specifying  #!F-adobe-times-medium-i-normal--18*   attributes 
+#!EF (e.g., type of dependency). In addition, there are many other 
+types of Field components. The Field is the basic unit of 
+information in Data Explorer, so it is important to understand how 
+to express your data in these terms. #!N #!N A Field 
+can only have one "positions" and one "connections" component. A Field 
+can have only one component actually named "data," but you may 
+assign names of your choosing to additional components representing other data 
+sets that are also mapped to the same grid. So you 
+can name a "data" component "temperature" and another "wind velocity," or 
+you can just use the default name "data" if you only 
+have one "data" component. #!N #!N The ".dx" file format provides 
+the most flexibility for describing data sets to Data Explorer. But 
+many researchers produce fairly straightforward arrays of numbers mapped onto regular 
+or deformed regular grids. If your data are already written out 
+in such a form, you may not need to convert your 
+data files into the native ".dx" file format. Instead, Data Explorer's 
+General Array Importer can read your data directly, given a small 
+"header" file that you create to tell the General Array Importer 
+the name of your data file and its dimensions (see  #!Lqimd,dxall109 h Importing Data  #!EL  
+in IBM Visualization Data Explorer QuickStart Guide). #!N #!N This shorthand 
+description is enough for Data Explorer to convert your data structure 
+into a Field when it reads your raw data file. You 
+will still find it valuable to understand the components of a 
+Field, because once you begin using the Data Explorer visual programming 
+language, you will have direct access to these components. Much of 
+the power and flexibility of the visual programming language is derived 
+from our ability to access and manipulate Field components in a 
+variety of ways. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lall195,dxall196 h Visual Programming: The Basics  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

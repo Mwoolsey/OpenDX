@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxugt DXUnsetGroupType #!N #!N Function #!N #!N Unsets the type associated 
+with a specified Group. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Group DXUnsetGroupType(Group g) #!EF #!N #!N Functional Details #!N #!N When 
+the Group type is set, all current members are checked for 
+type, and all members added subsequently are checked for type.  #!F-adobe-times-bold-r-normal--18*   
+DXUnsetGroupType #!EF will turn off this type checking, and the Group 
+will have no type. #!N #!N Array Objects are always typed. 
+Fields are typed if they contain a "data" component; their type 
+is the same as that of the "data" component. Series, MultiGrids, 
+and Composite Fields are typed if they contain typed members. Generic 
+Groups may be typed by explicitly calling  #!F-adobe-times-bold-r-normal--18*   DXSetGroupType #!EF . 
+If typed, all members contained in the Group must match the 
+type. Other Objects do not contain type information. #!N #!N Return 
+Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   g #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and sets an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxng,dxall1317 h DXNewGroup  #!EL  ,  #!Ldxsgtv,dxall1380 h DXSetGroupType, DXSetGroupTypeV  #!EL  #!EF #!N #!N  #!Lmbs,dxall1064 h Generic Operations  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxvpbb,dxall1406 h DXValidPositionsBoundaryBox  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

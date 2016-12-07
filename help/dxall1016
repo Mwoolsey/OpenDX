@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall1015 
+Connections Specification #!N #!EC #!N #!N If the worker routine needs 
+information about the connections component of the first input parameter, it 
+will use one of two sets of arguments for defining that 
+information, depending on whether the request is for regular or irregular 
+positions: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Regular connections arguments: #!N #!N 
+int c_knt Total number of connections elements #!N int c_nv Number 
+of vertices per element #!N int *c_counts Count of vertices along 
+each dimension #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+Irregular connections arguments: #!N #!N int c_knt Total number of connections 
+elements #!N int c_nv Number of vertices per element #!N int 
+*c_connections Explicit list of connections elements #!EF #!N #!N #!EC #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1016,dxall1017 h Input Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

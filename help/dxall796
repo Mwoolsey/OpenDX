@@ -1,0 +1,45 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcomput2 
+Compute2 #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N 
+#!N Evaluates an expression on each data point in a specified 
+field or value list. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Compute2(  #!F-adobe-times-bold-r-normal--18*   expression, name, input, ... 
+#!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB expression TAB string TAB none TAB expression(s) to be 
+computed #!N TAB name TAB string TAB no default TAB name 
+of input that follows #!N TAB - TAB - TAB - 
+TAB (defaults to "a") #!N TAB input TAB field or value 
+list TAB no default TAB input value #!N TAB name1 TAB 
+string TAB no default TAB name of input that follows #!N 
+TAB - TAB - TAB - TAB (defaults to "b") #!N 
+TAB input1 TAB field or value list TAB no default TAB 
+input value #!N TAB ... TAB ... TAB ... TAB ... 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description 
+#!EF #!N TAB output TAB field, value, or value list TAB 
+output values #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N The primary advantage of this alternative form 
+of Compute is that, in the user interface,  #!F-adobe-times-bold-r-normal--18*   expression #!EF 
+is an input that can be provided by another tool (e.g., 
+a selector interactor). All the functions of Compute (see  #!Lcompute,dxall795 h Compute  #!EL  ) 
+are also functions of Compute2. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   expression #!EF #!EF #!I50 #!N is a mathematical expression 
+to be evaluated for a set of  #!F-adobe-times-bold-r-normal--18*   input #!EF values. 
+ #!Loper14,dxall795 t Table 14  #!EL  lists the operators. #!N #!N This parameter is followed by 
+one or more name-input pairs. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name 
+#!EF #!EF #!I50 #!N is name of the variable in the 
+expression to be evaluated. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF 
+#!EF #!I50 #!N is the input to which  #!F-adobe-times-bold-r-normal--18*   expression #!EF 
+is applied. If there are more than one, the input fields 
+must be isomorphic (i.e., their hierarchies must match exactly). #!I0 #!N 
+#!N #!N #!N A single Compute2 module can operate on a 
+maximum of 21  #!F-adobe-times-bold-r-normal--18*   input #!EF values. The default number of 
+enabled input tabs is two. (Tabs can be added to the 
+module icon and removed with the appropriate  #!F-adobe-times-bold-r-normal--18*   Input/Output Tabs #!EF 
+options in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu of the VPE.) 
+#!N #!N Example Visual Programs #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+ComputeMultiLine.net #!N SIMPLE/Compute2.net #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lcompute,dxall795 h Compute  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lconnect,dxall797 h Connect  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

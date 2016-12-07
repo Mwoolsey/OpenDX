@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu098.htm">Previous Page</A> &#124; <A HREF="progu100.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXAPLUS" HREF="progu097.htm#PToC_193">DXAdd, DXCross, DXDiv,
+DXDot, DXLength, DXMax, DXMin, DXMul, DXNeg, DXNormalize, DXSub</A></H3>
+<A NAME="IDX1449"></A>
+<A NAME="IDX1450"></A>
+<A NAME="IDX1451"></A>
+<A NAME="IDX1452"></A>
+<A NAME="IDX1453"></A>
+<A NAME="IDX1454"></A>
+<A NAME="IDX1455"></A>
+<A NAME="IDX1456"></A>
+<A NAME="IDX1457"></A>
+<A NAME="IDX1458"></A>
+<A NAME="IDX1459"></A>
+<A NAME="IDX1460"></A>
+<A NAME="IDX1461"></A>
+<A NAME="IDX1462"></A>
+<A NAME="IDX1463"></A>
+<A NAME="IDX1464"></A>
+<A NAME="IDX1465"></A>
+<A NAME="IDX1466"></A>
+<A NAME="IDX1467"></A>
+<A NAME="IDX1468"></A>
+<A NAME="IDX1469"></A>
+<A NAME="IDX1470"></A>
+<A NAME="IDX1471"></A>
+<A NAME="IDX1472"></A>
+<A NAME="IDX1473"></A>
+<A NAME="IDX1474"></A>
+<A NAME="IDX1475"></A>
+<A NAME="IDX1476"></A>
+<A NAME="IDX1477"></A>
+<A NAME="IDX1478"></A>
+<A NAME="IDX1479"></A>
+<A NAME="IDX1480"></A>
+<A NAME="IDX1481"></A>
+<P><STRONG>Function</STRONG>
+Perform standard vector mathematics.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+&#35;include &lt;dx/dx.h&gt;
+Vector DXNeg(Vector v)
+Vector DXNormalize(Vector v)
+double DXLength(Vector v)
+Vector DXAdd(Vector v, Vector w)
+Vector DXSub(Vector v, Vector w)
+Vector DXMin(Vector v, Vector w)
+Vector DXMax(Vector v, Vector w)
+Vector DXMul(Vector v, double f)
+Vector DXDiv(Vector v, double f)
+float DXDot(Vector v, Vector w)
+Vector DXCross(Vector v, Vector w)
+</STRONG>
+</PRE>.
+<P><STRONG>Functional Details</STRONG>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXNeg, DXNormalize,
+DXLength</STRONG></TT>
+</B></TD><TD><P>Perform unary operations of negation, normalization, and length.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXAdd, DXSub, DXMin,
+DXMax</STRONG></TT>
+</B></TD><TD><P>Perform vector operations of addition, subtraction, min, and
+max.
+Min and max are performed on each component of a vector.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXMul, DXDiv</STRONG></TT>
+</B></TD><TD><P>Multiply or divide a vector by a float.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXDot, DXCross</STRONG></TT>
+</B></TD><TD><P>Form the dot product or cross-product of two vectors.
+</TD></TR></TABLE>
+<P>
+A <TT><STRONG>Point</STRONG></TT> and <TT><STRONG>Vector</STRONG></TT> are
+defined
+as follows:
+<PRE><STRONG>
+typedef struct point {
+    float x, y, z;
+} Point, Vector;
+</STRONG>
+</PRE>
+<P><STRONG>Return Value</STRONG>
+Each routine returns the result of its operation.
+<P><STRONG>See Also</STRONG>
+<TT><STRONG>
+<A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert, DXTranspose,
+DXAdjointTranspose, DXDeterminant, DXApply</A>,
+</STRONG></TT>
+<P>
+<A HREF="progu063.htm#HDRBOPS">"Basic Operations"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu098.htm">Previous Page</A> &#124; <A HREF="progu100.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

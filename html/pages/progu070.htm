@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu069.htm">Previous Page</A> &#124; <A HREF="progu071.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRHASH" HREF="progu066.htm#PToC_150">14.5 Hashing</A></H2>
+<A NAME="IDX1162"></A>
+<A NAME="IDX1163"></A>
+<P>
+This section describes a set of routines for storing an arbitrary number
+of elements with a fixed access time.
+This implementation is designed for general-purpose use in many
+applications.
+Copies of the elements are stored in a hash table.
+<A NAME="IDX1164"></A>
+<A NAME="IDX1165"></A>
+<A NAME="IDX1166"></A>
+<P>
+The elements may be of any fixed size, set at the time that the hash
+table is created.
+Each element contains a key identifying the element, along with
+whatever data you choose to associate with that key.
+For example, a key might be an x, y, z point, with an associated data
+value for that point.
+<P>
+Elements are stored in the table using
+
+long integer
+
+pseudokeys.
+These pseudokeys should be uniformly distributed in any range beginning
+at zero.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Pseudokey 0xFFFFFFFF is reserved.
+Items cannot not be placed in the hash table using this pseudokey value.
+</td></tr></table>
+<P>
+The elements themselves may contain the pseudokey as their
+first
+
+long
+
+integer word.
+Alternatively, the pseudokey may be derived from the element through a
+call-back function provided at the time the hash table is created.
+<P>
+More than one element may be stored under the same pseudokey if a
+compare function is provided at the time the hash table was
+created.
+Whenever the hash table query function is called with the same search
+key, the hash table is searched for an element whose pseudokey
+matches the key either in or derived from the search key.
+If no compare function has been provided, the found element
+is returned.
+However, if a compare function has been provided, it is called by the
+hash table query routine to match the search key against each
+element in the hash table that matches the pseudokey.
+When the compare function succeeds (returns a 0), the element is
+returned.
+<P>
+A similar sequence is used to either insert a unique element (if a
+compare function was provided) or to overwrite a previously
+inserted element of the same key (if a compare function
+was not provided).
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Only 16 elements may be stored using the same pseudokey.
+</td></tr></table>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>HashTable DXCreateHash()</STRONG></TT>
+</TD><TD><P>Creates a hash table.
+<A NAME="IDX1167"></A>
+<A NAME="IDX1168"></A>
+See <A HREF="#HDRUN10">"Examples"</A>.
+See  <A HREF="progu125.htm#HDRDXCH">DXCreateHash</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Element
+DXQueryHashElement()</STRONG></TT>
+</TD><TD><P>Searches a hash table for an element matching a specified key.
+<A NAME="IDX1169"></A>
+<A NAME="IDX1170"></A>
+See <A HREF="#HDRUN10">"Examples"</A>.
+See  <A HREF="progu280.htm#HDRDXQHE">DXQueryHashElement</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXInsertHashElement()</STRONG></TT>
+</TD><TD><P>Inserts an element into a hash table.
+<A NAME="IDX1171"></A>
+<A NAME="IDX1172"></A>
+See <A HREF="#HDRUN10">"Examples"</A>.
+See  <A HREF="progu218.htm#HDRDXIHE">DXInsertHashElement</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXDeleteHashElement()</STRONG></TT>
+</TD><TD><P>Removes any element that matches a search key.
+<A NAME="IDX1173"></A>
+<A NAME="IDX1174"></A>
+See  <A HREF="progu132.htm#HDRDXDHE">DXDeleteHashElement</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXInitGetNextHashElement()</STRONG></TT>
+</TD><TD><P>Initializes the pointer to the next element for
+<TT><STRONG>GetNextHashElement</STRONG></TT>.
+<A NAME="IDX1175"></A>
+<A NAME="IDX1176"></A>
+See  <A HREF="progu214.htm#HDRDXIGNHE">DXInitGetNextHashElement</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXGetNextHashElement()</STRONG></TT>
+</TD><TD><P>Returns the next element in a hash table.
+<A NAME="IDX1177"></A>
+<A NAME="IDX1178"></A>
+See  <A HREF="progu186.htm#HDRDXGNHE">DXGetNextHashElement</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXDestroyHash()</STRONG></TT>
+</TD><TD><P>Deletes a hash table.
+<A NAME="IDX1179"></A>
+<A NAME="IDX1180"></A>
+See  <A HREF="progu133.htm#HDRDXDHSH">DXDestroyHash</A>.
+</TD></TR></TABLE>
+<P>
+Optional routines provided by the caller at the time of creation of
+the hash table follow:
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>hashFunc()</STRONG></TT>
+</TD><TD><P>Converts a search key to a
+
+long
+
+integer pseudokey.
+Called on insertion and query.
+<A NAME="IDX1181"></A>
+<A NAME="IDX1182"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>cmpFunc()</STRONG></TT>
+</TD><TD><P>Determines whether elements with the same pseudokey are unique.
+Called on insertion and query.
+<A NAME="IDX1183"></A>
+<A NAME="IDX1184"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRUN10" HREF="progu066.htm#PToC_151">Examples</A></H3>
+<P>
+In the following examples, underscored items are supplied by
+the user.
+<P>
+<TT><STRONG>(1)</STRONG></TT>
+No hash or compare function is provided at the time
+the hash table is created.
+Stored elements are x, y, z points, along with associated
+data values.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Because no hash function is provided, the pseudokey must be stored
+as the first
+
+long
+
+integer word of the element.
+</td></tr></table>
+<PRE>
+   typedef struct
+   {
+
+      long pseudokey;
+
+      Point pt;
+      float data;
+   } hashelement;
+</PRE>
+<PRE>
+   HashTable hashtable;
+   hashtable = DXCreateHash(sizeof(element), NULL, NULL);
+</PRE>
+<PRE>
+   for (i=0; i &lt; <I>number of points to insert</I>; i++){
+       element.pseudokey = GetKey(&<I>current_point</I>);
+       element.pt = <I>current_point</I>;
+       element.data = <I>current_data</I>;
+       DXInsertHashElement(hashtable, (Element)&element);
+   }
+</PRE>
+<P>
+<TT><STRONG>(2)</STRONG></TT>
+If GetKey returns the same pseudokey for two different points, the
+second will overwrite the first because no compare function
+was provided to <TT><STRONG>DXCreateHash()</STRONG></TT>.
+<P>
+To extract elements from the hash table:
+<PRE>
+       PseudoKey pkey;
+       hashelement *element_ptr;
+</PRE>
+<PRE>
+       pkey = GetKey(&<I>point_to_search_for</I>);
+       element_ptr = DXQueryHashElement(hashtable, (Key)&pkey);
+</PRE>
+<P>
+GetKey that returns a pseudokey given a point x, y, z:
+<PRE>
+       PseudoKey GetKey(Key key)
+       {
+         Point *pt;
+         pt = (Point *)key;
+         return pt-&gt;x + 17*pt-&gt;y + 23*pt-&gt;z;
+       }
+</PRE>
+<P>
+Alternatively, the hash function GetKey can be provided at the time
+the hash table is created.
+In that case the pseudokey does not need to be part of the element.
+<PRE>
+   typedef struct
+   {
+      Point pt;
+      float data;
+   } hashelement;
+   HashTable hashtable;
+   hashelement element;
+   hashtable = DXCreateHash(sizeof(element), GetKey, NULL);
+</PRE>
+<PRE>
+   for (i=0; i &lt; <I>number_of_points_to_insert</I>; i++){
+       element.pt = <I>current_point</I>;
+       element.data = <I>current_data</I>;
+       DXInsertHashElement(hashtable, (Element)&element);
+</PRE>
+<P>
+where:
+<PRE>
+       PseudoKey GetKey(Key key)
+       {
+         Point *pt;
+         pt = (Point *)key;
+         return pt-&gt;x + 17*pt-&gt;y + 23*pt-&gt;z;
+       }
+</PRE>
+<P>
+To extract elements from the hash table:
+<PRE>
+       hashelement *element_ptr;
+</PRE>
+<PRE>
+       element.pt = <I>point_to_search_for</I>;
+       element_ptr = DXQueryHashElement(hashtable, (Key)&element);
+</PRE>
+<P>
+<TT><STRONG>(3)</STRONG></TT>
+This example uses a compare function.
+<PRE>
+   typedef struct
+    {
+       Point pt;
+       float data;
+    } hashelement;
+    HashTable hashtable;
+    hashelement element;
+    hashtable = DXCreateHash(sizeof(element), GetKey, CompareFunc);
+</PRE>
+<PRE>
+   for (i=0; i &lt; <I>number of points to insert</I>; i++){
+       element.pt = <I>current_point</I>;
+       element.data = <I>current_data</I>;
+       DXInsertHashElement(hashtable, (Element)&element);
+    }
+</PRE>
+<P>
+where the compare function may be:
+<PRE>
+   int CompareFunc(Key searchkey, Element element)
+   {
+     Point *p, p1, p2;
+     hashelement *h;
+     p = (Point *)searchkey;
+     p1 = *p;
+     h  = (hashelement *)element;
+     p2 = h-&gt;pt;
+     if ((pl.x==p2.x)&&(p1.y==p2.y)&&(p1.z==p2.z))
+       return 0;
+     else
+       return 1;
+   }
+</PRE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu069.htm">Previous Page</A> &#124; <A HREF="progu071.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

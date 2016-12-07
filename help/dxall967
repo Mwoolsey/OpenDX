@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtransfo Transform #!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N 
+#!N Function #!N #!N Performs a generalized transform of an object. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF 
+= Transform(  #!F-adobe-times-bold-r-normal--18*   input, transform #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB input TAB object TAB 
+none TAB object to be transformed #!N TAB transform TAB tensor 
+TAB none TAB 3*3 or 3*4 transformation matrix #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N TAB 
+output TAB object TAB object marked for transformation #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N This 
+module prepares a specified object for being moved, rotated, and resized. 
+A Transform object containing the specified transformation matrix is inserted at 
+the root of the object. This transform is applied during rendering. 
+#!N #!N The module is more primitive than Translate, Rotate, and 
+Scale, but it allows direct entry into a  #!F-adobe-times-medium-i-normal--18*   3*3 #!EF 
+or  #!F-adobe-times-medium-i-normal--18*   3*4 #!EF matrix (for combining several transformations or for 
+a skew transform). #!N #!N Each  #!F-adobe-times-medium-i-normal--18*   [x y z] #!EF 
+point in the object is transformed to the new point  #!F-adobe-times-medium-i-normal--18*   
+[x' y' z'] #!EF by: #!T,120 #!N #!N TAB [ a 
+b c ] #!N [ x` y` z`] = [ x 
+y z ] TAB | d e f | + [ 
+j k l ] #!N TAB [ g h i] #!N 
+#!EF #!T,0 #!N #!N Nine numbers are interpreted as  #!F-adobe-times-medium-i-normal--18*   a 
+#!EF to  #!F-adobe-times-medium-i-normal--18*   i #!EF with no translation; twelve numbers are 
+ #!F-adobe-times-medium-i-normal--18*   a #!EF to  #!F-adobe-times-medium-i-normal--18*   l #!EF . No translation occurs 
+for the default value of: #!T,75 #!N #!N [1 0 0 
+] #!N |0 1 0 | TAB + [0 0 0] 
+#!N [0 0 1 ] #!N #!EF #!N #!T,0 #!N #!N 
+Components #!N #!N All input components are propagated to the output. 
+#!N #!N See Also #!N #!N  #!Lrotate,dxall928 h Rotate  #!EL  ,  #!Lscale,dxall934 h Scale  #!EL  ,  #!Ltransla,dxall968 h Translate  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltransla,dxall968 h Translate  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,48 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxspe 
+DXSetPerspective, DXGetPerspective #!N #!N Function #!N #!N Set or retrieve a 
+perspective view. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Camera DXSetPerspective(Camera 
+c, double fov, double aspect) Camera DXGetPerspective(Camera c, float *fov, float 
+*aspect) #!EF #!N #!N Functional Details #!N #!N A camera defines 
+the position and orientation of the viewer, the volume of interest 
+of the Object being viewed, and the size of the image 
+to contain the resulting view. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXSetPerspective #!EF defines 
+the volume of interest of a perspective camera  #!F-adobe-times-bold-r-normal--18*   c #!EF 
+. This is a pyramid with an apex at the  #!F-adobe-times-bold-r-normal--18*   
+from #!EF position, and a base centered on  #!F-adobe-times-bold-r-normal--18*   to #!EF 
+point, perpendicular to the  #!F-adobe-times-bold-r-normal--18*   to #!EF -  #!F-adobe-times-bold-r-normal--18*   from #!EF 
+vector. The width of the base is defined by the angle 
+formed by the sides of the pyramid at the apex and 
+the distance between the  #!F-adobe-times-bold-r-normal--18*   to #!EF and  #!F-adobe-times-bold-r-normal--18*   from #!EF 
+points. This angle is also known as the "field of view" 
+and is specified by the  #!F-adobe-times-bold-r-normal--18*   fov #!EF parameter. #!N #!N 
+The  #!F-adobe-times-bold-r-normal--18*   fov #!EF is defined as twice the tangent of 
+half the angle (e.g, for a 90-degree sweep, the  #!F-adobe-times-bold-r-normal--18*   fov 
+#!EF setting should be 2 * tan(45-degrees), or 2.0). The  #!F-adobe-times-bold-r-normal--18*   
+fov #!EF can also be thought of as the ratio of 
+the width of the base to the distance from the viewer 
+(e.g., for a view of a 20-meter wide area from a 
+distance of 10 meters, the  #!F-adobe-times-bold-r-normal--18*   fov #!EF setting should be 
+20/10, or 2.0). The height is defined by width of the 
+base times the  #!F-adobe-times-bold-r-normal--18*   aspect #!EF . With a perspective camera, 
+objects appear smaller with increasing distance. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXGetPerspective #!EF 
+returns the  #!F-adobe-times-bold-r-normal--18*   fov #!EF and  #!F-adobe-times-bold-r-normal--18*   aspect #!EF parameters of 
+a perspective camera  #!F-adobe-times-bold-r-normal--18*   c #!EF . If  #!F-adobe-times-bold-r-normal--18*   fov #!EF 
+is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , returns the camera fov in 
+ #!F-adobe-times-bold-r-normal--18*   *fov #!EF . If  #!F-adobe-times-bold-r-normal--18*   aspect #!EF is not  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF , returns the camera aspect ratio in  #!F-adobe-times-bold-r-normal--18*   *aspect 
+#!EF . #!N #!N Return Value #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXSetPerspective #!EF 
+returns the camera or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXGetPerspective #!EF returns as follows: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   If the 
+object is a perspective camera: #!EF returns the camera and the 
+camera parameters. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   If the object is 
+not a perspective camera: #!EF returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF without setting 
+an error code. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   If the object 
+is not a valid camera: #!EF returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!I0 #!N #!EF #!N #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgcmp,dxall1225 h DXGetCameraMatrix, DXGetCameraRotation, DXGetCameraMatrixWithFuzz  #!EL  ,  #!Ldxnca,dxall1311 h DXNewCamera  #!EL  ,  #!Ldxrndr,dxall1357 h DXRender  #!EL  , 
+ #!Ldxsoc,dxall1384 h DXSetOrthographic, DXGetOrthographic  #!EL  ,  #!Ldxsrn,dxall1389 h DXSetResolution, DXGetCameraResolution  #!EL  ,  #!Ldxsvw,dxall1393 h DXSetView, DXGetView  #!EL  #!EF #!N #!N  #!Lcamsec,dxall1138 h Camera Class  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxsrn,dxall1389 h DXSetResolution, DXGetCameraResolution  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

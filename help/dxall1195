@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxdel DXDelete #!N #!N 
+Function #!N #!N Deletes a reference to an Object. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXDelete(Object o) #!EF #!N #!N 
+Functional Details A call to this routine indicates that Object  #!F-adobe-times-bold-r-normal--18*   
+o #!EF is no longer needed. A reference count is maintained 
+inside each Object; the memory associated with each Object  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF is not actually released until the last user of Object 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF has called  #!F-adobe-times-bold-r-normal--18*   DXDelete #!EF . If  #!F-adobe-times-bold-r-normal--18*   
+o #!EF is  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , then  #!F-adobe-times-bold-r-normal--18*   DXDelete #!EF 
+immediately returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF . #!N #!N When  #!F-adobe-times-bold-r-normal--18*   DXDelete 
+#!EF is called on Objects that contain other objects (e.g., Groups 
+or Fields), it decrements the reference count on all Objects in 
+the hierarchy. A module that creates an Object is responsible for 
+deleting the Object unless it is either made part of another 
+Object (e.g, using  #!F-adobe-times-bold-r-normal--18*   DXSetComponentValue #!EF ) or it is returned 
+as the module output. #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxc,dxall1186 h DXCopy  #!EL  , 
+ #!Ldxref,dxall1353 h DXReference  #!EL  #!EF #!N #!N  #!Lmemng,dxall1023 h Memory Management  #!EL  ,  #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxdc,dxall1196 h DXDeleteComponent  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

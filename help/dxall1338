@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqal DXQueryAmbientLight #!N #!N Function #!N #!N 
+Returns the color of an Ambient Light. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Light DXQueryAmbientLight(Light l, RGBColor *color) #!EF #!N #!N 
+Functional Details #!N #!N Determines whether  #!F-adobe-times-bold-r-normal--18*   l #!EF is an 
+Ambient Light and returns in  #!F-adobe-times-bold-r-normal--18*   *color #!EF the information specified 
+when the Light was created. #!N #!N An  #!F-adobe-times-bold-r-normal--18*   RGBColor #!EF 
+is defined as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct rgbcolor { float 
+r, g, b; } RGBColor; #!EF #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   l #!EF (if it is an Ambient Light) 
+or  #!F-adobe-times-bold-r-normal--18*   NULL #!EF (if it is another type) without setting 
+an error code; otherwise, returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxnal,dxall1309 h DXNewAmbientLight  #!EL  #!EF 
+#!N #!N  #!Llightsc,dxall1139 h Light Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxqacvm,dxall1339 h DXQueryArrayCommon, DXQueryArrayCommonV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

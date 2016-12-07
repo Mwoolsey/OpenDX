@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxncd DXNewClipped #!N #!N Function #!N #!N Creates a 
+new Clipped Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Clipped 
+DXNewClipped(Object render, Object clipping) #!EF #!N #!N Functional Details #!N #!N 
+Constructs a Clipped Object that instructs the renderer to render the 
+first argument  #!F-adobe-times-bold-r-normal--18*   render #!EF clipped by the second argument  #!F-adobe-times-bold-r-normal--18*   
+clipping #!EF . That is, all parts of Object  #!F-adobe-times-bold-r-normal--18*   render 
+#!EF that would have been in front of the  #!F-adobe-times-bold-r-normal--18*   clipping 
+#!EF Object are removed at render time. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   
+clipping #!EF Object must have only surface data (no volume data); 
+the colors and opacity of the surface are ignored. Nesting of 
+clipping Objects is not supported, and the clipping Object must be 
+convex. Every volume and translucent surface in a scene must have 
+the same clipping Object. #!N #!N The Object created can be 
+deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N 
+#!N Returns the Clipped Object or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgci,dxall1226 h DXGetClippedInfo  #!EL  ,  #!Ldxsco,dxall1370 h DXSetClippedObjects  #!EL  #!EF #!N #!N  #!Lcdcs,dxall1137 h Clipped Class  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxncf,dxall1313 h DXNewCompositeField  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

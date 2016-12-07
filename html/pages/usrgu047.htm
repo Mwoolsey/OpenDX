@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Graphical User Interface: For Advanced Users</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu046.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu048.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu045.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRUNDUS5" ></A>Chapter 9. Graphical User 
+Interface: For Advanced Users</H2>
+		<P><A NAME="PToC12" HREF="../usrguide.htm">Partial Table-of-Contents</A>
+		<MENU>
+<LI><A NAME="PToC_296" HREF="#HDRDISTCMP">9.1 Using Distributed Computation</A>
+<MENU>
+<LI><A NAME="PToC_297" HREF="#Header_297">Creating, Modifying, and Deleting
+Execution Groups</A>
+<LI><A NAME="PToC_301" HREF="#Header_301">Displaying the Tools in an Execution
+Group</A>
+<LI><A NAME="PToC_302" HREF="#HDRASXGRP">Assigning Execution Groups to
+Workstations</A>
+<LI><A NAME="PToC_303" HREF="#Header_303">Restrictions</A>
+</MENU>
+<LI><A NAME="PToC_304" HREF="usrgu048.htm#HDRVFM">9.2 Loading and Using Outboard
+and Runtime-Loadable Modules</A>
+<LI><A NAME="PToC_305" HREF="usrgu049.htm#HDRCONSERV">9.3 Connecting to the
+Server</A>
+<MENU>
+<LI><A NAME="PToC_306" HREF="usrgu049.htm#HDRRSTSRV">Resetting the Server</A>
+</MENU></MENU><HR><P>
+<A NAME="IDX856"></A>
+<A NAME="IDX857"></A>
+<A NAME="IDX858"></A>
+<HR>
+<H2><A NAME="HDRDISTCMP" ></A>9.1 Using Distributed Computation
+</H2>
+<A NAME="IDX859"></A>
+<A NAME="IDX860"></A>
+<P>
+Data Explorer provides you with the capability to distribute your visual program
+across a
+network of heterogeneous workstations.
+Distributing your visual program provides you with parallelism and
+enhanced resource utilization.
+Parallelism is achieved by the simultaneous execution of different
+portions of the visual program on each of the workstations.
+The amount of parallelism that you can achieve is dependent on the
+organization of your visual program and the number of available
+workstations.
+<P>
+Enhanced resource utilization can be achieved, for example, by
+assigning computationally intensive portions of the visual
+program to the more powerful workstations.
+If the data you are visualizing is located on one or more workstations,
+then performing some of the data realization and transformation on
+the workstations containing the data can reduce data transfer
+overheads.
+<P>
+Distributed processing in Data Explorer is achieved in two ways:
+by using "outboard" modules (user supplied) or by placing groups
+of tools to "execution groups".
+These two methods can be used independently or in combination.
+For a discussion of outboard modules see <A HREF="progu039.htm#HDRMODSIOR">11.3
+, "Inboard, Outboard, and Runtime-loadable Modules"</A> in <I>IBM Visualization
+Data Explorer Programmer&#39;s Reference</I>.
+Execution groups can be created and modified using the Visual Program
+Editor or by using attributes if you are using the Data Explorer scripting
+language (see <A HREF="usrgu050.htm#HDRUSL">Chapter 10. "Data Explorer Scripting
+Language"</A>).
+Once the execution groups are created, you assign each group to the
+workstations over which you wish to distribute the visual
+program.
+You can assign more than one group per workstation.
+Note that if more than one group is assigned to a given workstation,
+the groups will not be run as separate processes.
+<P>
+Data Explorer uses this two part approach of creating groups and assigning
+groups to make it easier for you to change the set of
+workstations over which you distribute your
+visual programs.
+This utility is especially convenient if you share visual programs
+with other users.
+<P>
+When you execute a visual program for the first time, the Data Explorer
+executive is started on each workstation over which
+the program is to be distributed.
+Each executive "plans" the execution and executes each of the
+execution groups assigned to it.
+This means that not only is the computation and data flow distributed,
+but the control flow is distributed as well.
+One of the workstations is a "master"--the workstation to
+which the user interface is connected.
+The master creates and initiates the communication between the other
+workstations and distributes commands from the user interface
+to all the workstations.
+The master also executes any execution group that is not assigned
+to another workstation in addition to its own
+assigned groups.
+<P>
+<H3><A NAME="Header_297" ></A>Creating, Modifying, and Deleting Execution Groups
+</H3>
+<A NAME="IDX861"></A>
+<A NAME="IDX862"></A>
+<A NAME="IDX863"></A>
+<P>
+By default, all tools in a visual program belong to a single unnamed
+execution group.
+This group is executed on the master workstation.
+New execution groups are created and existing execution groups are
+modified and deleted using the <TT><STRONG>Execution Group</STRONG></TT>
+dialog box (<A HREF="#FIGPG1">Figure 79</A>).
+<P>
+The dialog box consist of three parts&#58;
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Groups
+</B></TD><TD><P>Displays the current set of execution groups.
+A group name can be selected by clicking on the name.
+It can be deselected by clicking on the name a second time or by
+clicking on another name.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Name
+</B></TD><TD><P>A text field for specifying the name of a new execution group,
+the
+name of an execution group to modify or the name of an execution
+group to be displayed.
+If an execution group is selected, the name of the group is displayed
+in the <TT><STRONG>Group Name</STRONG></TT> text field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Pushbuttons
+</B></TD><TD><P><TT><STRONG>Create</STRONG></TT> causes a new execution group to
+be
+created.
+<TT><STRONG>Add To</STRONG></TT> causes a set of selected tools to be added to
+an
+existing execution group.
+<TT><STRONG>Remove From</STRONG></TT> causes a set of selected tools to be
+removed
+from an execution group.
+<TT><STRONG>Delete</STRONG></TT> causes an existing execution group to be
+deleted
+(the tools in the group are not deleted from the VPE canvas).
+<TT><STRONG>Show</STRONG></TT> causes all the tools on the canvas that are
+members of
+the selected group to be selected.
+<TT><STRONG>Close</STRONG></TT> causes the dialog box to be closed.
+</TD></TR></TABLE>
+<P><B><A NAME="FIGPG1" HREF="../usrguide.htm#FT_FIGPG1">Figure 79. Execution Group
+Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/excutgrp.gif" ALT="Figure excutgrp not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H4><A NAME="HDRCREXEGR"></a><U>Creating an Execution Group</U></H4>
+<A NAME="IDX864"></A>
+<P>
+To create an execution group
+<OL COMPACT>
+<LI>Select the tools on the VPE canvas that are to be placed in
+a single execution group.
+This can be done by a rubber-band selection or using a shift-click
+selection or a combination of both.
+<LI>Open the <TT><STRONG>Execution Group...</STRONG></TT> dialog box by
+selecting the <TT><STRONG>Edit</STRONG></TT> menu <TT><STRONG>Execution
+Group...</STRONG></TT> option.
+<LI>In the <TT><STRONG>Group Name</STRONG></TT> text field, enter a name for the
+execution group.
+<LI>Click on the <TT><STRONG>Create</STRONG></TT> button.
+</OL>
+<P>
+The newly created execution group will appear in the list of execution
+groups.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If a tool is a member of an existing execution group and it is
+placed into a new group, the tool is automatically deleted from
+the existing group.
+A single tool can not be a member of two execution groups.
+</td></tr></table>
+<P>
+<H4><U>Modifying Execution Groups</U></H4>
+<A NAME="IDX865"></A>
+<P>
+Execution groups can be modified by adding new tools to the group
+or removing tools from the group.
+<P>
+To add tools to an Execution Group&#58;
+<OL COMPACT>
+<LI>Select the tool or tools to be added to a group.
+<LI>Open the <TT><STRONG>Execution Groups...</STRONG></TT> dialog box by
+selecting
+the <TT><STRONG>Edit</STRONG></TT> menu <TT><STRONG>Execution
+Groups...</STRONG></TT> option.
+<LI>Select the name of the execution group to which the tool(s) are to
+be added.
+<LI>Click on the <TT><STRONG>Add To</STRONG></TT> button.
+</OL>
+<P>
+To remove tools from an Execution Group:
+<OL COMPACT>
+<LI>Select the tool or tools to be removed from a group.
+<LI>Open the <TT><STRONG>Execution Groups...</STRONG></TT> dialog box by
+selecting
+the <TT><STRONG>Edit</STRONG></TT> menu <TT><STRONG>Execution
+Groups...</STRONG></TT> option.
+<LI>Select the name of the execution group from which the tool(s) are to
+be removed.
+<LI>Click on the <TT><STRONG>Remove From</STRONG></TT> button.
+</OL>
+<P>
+<H4><U>Deleting an Execution Group</U></H4>
+<A NAME="IDX866"></A>
+<P>
+To delete an execution group:
+<OL COMPACT>
+<LI>Open the <TT><STRONG>Execution Groups...</STRONG></TT> dialog box by
+selecting
+the <TT><STRONG>Edit</STRONG></TT> menu <TT><STRONG>Execution
+Groups...</STRONG></TT> option.
+<LI>Select the name of the execution group to be deleted.
+<LI>Click on the <TT><STRONG>Delete</STRONG></TT> button.
+</OL>
+<P>
+<H3><A NAME="Header_301" ></A>Displaying the Tools in an Execution Group
+</H3>
+<A NAME="IDX867"></A>
+<P>
+Data Explorer provides you with the ability to display all the tools that are
+members of an execution group.
+To display the tools:
+<OL COMPACT>
+<LI>Open the <TT><STRONG>Execution Groups...</STRONG></TT> dialog box by
+selecting
+the <TT><STRONG>Edit</STRONG></TT> menu <TT><STRONG>Execution
+Groups...</STRONG></TT> option.
+<LI>Select the name of the execution group to be displayed.
+<LI>Click on the <TT><STRONG>Show</STRONG></TT> button.
+</OL>
+<P>
+The tools that are members of the execution group become selected.
+If the selected tools are not part of the currently displayed portion
+of the visual program, the VPE will be updated so that the
+selected tools will be displayed.
+<P>
+<H3><A NAME="HDRASXGRP" ></A>Assigning Execution Groups to Workstations
+</H3>
+<A NAME="IDX868"></A>
+<P>
+Once you have decomposed your visual program into execution groups, you
+can assign these groups to workstations (or hosts).
+If you do not specify a host for a particular execution group, the group
+will be executed on the master.
+Execution groups are assigned to a host using the <TT><STRONG>Execution
+Group
+Assignment...</STRONG></TT> dialog box (<A HREF="#FIGPG2">Figure 80</A>).
+<P>
+The dialog box consists of three parts&#58;
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Groups and Hosts
+</B></TD><TD><P>Displays the name of an execution group and the host on which
+the
+group is executed.
+If a host name is not given, then "localhost" is displayed as the
+host name.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Host Name
+</B></TD><TD><P>A text field for specifying the name of a host on which an execution group is to be executed. Can be entered as <I>username@hostname</I> when using communication such as ssh. See the DXRSH environment variable for more information.</TD></TR><TR VALIGN="TOP"><TD><P><B>Pushbuttons
+</B></TD><TD><P><TT><STRONG>OK</STRONG></TT> causes the assignments of
+executions groups to host
+names and closes the dialog box.
+<TT><STRONG>Options...</STRONG></TT> opens a dialog box that allows you to
+specify
+startup options (e.g., memory size, or the Data Explorer executive
+that will be started on the host.
+</TD></TR></TABLE>
+<P><B><A NAME="FIGPG2" HREF="../usrguide.htm#FT_FIGPG2">Figure 80. Execution Group
+Assignment Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xgrpasgn.gif" ALT="Figure xgrpasgn not
+displayed."></CENTER><BR></B><BR>
+<P>
+To assign an execution group to a workstation:
+<OL COMPACT>
+<LI>Open the <TT><STRONG>Execution Group Assignment...</STRONG></TT>
+dialog box by
+selecting the <TT><STRONG>Connection</STRONG></TT> menu <TT><STRONG>Execution
+Group
+Assignment...</STRONG></TT> option in either the
+Visual Program Editor or Image Window.
+<LI>Select the execution group that you wish to assign to a host by
+clicking on its name.
+<LI>Enter the host name in the <TT><STRONG>Host Name</STRONG></TT> text field
+and hit
+Enter.
+<LI>Click on the <TT><STRONG>Options...</STRONG></TT> button to specify any
+options     for the
+host, for example memory size.
+<LI>If there are more groups to assign to hosts repeat Steps 2 through
+4, otherwise, click on <TT><STRONG>OK</STRONG></TT>.
+</OL>
+<P>
+<H3><A NAME="Header_303" ></A>Restrictions</H3>
+<P>
+In general, you can place any tool in any execution group, alter the
+members of an execution group at any time, or change the
+assignment of an execution group from one host to
+another at any time.
+The exceptions to these rules deal with:
+<UL COMPACT>
+<LI>Modules maintaining state (e.g., Streakline)
+<LI>Hardware rendering
+<LI>The Pick Module.
+</UL>
+<P>
+Modules that maintain internal state information using private cache
+objects cannot be freely moved between hosts.
+Doing so will cause the module to lose its state information or obtain
+old state information.
+If you do reassign a module maintaining state to another host, you
+should reset the server using the <TT><STRONG>Connection</STRONG></TT> menu
+<TT><STRONG>Reset Server</STRONG></TT> option to ensure correct execution.
+The only Data Explorer module provided with the system that maintains state
+information is Streakline.
+<P>
+When you are using the hardware rendering option with either the
+Display or Image tools, the tool should be assigned to
+execution on the host physically connected to your
+display.
+<P>
+The Pick module must be run on the same host as the Image tool.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

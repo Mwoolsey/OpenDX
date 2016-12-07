@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rimptd Importing Data #!N #!EC #!N #!N If 
+you want to import data that is not in a format 
+supported by Data Explorer, you have three options: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Write an import filter to 
+convert the data to Data Explorer or General Array importer format 
+on disk. #!N #!I30 #!N o Write an import filter to 
+convert the data to Data Explorer or General Array header format 
+on standard output, and use the external filter option of Import 
+to import the data. (See  #!Limport,dxall871 h Import  #!EL  in IBM Visualization Data Explorer 
+User's Reference.) #!N #!I30 #!N o Write your own import module 
+to read the data and create a Data Explorer Object as 
+its output (e.g., a Field Object). #!N #!I0 #!N #!EF #!N 
+#!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. The following 
+examples illustrate the conversion of data from Hierarchical Data Format (HDF) 
+to Data Explorer file format. Understanding the examples does not require 
+any familiarity with HDF. #!N #!I30 #!N 2. HDF libraries are 
+not distributed with Data Explorer and no makefiles are provided for 
+the programs used. If you have the HDF libraries, you can 
+use the same compilation and linking procedures as you do for 
+other programs requiring those libraries. #!N #!I30 #!N 3. The Import 
+module will import HDF data. The example in  #!Lwrimp,dxall1038 h Writing an Import Module  #!EL  is for 
+illustration only. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall1036,dxall1037 h Writing a Filter  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

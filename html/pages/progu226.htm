@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu225.htm">Previous Page</A> &#124; <A HREF="progu227.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXIA" HREF="progu097.htm#PToC_320">DXIterateArray</A></H3>
+<A NAME="IDX1849"></A>
+<A NAME="IDX1850"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Iterates through an Array.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Pointer DXIterateArray(ArrayHandle handle, int offset,<BR>
+                       Pointer last, Pointer scratch)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This routine
+can be used when an Array is accessed sequentially.
+The Array handle
+<TT><STRONG>
+handle
+</STRONG></TT>
+is that obtained through the use of
+<TT><STRONG>DXCreateArrayHandle</STRONG></TT>.
+<P>
+If the Array is constant, a pointer to the constant value is
+immediately returned.  If the Array is irregular and the given
+<TT><STRONG>
+offset
+</STRONG></TT>
+is 0, the Array data pointer (which is a pointer to the 0th
+element of the Array) is returned.  If the
+<TT><STRONG>
+offset
+</STRONG></TT>
+is not 0, then the
+<TT><STRONG>
+last
+</STRONG></TT>
+parameter should point to the prior Array element, and
+(<TT><STRONG>last</STRONG></TT> &#43; itemSize) is returned, where
+itemSize is the size in bytes of an item of the Array described by
+<TT><STRONG>handle</STRONG></TT>.  If the Array
+is compact,
+the desired element is calculated.  <TT><STRONG>scratch</STRONG></TT>
+should be of a size large enough to hold a single Array item.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns a pointer to the next item in an Array or returns
+<TT><STRONG>NULL</STRONG></TT> (but does not set an error)
+code when there are no more items.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu124.htm#HDRDXCAH">DXCreateArrayHandle</A>,
+<A HREF="progu149.htm#HDRDXFAH">DXFreeArrayHandle</A>,
+<A HREF="progu156.htm#HDRDXGAEY">DXGetArrayEntry, DXGetArrayEntries</A>,
+<A HREF="progu180.htm#HDRDXGIS">DXGetItemSize</A>
+</STRONG></TT>
+<P>
+<A HREF="progu046.htm#HDRARHAND">"Array Handling"</A>.
+<P><P>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu225.htm">Previous Page</A> &#124; <A HREF="progu227.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu016.htm">Previous Page</A> &#124; <A HREF="progu018.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRTMODBLD" HREF="progu015.htm#PToC_35">3.3 Using the Module
+Builder: A Quick Walk Through</A></H2>
+<A NAME="IDX164"></A>
+<A NAME="IDX165"></A>
+<P>
+In this example, you will use the Module Builder to create a simple
+module that adds a single number to each data value of a set.
+<P><B>Note: </B>This function is supplied with Data Explorer as part of the
+<TT><STRONG>Compute</STRONG></TT> module and is used here only for
+purposes of illustration.
+<OL COMPACT>
+<LI>Start the Module Builder with the command <TT>dx -builder</TT>.
+The Module Builder dialog box appears.
+<LI>Fill in the <TT><STRONG>Overall Module Description</STRONG></TT> section
+as follows:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Name</STRONG></TT>
+</B></TD><TD><P>Type in a name for the module (for this example, use "Add.")
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Category</STRONG></TT>
+</B></TD><TD><P>Select a category for the new module, either by clicking on
+one of the entries in the <TT><STRONG>Existing</STRONG></TT> pull-down
+menu or by typing in a menu name or a
+name of your choosing.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Description</STRONG></TT>
+</B></TD><TD><P>Type in a short description of the module.
+This description will appear in the module&#39;s configuration dialog
+box (in the VPE window).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Number of inputs</STRONG></TT>
+</B></TD><TD><P>Use the stepper buttons to set the value to "2."
+The two inputs of the new module will be a data Field and the number
+to be added to each data value.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Number of outputs</STRONG></TT>
+</B></TD><TD><P>The module generates a single output.
+Use the stepper buttons to set the value to "1" if that is
+not already the value.
+The output is the new Field (i.e., the data value plus the added
+value).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Outboard</STRONG></TT>
+</B></TD><TD><P>Activate the <TT><STRONG>outboard</STRONG></TT> toggle button
+and
+type in "Add" in the <TT><STRONG>Executable Name</STRONG></TT>
+field.
+(Leave the other toggle buttons and fields as they are.)
+<P><B>Note: </B>In this example, the new ("outboard") module is an
+independent process.
+In contrast, an "inboard" module is compiled and incorporated as
+part of the Data Explorer executable; and a runtime-loadable module
+is compiled independently and loaded into Data Explorer at
+run time.
+</TD></TR></TABLE>
+<LI>Fill in the <TT><STRONG>Individual Parameter Information</STRONG></TT>
+section as follows:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Input&nbsp;&nbsp; Number &lt; 1
+&gt;</STRONG></TT>
+</B></TD><TD><P>The first input is the data field.
+<OL COMPACT>
+<LI>Set the button in the top-left corner of the <TT><STRONG>Individual
+Parameter Information</STRONG></TT> section to <TT><STRONG>Input</STRONG></TT>
+if that is not already the setting.
+<LI>Use the stepper buttons to set <TT><STRONG>Number</STRONG></TT>  to
+"1" if that is not already the value.
+<LI>Enter a name for this parameter in the <TT><STRONG>Name</STRONG></TT>
+field (e.g., "data").
+<LI>Enter a short description in the <TT><STRONG>Description</STRONG></TT>
+field.
+<LI>Confirm that the <TT><STRONG>Required</STRONG></TT> toggle button for
+the first input is activated.
+<LI>Confirm that the <TT><STRONG>field object</STRONG></TT> toggle button
+(below <TT><STRONG>Object Type</STRONG></TT>) is activated.
+<LI>On the right-hand side of the <TT><STRONG>Individual Parameter
+Information</STRONG></TT> section, select <TT><STRONG>float</STRONG></TT>
+("floating point") and <TT><STRONG>Scalar</STRONG></TT> for
+<TT><STRONG>Data type</STRONG></TT> and <TT><STRONG>Data
+shape</STRONG></TT> respectively.
+<LI>Set <TT><STRONG>Positions</STRONG></TT> and
+<TT><STRONG>Connections</STRONG></TT>
+to <TT><STRONG>Not required</STRONG></TT> (information about these
+components is not needed).
+<LI>For this example, since the dependency of the data on positions
+or connections in the output Object will be the same as it was
+in the input Object, select <TT><STRONG>Positions or
+Connections</STRONG></TT>.
+</OL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Input&nbsp;&nbsp; Number &lt; 2
+&gt;</STRONG></TT>
+</B></TD><TD><P>The second input is the value to be added to each data value.
+<OL COMPACT>
+<LI>Confirm that the button in the top-left corner of the
+<TT><STRONG>Individual Parameter Information</STRONG></TT>
+section is set to <TT><STRONG>Input</STRONG></TT>.
+<LI>Use the stepper buttons to set <TT><STRONG>Number</STRONG></TT> to
+"2".
+<LI>Enter a name for this parameter in the <TT><STRONG>Name</STRONG></TT>
+field (e.g., "value").
+<LI>Enter a short description in the <TT><STRONG>Description</STRONG></TT>
+field.
+<LI>Confirm that the <TT><STRONG>Required</STRONG></TT> toggle button is
+deactivated.
+<LI>Specify a default value, such as "0."
+<LI>If the default value is meant to be descriptive, activate the
+<TT><STRONG>Descriptive</STRONG></TT> toggle button.
+<LI>Under <TT><STRONG>Object Type</STRONG></TT>, activate the <TT><STRONG>simple
+parameter</STRONG></TT> toggle button.
+<LI>Now activate the <TT><STRONG>Scalar</STRONG></TT> toggle button (below
+<TT><STRONG>Type</STRONG></TT> on the right-hand side).
+</OL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Output&nbsp;&nbsp; Number &lt;
+1 &gt;</STRONG></TT>
+</B></TD><TD><P>Now describe the output of the module.
+<OL COMPACT>
+<LI>Change <TT><STRONG>Input</STRONG></TT> to <TT><STRONG>Output</STRONG></TT>
+(top-left corner of the <TT><STRONG>Individual Parameter
+Information</STRONG></TT> section).
+The <TT><STRONG>Number</STRONG></TT> setting changes to "1"
+automatically.
+<LI>Enter a name for this parameter in the <TT><STRONG>Name</STRONG></TT>
+field (e.g., "result").
+<LI>Enter a short description in the <TT><STRONG>Description</STRONG></TT>
+field.
+<LI>Confirm that the <TT><STRONG>field object</STRONG></TT> toggle button
+(below <TT><STRONG>Object Type</STRONG></TT>) is activated.
+<LI>Confirm that <TT><STRONG>Data type</STRONG></TT> and <TT><STRONG>Data
+Shape</STRONG></TT> are set to <TT><STRONG>float</STRONG></TT> and
+<TT><STRONG>Scalar</STRONG></TT> respectively.
+<LI>Confirm that <TT><STRONG>Dependency</STRONG></TT> is set to
+<TT><STRONG>Positions or connections</STRONG></TT>.
+</OL>
+</TD></TR></TABLE>
+<P>
+You can now create the necessary files:
+<OL COMPACT>
+<LI>Click on <TT><STRONG>Build</STRONG></TT> in the dialog box menu bar and
+select <TT><STRONG>Create All</STRONG></TT> in the pull-down menu.
+<P>
+The Module Builder creates three files for the Add module:
+<TT>Add.c</TT>, <TT>Add.mdf</TT>, and
+<TT>Add.make</TT>.
+<LI>To insert the necessary user-specific code in <TT>Add.c</TT>,
+use an editor.
+Look for the phrase "User&#39;s code goes here" at the bottom of
+the file, and type in the following:
+<PRE>
+         int i;
+         float value;
+         if (value_knt==0)
+             value = 0;
+         else
+             value = value_data&#91;0&#93;;
+         for (i=0; i&lt;data_knt; i++) {
+             result_data&#91;i&#93; = data_data&#91;i&#93;+value;
+         }
+</PRE>
+<P>
+First, variables <TT>i</TT> and <TT>value</TT> are
+declared.
+Next, the default value of <TT>0</TT> is enforced by checking whether
+a number has been passed as the <TT>value</TT> parameter.
+If <TT>value_knt</TT> is equal to <TT>0</TT>, the user did not pass
+a number, and <TT>value</TT> is set to <TT>0</TT>.
+Otherwise, the passed number is used.
+Finally, the data component of the output is modified by adding
+<TT>value</TT> to every data item in the input.
+<P>
+Alternatively, you could have put this information in a separate file
+and used the <TT><STRONG>Include File Name</STRONG></TT> option in the
+<TT><STRONG>Overall Module Description</STRONG></TT> section.
+</OL>
+<P>
+To create a version of Data Explorer that uses this module, type
+<PRE>
+         make -f Add.make
+</PRE>
+To run Data Explorer using this module, type
+<PRE>
+         dx  -mdf Add.mdf
+</PRE>
+If you were creating an inboard module instead, the only difference
+would be in the command to run Data Explorer:
+<PRE>
+         dx  -mdf Add.mdf -exec ./dxexec
+</PRE>
+</OL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu016.htm">Previous Page</A> &#124; <A HREF="progu018.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

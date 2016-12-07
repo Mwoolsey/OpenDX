@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxsc DXSetConnections #!N #!N Function #!N #!N Assigns a specified 
+Array as the "connections" component of a specified Field. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Field DXSetConnections(Field f, char *type, Array 
+a) #!EF #!N #!N Functional Details #!N #!N This routine serves 
+as a shortcut to simplify the installation of a "connections" component 
+to a Field. It is equivalent to a call to  #!F-adobe-times-bold-r-normal--18*   
+DXSetComponentValue #!EF to insert the component into the Field, followed by 
+ #!F-adobe-times-bold-r-normal--18*   DXSetComponentAttribute #!EF to set the component "element type." #!N #!N 
+Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   f #!EF or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgc,dxall1229 h DXGetConnections  #!EL  ,  #!Ldxsca,dxall1371 h DXSetComponentAttribute  #!EL  ,  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  #!EF #!N #!N 
+ #!Lcnn,dxall1085 h Connections  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxsei,dxall1374 h DXSetElementInvalid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

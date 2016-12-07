@@ -1,0 +1,82 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rformat Format #!N #!N Category #!N #!N 
+ #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N Function #!N #!N Formats a string. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   string #!EF = Format( 
+ #!F-adobe-times-bold-r-normal--18*   template, value, ... #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB template TAB string TAB none 
+TAB format control string #!N TAB value TAB value list or 
+string TAB no default TAB value to format #!N TAB ... 
+TAB - TAB - TAB more values to format #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB string TAB string TAB formatted string object #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N This 
+module uses a format-control string and input values to create a 
+formatted output string. Each insertion is matched to a format-control specification, 
+which always begins with a % symbol. Strings, scalars, integers, and 
+vectors can be formed into output strings. #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   template #!EF #!EF #!I50 #!N is the 
+format-control string used in creating the formatted output. It resembles a 
+C-language printf format string. #!N #!N Data Explorer copies all characters 
+other than format specifications to the output (see next parameter). #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   value #!EF #!EF #!I50 #!N is the 
+value to be placed in the output string. The character following 
+the % controls the type of conversion: #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   c #!EF #!EF #!I50 #!N single characters 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   d #!EF #!EF #!I50 #!N integers 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   f #!EF #!EF #!I50 #!N floating 
+point (fixed number of digits following the decimal point) #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   g #!EF #!EF #!I50 #!N general (scientific notation 
+if appropriate) #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   s #!EF #!EF #!I50 
+#!N strings. Note:  #!F-adobe-times-bold-r-normal--18*   f #!EF and  #!F-adobe-times-bold-r-normal--18*   g #!EF will 
+also format 2- and 3-vectors and lists. #!I0 #!N #!N #!N 
+#!N To output a %, use %%. You can insert numbers 
+between the % and the conversion character to control the width 
+of the field and the number of significant digits formatted. A 
+minus sign (-) left-justifies the output in the field; the default 
+is right-justification. A format control string of #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N "%-10.4f" #!EF #!N #!N #!EC indicates left justification of a 
+floating-point number, minimum of 10 columns total, with 4 places to 
+the right of the decimal point. #!I0 #!N #!N #!N #!N 
+A single call to the Format module can format a maximum 
+of 21 values. In the user interface, the default number of 
+enabled  #!F-adobe-times-bold-r-normal--18*   value #!EF tabs is two. (Tabs can be added 
+to the module icon and removed with the appropriate  #!F-adobe-times-bold-r-normal--18*   ...Input 
+Tab #!EF options in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu of 
+the VPE.) #!N #!N Script Language Examples #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. In this example,  #!F-adobe-times-medium-i-normal--18*   value1 #!EF 
+is set to 32.567799 #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N value1 = 
+32.567799; #!EF #!N #!N #!EC #!N #!I30 #!N 2. This outputs 
+the string "number = 32.567799." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N output 
+= Format("number = %f", value1); #!N Echo(output); #!EF #!N #!N #!EC 
+#!N #!I30 #!N 3. This example outputs the string "number = 
+32.57." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N output = Format("number = %3.2f", 
+value1); #!N Echo(output); #!EF #!N #!N #!EC #!N #!I30 #!N 4. 
+This example outputs the string "number = 32.57." #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N output = Format("number = %11.2f", value1); #!N Echo(output); #!EF 
+#!N #!N #!EC #!N #!I30 #!N 5. In this example,  #!F-adobe-times-medium-i-normal--18*   
+value2 #!EF is set to 134569888 and  #!F-adobe-times-medium-i-normal--18*   value3 #!EF is 
+set to "New York." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N value2 = 
+134569888; #!N value3 = "New York"; #!EF #!N #!N #!EC #!N 
+#!I30 #!N 6. This example outputs the string #!N "number = 
+134569888.000000, state = New York." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N output 
+= Format("number = %f, state = %s", value2, value3); #!N Echo(output); 
+#!EF #!N #!N #!EC #!N #!I30 #!N 7. This example outputs 
+the string "number = 134569888, state = New York." #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N output = Format("number = %10.0f, state = %s", 
+value2, value3); #!N Echo(output); #!EF #!N #!N #!EC #!N #!I30 #!N 
+8. This example outputs the string "number = 1.3457e+08, state = 
+New York." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N output = Format("number = 
+%g, state = %s", value2, value3); #!N Echo(output); #!EF #!N #!N 
+#!EC #!N #!I30 #!N 9. This example outputs the string #!N 
+"number = 1.3457e+08, state = New York." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N output = Format("number = %g, state = %15s", value2, value3); 
+#!N Echo(output); #!EF #!N #!N #!EC #!N #!I0 #!N #!EF #!N 
+#!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N ContoursAndCaption.net 
+#!N GeneralImport1.net #!N #!N FormatListMacro.net #!N #!N InvalidData.net #!N PlotTwoLines.net #!N 
+#!N SalesOnStates.net #!N #!N Sealevel.net #!EF #!N #!N #!EC #!N #!N 
+See Also #!N #!N  #!Lcaption,dxall781 h Caption  #!EL  ,  #!Lecho,dxall829 h Echo  #!EL  ,  #!Ltext,dxall964 h Text  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lgetglo,dxall854 h GetGlobal  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

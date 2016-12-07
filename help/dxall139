@@ -1,0 +1,57 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rsydfgi Header File Syntax: Keyword Statements #!N 
+#!EC #!N #!N The header of a General Array Importer file 
+contains two or more of the keyword statements in the list 
+that follows. The statements from  #!F-adobe-times-bold-r-normal--18*   block #!EF through  #!F-adobe-times-bold-r-normal--18*   type 
+#!EF are listed in alphabetical order for convenient reference (they can 
+be listed in any order in a header file). The placement 
+of the first two statements in the list (  #!F-adobe-times-bold-r-normal--18*   file 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   grid|points #!EF ) and the last two ( 
+ #!F-adobe-times-bold-r-normal--18*   positions #!EF and  #!F-adobe-times-bold-r-normal--18*   end #!EF ) reflect syntactic requirements. 
+The descriptions that follow this list occur in the same partly 
+alphabetized order. #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. 
+A statement or part of a statement enclosed in brackets ([ 
+]) is optional. #!N #!I30 #!N 2. Except for  #!F-adobe-times-bold-r-normal--18*   positions 
+#!EF , no keyword statement can exceed one line in length. 
+#!N #!I30 #!N 3. Any line beginning with a pound sign 
+(#) is interpreted as a comment and ignored. #!I0 #!N #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   file = #!EF filename #!N #!N  #!F-adobe-times-bold-r-normal--18*   grid #!EF 
+= num sub x  #!F-adobe-times-bold-r-normal--18*   x #!EF num sub y  #!F-adobe-times-bold-r-normal--18*   
+x #!EF num sub z  #!F-adobe-times-bold-r-normal--18*   x... | points = n 
+#!EF #!N #!T,235,390 #!N TAB  #!F-adobe-times-bold-r-normal--18*   bytes #!EF n #!N [ 
+ #!F-adobe-times-bold-r-normal--18*   series #!EF = t, start, delta  #!F-adobe-times-bold-r-normal--18*   [, separator = 
+TAB lines #!EF n #!N TAB  #!F-adobe-times-bold-r-normal--18*   marker #!EF "string" ] 
+] #!N #!N [  #!F-adobe-times-bold-r-normal--18*   field = #!EF name sub 1,name 
+sub 2, ..., name sub f ] #!N #!N [  #!F-adobe-times-bold-r-normal--18*   
+dependency = #!EF dependency sub 1,dependency sub 2, ..., dependency sub 
+f ] #!N #!N [  #!F-adobe-times-bold-r-normal--18*   structure = #!EF structure sub 
+1,structure sub 2, ..., structure sub f ] #!N #!N #!T,115,170 
+TAB  #!F-adobe-times-bold-r-normal--18*   ascii #!EF #!N #!T,60,115,170 TAB  #!F-adobe-times-bold-r-normal--18*   [ msb #!EF 
+TAB  #!F-adobe-times-bold-r-normal--18*   text #!EF #!N  #!F-adobe-times-bold-r-normal--18*   [format #!EF = #!N TAB 
+ #!F-adobe-times-bold-r-normal--18*   lsb ] #!EF TAB  #!F-adobe-times-bold-r-normal--18*   binary #!EF #!N #!T,115,165 TAB 
+ #!F-adobe-times-bold-r-normal--18*   ieee TAB ] #!EF #!N #!N #!T,0 [  #!F-adobe-times-bold-r-normal--18*   type 
+= #!EF type sub 1,type sub 2, ..., type sub f 
+] #!N #!N [  #!F-adobe-times-bold-r-normal--18*   layout = #!EF skip sub 1,width 
+sub 1,skip sub 2,width sub 2, ..., skip sub f,width sub 
+f ] #!N #!N [  #!F-adobe-times-bold-r-normal--18*   block = #!EF skip sub 
+1,elements sub 1,width sub 1, skip sub 2,elements sub 2,width sub 
+2, ..., skip sub f,elements sub f,width sub f ] #!N 
+#!N #!T,75 TAB  #!F-adobe-times-bold-r-normal--18*   row #!EF #!N [  #!F-adobe-times-bold-r-normal--18*   majority #!EF 
+= #!N TAB  #!F-adobe-times-bold-r-normal--18*   column #!EF ] #!N #!N #!T,75 #!N 
+TAB  #!F-adobe-times-bold-r-normal--18*   bytes #!EF n #!N [  #!F-adobe-times-bold-r-normal--18*   header #!EF = 
+TAB  #!F-adobe-times-bold-r-normal--18*   lines #!EF n #!N TAB  #!F-adobe-times-bold-r-normal--18*   marker #!EF "string" 
+] #!N #!N #!T,90 #!N TAB  #!F-adobe-times-bold-r-normal--18*   field #!EF #!N TAB 
+ #!F-adobe-times-bold-r-normal--18*   record #!EF #!N  #!F-adobe-times-bold-r-normal--18*   [ interleaving #!EF = #!N TAB 
+ #!F-adobe-times-bold-r-normal--18*   vector #!EF #!N TAB  #!F-adobe-times-bold-r-normal--18*   record-vector #!EF ] #!N #!N 
+#!T,100,210 #!N TAB  #!F-adobe-times-bold-r-normal--18*   bytes #!EF n TAB  #!F-adobe-times-bold-r-normal--18*   bytes #!EF 
+n #!N  #!F-adobe-times-bold-r-normal--18*   [ recseparator #!EF = TAB  #!F-adobe-times-bold-r-normal--18*   lines #!EF 
+n , TAB  #!F-adobe-times-bold-r-normal--18*   lines #!EF n ... #!N TAB  #!F-adobe-times-bold-r-normal--18*   
+marker #!EF "string" TAB  #!F-adobe-times-bold-r-normal--18*   marker #!EF "string" ] #!N #!N 
+#!T,80 TAB origin sub 1,delta sub 1,...,origin sub d,delta sub d 
+#!N  #!F-adobe-times-bold-r-normal--18*   [ positions #!EF = TAB positiontype sub 1, positiontype 
+sub 2, #!N TAB ...positiontype sub d, #!N TAB position sub 
+1, position sub 2,...position sub k #!N TAB position sub 1, 
+position sub 2,...position sub g ] #!N #!T,0  #!F-adobe-times-bold-r-normal--18*   [ end 
+] #!EF #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lfilkwd,dxall140 h file  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

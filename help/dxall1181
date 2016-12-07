@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcp DXClipPlane #!N #!N Function #!N #!N Creates 
+a clipping Object defined by a clipping plane. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXClipPlane(Object o, Point p, Vector n) 
+#!EF #!N #!N Functional Details #!N #!N Creates a new Object 
+that defines a clipping transformation to be performed on Object  #!F-adobe-times-bold-r-normal--18*   
+o #!EF at render time. The Object will be clipped by 
+the plane that contains  #!F-adobe-times-bold-r-normal--18*   p #!EF and is perpendicular to 
+vector  #!F-adobe-times-bold-r-normal--18*   n #!EF . The Object on the side of 
+the plane pointed to by  #!F-adobe-times-bold-r-normal--18*   n #!EF is retained. #!N 
+#!N A  #!F-adobe-times-bold-r-normal--18*   Point #!EF or  #!F-adobe-times-bold-r-normal--18*   Vector #!EF is defined 
+as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct point { float x, y, 
+z; } Point, Vector; #!EF #!N #!N Return Value #!N #!N 
+Returns an Object describing to the renderer how to clip at 
+render time or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error 
+code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcb,dxall1180 h DXClipBox  #!EL  #!EF #!N 
+#!N  #!Lclpg,dxall1127 h Clipping  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxcntr,dxall1182 h DXColorNameToRGB  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

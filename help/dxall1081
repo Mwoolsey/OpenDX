@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Rprivsec Private Class #!N #!EC #!N #!N Private Objects are an 
+extension mechanism for storing data in the form of Objects. They 
+are useful, for example, in the cache interface, where cached items 
+must be Objects. The user is responsible for maintaining the data. 
+In particular, the code creating a Private Object should also specify 
+a deletion routine that will be called by the executive when 
+the Object is deleted (to free, for example, any allocated private 
+memory). #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Private DXNewPrivate() 
+#!EF #!EF #!I50 #!N Creates an Object that contains private data. 
+See  #!Ldxnp,dxall1322 h DXNewPrivate  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Pointer DXGetPrivateData() #!EF 
+#!EF #!I50 #!N Returns the private data pointer associated with a 
+Private Object. See  #!Ldxgpd,dxall1262 h DXGetPrivateData  #!EL  . #!I0 #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1081,dxall1082 h Printing Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

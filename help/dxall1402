@@ -1,0 +1,35 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxtcv DXTypeCheck, DXTypeCheckV #!N #!N 
+Function #!N #!N Check that an Array meets a set of 
+specifications. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXTypeCheck(Array a, 
+Type type, Category category, int rank, ...) Array DXTypeCheckV(Array a, Type 
+type, Category category, int rank, int *shape) #!EF #!N #!N Functional 
+Details #!N #!N The routine returns  #!F-adobe-times-bold-r-normal--18*   a #!EF if that 
+Array meets the specifications given by  #!F-adobe-times-bold-r-normal--18*   type #!EF ,  #!F-adobe-times-bold-r-normal--18*   
+category #!EF ,  #!F-adobe-times-bold-r-normal--18*   rank #!EF , and  #!F-adobe-times-bold-r-normal--18*   shape #!EF 
+. Otherwise, it returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . The shape is 
+specified by  #!F-adobe-times-bold-r-normal--18*   shape #!EF for  #!F-adobe-times-bold-r-normal--18*   DXTypeCheckV #!EF or by 
+the last  #!F-adobe-times-bold-r-normal--18*   rank #!EF arguments for  #!F-adobe-times-bold-r-normal--18*   DXTypeCheck #!EF . 
+For  #!F-adobe-times-bold-r-normal--18*   DXTypeCheckV #!EF , if  #!F-adobe-times-bold-r-normal--18*   shape #!EF is  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF , the type, category, and rank are checked, but 
+the shape is not. #!N #!N  #!F-adobe-times-bold-r-normal--18*   rank #!EF specifies the 
+rank of the items in the Array: Scalars have rank 0, 
+vectors have rank 1, and so on. #!N #!N  #!F-adobe-times-bold-r-normal--18*   shape 
+#!EF has rank entries representing the list of dimensions of the 
+structure. For rank 0 items (scalars) there is no shape. For 
+rank 1 items (vectors) the shape is a single number corresponding 
+to the number of dimensions. For rank 2 structures, the shape 
+is two (2) numbers, and so on.  #!F-adobe-times-bold-r-normal--18*   shape #!EF specifies 
+the rank of the items in the Array: the number of 
+dimensions in each item of the Array. Shape has entries where 
+each entry represents the size of the item in that dimension. 
+#!N #!N The type is one of the following: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N TYPE_BYTE TYPE_HYPER TYPE_SHORT #!N TYPE_UBYTE TYPE_INT TYPE_USHORT 
+#!N TYPE_DOUBLE TYPE_UINT TYPE_STRING #!N TYPE_FLOAT #!EF #!EF #!N #!N #!EC 
+#!N #!N The category is either  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL #!EF or  #!F-adobe-times-bold-r-normal--18*   
+CATEGORY_COMPLEX #!EF . #!N #!N Return Value #!N #!N Return  #!F-adobe-times-bold-r-normal--18*   
+a #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF (e.g., if the type 
+does not match). #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgai,dxall1222 h DXGetArrayInfo  #!EL  
+#!EF #!N #!N  #!Larraysc,dxall1069 h Array Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxts,dxall1403 h DXTypeSize, DXCategorySize  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

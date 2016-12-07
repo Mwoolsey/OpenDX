@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxrndr DXRender #!N #!N Function #!N #!N Renders an Object 
+into an image. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Field 
+DXRender(Object o, Camera c, char *format) #!EF #!N #!N Functional Details 
+#!N #!N Renders all objects in  #!F-adobe-times-bold-r-normal--18*   o #!EF using the 
+Camera defined by  #!F-adobe-times-bold-r-normal--18*   c #!EF . It returns a new 
+image Field containing the result. This routine performs the transformation, shading, 
+and the tiling steps. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   format #!EF is 
+specified as  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , a generic floating-point image is 
+created; this is the most flexible format with respect to processing 
+by other modules. Alternatively,  #!F-adobe-times-bold-r-normal--18*   format #!EF may be specified as 
+a character string identifying a hardware-specific format that may be used 
+only for display on a particular hardware device.  #!F-adobe-times-bold-r-normal--18*   format #!EF 
+currently must begin with "X" for an image that will be 
+displayed on an X server image window, or "FB" for an 
+image that will be displayed on an IBM 7246 Video Controller. 
+Any other string will generate a generic floating-point image. #!N #!N 
+A renderable Field must have at least a "positions" and a 
+"colors" component. For anything other than scattered points, a "connections" component 
+is needed. Many other components and attributes affect the output of 
+ #!F-adobe-times-bold-r-normal--18*   DXRender #!EF . For additional details on the rendering process, 
+see  #!Lrendchp,dxall1129 h Rendering  #!EL  . #!N #!N Return Value #!N #!N Returns the 
+image, or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets the error code 
+to indicate an error. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxatm,dxall1173 h DXApplyTransform  #!EL  ,  #!Ldxgcmp,dxall1225 h DXGetCameraMatrix, DXGetCameraRotation, DXGetCameraMatrixWithFuzz  #!EL  ,  #!Ldxseta,dxall1367 h DXSetAttribute, DXDeleteAttribute  #!EL  #!EF #!N #!N  #!Lrendchp,dxall1129 h Rendering  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxrep,dxall1358 h DXReplace  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

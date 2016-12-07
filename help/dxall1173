@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxatm DXApplyTransform #!N #!N Function Creates a new Object by 
+recursively applying a transform to a specified Object. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> #!N #!N Object 
+DXApplyTransform(Object o, Matrix *m) #!EF #!EF . #!N #!N #!EC #!N 
+#!N Functional Details The routine descends Object  #!F-adobe-times-bold-r-normal--18*   o #!EF , 
+applying transform  #!F-adobe-times-bold-r-normal--18*   m #!EF to the components of the Fields 
+encountered. Any transforms present in the Object are accumulated to form 
+a composite transform before being applied to subObjects. (The Object created 
+can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  .) #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+DXApplyTransform #!EF returns a new Object (i.e., a copy of  #!F-adobe-times-bold-r-normal--18*   
+o #!EF with transforms applied). This routine can be applied directly 
+to Array objects. It also removes the "box" component from transformed 
+Fields. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Positional Components 
+#!EF , #!EF #!I50 #!N Are transformed by the composite matrix. 
+(Positional components are "positions" and components with the "geometric" attribute "positional.") 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Vector Components #!EF , #!EF #!I50 
+#!N Are transformed by the adjoint transpose of the composite matrix. 
+(Vector components are "normals," "binormals," "tangents," "gradient," and components with the 
+"geometric" attribute "vector.") #!I0 #!N #!N #!N #!N Return Value Returns 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also  #!F-adobe-times-bold-r-normal--18*    #!Ldxcplus,dxall1185 h DXConcatenate, DXInvert, DXTranspose, DXAdjointTranspose, DXDeterminant, DXApply  #!EL  ,  #!Ldxrxyz,dxall1362 h DXRotateX, DXRotateY, DXRotateZ, DXScale, DXTranslate, DXMat  #!EL  , 
+#!EF #!N #!N  #!Ltransec,dxall1130 h Transformation  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxacv,dxall1174 h DXArrayConvert, DXArrayConvertV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

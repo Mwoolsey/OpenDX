@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu258.htm">Previous Page</A> &#124; <A HREF="progu260.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXNRA" HREF="progu097.htm#PToC_353">DXNewRegularArray</A></H3>
+<A NAME="IDX1933"></A>
+<A NAME="IDX1934"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Creates an
+Array
+containing evenly spaced data.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+RegularArray DXNewRegularArray(Type t, int dim, int n,<BR>
+                               Pointer origin, Pointer delta)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The new Array Object represents a Regular Array of
+<TT><STRONG>n</STRONG></TT>
+points starting at
+<TT><STRONG>
+origin
+</STRONG></TT>
+with a spacing of
+<TT><STRONG>delta</STRONG></TT>.  The rank is assumed to be 1, and the shape is
+<TT><STRONG>dim</STRONG></TT>.  Both
+<TT><STRONG>
+origin
+</STRONG></TT>
+and
+<TT><STRONG>
+delta
+</STRONG></TT>
+are assumed to point to items
+of the same type as the items in
+<TT><STRONG>a</STRONG></TT>.
+<P>
+Type <TT><STRONG>t</STRONG></TT> is one of the following:
+<PRE><STRONG>
+TYPE_BYTE            TYPE_HYPER        TYPE_SHORT
+TYPE_UBYTE           TYPE_INT          TYPE_USHORT
+TYPE_DOUBLE          TYPE_UINT         TYPE_STRING
+TYPE_FLOAT
+</STRONG>
+</PRE>
+<P>
+Regular Arrays are most often used as constituents of Product Arrays
+for the compact representation of regular grids of positions.
+<P>
+In previous versions of the Data Explorer software, regular arrays with
+zero delta values were used to store constant data.  This type of data
+can now be stored in a Constant Array.
+<P>
+The Array created can be deleted with DXDelete.
+See <A HREF="progu023.htm#HDRMEMNG">4.2 , "Memory Management"</A>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the Regular Array or returns <TT><STRONG>NULL</STRONG></TT> and
+sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu124.htm#HDRDXCAH">DXCreateArrayHandle</A>,
+<A HREF="progu199.htm#HDRDXGRAI">DXGetRegularArrayInfo</A>,
+<A HREF="progu249.htm#HDRDXNCAV">DXNewConstantArray, DXNewConstantArrayV</A>
+</STRONG></TT>
+<P>
+<A HREF="progu046.htm#HDRRRAS">"Regular Arrays"</A>.
+<P><P>
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu258.htm">Previous Page</A> &#124; <A HREF="progu260.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

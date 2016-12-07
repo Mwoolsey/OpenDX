@@ -1,0 +1,52 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rall627 Example 3. A Warped Regular Grid #!N #!EC #!Cbrown 
+#!N  #!F-adobe-times-medium-r-normal--18*    #!Rdeform107 #!N Graphics omitted from Online Documentation. Please see 
+the manual. #!N #!N Figure 107. Warped Regular Grid Example #!EF 
+#!N #!EC #!N #!N The example file (in  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/data/deformedregular.dx #!EF 
+) defines a warped regular grid and shows how to imbed 
+data as text in a header section. The values of the 
+"positions" component are irregular and must be enumerated.  #!Ldeform107,dxall628 f Figure 107  #!EL  shows the 
+resulting structure. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # The irregular, 3 
+dimensional positions #!N object 1 class array type float rank 1 
+shape 3 items 24 data follows #!T,69,129,225 #!N TAB 0 TAB 
+0 TAB 0 #!N TAB 0 TAB 0 TAB 1 #!N 
+TAB 0 TAB 0 TAB 2 #!N TAB 0 TAB 2 
+TAB 0 #!N TAB 0 TAB 2 TAB 1 #!N TAB 
+0 TAB 2 TAB 2 #!N TAB 1 TAB 0.841471 TAB 
+0 #!N TAB 1 TAB 0.841471 TAB 1 #!N TAB 1 
+TAB 0.841471 TAB 2 #!N TAB 1 TAB 2.841471 TAB 0 
+#!N TAB 1 TAB 2.841471 TAB 1 #!N TAB 1 TAB 
+2.841471 TAB 2 #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N TAB 2 TAB 0.9092974 TAB 0 #!N TAB 2 TAB 
+0.9092974 TAB 1 #!N TAB 2 TAB 0.9092974 TAB 2 #!N 
+TAB 2 TAB 2.909297 TAB 0 #!N TAB 2 TAB 2.909297 
+TAB 1 #!N TAB 2 TAB 2.909297 TAB 2 #!N TAB 
+3 TAB 0.14112 TAB 0 #!N TAB 3 TAB 0.14112 TAB 
+1 #!N TAB 3 TAB 0.14112 TAB 2 #!N TAB 3 
+TAB 2.14112 TAB 0 #!N TAB 3 TAB 2.14112 TAB 1 
+#!N TAB 3 TAB 2.14112 TAB 2 #!EF #!N #!N #!EC 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # The regular connections #!N object 
+2 class gridconnections counts 4 2 3 #!EF #!N #!N #!EC 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # The data, in a one-to-one 
+correspondence with the positions #!N object 3 class array type float 
+rank 0 items 24 data follows #!T,61,129,199 #!N TAB 1 TAB 
+3.4 TAB 5 #!N TAB 2 TAB 3.4 TAB 5.1 #!N 
+TAB 0.3 TAB 4.5 TAB 1 #!N TAB 2.3 TAB 4.1 
+TAB 2.1 #!N TAB 6 TAB 8 TAB 9.1 #!N TAB 
+2.3 TAB 4.5 TAB 5 #!N TAB 3 TAB 4.3 TAB 
+1.2 #!N TAB 1.2 TAB 3 TAB 3.2 #!N attribute "dep" 
+string "positions" #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+# The field, with three components: "positions", "connections", and #!N # 
+"data". The field is given the name "irreg positions regular connections". 
+#!N object "irreg positions regular connections" class field #!N component "positions" 
+value 1 #!N component "connections" value 2 #!N component "data" value 
+3 #!N #!N end #!EF #!N #!N #!EC #!N #!N The 
+positions are joined in the order "last index varies fastest," with 
+the connections specified as 4 x 2 * 3: the first 
+3 positions are joined in a line, as are those in 
+each set of 3 following. Then the first 6 positions are 
+joined as a set of 2 quadrilaterals, as are the next 
+6 and so on (see  #!Ldeform107,dxall628 f Figure 107  #!EL  ). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lex4,dxall629 h Example 4. An Irregular Grid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,50 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rgrid Grid #!N #!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function 
+#!N #!N Creates an output geometry. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   grid #!EF = Grid(  #!F-adobe-times-bold-r-normal--18*   point, structure, 
+shape, density #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB point TAB vector TAB none TAB starting 
+point from which the grid #!N TAB - TAB - TAB 
+- TAB is constructed #!N TAB structure TAB string TAB "brick" 
+TAB type of grid #!N TAB shape TAB vector list TAB 
+structure dependent TAB size and shape of structure #!N TAB density 
+TAB integer list TAB {3, 3, ...} TAB number of points 
+to be put on each #!N TAB - TAB - TAB 
+- TAB grid element #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB grid TAB geometry field 
+TAB output grid #!N TAB - TAB - TAB #!EF #!N 
+#!N Functional Details #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   point #!EF #!EF #!I50 #!N is the starting point from 
+which the grid is constructed. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   structure 
+#!EF #!EF #!I50 #!N specifies the type of grid geometry and 
+must be one of the following: "brick " (the default), "crosshair," 
+"ellipse," "line," "point," or "rectangle." #!N #!N For a structure specified 
+as "point," it is neither necessary nor useful to specify  #!F-adobe-times-bold-r-normal--18*   
+shape #!EF or  #!F-adobe-times-bold-r-normal--18*   density #!EF . For the other valid 
+structures, the output object extends symmetrically from  #!F-adobe-times-bold-r-normal--18*   point #!EF . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   shape #!EF #!EF #!I50 #!N is 
+a list of vectors that characterize the grid structure, specifying its 
+size and orientation: A line requires one vector; rectangles and ellipses, 
+two vectors; and bricks and crosshairs, three vectors. For "brick," the 
+default  #!F-adobe-times-bold-r-normal--18*   shape #!EF specification is {[1 0 0] [0 1 
+0] [0 0 1]}; for other structures, the default specification is 
+the appropriate corresponding vector list. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   density 
+#!EF #!EF #!I50 #!N determines the number of points in the 
+output. For crosshairs and bricks, the specification is a list of 
+length 3; for rectangles, a list of length 2; and for 
+the other structures, a single integer. In each case,  #!F-adobe-times-bold-r-normal--18*   density 
+#!EF is the number of points along the edge in question. 
+Bricks and rectangles are filled. #!I0 #!N #!N Note: Specifying  #!F-adobe-times-bold-r-normal--18*   
+point #!EF and  #!F-adobe-times-bold-r-normal--18*   shape #!EF as 2-dimensional vectors can produce 
+a 2-dimensional output  #!F-adobe-times-bold-r-normal--18*   grid #!EF for the structures "ellipse," "line," 
+"point," and "rectangle." #!N #!N Components #!N #!N Creates "positions" and 
+"connections" components. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N InvalidData.net #!N MakeLineMacro.net #!N PlotLine.net #!N PlotTwoLines.net #!N ThunderStreamlines.net #!N 
+SIMPLE/Grid.net #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Lconstru,dxall798 h Construct  #!EL  ,  #!Lglyph,dxall856 h Glyph  #!EL  ,  #!Lmap,dxall891 h Map  #!EL  ,  #!Lstreakl,dxall954 h Streakline  #!EL  ,  #!Lstreaml,dxall955 h Streamline  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lhistogr,dxall859 h Histogram  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

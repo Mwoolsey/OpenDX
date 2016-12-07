@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Robjfuzz Object fuzz #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Object fuzz #!EF is 
+a method of resolving conflicts between objects at the same distance 
+from the camera. For example, it may be desirable to define 
+a set of lines coincident with a plane. Normally it will 
+be unclear which object is to be displayed in front. In 
+addition, single-pixel lines are inherently inaccurate (i.e. they deviate from the 
+actual geometric line) by as much as one-half pixel; when displayed 
+against a sloping surface, this  #!F-adobe-times-medium-i-normal--18*   x #!EF or  #!F-adobe-times-medium-i-normal--18*   y 
+#!EF inaccuracy is equivalent to a  #!F-adobe-times-medium-i-normal--18*   z #!EF inaccuracy related 
+to the slope of the surface. The "fuzz" attribute specifies a 
+ #!F-adobe-times-medium-i-normal--18*   z #!EF value that will be added to the object 
+before it is compared with other objects in the scene, thus 
+resolving this problem. The fuzz value is specified in pixels. For 
+example, a fuzz value of one pixel can compensate for the 
+described half-pixel inaccuracy when the line is displayed against a surface 
+with a slope of two. #!N #!N #!T,1,161,321,646  #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Attribute TAB Type TAB Description #!EF #!N TAB fuzz TAB scalar 
+TAB object fuzz #!N #!N To add fuzz to an object, 
+pass the object through the Options module, specifying the attribute as 
+ #!F-adobe-times-bold-r-normal--18*   fuzz #!EF and the value of the attribute as the 
+number of pixels (typically a small integer). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lantiali,dxall823 h Anti-aliasing and Multiple Pixel Width Lines  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

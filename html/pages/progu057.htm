@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu056.htm">Previous Page</A> &#124; <A HREF="progu058.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRSTORAL" HREF="progu055.htm#PToC_125">13.3 Memory
+Allocation</A></H2>
+<A NAME="IDX816"></A>
+<A NAME="IDX817"></A>
+<A NAME="IDX818"></A>
+<A NAME="IDX819"></A>
+<A NAME="IDX820"></A>
+<A NAME="IDX821"></A>
+<A NAME="IDX822"></A>
+<A NAME="IDX823"></A>
+<A NAME="IDX824"></A>
+<P>
+Data Explorer recognizes two kinds of memory--local
+and global.
+Stack variables and memory allocated by
+<TT><STRONG>DXAllocateLocal()</STRONG></TT>
+are local to the processor.
+Memory allocated by <TT><STRONG>DXAllocate()</STRONG></TT> (including
+all Objects) is global and may or may not reside in the
+processor.
+(On some platforms, such as those without per-processor local memory,
+there is no distinction between global and local.)
+<P>
+Data Explorer&#39;s memory-allocation routines, which provide hooks for
+debugging, also distinguish between local and global
+allocation.
+These, rather than the standard system memory-allocation routines
+(such as <TT><STRONG>malloc()</STRONG></TT>), are recommended, to
+ensure consistent management of memory.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer DXAllocate()
+<BR>
+Pointer DXAllocateZero();</STRONG></TT>
+</B></TD><TD><P>
+<A NAME="IDX825"></A>
+<A NAME="IDX826"></A>
+<A NAME="IDX827"></A>
+<A NAME="IDX828"></A>
+<A NAME="IDX829"></A>
+Allocate global memory.
+See  <A HREF="progu106.htm#HDRDXALP">DXAllocate, DXAllocateZero,
+DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer DXAllocateLocal()
+<BR>
+Pointer DXAllocateLocalZero();</STRONG></TT>
+</B></TD><TD><P>Allocate local memory if available; otherwise, global memory.
+<A NAME="IDX830"></A>
+<A NAME="IDX831"></A>
+<A NAME="IDX832"></A>
+<A NAME="IDX833"></A>
+See  <A HREF="progu106.htm#HDRDXALP">DXAllocate, DXAllocateZero,
+DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer DXAllocateLocalOnly()
+<BR>
+Pointer DXAllocateLocalOnlyZero();</STRONG></TT>
+</B></TD><TD><P>Allocate local memory.
+<A NAME="IDX834"></A>
+<A NAME="IDX835"></A>
+<A NAME="IDX836"></A>
+<A NAME="IDX837"></A>
+See  <A HREF="progu106.htm#HDRDXALP">DXAllocate, DXAllocateZero,
+DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly,
+DXAllocateLocalOnlyZero</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer
+DXReAllocate()</STRONG></TT>
+</B></TD><TD><P>Changes the size of a previously allocated block of memory.
+<A NAME="IDX838"></A>
+<A NAME="IDX839"></A>
+See  <A HREF="progu287.htm#HDRDXREA">DXReAllocate</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXFree()</STRONG></TT>
+</B></TD><TD><P>Frees a previously allocated block of memory.
+<A NAME="IDX840"></A>
+<A NAME="IDX841"></A>
+See  <A HREF="progu147.htm#HDRDXFRE">DXFree</A>.
+</TD></TR></TABLE>
+<P><B><U>Less Commonly Used Routines</U></B>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>void DXPrintAlloc()</STRONG></TT>
+</B></TD><TD><P>Prints out a summary of memory use.
+<A NAME="IDX842"></A>
+<A NAME="IDX843"></A>
+See  <A HREF="progu267.htm#HDRDXPA">DXPrintAlloc</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu056.htm">Previous Page</A> &#124; <A HREF="progu058.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

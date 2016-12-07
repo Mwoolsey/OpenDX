@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall680 Irregular Surface #!N #!EC #!N #!N 
+This example is the netCDL description of a netCDF for an 
+irregular surface, that of the classic teapot. It has precomputed normals, 
+which are imported as the "normals" component, in addition to positions 
+and connections. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N netcdf teapot8 { // 
+name of datafile is "teapot8.ncdf" #!N // name of field is 
+"surface" #!N #!N dimensions: #!N pointnums = 2268; #!N trinums = 
+3584; #!N axes = 3; #!N sides = 3; #!N #!N 
+variables: #!N float locations(pointnums, axes); #!N float normalvect(pointnums, axes); #!N long 
+tris(trinums, sides); #!N float surfacedata(pointnums); #!N #!N // global attributes: #!N 
+:source = "Classic Teapot, data from Turner Whitted"; #!N #!N // 
+specific attributes: #!N surfacedata:field = "surface"; #!N surfacedata:connections = "tris, triangles"; 
+#!N surfacedata:positions = "locations"; #!N surfacedata:component = "normalvect, normals, vector"; #!N 
+#!N normalvect:attributes = "dep, positions"; #!N #!N // This is the 
+start of a large data section #!N data: #!N . . 
+. #!N } #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lhdf,dxall682 h HDF Files  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Using Data Explorer Script Commands</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu055.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu057.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu050.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRSDXSC" ></A>10.7 Using Data Explorer Script Commands
+</H2>
+		
+The Data Explorer scripting language provides commands to control the following
+aspects of the script environment:
+
+		<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Sequencer
+</B></TD><TD><P>These commands set up and control the Sequencer to display a
+series of
+frames.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>File inclusion
+</B></TD><TD><P>This command lets you include other scripts in your program.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Prompts
+</B></TD><TD><P>These commands let you change the appearance of the prompt
+in the script environment.
+</TD></TR></TABLE>
+The Data Explorer commands and parameters (if any) are complete scripting
+language statements and are usually terminated with a semicolon
+(;).
+There are additional commands that can be executed in the script
+environment by using the Executive module.
+See <A HREF="refgu055.htm#HDREXECTV">Executive</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>.
+<P>
+<H3><A NAME="HDRVCRCOMM" ></A>Sequencer</H3>
+<A NAME="IDX923"></A>
+Data Explorer provides the following commands that allow you to control the
+Sequencer.
+You can use these commands in a script or by typing them to the
+executive.
+<DL>
+<P><DT>sequence
+<DD>The sequence command defines the frames that you specify in the
+Sequencer variables using the images supplied by a function call or
+expression.
+The following table defines the Sequencer variables:
+<A NAME="IDX924"></A>
+<P>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="22%">Name
+</TH><TH ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">Read Only
+</TH><TH ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">Read/
+Write
+</TH><TH ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="56%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"
+WIDTH="22%"><TT><STRONG>&#64;deltaframe</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">&nbsp;
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="56%">The number of steps between
+frames.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"
+WIDTH="22%"><TT><STRONG>&#64;endframe</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">&nbsp;
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="56%">The index of the last frame.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"
+WIDTH="22%"><TT><STRONG>&#64;frame</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="56%">The index of the current
+frame.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"
+WIDTH="22%"><TT><STRONG>&#64;nextframe</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">&nbsp;
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="56%">The index of the next frame.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="MIDDLE"
+WIDTH="22%"><TT><STRONG>&#64;startframe</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">&nbsp;
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="11%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="MIDDLE" WIDTH="56%">The index of the first frame.
+<BR>
+<P>
+</TD></TR></TABLE>
+In the following example, the sequence command defines eleven frames for
+the Sequencer.
+These frames can be displayed using other Sequencer commands.
+<PRE>
+&middot;
+@startframe=0;
+@endframe=10;
+@nextframe=@startframe;
+sequence displayobject(20*&#64;frame);
+&middot;
+</PRE>
+<P><DT>play
+<DD>This command begins execution on the frames that have been defined
+with the <TT><STRONG>sequence</STRONG></TT> command.
+<P><DT><STRONG>pause</STRONG>
+<DD>This command stops the sequence at the current frame.
+<P><DT><TT><STRONG>step</STRONG></TT>
+<DD>This command displays the next frame in the current sequence
+direction.
+<P><DT>
+<TT><STRONG>stop</STRONG></TT>
+<DD>This command stops the sequence display and returns to the
+first frame in the sequence.
+<P><DT>
+<TT><STRONG>forward</STRONG></TT>
+<DD>This command sets the forward direction of the sequence.
+<P><DT>
+<TT><STRONG>backward</STRONG></TT>
+<DD>This command sets the backward direction of the sequence.
+<P><DT>
+<TT><STRONG>'palindrome on'</STRONG></TT>
+|
+<TT><STRONG>off</STRONG></TT>
+<DD>The palindrome command with its parameters sets or unsets the
+palindrome mode.
+When you display frames in the palindrome mode, the current direction
+changes at the first or last frame in the series.
+<P><DT>
+<TT><STRONG>'loop on'</STRONG></TT>
+|
+<TT><STRONG>off</STRONG></TT>
+<DD>The loop command with its parameters sets or unsets the loop mode.
+When you display frames in the loop mode, the series of frames
+repeats using the settings of the forward, backward, and
+palindrome commands.
+</DL>
+<P>
+<H3><A NAME="HDRFILINCL" ></A>File Inclusion</H3>
+<DL>
+<P><DT>
+<TT><STRONG>include</STRONG></TT>
+<A NAME="IDX925"></A>
+<DD>The <TT><STRONG>include</STRONG></TT> command is used to interpose the
+contents of a file into the input stream being sent to Data Explorer.
+The file being included can contain both scripting language constructs
+and executive commands.
+This means an included file can, in turn, include other files.
+<P>
+There is currently a limit of 32 nested levels of inclusion, after which
+the <TT><STRONG>include</STRONG></TT> commands are ignored.
+<P>
+To include the file my.script, issue the following command:
+<PRE>
+include "my.script"
+</PRE>
+</DL>
+<P>
+<H3><A NAME="Header_354" ></A>Prompts</H3>
+<A NAME="IDX926"></A>
+<DL>
+<P><DT><TT><STRONG>&#64;prompt</STRONG></TT> and
+<TT><STRONG>&#64;cprompt</STRONG></TT>
+<DD>There are two at-sign (&#64;) variables that you can set in the
+executive (or in a script) to customize the Data Explorer script prompt
+(<TT>&#64;prompt</TT>) and continuation prompt
+(<TT>&#64;cprompt</TT>).
+(The continuation prompt appears when you enter an incomplete command
+in the script environment.
+It indicates that you must complete the command before it can be acted
+upon.)
+<P>
+The default prompt and continuation prompt are <TT><STRONG>dx&gt;</STRONG></TT>
+and <TT><STRONG>&gt;</STRONG></TT> respectively.
+<P>
+The following example show how to set these variables.
+Note that this example shows the Data Explorer prompts as they would be
+displayed in the executive.
+<PRE>
+dx&gt; &#64;prompt = "DATA EXPLORER&gt;";
+DATA EXPLORER&gt; &#64;cprompt = "    more&gt;";
+</PRE>
+<P>
+If, after these commands, an incomplete statement was entered,
+Data Explorer would respond as follows:
+<PRE>
+DATA EXPLORER&gt; a =
+    more&gt; 3 * 5;
+</PRE>
+</DL>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

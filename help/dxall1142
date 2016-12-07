@@ -1,0 +1,57 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1141 Introduction #!N #!EC #!N #!N DXLink is 
+a C programming interface that can be used to communicate with 
+the Data Explorer user interface (dxui) or the Data Explorer executive 
+(dxexec). Functions are provided to load programs, enable the setting and 
+retrieval of named variables, control execution, handle errors, and define application-specific 
+messaging. For the user interface, functions are also available to control 
+window visibility and to load configuration files. For the executive, a 
+function is provided to send arbitrary scripting-language commands. Support for X 
+windows is built in but is not required. #!N #!N The 
+kinds of application that can be written with DXLink include: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o A graphical user 
+interface and demonstration utility that controls the execution of the Data 
+Explorer user interface to start selected demos, flip through images, and 
+remove and place windows on the display. #!N #!I30 #!N o 
+A graphical user interface that communicates with the executive, replacing the 
+Data Explorer user interface. #!N #!I30 #!N o A shell-like scripting 
+language to control the user interface (and that might also be 
+useful for a demonstration utility). #!N #!I0 #!N #!EF #!N #!N 
+#!N A majority of DXLink functions have names that begin with 
+the prefix "DXL." These functions can be used in communicating with 
+either the user interface or the executive. The prefix "uiDXL" identifies 
+a function intended for use only with the interface; the prefix 
+"exDXL," a function for use only with the executive. Note: In 
+the remainder of this document, references to "the server" apply to 
+the user interface and the executive equally. #!N #!N All applications 
+that use the DXLink facilities must link with the library libDXL.a 
+and include the header file dxl.h in the source code. #!N 
+#!N The functions provided by DXLink are described in more detail 
+in the following sections. They have been divided into four groups: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1.  #!Linitex,dxall1146 h Initialization and Exit  #!EL  , 
+#!N #!I30 #!N 2.  #!Lmsgsys,dxall1147 h Messaging System  #!EL  ,, #!N #!I30 #!N 3.  #!Lexecctl,dxall1151 h Execution Control  #!EL  
+, and #!N #!I30 #!N 4.  #!Lprgctl,dxall1152 h Program Control  #!EL  . #!N #!I0 #!N 
+#!EF #!N #!N #!N The declarations for these functions are found 
+in the C include file dxl.h, which should be included in 
+any C file that uses them. The following sections describe three 
+simple DXLink programs. All of these examples and necessary Makefiles can 
+be found in /usr/lpp/dx/samples/dxlink. It is recommended that you create these 
+programs and run them before studying the C code which follows. 
+See the Readme file in /usr/lpp/dx/samples/dxlink for instructions on how to 
+create them. #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Stand-alone Programs #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Stand-alone programs may access 
+the Data Explorer data model by linking to the library DXlite. 
+The file libDXlite.a contains a subset of Data Explorer routines (see 
+ #!Ldxlap1,dxall1161 h Data Explorer Data Model Library: DXlite Routines  #!EL  ). #!N #!I30 #!N 2. Stand-alone programs may also access 
+almost all Data Explorer data modules and all Data Explorer library 
+routines by linking to the library libDXcallm.a. (The exceptions are such 
+user-interface features as interactors, the Colormap Editor, the Image tool, and 
+Get and Set.) The file libDXcallm.a contains all the Data Explorer 
+library routines listed in  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  . See also  #!Lmodacss,dxall1113 h Module Access  #!EL  . #!N 
+#!I30 #!N 3. When starting Data Explorer from an external program, 
+certain command line options may be useful to disable portions of 
+the user interface that the external program is intended to control. 
+See  #!Ldclopts7,dxall744 t Table 7  #!EL  in IBM Visualization Data Explorer User's Guide. #!N #!I0 
+#!N #!EF #!N #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall1142,dxall1143 h Example 1: sealevel.c  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

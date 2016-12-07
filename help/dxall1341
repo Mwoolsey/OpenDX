@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqca DXQueryConstantArray #!N #!N Function #!N #!N Determines whether 
+an Array contains constant data, and, if so, returns both the 
+number of items and in the array and the data value. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXQueryConstantArray (Array a, 
+int *num, Pointer data) #!EF #!N #!N Functional Details #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXQueryConstantArray #!EF determines if Array  #!F-adobe-times-bold-r-normal--18*   a #!EF contains constant 
+data. If so, if  #!F-adobe-times-bold-r-normal--18*   num #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF , the number of items contained in  #!F-adobe-times-bold-r-normal--18*   a #!EF 
+is returned in  #!F-adobe-times-bold-r-normal--18*   *num #!EF . If  #!F-adobe-times-bold-r-normal--18*   data #!EF 
+is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the constant value contained in 
+ #!F-adobe-times-bold-r-normal--18*   a #!EF will be copied to the block of memory 
+pointed to by  #!F-adobe-times-bold-r-normal--18*   data #!EF . In this case  #!F-adobe-times-bold-r-normal--18*   
+data #!EF should point to a block of memory large enough 
+to hold one element of  #!F-adobe-times-bold-r-normal--18*   a #!EF ; this size 
+can be determined by calling  #!F-adobe-times-bold-r-normal--18*   DXGetItemSize(a) #!EF . #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXQueryConstantArray #!EF considers both Constant Array and Regular Array Objects 
+with zero delta values to be constant. #!N #!N The value 
+stored in  #!F-adobe-times-bold-r-normal--18*   a #!EF may also be accessed by a 
+call to  #!F-adobe-times-bold-r-normal--18*   DXGetConstantArrayData #!EF . This call returns a pointer 
+to the internal memory of  #!F-adobe-times-bold-r-normal--18*   a #!EF , providing a 
+ #!F-adobe-times-medium-i-normal--18*   read-only #!EF copy of the data without the need to 
+allocate a block of memory. #!N #!N Return Value #!N #!N 
+Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF if  #!F-adobe-times-bold-r-normal--18*   a #!EF contains constant data 
+or  #!F-adobe-times-bold-r-normal--18*   NULL #!EF (without setting an error code) if  #!F-adobe-times-bold-r-normal--18*   
+a #!EF is an Array that does not contain constant data; 
+otherwise, returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgcad,dxall1230 h DXGetConstantArrayData  #!EL  ,  #!Ldxgis,dxall1245 h DXGetItemSize  #!EL  ,  #!Ldxncav,dxall1314 h DXNewConstantArray, DXNewConstantArrayV  #!EL  
+,  #!Ldxnra,dxall1324 h DXNewRegularArray  #!EL  #!EF #!N #!N  #!Lctas,dxall1079 h Constant Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxqdl,dxall1342 h DXQueryDistantLight  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

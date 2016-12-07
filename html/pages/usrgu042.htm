@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Using the Colormap Editor</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu041.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu043.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu040.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRCOLMAPE" ></A>6.3 Using the Colormap Editor</H2>
+		<A NAME="IDX752"></A><A NAME="IDX753"></A>
+<P>
+The Colormap Editor is a window that enables you to map colors to
+specified data values, the results of which are displayed in the
+visual image.
+In addition to color, the Colormap Editor also controls the mapping of
+<I>opacity</I> to data, which is the degree of the image&#39;s
+transparency in relation to its background.
+Maximum opacity shows the color calculated by the hue, saturation, and
+value fields;
+minimum opacity calculates colors so that the image is faintly visible
+in front of the background.
+In summary, the Colormap Editor enables you to&#58;
+<UL COMPACT>
+<LI>Control the range of data values over which the mapping occurs.
+<LI>Select the colors that are mapped to the range of values.
+<LI>Select the opacities that are mapped to the range of values.
+</UL>
+When the <TT><STRONG>Colormap</STRONG></TT> stand-in from the
+<TT><STRONG>Special</STRONG></TT>
+category is connected to the <TT><STRONG>Color</STRONG></TT> tool as shown in
+the visual program fragment in <A HREF="#FIGCMAP1">Figure 56</A>, the
+combination
+can be used in place of the <TT><STRONG>AutoColor</STRONG></TT> tool.
+<P><B><A NAME="FIGCMAP1" HREF="../usrguide.htm#FT_FIGCMAP1">Figure 56. Fragment of
+Visual Program Using Colormap</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/fragment.gif" ALT="Figure fragment not
+displayed."></CENTER><BR></B><BR>
+<P>
+To use the Colormap Editor&#58;
+<OL COMPACT>
+<LI>Double-click on the Colormap tool in the VPE window or select
+either the <TT><STRONG>Open Selected Colormap Editors</STRONG></TT>
+option from the VPE or the <TT><STRONG>Open All Colormap
+Editors</STRONG></TT> from the Image window
+<TT><STRONG>Windows</STRONG></TT> menu.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">From the VPE, this option is <TT><STRONG>Open Colormap
+Editor</STRONG></TT>.
+For this option to be available, the Colormap icon must be selected.
+</td></tr></table>
+<LI>The Colormap Editor appears.
+Make necessary adjustments to values, as described in
+<A HREF="#HDRENTV">"Entering Values in a Colormap Editor"</A>.
+</OL>
+<P>
+<A HREF="#FIGCOLED">Figure 57</A> illustrates the organization of the
+Colormap Editor window.
+<P><B><A NAME="FIGCOLED" HREF="../usrguide.htm#FT_FIGCOLED">Figure 57. Colormap
+Editor</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/cmaped.gif" ALT="Figure cmaped not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H3><A NAME="HDRENTV" ></A>Entering Values in a Colormap Editor</H3>
+<A NAME="IDX754"></A>
+<P>
+The Colormap Editor specifies color in the hue, saturation, and value
+(HSV) color space.
+<I>Hue</I> refers to the color, for example, blue, red
+or yellow.
+The range of the hue goes from red to green to blue back to red
+again.
+<I>Saturation</I> refers to the purity of the color, and is a value
+between 0 and 1.
+A saturation of 1 is pure color; as saturation decreases, the color
+becomes more pastel, becoming white when saturation is 0.
+<I>Value</I> is the brightness of the color, and is a value between
+0 to 1.
+A value of 1 is maximum brightness; as value decreases, the color
+becomes darker, becoming black when value is 0.
+<P>
+For a thorough understanding of color and the color elements of hue,
+saturation, value, and opacity, and other elements of computer
+graphics that might relate to the Colormap characteristics,
+you may want to refer to a computer graphics text.
+<P>
+You can display the Colormap Editor by selecting the <TT><STRONG>Open All
+Colormap Editors</STRONG></TT> option on the <TT><STRONG>Windows</STRONG></TT>
+menu of
+the Image window or by double-clicking on the Colormap tool
+in the VPE window.
+The Colormap Editor displays default settings for each of the three HSV
+color space parameters, as shown in the first three boxed areas on
+the right hand side of the window.
+These three areas, labeled <TT><STRONG>Hue</STRONG></TT>,
+<TT><STRONG>Saturation</STRONG></TT>, and
+<TT><STRONG>Value</STRONG></TT>, each work independently of one another.
+As you change their values, the RGB boxed area at the left of the
+window changes automatically to correspond.
+<P>
+The <TT><STRONG>Opacity</STRONG></TT> area, located on the far right hand side
+of the
+Colormap Editor window, works in a similar way.
+As you make changes in the opacity area, the background bar (located to
+the right of the RGB bar) reflects your work.
+It shows your adjustments to the opacity of the image in relation to the
+background colors.
+By default, the background bar appears as two vertical stripes.
+However, if it is easier for you to judge the colors of the image and
+background with a checkerboard-style bar, select the <TT><STRONG>Set
+Background Style to Checkboard</STRONG></TT> option on the
+<TT><STRONG>Options</STRONG></TT> menu
+(see <A HREF="usrgu045.htm#HDRCMAPOM">"Colormap Options Menu"</A>).
+<P>
+In order to perform certain operations on an area, it must be
+selected.
+To select an area either click on the area&#39;s label
+or click in the area itself.
+Only one area can be
+selected at a time.
+When an area is selected, its label is depressed.
+<P>
+The range of data values onto which HSV and opacity values are mapped
+is controlled by the <TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT> fields
+located near the bottom and top of the Colormap Editor
+window.
+By default, <TT><STRONG>min</STRONG></TT> is set to 0, and
+<TT><STRONG>max</STRONG></TT> is set to 100.
+You can change this range to values more appropriate for your data by
+clicking on either field, typing the new value, and pressing the
+Enter key.
+<P>
+Control points are used to define the value of hue, saturation, value,
+and opacity for a given data value.
+The number and position of control points can be different in each of
+the areas.
+The control points appear as small squares on the vertical scale marks
+in each of the four areas.
+<P>
+<H4><A NAME="HDRADCONP"></A><U>Adding Control Points</U></H4>
+<A NAME="IDX755"></A>
+<P>
+Control points can be added to an area using one of four different
+methods:
+<UL COMPACT>
+<LI>double-clicking directly in the area,
+<LI>using the <TT><STRONG>Add Control Points...</STRONG></TT> dialog box,
+<LI>using the <TT><STRONG>Generate Waveforms</STRONG></TT> dialog box, or
+<LI>copying and pasting control points from another area.
+</UL>
+<P>
+To add a new control point by double-clicking, place the cursor on the
+location where you want the new control point, then double-click.
+The values between control points are linearly interpolated by the
+Colormap.
+If a new point is added as the bottom- or top-most point on the line,
+the new line continues vertically from the new point to the
+<TT><STRONG>min</STRONG></TT> or <TT><STRONG>max</STRONG></TT> value,
+respectively.
+When a new control point is added, its data value is displayed
+by default.
+<P>
+To specify exact values for new control points, click on the <TT><STRONG>Add
+Control Points...</STRONG></TT> option on the <TT><STRONG>Edit</STRONG></TT>
+menu.
+The <TT><STRONG>Add Control Points</STRONG></TT> dialog box appears, as
+illustrated
+in <A HREF="#FIGADCTPTS">Figure 58</A>.
+The <TT><STRONG>Add Control Points...</STRONG></TT> dialog allows you to
+specify
+values using two steppers.
+The "Data value" stepper allows you to specify a control point
+value between "min" and "max".
+The second stepper displayed in the dialog will reflect that area (Hue,
+Saturation, Value, or Opacity) is currently selected in the Colormap
+Editor.
+For example, if Saturation is the selected area, the dialog will display
+steppers for "Data value" and "Saturation value".
+The value for Hue, Saturation, Value, or Opacity can be a value between
+0 and 1.
+Use the <TT><STRONG>Add</STRONG></TT> button to add the control points to the
+selected area in the Colormap Editor.
+<P><B><A NAME="FIGADCTPTS" HREF="../usrguide.htm#FT_FIGADCTPTS">Figure 58.
+Colormap&#39;s Add Control Points Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/adctlpt.gif" ALT="Figure adctlpt not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H4><A NAME="HDRSELCONP"></A><U>Selecting Control Points</U></H4>
+<A NAME="IDX756"></A>
+<P>
+Control points can be selected by doing one of the following&#58;
+<UL>
+<P><LI>Select a single control point by simply clicking on it once.
+<P><LI>Select a group of control points by clicking on a point in the
+selected area and dragging the cursor around the desired points.
+<P><LI>Select all of the control points in an area by using the
+<TT><STRONG>Select All Control Points</STRONG></TT> option under the
+<TT><STRONG>Edit</STRONG></TT> menu.
+</UL>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">A control point is selected automatically when it is created.
+When one control point is created, all other previously selected points
+in that area are automatically deselected.
+</td></tr></table>
+<P>
+<H5><U>Deleting Selected Control Points</U></H5>
+<P>
+To delete selected control points, you can do one of the following:
+<UL COMPACT>
+<LI>Double-click on each of them, one at a time.
+<LI>Choose the <TT><STRONG>Edit</STRONG></TT> menu, then click
+on the <TT><STRONG>Delete Selected Control Points</STRONG></TT> option.
+</UL>
+<P>
+<H4><A NAME="HDRMOVCPS"></A><U>Moving Control Points</U></H4>
+<A NAME="IDX757"></A>
+<P>
+To move a control point, simply drag it to the desired location.
+Control points cannot be moved past each other; this
+facilitates the creation of step functions.
+They can be moved as a group by doing the following:
+<OL COMPACT>
+<LI>Draw a selection box around the points you want in the group.
+<LI>Position the mouse pointer on any one of them and drag it to the
+desired location.
+</OL>
+All of the control points move together within the constraints of the
+unselected points above and below.
+<P>
+The movement of control points can be constrained either horizontally
+or vertically by selecting the <TT><STRONG>Constrain Horizontal</STRONG></TT>
+or <TT><STRONG>Constrain Vertical</STRONG></TT> option from the Colormap
+<TT><STRONG>Edit</STRONG></TT> menu (see <A
+
+HREF="usrgu045.htm#HDRCMAPEM">"Colormap Edit Menu"</A>).
+By constraining horizontally after adding a precise control point, you
+can move the point to change the color or opacity mapped to specific
+value, without changing the value itself.
+<P>
+<H4><A NAME="HDRCREWVS"></A><U>Creating Waveforms</U></H4>
+<A NAME="IDX758"></A>
+<P>
+To create waveforms, select the <TT><STRONG>Generate Waveforms</STRONG></TT>
+option from the <TT><STRONG>Edit</STRONG></TT> pull-down menu.
+The <TT><STRONG>Generate Waveforms</STRONG></TT> dialog box appears
+(<A HREF="#FIGGENREF">Figure 59</A>).
+<P><B><A NAME="FIGGENREF" HREF="../usrguide.htm#FT_FIGGENREF">Figure 59. Generate
+Waveforms Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/genwave.gif" ALT="Figure genwave not
+displayed."></CENTER><BR></B><BR>
+<P>
+This dialog box allows you to&#58;
+<UL>
+<P><LI>Choose the shape of the waveform from an options box.
+Waveforms can be step, square, or sawtooth.
+<P><LI>Choose the range of the waveform from an options box.
+"Full" creates a waveform  that runs the full length of the
+selected area.
+"Selected" creates a wave that runs the distance between two
+selected control points in the specified area.
+<P><LI>Specify the number of steps to be created in the range of the
+waveform by using the stepper.
+The number of steps specified can be between 2 and 100.
+</UL>
+<P>
+<H4><A NAME="HDRCAPCPS"></A><U>Copying and Pasting Control Points</U></H4>
+<P>
+Control points can be copied and pasted from one Colormap area to
+another, using the <TT><STRONG>Copy</STRONG></TT> and
+<TT><STRONG>Paste</STRONG></TT> options
+of the <TT><STRONG>Edit</STRONG></TT> window.
+<OL COMPACT>
+<LI>Select the control point or control points you wish to copy.
+<LI>Click on <TT><STRONG>Copy</STRONG></TT>.
+<LI>Select the area to which you wish to copy the control
+points and then click on <TT><STRONG>Paste</STRONG></TT>.
+</OL>
+<P>
+<H4><A NAME="HDRDISCPV"></A><U>Display Control Point Values</U></H4>
+<P>
+The data values of control points are displayed by default.
+You can control which data values are displayed, using the <TT><STRONG>Display
+Control Point Data Value</STRONG></TT> cascade menu in the
+<TT><STRONG>Options</STRONG></TT>
+menu.
+If "off" is specified, no data values are shown.
+If "selected" is chosen, only the data values for the selected
+control points are shown, and if "all" is selected, the data
+values for all control points in the selected area are shown.
+<P>
+<H4><A NAME="HDRAXDISP"></A><U>Axis Display</U></H4>
+<A NAME="IDX759"></A>
+<P>
+You can control how the Colormap Editor axis is displayed by using the
+
+<TT><STRONG>Options</STRONG></TT> menu <TT><STRONG>Axis Display...</STRONG></TT>
+option.
+You have three choices for the display: <TT><STRONG>Ticks</STRONG></TT> (the
+default),
+<TT><STRONG>Histogram</STRONG></TT>, and <TT><STRONG>Log
+Histogram</STRONG></TT>.
+<TT><STRONG>Histogram</STRONG></TT> will cause the histogram of the data to be
+displayed.
+<TT><STRONG>Log Histogram</STRONG></TT> will cause the log of the histogram to
+be
+displayed.
+If the Colormap Editor is not data-driven, these two options will be
+grayed-out.
+The number of histogram bins can be controlled using the
+<TT><STRONG>Edit</STRONG></TT>
+menu <TT><STRONG>Number of histogram bins...</STRONG></TT> option.
+<P>
+<H4><A NAME="HDRCOLCNAM"></A><U>Changing the name of the Colormap Editor</U></H4>
+<P>
+Every Colormap Editor is given the default name of "Colormap
+Editor" in the box across the top of the window.
+If you want to customize the name of the Colormap Editor, you can do so
+by clicking on the <TT><STRONG>Options</STRONG></TT> menu <TT><STRONG>Change
+Colormap Name...</STRONG></TT> option and entering a new name
+in the dialog box that appears.
+<P><B>Note: </B>You can also change the name of the Colormap Editor by using the
+<TT><STRONG>title</STRONG></TT> parameter in the Colormap tool.
+<P>
+<H4><U>Saving and Loading Color Maps</U></H4>
+<P>
+You can save a color map by using the <TT><STRONG>Save As...</STRONG></TT>
+command from the <TT><STRONG>File</STRONG></TT> pull-down menu).
+You can then make the "new" color map part of any visual
+program.
+To access it, use the <TT><STRONG>Open</STRONG></TT> command from the
+<TT><STRONG>File</STRONG></TT>
+pull-down menu of the Colormap Editor menu bar.
+Note that saved color maps may also be imported (see Import in <I>IBM
+Visualization Data Explorer User&#39;s Reference</I>)
+and passed directly to the Color module.
+<P>
+<H3><A NAME="Header_198" ></A>Using Data-Driven Colormap Editors</H3>
+<P>
+The Colormap Editor may be <I>data-driven</I>, meaning that its
+attributes (e.g., minimum and maximum) can be set by connecting
+the output of a tool to the input of the Colormap tool in the
+VPE or by typing a value into the Colormap configuration
+dialog box, instead of into the Colormap Editor itself.
+<P>
+If the Colormap Editor is data-driven, the information transmitted via
+the connections or set in the Configuration dialog box overrides
+values set in the Colormap Editor.
+<P>
+Data-driven Colormap Editors allow you to create color maps that are
+appropriate for a variety of input data sets without the need to
+reset the minimum and maximum of the color map.
+<P>
+The Colormap tool has a data input to which an input data field may be
+connected.
+In this case, the Colormap Editor is automatically set so that the
+minimum is the minimum of the data set and the maximum is the
+maximum of the data set.
+However, if you would like to have more control over the exact values
+that are used, the Colormap tool allows you to specify the minimum
+and maximum directly through other input tabs that are by
+default hidden.
+You can also pass a color map or opacity map directly to the Colormap
+tool.
+The inputs for the Colormap tool are summarized in the corresponding
+module description in <I>IBM Visualization Data Explorer User&#39;s
+Reference</I>.
+<P>
+Each time an input to a data-driven Colormap Editor is changed (e.g.,
+by importing a new data set), the interactor is reexecuted,
+updating its attributes.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

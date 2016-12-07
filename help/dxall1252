@@ -1,0 +1,14 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgniei DXGetNextInvalidElementIndex #!N 
+#!N Function #!N #!N Returns the index of the next invalid 
+element. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> int DXGetNextInvalidElementIndex(InvalidComponentHandle handle) 
+#!EF #!N #!N Functional Details #!N #!N Returns the index of 
+the next invalid element after the index returned on the prior 
+call (or zero, if this is the first call), given invalid-component 
+handle  #!F-adobe-times-bold-r-normal--18*   handle #!EF . #!N #!N Return Value #!N #!N 
+Returns the index of the next invalid element or returns -1 
+if there are no more invalid elements. #!N #!N See Also 
+#!N #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcich,dxall1191 h DXCreateInvalidComponentHandle  #!EL  ,  #!Ldxfich,dxall1215 h DXFreeInvalidComponentHandle  #!EL  #!EF  #!Linvdata,dxall1118 h Invalid Data  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgnvei,dxall1253 h DXGetNextValidElementIndex  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

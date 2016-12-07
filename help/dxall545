@@ -1,0 +1,41 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall544 
+Macro Header #!N #!EC #!N #!N The macro header defines the 
+macro's name, its formal parameters, and the names of values that 
+it returns. The syntax of a macro header is #!N #!N 
+#!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro  #!F-adobe-times-bold-i-normal--18*   MacroName #!EF (  #!F-adobe-times-bold-i-normal--18*   inputs 
+#!EF ) [ -> (  #!F-adobe-times-bold-i-normal--18*   outputs #!EF ) ] #!EF 
+#!N #!N #!EC where: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o The keyword  #!F-adobe-times-bold-r-normal--18*   macro #!EF indicates that a new 
+macro definition has started. #!N #!I30 #!N o  #!F-adobe-times-bold-i-normal--18*   MacroName #!EF 
+is an identifier of the name that is being associated with 
+the macro definition. #!N #!I30 #!N o The  #!F-adobe-times-bold-i-normal--18*   inputs #!EF 
+portion of a macro header is a list of identifiers separated 
+by commas. The list may be empty. These identifiers act as 
+place holders for the arguments passed to the macro when it 
+is called. If the macro does not require any arguments, then 
+you can omit the list (but not the enclosing parentheses). The 
+right-arrow symbol is needed only for macros with outputs. The following 
+are examples of valid headers for macros without outputs: #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro MyMacro(x,y) #!N macro MyMacro() #!EF #!N #!N 
+#!EC #!N #!N You can also specify default values for the 
+inputs. Consider the following example: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N macro 
+X (a = "no input", b = 4) #!N { #!N 
+Echo (a, b); #!N } #!EF #!N #!N #!EC The values 
+of the arguments a and b vary, depending how the macro 
+is invoked. For example: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N X(); // 
+a and b are set to the defaults, "no input" and 
+4 #!N X("new value", 3); // a is set to "new 
+value", b is set to 3 #!N X(NULL); // a and 
+b are set to the defaults, "no input" and 4 #!N 
+X(b = 6); // a gets default of "no input", b 
+is set to 6 #!EF #!N #!N #!EC #!N #!N See 
+ #!Lcallf,dxall537 h Invoking Data Explorer Macros and Modules  #!EL  for further explanation of the function-calling mechanism. #!N #!I30 #!N 
+o The  #!F-adobe-times-bold-i-normal--18*   outputs #!EF portion of a macro's header is 
+a list of identifiers separated by commas. #!N #!N These identifiers 
+act as place holders for the values returned by the macro 
+when the macro is executed. If the macro does not return 
+any values, then the right-arrow portion, -> (), is not necessary. 
+#!N #!I0 #!N #!EF #!N #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lall545,dxall546 h Macro Body  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

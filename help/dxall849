@@ -1,0 +1,99 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rfilter Filter #!N #!N Category #!N 
+#!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N #!N Filters a field. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   output #!EF = 
+Filter(  #!F-adobe-times-bold-r-normal--18*   input, filter, component, mask #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!N #!N #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Default TAB Description #!EF #!N TAB input 
+TAB field TAB none TAB data to be filtered #!N TAB 
+filter TAB value or string TAB "gaussian" TAB filter to be 
+used #!N TAB component TAB string TAB "data" TAB component to 
+be operated on #!N TAB mask TAB value or string TAB 
+"box" TAB rank-value filter mask #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!N #!N #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Description #!EF #!N TAB output 
+TAB field TAB filtered data #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N The specified filter can 
+be convolution or rank-value type. #!N #!N Convolution filters, as the 
+name implies, perform a convolution of the filter coefficients with the 
+input data (i.e., the output value at a given point is 
+the sum of the product of the filter coefficients and the 
+corresponding values neighboring the point in question). #!N #!N Rank-value filters 
+sort all of the elements under a mask surrounding the point 
+in question and either select or interpolate the value specified by 
+the given rank. For "min," "max," and "median" (special cases of 
+rank-value filters), the rank values are respectively  #!F-adobe-times-medium-i-normal--18*   1 #!EF , 
+ #!F-adobe-times-medium-i-normal--18*   n #!EF , and (  #!F-adobe-times-medium-i-normal--18*   n #!EF +  #!F-adobe-times-medium-i-normal--18*   
+1 #!EF )/2, where  #!F-adobe-times-medium-i-normal--18*   n #!EF is the number of 
+nonzero elements in the mask. #!N #!N Convolution filters are useful 
+for neighborhood smoothing, edge detection, and other gradient-based operations. Rank-value filters 
+are useful for random-noise removal and morphological operations. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N is 
+the object to be filtered. Each field containing the component to 
+be filtered must also contain both a "positions" and a "connections" 
+component. The "connections" component must be regular. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   filter #!EF #!EF #!I50 #!N specifies, by name, the filter 
+to be used on  #!F-adobe-times-bold-r-normal--18*   input #!EF . See  #!Lfilttab15,dxall849 t Table 15  #!EL  for 
+valid names. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   component #!EF #!EF #!I50 
+#!N specifies the field component to be filtered. By default, Filter 
+operates on "data." To filter an image, this parameter should specify 
+"colors." #!N #!N If the component to be filtered contains several 
+channels (e.g., red, green, and blue in an image), each channel 
+is filtered independently. #!I0 #!N #!N #!N #!N  #!Lfilttab15,dxall849 t Table 15  #!EL  defines the 
+filters and masks that can be specified by name. While most 
+of these are 2-dimensional, some are also available in 1- and 
+3-dimensional versions (as indicated by "1d" or "3d" after their names). 
+If possible, the module selects a filter that matches the dimensionality 
+of  #!F-adobe-times-bold-r-normal--18*   input #!EF . However, if a filter of lower 
+dimensionality is available, it can (and must) be specified by appending 
+"1d" or "2d" to the name. That is, to specify a 
+filter of lower dimensionality, the specification must be explicit.  #!Rfilttab15 #!T,1,216,646 
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 15. Filter Names. The names listed here 
+are all valid specifications for the filter parameter. The specification is 
+#!N TAB not case sensitive. #!N TAB Filter Name TAB Description 
+#!EF #!N TAB 4-connected TAB #!N TAB 8-connected TAB #!N TAB 
+6-connected TAB 3-D analog of 4-connected #!N TAB 26-connected TAB 3-D 
+analog of 8-connected #!N TAB box TAB Box filter #!N TAB 
+box:1d TAB #!N TAB box:2d TAB #!N TAB box:3d TAB #!N 
+TAB compass:e TAB #!N TAB compass:n TAB #!N TAB compass:ne TAB 
+#!N TAB compass:nw TAB #!N TAB compass:s TAB #!N TAB compass:se 
+TAB #!N TAB compass:sw TAB #!N TAB compass:w TAB #!N TAB 
+gaussian TAB Same as gaussian:3x3 #!N TAB gaussian:2d TAB Same as 
+gaussian:3x3; can be used to force a 2-D gaussian to be 
+applied to 3-D #!N TAB - TAB data. #!N TAB gaussian:3x3 
+TAB 3 * 3 Gaussian, ^ = 1.0 #!N TAB gaussian:5x5 
+TAB 5 * 5 Gaussian, ^ = 1.0 #!N TAB gaussian:7x7 
+TAB 7 * 7 Gaussian, ^ = 1.0 #!N TAB isotropic 
+TAB #!N TAB kirsch TAB #!N TAB laplacian TAB Same as 
+laplacian:2d #!N TAB laplacian:1d TAB #!N TAB laplacian:2d TAB #!N TAB 
+laplacian:3d TAB #!N TAB line:e-w TAB #!N TAB line:n-s TAB #!N 
+TAB line:ne-sw TAB #!N TAB line:nw-se TAB #!N TAB prewitt TAB 
+#!N TAB roberts TAB #!N TAB smoothed TAB Same as prewitt 
+#!N TAB sobel TAB #!N #!N #!I0 #!N Notes: #!N #!I30 
+#!N 1. When a lower-dimensional filter is applied to higher-dimensional input, 
+the input is separated into lower-dimensional units that are filtered and 
+then reassembled into a higher-dimensional structure. For example, a 2-dimensional filter 
+applied to a 3-dimensional field will result in individual slices of 
+the input being filtered and then restacked. #!N #!I30 #!N 2. 
+Arbitrary filter kernels and masks may also be specified as matrices. 
+#!N #!I30 #!N 3. If the value specified by  #!F-adobe-times-bold-r-normal--18*   filter 
+#!EF is a matrix, the module performs convolution filtering and uses 
+the values given as the filter coefficients. Filters must have odd 
+dimensions (e.g., 5 * 5), since the active point is defined 
+as the central point in the filter. #!N #!I30 #!N 4. 
+If the value specified in  #!F-adobe-times-bold-r-normal--18*   filter #!EF is a scalar 
+or one of the strings "min," "median," or "max," the module 
+performs rank-value filtering and uses the value of  #!F-adobe-times-bold-r-normal--18*   mask #!EF 
+for sorting the elements. #!N #!N Masks, like filters, must have 
+odd dimensions (e.g., 5 * 5). When specifying a mask, remember 
+that nonzero elements in the mask matrix signify inclusion; zeros signify 
+exclusion. In this way, the built-in matrices (e.g., "box") can be 
+used interchangeably as filters or masks. #!N #!I30 #!N 5. Data 
+along the boundary are replicated to fill the overlap region for 
+the filter. #!I0 #!N #!N #!N #!N Components #!N #!N Modifies 
+the component specified by  #!F-adobe-times-bold-r-normal--18*   component #!EF . All other input 
+components are propagated to the output. #!N #!N Example Visual Program 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingFilter.net #!EF #!N #!N #!EC #!N 
+#!N See Also #!N #!N  #!Lcompute,dxall795 h Compute  #!EL  ,  #!Lmorph,dxall896 h Morph  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lofirst,dxall850 h First  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

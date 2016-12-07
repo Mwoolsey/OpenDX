@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgsot DXGetObjectTag, DXSetObjectTag #!N 
+#!N Function #!N #!N Manipulates unique Object identifiers. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> int DXGetObjectTag(Object o) Object DXSetObjectTag(Object o, int 
+tag) #!EF #!N #!N Functional Details #!N #!N Every Object is 
+assigned a unique nonzero integer tag when it is created. In 
+addition, the executive sets the Object tag of Objects passed to 
+and returned from modules by using  #!F-adobe-times-bold-r-normal--18*   DXSetObjectTag #!EF . This 
+tag is used, for example, by the cache system to identify 
+Objects.  #!F-adobe-times-bold-r-normal--18*   DXGetObjectTag #!EF returns the Object identifier tag for Object 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF .  #!F-adobe-times-bold-r-normal--18*   DXGetObjectTag #!EF can be used with 
+the cache routines  #!F-adobe-times-bold-r-normal--18*   DXGetCacheEntry #!EF and  #!F-adobe-times-bold-r-normal--18*   DXSetCacheEntry #!EF to 
+cache intermediate results between calls to a module. #!N Note:  #!F-adobe-times-bold-r-normal--18*   
+DXSetObjectTag #!EF is intended for use only by the executive and 
+should not be used by module writers. #!N #!N #!N Return 
+Value #!N #!N Returns the Object identifier or returns 0 and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgcev,dxall1224 h DXGetCacheEntry, DXGetCacheEntryV  #!EL  ,  #!Ldxscev,dxall1369 h DXSetCacheEntry, DXSetCacheEntryV  #!EL  #!EF #!N #!N  #!Lotrs,dxall1100 h Object Routines  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgp,dxall1256 h DXGetPart  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

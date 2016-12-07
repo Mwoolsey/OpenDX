@@ -1,0 +1,78 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcaption Caption #!N #!N Category #!N #!N  #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N 
+Function #!N #!N Displays a caption on the screen. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N caption #!EF = Caption( 
+ #!F-adobe-times-bold-r-normal--18*   string, position, flag, reference, #!N alignment, height, font, direction, up 
+#!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB string TAB string or string list TAB none TAB 
+the caption to be displayed #!N TAB position TAB vector TAB 
+[0.5 0.05] TAB where to display the caption #!N TAB flag 
+TAB flag TAB 0 TAB 0: viewport-relative coordinates #!N TAB - 
+TAB - TAB - TAB 1: pixel coordinates #!N TAB reference 
+TAB vector TAB same as position TAB reference point on caption 
+#!N TAB alignment TAB scalar TAB input dependent TAB range: #!N 
+TAB - TAB - TAB - TAB 0.0: left-justify #!N TAB 
+- TAB - TAB - TAB ... #!N TAB - TAB 
+- TAB - TAB 1.0: right-justify #!N TAB height TAB integer 
+TAB 15 TAB caption height (pixels) #!N TAB font TAB string 
+TAB "variable" TAB caption font #!N TAB direction TAB vector TAB 
+[1 0] TAB direction of baseline #!N TAB up TAB vector 
+TAB perpendicular to baseline TAB direction of vertical strokes #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB caption TAB color field TAB string object that can be 
+rendered #!N TAB - TAB - TAB #!EF #!N #!N Functional 
+Details #!N #!N The caption produced is aligned in parallel with 
+the screen. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   string 
+#!EF #!EF #!I50 #!N is the caption to be displayed. This 
+parameter can also be a list of strings, for a multiline 
+caption. Alternatively, you can separate substrings for a multiline caption by 
+using \n. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   position #!EF #!EF #!I50 
+#!N specifies the position of the caption in units determined by 
+ #!F-adobe-times-bold-r-normal--18*   flag #!EF (see below). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   flag 
+#!EF #!EF #!I50 #!N determines the type of coordinates used in 
+placing the caption: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+0: viewport-relative #!N #!I30 #!N 1: pixel #!N #!I0 #!N #!EF 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   reference #!EF #!EF #!I50 #!N 
+specifies the reference point for the caption that is to be 
+placed at  #!F-adobe-times-bold-r-normal--18*   position #!EF : #!N #!N [0 0] = 
+bottom left of the caption #!N [1 1] = top right 
+#!N #!N If  #!F-adobe-times-bold-r-normal--18*   flag #!EF = 0, the default is 
+the same as the current specification of  #!F-adobe-times-bold-r-normal--18*   position #!EF . 
+#!N #!N If  #!F-adobe-times-bold-r-normal--18*   flag #!EF = 1, the default is 
+the lower left corner of the caption. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   alignment #!EF #!EF #!I50 #!N determines the alignment of a 
+multiline caption from left justified (0.0) to right justified (1.0). For 
+intermediate values, justification is defined by linear interpolation (e.g., a value 
+of 0.5 centers the lines). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   height 
+#!EF #!EF #!I50 #!N determines the height of the caption characters 
+in pixels. A negative value generates an inverted caption. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   font #!EF #!EF #!I50 #!N specifies the font 
+for a displayed caption. You can specify any of the defined 
+fonts supplied with Data Explorer. These include a variable-width font ("variable," 
+the default) and a fixed-width font ("fixed"): #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N area gothicit_t pitman roman_ext #!N cyril_d greek_d roman_d script_d #!N 
+fixed greek_s roman_dser script_s #!N gothiceng_t italic_d roman_s variable #!N gothicger_t 
+italic_t roman_tser #!EF #!N #!N #!EC For more information, see  #!Lapc,dxall746 h Data Explorer Fonts  #!EL  
+in the IBM Visualization Data Explorer User's Guide. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   direction #!EF #!EF #!I50 #!N determines the orientation of 
+the caption (i.e., the direction of its baseline). #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   up #!EF #!EF #!I50 #!N determines the direction of 
+the vertical strokes of the caption font. #!I0 #!N #!N #!N 
+#!N #!I0 #!N Notes: #!N #!I30 #!N 1. To change the 
+color of a caption, use the Color module (see  #!Lcolor,dxall792 h Color  #!EL  ). 
+#!N #!I30 #!N 2. If you are using Render or Display 
+to render an object which contains a caption, when you change 
+the resolution of the camera the size of the caption in 
+pixels will not change. If you want the caption to take 
+up the same proportion of the image, use the ScaleScreen module 
+to change the size of the caption. #!I0 #!N #!N #!N 
+#!N Components #!N #!N Creates "positions," "connections," and "colors" components. #!N 
+#!N Example Visual Programs #!N #!N Many example visual programs use 
+Caption, including: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N ContoursAndCaption.net #!N 
+Sealevel.net #!N UsingAttributes.net #!N UsingIsosurface.net #!N SIMPLE/Caption #!N #!N SIMPLE/ScaleScreen.net #!N 
+#!EF #!N #!N #!EC #!N #!N See Also #!N #!N  #!Lcolor,dxall792 h Color  #!EL  
+,  #!Lformat,dxall853 h Format  #!EL  ,  #!Ltext,dxall964 h Text  #!EL  ,  #!Lscalscr,dxall935 h ScaleScreen  #!EL  ,  #!Llegend,dxall883 h Legend  #!EL  #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcategor,dxall782 h Categorize  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

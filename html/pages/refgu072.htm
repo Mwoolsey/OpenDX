@@ -1,0 +1,519 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Image</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu071.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu073.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRIMAGE" ></A>Image</H3>
+		<A NAME="IDX541"></A><A NAME="IDX542"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREN">Rendering</A>
+<A NAME="IDX543"></A>
+<A NAME="IDX544"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Renders an object and displays it as an image.
+<P><STRONG>Syntax</STRONG>
+<P>
+This module is accessible only through the user interface.
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object to be rendered and
+displayed
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>renderMode</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">software=0, hardware=1
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>defaultCamera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the reset camera
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>resetCamera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">reset the camera
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>bkgndColor</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;black&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">image background color
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>throttle</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">minimum time between image frames
+(in seconds)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>recordEnable</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">enable frame recording
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>recordFile</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;image&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">file name for frame recording
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>recordFormat</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;rgb&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">file format for frame recording
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>recordRes</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Image resolution for recording
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>recordAspect</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Image aspect ratio for recording
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesEnabled</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">produce axes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesLabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no labels
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">labels for axes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesTicks</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer or integer list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">15
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of major tick marks (0 to
+suppress)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesCorners</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">bounds of axes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesFrame</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">flag for axes frame type
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesAdjust</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">whether to adjust the end points
+to match tick marks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesCursor</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no cursor
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">cursor position
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesGrid</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">show grid lines on background
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesColors</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">appropriate color(s)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">color(s) for annotation
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesAnnotate</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;all&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">annotation objects to be colored
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>axesLabelScale</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1.0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">scale factor for labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>axesFont</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;standard&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">font for labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>intrctnMode</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;none&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">sets interaction mode of window
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>title</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;Image&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Image title
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>axesXTickLocs</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">locations for x-axis ticks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>axesYTickLocs</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">locations for y-axis ticks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>axesZTickLocs</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">locations for z-axis ticks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>axesXTickLabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">labels for x-axis ticks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>axesYTickLabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">labels for y-axis ticks
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>axesZTickLabels</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">labels for z-axis ticks
+
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>renderable</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">object, ready for rendering
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>camera</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">camera used
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>where</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">window
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">window identifier for the Image
+window
+
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module functions much like a combination of AutoCamera and Display.
+However,
+it activates the Data Explorer direct-interaction features of the Image window,
+which are unavailable when you use the combination of AutoCamera
+and Display.
+These features include resizing of the image, pan/zoom, 3-D cursors,
+mouse-driven rotation, navigation in the image, mouse control
+of the look-to and look-from points, and direct user control of
+Image-window size.
+The <TT><STRONG>View Control...</STRONG></TT> dialog box (accessed from
+the <TT><STRONG>Options</STRONG></TT> pull-down menu in the Image
+window) permits explicit specification of
+these features.
+
+<P><B>Note: </B>Since Image both renders and displays its input, you would not
+normally pass it an already existing image (because it would be
+interpreted as a large number of quadrilaterals).
+If you do have an image (e.g., previously imported or rendered by one
+of the appropriate modules), you should use the Display tool,
+without specifying a camera.
+<P>
+While the Image tool is only available while using the User Interface,
+you can implement your own interactions with an image using
+SuperviseWindow, SuperviseState, and Display. Thus direct interaction
+can be implemented from a stand-alone program using DXCallModule (see
+<A HREF="progu064.htm#HDRMODACSS">13.10 , "Module Access"</A> in <I>IBM
+Visualization Data Explorer Programmer&#39;s Reference</I>), from a program
+interacting with
+Data Explorer using DXLink (see <A HREF="progu084.htm#HDRDXLINK">Chapter 17.
+"DXLink Developer's Toolkit"</A> in <I>IBM Visualization Data Explorer
+Programmer&#39;s Reference</I>), or even from
+a script (see <A HREF="usrgu050.htm#HDRUSL">Chapter 10. "Data Explorer Scripting
+Language"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+See <A HREF="refgu153.htm#HDRSUPWIND">SuperviseWindow</A> for a discussion of
+these tools.
+
+<P>
+If it is installed, hardware graphics acceleration is available as one
+of the <TT><STRONG>Rendering Options...</STRONG></TT> in the
+<TT><STRONG>Options</STRONG></TT>  pull-down menu of the
+Image window.
+<P>
+
+Usually you will use only the first parameter,
+<TT><STRONG>object</STRONG></TT>. The other parameters, which are hidden by
+default, control aspects of the image which can also be modified by
+various pulldowns in the menu of the Image window.
+<P>
+To open the Configuration dialog box for Image, you select the Image tool
+and use the <TT><STRONG>Edit</STRONG></TT> menu
+<TT><STRONG>Configuration</STRONG></TT> option.
+
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>object</STRONG></TT>
+</B></TD><TD><P>specifies the object to be rendered.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>renderMode</STRONG></TT>
+</B></TD><TD><P>specifies whether the rendering should be software
+(renderMode=0) or
+hardware (renderMode=1).
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>defaultCamera</STRONG></TT>
+</B></TD><TD><P>is the camera to be used when the
+<TT><STRONG>Reset</STRONG></TT> button
+in the <TT><STRONG>View Control</STRONG></TT> dialog box or the
+<TT><STRONG>resetCamera</STRONG></TT> parameter (see
+below) is set to 1 (one).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>resetCamera</STRONG></TT>
+</B></TD><TD><P>(when set to 1) resets the camera to
+<UL COMPACT>
+<LI><TT><STRONG>defaultCamera</STRONG></TT> if that parameter is provided,
+<I>or</I>
+<LI>the standard "front view" if <TT><STRONG>defaultCamera</STRONG></TT>
+is not provided.
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>bkgndColor</STRONG></TT>
+</B></TD><TD><P>specifies the color of the image background as either an RGB
+color
+or a color-name string.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>throttle</STRONG></TT>
+</B></TD><TD><P>specifies a minimum interval between successive image displays.
+The default is 0 (no delay).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>recordEnable</STRONG></TT>
+</B></TD><TD><P>specifies that the created images are to be saved to a file.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>recordFile</STRONG></TT>
+</B></TD><TD><P>is the name of the file to which images are saved.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>recordFormat</STRONG></TT>
+</B></TD><TD><P>specifies the format in which the images are to be written.
+See <A HREF="refgu173.htm#HDRWRITEIM">WriteImage</A> for more information.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>recordRes</STRONG></TT>
+</B></TD><TD><P>specifies the horizontal resolution (in pixels) of the recorded
+image.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>recordAspect</STRONG></TT>
+</B></TD><TD><P>specifies the aspect ratio (i.e., the ratio of vertical to
+horizontal size) of the recorded image.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>axesEnabled</STRONG></TT>
+</B></TD><TD><P>specifies that a set of axes is to be drawn around
+<TT><STRONG>object</STRONG></TT>.
+</TD></TR><TR
+VALIGN="TOP"><TD><P><B><TT><STRONG>axesLabels</STRONG></TT>...<TT><STRONG>axesFo
+nt</STRONG></TT>
+</B></TD><TD><P>are (except for "axes" in the name) the same as the
+corresponding parameters described for <A
+HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>intrctnMode</STRONG></TT>
+</B></TD><TD><P>specifies one of the following as the interaction mode of the
+Image
+window:
+<PRE>
+"camera"       "none"        "roam"
+"cursors"      "panzoom"     "rotate"
+"navigate"     "pick"        "zoom"
+</PRE>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>title</STRONG></TT>
+</B></TD><TD><P>is the title of the Image window.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>axesXTickLocs</STRONG></TT>
+</B></TD><TD><P>specifies the list of x-axis tick locations (see
+<A HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>axesYTickLocs</STRONG></TT>
+</B></TD><TD><P>specifies the list of y-axis tick locations (see
+<A HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>axesZTickLocs</STRONG></TT>
+</B></TD><TD><P>specifies the list of z-axis tick locations (see
+<A HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>axesXTickLabels</STRONG></TT>
+</B></TD><TD><P>specifies the list of x-axis tick labels (see
+<A HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>axesYTickLabels</STRONG></TT>
+</B></TD><TD><P>specifies the list of y-axis tick labels (see
+<A HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>axesZTickLabels</STRONG></TT>
+</B></TD><TD><P>specifies the list of z-axis tick labels (see
+<A HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>)
+
+</TD></TR></TABLE>
+<P>
+The first output of the Image tool (<TT><STRONG>renderable</STRONG></TT>)
+is the object just before rendering (including, for example,
+any axes attached).
+<P>
+The second output (<TT><STRONG>camera</STRONG></TT>) is the camera used to
+render <TT><STRONG>object</STRONG></TT> (including, for example, any
+zooms or rotations applied by direct interactors).
+<P>
+
+The third output <TT><STRONG>where</STRONG></TT> is the window identifier for
+the Image window. This can be used, for example, by ReadImageWindow to
+read back the pixels from the image.
+
+<P>
+<H5><A NAME="Header_116">Recording images displayed in the Image window</A></H5>
+<OL COMPACT>
+<LI>select <TT><STRONG>Save Image...</STRONG></TT> or
+<TT><STRONG>Print Image...</STRONG></TT> in the
+<TT><STRONG>File</STRONG></TT>
+pull-down menu,
+<I>or</I>
+<LI>use the <TT><STRONG>record...</STRONG></TT> parameters (see above).
+</OL>
+<P>
+<H5><A NAME="Header_117">Caching of Objects Internally in the Image
+Tool</A></H5>
+<P>
+The Image tool is implemented as a macro comprising a number of
+modules.
+You can control the caching of intermediate results between these
+modules using the special "Internal Caching" option
+in the module&#39;s configuration dialog box (see
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>, "Using Data Explorer
+Effectively".
+<P>
+<H5><A NAME="Header_118">How the Image Window Centers on an Object</A></H5>
+<P>
+The first time the Image tool executes after being placed on the
+canvas, it "centers" itself on <TT><STRONG>object</STRONG></TT>.
+From then on, it maintains that viewpoint unless the user explicitly
+changes it (e.g., by using rotate, zoom, roam, etc.).
+Thus, if the object is moving in space, you may at times see only part
+of it or even none of it.
+You can "reset" the camera at any time with
+<TT><STRONG>ResetCamera</STRONG></TT> in the
+<TT><STRONG>View Control...</STRONG></TT>
+dialog box or by using the Image
+parameter
+<TT><STRONG>resetCamera</STRONG></TT>.
+
+<P>
+<H5><A NAME="Header_119">Getting the Output Image</A></H5>
+<P>
+If you want to extract the rendered image so that, for example, you can
+filter it or arrange it with other images (see
+<A HREF="refgu061.htm#HDRFILTER">Filter</A>),
+then simply pass the first and second outputs
+of Image to the first and second inputs of Render.
+Alternatively,
+pass the <TT><STRONG>where</STRONG></TT> output to the ReadImageWindow module.
+Using the ReadImageWindow module allows you to capture the pixels from a
+hardware-rendered image. Note however, that for some platforms, if the
+image window is obscured (by another window for example) the obscured
+pixels may not be present in the captured image.
+<P>
+<H5><A NAME="Header_120">Tracking the Image window with another window</A></H5>
+<P>If you want to have two images visible, and want to alternatively
+control the viewpoint, resolution, etc. of one of the windows while
+having the second window display a different object from the same
+viewpoint, simply use the <TT><STRONG>camera</STRONG></TT> output of the Image
+tool as input to the <TT><STRONG>camera</STRONG></TT> input of a Display tool.
+The first input of Display should be the other object you wish to view.
+For an example, see WindVorticity.net.
+
+<P>
+For more information on using the Image tool in the user interface,
+see <A HREF="usrgu040.htm#HDRUSEIMAG">6.1 , "Using the Image Window"</A> in
+<I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+Also see <A HREF="refgu048.htm#HDRDISPLAY">Display</A>
+for information under the following
+headings:
+<BR>
+&nbsp;<A HREF="refgu048.htm#HDRHARDSOF">"Differences between Hardware and
+Software Rendering"</A>,<BR>
+&nbsp;<A HREF="refgu048.htm#HDRHARDREN">"Rendering Approximations"</A>,<BR>
+&nbsp;<A HREF="refgu048.htm#HDRUDFCMPS">"Using Default Color Maps"</A>,<BR>
+&nbsp;<A HREF="refgu048.htm#HDRUDCMPS">"Using Direct Color Maps"</A>,<BR>
+&nbsp;<A HREF="refgu048.htm#HDRCHRNDPR">"Changing Rendering Properties"</A>,<BR>
+&nbsp;<A HREF="refgu048.htm#HDRGAMMACO">"Gamma Correction"</A>,<BR>
+&nbsp;<A HREF="refgu048.htm#HDRIMGCACH">"Image Caching"</A>,<BR>
+
+&nbsp;<A HREF="refgu048.htm#HDRTEXTMAP">"Texture Mapping"</A><BR>
+<BR>
+
+See also <A HREF="refgu033.htm#HDRCOLOR">Color</A> for information on
+<A HREF="refgu048.htm#HDRCVOLRND">"Coloring Objects for Volume Rendering"</A>.
+
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+Nearly every example visual program uses the Image tool.
+<TT>ImageTool.net</TT> uses the hidden-by-default parameters.
+
+<TT>Image_wo_UI.net</TT> demonstrates a substitute Image macro using
+SuperviseWindow, SuperviseState, and Display, which can be used
+independent of the User Interface.
+
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu012.htm#HDRARRANGE">Arrange</A>,
+&nbsp;<A HREF="refgu015.htm#HDRAUTOCAM">AutoCamera</A>,
+&nbsp;<A HREF="refgu048.htm#HDRDISPLAY">Display</A>,
+&nbsp;<A HREF="refgu118.htm#HDRRENDER">Render</A>,
+
+&nbsp;<A HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>,
+&nbsp;<A HREF="refgu153.htm#HDRSUPWIND">SuperviseWindow</A>,
+&nbsp;<A HREF="refgu152.htm#HDRSUPSTAT">SuperviseState</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

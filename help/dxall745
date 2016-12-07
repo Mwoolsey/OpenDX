@@ -1,0 +1,250 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rapf User Interface Configuration #!N #!EC 
+#!N #!N Data Explorer provides its own set of resources for 
+customizing the user interface in addition to the standard X-window and 
+Motif resources. These resources (see table) can be specified in the 
+.Xdefaults resource file, and a majority can be invoked as command 
+line switches or options. For example: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+DX*noImagePrinting: true #!N DX*restrictionLevel: maximum #!EF #!N #!N #!EC are valid 
+resource-file entries. The corresponding command line format is: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N dx -image -noImagePrinting -restrictionLevel maximum #!EF #!N #!N #!EC 
+#!N #!N The command line switch for a Boolean resource (e.g., 
+-noImagePrinting) toggles the default value.  #!Rrescfg8 #!T,1,216,431,536,641  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 
+8. Resource Configuration Table #!N TAB Resource Name TAB Command Line 
+Option (if available) TAB Type TAB Default #!EF #!N TAB DX*errorEnabled 
+TAB N/A TAB Boolean TAB true #!N TAB DX*errorOpensMessage TAB N/A 
+TAB Boolean TAB true #!N TAB DX*infoEnabled TAB N/A TAB Boolean 
+TAB true #!N TAB DX*infoOpensMessage TAB N/A TAB Boolean TAB true 
+#!N TAB DX*limitImageOptions TAB -limitImageOptions TAB Boolean TAB false #!N TAB 
+DX*metric TAB -metric TAB Boolean TAB false #!N TAB DX*noConfirmedQuit TAB 
+-noConfirmedQuit TAB Boolean TAB false #!N TAB DX*noCMapOpenMap TAB -noCMapOpenMap TAB 
+Boolean TAB false #!N TAB DX*noCMapSaveMap TAB -noCMapSaveMap TAB Boolean TAB 
+false #!N TAB DX*noCMapSetNameOption TAB -noCMapSetNameOption TAB Boolean TAB false #!N 
+TAB DX*noDXHelp TAB -noDXHelp TAB Boolean TAB false #!N TAB DX*noEditorAccess 
+TAB -noEditorAccess TAB Boolean TAB false #!N TAB DX*noEditorOnError TAB -noEditorOnError 
+TAB Boolean TAB false #!N TAB DX*noImageLoad TAB -noImageLoad TAB Boolean 
+TAB false #!N TAB DX*noImageMenus TAB -noImageMenus TAB Boolean TAB false 
+#!N TAB DX*noImagePrinting TAB -noImagePrinting TAB Boolean TAB false #!N TAB 
+DX*noImageRWNetFile TAB -noImageRWNetFile TAB Boolean TAB false #!N TAB DX*noImageSaving TAB 
+-noImageSaving TAB Boolean TAB false #!N TAB DX*noInteractorAttribute TAB -noInteractorAttribute TAB 
+Boolean TAB false #!N TAB DX*noInteractorEdits TAB -noInteractorEdits TAB Boolean TAB 
+false #!N TAB DX*noInteractorMovement TAB -noInteractorMovement TAB Boolean TAB false #!N 
+TAB DX*noMessageInfoOption TAB -noMessageInfoOption TAB Boolean TAB false #!N TAB DX*noMessageWarningOption 
+TAB -noMessageWarningOption TAB Boolean TAB false #!N TAB DX*noOpenAllPanels TAB -noOpenAllPanels 
+TAB Boolean TAB false #!N TAB DX*noPGroupAssignment TAB -noPGroupAssignment TAB Boolean 
+TAB false #!N TAB DX*noPanelAccess TAB -noPanelAccess TAB Boolean TAB false 
+#!N TAB DX*noPanelEdit TAB -noPanelEdit TAB Boolean TAB false #!N TAB 
+DX*noPanelRWConfig TAB -noPanelRWConfig TAB Boolean TAB false #!N TAB DX*noScriptCommand TAB 
+-noScriptCommand TAB Boolean TAB false #!N TAB DX*printImageCommand TAB N/A TAB 
+String TAB "lpr" #!N TAB DX*printImageFormat TAB N/A TAB String TAB 
+"PSCOLOR" #!N TAB DX*printImagePageSize TAB N/A TAB String TAB NULL #!N 
+TAB DX*printImageResolution TAB N/A TAB int TAB 0 #!N TAB DX*printImageSize 
+TAB N/A TAB String TAB NULL #!N TAB DX*restrictionLevel TAB -restrictionlevel 
+TAB String TAB NULL #!N TAB DX*saveImageFormat TAB N/A TAB String 
+TAB "PSCOLOR" #!N TAB DX*saveImagePageSize TAB N/A TAB String TAB NULL 
+#!N TAB DX*saveImageResolution TAB N/A TAB int TAB 0 #!N TAB 
+DX*saveImageSize TAB N/A TAB String TAB NULL #!N TAB DX*vpeCanvas.lineThickness TAB 
+N/A TAB int TAB 1 #!N TAB DX*warningEnabled TAB N/A TAB 
+Boolean TAB true #!N TAB DX*warningOpensMessage TAB N/A TAB Boolean TAB 
+true #!N #!I0 #!N #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+DX*errorEnabled #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Specifies the 
+default value of the  #!F-adobe-times-bold-r-normal--18*   Error Messages #!EF toggle button in 
+the Message window's  #!F-adobe-times-bold-r-normal--18*   Option #!EF menu. #!CForestGreen #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*errorOpensMessage #!EF #!EF #!EF #!N #!N #!EC #!I50 
+#!N Specifies whether or not the Message window pops up when 
+an error message is printed in the Message window. #!CForestGreen #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*infoEnabled #!EF #!EF #!EF #!N #!N 
+#!EC #!I50 #!N Specifies the default value of the  #!F-adobe-times-bold-r-normal--18*   Information 
+Messages #!EF toggle button in the Message window's  #!F-adobe-times-bold-r-normal--18*   Option #!EF 
+menu. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*infoOpensMessage #!EF #!EF 
+#!EF #!N #!N #!EC #!I50 #!N Specifies whether or not the 
+Message window pops up when an informational message is printed in 
+the Message window. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*limitImageOptions 
+#!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   
+Image Depth #!EF ,  #!F-adobe-times-bold-r-normal--18*   Throttle #!EF ,  #!F-adobe-times-bold-r-normal--18*   Change Image 
+Name... #!EF , and  #!F-adobe-times-bold-r-normal--18*   Panel Access... #!EF menu commands from 
+the Image window's  #!F-adobe-times-bold-r-normal--18*   Options #!EF menu. #!CForestGreen #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*metric #!EF #!EF #!EF #!N #!N #!EC #!I50 
+#!N Specifies that Data Explorer use the metric system (centimeters) when 
+set to "true." The default is the English system (inches). The 
+ #!F-adobe-times-bold-r-normal--18*   Print Image #!EF and  #!F-adobe-times-bold-r-normal--18*   Save Image #!EF dialog boxes 
+option menus are affected accordingly. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DX*noConfirmedQuit #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Turns 
+off the "Are you sure you want to quit Data Explorer?" 
+message. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noCMapOpenMap #!EF #!EF 
+#!EF #!N #!N #!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Open... #!EF 
+menu command from the Colormap Editor's  #!F-adobe-times-bold-r-normal--18*   File #!EF menu. #!CForestGreen 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noCMapSaveMap #!EF #!EF #!EF #!N 
+#!N #!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Save As... #!EF menu 
+command from the Colormap Editor's  #!F-adobe-times-bold-r-normal--18*   File #!EF menu. #!CForestGreen #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noCMapSetNameOption #!EF #!EF #!EF #!N #!N 
+#!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Set Colormap Name... #!EF menu 
+command from the Colormap Editor's  #!F-adobe-times-bold-r-normal--18*   Options #!EF menu. #!CForestGreen #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noDXHelp #!EF #!EF #!EF #!N #!N 
+#!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   On Context #!EF ,  #!F-adobe-times-bold-r-normal--18*   
+On Manual #!EF and  #!F-adobe-times-bold-r-normal--18*   On Help #!EF menu commands from 
+the Help menu of both the Control Panel and the Image 
+window. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noEditorAccess #!EF #!EF 
+#!EF #!N #!N #!EC #!I50 #!N Removes (1) the  #!F-adobe-times-bold-r-normal--18*   Delete 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   Show Selected Interactor #!EF ,  #!F-adobe-times-bold-r-normal--18*   Add Selected 
+Interactor #!EF ,  #!F-adobe-times-bold-r-normal--18*   Show Selected Tool #!EF , and  #!F-adobe-times-bold-r-normal--18*   
+Comment... #!EF menu commands from the Control Panel's  #!F-adobe-times-bold-r-normal--18*   Edit #!EF 
+menu; (2) the  #!F-adobe-times-bold-r-normal--18*   Open Visual Program Editor #!EF menu commands 
+from the Image window's  #!F-adobe-times-bold-r-normal--18*   Windows #!EF menu. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noEditorOnError #!EF #!EF #!I50 #!N Turns off default behavior 
+of popping up the VPE when an error occurs. Instead, a 
+question dialog box is popped up, with the name of the 
+visual program, which lets the user choose whether or not to 
+open the VPE on the .net file. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DX*noImageLoad #!EF #!EF #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Load Macro... 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   Load Module Definition(s)... #!EF menu commands from the 
+Image window's  #!F-adobe-times-bold-r-normal--18*   File #!EF menu. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noImageMenus #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N 
+Removes the bar from all Image and Display windows. #!CForestGreen #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noImagePrinting #!EF #!EF #!EF #!N #!N 
+#!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Print Image... #!EF menu command 
+from the Image window's  #!F-adobe-times-bold-r-normal--18*   File #!EF menu. #!CForestGreen #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noImageRWNetFile #!EF #!EF #!EF #!N #!N #!EC 
+#!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Open #!EF ,  #!F-adobe-times-bold-r-normal--18*   Save #!EF 
+, and  #!F-adobe-times-bold-r-normal--18*   Save As... #!EF menu commands from the Image 
+window's  #!F-adobe-times-bold-r-normal--18*   File #!EF menu. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DX*noImageSaving #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Removes 
+the  #!F-adobe-times-bold-r-normal--18*   Save Image... #!EF menu command from the Image window's 
+ #!F-adobe-times-bold-r-normal--18*   File #!EF menu. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+DX*noInteractorAttribute #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Removes the 
+ #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF menu command from the Control Panel's  #!F-adobe-times-bold-r-normal--18*   
+Edit #!EF menu. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noInteractorEdits 
+#!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   
+Set Style #!EF ,  #!F-adobe-times-bold-r-normal--18*   Set Layout #!EF ,  #!F-adobe-times-bold-r-normal--18*   Set 
+Dimensionality #!EF , and  #!F-adobe-times-bold-r-normal--18*   Set Interactor Label... #!EF menu commands 
+from the Control Panel's  #!F-adobe-times-bold-r-normal--18*   Edit #!EF menu. #!CForestGreen #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noInteractorMovement #!EF #!EF #!EF #!N #!N #!EC 
+#!I50 #!N Restricts the ability to move interactor instances within a 
+Control Panel. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noMessageInfoOption #!EF 
+#!EF #!EF #!N #!N #!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Information 
+Messages #!EF toggle button from the Message window's  #!F-adobe-times-bold-r-normal--18*   Options #!EF 
+menu. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noMessageWarningOption #!EF #!EF 
+#!EF #!N #!N #!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Warning Messages 
+#!EF toggle button from the Message window's  #!F-adobe-times-bold-r-normal--18*   Options #!EF menu. 
+#!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noOpenAllPanels #!EF #!EF #!EF 
+#!N #!N #!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Open All Panels... 
+#!EF menu command from the  #!F-adobe-times-bold-r-normal--18*   Panels #!EF menu of the 
+Control Panel and the  #!F-adobe-times-bold-r-normal--18*   Windows #!EF menu of the Image 
+window. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noPGroupAssignment #!EF #!EF 
+#!EF #!N #!N #!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Execution Group 
+Assignment... #!EF menu command from the Image window's  #!F-adobe-times-bold-r-normal--18*   Connection #!EF 
+menu. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noPanelAccess #!EF #!EF 
+#!EF #!N #!N #!EC #!I50 #!N Removes (1) the Control Panel's 
+ #!F-adobe-times-bold-r-normal--18*   Panels #!EF menu and all its menu commands; (2) the 
+ #!F-adobe-times-bold-r-normal--18*   Open All Control Panels #!EF and  #!F-adobe-times-bold-r-normal--18*   Open Control Panel 
+by Name #!EF menu commands from the Image window's  #!F-adobe-times-bold-r-normal--18*   Windows 
+#!EF menu. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noPanelEdit #!EF 
+#!EF #!EF #!N #!N #!EC #!I50 #!N Removes the Control Panel's 
+ #!F-adobe-times-bold-r-normal--18*   Edit #!EF menu and all its menu commands. This is 
+equivalent to the following options: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N noInteractorEdits 
+#!N noInteractorAttribute #!N noEditorAccess #!N noInteractorMovement #!EF #!N #!N #!EC #!N 
+#!N By restricting the ability to highlight interactors with a mouse 
+click, this option in effect also disables interactor movement. #!CForestGreen #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noRWConfig #!EF #!EF #!EF #!N #!N 
+#!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Open... #!EF and  #!F-adobe-times-bold-r-normal--18*   Save 
+As... #!EF menu commands from the  #!F-adobe-times-bold-r-normal--18*   File #!EF menu. #!CForestGreen 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*noScriptCommand #!EF #!EF #!EF #!N 
+#!N #!EC #!I50 #!N Removes the  #!F-adobe-times-bold-r-normal--18*   Execute Script Command... #!EF 
+menu command from the Message window's  #!F-adobe-times-bold-r-normal--18*   Options #!EF menu. #!CForestGreen 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*printImageCommand #!EF #!EF #!EF #!N 
+#!N #!EC #!I50 #!N Specifies the default print image command to 
+be used use in the  #!F-adobe-times-bold-r-normal--18*   Print Image #!EF dialog box 
+available from the Image window. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DX*printImageFormat #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Specifies 
+the default file format to be used in the  #!F-adobe-times-bold-r-normal--18*   Print 
+Image #!EF dialog box available in the Image window. The following 
+values are recognized: #!T,1,81,241,646 #!N TAB - TAB PSCOLOR TAB Color 
+PostScript #!N TAB - TAB PSGREY TAB Gray level PostScript #!N 
+TAB - TAB EPSCOLOR TAB Encapsulated Color PostScript #!N TAB - 
+TAB EPSGREY TAB Encapsulated Gray level PostScript #!N #!T,0 #!N #!N 
+#!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*printImagePageSize #!EF #!EF #!EF 
+#!N #!N #!EC #!I50 #!N Specifies the default page size that 
+PostScript images should be centered on when printing images from the 
+ #!F-adobe-times-bold-r-normal--18*   Print Image #!EF dialog box available from the Image window. 
+Units are those indicated by the metric option. #!CForestGreen #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*printImageResolution #!EF #!EF #!EF #!N #!N #!EC 
+#!I50 #!N Specifies the default resolution that PostScript images should be 
+printed with when printing images from the  #!F-adobe-times-bold-r-normal--18*   Print Image #!EF 
+dialog box available from the Image window. Resolution is in dots 
+per inch unless the DX*metric resource is set, in which case 
+dots per centimeter is used. This resource is overridden by the 
+printImageSize resource. If this is set to zero (the default), then 
+the  #!F-adobe-times-bold-r-normal--18*   Print Image... #!EF dialog box chooses the resolution. #!CForestGreen 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*printImageSize #!EF #!EF #!EF #!N 
+#!N #!EC #!I50 #!N Specifies the default size of PostScript images 
+printed from the  #!F-adobe-times-bold-r-normal--18*   Print Image #!EF dialog box available from 
+the Image window. If specified this option overrides the printImageResolution option. 
+The value is a string in the same format as that 
+accepted by the dialog box (for example, "8," "8x," "x10," "8x10"). 
+Units are those indicated by the metric option. The default value 
+is determined by printImageResolution option. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DX*restrictionLevel #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Combines 
+options to make it easier to build applications on top of 
+Data Explorer. The string value must be one of the following: 
+#!T,1,261,651,651 #!N TAB - TAB minimum TAB Combines the restrictions implied 
+by the following options: #!N TAB - TAB - TAB #!N 
+TAB - TAB - TAB noEditorAccess #!N TAB - TAB - 
+TAB noInteractorEdits #!N TAB - TAB - TAB noInteractorMovement #!N TAB 
+- TAB - TAB limitImageOptions #!N TAB - TAB - TAB 
+noScriptCommand #!N TAB - TAB - TAB noCMapSetNameOption #!N TAB - 
+TAB intermediate TAB Combines the restrictions implied by minimum restriction level 
+plus the following #!N TAB - TAB - TAB options: #!N 
+TAB - TAB - TAB #!N TAB - TAB - TAB 
+noImageRWNetFile #!N TAB - TAB - TAB noOpenAllPanels #!N TAB - 
+TAB - TAB noImageLoad #!N TAB - TAB - TAB noPanelEdit 
+#!N TAB - TAB - TAB noPanelOptions #!N TAB - TAB 
+- TAB noPGroupAssignment #!N TAB - TAB maximum TAB Combines the 
+restrictions implied by the intermediate restriction level plus the #!N TAB 
+- TAB - TAB following options: #!N TAB - TAB - 
+TAB #!N TAB - TAB - TAB noPanelRWConfig #!N TAB - 
+TAB - TAB noImageSaving #!N TAB - TAB - TAB noPanelAccess 
+#!N TAB - TAB - TAB noCMapOpenMap #!N TAB - TAB 
+- TAB noCMapSaveMap #!N #!T,0 #!N #!N #!CForestGreen #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*saveImageFormat #!EF #!EF #!EF #!N #!N #!EC #!I50 
+#!N Specifies the default file format to be used in the 
+ #!F-adobe-times-bold-r-normal--18*   Print Image #!EF dialog box available in the Image window. 
+The following values are recognized: #!T,1,81,241,646 #!N TAB - TAB PSCOLOR 
+TAB Color PostScript #!N TAB - TAB PSGREY TAB Gray level 
+PostScript #!N TAB - TAB EPSCOLOR TAB Encapsulated Color PostScript #!N 
+TAB - TAB EPSGREY TAB Encapsulated Gray level PostScript #!N TAB 
+- TAB RGB TAB "rgb" format #!N TAB - TAB R+G+B 
+TAB "r+g+b" format #!N TAB - TAB TIFF TAB TIFF format 
+#!N #!T,0 #!N #!N #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+DX*saveImagePageSize #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Specifies the 
+default page size that PostScript images should be centered on when 
+saving images from the  #!F-adobe-times-bold-r-normal--18*   Save Image #!EF dialog box available 
+from the Image window. Units are those indicated by the metric 
+option. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*saveImageResolution #!EF #!EF 
+#!EF #!N #!N #!EC #!I50 #!N Specifies the default resolution that 
+PostScript images should be saved with when saving images from the 
+ #!F-adobe-times-bold-r-normal--18*   Save Image #!EF dialog box available from the Image window. 
+Resolution is in dots per inch unless the DX*metric resource is 
+set, in which case dots per centimeter is used. This resource 
+is overridden by the saveImageSize resource. If this is set to 
+zero (the default), then the  #!F-adobe-times-bold-r-normal--18*   Save Image #!EF dialog box 
+chooses the resolution, which may be specified inside the visual program. 
+#!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*saveImageSize #!EF #!EF #!EF 
+#!N #!N #!EC #!I50 #!N Specifies the default size of PostScript 
+images saved from the  #!F-adobe-times-bold-r-normal--18*   Print Image #!EF dialog box available 
+from the Image window. If specified this option overrides the saveImageResolution 
+option. The value is a string in the same format as 
+that accepted by the dialog box (for example, "8," "8x," "x10," 
+"8x10"). Units are those indicated by the metric option. The default 
+value is determined by saveImageResolution option. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*vpeCanvas.lineThickness #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N 
+Specifies the thickness of the lines that connect module outputs to 
+module inputs in the VPE. #!CForestGreen #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DX*warningEnabled #!EF #!EF #!EF #!N #!N #!EC #!I50 #!N Specifies 
+the default value of the  #!F-adobe-times-bold-r-normal--18*   Warning Messages #!EF toggle button 
+in the Message window's  #!F-adobe-times-bold-r-normal--18*   Option #!EF menu. #!CForestGreen #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DX*warningOpensMessage #!EF #!EF #!EF #!N #!N #!EC 
+#!I50 #!N Specifies whether or not the Message window pops up 
+when a warning message is printed in the Message window. #!I0 
+#!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lapc,dxall746 h Data Explorer Fonts  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

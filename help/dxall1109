@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rclrs Colors #!N #!EC #!N #!N 
+Colors define the photometric characteristics of an Object; they may be 
+associated with points, triangles, or lights, and may be used to 
+define its reflectance or opacity. In Data Explorer, colors are floating-point 
+numbers and therefore open ended, as is light intensity in the 
+real world. However, real output devices can display only a limited 
+range of intensities. In general, the range from 0.0 to 1.0 
+is by default mapped onto the range of displayable intensities of 
+the output device, so colors should normally be specified in this 
+range. Data Explorer provides a routine that constructs an RGB color 
+structure. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N typedef struct rgbcolor { #!N 
+float r, g, b; #!N } RGBColor; #!EF #!N #!N #!EC 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   RGBColor DXRGB() #!EF 
+#!EF #!I50 #!N Constructs an RGB color structure with the given 
+components. See  #!Ldxrcol,dxall1360 h DXRGB  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXColorNameToRGB() 
+#!EF #!EF #!I50 #!N Gets the RGB values for a specified 
+colorname string. See  #!Ldxcntr,dxall1182 h DXColorNameToRGB  #!EL  . #!I0 #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1109,dxall1110 h Angles  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

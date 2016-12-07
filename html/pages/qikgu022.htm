@@ -1,0 +1,424 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Visualizing 3-Dimensional Data</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu021.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu023.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu016.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>3.7 Visualizing 3-Dimensional Data</H2>
+		<A NAME="IDX124"></A><A NAME="IDX125"></A>
+<P>
+The following examples illustrate several ways of visualizing
+3-dimensional data.
+<P>
+<H3><A NAME="HDRTISOSRF" ></A>Isosurfaces</H3>
+<A NAME="IDX126"></A>
+<P>
+This example uses cloud-water density data for a severe storm.
+<OL COMPACT>
+<LI>Open and execute visual program <TT>.../Isosurface3D.net</TT>.
+<P>
+The "isovalue" used for generating the isosurface that appears is,
+by default, the average of all the data values.
+(The default isovalue can be found by selecting <TT><STRONG>Open Message
+Window</STRONG></TT> in the <TT><STRONG>Windows</STRONG></TT> pull-down menu.)
+<LI>Change the isovalue:
+<OL COMPACT>
+<LI>Open the configuration dialog box for
+<TT><STRONG>Isosurface</STRONG></TT>.
+<LI>In the <TT><STRONG>value</STRONG></TT> parameter
+field, set the value to "0.3."
+<LI>Click on <TT><STRONG>OK</STRONG></TT> and reexecute
+the visual program.
+The new isosurface is significantly smaller.
+</OL>
+</OL>
+<P>
+See Isosurface in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+<P>
+<H3><A NAME="HDRTSLICE" ></A>Slices</H3>
+<A NAME="IDX127"></A>
+Following are a few examples of how to generate and process data
+slices.
+<P>
+For 3-dimensional data on any type of grid or for non-orthogonal slices,
+use the <TT><STRONG>MapToPlane</STRONG></TT> tool.
+If the data set is on a regular grid, use the <TT><STRONG>Slab</STRONG></TT>
+tool to take slices along connection elements.
+You can use other tools (e.g., <TT><STRONG>AutoColor</STRONG></TT> or
+<TT><STRONG>RubberSheet</STRONG></TT>) on data slices just
+as you can on any 2-dimensional object.
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../MapToPlane.net</TT>.
+The image is a colored plane through a 3-dimensional data
+field.
+By default, <TT><STRONG>MapToPlane</STRONG></TT> maps onto a plane at the
+center of the data.
+To change the orientation of this plane:
+<LI>Open the configuration dialog box for <TT><STRONG>MapToPlane</STRONG></TT>,
+change the value in the <TT><STRONG>normal</STRONG></TT> parameter field to
+&#91;1 1 1&#93; and click on <TT><STRONG>OK</STRONG></TT>.
+The change of orientation will appear when the program is reexecuted.
+<LI>Reexecute the visual program.
+<TT><STRONG>MapToPlane</STRONG></TT> performs the necessary interpolation
+for a data slice of any orientation in a 3-dimensional field.
+<P>
+See MapToPlane in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+</OL>
+<P>
+To visualize an orthogonal slice without interpolation, use
+<TT><STRONG>Slab</STRONG></TT>:
+<OL COMPACT>
+<LI>Open and execute visual program <TT>.../Slab.net</TT>.
+The image is a translucent isosurface with a colored slice (or slab)
+cutting through it.
+To visualize a slice through another part of the isosurface:
+<LI>Open the configuration dialog box for <TT><STRONG>Slab</STRONG></TT> and
+change the <TT><STRONG>position</STRONG></TT> parameter value to "10."
+<LI>Click on <TT><STRONG>OK</STRONG></TT> or <TT><STRONG>Apply</STRONG></TT>.
+<LI>Reexecute the visual program.
+The position of the new slice is changed.
+<P>
+See Slab in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+</OL>
+<P>
+To create an animation that generates different slices of the data:
+<OL COMPACT>
+<LI>Select <TT><STRONG>Special</STRONG></TT> in the categories palette and
+then <TT><STRONG>Sequencer</STRONG></TT> in the tools palette.
+<LI>Position the cursor to the right of <TT><STRONG>Slab</STRONG></TT> in the
+VPE.
+<LI>Open the <TT><STRONG>Slab</STRONG></TT> configuration dialog box.
+<LI>Click on the <TT><STRONG>position</STRONG></TT> toggle (unsetting the
+parameter value).
+The parameter field now reads "(all)" and the <I>third</I>
+input tab on the <TT><STRONG>Slab</STRONG></TT> icon (counting from
+the left) projects outward from the icon (instead of
+into it).
+<LI>Click on <TT><STRONG>OK</STRONG></TT>.
+<LI>Connect the output tab of <TT><STRONG>Sequencer</STRONG></TT> to this
+third input tab (i.e., "position") of
+<TT><STRONG>Slab</STRONG></TT>.
+<LI>Double click on the <TT><STRONG>Sequencer</STRONG></TT> icon to display
+the <TT><STRONG>Sequence Control</STRONG></TT> panel.
+<LI>Click on the frame button (<TT><STRONG>...</STRONG></TT>) to
+display the <TT><STRONG>Frame Control</STRONG></TT> panel.
+<LI>Reset the limits:
+<OL COMPACT>
+<LI>Click on the <TT><STRONG>min</STRONG></TT> field, type "0," and
+press Enter.
+<LI>Click on the <TT><STRONG>max</STRONG></TT> field, type "20," and
+press Enter.
+</OL>
+<LI>Click on the Forward (&gt;) button to play the sequence.
+<P>
+See <A HREF="qikgu015.htm#HDRSEQUEN2">"Using the Sequencer"</A> in this Guide
+and <A HREF="refgu134.htm#HDRSEQUENC">Sequencer</A>
+in <I>IBM Visualization Data Explorer User&#39;s Reference</I>.
+</OL>
+<P>
+<H3><A NAME="HDRTSTMLN3" ></A>Streamlines</H3>
+<A NAME="IDX128"></A>
+<A NAME="IDX129"></A>
+<P>
+The <TT><STRONG>Streamline</STRONG></TT> module traces the path of a massless
+particle through a static velocity field.
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../Streamlines3D.net</TT>.
+The image is a translucent isosurface with a single streamline starting
+from the point &#91;25000 5000 25000&#93; (as specified in the
+<TT><STRONG>Streamline</STRONG></TT> module&#39;s
+configuration dialog box).
+This streamline can be transformed into a ribbon:
+<LI>Select <TT><STRONG>Annotation</STRONG></TT> in the categories palette and
+then <TT><STRONG>Ribbon</STRONG></TT> in the tools palette.
+<LI>Position the <TT><STRONG>Ribbon</STRONG></TT> icon below
+<TT><STRONG>Streamline</STRONG></TT> in the VPE
+canvas.
+<LI>Disconnect <TT><STRONG>Streamline</STRONG></TT> output from
+<TT><STRONG>Collect</STRONG></TT> input and reconnect it
+to <TT><STRONG>Ribbon</STRONG></TT> input.
+<LI>Connect <TT><STRONG>Ribbon</STRONG></TT> output to
+<TT><STRONG>Collect</STRONG></TT> input.
+<LI>Reexecute the visual program.
+The streamline changes to a ribbon.
+</OL>
+<P>
+If you want the twist of the ribbon to represent the vorticity of the
+wind field:
+<OL COMPACT>
+<LI>Open the <TT><STRONG>Streamline</STRONG></TT> configuration
+dialog box.
+<LI>Change the <TT><STRONG>flag</STRONG></TT> parameter value from "(input
+dependent)" to "1" and click on <TT><STRONG>OK</STRONG></TT>.
+<TT><STRONG>Streamline</STRONG></TT> computes the degree of twist from the
+vorticity of the wind field.
+<LI>Reexecute the visual program.
+The twist is greater in regions of higher wind vorticity.
+</OL>
+<P>
+To make the color of the ribbon correspond to wind velocity:
+<OL COMPACT>
+<LI>Select <TT><STRONG>Transformation</STRONG></TT> and then
+<TT><STRONG>AutoColor</STRONG></TT> in the palettes.
+<LI>Position the <TT><STRONG>AutoColor</STRONG></TT> icon between
+<TT><STRONG>Ribbon</STRONG></TT> and <TT><STRONG>Collect</STRONG></TT>
+in the VPE canvas.
+<LI>Disconnect the <TT><STRONG>Ribbon</STRONG></TT> output from the
+<TT><STRONG>Collect</STRONG></TT> input and reconnect
+it to the first (leftmost) input of
+<TT><STRONG>AutoColor</STRONG></TT>.
+<P><B>Note: </B>Both input tabs can accept a connection, but the
+semi-highlighting
+indicates <I>required</I> input (i.e., the module cannot function
+without it).
+<LI>Connect the first (leftmost) output of <TT><STRONG>AutoColor</STRONG></TT>
+to the available input of <TT><STRONG>Collect</STRONG></TT>.
+<LI>Reexecute the visual program.
+Note the variation of color in the ribbon.
+<P>
+See Ribbon and Streamline in <I>IBM Visualization Data Explorer User&#39;s
+Reference</I>.
+</OL>
+<P>
+<H3><A NAME="HDRT3DSGLY" ></A>3-D Scalar Glyphs</H3>
+<A NAME="IDX130"></A>
+<A NAME="IDX131"></A>
+<A NAME="IDX132"></A>
+<P>
+Scalar glyphs can represent 3-dimensional as well as 2-dimensional
+data.
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../AutoGlyph3DScalar.net</TT>.
+The spherical glyphs on the isosurface represent a subset of the
+data elements.
+<LI>To visualize the entire data set:
+<OL COMPACT>
+<LI>Disconnect the <TT><STRONG>Map</STRONG></TT> output from
+<TT><STRONG>AutoGlyph</STRONG></TT>.
+<LI>Connect the output of the left-hand <TT><STRONG>Import</STRONG></TT>
+module to the first ("data") input tab of
+<TT><STRONG>AutoGlyph</STRONG></TT>.
+<LI>Reexecute the visual program.
+The number of glyphs is greatly increased.
+</OL>
+</OL>
+<P>
+You can also create your own glyphs (both scalar and vector).
+For example:
+<UL COMPACT>
+<LI>Connect the output of <TT><STRONG>Shade</STRONG></TT> to the second
+("type") input tab of <TT><STRONG>AutoGlyph</STRONG></TT>.
+<LI>Reexecute the visual program.
+The combination of <TT><STRONG>Construct</STRONG></TT>,
+<TT><STRONG>Connect</STRONG></TT>, and
+<TT><STRONG>Shade</STRONG></TT>
+produces a small
+pyramidal glyph.
+<P>
+See AutoGlyph, Connect, Construct, and Shade in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>.
+</UL>
+<P>
+<H3><A NAME="HDRT3DVGLY" ></A>3-D Vector Glyphs</H3>
+<A NAME="IDX133"></A>
+<A NAME="IDX134"></A>
+<A NAME="IDX135"></A>
+<P>
+Vector glyphs can represent 3-dimensional as well as 2-dimensional
+data.
+<OL COMPACT>
+<LI>Open and execute visual program
+<TT>.../AutoGlyph3DVector.net</TT>.
+The image is a set of 3-dimensional arrow glyphs on an isosurface.
+<LI>To visualize the entire data set:
+<OL COMPACT>
+<LI>Disconnect <TT><STRONG>Map</STRONG></TT> output from
+<TT><STRONG>AutoGlyph</STRONG></TT>.
+<LI>Connect the output of the left-hand <TT><STRONG>Import</STRONG></TT>
+module to the first ("data") input tab of
+<TT><STRONG>AutoGlyph</STRONG></TT>.
+<LI>Reexecute the visual program.
+The number of glyphs is greatly increased.
+</OL>
+</OL>
+<P>
+<H3><A NAME="HDRTVOLRND" ></A>Volume Rendering</H3>
+<A NAME="IDX136"></A>
+<A NAME="IDX137"></A>
+<A NAME="IDX138"></A>
+<A NAME="IDX139"></A>
+<P>
+Volume rendering is a technique for using color and opacity to visualize
+the data in a 3-dimensional data set.
+(In contrast, surface techniques use tools like
+<TT><STRONG>Isosurface</STRONG></TT> and
+<TT><STRONG>MapToPlane</STRONG></TT> to display a 2-dimensional surface,
+although in 3-dimensional space.)
+The following are some simple examples.
+<OL COMPACT>
+<LI>Open and execute visual program <TT>.../VolumeRendering.net</TT>.
+As the network in the canvas shows, the color of the volume is
+determined by <TT><STRONG>AutoColor</STRONG></TT>.
+The data set contains relatively few high values (red) and relatively
+many low values (blue).
+No structure is apparent in the image.
+<LI>Select <TT><STRONG>Transformation</STRONG></TT> and then
+<TT><STRONG>Equalize</STRONG></TT> in the palettes.
+<LI>Position the <TT><STRONG>Equalize</STRONG></TT> icon between
+<TT><STRONG>Import</STRONG></TT> and
+<TT><STRONG>AutoColor</STRONG></TT>in the VPE canvas.
+<LI>Disconnect <TT><STRONG>Import</STRONG></TT> output from
+<TT><STRONG>AutoColor</STRONG></TT> input and reconnect
+it to the first input tab ("data") of
+<TT><STRONG>Equalize</STRONG></TT>.
+<LI>Connect <TT><STRONG>Equalize</STRONG></TT> output to the first input tab
+("data") of <TT><STRONG>AutoColor</STRONG></TT>.
+<LI>Reexecute the visual program.
+<TT><STRONG>Equalize</STRONG></TT> redistributes the data values more or less
+uniformly between the minimum and maximum of the data.
+Although the resulting image is somewhat diffuse, the structure of the
+data (the electron density of an imide molecule) is now visible.
+</OL>
+<P>
+<TT><STRONG>AutoColor</STRONG></TT> parameters can be used to add definition
+to the structure.
+<OL COMPACT>
+<LI>Delete the <TT><STRONG>Equalize</STRONG></TT> module: Click on the icon
+and select <TT><STRONG>Delete</STRONG></TT> in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+The connections to <TT><STRONG>Import</STRONG></TT> and
+<TT><STRONG>AutoColor</STRONG></TT> are automatically
+deleted along with the icon.
+<LI>Reconnect the <TT><STRONG>Import</STRONG></TT> output to the first input
+tab ("data") of <TT><STRONG>AutoColor</STRONG></TT>.
+<LI>Open the <TT><STRONG>AutoColor</STRONG></TT> configuration dialog box.
+<LI>Set the value of the <TT><STRONG>min</STRONG></TT> parameter to ".1"
+and click on <TT><STRONG>OK</STRONG></TT>.
+<LI>Reexecute the visual program.
+All data values smaller than 0.1 are rendered invisible (black).
+The image is much darker, but still visible.
+<LI>To increase the visibility of the data, increase the value of the
+<TT><STRONG>intensity</STRONG></TT> parameter in the
+<TT><STRONG>AutoColor</STRONG></TT> configuration
+dialog box to "5."
+<LI>Click on <TT><STRONG>OK</STRONG></TT> and
+reexecute the visual program.
+The structure of image is now fairly distinct.
+</OL>
+<P>
+
+A color map gives you much greater control over the appearance of the
+image:
+<OL COMPACT>
+<LI>Disconnect <TT><STRONG>AutoColor</STRONG></TT> from
+<TT><STRONG>Image</STRONG></TT> and connect the
+<TT><STRONG>Color</STRONG></TT> output to the
+<TT><STRONG>Image</STRONG></TT> input.
+<LI>Reexecute the visual program.
+<LI>Bring up the Colormap Editor by double clicking on the
+<TT><STRONG>Colormap</STRONG></TT> icon.
+The color-bar, Hue, and Opacity settings are clearly
+reflected in the image: regions of low data
+values (green) and smaller regions of
+higher data values (red).
+All other data values have been rendered invisible.
+<P><B>Note: </B>To make a region or volume invisible, it is necessary to set
+<I>both</I> its intrinsic opacity and its color value
+to zero.
+The reason is that the volume rendering model assumes that regions
+emit light as well as absorb it.
+So even if its opacity is zero (no absorption), a region will still emit
+light unless its color is black (&#91;0 0 0&#93;).
+</OL>
+<P>
+It is interesting to contrast the volume rendering of previous images
+with a surface technique.
+For example:
+<OL COMPACT>
+<LI>Disconnect <TT><STRONG>Color</STRONG></TT> from
+<TT><STRONG>Image</STRONG></TT>
+and connect the <TT><STRONG>Isosurface</STRONG></TT> output to the
+<TT><STRONG>Image</STRONG></TT> input.
+<LI>Reexecute the visual program.
+The resulting image is an isosurface representation of the structure
+of an imide molecule.
+</OL>
+<P>
+You can also combine surface techniques with volume rendering.
+For example:
+<OL COMPACT>
+<LI>Select <TT><STRONG>Structuring</STRONG></TT> and then
+<TT><STRONG>Collect</STRONG></TT> in the palettes.
+<LI>Position the <TT><STRONG>Collect</STRONG></TT> icon above
+<TT><STRONG>Image</STRONG></TT> in the VPE canvas.
+<LI>Disconnect <TT><STRONG>Isosurface</STRONG></TT> from
+<TT><STRONG>Image</STRONG></TT>.
+<LI>Connect the first output tab ("mapped") of
+<TT><STRONG>AutoColor</STRONG></TT>
+to either of the <TT><STRONG>Collect</STRONG></TT> input tabs.
+<LI>Connect the <TT><STRONG>Isosurface</STRONG></TT> output to the other
+<TT><STRONG>Collect</STRONG></TT> input tab.
+<LI>Connect the <TT><STRONG>Collect</STRONG></TT> output to the
+<TT><STRONG>Image</STRONG></TT> input.
+<LI>Reexecute the visual program.
+The result is a combination of the volume-rendering and isosurface
+images of the imide molecule.
+<LI>To make the isosurfaces translucent, insert a new
+<TT><STRONG>Color</STRONG></TT> module (from the
+<TT><STRONG>Transformation</STRONG></TT>
+category) into the network
+between <TT><STRONG>Isosurface</STRONG></TT> and
+<TT><STRONG>Collect</STRONG></TT>.
+(Use the first, or "input," tab of the <TT><STRONG>Color</STRONG></TT>
+icon.)
+<LI>Open the <TT><STRONG>Color</STRONG></TT> configuration dialog box and set
+the <TT><STRONG>opacity</STRONG></TT> parameter to ".3."
+(You can try other values as well.)
+<LI>Click on <TT><STRONG>OK</STRONG></TT> and reexecute the visual program.
+The isosurfaces are now translucent.
+</OL>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

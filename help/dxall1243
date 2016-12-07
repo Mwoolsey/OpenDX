@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgica DXGetInvalidComponentArray #!N #!N Function #!N #!N 
+Returns an Array containing the information stored in an invalid-component handle. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXGetInvalidComponentArray(InvalidComponentHandle handle) #!EF 
+#!N #!N Functional Details #!N #!N The returned Array may be 
+dependent or referential (see  #!Lprochap,dxall1115 h Data Processing  #!EL  ). If  #!F-adobe-times-bold-r-normal--18*   handle #!EF was 
+created using a Field, then the Array will contain the appropriate 
+"dep" or "ref" attributes. However, if  #!F-adobe-times-bold-r-normal--18*   handle #!EF was created 
+using only an Array, then this routine cannot determine whether the 
+returned Array is dependent or it references "positions" or "connections," and 
+it is up to the calling program to set the appropriate 
+attribute. The determination of should be based on the type of 
+the Array; if it is  #!F-adobe-times-bold-r-normal--18*   TYPE_UBYTE #!EF or  #!F-adobe-times-bold-r-normal--18*   TYPE_BYTE 
+#!EF , it is dependent; if it is  #!F-adobe-times-bold-r-normal--18*   TYPE_UINT #!EF 
+or  #!F-adobe-times-bold-r-normal--18*   TYPE_INT #!EF , it is referential. #!N #!N Return 
+Value #!N #!N Returns the Array or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Ldxcich,dxall1191 h DXCreateInvalidComponentHandle  #!EL  ,  #!Ldxfich,dxall1215 h DXFreeInvalidComponentHandle  #!EL  ,  #!Ldxgte,dxall1270 h DXGetType  #!EL  #!EF #!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgic,dxall1244 h DXGetInvalidCount  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

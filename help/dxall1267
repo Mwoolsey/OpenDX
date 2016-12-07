@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgsg DXGetString #!N #!N Function 
+#!N #!N Gets a pointer to the contents of a String 
+Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> char *DXGetString(String s) 
+#!EF #!N #!N Functional Details #!N #!N Returns a pointer to 
+the  #!F-adobe-times-bold-r-normal--18*   NULL #!EF -terminated character string contained in a String 
+Object  #!F-adobe-times-bold-r-normal--18*   s #!EF . The contents of the string must 
+not be modified. #!N #!N Return Value #!N #!N Returns a 
+pointer to the string value or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxnsg,dxall1327 h DXNewString  #!EL  #!EF #!N #!N  #!Lsgos,dxall1080 h String Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxgsa,dxall1268 h DXGetStringAttribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

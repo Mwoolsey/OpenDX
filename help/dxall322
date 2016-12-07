@@ -1,0 +1,56 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rpickin Using Pick #!N #!EC #!N 
+#!N Picking consists of choosing a location on an object in 
+an image using the mouse. A chosen location is called a 
+"poke." Each poke may intersect the object in the image in 
+one or more places (the intersections are called "picks") or may 
+not intersect the object at all. For example, a poke on 
+a spherical isosurface results in two "picks": one on the front 
+of the sphere and one on the back. Picking differs from 
+using probes, in which probes may be present anywhere in a 
+3-dimensional space, while picks always exist on the surface of an 
+object. #!N #!N After you execute a visual program and have 
+an image in the Image window, you can modify the visual 
+program to include a  #!F-adobe-times-bold-r-normal--18*   Pick #!EF tool from the  #!F-adobe-times-bold-r-normal--18*   
+Special #!EF category. The Pick tool accepts input from the mouse 
+and outputs a field that specifies the picked point or points. 
+The "positions" component of this field identifies each picked point on 
+the object in the image. The field can be used, for 
+example, to identify all picked points with a glyph, or to 
+start streamlines at each picked point. In addition, the field output 
+by the Pick tool can be used by a user-written module 
+to perform a variety of operations on the object in the 
+image (e.g., coloring each picked object a particular color). IBM Visualization 
+Data Explorer Programmer's Reference includes a sample module that uses the 
+pick structure in this way. #!N #!N To use picking to 
+select points on objects: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N 1. Execute a visual program to produce an image in 
+the Image window. #!N #!I30 #!N 2. In the VPE, place 
+one or more pick tools from the  #!F-adobe-times-bold-r-normal--18*   Special #!EF category 
+in the visual program, connecting them to the tools for which 
+you want to provide input. #!N #!N The pick icons are 
+numbered as you place them on the canvas. For example, the 
+first pick icon you place is labeled "Pick_1," the second "Pick_2," 
+and so on. You can change the label of the icon 
+by using its Configuration dialog box. #!N #!I30 #!N 3. In 
+the  #!F-adobe-times-bold-r-normal--18*   View Control... #!EF dialog box, select  #!F-adobe-times-bold-r-normal--18*   Pick #!EF 
+mode from the  #!F-adobe-times-bold-r-normal--18*   Mode #!EF option box or use the 
+ #!F-adobe-times-bold-r-normal--18*   Ctrl+I #!EF accelerator key. The dialog box changes to add 
+the Pick controls. #!N #!N Select the pick tool you want 
+by choosing the  #!F-adobe-times-bold-r-normal--18*   Pick(s) #!EF option box. This opens an 
+options menu with a list of the available picks from which 
+to select. #!N #!I30 #!N 4. Select a point or points 
+as input to the tool connected to the Pick icon. #!N 
+#!N To choose a point, click on a point in the 
+image. A small square box appears, marking the point. #!N #!I0 
+#!N #!EF #!N Depending on whether you have the  #!F-adobe-times-bold-r-normal--18*   persistent 
+#!EF parameter to the Pick tool set to 0 or 1, 
+subsequent executions may or may not use the last pick point 
+or points chosen. If  #!F-adobe-times-bold-r-normal--18*   persistent #!EF is set to 0, 
+then pick points are not saved between executions; if  #!F-adobe-times-bold-r-normal--18*   persistent 
+#!EF is set to 1, then pick points are saved between 
+executions. Note: You can also enable Pick mode by using the 
+ #!F-adobe-times-bold-r-normal--18*   intrctnMode #!EF parameter to the Image tool (see Image in 
+IBM Visualization Data Explorer User's Reference). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall322,dxall323 h Undo, Redo, and Reset  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - IntegerList</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu078.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu080.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRINTEGEL" ></A>IntegerList</H3>
+		<A NAME="IDX559"></A><A NAME="IDX560"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATINT">Interactor</A>
+<A NAME="IDX561"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Generates a list of integers within a specified range of values.
+<P><STRONG>Syntax</STRONG>
+<P>
+Available only through the user interface.
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object from which interactor
+attributes can be derived
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>refresh</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">reset the interactor
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>min</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">minimum data value
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">minimum output integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>max</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">maximum data value
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">maximum output integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>delta</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">increment between successive
+integer outputs
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>method</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">defines interpretation of delta
+input
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>nitems</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">11
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of items in the initial
+list
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>label</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;IntegerList&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">global name applied to interactor
+stand-ins
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">integer list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">interactor output
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This interactor provides incremental control of various functions in
+a visual program (e.g., the number of contour lines currently
+displayed on an isosurface in the Image window).
+But it creates a list of integers, rather
+than a single integer, as Integer does.
+<P>
+The integer range over which the module acts is governed by its
+attributes (e.g., minimum, maximum, and delta), which in turn
+are either (1) specified by the parameter values in its
+configuration dialog box or (2) determined from input
+to the module (usually a data field).
+In the second case, the interactor is said to be "data driven."
+<P>
+If an interactor is not data driven, then the attributes (e.g., minimum,
+maximum, delta, etc.) are taken from  the interactor&#39;s
+<TT><STRONG>Set Attributes...</STRONG></TT> dialog box (which
+is accessed from the <TT><STRONG>Edit</STRONG></TT> pull-down
+menu in the Control Panel).
+<P><B>Note: </B>The interactor is invoked by double-clicking on
+its icon in the VPE window.
+Its configuration dialog box is accessed from the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu in
+the same window.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>is the object (usually a data field) from which the interactor
+can
+derive any or all of the minimum, maximum, and delta attributes
+when their corresponding input tabs are up.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>refresh</STRONG></TT>
+</B></TD><TD><P>resets the interactor so that the output is computed from the
+current
+input. If <TT><STRONG>refresh</STRONG></TT> = 0 (the default), the output
+is recomputed only if the current output does not lie within the range
+of the current <TT><STRONG>data</STRONG></TT>.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>min</STRONG></TT>
+&nbsp;and&nbsp; <TT><STRONG>max</STRONG></TT>
+</B></TD><TD><P>specify the minimum and maximum values of the interactor&#39;s
+integer output.
+If set, these values override those implied by <TT><STRONG>data</STRONG></TT>.
+<P>
+If neither <TT><STRONG>min</STRONG></TT> nor <TT><STRONG>data</STRONG></TT> is
+specified, the interactor uses the minimum set in the
+<TT><STRONG>Set Attributes...</STRONG></TT> dialog box.
+<P>
+If neither <TT><STRONG>max</STRONG></TT> nor <TT><STRONG>data</STRONG></TT> is
+specified, the interactor uses the maximum set in the
+<TT><STRONG>Set Attributes...</STRONG></TT> dialog box.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>delta</STRONG></TT>
+</B></TD><TD><P>specifies a scalar value as a factor for calculating the
+increment
+between successive outputs over the specified range.
+The actual value depends on the interpretation specified by
+<TT><STRONG>method</STRONG></TT> (see below).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>method</STRONG></TT>
+</B></TD><TD><P>specifies the interpretation of <TT><STRONG>delta</STRONG></TT>:
+<UL COMPACT>
+<LI>"rounded": the increment (<TT><STRONG>max</STRONG></TT> &#45;
+<TT><STRONG>min</STRONG></TT>) &times; <TT><STRONG>delta</STRONG></TT> is
+rounded to a "nice" number.
+The spacing between successive values will approximate the interval
+specified by <TT><STRONG>delta</STRONG></TT>.
+(For example, the default value of 0.01 specifies an interval of 1/100
+of the specified range.)
+<LI>"relative": the interpretation is the same as for
+"rounded," but the increment is <I>not</I>
+rounded.
+<LI>"absolute": <TT><STRONG>delta</STRONG></TT> is the absolute value
+of the interval.
+(If <TT><STRONG>delta</STRONG></TT> has not been specified, its default
+is 1.)
+<P>
+The default value for <TT><STRONG>method</STRONG></TT> depends on other input.
+The default is:
+<UL COMPACT>
+<LI>"rounded" if <TT><STRONG>data</STRONG></TT> is specified
+<I>or</I> if both <TT><STRONG>min</STRONG></TT> and
+<TT><STRONG>max</STRONG></TT> are specified.
+<LI>"absolute" in all other cases.
+</UL>
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>nitems</STRONG></TT>
+</B></TD><TD><P>specifies the number of items in a newly created list.
+These are evenly spaced between the minimum and maximum values (see
+above).
+For example, if this parameter is given a value of 5, and the range
+is 0-100, the output list will be &#123;0, 25, 50,
+75, 100&#125;.
+<P><B>Notes: </B><OL>
+<P><LI>If <TT><STRONG>nitems</STRONG></TT> changes, a new list is computed.
+<P><LI>This parameter takes affect only if the minimum and maximum are set
+with the <TT><STRONG>min</STRONG></TT> and <TT><STRONG>max</STRONG></TT>
+parameters or with <TT><STRONG>data</STRONG></TT> parameter.
+</OL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>label</STRONG></TT>
+</B></TD><TD><P>is the global label of all instances of the corresponding
+interactor
+stand-in.
+An interactor instance&#39;s local label (set from the Control Panel)
+overrides a global label.
+By default, the global label is set by the user interface.
+</TD></TR></TABLE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu078.htm#HDRINTEGER">Integer</A>,
+&nbsp;<A HREF="refgu127.htm#HDRSCALAR">Scalar</A>,
+&nbsp;<A HREF="refgu128.htm#HDRSCALARL">ScalarList</A>,
+&nbsp;<A HREF="refgu169.htm#HDRVECTOR">Vector</A>,
+&nbsp;<A HREF="refgu170.htm#HDRVECTORL">VectorList</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

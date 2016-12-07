@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Execution Model</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu025.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu027.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu024.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRXMOD" ></A>Chapter 4. Data Explorer Execution Model
+</H2>
+		<P><A NAME="PToC7" HREF="../usrguide.htm">Partial Table-of-Contents</A>
+		<MENU>
+<LI><A NAME="PToC_95" HREF="#Header_95">4.1 Data Flow</A>
+<LI><A NAME="PToC_96" HREF="usrgu027.htm#Header_96">4.2 Iterative Execution and
+Caching of Intermediate Results</A>
+<LI><A NAME="PToC_97" HREF="usrgu028.htm#Header_97">4.3 Conditional Execution:
+Route and Switch</A>
+<LI><A NAME="PToC_98" HREF="usrgu029.htm#HDRITERSEQ">4.4 Iteration using the
+Sequencer</A>
+<LI><A NAME="PToC_99" HREF="usrgu030.htm#HDRLOOP">4.5 Iteration using
+Looping</A>
+<LI><A NAME="PToC_100" HREF="usrgu031.htm#HDRSTATES">4.6 Preserving Explicit
+State</A>
+<LI><A NAME="PToC_101" HREF="usrgu032.htm#Header_101">4.7 Advanced Looping
+Constructs</A>
+<LI><A NAME="PToC_102" HREF="usrgu033.htm#Header_102">4.8 External Asynchronous
+Data Sources</A>
+<LI><A NAME="PToC_103" HREF="usrgu034.htm#Header_103">4.9 Parallelism using
+Distributed Processing</A>
+<LI><A NAME="PToC_104" HREF="usrgu035.htm#Header_104">4.10 Parallelism for Data
+Explorer SMP</A>
+</MENU><HR><P>
+<A NAME="IDX595"></A>
+<A NAME="IDX596"></A>
+<A NAME="IDX597"></A>
+<A NAME="IDX598"></A>
+<P>
+Data Explorer's execution model is based on the data flow concept.
+However, features are provided that extend the data flow concept to
+allow you to create a visual program that could
+not be supported by simple data flow.
+For example, there are tools that
+allow you to explicitly save partial results of a visual program to
+be used in a subsequent execution.
+Data Explorer also provides you with various tools to control the flow
+of execution of your visual programs.
+Most of these tools are analogous to constructs found in commonly
+used programming languages.
+For example, tools are provided that perform the function of IF
+statements, CASE statements and FOR (or DO) loops.
+This chapter discusses flow-control tools (with several examples of
+their use) both individually and in combination.
+<P>
+Although it is not necessary to understand all the details of the Data Explorer
+execution model in order to build and run visual programs,
+you may find it helpful as you build visual programs.
+Other topics in this chapter include caching of intermediate results,
+conditional execution using the Route and Switch modules, iteration
+using the Sequencer, simple iteration using the looping modules,
+preservation of state using the pairs GetLocal/SetLocal or
+GetGlobal/SetGlobal, creating advanced looping constructs using
+combinations of tools, asynchronous data sources, and parallelism. The
+tools that control the flow of execution of a visual program are found
+in the Data Explorer category
+<TT><STRONG>Flow Control</STRONG></TT>.
+<HR>
+<H2><A NAME="Header_95" ></A>4.1 Data Flow</H2>
+<P>
+In a true data-flow implementation, all modules are pure
+functions (i.e., their outputs are fully defined by
+their inputs). Hence, processes are stateless with
+no side effects.
+When a module's inputs are received, it runs, and
+when finished it distributes its results to modules waiting downstream.
+Note that in Data Explorer, results are communicated between
+modules by passing pointers
+to data objects, not by copying.
+Of course, when running in distributed mode
+or when using outboard modules,
+data must be sent by socket since the
+processing may occur on another host.
+<P>
+Consider the example illustrated in <A HREF="#FIGXMODX1">Figure 18</A>.
+<P><B><A NAME="FIGXMODX1" HREF="../usrguide.htm#FT_FIGXMODX1">Figure 18. Example
+1</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmodf1.gif" ALT="Figure xmodf1 not
+displayed."></CENTER><BR></B><BR>
+The Collect module
+waits for inputs from the Isosurface and MapToPlane
+modules.  Import would send its results to
+the waiting Isosurface and MapToPlane modules.  In effect,
+this execution model is entirely data-driven and top-down:
+the execution of modules is dependent solely on the passage
+of data through the system.
+<P>
+While this simple data-flow execution model seems a
+natural mechanism for the execution of visual programs,
+a closer examination reveals that real-world problems are
+more complex. In order to function efficiently,
+it is vital that the system avoid unnecessary work.
+In general, there are two reasons why modules present in
+a visual program may not need to be executed when their
+turn comes: 1) their results are not actually required by a
+result of the network and 2) their inputs are unchanged
+from the last time the module was executed (i.e. the
+result will be the same).
+<P>
+The outputs of a visualization network occur in modules
+that have side effects.
+They produce results outside
+of the visual program itself such as the display of images
+on a workstation or the creation of output files.
+Unless
+the result of a module ultimately affects
+a module that produces a side effect, that module
+does not need to be executed.
+<P>
+Eliminating modules that are not ancestors (i.e., not upstream) of
+modules with side effects is done in Data Explorer
+by preprocessing the network before the
+actual data-flow network evaluation commences.
+This is done
+by traversing the graph bottom-up, beginning at each module
+known to have side effects and flagging each module as it
+is encountered.  Once this is complete, modules that have
+not been flagged do not have to be executed.
+
+		<P>
+Note that the exact order in which modules will be executed
+cannot be controlled by the user; for example, modules in
+two parallel branches may execute in any order with
+respect to one another; it is only guaranteed that a module
+that depends on the results of one or more
+modules will wait for them
+to be complete before it is executed.
+
+		<P></P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

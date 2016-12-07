@@ -1,0 +1,59 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Rloop Iteration using Looping #!N #!EC #!N #!N The sequencer provides 
+a basic loop; however it has some limitations. Only one sequencer 
+per visual program is allowed, and, as it executes, everything in 
+the visual program executes (subject to the optimization for deciding which 
+modules need to be executed, discussed above). Additional functionality is provided 
+using the ForEachN, ForEachMember, Done, and First modules. #!N #!N ForEachN 
+and ForEachMember essentially implement a standard programming-language "for" loop; in the 
+case of ForEachN iterating over a specified list of integers, and 
+in the case of ForEachMember iterating over the members in a 
+group or the items in a list (or array).  #!Lxmodx440,dxall268 f Figure 40  #!EL  shows 
+a simple loop that outputs the integers 0 to 10 and 
+Echo's them (the  #!F-adobe-times-bold-r-normal--18*   start #!EF and  #!F-adobe-times-bold-r-normal--18*   end #!EF parameters 
+to ForEachN have been set to 0 and 10 respectively). This 
+is roughly equivalent to the C-language statements #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N for (i=0; i<=10; i++) #!N printf("%d", i); #!EF #!N #!N 
+#!EC #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx440 #!N Graphics omitted from Online Documentation. 
+Please see the manual. #!N #!N Figure 40. Example 4 #!EF 
+#!N #!EC #!N #!N Data Explorer provides you with two other 
+tools for control looping, Done and First. Done enables you to 
+exit a loop. Examples of its use can be found in 
+"Advanced Loop Constructs" (see below). The First module provides a way 
+to recognize the first pass through a loop; this is particularly 
+useful, for example, as a way to reset the GetGlobal module 
+if you are using GetGlobal and SetGlobal (see below) to store 
+information during the execution of a loop. Note that First is 
+not necessary if you are using GetLocal and SetLocal. #!N #!N 
+When a loop is present in a visual program, it causes 
+the execution of all modules in the visual program containing the 
+looping tool (ForEachN, ForEachMember, or Done), subject to optimization. For this 
+reason it is strongly suggested that looping modules NOT be placed 
+in the top level visual program, but rather be used only 
+within macros. If used within a macro, the macro will not 
+output any values until the loop is complete, when the ForEachN 
+or ForEachMember list is exhausted or when the Done module causes 
+an exit. #!N #!N If a loop occurs inside a macro, 
+and you reexecute a visual program calling this macro, the loop 
+will not be reexecuted as long as the result of the 
+macro remains in the cache. However, the presence of a side 
+effect module (such as WriteImage or Print) inside of a loop 
+will cause the loop to be reexecuted regardless of whether the 
+output of the macro remains in the cache. If this is 
+not the desired behavior, Route can be used to turn off 
+the entire macro. #!N #!N For efficiency you might find it 
+desirable to set the caching option to  #!F-adobe-times-bold-r-normal--18*   Last Result #!EF 
+for modules within the loop. In this way, multiple intermediate values 
+within a loop will not use up valuable cache space. #!N 
+#!N Note that the full execution of a loop is considered 
+to occur within a single execution of the graph (as would 
+occur if you select Execute Once from the Execute menu). Thus 
+if you change any interactor values DURING the execution of the 
+loop, those interactor values will not take effect until the loop 
+is complete. This is an important way in which looping differs 
+from using the Sequencer; if you change the value of an 
+interactor while the Sequencer is running, the value will be updated 
+on the next frame of the sequence. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lstates,dxall269 h Preserving Explicit State  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

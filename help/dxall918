@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rreduce Reduce #!N #!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N 
+#!N Function #!N #!N Computes a reduced-resolution version (or group of 
+versions) of a field. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   #!N reduced #!EF = Reduce(  #!F-adobe-times-bold-r-normal--18*   input, factor #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+input TAB field TAB none TAB field to be reduced #!N 
+TAB factor TAB scalar list or vector list TAB 2 TAB 
+reduction factor(s) #!N TAB - TAB - TAB - TAB #!EF 
+#!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Description #!EF #!N TAB reduced TAB field or group TAB 
+set of reduced-resolution data #!N TAB - TAB - TAB #!EF 
+#!N #!N Functional Details #!N #!N Reduces the resolution of regularly 
+connected grids. Box filtering is applied to minimize aliasing effects in 
+the components that are associated with the grid. It filters and 
+reduces the number of items in the "data" component of the 
+input field and also in any components that are position or 
+connection dependent. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input 
+#!EF #!EF #!I50 #!N is the field to be reduced. It 
+must have regular connections. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   factor #!EF 
+#!EF #!I50 #!N specifies the reduction factor(s) to be used in 
+reducing the resolution of the field. #!I0 #!N #!N If this 
+parameter specifies: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+ #!F-adobe-times-medium-i-normal--18*   a single scalar value: #!EF the output is reduced by 
+that factor in all dimensions. #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   a 
+vector: #!EF each vector element is applied to the corresponding dimension. 
+#!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   a list of scalars or vectors: 
+#!EF the output is a group of fields, each with the 
+corresponding factor applied. #!N #!I0 #!N #!EF #!N #!N #!N Components 
+#!N #!N All components in the input are propagated to the 
+output. Components dependent on "positions" or "connections" are filtered. #!N #!N 
+Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N GeneralImport2.net #!N #!N 
+ManipulateGroups.net #!N #!N VolumeRendering.net #!N SIMPLE/Reduce.net #!EF #!N #!N #!EC #!N 
+#!N See Also #!N #!N  #!Lrefine,dxall919 h Refine  #!EL  ,  #!Lselect,dxall936 h Select  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lrefine,dxall919 h Refine  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

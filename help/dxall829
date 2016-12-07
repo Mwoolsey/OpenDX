@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Recho Echo #!N #!N Category 
+#!N #!N  #!Lcatdbg,dxall754 h Debugging  #!EL  #!N #!N Function #!N #!N Echoes a message. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Echo(  #!F-adobe-times-bold-r-normal--18*   string, 
+... #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB string TAB value list or string list TAB 
+no default TAB message to be printed #!N TAB ... TAB 
+- TAB - TAB additional messages to print #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module prints its arguments as a string. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   string #!EF #!EF #!I50 #!N 
+is the value to be echoed. #!I0 #!N #!N #!N #!N 
+A single Echo module can echo a maximum of 21 strings. 
+In the user interface, the default number of enabled  #!F-adobe-times-bold-r-normal--18*   string 
+#!EF tabs is two. (Tabs can be added to the module 
+icon and removed with the appropriate  #!F-adobe-times-bold-r-normal--18*   ...Input Tab #!EF options 
+in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu of the VPE.) #!N 
+#!N The module can print: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o Integer, float, and string values #!N #!I30 #!N 
+o Integer, float, and string lists #!N #!I30 #!N o 2-D 
+and 3-D vectors. #!N #!I0 #!N #!EF #!N If the input 
+is of another type, the module will echo the object class 
+(e.g, "Field"). #!N #!N In the user interface, the output of 
+Echo appears in the Message window. #!N #!N See Also #!N 
+#!N  #!Lprint,dxall911 h Print  #!EL  ,  #!Ldescrib,dxall805 h Describe  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lenumer,dxall830 h Enumerate  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,49 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxaddm DXAddPoint, ...Color, ...FrontColor, ...BackColor, 
+...Opacity, ...Normal, DXAddPoints, ...Colors, ...FrontColors, ...BackColors, ...Opacities, ...Normals #!N #!N Function 
+Add points or point-dependent data to a Field. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> #!N #!N Field 
+DXAddPoint(Field f, int id, Point p) #!N Field DXAddColor(Field f, int 
+id, RGBColor c) #!N Field DXAddFrontColor(Field f, int id, RGBColor c) 
+#!N Field DXAddBackColor(Field f, int id, RGBColor c) #!N Field DXAddOpacity(Field 
+f, int id, double o) #!N Field DXAddNormal(Field f, int id, 
+Vector v) #!N #!N Field DXAddPoints(Field f, int start, int n, 
+Point *p) #!N Field DXAddColors(Field f, int start, int n, RGBColor 
+*c) #!N Field DXAddFrontColors(Field f, int start, int n, RGBColor *c) 
+#!N Field DXAddBackColors(Field f, int start, int n, RGBColor *c) #!N 
+Field DXAddOpacities(Field f, int start, int n, float *o) #!N Field 
+DXAddNormals(Field f, int start, int n, Vector *v) #!EF #!EF . 
+#!N #!N #!EC #!N #!N Functional Details Associated with a Field 
+may be a number of components that correspond one-to-one with the 
+"positions" component, as indicated by their each having a "dep" attribute 
+of "positions." These routines aid in constructing such components. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAddPoint, DXAddColor, DXAddFrontColor, DXAddBackColor, DXAddOpacity, 
+DXAddNormal, #!EF #!EF #!I50 #!N Add one point (position), color, front 
+color, back color, opacity, or normal to  #!F-adobe-times-bold-r-normal--18*   f #!EF with 
+the specified zero-based  #!F-adobe-times-bold-r-normal--18*   id #!EF . If necessary, the routine 
+creates the appropriate component. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAddPoints, DXAddColors, 
+DXAddFrontColors, DXAddBackColors, DXAddOpacities, DXAddNormals #!EF #!EF #!I50 #!N Add  #!F-adobe-times-bold-r-normal--18*   n 
+#!EF points, colors, front colors, back colors, opacities, or normals to 
+ #!F-adobe-times-bold-r-normal--18*   f #!EF with zero-based identifiers beginning with  #!F-adobe-times-bold-r-normal--18*   start #!EF 
+. If necessary, the routine creates the appropriate component. #!I0 #!N 
+#!N #!N #!N Colors are specified as  #!F-adobe-times-bold-r-normal--18*   RGBColors #!EF and 
+defined as follows: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   #!N typedef 
+struct rgbcolor { #!N float r, g, b; #!N } RGBColor; 
+#!N #!EF #!EF #!N #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   Points #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   Normals #!EF are defined as follows: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   #!N typedef struct point { #!N float x, 
+y, z; #!N } Point, Vector; #!N #!EF #!EF #!N #!N 
+#!EC #!N #!N Opacities are specified as floating-point values. #!N #!N 
+#!I0 #!N Notes: #!N #!I30 #!N 1. These routines are suitable 
+for adding a small number of points and for rapid prototyping. 
+For better performance, see the description of  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData #!EF and 
+the discussion of direct-access routines in  #!Lirreg,dxall1071 h Irregular Arrays  #!EL  #!N #!I30 #!N 2. 
+These routines do not check the "dep" attribute of the component 
+being added to; thus, these routines do not perform correctly if 
+the component exists and has a dep "connections" attribute. #!I0 #!N 
+#!N #!N #!N Return Value Returns  #!F-adobe-times-bold-r-normal--18*   f #!EF or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N See 
+Also  #!F-adobe-times-bold-r-normal--18*    #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  ,  #!Ldxafns,dxall1166 h DXAddFaceNormal, DXAddFaceNormals  #!EL  ,  #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  #!EF #!N #!N  #!Lppoints,dxall1084 h Points and Dependent Data  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxat,dxall1170 h DXAddTask  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

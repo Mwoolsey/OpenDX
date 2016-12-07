@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxdxs DXDisplayX, DXDisplayX8, DXDisplayX12, DXDisplayX24 #!N #!N Function #!N #!N 
+Displays an image in an X window. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXDisplayX(Object i, char *xdisplay, char *title) Object 
+DXDisplayX8(Object i, char *xdisplay, char *title) Object DXDisplayX12(Object i, char *xdisplay, 
+char *title) Object DXDisplayX24(Object i, char *xdisplay, char *title) #!EF #!N 
+#!N Functional Details #!N #!N Displays image  #!F-adobe-times-bold-r-normal--18*   i #!EF in 
+an X window on the display specified by  #!F-adobe-times-bold-r-normal--18*   xdisplay #!EF 
+, with the title specified by  #!F-adobe-times-bold-r-normal--18*   title #!EF .  #!F-adobe-times-bold-r-normal--18*   
+xdisplay #!EF is used as the X display string when opening 
+the window. The window associated with  #!F-adobe-times-bold-r-normal--18*   xdisplay #!EF is maintained 
+for subsequent calls to  #!F-adobe-times-bold-r-normal--18*   DXDisplayX #!EF until the user closes 
+it, after which a new window is created. #!N #!N These 
+routines can utilize 8-bit pseudo color X visuals, 12-bit Direct Color 
+and True Color visuals, and 24-bit Direct Color or True Color 
+visuals. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXDisplayX #!EF tries to create a window 
+with the default visual, and if it is not of an 
+appropriate type, tries to create an 8-bit, then 12-bit, then 24-bit 
+visual. The other routines try to create the appropriate depth window 
+first (for example,  #!F-adobe-times-bold-r-normal--18*   DXDisplayX8 #!EF tries to create an 8-bit 
+window, then tries the default window depth. #!N Note:  #!F-adobe-times-bold-r-normal--18*   title 
+#!EF cannot begin with a number or with two # characters. 
+#!N #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   i #!EF 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxmi,dxall1299 h DXMakeImage  #!EL  #!EF #!N #!N  #!Liefs,dxall1140 h Image Fields  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxemf,dxall1200 h DXEmptyField  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

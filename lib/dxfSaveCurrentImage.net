@@ -1,0 +1,389 @@
+//
+// time: Thu Jan 16 07:52:02 1997
+//
+// version: 3.1.1 (format), 3.1.4 (DX Beta)
+//
+//
+// Begin MDF
+// MODULE dxfSaveCurrentImage
+// CATEGORY Macros
+// INPUT pickId; value list or string list or object; (no default);  
+// INPUT resolution; integer; (no default);  
+// INPUT aspect; scalar; (no default);  
+// INPUT file; object; (no default);  
+// INPUT format; object; (no default);  
+// INPUT where; value list or string list or object; (no default); WHERE parameter for the Display window from which we will suck pixels.
+// End MDF
+// page assignment: Inputs	order=2, windowed=0, showing=0
+// page assignment: Rerender	order=4, windowed=0, showing=1
+// page assignment: Retrieval	order=3, windowed=0, showing=0
+// page assignment: SuckBits	order=5, windowed=0, showing=0
+// workspace: width = 470, height = 675
+// layout: snap = 1, width = 20, height = 30, align = CN
+//
+macro dxfSaveCurrentImage(
+ pickId
+,resolution
+,aspect
+,file
+,format
+,where
+) -> (
+) {
+    // 
+    // node Input[7]: x = 108, y = 15, inputs = 0, label = Input
+    // page group: Inputs
+    // parameter: position = 6, name = 'where', value = '(no default)', descriptive = 1, description = 'WHERE parameter for the Display window from which we will suck pixels.', required = 0, visible = 1
+    //
+dxfSaveCurrentImage_Input_7_out_1 = where;
+    // 
+    // node Inquire[2]: x = 274, y = 135, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null"
+    // page group: Inputs
+    //
+dxfSaveCurrentImage_Inquire_2_out_1 = 
+    Inquire(
+    dxfSaveCurrentImage_Input_7_out_1,
+    "is null",
+    NULL
+    ) [instance: 2, cache: 1];
+    // 
+    // node Input[6]: x = 332, y = 15, inputs = 0, label = Input
+    // page group: Inputs
+    // parameter: position = 1, name = 'pickId', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 1
+    //
+dxfSaveCurrentImage_Input_6_out_1 = pickId;
+    // 
+    // node Route[2]: x = 298, y = 255, inputs = 2, outputs = 2, label = Route
+    // page group: Inputs
+    //
+dxfSaveCurrentImage_Route_2_out_1,
+dxfSaveCurrentImage_Route_2_out_2 = 
+    Route(
+    dxfSaveCurrentImage_Inquire_2_out_1,
+    dxfSaveCurrentImage_Input_6_out_1
+    ) [instance: 2, cache: 1];
+    // 
+    // node Transmitter[24]: x = 276, y = 344, inputs = 1, label = gs_pickid
+    // page group: Inputs
+    //
+gs_pickid = dxfSaveCurrentImage_Route_2_out_1;
+    // 
+    // node Receiver[37]: x = 136, y = 14, inputs = 1, label = gs_pickid
+    // page group: Retrieval
+    //
+dxfSaveCurrentImage_Receiver_37_out_1[cache: 0] = gs_pickid;
+    // 
+    // node GetScene[1]: x = 138, y = 105, inputs = 1, label = GetScene
+    // page group: Retrieval
+    //
+dxfSaveCurrentImage_GetScene_1_out_1[cache: 0],
+dxfSaveCurrentImage_GetScene_1_out_2[cache: 0] = 
+    GetScene(
+    dxfSaveCurrentImage_Receiver_37_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Inquire[1]: x = 174, y = 195, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is camera +1"
+    // page group: Retrieval
+    //
+dxfSaveCurrentImage_Inquire_1_out_1[cache: 0] = 
+    Inquire(
+    dxfSaveCurrentImage_GetScene_1_out_2,
+    "is camera +1",
+    NULL
+    ) [instance: 1, cache: 1];
+    // 
+    // node Route[1]: x = 226, y = 285, inputs = 2, outputs = 2, label = Route
+    // page group: Retrieval
+    //
+dxfSaveCurrentImage_Route_1_out_1[cache: 0],
+dxfSaveCurrentImage_Route_1_out_2[cache: 0] = 
+    Route(
+    dxfSaveCurrentImage_Inquire_1_out_1,
+    dxfSaveCurrentImage_GetScene_1_out_2
+    ) [instance: 1, cache: 1];
+    // 
+    // node Format[1]: x = 154, y = 405, inputs = 3, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = "You have not executed yet."
+    // page group: Retrieval
+    //
+dxfSaveCurrentImage_Format_1_out_1[cache: 0] = 
+    Format(
+    "You have not executed yet.",
+    dxfSaveCurrentImage_Route_1_out_1,
+    NULL
+    ) [instance: 1, cache: 1];
+    // 
+    // node Input[2]: x = 320, y = 45, inputs = 0, label = Input
+    // page group: Rerender
+    // parameter: position = 2, name = 'resolution', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 1
+    //
+dxfSaveCurrentImage_Input_2_out_1 = resolution;
+    // 
+    // node Input[3]: x = 344, y = 165, inputs = 0, label = Input
+    // page group: Rerender
+    // parameter: position = 3, name = 'aspect', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 1
+    //
+dxfSaveCurrentImage_Input_3_out_1 = aspect;
+    // 
+    // node Input[4]: x = 12, y = 15, inputs = 0, label = Input
+    // page group: Inputs
+    // parameter: position = 4, name = 'file', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 1
+    //
+dxfSaveCurrentImage_Input_4_out_1 = file;
+    // 
+    // node Input[5]: x = 432, y = 15, inputs = 0, label = Input
+    // page group: Inputs
+    // parameter: position = 5, name = 'format', value = '(no default)', descriptive = 1, description = ' ', required = 0, visible = 1
+    //
+dxfSaveCurrentImage_Input_5_out_1 = format;
+    // 
+    // node Inquire[3]: x = 114, y = 135, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is null + 1"
+    // page group: Inputs
+    //
+dxfSaveCurrentImage_Inquire_3_out_1 = 
+    Inquire(
+    dxfSaveCurrentImage_Input_7_out_1,
+    "is null + 1",
+    NULL
+    ) [instance: 3, cache: 1];
+    // 
+    // node Message[1]: x = 178, y = 495, inputs = 3, label = Message
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "error"
+    // input[3]: defaulting = 1, visible = 1, type = 3, value = 0
+    // page group: Retrieval
+    //
+    Message(
+    dxfSaveCurrentImage_Format_1_out_1,
+    "error",
+    NULL
+    ) [instance: 1, cache: 1];
+    // 
+    // node Route[3]: x = 172, y = 255, inputs = 2, outputs = 2, label = Route
+    // page group: Inputs
+    //
+dxfSaveCurrentImage_Route_3_out_1,
+dxfSaveCurrentImage_Route_3_out_2 = 
+    Route(
+    dxfSaveCurrentImage_Inquire_3_out_1,
+    dxfSaveCurrentImage_Input_7_out_1
+    ) [instance: 3, cache: 1];
+    // 
+    // node Transmitter[23]: x = 148, y = 344, inputs = 1, label = riw_where
+    // page group: Inputs
+    //
+riw_where = dxfSaveCurrentImage_Route_3_out_1;
+    // 
+    // node Receiver[36]: x = 94, y = 14, inputs = 1, label = riw_where
+    // page group: SuckBits
+    //
+dxfSaveCurrentImage_Receiver_36_out_1[cache: 0] = riw_where;
+    // 
+    // node ReadImageWindow[1]: x = 72, y = 105, inputs = 1, label = ReadImageWindow
+    // page group: SuckBits
+    //
+dxfSaveCurrentImage_ReadImageWindow_1_out_1[cache: 0] = 
+    ReadImageWindow(
+    dxfSaveCurrentImage_Receiver_36_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[19]: x = 213, y = 584, inputs = 1, label = saved_camera
+    // page group: Retrieval
+    //
+saved_camera = dxfSaveCurrentImage_Route_1_out_2;
+    // 
+    // node Receiver[31]: x = 193, y = 14, inputs = 1, label = saved_camera
+    // page group: Rerender
+    //
+dxfSaveCurrentImage_Receiver_31_out_1[cache: 0] = saved_camera;
+    // 
+    // node Transmitter[20]: x = 34, y = 584, inputs = 1, label = saved_object
+    // page group: Retrieval
+    //
+saved_object = dxfSaveCurrentImage_GetScene_1_out_1;
+    // 
+    // node Receiver[32]: x = 18, y = 14, inputs = 1, label = saved_object
+    // page group: Rerender
+    //
+dxfSaveCurrentImage_Receiver_32_out_1[cache: 0] = saved_object;
+    // 
+    // node Transmitter[22]: x = 7, y = 134, inputs = 1, label = wi_file
+    // page group: Inputs
+    //
+wi_file = dxfSaveCurrentImage_Input_4_out_1;
+    // 
+    // node Receiver[34]: x = 111, y = 434, inputs = 1, label = wi_file
+    // page group: Rerender
+    //
+dxfSaveCurrentImage_Receiver_34_out_1[cache: 0] = wi_file;
+    // 
+    // node Transmitter[21]: x = 416, y = 134, inputs = 1, label = wi_format
+    // page group: Inputs
+    //
+wi_format = dxfSaveCurrentImage_Input_5_out_1;
+    // 
+    // node Receiver[35]: x = 204, y = 434, inputs = 1, label = wi_format
+    // page group: Rerender
+    //
+dxfSaveCurrentImage_Receiver_35_out_1[cache: 0] = wi_format;
+    // 
+    // node Receiver[38]: x = 253, y = 134, inputs = 1, label = wi_file
+    // page group: SuckBits
+    //
+dxfSaveCurrentImage_Receiver_38_out_1[cache: 0] = wi_file;
+    // 
+    // node Receiver[39]: x = 144, y = 254, inputs = 1, label = wi_format
+    // page group: SuckBits
+    //
+dxfSaveCurrentImage_Receiver_39_out_1[cache: 0] = wi_format;
+    // 
+    // node ScaleScreen[1]: x = 50, y = 255, inputs = 4, label = ScaleScreen
+    // input[2]: visible = 0
+    // page group: Rerender
+    //
+dxfSaveCurrentImage_ScaleScreen_1_out_1[cache: 0],
+dxfSaveCurrentImage_ScaleScreen_1_out_2[cache: 0] = 
+    ScaleScreen(
+    dxfSaveCurrentImage_Receiver_32_out_1,
+    NULL,
+    dxfSaveCurrentImage_Input_2_out_1,
+    dxfSaveCurrentImage_Receiver_31_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node UpdateCamera[1]: x = 230, y = 255, inputs = 10, label = UpdateCamera
+    // page group: Rerender
+    //
+dxfSaveCurrentImage_UpdateCamera_1_out_1[cache: 0] = 
+    UpdateCamera(
+    dxfSaveCurrentImage_Receiver_31_out_1,
+    NULL,
+    NULL,
+    NULL,
+    dxfSaveCurrentImage_Input_2_out_1,
+    dxfSaveCurrentImage_Input_3_out_1,
+    NULL,
+    NULL,
+    NULL,
+    NULL
+    ) [instance: 1, cache: 1];
+    // 
+    // node Render[1]: x = 166, y = 345, inputs = 3, label = Render
+    // page group: Rerender
+    //
+dxfSaveCurrentImage_Render_1_out_1[cache: 0] = 
+    Render(
+    dxfSaveCurrentImage_ScaleScreen_1_out_1,
+    dxfSaveCurrentImage_UpdateCamera_1_out_1,
+    NULL
+    ) [instance: 1, cache: 1];
+    // 
+    // node WriteImage[1]: x = 178, y = 615, inputs = 4, label = WriteImage
+    // page group: Rerender
+    //
+    WriteImage(
+    dxfSaveCurrentImage_Render_1_out_1,
+    dxfSaveCurrentImage_Receiver_34_out_1,
+    dxfSaveCurrentImage_Receiver_35_out_1,
+    NULL
+    ) [instance: 1, cache: 1];
+    // 
+    // node WriteImage[2]: x = 118, y = 405, inputs = 4, label = WriteImage
+    // page group: SuckBits
+    //
+    WriteImage(
+    dxfSaveCurrentImage_ReadImageWindow_1_out_1,
+    dxfSaveCurrentImage_Receiver_38_out_1,
+    dxfSaveCurrentImage_Receiver_39_out_1,
+    NULL
+    ) [instance: 2, cache: 1];
+    //
+    // decorator Annotate	pos=(279,348) size=382x54 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 186
+    // annotation user: If the user hasn't executed yet, then GetScene will return a NULL
+    // annotation user: camera.  In that case, the rest of the macro is routed off and the
+    // annotation user: message module sends an error message back to the ui.
+    // annotation user_end: <NULL>
+    // resource *decorator.foreground:#505050
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // page group: Retrieval
+    //
+    // decorator Annotate	pos=(400,251) size=260x68 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 158
+    // annotation user: If the caller supplies a Where param
+    // annotation user: then, we'll route off all the modules which
+    // annotation user: try to feed a cached object into WriteImage.
+    // annotation user: (They're in the Retrieval page.)
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // resource *decorator.foreground:#505050
+    // page group: Inputs
+    //
+    // decorator Annotate	pos=(250,108) size=401x54 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 194
+    // annotation user: In order to edit this macro, you must edit dx.mdf.  Add a category for
+    // annotation user: the GetScene module and make its input visible.  You can make the
+    // annotation user: input visible simply by erasing the visibility specifier.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // resource *decorator.foreground:#505050
+    // page group: Retrieval
+    //
+    // decorator Annotate	pos=(184,48) size=412x54 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 173
+    // annotation user: These modules will be routed on, if and only if the WHERE input to this
+    // annotation user: macro is supplied.  If the input is NULL coming into the macro, then a
+    // annotation user: different branch will be used.
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // resource *decorator.foreground:#505050
+    // page group: SuckBits
+    //
+    // decorator Annotate	pos=(41,424) size=442x82 style(Label), font=small_normal, value = <NULL>
+    // annotation user_begin: 309
+    // annotation user: The WHERE param is doing double duty.  In addition to identifying a window
+    // annotation user: it also serves as a flag which tells us which save-image strategy to use.
+    // annotation user: If the WHERE param is non-null then we'll use it with ReadImageWindow().
+    // annotation user: If the WHERE param is null, then we'll call UpdateCamera(), Render(), and
+    // annotation user: WriteImage().
+    // annotation user_end: <NULL>
+    // resource *decorator.alignment:XmALIGNMENT_BEGINNING
+    // resource *decorator.foreground:#505050
+    // page group: Inputs
+// network: end of macro body
+}
+dxfSaveCurrentImage_Input_7_out_1 = NULL;
+dxfSaveCurrentImage_Inquire_2_out_1 = NULL;
+dxfSaveCurrentImage_Input_6_out_1 = NULL;
+dxfSaveCurrentImage_Route_2_out_1 = NULL;
+dxfSaveCurrentImage_Transmitter_24_out_1 = NULL;
+dxfSaveCurrentImage_Receiver_37_out_1 = NULL;
+dxfSaveCurrentImage_GetScene_1_out_1 = NULL;
+dxfSaveCurrentImage_GetScene_1_out_2 = NULL;
+dxfSaveCurrentImage_Inquire_1_out_1 = NULL;
+dxfSaveCurrentImage_Route_1_out_1 = NULL;
+dxfSaveCurrentImage_Route_1_out_2 = NULL;
+dxfSaveCurrentImage_Format_1_out_1 = NULL;
+dxfSaveCurrentImage_Input_2_out_1 = NULL;
+dxfSaveCurrentImage_Input_3_out_1 = NULL;
+dxfSaveCurrentImage_Input_4_out_1 = NULL;
+dxfSaveCurrentImage_Input_5_out_1 = NULL;
+dxfSaveCurrentImage_Inquire_3_out_1 = NULL;
+dxfSaveCurrentImage_Route_3_out_1 = NULL;
+dxfSaveCurrentImage_Transmitter_23_out_1 = NULL;
+dxfSaveCurrentImage_Receiver_36_out_1 = NULL;
+dxfSaveCurrentImage_ReadImageWindow_1_out_1 = NULL;
+dxfSaveCurrentImage_Transmitter_19_out_1 = NULL;
+dxfSaveCurrentImage_Receiver_31_out_1 = NULL;
+dxfSaveCurrentImage_Transmitter_20_out_1 = NULL;
+dxfSaveCurrentImage_Receiver_32_out_1 = NULL;
+dxfSaveCurrentImage_Transmitter_22_out_1 = NULL;
+dxfSaveCurrentImage_Receiver_34_out_1 = NULL;
+dxfSaveCurrentImage_Transmitter_21_out_1 = NULL;
+dxfSaveCurrentImage_Receiver_35_out_1 = NULL;
+dxfSaveCurrentImage_Receiver_38_out_1 = NULL;
+dxfSaveCurrentImage_Receiver_39_out_1 = NULL;
+dxfSaveCurrentImage_ScaleScreen_1_out_1 = NULL;
+dxfSaveCurrentImage_UpdateCamera_1_out_1 = NULL;
+dxfSaveCurrentImage_Render_1_out_1 = NULL;

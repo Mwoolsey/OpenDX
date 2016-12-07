@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rmigd MultiGrid Groups #!N #!EC #!N #!N A MultiGrid is a 
+Group of Fields that is treated as a single entity. It 
+is useful, for example, for holding certain kinds of simulation data 
+represented by disjoint grids. All the members of a MultiGrid Group 
+must have the same type of data and the same type 
+of connection. However, unlike members of a Composite Field, Multigrid members 
+are  #!F-adobe-times-medium-i-normal--18*   not #!EF required to be disjoint and abutting. The 
+invalid-positions and invalid-connections components can be used to define which points 
+of a grid are valid in a region of grid overlap. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   MultiGrid DXNewMultiGrid() #!EF 
+#!EF #!I50 #!N Creates a new MultiGrid Object. See  #!Ldxnmg,dxall1320 h DXNewMultiGrid  #!EL  . 
+#!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lcefd,dxall1067 h Composite Fields  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

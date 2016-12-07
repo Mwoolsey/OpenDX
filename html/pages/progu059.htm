@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu058.htm">Previous Page</A> &#124; <A HREF="progu060.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRCACHE" HREF="progu055.htm#PToC_131">13.5 Cache</A></H2>
+<A NAME="IDX903"></A>
+<A NAME="IDX904"></A>
+<P>
+The look-aside cache service stores the results of computations for
+later use.
+Each cache entry is uniquely identified by a string function name, an
+integer key (which the executive uses to store multiple outputs
+for a single module), the number of input parameters, and
+the set of input parameter values.
+<P>
+The input parameters and the Object to be cached must be Data Explorer Objects.
+<P>
+<B><U>Associating data with a cache entry.</U></B>
+User data not already in the form of an Object can be associated with
+a cache entry by means of a Private Object (see <A
+HREF="progu048.htm#HDRPRIVSEC">12.5 , "Private Class"</A>),
+encapsulating the data in an object.
+To associate more than one Object with a cache entry, use a Group to
+contain the Objects.
+<P>
+<B><U>Losing a cache entry.</U></B>
+Cache entries are subject to deletion without notice
+(e.g., when the system reclaims memory).
+The relative cost of creating an entry (which must be specified when
+the entry is created) may be taken into account when deleting
+Objects from the cache.
+If an estimate is not readily available, specify zero (0).
+Specifying <TT><STRONG>CACHE_PERMANENT</STRONG></TT> as the cost prevents
+the entry from being deleted during memory reclamation.
+<P>
+<B><U>Object reference counts and the cache.</U></B>
+It is important to be aware of the following:
+The system uses the cache to store intermediate results from modules.
+Thus inputs to modules often come from the cache.
+However:
+<UL COMPACT>
+<LI>Once you have a pointer to a module&#39;s input, you can be sure
+it will not be deleted while you are processing it.
+<LI>If the input is a Group and you extract a member, that member will
+not be deleted while you are using it (because the Group will
+not be deleted).
+</UL>
+<P>
+However, Objects other than module inputs that are put into or retrieved
+from the cache behave differently:
+Once an Object is put in the cache, the system may delete it at any
+time to reclaim memory.
+This last has two consequences.
+<OL COMPACT>
+<LI><TT><STRONG>DXGetCacheEntry()</STRONG></TT> returns an Object that is
+referenced so that it will not be deleted.
+Thus, you must delete the Object when you are finished using it:
+<PRE>
+    o = DXGetCacheEntry(...);
+    ... use o ...
+    DXDelete(o);
+</PRE>
+<P>
+Failure to do so will result in a memory leak, because the Object will
+always have an extra reference.
+<LI>To continue using an Object after putting it in the cache, you must
+reference it <I>before</I> putting it there, and delete it when
+it is no longer needed:
+<PRE>
+    o = New...;
+    DXReference(o);
+    DXSetCacheEntry(..., o, ...);
+    ... use o ...
+    DXDelete(o);
+</PRE>
+<P>
+Conversely, if putting the Object in the cache is the last operation
+before the return, and if <TT><STRONG>o</STRONG></TT> is not visible
+outside the scope of the routine, no reference is necessary:
+<PRE>
+    o = New...;
+    ... use o ...
+    DXSetCacheEntry(..., o, ...);
+    return ...;
+</PRE>
+<P>
+where the return statement does <I>not</I> return
+<TT><STRONG>o</STRONG></TT>.
+</OL>
+<P>
+<B><U>Cache Routines</U></B>
+<P>
+<PRE><STRONG>
+#define CACHE_PERMANENT 1e32
+</STRONG>
+</PRE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXGetCacheEntry()
+<BR>
+Object DXGetCacheEntryV()</STRONG></TT>
+</B></TD><TD><P>Retrieve a cache entry.
+<A NAME="IDX905"></A>
+<A NAME="IDX906"></A>
+<A NAME="IDX907"></A>
+<A NAME="IDX908"></A>
+See  <A HREF="progu159.htm#HDRDXGCEV">DXGetCacheEntry, DXGetCacheEntryV</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXSetCacheEntry()
+<BR>
+Error DXSetCacheEntryV()
+</STRONG></TT>
+</B></TD><TD><P>Set a cache entry.
+<A NAME="IDX909"></A>
+<A NAME="IDX910"></A>
+<A NAME="IDX911"></A>
+<A NAME="IDX912"></A>
+
+See  <A HREF="progu304.htm#HDRDXSCEV">DXSetCacheEntry, DXSetCacheEntryV</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXFreeModuleId()
+<BR>
+Pointer DXGetModuleId()
+</STRONG></TT>
+</B></TD><TD><P>Get a unique identifier for each instance of a module.
+<A NAME="IDX913"></A>
+<A NAME="IDX914"></A>
+<A NAME="IDX915"></A>
+<A NAME="IDX916"></A>
+See  <A HREF="progu151.htm#HDRDXFMID">DXFreeModuleId</A> and  <A
+HREF="progu185.htm#HDRDXGMID">DXGetModuleId</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error
+DXCompareModuleId()</STRONG></TT>
+</B></TD><TD><P>Returns OK if the two specified module identifiers are the same;
+otherwise returns ERROR.
+<A NAME="IDX917"></A>
+<A NAME="IDX918"></A>
+See  <A HREF="progu118.htm#HDRDXCMPMI">DXCompareModuleId</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Pointer
+DXCopyModuleId()</STRONG></TT>
+</B></TD><TD><P>Returns a pointer to a copy of the specified module identifier.
+<A NAME="IDX919"></A>
+<A NAME="IDX920"></A>
+See  <A HREF="progu123.htm#HDRDXCPMI">DXCopyModuleId</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu058.htm">Previous Page</A> &#124; <A HREF="progu060.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

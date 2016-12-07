@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall993 (3) 
+Write the module #!N #!EC #!N #!N Having defined the module 
+in a description file, you can now implement the module with 
+a C-language function like the one shown here. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N 01 #include <dx/dx.h> #!N 02 #!N 03 #!N 04 
+Error m_Hello(Object *in, Object *out) #!N 05 { #!N 06 char 
+message[30], *greeting; #!N 07 #!N 08 if (!in[0]) #!N 09 sprintf(message, 
+"hello world"); #!N 10 else { #!N 11 DXExtractString(in[0], &greeting); #!N 
+12 sprintf(message, "%s %s", "hello", greeting); #!N 13 } #!N 14 
+#!N 15 out[0] = DXNewString(message); #!N 16 return OK; #!N 17 
+} #!EF #!N #!N #!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   dx.h #!EF 
+file "included" in line 01 contains the definitions of all the 
+Data Explorer library routines. The name of the function that implements 
+a module must consist of the module name (specified in the 
+ #!F-adobe-times-bold-r-normal--18*   MODULE #!EF statement of the description file) prefixed by  #!F-adobe-times-bold-r-normal--18*   
+m_ #!EF . In this case, the function name is  #!F-adobe-times-bold-r-normal--18*   
+m_Hello #!EF . #!N #!N When Data Explorer invokes a module, 
+it passes the module two pointers: the first to an array 
+containing the inputs, the second to an array containing the outputs. 
+(See  #!Lexecm,dxall1026 h Data Explorer Execution Model  #!EL  for details of parameter passing.) #!N #!N Because the 
+input parameter of this module is passed to  #!F-adobe-times-bold-r-normal--18*   m_Hello #!EF 
+as an array of pointers,  #!F-adobe-times-bold-r-normal--18*   in[0] #!EF is the  #!F-adobe-times-bold-r-normal--18*   
+value #!EF parameter. If no argument is specified for  #!F-adobe-times-bold-r-normal--18*   value 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   in[0] #!EF is  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , and 
+the default output ("hello world") is placed in  #!F-adobe-times-bold-r-normal--18*   message #!EF 
+. If you do specify an argument, a library routine ( 
+ #!F-adobe-times-bold-r-normal--18*   DXExtractString #!EF ) extracts it from  #!F-adobe-times-bold-r-normal--18*   in[0] #!EF , 
+and  #!F-adobe-times-bold-r-normal--18*   greeting #!EF becomes a pointer to that string. In 
+line 12,  #!F-adobe-times-bold-r-normal--18*   greeting #!EF is appended to "hello," creating  #!F-adobe-times-bold-r-normal--18*   
+message #!EF . #!N #!N Once  #!F-adobe-times-bold-r-normal--18*   message #!EF has been 
+created, the  #!F-adobe-times-bold-r-normal--18*   DXNewString #!EF library routine creates a String Object 
+for the output  #!F-adobe-times-bold-r-normal--18*   out[0] #!EF . Note: The output of 
+any Data Explorer module must be a Data Explorer Object (such 
+as an Array, Field, or Group). See  #!Lcl23,dxall1061 t Table 23  #!EL  for a complete 
+list of Data Explorer Objects. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall994,dxall995 h (4) Compiling and Linking Hello...  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

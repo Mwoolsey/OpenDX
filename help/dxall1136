@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rsncs 
+Screen Class #!N #!EC #!N #!N A Screen Object is an 
+Object that maintains a size and alignment with the screen (output 
+image) independent of the camera view and scaling transformations applied to 
+it. #!N #!N Three options are provided for the interpretation of 
+translations applied to a Screen Object. First, a translation applied to 
+the Screen Object may specify a new position for the origin 
+of the Screen Object in world space (  #!F-adobe-times-bold-r-normal--18*   SCREEN_WORLD #!EF 
+). Second, a translation applied to the Screen Object may specify 
+a new location for the Screen Object in the image, measured 
+in pixels, where (0,0) refers to the lower-left corner of the 
+image (  #!F-adobe-times-bold-r-normal--18*   SCREEN_PIXEL #!EF ). Third, a translation applied to 
+the Screen Object may specify a new location for the Screen 
+Object in the image, measured in viewport-relative coordinates, where (0,0) refers 
+to the lower-left corner of the image and (1,1) refers to 
+the upper-right corner of the image (  #!F-adobe-times-bold-r-normal--18*   SCREEN_VIEWPORT #!EF ). 
+#!N #!N In addition, with regard to  #!F-adobe-times-medium-i-normal--18*   z #!EF , 
+the object may be displayed either in place in the scene, 
+in front of all objects, or behind all objects, according to 
+whether the  #!F-adobe-times-bold-r-normal--18*   z #!EF parameter to  #!F-adobe-times-bold-r-normal--18*   DXNewScreen() #!EF is 
+0,  #!F-adobe-times-medium-i-normal--18*   +1 #!EF , or  #!F-adobe-times-medium-i-normal--18*   -1 #!EF respectively. #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #define SCREEN_WORLD 0 #!N #define SCREEN_VIEWPORT 
+1 #!N #define SCREEN_PIXEL 2 #!EF #!EF #!N #!N #!EC #!N 
+#!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Screen DXNewScreen() #!EF #!EF 
+#!I50 #!N Creates a new Object aligned to the final screen. 
+See  #!Ldxnsn,dxall1325 h DXNewScreen  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Screen DXGetScreenInfo() #!EF 
+#!EF #!I50 #!N Returns information about a Screen Object. See  #!Ldxgsi,dxall1265 h DXGetScreenInfo  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Screen DXSetScreenObject() #!EF #!EF #!I50 
+#!N Sets the Object to which a screen transform is to 
+be applied. See  #!Ldxsso,dxall1390 h DXSetScreenObject  #!EL  . #!I0 #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcdcs,dxall1137 h Clipped Class  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

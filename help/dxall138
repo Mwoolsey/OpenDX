@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N 
+ #!Rall137 Example 6. Column Majority Data #!N #!EC #!N #!N The 
+General Array Importer assumes that the order of the data it 
+imports is row majority (last index varies fastest). That is, on 
+a 2-dimensional n * m grid, the order of data is: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N f(X [0],Y[0]), f(X[0],Y[1]), ..., #!N f(X 
+[0],Y[m]), f(X[1],Y[0]), f(X[1],Y[1]), ... #!EF #!N #!N #!EC #!N #!N If 
+the order of data is column majority (first index varies fastest), 
+the order of data is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N f(X 
+[0],Y[0]), f(X[1],Y[0]), ..., #!N f(X [n],Y[0]), f(X[0],Y[1]), f(X[1], Y[1]), ... #!EF 
+#!N #!N #!EC #!N #!N The General Array Importer will accept 
+column-majority data if you select "Column" for the  #!F-adobe-times-bold-r-normal--18*   Data order 
+#!EF option in the Data Prompter. #!N #!N The file /usr/lpp/dx/samples/data/temp_wind.lis. 
+contains data in column majority order. A header file that imports 
+this data is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N file = temp_wind.lis 
+#!N grid = 144 x 73 #!N format = text #!N 
+interleaving = field #!N majority = column #!N header = lines 
+9 #!N field = temperature, wind_velocity #!N structure = scalar, 2-vector 
+#!N type = float, float #!N dependency = positions, positions #!N 
+layout = 39, 14, 0, 14 #!N positions = regular, regular, 
+-178.75, 2.5, 90.0, -2.5 #!N #!N end #!EF #!N #!N #!EC 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lsydfgi,dxall139 h Header File Syntax: Keyword Statements  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

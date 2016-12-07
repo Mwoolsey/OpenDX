@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>./README_SMP</TITLE>
+
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer 
+(ibmdx@watson.ibm.com)">                                                        
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer 
+(ibmdx@watson.ibm.com)">                                                        
+<META HTTP-EQUIV="updated" CONTENT="Thu, 12 Feb 1998 23:15:12">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 23:15:12">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA 
+MINING">                                                                        
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+<IMG SRC="images/dxicon8.gif" ALT=""><BR>
+
+<A NAME="Top_Of_Page"></A>
+<H1>./README_SMP</H1>
+<PRE>
+* 
+* README for IBM Visualization Data Explorer for Symetric Multiprocessors  
+* 
+* 
+* 
+   
+   
+The information contained in this file consists of hints for using the 
+Data Explorer SMP for symmetric multiprocessors. 
+   
+======================================================================== 
+   
+CONTENTS 
+    To go directly to an item, search for the item number beginning 
+    at the left margin. 
+  
+    1. The Partition module 
+    2. Partitioning an already-partitioned field  
+    3. The default amount of memory used 
+    4. The default number of processors used 
+    5. The difference between SMP and distributed  
+  
+======================================================================== 
+  
+  
+1. The Partition module  
+  
+With Data Explorer SMP, the Partition module should be used to 
+create a composite field from the imported data.  
+Only if the data set is partitioned  
+will Data Explorer SMP exploit the multiple processors available.   
+Note that you can run partitioned data equally well on both 
+uniprocessor and multiprocessor machines.  
+  
+2. Partitioning an already-partitioned field  
+  
+Once a field is partitioned it will not be repartitioned if it  
+is passed through the Partition module again. Thus to maximize 
+the use of the available processors, you may want  
+to increase the number of partitions (the "n" paramter for  
+Partition) from the default value if you will be operating on  
+only a subset of the data later on. Note however, that over-partitioning 
+a field leads to extra overhead. 
+  
+3. The default amount of memory used 
+  
+By default on a MP machine, less memory will be used than on 
+a UP machine. This is under the assumption that other users 
+may be more likely to be using an MP machine. The amount of 
+memory used can be changed with the -memory command line option 
+to dx.  Usage("memory",0) will show you how much memory is being  
+used. 
+  
+4. The default number of processors used 
+  
+For an MP machine, if the number of processors (n) is 4 or greater, 
+the default number of processors used is n/2, rounded down. If the 
+number of processors is 2 or 3, then the default number of processors 
+used is 2. The number of processors used can be changed with the 
+-processors command line option to dx. 
+  
+5. The difference between SMP and distributed  
+  
+When you run parallel on an SMP machine, intramodule parallelism 
+is used. For example, the Isosurface module will operate in 
+parallel on different portions of a partitioned field. When 
+you use the distributed method of execution, different modules 
+run on different machines; for example, Isosurface might be 
+running on one machine while MapToPlane is running on another. 
+There is overhead involved with using distributed computation, as 
+the data must be transferred between machines. 
+  
+   
+======================================================================== 
+  
+The following trademarks apply to this information: 
+  
+IBM is a registered trademark of International Business Machines Corporation.  
+IBM Visualization Data Explorer is a registered trademark of International 
+    Business Machines Corporation 
+</PRE>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

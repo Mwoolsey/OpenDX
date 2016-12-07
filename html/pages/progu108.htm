@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu107.htm">Previous Page</A> &#124; <A HREF="progu109.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXATM" HREF="progu097.htm#PToC_202">DXApplyTransform</A></H3>
+<A NAME="IDX1550"></A>
+<A NAME="IDX1551"></A>
+<P><STRONG>Function</STRONG>
+Creates a new Object by recursively applying a transform to a
+specified Object.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+&#35;include &lt;dx/dx.h&gt;
+Object DXApplyTransform(Object o, Matrix *m)
+</STRONG>
+</PRE>.
+<P><STRONG>Functional Details</STRONG>
+The routine descends Object <TT><STRONG>o</STRONG></TT>, applying transform
+<TT><STRONG>m</STRONG></TT> to the components of the Fields encountered.
+Any transforms present in the Object are accumulated to form a
+composite transform before being applied to
+subObjects.
+(The Object created can be deleted with DXDelete.
+See <A HREF="progu023.htm#HDRMEMNG">4.2 , "Memory Management"</A>.)
+<P>
+<TT><STRONG>DXApplyTransform</STRONG></TT> returns a new Object (i.e., a
+copy of <TT><STRONG>o</STRONG></TT> with transforms applied).
+This routine can be applied directly to Array objects.
+It also removes the "box" component from transformed Fields.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Positional Components</STRONG></TT>,
+</B></TD><TD><P>Are transformed by the composite matrix.
+(Positional components are "positions" and components with the
+"geometric" attribute "positional".)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Vector
+Components</STRONG></TT>,
+</B></TD><TD><P>Are transformed by the adjoint transpose of the composite
+matrix.
+(Vector components are "normals," "binormals,"
+"tangents," "gradient," and components with the
+"geometric" attribute "vector.")
+</TD></TR></TABLE>
+<P><STRONG>Return Value</STRONG>
+Returns <TT><STRONG>o</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+and sets an error code.
+<P><STRONG>See Also</STRONG>
+<TT><STRONG>
+<A HREF="progu120.htm#HDRDXCPLUS">DXConcatenate, DXInvert, DXTranspose,
+DXAdjointTranspose, DXDeterminant, DXApply</A>,
+<A HREF="progu297.htm#HDRDXRXYZ">DXRotateX, DXRotateY, DXRotateZ, DXScale,
+DXTranslate, DXMat</A>,
+</STRONG></TT>
+<P>
+<A HREF="progu075.htm#HDRTRANSEC">16.1 , "Transformation"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu107.htm">Previous Page</A> &#124; <A HREF="progu109.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

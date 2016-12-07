@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxedx DXExportDX #!N #!N Function #!N 
+#!N Writes an Object to a specified file in a specified 
+Data Explorer format. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error 
+DXExportDX(Object o, char *filename, char *format) #!EF #!N #!N Functional Details 
+#!N #!N Writes the contents of Object  #!F-adobe-times-bold-r-normal--18*   o #!EF into 
+the file specified by  #!F-adobe-times-bold-r-normal--18*   filename #!EF using format  #!F-adobe-times-bold-r-normal--18*   format 
+#!EF .  #!F-adobe-times-bold-r-normal--18*   format #!EF must be "dx" with the following 
+optional keywords appended:  #!Rfkw27 #!T,1,71,646  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 27. Format 
+Keyword Description #!N TAB Keyword TAB Format of the Data in 
+the File #!EF #!N TAB text TAB data in ASCII #!N 
+TAB ASCII TAB data in ASCII #!N TAB binary TAB data 
+in binary #!N TAB 1 TAB header and data in a 
+single file: header section, then data section #!N TAB 2 TAB 
+header and data in two files #!N TAB follows TAB header 
+and data in a single file; data immediately following object description 
+in header section #!N #!N You may specify more than one 
+keyword (e.g.,  #!F-adobe-times-bold-r-normal--18*   format #!EF ="dx text 2"). #!N #!N Return 
+Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and sets an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxidx,dxall1276 h DXImportDX  #!EL  #!EF #!N #!N  #!Ldef,dxall1091 h Data Explorer Format Files  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxext,dxall1206 h DXExtract  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

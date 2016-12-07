@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxignhe DXInitGetNextHashElement 
+#!N #!N Function #!N #!N Initializes a pointer for DXGetNextHashElement. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXInitGetNextHashElement(HashTable hashtable) #!EF #!N 
+#!N Functional Details #!N #!N Generally, a program retrieves entries from 
+a hash table by calling  #!F-adobe-times-bold-r-normal--18*   DXQueryHashElement #!EF to access arbitrary 
+elements, but sometimes it is convenient to access all elements, regardless 
+of their order. In that case, the program calls  #!F-adobe-times-bold-r-normal--18*   DXInitGetNextHashElement 
+#!EF to initiate this indexing by initializing the pointer that  #!F-adobe-times-bold-r-normal--18*   
+DXGetNextHashElement #!EF uses for iterating  #!F-adobe-times-bold-r-normal--18*   hashtable #!EF .  #!F-adobe-times-bold-r-normal--18*   DXInitGetNextElement 
+#!EF initializes the required pointer to zero (0). #!N #!N Return 
+Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR 
+#!EF and sets an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxch,dxall1190 h DXCreateHash  #!EL  ,  #!Ldxgnhe,dxall1251 h DXGetNextHashElement  #!EL  ,  #!Ldxihe,dxall1283 h DXInsertHashElement  #!EL  ,  #!Ldxqhe,dxall1345 h DXQueryHashElement  #!EL  #!EF #!N 
+#!N  #!Lhash,dxall1121 h Hashing  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldximod,dxall1280 h DXInitModules  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxn DXNeighbors #!N #!N 
+Function #!N #!N Returns the neighbors Array of a Field. #!N 
+#!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXNeighbors(Field f) #!EF #!N 
+#!N Functional Details #!N #!N For a Field with irregular connections, 
+returns the "neighbors" component of Field  #!F-adobe-times-bold-r-normal--18*   f #!EF . If 
+it does not exist, it is computed and added to the 
+Field before returning. Neighbors are not computed for connections with element 
+type "lines." #!N #!N For a Field with regular connections, returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF without setting the error code because neighbors in 
+a regular grid can be implicitly determined without using additional memory. 
+ #!F-adobe-times-bold-r-normal--18*   DXQueryGridConnections #!EF can be used to determine if the connections 
+are regular or irregular. #!N #!N The "neighbors" Array is used 
+to indicate which connection elements share faces. For additional details on 
+neighbors, see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in IBM Visualization Data Explorer User's Guide. #!N 
+#!N Return Value #!N #!N Returns the "neighbors" Array or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code (unless the Field 
+has regular or "line" connections., in which case no error code 
+is set. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxqgc,dxall1343 h DXQueryGridConnections  #!EL  #!EF 
+#!N #!N  #!Lstdcs,dxall1086 h Standard Components  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxnal,dxall1309 h DXNewAmbientLight  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

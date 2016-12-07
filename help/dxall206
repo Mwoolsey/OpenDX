@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtall206 Data 
+Component #!N #!N #!N The "data" component stores the user's data 
+values. The data values can be position- or connection-dependent, as specified 
+by the value of the "dep" attribute (described in  #!Lsca,dxall223 h Standard Attributes  #!EL  ) 
+of the "data" component. If the values are position-dependent, then the 
+"connections" component supplies a means of interpolating data values between the 
+samples. If the values are connection-dependent, the data value is constant 
+for each interpolation element. Data can also be dependent on "faces" 
+or "polylines" (see  #!Legnpols,dxall221 h Edges and Polylines  #!EL  ), in which case the data is 
+constant for either the face or the polyline. #!N #!N The 
+data are in one-to-one correspondence with the component upon which they 
+are dependent. This means that they are specified in the same 
+order as the items in the corresponding component. If that component 
+is specified in a compact form, its contents are ordered as 
+described in  #!Larrays,dxall252 h Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lcolcom,dxall207 h Colors, Front Colors, and Back Colors Components  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,44 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rdistcmp Using Distributed Computation #!N #!EC #!N #!N Data 
+Explorer provides you with the capability to distribute your visual program 
+across a network of heterogeneous workstations. Distributing your visual program provides 
+you with parallelism and enhanced resource utilization. Parallelism is achieved by 
+the simultaneous execution of different portions of the visual program on 
+each of the workstations. The amount of parallelism that you can 
+achieve is dependent on the organization of your visual program and 
+the number of available workstations. #!N #!N Enhanced resource utilization can 
+be achieved, for example, by assigning computationally intensive portions of the 
+visual program to the more powerful workstations. If the data you 
+are visualizing is located on one or more workstations, then performing 
+some of the data realization and transformation on the workstations containing 
+the data can reduce data transfer overheads. #!N #!N Distributed processing 
+in Data Explorer is achieved in two ways: by using "outboard" 
+modules (user supplied) or by placing groups of tools to "execution 
+groups." These two methods can be used independently or in combination. 
+For a discussion of outboard modules see  #!Lmodsior,dxall1049 h Inboard, Outboard, and Runtime-loadable Modules  #!EL  in IBM Visualization 
+Data Explorer Programmer's Reference. Execution groups can be created and modified 
+using the Visual Program Editor or by using attributes if you 
+are using the Data Explorer scripting language (see  #!Lusl,dxall495 h Data Explorer Scripting Language  #!EL  ). Once 
+the execution groups are created, you assign each group to the 
+workstations over which you wish to distribute the visual program. You 
+can assign more than one group per workstation. Note that if 
+more than one group is assigned to a given workstation, the 
+groups will not be run as separate processes. #!N #!N Data 
+Explorer uses this two part approach of creating groups and assigning 
+groups to make it easier for you to change the set 
+of workstations over which you distribute your visual programs. This utility 
+is especially convenient if you share visual programs with other users. 
+#!N #!N When you execute a visual program for the first 
+time, the Data Explorer executive is started on each workstation over 
+which the program is to be distributed. Each executive "plans" the 
+execution and executes each of the execution groups assigned to it. 
+This means that not only is the computation and data flow 
+distributed, but the control flow is distributed as well. One of 
+the workstations is a "master"--the workstation to which the user interface 
+is connected. The master creates and initiates the communication between the 
+other workstations and distributes commands from the user interface to all 
+the workstations. The master also executes any execution group that is 
+not assigned to another workstation in addition to its own assigned 
+groups. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall484,dxall485 h Creating, Modifying, and Deleting Execution Groups  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

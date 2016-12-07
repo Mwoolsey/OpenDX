@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall116 Example 2. Cell-centered Data #!N 
+#!EC #!N #!N This example involves modifying the header file created 
+in Example 1. The important difference is that the data here 
+is cell-centered (connection dependent): instead of 240 data values (one for 
+each of the 5 x 8 x 6 positions), there are 
+140 values (one for each of the 4 x 7 x 
+5 connections). The format is binary. #!N #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. In the Data Prompter initial dialog 
+box, click on  #!F-adobe-times-bold-r-normal--18*   Grid or Scattered File #!EF , then 
+ #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF , to bring up the simplified prompter. 
+#!N #!I30 #!N 2. Select  #!F-adobe-times-bold-r-normal--18*   Open #!EF from the  #!F-adobe-times-bold-r-normal--18*   
+File #!EF pull-down menu. A new dialog box appears called "Open 
+a Data Prompter Header...." #!N #!I30 #!N 3. In the  #!F-adobe-times-bold-r-normal--18*   
+Directories #!EF column, highlight the directory in which you saved the 
+record_scalar header file (if it is not already highlighted). #!N #!I30 
+#!N 4. Highlight record_scalar.general in the  #!F-adobe-times-bold-r-normal--18*   File #!EF column, and 
+then click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF . The simplified prompter now 
+displays the information for the record_scalar header file. #!N #!I30 #!N 
+5. Change the path name in the  #!F-adobe-times-bold-r-normal--18*   Data file #!EF 
+field to: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N /usr/lpp/dx/samples/data/record_depconnections #!EF #!N #!N 
+#!EC #!N #!I30 #!N 6. Select  #!F-adobe-times-bold-r-normal--18*   Full prompter #!EF from 
+the  #!F-adobe-times-bold-r-normal--18*   Options #!EF pull-down menu. #!N #!I30 #!N 7. When 
+the  #!F-adobe-times-bold-r-normal--18*   Full prompter #!EF dialog box appears, change  #!F-adobe-times-bold-r-normal--18*   Dependency 
+#!EF from "positions" to "connections." To confirm this change, click on 
+ #!F-adobe-times-bold-r-normal--18*   Modify #!EF at the bottom of the dialog box (note 
+the instruction there). #!N #!I30 #!N 8. Repeat Example 1, Step 
+10 (see above), to save the header file, which should look 
+like: #!N #!I0 #!N #!EF #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+file = /usr/lpp/dx/samples/data/record_depconnections #!N grid = 5 x 8 x 6 
+#!N #!N format = text #!N #!N interleaving = record #!N 
+majority = row #!N field = field0 #!N structure = scalar 
+#!N type = float #!N dependency = connections #!N positions = 
+regular, regular, regular, 1, .5, 3, 1.0, 2.0, .75 #!N #!N 
+end #!EF #!N #!N #!EC #!N #!N Note the information that 
+you have supplied directly or changed (lines 1, 2, 3, and 
+9). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall117,dxall118 h Example 3. Data with Header information  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

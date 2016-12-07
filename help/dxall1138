@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rcamsec Camera Class #!N #!EC #!N #!N 
+A Camera Object stores parameters that relate a scene to an 
+image of the scene, including camera position and orientation, field of 
+view, type of projection, and resolution. It specifies the transformation from 
+world coordinates to image coordinates. #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Camera DXNewCamera() #!EF #!EF #!I50 #!N Creates a new 
+Camera. See  #!Ldxnca,dxall1311 h DXNewCamera  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Camera DXSetView() 
+#!EF #!EF #!I50 #!N Specifies the Camera position, a point on 
+the line of sight of the Camera, and the Camera orientation. 
+See  #!Ldxsvw,dxall1393 h DXSetView, DXGetView  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Camera DXSetOrthographic() #!EF 
+#!EF #!I50 #!N Specifies an orthographic view. The width of the 
+viewport in the world coordinates and the aspect ratio are specified. 
+See  #!Ldxsoc,dxall1384 h DXSetOrthographic, DXGetOrthographic  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Camera DXSetPerspective() #!EF 
+#!EF #!I50 #!N Specifies a perspective view. The field of view 
+specifies the tangent of half the angle of the field of 
+view. The height of the view is the specified  #!F-adobe-times-bold-r-normal--18*   aspect 
+#!EF times the width. See  #!Ldxspe,dxall1388 h DXSetPerspective, DXGetPerspective  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Camera DXSetBackgroundColor() #!EF #!EF #!I50 #!N Specifies the background color 
+of a scene. See  #!Ldxsbc,dxall1368 h DXSetBackgroundColor, DXGetBackgroundColor  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Camera DXSetResolution() #!EF #!EF #!I50 #!N Specifies the resolution of a 
+Camera. See  #!Ldxsrn,dxall1389 h DXSetResolution, DXGetCameraResolution  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Camera DXGetView() 
+#!EF #!EF #!I50 #!N Returns the camera view parameters. See  #!Ldxsvw,dxall1393 h DXSetView, DXGetView  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Camera DXGetOrthographic() #!EF #!EF #!I50 
+#!N Returns the orthographic camera parameter. See  #!Ldxsoc,dxall1384 h DXSetOrthographic, DXGetOrthographic  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Camera DXGetPerspective() #!EF #!EF #!I50 #!N Returns the 
+perspective camera parameters. See  #!Ldxspe,dxall1388 h DXSetPerspective, DXGetPerspective  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Camera DXGetBackgroundColor() #!EF #!EF #!I50 #!N Extracts a scene background color 
+associated with a camera. See  #!Ldxsbc,dxall1368 h DXSetBackgroundColor, DXGetBackgroundColor  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Camera DXGetCameraResolution() #!EF #!EF #!I50 #!N Returns the camera resolution. 
+See  #!Ldxsrn,dxall1389 h DXSetResolution, DXGetCameraResolution  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Matrix DXGetCameraMatrix() #!EF 
+#!N Matrix DXGetCameraMatrixWithFuzz(); #!N Matrix DXGetCameraRotation(); #!EF #!I50 #!N Return matrices 
+that represent stages of the viewing operation. See  #!Ldxgcmp,dxall1225 h DXGetCameraMatrix, DXGetCameraRotation, DXGetCameraMatrixWithFuzz  #!EL  . #!I0 
+#!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Llightsc,dxall1139 h Light Class  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

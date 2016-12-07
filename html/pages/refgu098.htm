@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Options</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu097.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu099.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDROPTIONS" ></A>Options</H3>
+		<A NAME="IDX604"></A><A NAME="IDX605"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATSTR">Structuring</A>
+<P><STRONG>Function</STRONG>
+<P>
+Associates one or more attributes with a specified object.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+output</STRONG> = Options(<STRONG>input, attribute, value, ...</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object whose attributes are to be
+set
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>attribute</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">attribute to be added
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>value</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">value or string or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">value of the attribute
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>...</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">additional attribute-value
+pair(s)
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">the object with attributes added
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module associates attributes with an object.
+(Attributes can be extracted from an object with the Attribute module.)
+
+Attributes are used by some modules to determine the behavior of a
+particular input object. For example, you can add attributes to objects
+to tell the Plot module how to draw markers on particular lines (see
+<A HREF="#TBLATTRIB">Table 8</A> and
+<A HREF="refgu104.htm#HDRPLOT">Plot</A>).
+While there is a set of attributes which Data Explorer modules understand, you
+can also add your own attributes to objects, to be interpreted by
+user-written modules.
+<P>
+You can remove an already present attribute by setting its value to null.
+
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>names the object to which one or more attributes are to be
+added.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>attribute</STRONG></TT>
+</B></TD><TD><P>names the attribute to be added.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>value</STRONG></TT>
+</B></TD><TD><P>specifies the value of the attribute
+</TD></TR><TR VALIGN="TOP"><TD><P><B>...
+</B></TD><TD><P>One or more additional pairs of parameters, each specifying an
+<TT><STRONG>attribute</STRONG></TT> and a <TT><STRONG>value</STRONG></TT>
+to be associated with <TT><STRONG>input</STRONG></TT>.
+</TD></TR></TABLE>
+<P>
+A single Options module can specify a maximum of 21
+<TT><STRONG>attribute</STRONG></TT>-<TT><STRONG>object</STRONG></TT>
+pairs.
+In the user interface, the default number of enabled tab-pairs is two.
+(Tabs can be added to the module icon and removed with the appropriate
+<TT><STRONG>...Input Tab</STRONG></TT> options in the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu of
+the VPE.)
+<P>
+<BR>
+		<P><B><A NAME="TBLATTRIB" HREF="refgu002.htm#FT_TBLATTRIB">Table 8. Attributes
+which have predefined meanings in Data Explorer</A></B>
+		<P></P>
+		<TABLE BORDER CELLSPACING="1" CELLPADDING="3">
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="150">Attribute name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="270">Attribute values
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Relevant module
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">label
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">any user-supplied label
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">scatter
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">1 or 0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">mark
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">"circle", "diamond",
+
+"dot",
+
+"square", "star",
+"triangle", "x"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">mark every
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">mark scale
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Plot
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">fuzz
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">integer
+
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">ambient
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive scalar
+
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">diffuse
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive scalar
+
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">specular
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive scalar
+
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">shininess
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive integer
+
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image
+
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">shade
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">0 or 1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image
+
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">opacity multiplier
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image (for
+volume rendering)
+
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">color multiplier
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image (for
+volume rendering)
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">texture
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">a texture map
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Image
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">antialias
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">"lines"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">line width
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Image
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">direct color map
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">0 or 1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">cache
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">0 or 1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">rendering mode
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">&quot;software&quot; or &quot;hardware&quot;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">rendering approximation
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">"none", "box", "dots", or
+"wireframe"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">render every
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">positive integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">pickable
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">0 or 1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Pick
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">marked component
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Mark, Unmark
+</TD></TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">texture wrap s</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">&quot;clamp to border&quot;, &quot;clamp&quot;, &quot;repeat&quot;, or &quot;clamp to edge&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image (for hardware rendering)</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">texture wrap t</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">&quot;clamp to border&quot;, &quot;clamp&quot;, &quot;repeat&quot;, or &quot;clamp to edge&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image (for hardware rendering)</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">cull face</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">&quot;off&quot;, &quot;front&quot;, &quot;back&quot;, or &quot;front and back&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image (for hardware rendering)</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">light model</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">&quot;one side&quot; or &quot;two side&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image (for hardware rendering)</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">texture min filter</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">&quot;nearest&quot; or &quot;linear&quot;, &quot;nearest_mipmap_nearest&quot;, &quot;nearest_mipmap_linear&quot;, &quot;linear_mipmap_nearest&quot; or &quot;linear_mipmap_linear&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image (for hardware rendering)</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">texture mag filter</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">&quot;nearest&quot; or &quot;linear&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image (for hardware rendering)</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="150">texture function</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="270">&quot;decal&quot;, &quot;replace&quot;, &quot;modulate&quot; or &quot;blend&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="175">Display, Render, Image (for hardware rendering)</TD>
+			</TR>
+			<tr>
+				<td align="LEFT" valign="TOP" width="150">neighbors hint</td>
+				<td align="LEFT" valign="TOP" width="270">&quot;degenerate cubes&quot;</td>
+				<td align="LEFT" valign="TOP" width="175">Many including ShowBoundary</td>
+			</tr>
+		</TABLE>
+		<P>
+Attributes may also be added to arrays to add information which may be
+needed to interpret an array as a Data Explorer component.
+For example, you can add a "ref" attribute with
+a value of &quot;positions&quot; to an integer list which you intend to be
+used as a connections component in a field. This use of
+<B>Options</B> should be done only with a solid understanding of the
+Data Explorer data model. See <A HREF="usrgu025.htm#HDRSCA">"Standard
+Attributes"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<P><STRONG>Components</STRONG>
+<P>
+The output object is the same as the input object except for the
+added attributes.
+All input components are propagated to the output.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+PlotTwoLines.net
+
+FatLines.net
+
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu013.htm#HDRATTRIB">Attribute</A>,
+&nbsp;<A HREF="refgu014.htm#HDRAUTOAXE">AutoAxes</A>,
+&nbsp;<A HREF="refgu048.htm#HDRDISPLAY">Display</A>,
+&nbsp;<A HREF="refgu104.htm#HDRPLOT">Plot</A>,
+&nbsp;<A HREF="refgu118.htm#HDRRENDER">Render</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu110.htm">Previous Page</A> &#124; <A HREF="progu112.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXBB" HREF="progu097.htm#PToC_205">DXBoundingBox</A></H3>
+<A NAME="IDX1560"></A>
+<A NAME="IDX1561"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Computes the bounding box of an Object.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXBoundingBox(Object o, Point *box)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This routine adds to Object <TT><STRONG>o</STRONG></TT>, and any of its
+descendants that are Fields, a "box" component consisting
+of an Array of 2<SUP>d</SUP> points that are the corners
+of a bounding box (where <I>d</I> is the
+dimensionality of the data).
+For data  of dimensionality three or less, the routine returns--in
+the Array pointed to by <TT><STRONG>box</STRONG></TT>--the eight
+corner points; for dimensionalities of one or two, the
+extra dimensions are treated as zero in the box
+returned by the routine.
+<P>
+The bounding box returned on <TT><STRONG>o</STRONG></TT> is determined by
+combining the bounding boxes of all Fields contained in
+<TT><STRONG>o</STRONG></TT>.
+<P>
+Transformations are considered in computing the bounding box, but
+clipping Objects are not.  The bounding box is not guaranteed to be
+the tightest possible.
+<P>
+A <TT><STRONG>Point</STRONG></TT>
+is defined as follows:
+<BR>
+<TT><STRONG><BR>
+typedef struct point {<BR>
+   float x, y, z;<BR>
+} Point, Vector;<BR>
+</STRONG></TT><BR>
+<P><STRONG>Return Value</STRONG>
+Returns <TT><STRONG>o</STRONG></TT> or returns  <TT><STRONG>NULL</STRONG></TT>
+and
+may or may not set an error code, depending on the input.
+For example, it does not set an error code if a bounding box cannot
+be defined for the given input.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu113.htm#HDRDXCCVS">DXChangedComponentValues,
+DXChangedComponentStructure</A>,
+<A HREF="progu135.htm#HDRDXEMF">DXEmptyField</A>,
+<A HREF="progu136.htm#HDRDXENDF">DXEndField</A>,
+<A HREF="progu137.htm#HDRDXEO">DXEndObject</A>,
+<A HREF="progu243.htm#HDRDXN">DXNeighbors</A>,
+<A HREF="progu331.htm#HDRDXS">DXStatistics</A>,
+<A HREF="progu341.htm#HDRDXVPBB">DXValidPositionsBoundaryBox</A>
+</STRONG></TT>
+<P>
+<A HREF="progu050.htm#HDRSTDCS">"Standard Components"</A>.
+<P><P>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu110.htm">Previous Page</A> &#124; <A HREF="progu112.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

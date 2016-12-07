@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu112.htm">Previous Page</A> &#124; <A HREF="progu114.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXCCVS" HREF="progu097.htm#PToC_207">DXChangedComponentValues,
+DXChangedComponentStructure</A></H3>
+<A NAME="IDX1578"></A>
+<A NAME="IDX1579"></A>
+<A NAME="IDX1580"></A>
+<A NAME="IDX1581"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Delete components of a Field.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+&#35;include &lt;dx/dx.h&gt;
+Field DXChangedComponentValues(Field f, char *component)
+Field DXChangedComponentStructure(Field f, char *component)
+</STRONG>
+</PRE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TT><STRONG>DXChangedComponentValues</STRONG></TT> deletes all the
+components of <TT><STRONG>f</STRONG></TT> that have a "der"
+attribute naming the specified component
+<TT><STRONG>component</STRONG></TT>.
+This routine is typically used when the values of the items of an Array
+change (e.g., the values of the "data" component) but not the
+number of items.
+<P>
+<TT><STRONG>DXChangedComponentStructure</STRONG></TT> deletes all the
+components of <TT><STRONG>f</STRONG></TT> that have a "dep,"
+"der," or "ref" attribute naming the
+specified component
+<TT><STRONG>component</STRONG></TT>.
+This routine is typically used when the number of items in an Array
+(e.g., the number of items in the "positions" component)
+has been changed.
+<P>
+Both of these routines recursively apply
+<TT><STRONG>DXChangedComponentStructure</STRONG></TT>
+to the components they delete.
+They ensure that Fields remain internally consistent when
+they are altered.
+<P>
+By deleting components derived from a changed component, a call to
+<TT><STRONG>DXChangedComponentValues</STRONG></TT>
+ensures that the derived component will be recalculated
+when necessary and will remain up-to-date.
+For example, the "data statistics" component is derived from the
+"data" component.
+If the "data" component is changed, the current contents of
+data statistics become invalid.
+A call to <TT><STRONG>DXChangedComponentValues(field,
+"data")</STRONG></TT> will delete data
+statistics, and the values will be
+recomputed on the next call to
+<TT><STRONG>DXStatistics</STRONG></TT>.
+<P>
+Similarly, <TT><STRONG>DXChangedComponentStructure</STRONG></TT> ensures that
+components that depend on, refer to, or are derived from another
+component will be as up-to-date as possible.
+For example, the "connections" component refers to the
+"positions" component.
+If the structure of the "positions" component is changed, perhaps
+by deleting a position, the references in the "connections"
+component that are indices into the "positions"
+component cease to apply.
+Rather than leave an invalid "connections" component in the
+Field, it is better to remove it by calling
+<TT><STRONG>DXChangedComponentStructure</STRONG></TT>.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Most components depend on, refer to, or are derived from others.
+These routines may cause important information to be discarded.  It
+is often better to correct the component that has a "dep,"
+"der," or "ref" attribute than to delete it.
+In the example just described, you can avoid deleting the
+"connections" component when a point is deleted
+from the "positions" component by deleting all
+connections elements that refer to the discarded
+position and remapping the remaining references
+to reflect the moved points in the
+"positions" component.
+</td></tr></table>
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>f</STRONG></TT> or returns <TT><STRONG>NULL</STRONG></TT>
+and
+sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu136.htm#HDRDXENDF">DXEndField</A>,
+<A HREF="progu163.htm#HDRDXGCV">DXGetComponentValue</A>,
+<A HREF="progu307.htm#HDRDXSCV">DXSetComponentValue</A>
+</STRONG></TT>
+<P>
+<A HREF="progu050.htm#HDRSTDCS">"Standard Components"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu112.htm">Previous Page</A> &#124; <A HREF="progu114.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

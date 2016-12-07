@@ -1,0 +1,61 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsetsel 
+Setting Selector and SelectorList Interactor Attributes #!N The Set Attributes dialog 
+box for the  #!F-adobe-times-bold-r-normal--18*   Selector #!EF and  #!F-adobe-times-bold-r-normal--18*   SelectorList #!EF interactors 
+(  #!Lselatt81,dxall400 f Figure 81  #!EL  ) differ from the dialog box for other types 
+of interactors because the behavior of those interactors is different from 
+other types of interactors. #!N #!N The Selector and SelectorList interactors 
+are similar to an option menu, with the current choice(s) displayed 
+by the interactor. (The Selector offers a one-of-many choice; the SelectorList, 
+a choice of none, one, or more among many.) Each choice 
+on the interactor represents a pair of outputs: a value and 
+a string. The string is what appears as the choice on 
+the interactor. The value can be a string, integer, scalar, vector 
+or matrix. All the values must be of the same type. 
+By default, the values are integers. A value is associated with 
+a string using the  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box ( 
+ #!Lselatt81,dxall400 f Figure 81  #!EL  ). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rselatt81 #!N Graphics omitted from Online 
+Documentation. Please see the manual. #!N #!N Figure 81. Set Attributes 
+Dialog Box for a Selector Interactor #!EF #!N #!EC #!N #!N 
+You can use the Selector or SelectorList interactor for many purposes. 
+A common use is as a switch control in your visual 
+program. You can use an integer output, for example, as input 
+to the Switch module to switch easily among several objects. You 
+can use a string output, for example, as input to the 
+Select or Import modules, allowing you to easily select different members 
+or data file names. You can also use a string output 
+as input to the Caption module to annotate the image with 
+the current selector setting. A discussion on how to use the 
+Selector and SelectorList interactors can be found in  #!Lselint,dxall430 h Selector and SelectorList Interactors  #!EL  . #!N 
+#!N The default choices for the Selector and SelectorList interactors are: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 1, "on" 
+#!N #!I30 #!N o 0, "off" #!N #!I0 #!N #!EF #!N 
+To modify the choices, do the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. Open a Control Panel with the 
+selector interactor in it. #!N #!I30 #!N 2. Open the selector's 
+ #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box by double-clicking on the interactor, 
+or by selecting the interactor and then choosing the  #!F-adobe-times-bold-r-normal--18*   Set 
+Attributes... #!EF option in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu. A 
+dialog box appears, similar to the one shown  #!Lselatt81,dxall400 f Figure 81  #!EL  . #!N 
+#!I30 #!N 3. The procedure for modifying the choices in this 
+list is similar to that for modifying the list elements in 
+a list interactor (see  #!Llistint,dxall421 h List Interactors  #!EL  ). To enter a value in 
+this interactor click on the  #!F-adobe-times-bold-r-normal--18*   Value #!EF box, enter a 
+value, and press the Enter key. Then click on the  #!F-adobe-times-bold-r-normal--18*   
+Label #!EF box, type a string, and press the Enter key. 
+For more information about how to modify, add, and delete elements, 
+see  #!Llistint,dxall421 h List Interactors  #!EL  . #!N Note: If you wish to change the 
+type of the values in the value field, for example, entering 
+values other than integers when initially configuring the interactor, you must 
+first delete all the entries in the  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF 
+dialog before entering new ones. This is required since the type 
+of all values must be the same. #!N #!N #!I30 #!N 
+4. When you are finished modifying the choices, click on  #!F-adobe-times-bold-r-normal--18*   
+OK #!EF to apply the changes. #!N #!I0 #!N #!EF #!N 
+#!N #!N Because the selector interactor yields both the value and 
+the string as outputs, you can use either output, or both, 
+in a visual program. In the selector stand-in, the output on 
+the left is the value, while the output on the right 
+represents the string. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lchinlb,dxall401 h Changing the Label on the Interactor  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

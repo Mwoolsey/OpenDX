@@ -1,0 +1,48 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1004 Creating a 
+Module with the Module Builder: A Summary #!N #!EC #!N #!N 
+To begin a Module Builder session, enter: dx -builder. The dialog 
+box (  #!L1a121,dxall1005 f Figure 121  #!EL  ) consists of a menu bar and two 
+major sections: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+A  #!F-adobe-times-bold-r-normal--18*   Overall Module Description #!EF section for defining the module, 
+and #!N #!I30 #!N o An  #!F-adobe-times-bold-r-normal--18*   Individual Parameter #!EF section 
+for defining the individual input and output parameters. #!N #!I0 #!N 
+#!EF #!N #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!R1a121 #!N Graphics omitted from Online 
+Documentation. Please see the manual. #!N #!N Figure 121. Module Builder 
+Dialog Box. In the  #!F-adobe-times-bold-r-normal--18*   Individual Parameter Information #!EF section, the 
+ #!F-adobe-times-bold-r-normal--18*   Input or Output? #!EF button specifies the kind of parameter 
+being defined, and the associated  #!F-adobe-times-bold-r-normal--18*   Number #!EF setting specifies its 
+ordinal ranking (i.e., first, second, etc.). Use the  #!F-adobe-times-bold-r-normal--18*   Number #!EF 
+stepper buttons to proceed from one parameter description to the next. 
+#!EF #!N #!EC #!N #!N When all the necessary information has 
+been entered, save it. For new modules, use the  #!F-adobe-times-bold-r-normal--18*   Save 
+as... #!EF option in the  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu (or 
+ #!F-adobe-times-bold-r-normal--18*   Save #!EF , if the specified module name is already 
+known to the system). The saved file has the name of 
+the module and the extension  #!F-adobe-times-bold-r-normal--18*   .mb #!EF . #!N #!N 
+You can now use the options in the  #!F-adobe-times-bold-r-normal--18*   Build #!EF 
+pull-down menu to create a module description file (  #!F-adobe-times-bold-r-normal--18*   .mdf 
+#!EF ), a C-code module framework (  #!F-adobe-times-bold-r-normal--18*   .c #!EF ), 
+a makefile (  #!F-adobe-times-bold-r-normal--18*   .make #!EF ), or all three together. 
+You can incorporate your own application code in the C-code framework 
+file and reference additional files in the makefile. #!N #!N Compile 
+the program as follows: #!N make -f  #!F-adobe-times-bold-i-normal--18*   filename #!EF .make 
+This command creates a customized version of the Data Explorer executive 
+that can use the new module. To run this version in 
+your working directory, enter the following command: #!N #!N For an 
+ #!F-adobe-times-medium-i-normal--18*   inboard #!EF module: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit 
+-mdf  #!F-adobe-times-bold-i-normal--18*   filename #!EF .mdf -exec dxexec #!EF #!N #!N #!EC 
+For an  #!F-adobe-times-medium-i-normal--18*   outboard #!EF or  #!F-adobe-times-medium-i-normal--18*   runtime-loadable #!EF module: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf  #!F-adobe-times-bold-i-normal--18*   filename #!EF .mdf 
+#!EF #!N #!N #!EC #!N #!N To create a version of 
+the Data Explorer executive with more than one customized module, you 
+must: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. concatenate 
+in a single mdf file the module descriptions you want to 
+use; #!N #!I30 #!N 2. create a makefile that references the 
+combined mdf file as well as all the individual  #!F-adobe-times-bold-r-normal--18*   .c 
+#!EF framework files. #!N #!I30 #!N 3. compile the program as 
+above. #!N #!I0 #!N #!EF #!N #!N #!N You can now 
+run the new version with the new mdf file. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltmodbld,dxall1006 h Using the Module Builder: A Quick Walk Through  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnxf DXNewXform #!N #!N Function #!N #!N Creates a new 
+Transform Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Xform DXNewXform(Object 
+o, Matrix m) #!EF #!N #!N Functional Details #!N #!N The 
+new Transform Object represents Object  #!F-adobe-times-bold-r-normal--18*   o #!EF , to which 
+a modeling transform Matrix  #!F-adobe-times-bold-r-normal--18*   m #!EF is to be applied. 
+#!N #!N The modeling transformation is specified as a  #!F-adobe-times-bold-r-normal--18*   Matrix 
+#!EF that is defined as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct { 
+float A[3][3] float b[3]; } Matrix; #!EF #!N #!N This definition 
+of a Matrix is sufficient for specifying all 3-dimensional affine transformations 
+(e.g., xA + b, where A is a 3x3 rotation Matrix 
+and b is a 3-dimensional translation vector). #!N #!N Transforms may 
+be applied hierarchically. #!N Note: The transformation is not actually applied 
+when the Transform Object is created. #!N #!N #!N The Object 
+created can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N 
+Return Value #!N #!N Returns the Transform Object or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxatm,dxall1173 h DXApplyTransform  #!EL  ,  #!Ldxgxfi,dxall1272 h DXGetXformInfo  #!EL  ,  #!Ldxrxyz,dxall1362 h DXRotateX, DXRotateY, DXRotateZ, DXScale, DXTranslate, DXMat  #!EL  ,  #!Ldxsxfo,dxall1394 h DXSetXformObject  #!EL  #!EF 
+#!N #!N  #!Lxformsc,dxall1135 h Xform Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxorgb,dxall1329 h DXOutputRGB  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

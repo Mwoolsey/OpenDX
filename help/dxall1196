@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxdc DXDeleteComponent #!N #!N Function #!N #!N Deletes a named component 
+from a Field. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Field 
+DXDeleteComponent(Field f, char *component) #!EF #!N #!N Functional Details #!N #!N 
+Deletes  #!F-adobe-times-bold-r-normal--18*   component #!EF from a Field  #!F-adobe-times-bold-r-normal--18*   f #!EF . 
+Any attributes associated with the named component are also deleted from 
+the Field. #!N #!N Deleting a component from a Field may 
+alter the structure of the Field in significant ways. For example, 
+if the "positions" component is removed, any other components that contain 
+references to positions become invalid. For this reason,  #!F-adobe-times-bold-r-normal--18*   DXChangedComponentStructure #!EF 
+may be used to ensure that the remaining structure of the 
+Field is consistent. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   
+f #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF but does not set 
+an error code if the component does not exist. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxccvs,dxall1178 h DXChangedComponentValues, DXChangedComponentStructure  #!EL  ,  #!Ldxgecv,dxall1233 h DXGetEnumeratedComponentValue  #!EL  ,  #!Ldxnf,dxall1316 h DXNewField  #!EL  , 
+ #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  #!EF #!N #!N  #!Lfieldsc,dxall1062 h Field Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxdhe,dxall1197 h DXDeleteHashElement  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

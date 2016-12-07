@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall1147 Sending Messages to the 
+Server #!N #!EC #!N #!N The function DXLSend (see  #!Lmsgrtns,dxall1150 h Messaging Routines  #!EL  ) 
+sends specific messages directly to the server. In general, one needs 
+to be sure that the server will either handle the message 
+properly or ignore it. The user interface will ignore most unrecognized 
+messages, while the executive will accept most legal scripting-language commands.  #!Lsetvars,dxall1154 h Setting Variables  #!EL  
+discusses how an application program can set the value of variables 
+in a visual program. #!N #!N Other functions may also result 
+in messages to the server. For example, DXLStartDX initiates the connection 
+to the server and manages all the messaging associated with establishing 
+the connection to Data Explorer. #!N #!N When a function call 
+results in sending a message to the server, DXLink can either 
+synchronize with the server to ensure that the message has been 
+accepted or it can return without receiving an acknowledgment. By default, 
+DXLink is configured to use the latter (asynchronous) method. DXLSetSynchronous sets 
+the synchronization method to be used. DXLSync allows synchronization at specified 
+points in an application that does not use synchronous mode. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lrcvmsg,dxall1149 h Receiving Messages from the Server  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

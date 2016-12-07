@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rrcvmsg Receiving Messages from the Server #!N #!EC 
+#!N #!N DXLink always uses an asynchronous method of handling messages 
+sent from the server to the DXLink application. #!N #!N DXLHandlePendingMessages 
+must be called when messages are pending and ready to be 
+processed. This function arranges for message handlers to be called for 
+pending messages and it discards any messages that do not have 
+handlers installed. The function DXLIsMessagePending determines whether DXLHandlePendingMessages needs to be 
+called and allows an application to poll the connection to the 
+server for messages that need to be processed. #!N #!N The 
+function DXLGetSocket is provided for systems with socket support. The returned 
+socket can be used to arrange for the operating system to 
+perform a blocking  #!F-adobe-times-bold-r-normal--18*   select( ) #!EF command on the socket 
+to determine when there are messages available. This might be used 
+in a scripting application that uses  #!F-adobe-times-bold-r-normal--18*   select( ) #!EF on 
+both the DXLink socket and the file descriptor corresponding to the 
+input device. #!N #!N #!N #!N The DXLOutput module can be 
+used to send Data Explorer values from Data Explorer to a 
+DXLink application. For descriptions of both routines, see IBM Visualization Data 
+Explorer User's Reference. For a discussion of Data Explorer values, see 
+ #!Lsetvars,dxall1154 h Setting Variables  #!EL  . #!N #!N X11 Windows: The function DXLInitForXMainLoop provides support 
+for applications built under the X window system. This function should 
+be called before entering the X main event loop; it arranges 
+for DXLHandlePendingMessages to be called automatically when messages are available. See 
+ #!Linitex,dxall1146 h Initialization and Exit  #!EL  . #!N #!N Message handlers are called from DXLHandlePendingMessages when 
+the indicated message is encountered. DXLink installs a number of its 
+own message handlers. #!N #!N The message handler structure is specified 
+by: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N typedef void (*DXLMessageHandler)(DXLConnection *conn, 
+const char *msg, void *data); #!EF #!EF #!N #!N #!EC #!N 
+#!N The packet types for messages are defined as follows: #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N enum DXLPacketType ¤ #!N PACK_INTERRUPT = 
+1, #!N PACK_MACRODEF = 4, #!N PACK_FOREGROUND = 5, #!N PACK_BACKGROUND 
+= 6, #!N PACK_ERROR = 7, #!N PACK_MESSAGE = 8, #!N 
+PACK_INFO = 9, #!N PACK_LINQUIRY = 10, #!N PACK_LRESPONSE = 11, 
+#!N PACK_COMPLETE = 19, #!N PACK_LINK = 22 #!N ‡; #!N 
+typedef enum DXLPacketType DXLPacketTypeEnum; #!EF #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmsgrtns,dxall1150 h Messaging Routines  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

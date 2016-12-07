@@ -1,0 +1,54 @@
+#!/bin/sh
+# Configure is looking for the following line
+prefix=@prefix@
+DFLTROOT=$prefix/dx
+root=${DXROOT=${DXEXECROOT=$DFLTROOT}}
+
+syslibroot=${root}/lib/
+syslibfile=dx.mdf
+sysawk=${root}/lib/mdf2c.awk
+aflag=
+
+if [ "$1" = "" ] ; then
+  echo "usage: mdf2c [ -m | -o ] modules.mdf [ moremodules.mdf ... ]"
+  echo "   or  mdf2c -s"
+  echo "   or  mdf2c -c"
+  echo "generates a source file used for adding modules to DX"
+  echo " use -m for building dynamically loadable modules"
+  echo " use -o to omit the standard system modules"
+  echo " use -s for building a standard system without adding new modules"
+  echo " use -c for building with callmodule"
+  exit 1
+fi
+
+# to run this without explicitly specifying any modules, use -s
+# you would want to do this to relink a vanilla system
+if [ "$1" = "-s" ] ; then
+  shift
+fi
+
+# to not include the standard system modules, use -o 
+# you would want this for creating a system with a subset of the
+# standard system modules
+if [ "$1" = "-o" ] ; then
+  syslibroot=
+  syslibfile=
+  shift
+fi
+
+# to create a dynamically loadable set of modules, use -m
+if [ "$1" = "-m" ] ; then
+  syslibroot=
+  syslibfile=
+  aflag="dynamic=1"
+  shift
+fi
+
+# to create using the callmodule syslibfile, use -c
+if [ "$1" = "-c" ] ; then
+  syslibfile=dxcm.mdf
+  shift
+fi
+
+cat ${syslibroot}${syslibfile} $* | awk -f $sysawk $aflag -
+

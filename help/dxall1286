@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxidb 
+DXInvalidateDupBoundary #!N #!N Function #!N #!N Invalidates all but one of 
+the positions shared between partitions in a Composite Field. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXInvalidateDupBoundary(Object object) #!EF #!N #!N 
+Functional Details #!N #!N In a Composite Field, positions (and any 
+position-dependent component entries) along a common boundary are shared between partitions. 
+Unless this duplication is taken into account, certain operations (e.g., calculations 
+of statistics or the number of points in a Field) may 
+produce incorrect results. This routine invalidates all but one of the 
+duplicated positions. #!N #!N Return Value Returns the input Object with 
+the duplicate positions invalidated or returns NULL and sets an error 
+code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcul,dxall1193 h DXCull  #!EL  #!EF #!N 
+#!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxiup,dxall1287 h DXInvalidateUnreferencedPositions  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

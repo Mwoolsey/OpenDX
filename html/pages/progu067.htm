@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu066.htm">Previous Page</A> &#124; <A HREF="progu068.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRINADMG" HREF="progu066.htm#PToC_146">14.2 Interpolation and
+Mapping</A></H2>
+<A NAME="IDX1068"></A>
+<A NAME="IDX1069"></A>
+<A NAME="IDX1070"></A>
+<P>
+The interpolation service described here performs linear interpolations
+on the values of a Field or Composite Field.
+The values are those of a function <I>y</I>(<I>x</I>) defined
+in terms of points <I>x<SUB>i</SUB></I> ("positions"), values
+<I>y<SUB>i</SUB></I> ("data"), and basis functions
+<I>b<SUB>i</SUB></I> (<I>x</I>) (implicitly
+defined by the element type or by the faces).
+<P>
+Interpolator Objects are the interface to calling
+applications.
+They:
+<UL COMPACT>
+<LI>Provide interpolation methods that are appropriate to the values in
+the Field Object operated on.
+The choice of method is based on factors such as the hierarchical
+structure of the data model, data formats, primitive types,
+and interpolation model.
+<LI>Contain data structures that facilitate interpolation.
+These structures are initialized either:
+<UL COMPACT>
+<LI>immediately, when the interpolator is created, or
+<LI>on demand, during the interpolation process.
+This delayed initialization is especially useful when the data being
+interpolated is partitioned and only some of the partitions
+require interpolation.
+However, if the interpolator is intended for sharing, it must be fully
+initialized before it is copied.
+This initialization can be done in parallel prior to the creation
+of subtasks.
+</UL>
+<LI>Use information gathered in previous interpolations to speed
+subsequent interpolations.
+For that reason, Interpolator Objects contain data specific to the
+process that uses the interpolator.
+Consequently, each parallel process must be provided with its own
+interpolator.
+The most efficient way of creating such "individualized"
+interpolators is to generate a single, fully initialized
+interpolator; pass it to the parallel subtasks that need to use it;
+and have the subtasks then <I>copy</I> that interpolator
+for local operation.
+When this approach is used, the parent interpolator cannot delay
+initialization: it must be fully initialized before
+it is copied.
+</UL>
+<P><B>Note: </B>Fields interpolated through this interface must have the same
+dimensionality as the space in which they are embedded.
+For example, triangles embedded in a 2-dimensional plane can be
+interpolated; triangles in 3-dimensional space cannot.
+For interpolation, faces must link 2-dimensional positions, and
+data must be dependent on "faces."
+<PRE>
+enum interp_init {
+    INTERP_INIT_DELAY,
+    INTERP_INIT_IMMEDIATE,
+    INTERP_INIT_PARALLEL
+};
+</PRE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>Interpolator
+DXNewInterpolator()</STRONG></TT>
+</TD><TD><P>Creates an Interpolator Object.
+<A NAME="IDX1071"></A>
+<A NAME="IDX1072"></A>
+<A NAME="IDX1073"></A>
+See  <A HREF="progu253.htm#HDRDXNI">DXNewInterpolator</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Interpolator
+DXInterpolate()</STRONG></TT>
+</TD><TD><P>Interpolates data values in a Field.
+See  <A HREF="progu219.htm#HDRDXIE">DXInterpolate</A>.
+<A NAME="IDX1074"></A>
+<A NAME="IDX1075"></A>
+<A NAME="IDX1076"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Interpolator
+DXLocalizeInterpolator()</STRONG></TT>
+</TD><TD><P>Copies the interpolator structures into local memory.
+<A NAME="IDX1077"></A>
+<A NAME="IDX1078"></A>
+<A NAME="IDX1079"></A>
+See  <A HREF="progu228.htm#HDRDXLI">DXLocalizeInterpolator</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Object DXMap()</STRONG></TT>
+</TD><TD><P>Interpolates data values at sample points.
+<A NAME="IDX1080"></A>
+<A NAME="IDX1081"></A>
+<A NAME="IDX1082"></A>
+See  <A HREF="progu238.htm#HDRDXMP">DXMap</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Array DXMapArray()</STRONG></TT>
+</TD><TD><P>Provides an intermediate-level mapping function.
+<A NAME="IDX1083"></A>
+<A NAME="IDX1084"></A>
+<A NAME="IDX1085"></A>
+See  <A HREF="progu239.htm#HDRDXMPA">DXMapArray</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Object DXMapCheck()</STRONG></TT>
+</TD><TD><P>Verifies that Objects are valid for mapping.
+<A NAME="IDX1086"></A>
+<A NAME="IDX1087"></A>
+<A NAME="IDX1088"></A>
+See  <A HREF="progu240.htm#HDRDXMPC">DXMapCheck</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu066.htm">Previous Page</A> &#124; <A HREF="progu068.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

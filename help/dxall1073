@@ -1,0 +1,31 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rarhand Array Handling #!N #!EC #!N #!N 
+Modules may have to handle a variety of different types of 
+Arrays, such as constant, compact (e.g., regular or product), and irregular. 
+ #!F-adobe-times-bold-r-normal--18*   DXGetArrayData() #!EF can be used on any of these types. 
+However, if the original Array was compact, memory use is increased, 
+sometimes dramatically. #!N #!N The Array-handling routines simplify the task of 
+dealing with the different types of Arrays at a cost in 
+efficiency. Because it operates on a case-by-case basis, incremental methods available 
+to  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData() #!EF cannot be used. In addition, each element 
+must be recomputed for each reference to that element. Therefore, multiple 
+references to the same element will pay a penalty in execution 
+time. However, if the array is irregular or constant, this interface 
+can be substituted for the standard  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData() #!EF with little 
+degradation of performance. #!N #!N The basic approach is to use 
+ #!F-adobe-times-bold-r-normal--18*   DXCreateArrayHandle() #!EF for a given array, and then to retrieve 
+the values of elements in that array, using either  #!F-adobe-times-bold-r-normal--18*   DXIterateArray() 
+#!EF ,  #!F-adobe-times-bold-r-normal--18*   DXGetArrayEntry() #!EF , or  #!F-adobe-times-bold-r-normal--18*   DXGetArrayEntries() #!EF . 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXCreateArrayHandle() #!EF #!EF 
+#!I50 #!N Creates a "handle" to allow convenient access to the 
+items in any Array class. See  #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXFreeArrayHandle() #!EF #!EF #!I50 #!N Frees the memory 
+allocated for an Array handle. See  #!Ldxfah,dxall1214 h DXFreeArrayHandle  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Pointer DXGetArrayEntry() #!EF #!EF #!I50 #!N Returns a specified 
+item from an Array. See  #!Ldxgaey,dxall1221 h DXGetArrayEntry, DXGetArrayEntries  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   void DXGetArrayEntries() #!EF #!EF #!I50 #!N Returns specified items from 
+an Array. See  #!Ldxgaey,dxall1221 h DXGetArrayEntry, DXGetArrayEntries  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Pointer 
+DXIterateArray() #!EF #!EF #!I50 #!N Iterates through an Array. See  #!Ldxia,dxall1291 h DXIterateArray  #!EL  
+. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lcotas,dxall1074 h Creating Positions and Connections Grids  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

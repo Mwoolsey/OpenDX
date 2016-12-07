@@ -1,0 +1,74 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1012 Module Builder: Individual Parameter 
+Information Section #!N #!EC #!N #!N Use this section to specify 
+the following information about each input and output parameter. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Input or Output? #!EF #!EF 
+#!I50 #!N The kind of parameter: input or output. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Number #!EF #!EF #!I50 #!N The ordinal number 
+of the input or output being defined: "1" (first), "2" (second), 
+and so on. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Name #!EF #!EF 
+#!I50 #!N The parameter name, which appears in the module's configuration 
+dialog box and is displayed when the tab of the module 
+stand-in is selected. It may also be used in script mode 
+and appear in the C-code framework file. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Description #!EF #!EF #!I50 #!N A brief description of the 
+parameter being defined. It appears in a  #!F-adobe-times-bold-r-normal--18*   Description of... #!EF 
+box when the  #!F-adobe-times-bold-r-normal--18*   Description... #!EF button of the module's configuration 
+dialog box is selected. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Required #!EF 
+#!EF #!I50 #!N Specification that the parameter must be set, because 
+no default value is possible. This option is grayed-out for output 
+parameters. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Default value #!EF #!EF #!I50 
+#!N The default value of the parameter. It appears in the 
+module configuration dialog box and is included in the C-code framework 
+file as a comment. Note: Implementing the default value is the 
+module writer's responsibility. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Descriptive #!EF #!EF 
+#!I50 #!N Specifies whether the default value is an actual value 
+or a descriptive phrase (e.g., "center of object"). #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object Type #!EF #!EF #!I50 #!N This parameter allows 
+the user to specify a Field Object or a simple parameter. 
+Each specification has an associated set of options that are enabled 
+when the appropriate toggle button is activated. #!N #!N  #!F-adobe-times-bold-r-normal--18*   Field 
+Parameter Options #!EF #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+Data type #!EF #!EF #!I50 #!N The type of the data 
+associated with the parameter (click on the associated button to display 
+a list of valid types). This information is used in the 
+C-code framework file to check for errors before the user's routine 
+is called. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Data Shape #!EF #!EF 
+#!I50 #!N The "shape" of the data associated with the parameter 
+(e.g., scalar). This information is used in the C-code framework file 
+to check for errors before the user's routine is called. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Positions #!EF #!EF #!I50 #!N One of 
+the following options controlling information about the positions component of the 
+first input parameter: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o  #!F-adobe-times-bold-r-normal--18*   Not required #!EF --No positions information is passed. #!N 
+#!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Regular #!EF --a compact representation of the 
+positions is passed. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Irregular #!EF --An 
+explicit Array of positions is passed. #!N #!I0 #!N #!EF #!N 
+This option is grayed-out for all but the first input argument. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Connections #!EF #!EF #!I50 #!N One 
+of the following options controlling information about the connections component of 
+the first input parameter: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o  #!F-adobe-times-bold-r-normal--18*   Not required #!EF --No connections information is passed. 
+#!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Regular #!EF --a compact representation of 
+the connections is passed. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Irregular #!EF 
+--An explicit Array of connections is passed. #!N #!I0 #!N #!EF 
+#!N This option is grayed-out for all but the first input 
+argument. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Element type #!EF #!EF #!I50 
+#!N The type of connection element expected by the module: lines, 
+quads, cubes, triangles, or tetrahedra. The specification is checked against the 
+connection type of the first input argument before the user's routine 
+is called. #!N #!N This option is grayed-out unless the connections 
+component is passed in by the Connections option. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Dependency #!EF #!EF #!I50 #!N The dependency of the 
+data component of the input. The specification is checked against the 
+dependency of the input Fields. #!I0 #!N #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+Simple Parameter Options #!EF #!N #!N This set of options is 
+enabled and displayed only when the  #!F-adobe-times-bold-r-normal--18*   simple parameter #!EF toggle 
+button is activated (see above). #!N #!I0 #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Type #!EF #!EF #!I50 #!N The type of the 
+parameter, as specified by activating one of 10 toggle buttons. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Vector Length #!EF #!EF #!I50 #!N The 
+length of the vector (given that the parameter type is a 
+vector). #!I0 #!N #!N #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lmbwrkrt,dxall1014 h Worker Routine  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

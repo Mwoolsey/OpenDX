@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Advanced Looping Constructs</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu031.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu033.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu026.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="Header_101" ></A>4.7 Advanced Looping Constructs</H2>
+		<A NAME="IDX609"></A><A NAME="IDX610"></A>
+<A NAME="IDX611"></A>
+<P>
+Combinations of the modules described above
+enable you to create advanced looping constructs.
+These constructs are equivalent to C-language constructs such as
+"do while" or "for" loops containing  "break" and
+"continue" statements.
+In the following figures the Sum and Increment
+macros, as described above,
+are used as well as a macro named Equals that consists of a Compute
+where
+the expression is "a==b?1:0" (if the inputs are equal output 1
+otherwise output 0).
+<P>
+Illustrated in <A HREF="#FIGXMODX8">Figure 25</A> is a macro that computes the
+sum
+of numbers from
+1 to N. If a number in the sequence from 1 to N is equal to
+an external input, x, the loop terminates
+and returns the sum from 1 to x.
+Done, in combination with Equals, is
+used to cause early termination of the loop.
+Done causes the loop to terminate
+after all the modules in
+the macro have executed if the input to Done is nonzero.
+The macro illustrated in <A HREF="#FIGXMODX8">Figure 25</A> is equivalent to the
+C-language
+statements:
+<PRE>
+  sum = 0;
+  i = 0;
+  do
+  {
+     i++;
+     sum = sum+i;
+  } while (i&lt;=n && i!=x);
+</PRE>
+<P>
+Now consider a macro in which the sum of numbers from 1 to N is
+computed, but if a number is equal to an external input value, x,
+it is excluded from the sum.
+To achieve this result using
+C-language statements, you would use a conditional with a "continue"
+statement:
+<PRE>
+    sum = 0;
+    for (i=1; i&lt;=n; i++)
+    {
+       if (i==x) continue;
+       sum = sum+i;
+    }
+</PRE>
+<P><B><A NAME="FIGXMODX8" HREF="../usrguide.htm#FT_FIGXMODX8">Figure 25. Example
+8</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmodf8.gif" ALT="Figure xmodf8 not
+displayed."></CENTER><BR></B><BR>
+As illustrated in <A HREF="#FIGXMODX9">Figure 26</A>, you would use Route
+to create this macro using Data Explorer.
+The <TT><STRONG>selector</STRONG></TT> input of Route is being controlled by
+the output of Compute.
+The Compute has its expression set to "a==b?0:1" (if a and b are
+equal
+output 0, otherwise output 1).
+(This is similar to the Equal macro used earlier, but the
+expression differs slightly.)
+Therefore, if the iteration variable is equal to x,
+Compute outputs a 0, causing Route to disable the execution of
+all the modules downstream from it.
+This implies that Sum and SetLocal
+will not run; therefore, during the next iteration, GetLocal will retrieve
+the same value as the current iteration.
+<P>
+Unfortunately, the visual program illustrated in <A HREF="#FIGXMODX9">Figure
+26</A>
+has a minor
+problem.
+If x equals N, the Route will cause the
+Sum and SetLocal not to execute during the last iteration;
+therefore the output of the macro will
+be a NULL.
+<P><B><A NAME="FIGXMODX9" HREF="../usrguide.htm#FT_FIGXMODX9">Figure 26. Example
+9</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmodf9.gif" ALT="Figure xmodf9 not
+displayed."></CENTER><BR></B><BR>
+Illustrated in <A HREF="#FIGXMODX10">Figure 27</A> is the fix to the problem.
+A Switch is included to choose the correct input for the output of
+the macro.
+If x equals N, the output of the GetLocal is chosen; otherwise
+the output of Sum is chosen.
+<P><B><A NAME="FIGXMODX10" HREF="../usrguide.htm#FT_FIGXMODX10">Figure 27. Example
+10</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmodf10.gif" ALT="Figure xmodf10 not
+displayed."></CENTER><BR></B><BR>
+<P>
+If you want to create a loop containing an early exit in the middle
+of the loop (a "break"), you need to use a Route in combination
+with Done.
+Illustrated in <A HREF="#FIGXMODX11">Figure 28</A> is a macro that performs the
+equivalent function as the C-language statements:
+<PRE>
+    sum = 0;
+    for (i=1; i&lt;=n; i++)
+    {
+       if (i==x) break;
+       sum = sum+i;
+    }
+</PRE>
+<P>
+Data Explorer allows
+you to have multiple Done tools in a single loop enabling you to
+have more than one break or continue or combinations of the two.
+<P><B><A NAME="FIGXMODX11" HREF="../usrguide.htm#FT_FIGXMODX11">Figure 28. Example
+11</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/xmodf11.gif" ALT="Figure xmodf11 not
+displayed."></CENTER><BR></B><BR>
+<P>
+ForEachN or ForEachMember simplify the use of loops but they are not
+necessary for creating them.
+In fact, Done itself is sufficient, if it is included inside a macro.
+The macro will execute repeatedly as long as the
+<TT><STRONG>done</STRONG></TT> parameter is equal to 0 (zero).
+Note that the top-level visual program is itself a macro, so the same
+behavior will occur if Done is placed in the top-level
+visual program.
+<P>
+Illustrated in <A HREF="#FIGXMODX12">Figure 29</A> is a macro that computes the
+Fibonacci Series (defined by setting Y<SUB>1</SUB>= 1,
+Y<SUB>2</SUB> = 1
+and by the
+recursion formula Y<SUB>k</SUB> = Y<SUB>k-2</SUB> + Y<SUB>k-1</SUB>,
+for k = 3,4,5...).
+In this example a two vector, &#91;Y<SUB>k-1</SUB>,
+Y<SUB>k</SUB>&#93;, is used to store the
+elements of the series.
+The GetLocal module has its initial value set to &#91;1,1&#93;.
+The first Compute in the macro creates a new two vector
+consisting of &#91;Y<SUB>k-1</SUB>, Y<SUB>k</SUB>&#93; using
+the expression "&#91;a.1, a.0 + a.1&#93;."
+The second Compute in the macro extracts Y<SUB>k</SUB> from the two
+vector using the expression "a.1."
+To terminate the loop, the Y<SUB>k</SUB> element of the series is
+checked against an external input, x.
+If Y<SUB>k</SUB> is greater than x,
+the loop terminates.
+GreaterThan is a simple
+macro consisting of a Compute with its expression set to "a&gt;b?1:0."
+An equivalent set of C-language statements is:
+
+		<PRE>
+  a=1;
+  b=1;
+  do &#123;
+     c = b;
+     b = b + a;
+     a = c;
+  &#125; while (b &lt;= x);
+</PRE>
+<B><A NAME="FIGXMODX12" HREF="../usrguide.htm#FT_FIGXMODX12">Figure 29. Example 12</A></B><BR>
+<BR>
+<CENTER>
+<B><IMG SRC="../images/xmodf12.gif" ALT="Figure xmodf12 not displayed."></B>
+		</CENTER>
+<P>
+			<HR>
+			<DIV align="center">
+				<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+			</DIV>
+			<DIV align="center">
+				<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+				<P></P>
+			</DIV>
+
+		
+			
+		
+			
+		
+	</BODY></HTML>

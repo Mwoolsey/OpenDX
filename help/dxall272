@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall271 Parallelism using Distributed Processing #!N 
+#!EC #!N #!N Data Explorer provides the capability of distributing the 
+execution of a visual program or a program generated using the 
+scripting language over multiple workstations on a network. Distributing the execution 
+provides parallelism and enhanced resource utilization. Parallelism is achieved by the 
+simultaneous execution of different portions of the visualization on each of 
+the workstations. Enhanced resource utilization can be achieved, for example, by 
+assigning computationally intensive portions of the visualization to the more powerful 
+workstations, or transformation and realization functions that are applied to data 
+located remotely can be distributed to the remote workstations, reducing the 
+amount of data transfer. #!N #!N Distributed processing is achieved in 
+two ways: using "outboard" modules or placing groups of tools into 
+"execution groups." These two methods can be used independently or in 
+combination. An outboard module is a user-written module controlled by the 
+Data Explorer executive but is external to the Data Explorer server 
+program. They can be invoked from either a visual program or 
+a script program. Execution groups are a set of tools that 
+can be assigned to a workstation. Once groups are created, they 
+can be assigned to the workstations over which the visualization is 
+to be distributed. More than one group can be assigned to 
+each workstation. (See also  #!Ldistcmp,dxall484 h Using Distributed Computation  #!EL  .) #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lall272,dxall273 h Parallelism for Data Explorer SMP  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,48 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtransmi Transmitter #!N #!N Category #!N #!N  #!Lcatspe,dxall761 h Special  #!EL  
+#!N #!N Function #!N #!N Transmits an object to a Receiver. 
+#!N #!N Syntax #!N #!N Available only through the user interface. 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB object TAB object TAB 
+none TAB object transmitted #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N To maintain the 
+modularity and readability of large programs, Data Explorer provides two tools 
+that allow connections between input and output tabs of separate modules 
+without the use of a visible connecting line. These tools, Transmitter 
+and Receiver, allow you to separate visual programs into logical blocks. 
+For example, the output of several logical blocks can be transmitted 
+to another block that receives them, collects them, and produces an 
+image. #!N #!N Receivers and Transmitters can also be used to 
+communicate information between pages in the Visual Program Editor (see  #!Lvpepage,dxall356 h Creating pages in the VPE  #!EL  
+in IBM Visualization Data Explorer User's Guide). Pages are a valuable 
+way of structuring complex visual programs into logical blocks. Note: Macros 
+provide another way of structuring visual programs in logical blocks (see 
+ #!Lmacros,dxall435 h Creating and Using Macros  #!EL  in IBM Visualization Data Explorer User's Guide). #!N #!N To 
+remotely connect input and output tabs: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N 1. Select a Transmitter tool (in the Special 
+category in the tool palette) and place it near the output 
+tab of the module that is to be "connected." #!N #!I30 
+#!N 2. Connect the module's output tab to the Transmitter's input 
+tab. #!N #!I30 #!N 3. Select a Receiver tool (also in 
+the Special category), and place it near the input tab of 
+the other module that is to be "connected." #!N #!I30 #!N 
+4. Connect the Receiver's output tab to the second module's input 
+tab. #!N #!N The Transmitter and Receiver are now connected. #!N 
+#!I0 #!N #!EF #!N #!N #!N The Receiver automatically assumes the 
+same name as the Transmitter. More than one Receiver can be 
+connected to a single Transmitter and they assume the same name 
+until a new Transmitter is placed on the VPE canvas. #!N 
+#!N #!I0 #!N Notes: #!N #!I30 #!N 1. To change the 
+name of a Transmitter and Receiver, use the  #!F-adobe-times-bold-r-normal--18*   Notation #!EF 
+field of the appropriate configuration dialog box (see in  #!Lucb,dxall345 h Entering Values in a Configuration Dialog Box  #!EL  in 
+IBM Visualization Data Explorer User's Guide). Changing the name of a 
+Transmitter changes the name of all the Receivers connected to it. 
+Changing the name of a Receiver affects only that receiver. #!N 
+#!I30 #!N 2. For more information see  #!Ltnr,dxall343 h Using Transmitters and Receivers  #!EL  in IBM Visualization 
+Data Explorer User's Guide. #!I0 #!N #!N #!N #!N Example Visual 
+Programs #!N #!N Receivers and transmitters are used by many of 
+the example visual programs, including: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net 
+#!N Imide_potential.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lreceive,dxall917 h Receiver  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ltranspo,dxall970 h Transpose  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

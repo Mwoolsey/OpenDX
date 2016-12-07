@@ -1,0 +1,83 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Roptions Options #!N #!N Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function 
+#!N #!N Associates one or more attributes with a specified object. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF 
+= Options(  #!F-adobe-times-bold-r-normal--18*   input, attribute, value, ... #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB input TAB 
+object TAB none TAB object whose attributes are to be #!N 
+TAB - TAB - TAB - TAB set #!N TAB attribute 
+TAB string TAB no default TAB attribute to be added #!N 
+TAB value TAB value or string or object TAB no default 
+TAB value of the attribute #!N TAB ... TAB - TAB 
+- TAB additional attribute-value pair(s) #!N TAB - TAB - TAB 
+- TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB 
+Name TAB Type TAB Description #!EF #!N TAB output TAB object 
+TAB the object with attributes added #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N This module associates 
+attributes with an object. (Attributes can be extracted from an object 
+with the Attribute module.) Attributes are used by some modules to 
+determine the behavior of a particular input object. For example, you 
+can add attributes to objects to tell the Plot module how 
+to draw markers on particular lines (see  #!Lattrib21,dxall898 t Table 21  #!EL  and  #!Lplot,dxall904 h Plot  #!EL  ). 
+While there is a set of attributes which Data Explorer modules 
+understand, you can also add your own attributes to objects, to 
+be interpreted by user-written modules. #!N #!N You can remove an 
+already present attribute by setting its value to null. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N 
+names the object to which one or more attributes are to 
+be added. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   attribute #!EF #!EF #!I50 
+#!N names the attribute to be added. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   value #!EF #!EF #!I50 #!N specifies the value of the 
+attribute #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   ... #!EF #!I50 #!N One or 
+more additional pairs of parameters, each specifying an  #!F-adobe-times-bold-r-normal--18*   attribute #!EF 
+and a  #!F-adobe-times-bold-r-normal--18*   value #!EF to be associated with  #!F-adobe-times-bold-r-normal--18*   input 
+#!EF . #!I0 #!N #!N #!N #!N A single Options module 
+can specify a maximum of 21  #!F-adobe-times-bold-r-normal--18*   attribute #!EF -  #!F-adobe-times-bold-r-normal--18*   
+object #!EF pairs. In the user interface, the default number of 
+enabled tab-pairs is two. (Tabs can be added to the module 
+icon and removed with the appropriate  #!F-adobe-times-bold-r-normal--18*   ...Input Tab #!EF options 
+in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu of the VPE.) #!N 
+#!N  #!Rattrib21 #!T,1,216,431,646  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 21. Attributes which have 
+predefined meanings in Data Explorer #!N TAB Attribute name TAB Attribute 
+values TAB Relevant module #!EF #!N TAB label TAB any user-supplied 
+label TAB Plot #!N TAB scatter TAB 1 or 0 TAB 
+Plot #!N TAB mark TAB "circle," "diamond," "dot," "square," TAB Plot 
+#!N TAB - TAB "star," "triangle," "x" TAB #!N TAB mark 
+every TAB positive integer TAB Plot #!N TAB mark scale TAB 
+positive scalar TAB Plot #!N TAB fuzz TAB integer TAB Display, 
+Render, Image #!N TAB ambient TAB positive scalar TAB Display, Render, 
+Image #!N TAB diffuse TAB positive scalar TAB Display, Render, Image 
+#!N TAB specular TAB positive scalar TAB Display, Render, Image #!N 
+TAB shininess TAB positive integer TAB Display, Render, Image #!N TAB 
+shade TAB 0 or 1 TAB Display, Render, Image #!N TAB 
+opacity multiplier TAB positive scalar TAB Display, Render, Image (for volume 
+#!N TAB - TAB - TAB rendering) #!N TAB color multiplier 
+TAB positive scalar TAB Display, Render, Image (for volume #!N TAB 
+- TAB - TAB rendering) #!N TAB texture TAB a texture 
+map TAB Display, Image #!N TAB antialias TAB "lines" TAB Display, 
+Image #!N TAB line width TAB positive integer TAB Display, Image 
+#!N TAB direct color map TAB 0 or 1 TAB Display 
+#!N TAB cache TAB 0 or 1 TAB Display, Image #!N 
+TAB rendering mode TAB software or hardware TAB Display, Image #!N 
+TAB rendering approximation TAB "none," "box," "dots," or "wireframe" TAB Display, 
+Image #!N TAB render every TAB positive integer TAB Display, Image 
+#!N TAB pickable TAB 0 or 1 TAB Pick #!N TAB 
+marked component TAB string TAB Mark, Unmark #!N #!N Attributes may 
+also be added to arrays to add information which may be 
+needed to interpret an array as a Data Explorer component. For 
+example, you can add a "ref" attribute with a value of 
+"positions" to an integer list which you intend to be used 
+as a connections component in a field. This use of  #!F-adobe-helvetica-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Options #!EF #!EF should be done only with a solid 
+understanding of the Data Explorer data model. See  #!Lsca,dxall223 h Standard Attributes  #!EL  in IBM 
+Visualization Data Explorer User's Guide. #!N #!N Components #!N #!N The 
+output object is the same as the input object except for 
+the added attributes. All input components are propagated to the output. 
+#!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N PlotTwoLines.net 
+#!N #!N FatLines.net #!N #!EF #!N #!N #!EC #!N #!N See 
+Also #!N #!N  #!Lattrib,dxall769 h Attribute  #!EL  ,  #!Lautoaxe,dxall770 h AutoAxes  #!EL  ,  #!Ldisplay,dxall807 h Display  #!EL  ,  #!Lplot,dxall904 h Plot  #!EL  , 
+ #!Lrender,dxall923 h Render  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Loutput,dxall899 h Output  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

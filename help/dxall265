@@ -1,0 +1,52 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall264 Iterative Execution and Caching 
+of Intermediate Results #!N #!EC #!N #!N Unlike the simple example 
+in  #!Lxmodx137,dxall264 f Figure 37  #!EL  most real visualization problems involve some form of iteration. 
+This may either be direct interaction, where the user is adjusting 
+parameters of the visualization and observing their effect on the resulting 
+images, or animation, in which one or more inputs to the 
+network may vary from frame to frame. #!N #!N In iterative 
+applications, there are often major parts of the network that are 
+unaffected when input parameters are modified. In  #!Lxmodx137,dxall264 f Figure 37  #!EL  if the  #!F-adobe-times-bold-r-normal--18*   
+isovalue #!EF input to the Isosurface module is changed, only the 
+affected module and its descendents need to be executed. The output 
+of Import is not affected by the change. Hence, it can 
+be reused, which avoids a superfluous access of data on disk. 
+The MapToPlane module also does not need to be executed, since 
+its inputs did not change. #!N #!N One way to implement 
+this capability is via a caching mechanism for partial results. Instead 
+of immediately reexecuting when its inputs arrive, a module may first 
+determine whether its inputs have changed. If they have not changed, 
+it can simply retrieve its results from the cache. Otherwise, the 
+module reexecutes, placing its new result into the cache. #!N #!N 
+Data Explorer extends this notion by incorporating a cache (implemented by 
+the module scheduler rather than by the modules themselves) for  #!F-adobe-times-medium-i-normal--18*   
+all #!EF partial results. This cache retains results from not only 
+the previous execution of the network, but from all prior executions 
+(this is the default behavior; the user can also control cache 
+settings for modules). The saving of objects in the cache is 
+subject to memory limitations and a least-recently-used cache eviction strategy (items 
+used the longest time ago are first to be discarded from 
+the cache). The caching behavior for each output of a module 
+may also be explicitly set by a user to optimize memory 
+utilization. (See  #!Ludxeff,dxall564 h Using Data Explorer Effectively  #!EL  .) #!N #!N The caching of partial results 
+means that in general, the output of Import is held in 
+the cache. Usually, this is highly desirable, as it avoids needing 
+to reimport the data every time the visual program is run. 
+However if you modify your file on disk (e.g., by editing 
+it), Data Explorer will not know that the file has been 
+changed, and will continue to use the cached version. To force 
+Data Explorer to reimport the data, use the  #!F-adobe-times-bold-r-normal--18*   Reset Server 
+#!EF option of the Connection menu. This will cause all items 
+in the cache to be discarded, and Import will reaccess the 
+file on disk. You may also set Import to cache  #!F-adobe-times-medium-i-normal--18*   
+no results #!EF by using the Cache option of Import's Configuration 
+dialog box; note, however, that this will not necessarily cause Import 
+to run every time unless modules downstream from Import are also 
+set to cache no results. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rxmodx238 #!N Graphics 
+omitted from Online Documentation. Please see the manual. #!N #!N Figure 
+38. Example 2 #!EF #!N #!EC Note: An asynchronous module could 
+be used to monitor a file's status and generate new outputs 
+when the file changes. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall265,dxall266 h Conditional Execution: Route and Switch  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

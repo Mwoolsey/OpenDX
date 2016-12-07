@@ -1,0 +1,50 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rbuico Using Control Panels and Interactors #!N #!EC #!N 
+#!N As you create a visual program, you may have inputs 
+whose values are subject to frequent change. You can use interactors 
+as an easy method for controlling those input values.  #!F-adobe-times-medium-i-normal--18*   Interactors 
+#!EF , which appear only in Control Panels, are the interactive 
+devices that you use to manipulate inputs to a visual program 
+in order to change the image that is produced (see  #!Linterac,dxall409 h Using Interactors  #!EL  
+for detailed descriptions). #!N #!N  #!F-adobe-times-medium-i-normal--18*   Interactor stand-ins #!EF are used 
+to indicate which input to a module a given interactor is 
+to control. While you are building the network in the VPE, 
+you select interactor stand-ins from the tool palettes and place them 
+on the canvas, as you do with other tools. Like any 
+tool, the output of an interactor stand-in can be connected to 
+more than one input. Interactor stand-ins are named, in general, after 
+the type of data they output: #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   Integer stand-ins #!EF #!I50 #!N Represent interactors that output 
+whole numbers. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Scalar stand-ins #!EF #!I50 #!N 
+Represent interactors that output real numbers. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   String 
+stand-ins #!EF #!I50 #!N Represent interactors that output text strings. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Value stand-ins #!EF #!I50 #!N Represent interactors that 
+output scalars, vectors, and tensors. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Vector stand-ins 
+#!EF #!I50 #!N Represent interactors that output vectors. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   Integer list stand-ins #!EF #!I50 #!N Represent interactors that output 
+integer lists. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Scalar list stand-ins #!EF #!I50 
+#!N Represent interactors that output scalar lists. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+String list stand-ins #!EF #!I50 #!N Represent interactors that output string 
+lists. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Value list stand-ins #!EF #!I50 #!N 
+Represent interactors that output value lists (e.g., vector and scalar lists). 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Vector list stand-ins #!EF #!I50 #!N Represent 
+interactors that output vector lists. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Selector stand-ins 
+#!EF #!I50 #!N Represent interactors that output values and strings, representing 
+a choice of one from many. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Selector 
+list stand-ins #!EF #!I50 #!N Represent interactors that output values and 
+strings, representing a choice of none, one, or more among many. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   FileSelector stand-ins #!EF #!I50 #!N Represent interactors 
+that output both a fully qualified path name and an individual 
+file name. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Reset stand-ins #!EF #!I50 #!N 
+Represent interactors that output one value when executed the first time 
+after being set and another value thereafter. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Toggle stand-ins #!EF #!I50 #!N Represent interactors that output one of 
+two values. #!I0 #!N #!N #!N #!N Data Explorer allows the 
+visual programmer to associate comments with each Control Panel. To access 
+these comments, use the  #!F-adobe-times-bold-r-normal--18*   On Control Panel #!EF option of 
+the  #!F-adobe-times-bold-r-normal--18*   Help #!EF pull-down menu in the Control Panel about 
+which you want to learn. If no comments exist for the 
+Control Panel, the  #!F-adobe-times-bold-r-normal--18*   On Control Panel #!EF option is grayed 
+out. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcpi,dxall381 h Building Control Panels  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

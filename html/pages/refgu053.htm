@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Equalize</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu052.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu054.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDREQUALIZ" ></A>Equalize</H3>
+		<A NAME="IDX477"></A><A NAME="IDX478"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<A NAME="IDX479"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Applies histogram equalization to a field.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>equalized</STRONG> = Equalize(<STRONG>data, bins, min, max, ihist, ohist</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">data to be equalized
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>bins</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of equalization bins
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>min</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">min of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">lower bound of equalization
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>max</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar or field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">max of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">upper bound of equalization
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>ihist</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">histogram of data
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">input distribution
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>ohist</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">uniform distribution
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">output distribution
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>equalized</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">scalar field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">histogram-equalized data
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module equalizes an input data field so that the histogram of the
+output approximates a specified distribution
+(<TT><STRONG>ohist</STRONG></TT>), which by
+default is a uniform distribution.
+<P>
+If <TT><STRONG>data</STRONG></TT> specifies a series, the histogram of the
+entire series is used to construct the probability distribution,
+which is then applied to each field in the series.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>is the scalar data field to be equalized.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>bins</STRONG></TT>
+</B></TD><TD><P>is the number of bins to be used in creating the equalization
+histogram.
+The default value is 100, unless <TT><STRONG>data</STRONG></TT> consists of
+byte values.
+In that case, the default is: <TT><STRONG>max</STRONG></TT> &#45;
+<TT><STRONG>min</STRONG></TT> &#43; 1
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>min</STRONG></TT>
+&nbsp;and&nbsp; <TT><STRONG>max</STRONG></TT>
+</B></TD><TD><P>specify the range of the data values to be equalized.
+Values outside that range remain unchanged.
+<P><B>Notes: </B><OL>
+<P><LI>If neither parameter is specified, the values used are the minimum
+and maximum of the input field.
+<P><LI>If <TT><STRONG>min</STRONG></TT> is a scalar value, it is the minimum
+value equalized.
+<P><LI>If <TT><STRONG>min</STRONG></TT> is a data field, the minimum data value
+of that field is used.
+<P><LI><TT><STRONG>max</STRONG></TT> is similarly
+interpreted.
+<P><LI>If <TT><STRONG>min</STRONG></TT> is a data field and
+<TT><STRONG>max</STRONG></TT> is unspecified, the
+module uses the minimum and maximum values
+of that field.
+</OL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>ihist</STRONG></TT>
+</B></TD><TD><P>is the histogram used to determine the equalization function
+required, and by default it is the histogram of
+<TT><STRONG>data</STRONG></TT>.
+If <TT><STRONG>ihist</STRONG></TT> is specified explicitly and the number
+of bins specified does not match the number in the histogram,
+the module resamples the histogram so that it contains the
+specified number.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>ohist</STRONG></TT>
+</B></TD><TD><P>is the type of output histogram desired.
+By default, the module equalizes to a uniform distribution.
+You can equalize to some other distribution by specifying an appropriate
+histogram for this parameter.
+</TD></TR></TABLE>
+<P><B>Note: </B>A well-formed histogram (for <TT><STRONG>ihist</STRONG></TT> and
+<TT><STRONG>ohist</STRONG></TT>) consists of a field with a "positions"
+component that defines the bins of the histogram;
+a "connections" component that connects the positions; and a
+"data" component that contains the number of items in
+each bin.
+The data should be connection dependent ("dep" "connections").
+
+<P><STRONG>Components</STRONG>
+<P>
+Equalize modifies the data component. All other components
+are unmodified.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+UsingEqualize.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu061.htm#HDRFILTER">Filter</A>,
+&nbsp;<A HREF="refgu096.htm#HDRMORPH">Morph</A>,
+&nbsp;<A HREF="refgu071.htm#HDRHISTOGR">Histogram</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall134 Example 3. Scattered Scalar Data 
+#!N #!EC #!N #!N This example uses the same data set 
+as Example 2 but treats the values as scattered data points. 
+The data file contains an x,y position followed by a data 
+value. There are no implied connections for these data. #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. In the Data Prompter 
+initial dialog box: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+a. Select  #!F-adobe-times-bold-r-normal--18*   Grid or Scattered File #!EF , then select 
+for scattered data (rightmost grid button). #!N #!I30 #!N b. Activate 
+the  #!F-adobe-times-bold-r-normal--18*   Position #!EF toggle button. #!N #!I30 #!N c. Set 
+ #!F-adobe-times-bold-r-normal--18*   Dimension #!EF to "2." #!N #!I30 #!N d. Activate the 
+ #!F-adobe-times-bold-r-normal--18*   Spreadsheet #!EF toggle button. #!N #!I30 #!N e. Click on 
+ #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF to bring up the simplified data prompter. 
+#!N #!I0 #!N #!EF #!N #!N #!I30 #!N 2. Enter the 
+path name used in Example 2. #!N #!I30 #!N 3. Enter 
+"12" in the  #!F-adobe-times-bold-r-normal--18*   # of points #!EF field. #!N #!I30 
+#!N 4. Save the header file (Step 10 of Example 1 
+in  #!Lex1a,dxall116 s To save the header file  #!EL  ), which should look like: #!N #!I0 #!N #!EF 
+#!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/spreadsheet_deformed #!N points 
+= 12 #!N format = text #!N interleaving = field #!N 
+field = locations, field0 #!N structure = 2-vector, scalar #!N type 
+= float, float #!N #!N end #!EF #!N #!N #!EC #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall135,dxall136 h Example 4. Handling Interspersed Text  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

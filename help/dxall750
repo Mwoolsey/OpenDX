@@ -1,0 +1,52 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSlateBlue #!N  #!Rmda 
+Data Explorer Tools #!N #!EC #!N #!N Data Explorer tools (i.e., 
+tool modules) perform a variety of functions to generate visual images. 
+In the VPE window, their icons can be used as "building 
+blocks" to create visual program  #!F-adobe-times-medium-i-normal--18*   networks #!EF , from which 
+images are generated in the Image window. They can also be 
+invoked from script-language programs or from the command line (when Data 
+Explorer is in "script mode"). And they can be grouped together 
+in macros for greater efficiency. #!N #!N Many modules are accessible 
+through both the graphical user interface and the scripting language. Some, 
+however, are available only through the user interface: the Interactors, the 
+Color Editor, Image, Pick, Probe, Receiver, and Transmitter. Most have default 
+values for parameter inputs, values that are (as much as possible) 
+appropriate for the data involved. These defaults enable the new user 
+to begin visualizing data with only a few connections and to 
+customize a visualization program one step at a time. #!N #!N 
+Tools are divided into the categories listed in the top palette 
+of the VPE window: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N o Annotation #!N #!I30 #!N o DXLink #!N #!I30 #!N 
+o Debugging #!N #!I30 #!N o Flow Control #!N #!I30 #!N 
+o Import and Export #!N #!I30 #!N o Interactor #!N #!I30 
+#!N o Interface Control #!N #!I30 #!N o Realization #!N #!I30 
+#!N o Rendering #!N #!I30 #!N o Special #!N #!I30 #!N 
+o Structuring #!N #!I30 #!N o Transformation #!N #!I30 #!N o 
+Windows #!N #!I30 #!N o {ALL} (an alphabetic listing of all 
+the tools). #!N #!I0 #!N #!EF #!N #!N #!N The directory 
+ #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/programs #!EF contains visual program examples that use these tools, 
+along with a subdirectory (...  #!F-adobe-times-bold-r-normal--18*   /SIMPLE #!EF ) of simpler 
+examples. Use the  #!F-adobe-times-bold-r-normal--18*   Open #!EF file-selection dialog box to call 
+up either directory (adding "/*.net" to the directory name when you 
+enter it in the  #!F-adobe-times-bold-r-normal--18*   Filter #!EF text field). For a 
+description of a visual program, either highlight the program name in 
+the  #!F-adobe-times-bold-r-normal--18*   Files #!EF list of the dialog box and click 
+on the  #!F-adobe-times-bold-r-normal--18*   Comments #!EF pushbutton or select the  #!F-adobe-times-bold-r-normal--18*   Application 
+Comment #!EF option of the  #!F-adobe-times-bold-r-normal--18*   Help #!EF pull-down menu (after 
+the visual program is loaded). #!N #!N The directory  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/scripts 
+#!EF contains script examples for all of the modules. Descriptions are 
+included as comments in the script files themselves. #!N #!N The 
+rest of this chapter summarizes the tool categories and the tools 
+they contain. The order in which they appear is the same 
+as that displayed in the palettes of the VPE window. For 
+detailed descriptions of individual tools, see  #!Lfmd,dxall765 h Functional Modules  #!EL  . Note: Two modules 
+that appear in  #!Lfmd,dxall765 h Functional Modules  #!EL  are available only in script mode and 
+so are not listed in any of the Visual Program Editor 
+categories: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lexectv,dxall833 h Executive  #!EL  #!EF #!I50 
+#!N Executes an executive command (see  #!Lexectv,dxall833 h Executive  #!EL  ). #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!Lkeyin,dxall882 h KeyIn  #!EL  #!EF #!I50 #!N Waits for input from the system 
+prompt in the window from which you invoked Data Explorer (see 
+ #!Lkeyin,dxall882 h KeyIn  #!EL  ). #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ltoolcat,dxall751 h Tool Categories  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

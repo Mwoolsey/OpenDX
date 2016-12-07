@@ -1,0 +1,78 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcolrmap Colormap #!N #!N Category #!N #!N  #!Lcatspe,dxall761 h Special  #!EL  
+#!N #!N Function #!N #!N Produces a color map. #!N #!N 
+Syntax Available only through the user interface. #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB data TAB field TAB none TAB object used 
+to derive min or max #!N TAB min TAB scalar TAB 
+min of data TAB minimum of color-map range #!N TAB max 
+TAB scalar TAB max of data TAB maximum of color-map range 
+#!N TAB nbins TAB integer TAB 20 TAB number of bins 
+in the histogram #!N TAB colormap TAB field or group TAB 
+none TAB RGB color map to be used #!N TAB opacity 
+TAB field TAB none TAB opacity map to be used #!N 
+TAB title TAB string TAB "Colormap Editor" TAB title of editor 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description 
+#!EF #!N TAB rgb TAB field TAB RGB color field #!N 
+TAB opacity TAB field TAB opacity field #!N TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N This interactive 
+module allows the user to create color maps that are applied 
+to data. Through inputs to the module (either the outputs of 
+other tools or values set in its configuration dialog box), the 
+Colormap Editor can be "data driven." If it is not data 
+driven, then the attributes (such as  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   
+max #!EF ) are taken from values set by the user 
+in the Colormap Editor. Note: The Colormap Editor itself is invoked 
+by double-clicking on the module's icon in the VPE window. The 
+module's configuration dialog box is accessed from the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF 
+pull-down menu in the same window. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N input can be 
+used to derive the minimum and maximum values in the color 
+and opacity maps. If this parameter is specified, a histogram of 
+the "data" component becomes available in the Colormap Editor. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   min #!EF #!EF #!I50 #!N sets the minimum 
+value used in the color and opacity maps. If this parameter 
+is specified, it overrides the minimum value set by  #!F-adobe-times-bold-r-normal--18*   data 
+#!EF . If neither  #!F-adobe-times-bold-r-normal--18*   min #!EF nor  #!F-adobe-times-bold-r-normal--18*   data #!EF 
+is specified, the value is set in the minimum field of 
+the Colormap Editor dialog box. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   max 
+#!EF #!EF #!I50 #!N sets the maximum value in the color 
+and opacity maps. If this parameter is specified, it overrides the 
+maximum value set by  #!F-adobe-times-bold-r-normal--18*   data #!EF . If neither  #!F-adobe-times-bold-r-normal--18*   
+max #!EF nor  #!F-adobe-times-bold-r-normal--18*   data #!EF is specified, the value is 
+set in the maximum field of the Colormap Editor dialog box. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   nbins #!EF #!EF #!I50 #!N specifies 
+the number of data bins in the histogram displayed by the 
+Colormap Editor. A value of 0 indicates that the histogram should 
+not be computed. The histogram is accessible through the  #!F-adobe-times-bold-r-normal--18*   Axis 
+Display #!EF in the  #!F-adobe-times-bold-r-normal--18*   Options #!EF pull-down menu in the 
+Colormap Editor. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   colormap #!EF #!EF #!I50 
+#!N specifies the color map used to initialize the color-map portion 
+of the Colormap Editor. For example, the map may be an 
+imported .cm file, which contains both a color and an opacity 
+map. If this file is passed to the  #!F-adobe-times-bold-r-normal--18*   colormap #!EF 
+parameter, both maps will be used to initialize the maps in 
+the editor. Alternatively, a simple map field can be passed to 
+the appropriate parameter(s). #!N #!N Note that only the color information 
+of the map is used to initialize the Colormap Editor; the 
+"positions" component of the map (representing the data range to which 
+the colors apply) are ignored. This is to allow a colormap 
+to be used for any input data set which may be 
+passed to the  #!F-adobe-times-bold-r-normal--18*   data #!EF parameter; the range of the 
+map will be taken from  #!F-adobe-times-bold-r-normal--18*   data #!EF , rather than 
+from the colormap. If you want to use the actual "positions" 
+of the colormap, then simply use Mark to mark the "positions" 
+component of the colormap, and pass the output of Mark to 
+the  #!F-adobe-times-bold-r-normal--18*   data #!EF parameter of Colormap. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   opacity #!EF #!EF #!I50 #!N specifies the opacity map used 
+to initialize the opacity-map portion of the Colormap Editor. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   title #!EF #!EF #!I50 #!N specifies the title 
+of the Colormap Editor window. #!I0 #!N #!N #!N #!N Example 
+Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N UsingColormaps.net #!N VolumeRendering.net #!EF 
+#!N #!N #!EC #!N #!N An example that uses a data-driven 
+Colormap is: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N DataDrivenInteractors.net #!EF #!N #!N 
+#!EC #!N #!N See Also #!N #!N  #!Lautocol,dxall772 h AutoColor  #!EL  ,  #!Lcolor,dxall792 h Color  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcompute,dxall795 h Compute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

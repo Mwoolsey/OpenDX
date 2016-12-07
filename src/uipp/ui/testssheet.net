@@ -1,0 +1,131 @@
+//
+// time: Thu Apr 10 10:52:58 1997
+//
+// version: 3.1.1 (format), 3.1.4 (DX Beta)
+//
+//
+// MODULE main
+// workspace: width = 537, height = 454
+// layout: snap = 0, width = 50, height = 50, align = NN
+//
+macro main(
+) -> (
+) {
+    // 
+    // node DXLInput[1]: x = 0, y = 0, inputs = 1, label = filename
+    // input[1]: defaulting = 1, visible = 1, type = 32, value = "/u/lumba/mod/spreadsheet/data/data1a.dat"
+    //
+    main_DXLInput_1_out_1 = filename;
+    // 
+    // node DXLInput[3]: x = 73, y = 0, inputs = 1, label = delimiter
+    // input[1]: defaulting = 1, visible = 1, type = 29, value = NULL
+    //
+    main_DXLInput_3_out_1 = delimiter;
+    // 
+    // node DXLInput[4]: x = 151, y = 0, inputs = 1, label = variable
+    //
+    main_DXLInput_4_out_1 = variable;
+    // 
+    // node DXLInput[5]: x = 218, y = 0, inputs = 1, label = format
+    // input[1]: defaulting = 1, visible = 1, type = 32, value = "1-d"
+    //
+    main_DXLInput_5_out_1 = format;
+    // 
+    // node DXLInput[6]: x = 279, y = 0, inputs = 1, label = record_start
+    //
+    main_DXLInput_6_out_1 = record_start;
+    // 
+    // node DXLInput[7]: x = 372, y = 0, inputs = 1, label = record_end
+    //
+    main_DXLInput_7_out_1 = record_end;
+    // 
+    // node DXLInput[8]: x = 463, y = 0, inputs = 1, label = record_delta
+    //
+    main_DXLInput_8_out_1 = record_delta;
+    // 
+    // node ImportSpreadsheet[1]: x = 194, y = 170, inputs = 10, label = ImportSpreadsheet
+    // input[3]: visible = 1
+    // input[4]: visible = 1
+    // input[5]: visible = 1
+    // input[6]: visible = 1
+    // input[7]: visible = 1
+    //
+main_ImportSpreadsheet_1_out_1,
+main_ImportSpreadsheet_1_out_2 = 
+    ImportSpreadsheet(
+    main_DXLInput_1_out_1,
+    main_DXLInput_3_out_1,
+    main_DXLInput_4_out_1,
+    main_DXLInput_5_out_1,
+    main_DXLInput_6_out_1,
+    main_DXLInput_7_out_1,
+    main_DXLInput_8_out_1,
+    main_ImportSpreadsheet_1_in_8,
+    main_ImportSpreadsheet_1_in_9,
+    main_ImportSpreadsheet_1_in_10
+    ) [instance: 1, cache: 1];
+    // 
+    // node Transmitter[1]: x = 381, y = 280, inputs = 1, label = wireless_1
+    //
+wireless_1 = main_ImportSpreadsheet_1_out_1;
+    // 
+    // node Receiver[1]: x = 0, y = 208, inputs = 1, label = wireless_1
+    //
+main_Receiver_1_out_1[cache: 0] = wireless_1;
+    // 
+    // node Describe[1]: x = 161, y = 322, inputs = 2, label = Describe
+    //
+    Describe(
+    main_Receiver_1_out_1,
+    main_Describe_1_in_2
+    ) [instance: 1, cache: 1];
+    // 
+    // node Format[1]: x = 0, y = 311, inputs = 3, label = Format
+    // input[1]: defaulting = 0, visible = 1, type = 32, value = ""
+    //
+main_Format_1_out_1 = 
+    Format(
+    main_Format_1_in_1,
+    main_Receiver_1_out_1,
+    main_Format_1_in_3
+    ) [instance: 1, cache: 1];
+    // 
+    // node Echo[1]: x = 23, y = 394, inputs = 1, label = Echo
+    //
+    Echo(
+    main_Format_1_out_1
+    ) [instance: 1, cache: 1];
+    //
+    // decorator Annotate	pos=(12,162) size=28x28 style(Marker), value = <NULL>
+    // annotation user_begin: 130
+    // annotation user: /*
+    // annotation user:  * $Header: /src/master/dx/src/uipp/ui/testssheet.net,v 1.1 1999/06/02 20:36:25 gda Exp $
+    // annotation user:  */
+    // annotation user_end: <NULL>
+// network: end of macro body
+}
+filename = NULL;
+delimiter = NULL;
+variable = NULL;
+format = NULL;
+record_start = NULL;
+record_end = NULL;
+record_delta = NULL;
+main_ImportSpreadsheet_1_in_8 = NULL;
+main_ImportSpreadsheet_1_in_9 = NULL;
+main_ImportSpreadsheet_1_in_10 = NULL;
+main_ImportSpreadsheet_1_out_1 = NULL;
+main_Transmitter_1_out_1 = NULL;
+main_Receiver_1_out_1 = NULL;
+main_Describe_1_in_2 = NULL;
+main_Format_1_in_1 = "";
+main_Format_1_in_3 = NULL;
+main_Format_1_out_1 = NULL;
+Executive("product version 3 1 4");
+$sync
+// This network contains DXLink tools.  Therefore, the following line(s)
+// that would cause an execution when run in script mode have been 
+// commented out.  This will facilitate the use of the DXLink routines
+// exDXLLoadScript() and DXLLoadVisualProgram() when the DXLink
+// application is connected to an executive.
+// main();

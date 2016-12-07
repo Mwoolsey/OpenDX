@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcntr DXColorNameToRGB #!N #!N Function 
+#!N #!N Gets the RGB values for a specified color-name string. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXColorNameToRGB(char *colorname, RGBColor 
+*rgbvalue) #!EF #!N #!N Functional Details #!N #!N The RGB values 
+of the color string  #!F-adobe-times-bold-r-normal--18*   colorname #!EF are obtained from a 
+color lookup table and returned in  #!F-adobe-times-bold-r-normal--18*   *rgbvalue #!EF . For 
+example, the RGB values for the color "white" are 1.0, 1.0, 
+1.0. The color lookup table could come from a number of 
+places: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o The 
+routine first checks the environment variable DXCOLORS. If that is set, 
+the routine uses the value of the variable and tries to 
+open it as a file. #!N #!I30 #!N o If that 
+does not succeed, the routine then checks the environment variables DXEXECROOT 
+and DXROOT for a directory path. It will append /lib/colors.txt to 
+this path and try to open the file. If that fails, 
+it tries to open /usr/lpp/dx/lib/colors.txt. #!N #!I30 #!N o If none 
+of these files can be opened, the routine uses an internal 
+static table. This table is a subset of colors in the 
+file /usr/lpp/dx/lib/colors.txt. #!N #!I0 #!N #!EF #!N #!N #!N Return Value 
+#!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF 
+and sets an error code. #!N #!N See Also #!N #!N 
+ #!Lclrs,dxall1109 h Colors  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxcmpmi,dxall1183 h DXCompareModuleId  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

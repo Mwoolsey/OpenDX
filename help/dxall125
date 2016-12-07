@@ -1,0 +1,24 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rall124 Example 1. Multiple Scalar Fields #!N #!EC #!N #!N 
+This example illustrates the importation of multiple scalar fields. The grid 
+is 4 * 2 * 3, with an origin of [0 
+0 0] and deltas of [1 1 1]. The three data 
+variables are scalar. The data file looks like: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N Energy #!N 2.158719 1.45419 1.566509 1.551361 2.215095 1.726923 #!N 
+2.080461 1.418617 1.373206 2.231642 1.316575 1.445211 #!N 1.673182 1.445737 1.820333 2.167849 
+1.721611 1.554906 #!N 1.604594 2.061092 1.398391 2.062042 1.996196 1.50964 #!N Pressure 
+#!N 34.81398 18.81529 29.65139 42.499 22.96053 31.41604 #!N 19.92936 27.79935 26.34873 
+28.91081 21.17855 28.89354 #!N 6.320079 43.9068 6.597938 20.41342 14.83351 43.53309 #!N 
+16.36901 18.19812 4.628566 43.64742 44.99699 26.32183 #!N Temperature #!N 295.3329 302.5431 
+301.835 296.0127 297.8344 295.5451 #!N 301.6786 298.4496 302.0944 296.7458 296.3459 296.4179 
+#!N 303.1223 300.3094 297.9714 300.0774 299.1322 296.9368 #!N 302.096 294.8137 300.662 
+299.5744 304.1986 302.4216 #!EF #!N #!N #!EC #!N #!N The header 
+file to import this data should look like: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/record_multiscalar #!N grid = 4 x 2 
+x 3 #!N format = text #!N interleaving = record #!N 
+majority = row #!N header = lines 1 #!N field = 
+Energy, Pressure, Temperature #!N recordseparator = lines 1 #!N #!N end 
+#!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall125,dxall126 h Example 2. Cell-Centered Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

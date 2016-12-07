@@ -1,0 +1,53 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtcaps Adding Captions 
+#!N #!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   Caption #!EF tool allows you 
+to control the placement, font, size, wording, and other aspects of 
+a caption in the Image window. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N 1. Open visual program .../Caption.net. #!N #!I30 #!N 
+2. Select  #!F-adobe-times-bold-r-normal--18*   Open All Control Panels #!EF in the  #!F-adobe-times-bold-r-normal--18*   
+Windows #!EF pull-down menu. A control panel appears. #!N #!I30 #!N 
+3. Select  #!F-adobe-times-bold-r-normal--18*   Execute on Change #!EF in the  #!F-adobe-times-bold-r-normal--18*   Execute 
+#!EF pull-down menu. When the image appears, note that the caption 
+at the bottom of the Image window is the same as 
+the name of the realization technique shown in the control panel. 
+#!N #!I30 #!N 4. Click on the option button in the 
+control panel and select  #!F-adobe-times-bold-r-normal--18*   Streamlines #!EF . Both the image 
+and the caption change accordingly. #!N #!I0 #!N #!EF #!N #!N 
+#!N Use the  #!F-adobe-times-bold-r-normal--18*   Caption #!EF configuration dialog box to change 
+the placement and font size of the caption. #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Double click on the  #!F-adobe-times-bold-r-normal--18*   
+Caption #!EF icon to open the configuration dialog box and click 
+on the  #!F-adobe-times-bold-r-normal--18*   position #!EF toggle button. #!N #!I30 #!N 2. 
+Clear the  #!F-adobe-times-bold-r-normal--18*   position #!EF parameter field and type "0 1." 
+#!N #!I30 #!N 3. Click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF . The 
+caption moves from its default position to the top left corner 
+of the Image window. Note: [0 0] specifies the bottom left 
+corner and [1 1] the top right. #!N #!I30 #!N 4. 
+Reopen the Caption configuration dialog box and click on  #!F-adobe-times-bold-r-normal--18*   Expand 
+#!EF to show the hidden parameters. #!N #!I30 #!N 5. Click 
+on the  #!F-adobe-times-bold-r-normal--18*   height #!EF toggle button. #!N #!I30 #!N 6. 
+Double click on the associated parameter field to highlight the value 
+there. #!N #!I30 #!N 7. Type a larger value in its 
+place (e.g., if the value was "15," type in "20"). #!N 
+#!I30 #!N 8. Click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF . The caption 
+type changes size. (See  #!Lthidprm,dxall63 h Displaying and hiding parameters  #!EL  .) #!N #!I0 #!N #!EF #!N 
+#!N #!N To change the wording of a caption, you must 
+use the  #!F-adobe-times-bold-r-normal--18*   Format #!EF tool: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N 1. In the VPE window, disconnect the  #!F-adobe-times-bold-r-normal--18*   
+Caption #!EF input from the  #!F-adobe-times-bold-r-normal--18*   Selector #!EF interactor. #!N #!I30 
+#!N 2. Select  #!F-adobe-times-bold-r-normal--18*   Annotation #!EF and  #!F-adobe-times-bold-r-normal--18*   Format #!EF in 
+the palettes. #!N #!I30 #!N 3. Position the  #!F-adobe-times-bold-r-normal--18*   Format #!EF 
+icon between  #!F-adobe-times-bold-r-normal--18*   Selector #!EF and  #!F-adobe-times-bold-r-normal--18*   Caption #!EF and open 
+the configuration dialog box. #!N #!I30 #!N 4. Drag the cursor 
+over "(none)" in the  #!F-adobe-times-bold-r-normal--18*   template #!EF parameter field and then 
+type "Visualization Method: %s" in its place (%s indicates that a 
+string will be inserted). #!N #!I30 #!N 5. Click on  #!F-adobe-times-bold-r-normal--18*   
+OK #!EF . #!N #!I30 #!N 6. Connect the second output 
+tab of  #!F-adobe-times-bold-r-normal--18*   Selector #!EF to the second (middle) input tab 
+of  #!F-adobe-times-bold-r-normal--18*   Format #!EF . #!N #!I30 #!N 7. Connect the 
+ #!F-adobe-times-bold-r-normal--18*   Format #!EF output to  #!F-adobe-times-bold-r-normal--18*   Caption #!EF and reexecute the 
+visual program. The caption reads "Visualization Method: Streamlines." #!N #!N See 
+Caption and Format in IBM Visualization Data Explorer User's Reference. #!N 
+#!I0 #!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ltadts,dxall58 h Adding Input Tabs to Tool Icons  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

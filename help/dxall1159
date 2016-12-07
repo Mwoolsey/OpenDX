@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue 
+#!N  #!Rall1158 libDXcallm.a #!N #!EC To create your own stand-alone programs 
+which call DX modules, as shown by the "DX Modules" layer 
+in  #!Larch118,dxall984 f Figure 118  #!EL  , link your programs with the libDXcallm.a library. Because 
+your program is the main routine and does not include any 
+of the functions which are supplied by the Data Explorer Executive, 
+you must do all object management, flow control (which modules to 
+call when), any looping or conditional execution, and object deletion and 
+reference count management. See  #!Ldxcmplu,dxall1177 h DXCallModule, DXModSet..., DXSetModule...  #!EL  for more information. #!N #!N If 
+you are building a module to use with Data Explorer, you 
+would link with this library if you wanted to use DXCallModule 
+to use some of the Data Explorer modules from within your 
+own program. In addition, some higher level processing functions such as 
+interpolation support, is available only in libDXcallm.a. #!N #!N The routines 
+contained in libDXcallm.a are listed in  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1159,dxall1160 h libDXL.a  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,68 @@
+New with 4.0.7: java explorer build
+		new samples w/ java explorer doc and samples
+
+Java Explorer serves DX programs to web browser clients.  It is designed
+so that your same DX programs run in the web or conventional client-server
+environments.  Minor modifications to existing programs are required and
+are largely automatic.  From the visual program editor menu bar, select
+Edit...Java...Add Web Tools.  This is described in more detail in
+dx/java/htmlpages/Status.html which comes in the sample tarball.
+
+This release should build and run, but since it is the first release
+that has attempted to do so, it may not be for the faint of heart.
+The overarching problem is that all but one of the jx samples use GIF,
+and GIF has been removed from the opendx build for copyright considerations.
+Progress in restoring GIF or enabling alternatives is a high priority.
+
+
+Java Explorer requires a JDK on the server to build and run 
+(and, if separate, JRE).
+You probably have the JDK already, but it is easy to get if you don't.
+(for example, http://www.ibm.com/java/jdk/download/index.html
+http://java.sun.com/products/jdk/1.1/).  This is just a server
+requirement, as the client's browser will have its own JRE.
+It turns out there is little that is predictable about where the jdk installs.
+Configure has been modified to test your java environment, and for this,
+javac must be in your path.  If configure cannot get the information it needs,
+the java portion of the dx build is turned off.
+
+At present, configure can't get the information it needs
+from kaffe, so if you want to build the java portion the expedient route is
+to install another jdk too.  You can probably *run* with kaffe.  Contributions
+for making JX build and run on various java and OS combinations are awaited.
+
+Once both dx and the samples have been "configure... make... make install"ed,
+the java explorer server can be started by:
+   cd /usr/local/dx/java/server/bin
+   startserver
+and stopped by
+    stopserver
+An attempt was made for startserver.in to be used by configure to create
+an installation-specific startserver that required no other arguments, however
+various arguments can be used at your discretion.  stopserver has some
+OS-dependent use of telnet, and may require modification to work on your
+machine.
+
+At first, perhaps, try running a browser on the server an pointing it
+at file:///usr/local/dx/java/htmlpages/Status.html
+(be sure to get that last "l")
+Various frames should load and the server status should be visible in the
+left frame.  Substantially all of the JX documentation is in the right
+frame.
+
+For remote clients, you need an httpd, probably also already installed.
+Administering the httpd is beyond the scope of this README.  
+However, some hints are in order.  
+Both the htmlpages and output directories in /usr/local/dx/java need
+to be visible to the httpd, this can be accomplished in a number of ways.
+A symlink from an httpd-reachable directory to /usr/local/dx/java will suffice,
+as will PASS instructions in httpd.conf.
+The httpd.conf file is usually in /etc/ or a subdirectory thereof.
+RedHat left .htm out of /etc/mime.types, you'll need to add htm to the html
+line.  for vrml to work, it is necessary to add an AddTypes line to
+httpd.conf (or perhaps srm.conf ).  Syntax varies, for instance
+AddType    .wrl     x-world/x-vrml                    binary  1.0 #VRML files
+works for some,
+AddType .wrl x-world/x-vrml 8bit
+works for cern httpd
+When you find some indespensable bit of information, please contribute it.

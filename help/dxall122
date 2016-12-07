@@ -1,0 +1,76 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall121 Example 8. Series Data #!N #!EC #!N #!N 
+This example illustrates how a 7-step time series of a single 
+scalar field might be imported. The field is on a regular 
+5 * 5 grid, the data are connections dependent, and the 
+style is record. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # Time-Series Data 
+#!N Time Step 1 #!N 12 9 14 1 10 16 
+7 20 #!N 19 6 11 15 18 8 13 17 
+#!N Time Step 2 #!N 12 9 1 21 10 16 
+7 1 #!N 19 6 11 15 18 8 13 17 
+#!N Time Step 3 #!N 12 1 14 21 10 16 
+1 20 #!N 19 6 11 1 18 8 13 17 
+#!N Time Step 4 #!N 1 9 14 21 16 1 
+7 20 #!N 19 6 1 15 18 8 13 1 
+#!N Time Step 5 #!N 12 9 14 21 1 16 
+7 20 #!N 1 6 11 15 18 1 13 17 
+#!N Time Step 6 #!N 12 9 14 21 10 16 
+7 20 #!N 1 6 11 15 18 1 13 17 
+#!N Time Step 7 #!N 12 9 14 21 10 16 
+7 20 #!N 19 6 11 15 1 8 13 17 
+#!EF #!N #!N #!EC #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N 1. In the Data Prompter initial dialog box, select  #!F-adobe-times-bold-r-normal--18*   
+Grid or Scattered File #!EF , select the leftmost button in 
+the  #!F-adobe-times-bold-r-normal--18*   Grid type #!EF row (regular grid) and deactivate the 
+ #!F-adobe-times-bold-r-normal--18*   Single time step #!EF toggle button. #!N #!I30 #!N 2. 
+Confirm that the  #!F-adobe-times-bold-r-normal--18*   Block #!EF toggle button is activated and 
+click on  #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF . The  #!F-adobe-times-bold-r-normal--18*   Full prompter 
+#!EF dialog box appears. (Because this example  #!F-adobe-times-medium-i-normal--18*   requires #!EF the 
+full prompter, the simplified dialog box is not accessible.) #!N #!I30 
+#!N 3. Enter the path name of the data file in 
+the  #!F-adobe-times-bold-r-normal--18*   Data file #!EF field: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+/usr/lpp/dx/samples/data/record_series #!EF #!N #!N #!EC #!N #!I30 #!N 4. Activate the 
+ #!F-adobe-times-bold-r-normal--18*   Header #!EF toggle button. #!N #!I30 #!N 5. Step 4 
+also enables the  #!F-adobe-times-bold-r-normal--18*   # of bytes #!EF button to the 
+right. Click on this button and select  #!F-adobe-times-bold-r-normal--18*   string marker #!EF 
+. #!N #!I30 #!N 6. Enter "Time Step 1 \n" in 
+the associated text field to  #!Rsvarx86 specify that the data file 
+is to be read starting with the line after "Time Step 
+1" (see Note). Alternatively, selecting  #!F-adobe-times-bold-r-normal--18*   # of lines #!EF and 
+specifying the value "2" in the text field would produce the 
+same result. Note: The new-line character "\n" must be included in 
+the specification, and the spacing between it and the marker must 
+match that in the data file (e.g., if "Time Step 1" 
+and "\n" are separated by three spaces in the file, they 
+must be separated by three spaces in the specification). This spacing 
+is easily determined in the Data Browser by placing the cursor 
+at each point and reading the corresponding offset value (see  #!Ldp618,dxall170 f Figure 18  #!EL  
+). #!N #!N #!I30 #!N 7. Enter the value "5" in 
+each of the first two  #!F-adobe-times-bold-r-normal--18*   Grid size #!EF fields. #!N 
+#!I30 #!N 8. Activate the  #!F-adobe-times-bold-r-normal--18*   Series #!EF toggle button and 
+specify the number of series members by entering the value "7" 
+in the associated  #!F-adobe-times-bold-r-normal--18*   n #!EF field. (Leave the  #!F-adobe-times-bold-r-normal--18*   start 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   delta #!EF fields unchanged.) #!N #!I30 #!N 9. 
+Activate the  #!F-adobe-times-bold-r-normal--18*   Series separator #!EF toggle button, select  #!F-adobe-times-bold-r-normal--18*   # 
+of lines #!EF , and enter the value "1" in the 
+associated text field. (When the Import module reads the data file, 
+it will skip the lines "Time Step 2," "Time Step 3," 
+and so on.) #!N #!I30 #!N 10. Change  #!F-adobe-times-bold-r-normal--18*   Dependency #!EF 
+from "positions" to "connections." To confirm this change, click on  #!F-adobe-times-bold-r-normal--18*   
+Modify #!EF at the bottom of the dialog box (note the 
+instruction there). #!N #!I30 #!N 11. Repeat Example 1, Step 10 
+(see  #!Lex1a,dxall116 s To save the header file  #!EL  ), to save the header file, which should look 
+like: #!N #!I0 #!N #!EF #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+file = /usr/lpp/dx/samples/data/record_series #!N grid = 5 x 5 #!N format 
+= text #!N interleaving = record #!N majority = row #!N 
+header = marker "Time Step 1 \n" #!N series = 7, 
+1, 1, separator = lines 1 #!N field = field0 #!N 
+structure = scalar #!N type = float #!N dependency = connections 
+#!N positions = regular, regular, 0, 1, 0, 1 #!N #!N 
+end #!EF #!N #!N #!EC #!N #!N Note: For scalar data, 
+as in this example, the  #!F-adobe-times-bold-r-normal--18*   interleaving #!EF keyword is not 
+required (it defaults to record). However, when series data include vectors, 
+this keyword must be included and the appropriate value specified. For 
+more information, see  #!Lintrkwd,dxall148 h interleaving  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lex4a,dxall123 h Example 9. Data and Header in the Same File  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

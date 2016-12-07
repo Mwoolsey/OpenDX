@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer User&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer User&#39;s
+Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu073.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu075.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRIMPSPSH" ></A>ImportSpreadsheet</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATIAE">Import and Export</A>
+<P><STRONG>Function</STRONG>
+<P>Import spreadsheet format data
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>field, labellist</STRONG> = ImportSpreadsheet(<STRONG>filename, delimiter,
+                                     columnname, format, categorize,
+                                     start, end, delta,
+                                     headerlines, labelline</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>filename</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">name of file to import
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>delimiter</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">" "
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">one-character delimiter (what
+separates the columns)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>columnname</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(all)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">names of columns to import
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>format</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1-d
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">import as 1-d or 2-d field
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>categorize</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">""
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">list of columns to categorize
+during import
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>start</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(first record)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">record (row) to begin importing
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>end</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(last record)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">record (row) to end importing
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>delta</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">increment of rows to import
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>headerlines</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">number of lines to skip before
+start of data/column labels
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>labelline</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no default
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">line number labels are on
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>field</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">a field with each of the columns
+as a component, with the name of the
+column as the component name
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>labellist</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">string list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">a list of the imported column
+names
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+ImportSpreadsheet imports spreadsheet (i.e. tabular) ASCII data. Each column
+in the file is imported as a separate component in the resulting output
+field. The name of the component is taken from a name at the top of
+the column in the file, if present. If no name is found, a default
+name of "column#" is used instead.
+<P>
+If any column entry is NULL or consists of just white space this entry is
+treated as invalid data in Data Explorer.
+If it is a column of type
+<UL COMPACT>
+<LI>string
+<BR>
+A place holder of "&nbsp;" is placed at that entry,
+<LI>float or int
+<BR>
+A -999 is placed at that entry.
+</UL>
+In addition, an "componentname missingvalues" component is created
+which references those invalid entries. Also an "invalid positions"
+component is created which is the union of all the
+"componentname missingvalues" components. For more information on
+invalid positions, see <A HREF="usrgu025.htm#HDRINVAL">"Invalid Positions and
+Invalid Connections Components"</A> in <I>IBM Visualization Data Explorer
+User&#39;s Guide</I>.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>filename</STRONG></TT>
+</B></TD><TD><P>is the file to import.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>delimiter</STRONG></TT>
+</B></TD><TD><P>specifies a one-character delimiter which defines the columns.
+If you do not specify <TT><STRONG>delimiter</STRONG></TT>, white space
+is assumed to delimit the columns.
+<P><B>Note: </B>The tab delimiter is specified as "&#92;t".
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>columnname</STRONG></TT>
+</B></TD><TD><P>is a list of the names of the columns you wish to import.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>format</STRONG></TT>
+</B></TD><TD><P>must be either "1-d" or "2-d". If you specify "1-d", then
+positions of the output field will simply be the indices (row numbers)
+from 0 to number-of-rows.  The field will have as many components as
+there are imported columns, with each component named by the column name.
+If you specify "2-d", then the output field will be a c&nbsp;x&nbsp;r grid,
+where r is the number of imported rows, and c is the number of imported
+columns. It will have
+a single data component which contains all the values in the imported
+rows and columns. If you specify "2-d", then the columns imported
+can not mix string data with numerical data.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>categorize</STRONG></TT>
+</B></TD><TD><P>specifies columns to be categorized, using the Categorize
+module. If "allstring" is specified, all columns with a data type
+of "string" are categorized. For additional information, see
+<A HREF="refgu023.htm#HDRCATEGOR">Categorize</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>headerlines</STRONG></TT>
+</B></TD><TD><P>specifies the number of lines to skip before the start of the
+data/column labels, for skipping comments at the top of the file.
+Note that this would typically be necessary only when the data being
+imported is all strings, or if you have comments at the top of the file
+that could be misinterpreted as labels or data.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>labelline</STRONG></TT>
+</B></TD><TD><P>specifies the line number labels are on. Note that
+this would only be necessary when the data being imported is all strings.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>start</STRONG></TT>,
+<TT><STRONG>end</STRONG></TT>, &nbsp;and&nbsp;
+<TT><STRONG>delta</STRONG></TT>
+</B></TD><TD><P>specify the records (rows) you wish to import.
+</TD></TR></TABLE>
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+Categorical.net
+Duplicates.net
+Zipcodes.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+<A HREF="refgu023.htm#HDRCATEGOR">Categorize</A>,
+<A HREF="refgu073.htm#HDRIMPORT">Import</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

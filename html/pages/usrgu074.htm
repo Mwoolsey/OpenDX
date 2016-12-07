@@ -1,0 +1,586 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Command Line Options</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu073.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu075.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu073.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRCMDLOPT" ></A>C.2 Command Line Options
+</H2>
+		<P>
+<A HREF="#TBLCLOPTS">Table 5</A> lists the command line options available
+with Data Explorer.
+Those most commonly used are identified by a bullet
+(&#42;).
+<A HREF="#TBLDCLOPTS">Table 6</A> lists command line options of particular
+interest
+to developers.
+
+		<P>
+Command line options always override corresponding environment
+variables.
+As such, they offer a quick way to temporarily override environment
+settings.
+If parameters conflict, the last one entered takes
+precedence.
+<BR>
+<P><B><A NAME="TBLCLOPTS" HREF="usrgu002.htm#FT_TBLCLOPTS">Table 5. Data
+Explorer Command Line Options</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&nbsp;
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">Option syntax
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Function
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-8bitcmap &#91;<I>private</I> &#124; <I>shared</I> &#124; <I>0-1</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Set color-map error threshold
+(default: <I>0.1</I>).
+<BR>
+private = -1; stored = 1.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-builder
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">
+Start the Data Explorer Module Builder (instead of Data Explorer).
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-cache &#91;<I>on</I> &#124; <I>off</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Enable executive cache
+(default: <I>on</I>).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-colors <I>filename</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Override DXCOLORS environment
+variable.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-connect <I>host&#58;port</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start a distributed executive
+only (no user interface).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-data <I>pathlist</I>.
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Override DXDATA environment
+variable.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-directory <I>dirname</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Change directory (cd) to
+<I>dirname</I> before starting the
+executive.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-display <I>hostname:0</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Set the X-display
+destination.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-dxroot <I>dirname</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Set the Data Explorer root
+directory (default: <I>/usr/local/dx</I>).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-echo
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Echo the command lines
+without executing them.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-edit
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the user interface in
+edit mode (default).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-exec <I>filename</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Use the specified executive.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-execonly
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the executive only (no
+user interface) in remote mode.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-execute
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Execute the visual program
+automatically at start-up.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-execute_on_change
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Go into Execute On Change
+mode at start-up.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-full
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the full Data Prompter.
+(See also -file and
+-prompter.)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-file <I>filename</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the Data Prompter with
+header file <I>filename</I>.
+(See also -full and -prompter.)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-help
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Print the abbreviated help
+message.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-highlight &#91;<I>on</I> &#124; <I>off</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Enable node execution
+highlighting: (default: <I>on</I>).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-host <I>hostname</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the executive on
+machine. <I>hostname</I>.
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-hwrender &#91;<I>gl</I> &#124; <I>opengl</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">if both GL and OpenGL are
+supported, set
+the type of hardware-rendering used.
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-image
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the user interface in
+image mode.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-include <I>pathlist</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Override DXINCLUDE
+environment variable.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-license &#91;<I>runtime</I> &#124; <I>develop</I> &#124;
+<I>timed</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Request that the user
+interface use only the indicated
+functional type
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-local
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the executive on the
+current machine (default).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-log &#91;<I>on</I> &#124; <I>off</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Enable executive and user
+interface logging (default:
+<I>off</I>).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-macros <I>pathlist</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Set list of directories to be
+searched for macros.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-mdf <I>filename</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Use .mdf file <I>filename</I>
+in addition to the default mdf
+file.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-memory <I>#Mbytes</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Set the amount of memory the
+executive uses.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-menubar
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the user interface in
+menubar mode.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-metric
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Set the graphical user
+interface to use metric units
+whenever possible.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-modules <I>pathlist</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Set list of directories to be
+searched for outboard modules.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-morehelp
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Print complete Help,
+including information about other options.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-optimize &#91;<I>memory</I> &#124; <I>precision</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Set the environment variables
+DXPIXELTYPE and DXDELAYEDCOLORS to
+optimize memory or precision.
+(The default is precision.)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-outboarddebug
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Enable user to start outboard
+modules manually.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-program <I>filename</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the user interface with
+visual program <I>filename</I>.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-prompter
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the Data Explorer Data
+Prompter (but not Data Explorer).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-readahead &#91;<I>on</I> &#124; <I>off</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Enable executive readahead:
+(default: <I>on</I>).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-script
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Run the executive only (i.e.,
+in script mode).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-script <I>filename</I>
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Run the executive only (i.e.,
+in script mode) with script
+<I>filename</I>.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-suppress
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Do not open any control
+panels at start-up (in image or menubar
+mode only).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-timed
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start Data Explorer using a
+timed license.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-timing &#91;<I>on</I> &#124; <I>off</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Enable module timing
+(default: <I>off</I>).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-trace &#91;<I>on</I> &#124; <I>off</I>&#93;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Enable executive trace
+(default: <I>off</I>).
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-trialkey
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Automatically determines the
+information needed to generate a trial key.
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-tutor
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the Data Explorer
+tutorial.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">&#42;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-uionly
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Start the user interface only
+(no executive).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-verbose
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Echo command lines before
+executing them.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="8%">
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="31%">
+-version
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="62%">Show version numbers of
+dxexec and dxui.
+</TD></TR></TABLE>
+<BR>
+<P><B><A NAME="TBLDCLOPTS" HREF="usrgu002.htm#FT_TBLDCLOPTS">Table 6. Command
+Line Options for Developers</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="2">
+For more detailed descriptions of functions, see <A
+HREF="usrgu075.htm#HDRAPF">Appendix D. "User Interface Configuration"</A>.
+<BR></TD></TR><TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">Option syntax
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Function
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-encode -key  &lt;<I>16-digit hex number</I>&gt; &lt;<I>file</I>&gt;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Encode a .net file.
+The Visual Program Editor will not display an encoded .net file, and such a file
+cannot
+be saved. (However, .cfg configuration files <I>can</I>
+be saved.)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-key  &lt;<I>16-digit hex number</I>&gt; &lt;<I>file</I>&gt;
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Decodes an encoded .net file.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-limitImageOptions
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove options from Image
+window's Options menu.
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noAnchorAtStartup
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Start Data Explorer, but do
+not put up any windows by default
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noCMapOpenMap
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove Open... option from
+Colormap Editor's File menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noCMapSaveMap
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove Save As... option from
+Colormap Editor's File menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noCMapSetNameOption
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove Set Colormap Name...
+option from Colormap Editor's Options
+menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noConnectionMenus
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove Connection menu from
+all Windows (intended for use with
+DXLink applications).
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noConfirmedQuit
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Turn off the "Are you sure
+you want to quit Data Explorer?" message.
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noDXHelp
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove three options from the
+Help menu of the control panel and
+the Image window.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noEditorAccess
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove options from the Edit
+menu of the control panel and the
+Open Visual Program Editor option from the Image window's
+Windows menu.
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noEditorOnError
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Turn off default behavior of
+popping up a VPE when an error occurs.
+Instead, a dialog box will ask whether a VPE should be opened.
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noExecuteMenus
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove Execute menu from all
+Windows (intended for use with
+DXLink applications).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noExitOptions
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Changes"quit" to"Close"
+(intended for use with DXLink
+applications).
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noImageLoad
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove both Load options from
+the Image window's File menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noImageMenus
+
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove menus from all Image
+and Display windows.
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noImagePrinting
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove the Print Image...
+option from the Image Window's File menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noImageRWNetFile
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove Open, Save, and Save
+As... options from the Image Window's
+File menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noImageSaving
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove Save Image... option
+from the Image Window's File menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noInteractorAttributes
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove Set Attributes...
+option from the Image Window's File menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noInteractorEdits
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove four set options from
+the control panel's Edit menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noInteractorMovement
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Restricts the ability to move
+interactor instances within a
+control panel.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noMessageInfoOption
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove the Information
+Messages toggle button from the Message
+window&#39;s Options menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noMessageWarningOption
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove the Warning Messages
+toggle button from the Message window's
+Options menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noOpenAllPanels
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove Open All Panels...
+option from the Panels menu of the
+control panel and from the Windows menu of the Image Window.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noPanelAccess
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove the Panels menu from
+the control panel and panel options
+from the Windows menu of the Image Window.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noPanelEdit
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove the Edit menu from the
+control panel.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noPanelOptions
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove the Option menu from
+the control panel.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noPGroupAssignment
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove the Execution Group
+Assignment... option from the Image
+window's Connection menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noRWConfig
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove the Open... and Save
+As... options from the control panel's
+File menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-noScriptCommand
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Remove the Execute Script
+Command... option from the Message
+Window's Options menu.
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="38%">
+-restrictionLevel
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="63%">Combines options to
+facilitate building applications for Data Explorer
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

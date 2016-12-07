@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxmt DXMarkTime, DXMarkTimeLocal #!N #!N Function #!N #!N Record 
+time marks. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> void DXMarkTime(char 
+*string) void DXMarkTimeLocal(char *string) #!EF #!N #!N Functional Details #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   DXMarkTime #!EF records a "global" time mark relevant to the 
+system as a whole. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXMarkTimeLocal #!EF records a 
+"local" event relevant to one processor (e.g., during a parallel section). 
+This routine is called by the executive at the beginning and 
+end of each module, at the beginning and end of each 
+task or parallel section, and by some system modules. #!N #!N 
+Both routines store the current time (from  #!F-adobe-times-bold-r-normal--18*   DXGetTime #!EF ) 
+and a copy of  #!F-adobe-times-bold-r-normal--18*   string #!EF in a processor local 
+list. The copied version of  #!F-adobe-times-bold-r-normal--18*   string #!EF will be truncated 
+if longer than 16 characters. The number of time marks stored 
+since the last call to  #!F-adobe-times-bold-r-normal--18*   DXPrintTimes #!EF is limited to 
+2000 events. #!N #!N Return Value #!N #!N None. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgt,dxall1269 h DXGetTime  #!EL  ,  #!Ldxpt,dxall1333 h DXPrintTimes  #!EL  ,  #!Ldxtt,dxall1398 h DXTraceTime  #!EL  #!EF 
+#!N #!N  #!Ltimg,dxall1095 h Timing  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxmess,dxall1307 h DXMessage  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

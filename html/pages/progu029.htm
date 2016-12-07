@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu028.htm">Previous Page</A> &#124; <A HREF="progu030.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu028.htm#PToC8">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDREXMKX2" HREF="progu028.htm#PToC_62">6.2 MakeXEfficient Module
+Example--Create New Positions</A></H2>
+<A NAME="IDX239"></A>
+<A NAME="IDX240"></A>
+<A NAME="IDX241"></A>
+<P>
+The preceding example module, MakeX, manipulates regular (compactly
+encoded) positions less efficiently than it might.
+Note that the first call to <TT><STRONG>DXGetArrayData</STRONG></TT> in the file
+<TT>makex.c</TT> expands the compact coding of regular
+positions.
+MakeXEfficient eliminates this expansion.
+<P>
+MakeXEfficient has the same two inputs as MakeX:
+<TT><STRONG>data</STRONG></TT>, is of type <TT><STRONG>field</STRONG></TT> and
+has
+no default value;
+<TT><STRONG>addend</STRONG></TT>, is of type <TT><STRONG>size</STRONG></TT>, and
+has a default value of 1.
+<P>
+MakeXEfficient has the same output as MakeX:
+<TT><STRONG>result</STRONG></TT> is of type <TT><STRONG>field</STRONG></TT>.
+<P>
+<B><U>Repeat Steps (1) through (5)</U></B> of the preceding example (see
+<A HREF="progu028.htm#HDRMAKEX">6.1 , "MakeX Module Example--Create New
+Positions"</A>), using the file name
+"makexeff" in place of "makex."
+Step (5) will produce files <TT>makexeff.c</TT>,
+<TT>makexeff.mdf</TT>, and
+<TT>makexeff.make</TT>.
+<P>
+<B><U>(6) Implement the MakeXEfficient function</U></B>.
+MakeXEfficient uses Array-handling routines like those described in
+<A HREF="progu046.htm#HDRARHAND">"Array Handling"</A>.
+But the main differences from MakeX are a handle for manipulating the
+input-positions Array, and a scratch buffer to hold the
+coordinates of a single position (three floating-point
+numbers in this example).
+Note that there is no call to DXGetArrayData for a pointer to the
+input-positions Array, thereby avoiding inefficiencies by
+not expanding regular positions.
+<P>
+Edit the <TT>makexeff.c</TT> file and replace the line
+<PRE>
+  p_positions = (float*) DXGetArrayData(array)
+</PRE>
+with the following:
+<PRE>
+  if (!(handle = DXCreateArrayHandle(array)))
+     goto error;
+  scratch = DXAllocate(3*sizeof(float));
+  if (!scratch)
+    goto error;
+</PRE>
+<P>
+Another necessary code change is one inside the loop labeled
+"Now &quot;draw&quot; the x&#39;s" in the
+<TT><STRONG>.c</STRONG></TT> file--a call to the
+DXIterateArray routine to access the
+current position.
+Add the following pair of lines after the comment in the loop:
+<PRE>
+       in_ptr = (float *)DXIterateArray(handle, i, in_ptr, scratch);
+       inpoint = DXPt(in_ptr&#91;0&#93;, in_ptr&#91;1&#93;, in_ptr&#91;2&#93;);
+</PRE>
+<P>
+Of course, the handle and the scratch buffer have to be freed at
+some point.
+Add the following lines before the MakeXEfficient_worker code near
+the end of the file:
+<PRE>
+/* Delete scratch and handle */
+   DXFree((Pointer)scratch);
+   DXFreeArrayHandle(handle);
+/* return */
+   return OK;
+error:
+/* Delete scratch and handle */
+   DXFree((Pointer)scratch);
+   DXFreeArrayHandle(handle);
+   return ERROR;
+</PRE>
+<P>
+Add the following lines after the first block of code in the doLeaf
+routine:
+<PRE>
+  /* User-added declarations */
+  float *scratch, *in_ptr, size;
+  Point inpoint, *out_pos_ptr;
+  ArrayHandle handle;
+  Array connections;
+  Line *conn_ptr;
+</PRE>
+<P>
+The file <TT>/usr/local/dx/samples/program_guide/makexeff.c</TT>
+contains a completed version of this program.
+<P>
+<B><U>(7) To create a version of Data Explorer that includes</U></B> the
+MakeXEfficient module, enter the command:
+<PRE>
+make -f makexeff.make dxexec
+</PRE>
+<P>
+(You have now created an executable that contains the MakeX
+module.)
+<P>
+<B><U>(8) To invoke this version, enter&#58;</U></B>
+<P>
+<PRE>
+dx  -mdf ./makexeff.mdf -exec ./dxexec
+</PRE>
+<P>
+This command starts Data Explorer (the <TT><STRONG>makexeff.mdf</STRONG></TT>
+file
+tells the graphical user interface about MakeX and its
+inputs and outputs).
+The executable dxexec invoked here is the one created in Step 6.
+<P>
+<B><U>(9) With this version of Data Explorer</U></B> you can now run any visual
+program that uses the MakeXEfficient module.
+One such program is
+<TT>/usr/local/dx/samples/program_guide/makex_efficient.net</TT>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu028.htm">Previous Page</A> &#124; <A HREF="progu030.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu028.htm#PToC8">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

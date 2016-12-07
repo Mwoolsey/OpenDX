@@ -1,0 +1,41 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rcatint Interactor #!N #!EC #!N #!N These tools 
+provide interactive control of inputs to other modules in visual programs. 
+They can be used only with the user interface. #!N #!N 
+For additional information, see  #!Lbuico,dxall380 h Using Control Panels and Interactors  #!EL  in IBM Visualization Data Explorer User's 
+Guide. Interactors are named after the type of data they control: 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lfilesel,dxall848 h FileSelector  #!EL  #!EF #!I50 #!N 
+Presents a standard Motif file-selector dialog box. The output is a 
+file name. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Linteger,dxall878 h Integer  #!EL  #!EF #!I50 #!N Presents 
+a stepper, slider, dial, or text interactor. The output is a 
+whole number. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lintegel,dxall879 h IntegerList  #!EL  #!EF #!I50 #!N Presents 
+a scrolled-list or text interactor. The output is a list of 
+integers. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lreset,dxall926 h Reset  #!EL  #!EF #!I50 #!N Presents a 
+toggle button. The output is one value the first time it 
+is run, and a different value on subsequent runs until the 
+toggle is selected again. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lscalar,dxall932 h Scalar  #!EL  #!EF #!I50 
+#!N Presents a stepper, slider, dial, or text interactor. The output 
+is a real number. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lscalarl,dxall933 h ScalarList  #!EL  #!EF #!I50 
+#!N Presents a stepper, slider, dial, or text interactor. The output 
+is list of scalar values. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lselecto,dxall937 h Selector  #!EL  #!EF 
+#!I50 #!N Presents an option menu, a set of radio buttons, 
+or a toggle button. The outputs are a value and a 
+string, representing a choice from a selection. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lsellist,dxall938 h SelectorList  #!EL  #!EF #!I50 #!N Presents a selection list. The output is 
+a list of values and a list of strings, representing a 
+choice of one or more from many. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lstring,dxall956 h String  #!EL  #!EF #!I50 #!N Presents a text interactor. The output is 
+a text string. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lstringl,dxall957 h StringList  #!EL  #!EF #!I50 #!N 
+Presents a scrolled-text list. The output is a list of strings. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Ltoggle,dxall965 h Toggle  #!EL  #!EF #!I50 #!N Presents a toggle 
+button. The output is one of two values (set or unset). 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lvalue,dxall975 h Value  #!EL  #!EF #!I50 #!N Presents a text 
+interactor. The output is a value (scalar, vector, tensor, or matrix). 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lvaluel,dxall976 h ValueList  #!EL  #!EF #!I50 #!N Presents a scrolled 
+list or text interactor. The output is a value list. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!Lvector,dxall977 h Vector  #!EL  #!EF #!I50 #!N Presents a stepper or 
+text interactor. The output is a vector. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Lvectorl,dxall978 h VectorList  #!EL  #!EF #!I50 #!N Presents a scrolled-list or text interactor. The 
+output is a vector list. #!I0 #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcatictl,dxall758 h Interface Control  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

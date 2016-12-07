@@ -1,0 +1,60 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rex1 Example 1. 
+A Regular Grid #!N #!EC #!N #!N The following example illustrates 
+the basic Objects of the data model, and shows how to 
+imbed data as text in the header section. The Objects and 
+data describe a regular grid. This file is found in  #!F-adobe-times-bold-r-normal--18*   
+/usr/lpp/dx/samples/data/regular.dx #!EF .  #!Lregreg105,dxall626 f Figure 105  #!EL  shows the resulting structure. The axes diagram 
+in the lower right corner of the figure indicates the orientation 
+of the axes. This orientation applies to all subsequent examples as 
+well. #!N #!N Note that the positions are considered to increment 
+in the order "last index varies fastest" when matching data to 
+positions. For example, for this simple 4 x 2 x 3 
+grid, the order of the positions is  #!F-adobe-times-medium-i-normal--18*   [x[0]y[0]z[0]] #!EF , 
+ #!F-adobe-times-medium-i-normal--18*   [x[0]y[0]z[1]] #!EF ,  #!F-adobe-times-medium-i-normal--18*   [x[0]y[0]z[2]] #!EF ,  #!F-adobe-times-medium-i-normal--18*   [x[0]y[1]z[0]] #!EF 
+, and so on. This is because the deltas are specified 
+in the order  #!F-adobe-times-medium-i-normal--18*   .x, y, z #!EF , so  #!F-adobe-times-medium-i-normal--18*   
+z #!EF is the last index. If the data was stored 
+in the order  #!F-adobe-times-medium-i-normal--18*   [x[0]y[0]z[0]] #!EF ,  #!F-adobe-times-medium-i-normal--18*   [x[1]y[0]z[0]] ... #!EF 
+, then the order of the  #!F-adobe-times-bold-r-normal--18*   delta #!EF clauses would 
+be reversed, and the counts would be specified as 3 2 
+4. #!N #!N When using the  #!F-adobe-times-bold-r-normal--18*   gridconnections #!EF keyword, it 
+is not necessary to specify the "element type" or "ref" attribute, 
+as these will automatically be set for you. #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N # This example describes a regular grid #!N #!N 
+# object 1 is the regular positions. #!N The grid is 
+4 in x by 2 in y by 3 in z. 
+The origin is #!N # at [0 0 0], and the 
+deltas are 1 in the first and third #!N # dimensions, 
+and 2 in the second dimension #!T,86,172,259,346 #!N object 1 class 
+gridpositions counts 4 2 3 #!N origin TAB 0 TAB 0 
+TAB 0 #!N delta TAB 1 TAB 0 TAB 0 #!N 
+delta TAB 0 TAB 2 TAB 0 #!N delta TAB 0 
+TAB 0 TAB 1 #!EF #!N #!N #!EC #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N # object 2 is the regular connections #!N object 
+2 class gridconnections counts 4 2 3 #!N attribute "element type" 
+string "cubes" #!N attribute "ref" string "positions" #!EF #!N #!N #!EC 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # object 3 is the data, 
+which is in a one-to-one correspondence with #!N # the positions 
+("dep" on positions). #!N # The data are matched to the 
+positions in the order #!N # "last index varies fastest", i.e. 
+(x0, y0, z0), (x0, y0, z1), #!N # (x0, y0, z2), 
+(x0, y1, z0), etc. #!N object 3 class array type float 
+rank 0 items 24 data follows #!T,64,151,225,303 #!N TAB 1 TAB 
+3.4 TAB 5 TAB 2 #!N TAB 3.4 TAB 5.1 TAB 
+0.3 TAB 4.5 #!N TAB 1 TAB 2.3 TAB 4.1 TAB 
+2.1 #!N TAB 6 TAB 8 TAB 9.1 TAB 2.3 #!N 
+TAB 4.5 TAB 5 TAB 3.0 TAB 4.3 #!N TAB 1.2 
+TAB 1.2 TAB 3.0 TAB 3.2 #!N attribute "dep" string "positions" 
+#!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # A 
+field is created with three components: "positions", "connections", #!N # and 
+"data" #!N object "regular positions regular connections" class field #!N component 
+"positions" value 1 #!N component "connections" value 2 #!N component "data" 
+value 3 #!N #!N end #!EF #!N #!N #!EC #!Cbrown #!N 
+ #!F-adobe-times-medium-r-normal--18*    #!Rregreg105 #!N Graphics omitted from Online Documentation. Please see the 
+manual. #!N #!N Figure 105. Regular Grid Example. The argument "off 
+front" has been substituted for "off diagonal" in the script used 
+to generate this figure (see  #!Lxmples,dxall625 h Examples  #!EL  ). #!EF #!N #!EC #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall626,dxall627 h Example 2. A Regular Skewed Grid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

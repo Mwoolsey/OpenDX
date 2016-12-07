@@ -1,0 +1,96 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rautogly AutoGlyph #!N #!N Category #!N #!N  #!Lcatann,dxall752 h Annotation  #!EL  #!N #!N Function 
+#!N #!N Assigns an appropriate glyph to each point in a 
+data field. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N 
+glyphs #!EF = AutoGlyph(  #!F-adobe-times-bold-r-normal--18*   data, type, shape, scale, ratio, min, 
+max #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB data TAB data field TAB none TAB set 
+of points to which glyphs will #!N TAB - TAB - 
+TAB - TAB be assigned #!N TAB type TAB scalar, string, 
+field, or group TAB input dependent TAB glyph type #!N TAB 
+shape TAB scalar TAB 1.0 TAB factor to describe shape of 
+glyph #!N TAB - TAB - TAB - TAB (must be 
+greater than 0) #!N TAB scale TAB scalar TAB 1.0 TAB 
+scale factor for size of glyphs #!N TAB - TAB - 
+TAB - TAB (must be greater than 0) #!N TAB ratio 
+TAB scalar TAB 0.05 or 0 TAB ratio in size (scalars 
+or vectors) #!N TAB - TAB - TAB - TAB between 
+smallest and largest #!N TAB - TAB - TAB - TAB 
+glyphs (must be greater than or #!N TAB - TAB - 
+TAB - TAB equal to 0) #!N TAB min TAB scalar 
+or field TAB min of data value or 0 TAB data 
+value that gets minimum-size #!N TAB - TAB - TAB - 
+TAB glyph #!N TAB max TAB scalar or field TAB max 
+of data TAB data value that gets maximum-size #!N TAB - 
+TAB - TAB - TAB glyph #!N TAB - TAB - 
+TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Description #!EF #!N TAB glyphs TAB 
+color field TAB set of glyphs #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N This module creates 
+a glyph, or representation (e.g., an arrow), for each data value 
+in a data field  #!F-adobe-times-bold-r-normal--18*   data #!EF . For data dependent 
+on positions, a glyph is placed at the corresponding position. For 
+data dependent on connections, a glyph is placed at the center 
+of the corresponding connection element. If there is no "data" component, 
+a glyph is placed at each position. #!N #!N The "base" 
+size (i.e. size of a glyph for the average data value) 
+is based on AutoGlyph's estimate of an appropriate glyph size, as 
+modified by  #!F-adobe-times-bold-r-normal--18*   scale #!EF . #!N #!N For "text" glyphs, 
+a "data" component is required. #!N #!N AutoGlyph differs from the 
+Glyph module in the interpretation of the  #!F-adobe-times-bold-r-normal--18*   scale #!EF parameter. 
+For AutoGlyph, you specify the size of the glyphs relative to 
+the default-size glyph chosen by AutoGlyph. In contrast, when using Glyph, 
+you may specify a scaling factor that is multiplied by the 
+data value to obtain the size of the glyph in world 
+units. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF 
+#!EF #!I50 #!N is the data field for which glyphs are 
+to be created. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   type #!EF #!EF 
+#!I50 #!N specifies the kind of glyph to be used. #!N 
+#!N By default, scalar fields are represented by filled circles or 
+spheres, vector fields by arrows, tensor fields by groups of arrows, 
+and string data by text. For 2-dimensional scalar fields, the glyphs 
+are circles, and for 2-dimensional vector fields, the arrows are flat. 
+For 3-dimensional fields, spheres or rounded arrows (rockets) are used. #!N 
+#!N The  #!F-adobe-times-bold-r-normal--18*   type #!EF parameter will override a default glyph. 
+If  #!F-adobe-times-bold-r-normal--18*   type #!EF is a string, it must specify one 
+of the following: "arrow," "arrow2D," "circle," "colored text," "cube," "diamond," "needle," 
+"needle2D," "rocket," "rocket2D," "sphere," "speedy," "spiffy," "square," "standard," or "text." The 
+value "standard" specifies the default glyph type and is a medium-quality 
+glyph appropriate to the data; "spiffy," a higher-quality glyph; and "speedy," 
+a lower-quality, but more quickly rendered glyph. Lower quality glyphs also 
+consume less memory. #!N #!N You may alternatively specify  #!F-adobe-times-bold-r-normal--18*   type 
+#!EF as a scalar value between 0 and 1, where: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 0 is the 
+same as "speedy" #!N #!I30 #!N o 1 is the same 
+as "spiffy" #!N #!I30 #!N o 0.5 is the same as 
+"standard" #!N #!I0 #!N #!EF #!N There are approximately 5 different 
+quality glyphs for each glyph type. The one closest to the 
+value specified is used. #!N #!N Specifying "text" or "colored text" 
+for  #!F-adobe-times-bold-r-normal--18*   type #!EF puts a text representation of the data 
+value at each point. For text glyphs, the text is by 
+default 15 pixels high, and the  #!F-adobe-times-bold-r-normal--18*   shape #!EF ,  #!F-adobe-times-bold-r-normal--18*   
+ratio #!EF ,  #!F-adobe-times-bold-r-normal--18*   min #!EF , and  #!F-adobe-times-bold-r-normal--18*   max #!EF 
+parameters have no effect. The  #!F-adobe-times-bold-r-normal--18*   scale #!EF parameter can be 
+used to increase or decrease the size of the text glyphs. 
+For example, specifying  #!F-adobe-times-bold-r-normal--18*   scale #!EF = 2 makes the text 
+30 pixels high. The difference between "text" and "colored text" is 
+that text is always white when "text" is specified, but will 
+be the color of the input if "colored text" is specified. 
+Note that after the AutoGlyph module, Color can be used to 
+color text glyphs to a different color if desired. The font 
+for the text glyphs can be specified by appending "font = 
+ #!F-adobe-times-medium-i-normal--18*   fontname #!EF " to "text" or "colored text," where  #!F-adobe-times-medium-i-normal--18*   
+fontname #!EF is any of the defined fonts supplied with Data 
+Explorer: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N area gothicit_t pitman roman_ext #!N 
+cyril_d greek_d roman_d script_d #!N fixed greek_s roman_dser script_s #!N gothiceng_t 
+italic_d roman_s variable #!N gothicger_t italic_t roman_tser #!EF #!N #!N #!EC 
+For more information, see  #!Lapc,dxall746 h Data Explorer Fonts  #!EL  in IBM Visualization Data Explorer User's 
+Guide. In addition, you may supply user-defined fields and groups to 
+the  #!F-adobe-times-bold-r-normal--18*   type #!EF parameter (see  #!Ltype,dxall776 s TYPE  #!EL  ). #!I0 #!N #!N 
+#!N #!N The remaining five parameters are interpreted somewhat differently, depending 
+on whether the type of data involved are (1) scalar or 
+(2) vector or tensor. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall773,dxall774 h Scalar Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,27 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen  #!Rall539 By-Name Arguments #!N #!EC #!N #!N The "by 
+name" argument-passing mechanism provides more flexibility in specifying arguments. When an 
+argument is passed by name, the following syntax is used for 
+the argument: #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-i-normal--18*   Fname #!EF 
+=  #!F-adobe-times-bold-i-normal--18*   value #!EF #!EF #!N #!N #!EC #!N #!N  #!F-adobe-times-bold-i-normal--18*   
+Fname #!EF is an identifier that corresponds to one of the 
+function's input formal parameters.  #!F-adobe-times-bold-i-normal--18*   Value #!EF is one of the 
+types of values that are valid for that argument to the 
+function. If the function is a macro, the arguments are named 
+in the definition of the macro in the script. If the 
+function is a module, the argument names are provided in the 
+description of the module in  #!Lfmd,dxall765 h Functional Modules  #!EL  in IBM Visualization Data Explorer 
+User's Reference. #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. 
+Positional arguments can be supplied only prior to by-name arguments, because 
+the positional context is lost once a name has been supplied. 
+#!N #!I30 #!N 2. If an argument is supplied both by 
+position and by name, then the value given by name takes 
+precedence. #!N #!I30 #!N 3. If an argument is supplied by 
+name more than once in a given function call, then the 
+value associated with the last (rightmost) instance of the input formal 
+parameter is used. #!N #!I30 #!N 4. A name that does 
+not correspond to one of the function's formal parameters and its 
+associated values is considered a semantic error. #!I0 #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall540,dxall541 h Missing Arguments  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

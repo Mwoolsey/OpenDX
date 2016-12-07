@@ -1,0 +1,77 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rconstru Construct #!N #!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N 
+Function #!N #!N Constructs a field with regular connections. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Construct( 
+ #!F-adobe-times-bold-r-normal--18*   origin, deltas, counts, data #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB origin TAB vector list 
+TAB input dependent TAB origin for positions or a list of 
+#!N TAB - TAB - TAB - TAB positions #!N TAB 
+deltas TAB vector list TAB input dependent TAB deltas for positions 
+#!N TAB counts TAB integer or vector TAB input dependent TAB 
+number of positions in each #!N TAB - TAB - TAB 
+- TAB dimension #!N TAB data TAB value list or string 
+list TAB no default TAB data, last index varies fastest #!N 
+TAB - TAB - TAB - TAB #!EF #!N #!N Outputs 
+#!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF 
+#!N TAB output TAB field TAB the output field #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+This module creates a field by defining its positions and connections. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   origin #!EF #!EF 
+#!I50 #!N specifies either the origin of a field with regular 
+positions or a list of positions for a field with irregular 
+positions. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   deltas #!EF #!EF #!I50 #!N 
+should be used only for creating a field with regular connections. 
+It specifies one of the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o a vector of the same shape as 
+ #!F-adobe-times-bold-r-normal--18*   origin #!EF , if  #!F-adobe-times-bold-r-normal--18*   origin #!EF is specified #!N 
+#!I30 #!N o a list of vectors that match  #!F-adobe-times-bold-r-normal--18*   origin 
+#!EF , the number of vectors being equal to the number 
+of dimensions in  #!F-adobe-times-bold-r-normal--18*   origin #!EF . (This specification can be 
+used to define a grid with non-orthogonal axes.) #!N #!I0 #!N 
+#!EF #!N #!N #!N If  #!F-adobe-times-bold-r-normal--18*   origin #!EF is not specified, 
+the dimensionality of the output positions is derived from the dimensionality 
+of  #!F-adobe-times-bold-r-normal--18*   deltas #!EF . The default value is a unit 
+vector. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   counts #!EF #!EF #!I50 #!N 
+specifies the number of positions in each dimensions for a field 
+with regular connections. The module interprets this parameter according to the 
+value specified by  #!F-adobe-times-bold-r-normal--18*   origin #!EF . If  #!F-adobe-times-bold-r-normal--18*   origin #!EF 
+specifies: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   
+a single vector: #!EF the field will have regular positions and 
+regular connections. (If  #!F-adobe-times-bold-r-normal--18*   counts #!EF has been specified as a 
+single number, the module creates that number of positions in each 
+dimension.) #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   a vector list: #!EF the 
+field will have irregular positions and regular connections. The product of 
+the counts must match the number of positions given by  #!F-adobe-times-bold-r-normal--18*   
+origin #!EF . #!N #!I0 #!N #!EF #!N #!N #!N To 
+create a field consisting of just the items specified by  #!F-adobe-times-bold-r-normal--18*   
+origin #!EF as the "positions" component, do not specify  #!F-adobe-times-bold-r-normal--18*   counts 
+#!EF . If the list of vectors contains more than one 
+item, the output has, in addition to the "positions" component containing 
+the points in  #!F-adobe-times-bold-r-normal--18*   origin #!EF , a "connections" component of 
+element type "lines." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF 
+#!I50 #!N specifies one or more data values associated with the 
+positions or connections of the field. #!N #!N If specified, this 
+parameter must be either a single value or a list of 
+values. If it is a single value or a list with 
+a length that matches the number of positions [e.g.,  #!F-adobe-times-medium-i-normal--18*   n[0]*n[1]... 
+#!EF , where  #!F-adobe-times-medium-i-normal--18*   n[0] #!EF ,  #!F-adobe-times-medium-i-normal--18*   n[1] #!EF , 
+..., are the  #!F-adobe-times-bold-r-normal--18*   counts #!EF ], then the output data 
+component is dependent on the "positions" component. If the list has 
+a length that matches the number of connection elements (e.g.,  #!F-adobe-times-medium-i-normal--18*   
+(n[0]-1) * (n[1]-1) ... #!EF ), then the output data is 
+dependent on the "connections" component. Any other number of items in 
+ #!F-adobe-times-bold-r-normal--18*   data #!EF is an error. #!N #!N The type of 
+the "data" component is the type of the input  #!F-adobe-times-bold-r-normal--18*   data 
+#!EF . If  #!F-adobe-times-bold-r-normal--18*   data #!EF is a string list, the 
+"data" component will be TYPE_STRING. #!I0 #!N #!N Note: If none 
+of the first three parameters is specified (  #!F-adobe-times-bold-r-normal--18*   origin #!EF 
+,  #!F-adobe-times-bold-r-normal--18*   deltas #!EF , or  #!F-adobe-times-bold-r-normal--18*   counts #!EF ), Construct 
+creates an empty field. #!N #!N Components #!N #!N Creates "positions" 
+and "connections" components. A "data" component is created if  #!F-adobe-times-bold-r-normal--18*   data 
+#!EF is not null. #!N #!N Example Visual Programs #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N AnnotationGlyphs.net #!N ConnectingScatteredPoints.net #!N ProbeText.net #!N Sealevel.net #!N 
+UsingColormaps.net #!N UsingStreakline.net #!N SIMPLE/Construct.net #!EF #!N #!N #!EC #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lconvert,dxall799 h Convert  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

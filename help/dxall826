@@ -1,0 +1,52 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rtextmap Texture Mapping 
+#!N #!N #!N If the machine on which Data Explorer is 
+running supports OpenGL or GL, then texture mapping is available using 
+hardware rendering. Texture mapping is the process of mapping an image 
+(a field with 2-dimensional positions, quad connections, and colors) onto a 
+geometry field with 2-dimensional connections and, typically, 3-dimensional positions (e.g., a 
+color image mapped onto a rubbersheeted height field). The advantage of 
+texture mapping over the use of Map, for example, is that 
+the resulting image may have much greater resolution than the height 
+map. #!N #!N The geometry field must have 2-D connections (triangles 
+or quads) and must also have a component, with the name 
+"uv," that is dependent on positions and provides the mapping between 
+the image and the positions of the geometry field. This component 
+consists of 2-vectors. The origin of the image will be mapped 
+to the uv value [0 0], and the opposite corner to 
+the uv value [1 1]. #!N #!N The texture map is 
+the image to be mapped onto the geometry field. One requirement 
+of the image (imposed by the hardware) is that the number 
+of pixels in each dimension must be a power of 2 
+greater than or equal to 32. The two dimensions do not 
+have to be the same size. The texture map should be 
+attached to the geometry field as an attribute, with the attribute 
+name "texture," which can be done with the Options module. A 
+texture-mapped image can be retrieved from the Display window using ReadImageWindow 
+and then written to a file using WriteImage. #!N #!N #!T,1,216,356,641 
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Attribute Name TAB Value TAB Description #!EF #!N 
+TAB texture TAB a texture map TAB specifies a texture map 
+#!N #!N Components #!N #!N The  #!F-adobe-times-bold-r-normal--18*   object #!EF input must 
+have a "colors," "front colors," or "back colors" component. #!N #!N 
+Script Language Examples #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+1. This example renders two views of the object and displays 
+them in two separate windows, as specified by the  #!F-adobe-times-bold-r-normal--18*   where 
+#!EF parameter. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N electrondensity = Import("/usr/lpp/dx/samples/data/watermolecule"); #!N 
+isosurface = Isosurface(electrondensity, 0.3); #!N camera1 = AutoCamera(isosurface, "front", resolution=300); #!N 
+camera2 = AutoCamera(isosurface, "top", resolution=300); #!N image1 = Render(isosurface, camera1); #!N 
+image2 = Render(isosurface, camera2); #!N Display(image1,where="X, localhost:0, view from front"); #!N 
+Display(image2,where="X, localhost:0, view from top"); #!EF #!N #!N #!EC #!N #!I30 
+#!N 2. This example sets the rendering mode to "hardware" with 
+the approximation method of "dots." #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N electrondensity 
+= Import("/usr/lpp/dx/samples/data/watermolecule"); #!N isosurface = Isosurface(electrondensity, 0.3); #!N from = Direction(65, 
+5, 10); #!N camera = AutoCamera(isosurface, from); #!N isosurface=Options(isosurface, "rendering mode", 
+"hardware", #!N "rendering approximation", "dots"); #!N Display(isosurface,camera); #!EF #!N #!N #!EC 
+#!N #!I0 #!N #!EF #!N #!N #!N Example Visual Programs #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N MovingCamera.net #!N PlotLine.net #!N PlotTwoLines.net #!N ReadImage.net 
+#!N #!N ScaleScreen.net #!N #!N TextureMapOpenGL.net #!N UsingCompute.net #!N UsingMorph.net #!EF 
+#!N #!N #!EC #!N #!N See Also #!N #!N  #!Larrange,dxall768 h Arrange  #!EL  , 
+ #!Lcollect,dxall788 h Collect  #!EL  ,  #!Lfilter,dxall849 h Filter  #!EL  ,  #!Limage,dxall860 h Image  #!EL  ,  #!Lrender,dxall923 h Render  #!EL  ,  #!Lreduce,dxall918 h Reduce  #!EL  ,  #!Lrefine,dxall919 h Refine  #!EL  
+,  #!Lscalscr,dxall935 h ScaleScreen  #!EL  ,  #!Lnormals,dxall897 h Normals  #!EL  ,  #!Lfacenor,dxall847 h FaceNormals  #!EL  ,  #!Lsupwind,dxall961 h SuperviseWindow  #!EL  ,  #!Lsupstat,dxall958 h SuperviseState  #!EL  , 
+ #!Lreadimw,dxall916 h ReadImageWindow  #!EL  ,  #!Loptions,dxall898 h Options  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldivcurl,dxall827 h DivCurl  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

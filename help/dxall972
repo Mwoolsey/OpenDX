@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Runmark Unmark 
+#!N #!N Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N 
+Unmarks a marked component. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Unmark(  #!F-adobe-times-bold-r-normal--18*   input, name #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+input TAB field TAB none TAB field with a marked component 
+#!N TAB name TAB string TAB input dependent TAB the component 
+to be unmarked #!N TAB - TAB - TAB - TAB 
+#!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Description #!EF #!N TAB output TAB field TAB the 
+field with the named component not marked #!N TAB - TAB 
+- TAB #!EF #!N #!N Functional Details #!N #!N This module 
+undoes the action of the Mark module by creating an  #!F-adobe-times-bold-r-normal--18*   
+output #!EF field with the "data" component of the  #!F-adobe-times-bold-r-normal--18*   input 
+#!EF field returned to the  #!F-adobe-times-bold-r-normal--18*   name #!EF component. If a 
+"saved data" component exists, it is copied into the "data" component. 
+#!N #!N If the  #!F-adobe-times-bold-r-normal--18*   name #!EF parameter is not specified, 
+the module copies the "data" component into the component originally marked 
+with the Mark module (that component name is carried as a 
+"marked component" attribute on  #!F-adobe-times-bold-r-normal--18*   input #!EF ). Specifying the parameter 
+explicitly overrides this default behavior. #!N #!N Components #!N #!N Copies 
+the "data" component into the  #!F-adobe-times-bold-r-normal--18*   name #!EF component, and the 
+"saved data" component (if it exists) into the "data" component. All 
+other input components are propagated to the output. #!N #!N Example 
+Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N MakeLineMacro.net #!N PlotLine.net #!N 
+PlotTwoLines.net #!N Sealevel.net #!N WarpingPositions.net #!N SIMPLE/MarkUnmark.net #!EF #!N #!N #!EC 
+#!N #!N See Also #!N #!N  #!Lcompute,dxall795 h Compute  #!EL  ,  #!Lmark,dxall893 h Mark  #!EL  ,  #!Lrename,dxall922 h Rename  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lupdatca,dxall973 h UpdateCamera  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

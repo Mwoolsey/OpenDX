@@ -1,0 +1,403 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu067.htm">Previous Page</A> &#124; <A HREF="progu069.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRINVDATA" HREF="progu066.htm#PToC_147">14.3 Invalid Data</A></H2>
+<A NAME="IDX1089"></A>
+<A NAME="IDX1090"></A>
+<P>
+In order to support the elimination of unwanted items from a data set,
+positions, connections, faces, or polylines in a Field can be
+"invalidated" by placing a corresponding "invalid
+positions," "invalid connections," "invalid
+faces," or "invalid polylines" component
+in that Field.
+An "invalid" component lists the individual data items of the
+positions, connections, faces, or polylines component that
+are invalid.
+<P>
+In position-, connection-, face-, and polyline-dependent components,
+data items that correspond to invalid elements are themselves
+invalid.
+Data may be invalidated by modifying (or creating, if necessary) these
+invalid components.
+If no invalid component exists, all data items are assumed to be valid.
+<P>
+An invalid component is represented by one of two types of Array:
+<OL>
+<P><LI>An Array of length equal to the length of the "positions,"
+"connections," "faces," or "polylines"
+component.
+This component has the "dep" attribute of "positions,"
+"connections," "faces," or "polylines" (i.e.,
+the elements correspond one-to-one with the elements
+in the applicable Array).
+The Array is either <TT><STRONG>TYPE_BYTE</STRONG></TT> or
+<TT><STRONG>TYPE_UBYTE</STRONG></TT>; its valid elements have a value of
+<TT><STRONG>DATA_VALID</STRONG></TT> (0), invalid elements a
+value of <TT><STRONG>DATA_INVALID</STRONG></TT> (1).
+<P><LI>An Array of length equal to the number of invalid members of the
+applicable component.
+This component has the "ref" attribute of "positions,"
+"connections," "faces," or "polylines."
+The Array is either <TT><STRONG>TYPE_INT</STRONG></TT> or
+<TT><STRONG>TYPE_UINT</STRONG></TT>, and the indices
+of the invalid members are listed.
+</OL>
+<P>
+If many elements of the component are invalid, the first type of Array
+is preferable.
+If only a few elements are invalid, the second is preferable.
+<P>
+The routines described here simplify the handling of both types of
+invalid component.
+<P>
+Once positions have been invalidated, their immediate connections,
+faces, or polylines can also be invalidated by calling
+<TT><STRONG>DXInvalidateConnections()</STRONG></TT>, which will create an
+"invalid connections," "invalid faces," or "invalid
+polylines" component if necessary.
+(Note that this component cannot be assumed to be up-to-date unless this
+routine is called.)
+<P>
+Invalid positions, connections, faces, and polylines (and their
+dependent information) can be removed from the data set by
+calling <TT><STRONG>DXCull()</STRONG></TT>.
+This routine:
+<UL COMPACT>
+<LI>Removes all invalidated elements and the corresponding elements of
+components that are dependent on invalidated elements.
+<LI>Renumbers components that reference positions, connections, faces,
+and polylines (inserting a -1 for indices that refer to removed
+positions, connections, faces, and polylines).
+<LI>Removes invalid positions, invalid connections, invalid faces,
+and invalid polylines components.
+</UL>
+<P>
+Removal of invalid components may affect system performance
+significantly if it requires the conversion of regular
+positions and connections components to irregular
+form (i.e., by  greatly increasing the memory
+used for these components).
+For example, <TT><STRONG>DXCreateInvalidComponentHandle()</STRONG></TT>
+creates a "handle" for a specified invalid component.
+Other routines set particular elements as valid or invalid or they
+determine the validity of a given element.
+The module writer can set up a handle to mark elements as either valid
+or invalid (e.g., initializing all elements to invalid and
+validating the appropriate elements or vice versa).
+<P>
+When the time comes to create an invalid-component Array, the
+information stored in the handle is used to create one of
+the two kinds of Array just described, depending on
+the relative number of invalid elements.
+<P><B>Note: </B>Before adding a new invalid component to a Field, it is
+important
+to explicitly remove any invalid component having the same name.
+The reason for this requirement is that the attributes of an existing
+component will be copied to the new component.
+Overwriting a "dep" invalid component with a "ref" invalid
+component will result in a component with <I>both</I>
+attributes, which is self-contradictory.
+<PRE>
+#define DATA_VALID   0
+#define DATA_INVALID 1
+</PRE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>Object
+DXInvalidateConnections()</STRONG></TT>
+</TD><TD><P>Propagates the invalidity of positions.
+<A NAME="IDX1091"></A>
+<A NAME="IDX1092"></A>
+See  <A HREF="progu220.htm#HDRDXIC">DXInvalidateConnections</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Object
+DXInvalidateDupBoundary()</STRONG></TT>
+</TD><TD><P>Invalidates all but one of the positions shared between partitions
+in a Composite Field.
+<A NAME="IDX1093"></A>
+<A NAME="IDX1094"></A>
+See  <A HREF="progu221.htm#HDRDXIDB">DXInvalidateDupBoundary</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Object
+DXInvalidateUnreferencedPositions()</STRONG></TT>
+</TD><TD><P>Determines which positions in the Fields of the input Object are not
+referenced by any connections element and invalidates them.
+<A NAME="IDX1095"></A>
+<A NAME="IDX1096"></A>
+See  <A HREF="progu222.htm#HDRDXIUP">DXInvalidateUnreferencedPositions</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Object DXCull()</STRONG></TT>
+</TD><TD><P>Removes invalid positions and connections (and their dependent
+information) from an Object.
+<A NAME="IDX1097"></A>
+<A NAME="IDX1098"></A>
+See  <A HREF="progu128.htm#HDRDXCUL">DXCull</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>InvalidComponentHandle
+DXCreateInvalidComponentHandle()</STRONG></TT>
+</TD><TD><P>Creates an invalid-component handle.
+<A NAME="IDX1099"></A>
+<A NAME="IDX1100"></A>
+See <A HREF="#HDRUN9">"Examples"</A>.
+See  <A HREF="progu126.htm#HDRDXCICH">DXCreateInvalidComponentHandle</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXFreeInvalidComponentHandle()</STRONG></TT>
+</TD><TD><P>Frees all memory associated with an invalid-component handle.
+<A NAME="IDX1101"></A>
+<A NAME="IDX1102"></A>
+See  <A HREF="progu150.htm#HDRDXFICH">DXFreeInvalidComponentHandle</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXSaveInvalidComponent()</STRONG></TT>
+</TD><TD><P>Creates a new invalid-component Array containing the information
+stored in an invalid-component handle and stores it in a
+given Field.
+<A NAME="IDX1103"></A>
+<A NAME="IDX1104"></A>
+See <A HREF="#HDRUN9">"Examples"</A>.
+See  <A HREF="progu298.htm#HDRDXSIC">DXSaveInvalidComponent</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Array
+DXGetInvalidComponentArray()</STRONG></TT>
+</TD><TD><P>Returns an Array containing the information stored in an
+invalid-component handle.
+<A NAME="IDX1105"></A>
+<A NAME="IDX1106"></A>
+See  <A HREF="progu178.htm#HDRDXGICA">DXGetInvalidComponentArray</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXSetElementValid()</STRONG></TT>
+</TD><TD><P>Sets the validity state of a specified element in an
+invalid-component handle to
+<TT><STRONG>DATA_VALID</STRONG></TT>.
+<A NAME="IDX1107"></A>
+<A NAME="IDX1108"></A>
+See  <A HREF="progu310.htm#HDRDXSEV">DXSetElementValid</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXSetElementInvalid()</STRONG></TT>
+</TD><TD><P>Sets the validity state of a specified element in an
+invalid-component handle to
+<TT><STRONG>DATA_INVALID</STRONG></TT>.
+<A NAME="IDX1109"></A>
+<A NAME="IDX1110"></A>
+See <A HREF="#HDRUN9">"Examples"</A>.
+See  <A HREF="progu309.htm#HDRDXSEI">DXSetElementInvalid</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>int DXIsElementValid()
+<BR>
+int DXIsElementInvalid();</STRONG></TT>
+</TD><TD><P>Return the validity state of a specified element of an
+invalid-component handle.
+<A NAME="IDX1111"></A>
+<A NAME="IDX1112"></A>
+<A NAME="IDX1113"></A>
+<A NAME="IDX1114"></A>
+See <A HREF="#HDRUN9">"Examples"</A>.
+See  <A HREF="progu224.htm#HDRDXIEV">DXIsElementValid, DXIsElementInvalid</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>int DXIsElementValidSequential()
+<BR>
+int DXIsElementInvalidSequential();</STRONG></TT>
+</TD><TD><P>Return the validity state of a specified element of an
+invalid-component handle when the queries come in
+sequential order.
+<A NAME="IDX1115"></A>
+<A NAME="IDX1116"></A>
+<A NAME="IDX1117"></A>
+<A NAME="IDX1118"></A>
+See  <A HREF="progu225.htm#HDRDXIEVS">DXIsElementValidSequential,
+DXIsElementInvalidSequential</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>int
+DXGetValidCount()</STRONG></TT>
+</TD><TD><P>Returns the number of valid elements in an invalid-component handle.
+<A NAME="IDX1119"></A>
+<A NAME="IDX1120"></A>
+See  <A HREF="progu206.htm#HDRDXGVC">DXGetValidCount</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>int
+DXGetInvalidCount()</STRONG></TT>
+</TD><TD><P>Returns the number of invalid elements in an invalid-component
+handle.
+<A NAME="IDX1121"></A>
+<A NAME="IDX1122"></A>
+See  <A HREF="progu179.htm#HDRDXGIC">DXGetInvalidCount</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXSetAllValid()</STRONG></TT>
+</TD><TD><P>Sets all elements valid.
+<A NAME="IDX1123"></A>
+<A NAME="IDX1124"></A>
+See  <A HREF="progu301.htm#HDRDXSAV">DXSetAllValid</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXSetAllInvalid()</STRONG></TT>
+</TD><TD><P>Sets all elements invalid.
+<A NAME="IDX1125"></A>
+<A NAME="IDX1126"></A>
+See <A HREF="#HDRUN9">"Examples"</A>.
+See  <A HREF="progu300.htm#HDRDXSAI">DXSetAllInvalid</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXInvertValidity()</STRONG></TT>
+</TD><TD><P>Reverses the validity state of every element in a specified
+invalid-component handle.
+<A NAME="IDX1127"></A>
+<A NAME="IDX1128"></A>
+See  <A HREF="progu223.htm#HDRDXIV">DXInvertValidity</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Error
+DXInitGetNextInvalidElementIndex()
+<BR>
+Error DXInitGetNextValidElementIndex();</STRONG></TT>
+</TD><TD><P>Prepare an invalid-component handle for iteration through the
+invalid or valid elements.
+<A NAME="IDX1129"></A>
+<A NAME="IDX1130"></A>
+<A NAME="IDX1131"></A>
+<A NAME="IDX1132"></A>
+See  <A HREF="progu216.htm#HDRDXIGNIE">DXInitGetNextInvalidElementIndex,
+DXInitGetNextValidElementIndex</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>int
+DXGetNextInvalidElementIndex()</STRONG></TT>
+</TD><TD><P>Returns the index of the next invalid element after the index
+returned on the previous call.
+<A NAME="IDX1133"></A>
+<A NAME="IDX1134"></A>
+See  <A HREF="progu187.htm#HDRDXGNIEI">DXGetNextInvalidElementIndex</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>int
+DXGetNextValidElementIndex()</STRONG></TT>
+</TD><TD><P>Returns the index of the next valid element after the index
+returned on the previous call.
+<A NAME="IDX1135"></A>
+<A NAME="IDX1136"></A>
+See  <A HREF="progu188.htm#HDRDXGNVEI">DXGetNextValidElementIndex</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRUN9" HREF="progu066.htm#PToC_148">Examples</A></H3>
+<P>
+<A NAME="IDX1137"></A>
+<P>
+Invalid-component handles have a variety of uses, as shown in these
+examples.
+<UL>
+<P><LI>The call to DXCreate... creates an invalid-component handle that
+stores the validity state of the data associated with
+the positions.
+If there is an initial "invalid positions" component, its contents
+initialize the handle.
+<PRE>
+handle = DXCreateInvalidComponentHandle(field, NULL, "positions")
+</PRE>
+<P><LI>Here the call to DXCreate... creates an invalid-component handle
+associated with <TT><STRONG>array</STRONG></TT> (in this case a
+connections component).
+No initialization takes place; the handle is initialized
+to "all valid."
+<PRE>
+   array = (Array)DXGetComponentValue(field, NULL, "connections");
+   handle = DXCreateInvalidComponentHandle(array, NULL, NULL);
+</PRE>
+<P>
+Note that in this example DXCreate... has no way of determining the
+component name of <TT><STRONG>array</STRONG></TT> and, when the handle
+is converted to an Array, cannot attach a "dep" or
+"ref" attribute.
+It is therefore the caller&#39;s responsibility to attach the
+appropriate attribute before placing the Array in a Field.
+You can determine whether a "dep" or "ref" attribute is
+needed by examining the type of the invalid Array:
+<TT><STRONG>TYPE_INT</STRONG></TT> or <TT><STRONG>TYPE_UINT</STRONG></TT>
+implies
+references.
+As noted earlier, if this component is added to a Field, any
+previous component of the same name must be explicitly
+deleted.
+<P>
+Since it is easier to create an invalid-component handle from a Field
+and component name (as in the first example),
+<TT><STRONG>DXSaveInvalidComponent()</STRONG></TT>
+can be used to add the modified validity
+information to the Field.
+<P><LI>Here the call to DXCreate... creates an invalid-component handle
+associated with the positions component and initializes it with
+the invalid-positions Array.
+<PRE>
+   array = (Array)DXGetComponentValue(field, "positions");
+   iarray = (Array)DXGetComponentValue(field, "invalid positions");
+   handle = DXCreateInvalidComponentHandle(array, iarray, NULL);
+</PRE>
+This example is similar in concept to the first except that it
+prevents the user from calling
+<TT><STRONG>DXSaveInvalidComponent()</STRONG></TT>.
+<P><LI>This example performs part of the Include operation: it invalidates
+all connections that reference an invalid position.
+Any invalid connections remain.
+<PRE>
+   inv_pos_h = DXCreateInvalidComponentHandle(field, NULL, "positions");
+   inv_con_h = DXCreateInvalidComponentHandle(field, NULL, "connections");
+   if (!inv_pos_h || !inv_con_h)
+      goto error;
+</PRE>
+<PRE>
+   for (i = 0; i &lt; nConnections; i++)
+   {
+      elt = (int *) DXCalculateArrayEntry(array_handle, i, scratch);
+      for (j=0; j &lt; vertsPerElement; j++)
+         if (DXIsElementInvalid(inv_pos_h, elt&#91;j&#93;))
+         {
+             DXSetElementInvalid(inv_con_h, i);
+             break;
+         }
+   }
+   if (!DXSaveInvalidComponent(field, inv_con_h))
+      goto error:
+</PRE>
+<P><LI>The following example initially invalidates all connections,
+and then, for each point, validates the connection that
+contains it.
+"IndexOfElementContainingPoint" is a user-supplied routine.
+<PRE>
+   inv_con_h = DXCreateInvalidComponentHandle(field, NULL, "connections");
+   if (!inv_con_h)
+      goto error;
+   DXSetAllInvalid(inv_con_h);
+   for (i=0; i &lt; nPoints; i++)
+   {
+      j = &nbsp;<I>IndexOfElementContainingPoint</I>&nbsp;(field, point&#91;i&#93;);
+      DXSetElementInvalid(inv_con_h, j);
+             break;
+   }
+   if (!DXSaveInvalidComponent(field, inv_con_h))
+      goto error:
+</PRE>
+</UL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu067.htm">Previous Page</A> &#124; <A HREF="progu069.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu066.htm#PToC16">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

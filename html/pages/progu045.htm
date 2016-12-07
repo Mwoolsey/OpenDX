@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu044.htm">Previous Page</A> &#124; <A HREF="progu046.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="Header_92" HREF="progu044.htm#PToC_92">12.2 Group Class</A></H2>
+<A NAME="IDX422"></A>
+<A NAME="IDX423"></A>
+<A NAME="IDX424"></A>
+<P>
+This section summarizes the routines used with Groups, including those
+that manipulate members, Series Groups, MultiGrid Groups,
+Composite Field Groups, and parts of a Group.
+For a detailed description of Groups, see
+<A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data Model"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<P>
+<H3><A NAME="HDRMBS" HREF="progu044.htm#PToC_93">Generic Operations</A></H3>
+<A NAME="IDX425"></A>
+<A NAME="IDX426"></A>
+<A NAME="IDX427"></A>
+<P>
+This section describes routines used to manipulate the members of
+a Group.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Group DXNewGroup()</STRONG></TT>
+<A NAME="IDX428"></A>
+<A NAME="IDX429"></A>
+</B></TD><TD><P>Creates a new generic Group Object.
+See  <A HREF="progu252.htm#HDRDXNG">DXNewGroup</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Group
+DXSetMember()</STRONG></TT>
+<A NAME="IDX430"></A>
+<A NAME="IDX431"></A>
+</B></TD><TD><P>Adds a member to a Group.
+See  <A HREF="progu317.htm#HDRDXSM">DXSetMember</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetMember()</STRONG></TT>
+<A NAME="IDX432"></A>
+<A NAME="IDX433"></A>
+</B></TD><TD><P>Gets a named member of a Group.
+See  <A HREF="progu181.htm#HDRDXGM">DXGetMember</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Group
+DXGetMemberCount()</STRONG></TT>
+<A NAME="IDX434"></A>
+<A NAME="IDX435"></A>
+</B></TD><TD><P>Retrieves the number of members in a group.
+See  <A HREF="progu182.htm#HDRDXGMC">DXGetMemberCount</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetEnumeratedMember()</STRONG></TT>
+<A NAME="IDX436"></A>
+<A NAME="IDX437"></A>
+</B></TD><TD><P>Returns the members of a Group by index.
+See  <A HREF="progu169.htm#HDRDXGEM">DXGetEnumeratedMember</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Group
+DXSetEnumeratedMember()</STRONG></TT>
+<A NAME="IDX438"></A>
+<A NAME="IDX439"></A>
+</B></TD><TD><P>Adds a member to a Group by index.
+See  <A HREF="progu311.htm#HDRDXSEM">DXSetEnumeratedMember</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Group DXSetGroupType()
+<BR>
+Group DXSetGroupTypeV();</STRONG></TT>
+<A NAME="IDX440"></A>
+<A NAME="IDX441"></A>
+<A NAME="IDX442"></A>
+<A NAME="IDX443"></A>
+</B></TD><TD><P>Associates a type with a Group.
+See  <A HREF="progu315.htm#HDRDXSGTV">DXSetGroupType, DXSetGroupTypeV</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Group
+DXUnsetGroupType()</STRONG></TT>
+<A NAME="IDX444"></A>
+<A NAME="IDX445"></A>
+</B></TD><TD><P>Unsets the type associated with a Group.
+See  <A HREF="progu340.htm#HDRDXUGT">DXUnsetGroupType</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Class
+DXGetGroupClass()</STRONG></TT>
+<A NAME="IDX446"></A>
+<A NAME="IDX447"></A>
+</B></TD><TD><P>Returns the subclass of a Group Object.
+See <A HREF="#SPTUN3">Note on Use</A>.
+See  <A HREF="progu175.htm#HDRDXGGC">DXGetGroupClass</A>.
+</TD></TR></TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<A NAME="SPTUN3"></A>
+<A NAME="IDX448"></A>
+<P>
+The following is an example of how this routine is used:
+<PRE>
+    switch (DXGetGroupClass(g)) &#123;
+    case CLASS&#95;COMPOSITEFIELD
+         ...
+         break;
+    case CLASS&#95;SERIES
+         ...
+         break;
+    &#125;
+</PRE>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRSSGS" HREF="progu044.htm#PToC_94">Series Groups</A></H3>
+<A NAME="IDX449"></A>
+<A NAME="IDX450"></A>
+<A NAME="IDX451"></A>
+<P>
+Series Groups are a subclass of Group.
+A Series represents a single Field sampled across some parameter
+(e.g., a simulation of a CMOS device across a
+temperature range).
+Members of a Series have a position.
+A copy of the position is found in the "series position"
+attribute.
+<P>
+Every member of the Series must have the same dimensionality,
+the same data type, and the same connections
+element type.
+Members are stored in and retrieved from a Series Group
+by index rather than by name.
+Members cannot be retrieved by Series value.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>DXSeries NewSeries()</STRONG></TT>
+<A NAME="IDX452"></A>
+<A NAME="IDX453"></A>
+</B></TD><TD><P>Creates a new Series Object.
+See  <A HREF="progu261.htm#HDRDXNS">DXNewSeries</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Series
+DXSetSeriesMember()</STRONG></TT>
+<A NAME="IDX454"></A>
+<A NAME="IDX455"></A>
+</B></TD><TD><P>Adds an indexed member to a Series Object.
+See  <A HREF="progu326.htm#HDRDXSSM">DXSetSeriesMember</A>.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><TT><STRONG>DXSetMember()</STRONG></TT> and
+<TT><STRONG>DXSetEnumeratedMember()</STRONG></TT>
+can also be used: the position is assumed to be the same as the
+sequence number of the member.
+</td></tr></table>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetSeriesMember()</STRONG></TT>
+<A NAME="IDX456"></A>
+<A NAME="IDX457"></A>
+</B></TD><TD><P>Returns an indexed member from a Series Object.
+See  <A HREF="progu201.htm#HDRDXGSM">DXGetSeriesMember</A>.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><TT><STRONG>DXGetMember()</STRONG></TT> and
+<TT><STRONG>DXGetEnumeratedMember()</STRONG></TT>
+can also be used for this purpose, but they do not return the
+<TT><STRONG>position</STRONG></TT> value.
+</td></tr></table>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRMIGD" HREF="progu044.htm#PToC_95">MultiGrid Groups</A></H3>
+<A NAME="IDX458"></A>
+<A NAME="IDX459"></A>
+<A NAME="IDX460"></A>
+<P>
+A MultiGrid is a Group of Fields that is treated as a single
+entity.
+It is useful, for example, for holding certain kinds of simulation data
+represented by disjoint grids.
+All the members of a MultiGrid Group must have the same type of data
+and the same type of connection.
+However, unlike members of a Composite Field, Multigrid members are
+<I>not</I> required to be disjoint and abutting.
+The invalid-positions and invalid-connections components can be used to
+define which points of a grid are valid
+in a region of grid overlap.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>MultiGrid DXNewMultiGrid()</STRONG></TT>
+<A NAME="IDX461"></A>
+<A NAME="IDX462"></A>
+</B></TD><TD><P>Creates a new MultiGrid Object.
+See  <A HREF="progu255.htm#HDRDXNMG">DXNewMultiGrid</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRCEFD" HREF="progu044.htm#PToC_96">Composite Fields</A></H3>
+<A NAME="IDX463"></A>
+<A NAME="IDX464"></A>
+<P>
+A Composite Field is a Group of Fields treated as a single
+entity.
+Parallelism in Data Explorer is achieved by explicitly partitioning Fields into
+a Composite Field.
+Composite Fields are typically created with the
+<TT><STRONG>DXPartition</STRONG></TT> routine (see
+ <A HREF="progu265.htm#HDRDXPART">DXPartition</A>).
+<P>
+The connections component of each member must be of the same type,
+and the members are expected to be disjoint and abutting (i.e.,
+sharing positions, data, etc., at the boundary).
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>CompositeField
+DXNewCompositeField()</STRONG></TT>
+<A NAME="IDX465"></A>
+<A NAME="IDX466"></A>
+</B></TD><TD><P>Creates a new Composite Field Object.
+See  <A HREF="progu248.htm#HDRDXNCF">DXNewCompositeField</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRPRTS" HREF="progu044.htm#PToC_97">Parts</A></H3>
+<A NAME="IDX467"></A>
+<A NAME="IDX468"></A>
+<P>
+The Parts routines are provided to allow easier manipulation of all
+Fields in a Group Object without having to explicitly traverse
+the Object.
+<P><B><A NAME="FIGAO6AFG1" HREF="../proguide.htm#FT_FIGAO6AFG1">Figure 8. Parts of
+a Group</A></B><BR>
+<TABLE BORDER ><TR><TD><BR>
+<B><BR><CENTER><IMG SRC="../images/grparts.gif" ALT="Figure grparts not
+displayed."></CENTER><BR></B><BR>
+</TD></TR></TABLE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXProcessParts()</STRONG></TT>
+<A NAME="IDX469"></A>
+<A NAME="IDX470"></A>
+</B></TD><TD><P>Applies a function to every constituent Field (part) of a given
+Object.
+See  <A HREF="progu271.htm#HDRDXPP">DXProcessParts</A>.
+</TD></TR></TABLE>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP"><TT><STRONG>DXGetPart()</STRONG></TT>,
+<TT><STRONG>DXGetPartClass()</STRONG></TT>, and
+<TT><STRONG>DXSetPart()</STRONG></TT> are
+useful for prototyping and in cases where convenience outweighs
+efficiency.
+<TT><STRONG>DXProcessParts()</STRONG></TT> can often be used for the same
+purposes, and with greater efficiency.
+</td></tr></table>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field DXGetPart()</STRONG></TT>
+<A NAME="IDX471"></A>
+<A NAME="IDX472"></A>
+</B></TD><TD><P>Returns the parts of an Object by index.
+See  <A HREF="progu191.htm#HDRDXGP">DXGetPart</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetPartClass()</STRONG></TT>
+<A NAME="IDX473"></A>
+<A NAME="IDX474"></A>
+</B></TD><TD><P>Returns by index only those sub-members of the given Group
+that are parts of a specified class.
+Note that <TT><STRONG>DXGetPart(o, n)</STRONG></TT> is equivalent to
+<TT><STRONG>DXGetPartClass(o, n, CLASS_FIELD)</STRONG></TT>.
+See  <A HREF="progu192.htm#HDRDXGPC">DXGetPartClass</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXSetPart()</STRONG></TT>
+<A NAME="IDX475"></A>
+<A NAME="IDX476"></A>
+</B></TD><TD><P>Sets a Field as a part of an Object.
+See  <A HREF="progu320.htm#HDRDXSP">DXSetPart</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu044.htm">Previous Page</A> &#124; <A HREF="progu046.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,182 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rcolor Color #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function 
+#!N #!N Colors a field. #!N #!N Syntax #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N colored #!EF = Color(  #!F-adobe-times-bold-r-normal--18*   input, color, opacity, 
+component, delayed #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB input TAB field TAB none TAB field 
+to be colored #!N TAB color TAB field or vector or 
+string TAB no color added TAB RGB color #!N TAB opacity 
+TAB field or scalar TAB input dependent TAB opacity #!N TAB 
+component TAB string TAB "colors" TAB component to be colored #!N 
+TAB delayed TAB flag TAB 0 TAB 0: apply maps #!N 
+TAB - TAB - TAB - TAB 1: delay applying color 
+and #!N TAB - TAB - TAB - TAB opacity maps 
+(byte data #!N TAB - TAB - TAB - TAB only) 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description 
+#!EF #!N TAB colored TAB color field TAB color-mapped input field 
+#!N TAB - TAB - TAB #!EF #!N #!N Functional Details 
+#!N #!N This module adds a specified color to a specified 
+input object. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input 
+#!EF #!EF #!I50 #!N is the field to be colored. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   color #!EF #!EF #!I50 #!N specifies how 
+the input field is to be colored. The specification can be 
+the vector value of an RGB color, a string, or a 
+color map. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   color #!EF is an RGB 
+color, the value should be in the range of 0-1 (but 
+see  #!Lcvolrnd,dxall820 h Coloring Objects for Volume Rendering  #!EL  ). The Convert module can convert HSV (hue, saturation, 
+and value) colors to RGB. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   color #!EF 
+is a string, that string should come from a lookup table, 
+which can be specified by setting the DXCOLORS environment variable or 
+by using the -colors flag with the dx command. If no 
+table is specified, Data Explorer will search (in the order shown) 
+for one of the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N 1. the file colors.txt in DXROOT/lib #!N #!I30 #!N 
+2. the same file in  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/lib #!EF (if this was 
+not the setting for DXROOT). Note that the colors in this 
+file correspond to the X Window System** color list, except that 
+the Data Explorer colors are squared first (see  #!Lintcols,dxall747 h Data Explorer Colors  #!EL  in IBM 
+Visualization Data Explorer User's Guide). #!N #!I0 #!N #!EF #!N When 
+entering the names of colors, note that the module: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o accepts spaces in names. 
+#!N #!I30 #!N o ignores capitalization. #!N #!I30 #!N o accepts 
+the spellings  #!F-adobe-times-medium-i-normal--18*   gray #!EF and  #!F-adobe-times-medium-i-normal--18*   grey #!EF . #!N 
+#!I0 #!N #!EF #!N #!N #!N If  #!F-adobe-times-bold-r-normal--18*   color #!EF is 
+a color map it can be the output of the Colormap 
+Editor (the first output) or an imported color map. Note also 
+that if this parameter is a color map (as opposed to 
+a single color), then the  #!F-adobe-times-bold-r-normal--18*   input #!EF parameter must contain 
+a "data" component; if the "data" component consists of vector data, 
+the color and opacity mapping are based on the magnitude of 
+the data. If this parameter is an imported .cm file (see 
+ #!Limport,dxall871 h Import  #!EL  ), the color-map part of the color-opacity map is extracted 
+and used. #!N #!N Omitting the color specification allows you to 
+change the opacity of an object without modifying its color (see 
+ #!Lwfcmap,dxall792 s WFCMAP  #!EL  for a description of a color map). #!N #!N A 
+well-formed color map should contain a 1-dimensional "positions"  #!Rwfcmap component and 
+a 3-dimensional "data" component. As with any map in Data Explorer, 
+the "positions" component represents the domain in which to look up 
+values, and the "data" component represents the range, that is, the 
+values which are associated with items in the "positions" component. #!N 
+#!N Color maps can specify either smoothly varying colors or constant 
+colors across a set of ranges of data values. If the 
+color map has position-dependent data, then linear interpolation will be used 
+to derive colors for data values in the data field between 
+those given in the "positions" component of the map (see  #!Lcolmap114,dxall792 f Figure 114  #!EL  
+). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rcolmap114 #!N Figure 114. Position-dependent colormaps. In 
+this figure a diagram of a data field is shown. One 
+of the data values, 3.5, has been indicated. The field structure 
+is also shown, with "positions," "data," and "connections" components. When a 
+color map is applied to this field using the Color module, 
+the data value 3.5 is used as a lookup value into 
+the "positions" component of the color map. The color map has 
+a "data" component which is dependent on (in a one-to-one correspondence 
+with) the "positions" component. The color map contains colors for the 
+value 3 (the RGB value [0 1 1], or cyan) and 
+for the value 4 (the RGB value [0 0 0], or 
+black). Data Explorer interpolates between these two colors to derive the 
+color [0 .5 .5], or dark cyan, which is then placed 
+in the "colors" component of the data field as the color 
+corresponding to the data value 3.5. #!N Graphics omitted from Online 
+Documentation. Please see the manual. #!N #!EF #!N #!EC If the 
+colormap has connection-dependent data, then the color for any data value 
+in the data field between two values in the "positions" component 
+of the map will be constant (see  #!Lcolmap1115,dxall792 f Figure 115  #!EL  ). #!Cbrown #!N 
+ #!F-adobe-times-medium-r-normal--18*    #!Rcolmap1115 #!N Figure 115. Connection-dependent colormaps. In this figure a 
+diagram of a data field is shown. One of the data 
+values, 3.5, has been indicated. The field structure is also shown, 
+with "positions," "data," and "connections" components. When a color map is 
+applied to this field using the Color module, the data value 
+3.5 is used as a lookup value into the "positions" component 
+of the color map. The color map has a "data" component 
+which is dependent on (in a one-to-one correspondence with) the "connections" 
+component. The color map contains colors for the range 1 to 
+1.5 (the RGB value [1 1 0], or yellow), the range 
+1.5 to 3 (the RGB value [0 1 1], or cyan) 
+and for the range 3 to 4 (the RGB value [0 
+0 1], or blue). Since 3.5 lies in the range 3 
+to 4, Data Explorer looks up the color [0 0 1] 
+and places it in the "colors" component of the data field 
+as the color corresponding to the data value 3.5. #!N Graphics 
+omitted from Online Documentation. Please see the manual. #!N #!EF #!N 
+#!EC In either case, the "connections" component of the map should 
+be a set of lines connecting the positions. #!N #!N The 
+Colormap Editor puts out a well-formed colormap. The Construct module can 
+also be used to create a color map. For example, you 
+have 10 data values to which you want to apply particular 
+colors. List those 10 data values as the first parameter to 
+Construct. Then list the 10 colors (RGB vectors) as the last 
+parameter to Construct. This will automatically create a position-dependent color map 
+of the appropriate structure to use with the Color module. Alternatively, 
+if you list only 9 colors (RGB vectors) as the last 
+parameter to Construct, a connection-dependent color map will be created. #!N 
+#!N For surfaces, RGB colors in a color map should range 
+between 0 and 1. Compute can be used to convert colors 
+from the range of 0 to 255 to the range 0 
+to 1. To choose appropriate colors for volumes see  #!Lcvolrnd,dxall820 h Coloring Objects for Volume Rendering  #!EL  . 
+Note that if you have an HSV (hue, saturation, and value) 
+color map, it can be converted to an RGB (red, blue, 
+green) color map using the Convert module. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   opacity #!EF #!EF #!I50 #!N can be a scalar value 
+or a field specifying an opacity map. This map may be 
+the output of the Colormap Editor (the second output) or an 
+imported opacity map. If it is an imported .cm file (see 
+ #!Limport,dxall871 h Import  #!EL  ), the opacity part of the color-opacity map will be 
+extracted and used (see below for a description of an opacity 
+map). #!N #!N The input color or opacity can also be 
+groups of color or of opacity maps, as long as the 
+hierarchy of the group matches that of  #!F-adobe-times-bold-r-normal--18*   input #!EF . 
+#!N #!N For surfaces, the default value of  #!F-adobe-times-bold-r-normal--18*   opacity #!EF 
+is 1.0; the valid range is 0-1. For volumes, the default 
+value is 0.5. If the object to be colored is a 
+volume with an aspect ratio much different from 1, it may 
+appear dark from certain viewing directions. In that case, use the 
+Compute module to multiply the contents of the data component of 
+the opacity and color maps by a scale factor greater than 
+1 before using them as an input to the Color module. 
+(If you are using delayed colors, modify the "color multiplier" and 
+"opacity multiplier" attributes. See the  #!F-adobe-times-bold-r-normal--18*   delayed #!EF parameter, described below.) 
+#!N #!N A well-formed opacity map should contain a 1-dimensional "positions" 
+component and a 1-dimensional "data" component representing opacities. For surfaces, valid 
+opacities range between 0 (transparent) and 1 (opaque). To choose appropriate 
+opacities for volumes see  #!Lcvolrnd,dxall820 h Coloring Objects for Volume Rendering  #!EL  . Just as with a color 
+map, the "data" component may be either position-dependent or connection-dependent. An 
+opacity map can be created either with the Colormap Editor or 
+using the Construct module as described for color maps. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   component #!EF #!EF #!I50 #!N specifies the component 
+to which the module adds colors. The default is the "colors" 
+component, which applies to both the front and the back of 
+the object, but you can specify "front colors" or "back colors" 
+instead. Either one, if present, takes precedence over the "colors" component. 
+If you specify  #!F-adobe-times-bold-r-normal--18*   component #!EF as "colors," the module deletes 
+any existing "front colors" or "back colors" components. Which faces are 
+"front" and which faces are "back" depends on how "connections" component 
+of the faces is defined (see  #!Lstancom,dxall201 h Standard Components  #!EL  in IBM Visualization Data 
+Explorer User's Guide). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   delayed #!EF #!EF 
+#!I50 #!N causes Color to create "delayed colors." This option is 
+valid only for byte data. When  #!F-adobe-times-bold-r-normal--18*   delayed #!EF = 1: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o the "colors" 
+component is a copy of the "data" component, and a "color 
+map" component is created (i.e., a color lookup table with 256 
+entries representing the appropriate color for each of the 256 possible 
+data values). #!N #!I30 #!N o (if  #!F-adobe-times-bold-r-normal--18*   opacity #!EF has 
+been specified) the "opacities" component is a copy of the "data" 
+component, and an opacity map with 256 entries is created. #!N 
+#!I30 #!N o the module adds a "direct color map" attribute 
+to the output object (see  #!Ludcmps,dxall813 h Using Direct Color Maps  #!EL  ). #!N #!I0 #!N #!EF 
+#!N #!I0 #!N #!N #!N #!N Components #!N #!N Adds a 
+"colors" component. An "opacities" component is added if  #!F-adobe-times-bold-r-normal--18*   opacity #!EF 
+is less than 1 or the input data is a volume. 
+If  #!F-adobe-times-bold-r-normal--18*   delayed #!EF = 1, the "colors" component is a 
+copy of the "data" component and a "color map" component is 
+created. Likewise, an "opacity map" component is created if  #!F-adobe-times-bold-r-normal--18*   opacity 
+#!EF is less than one or the input is a volume. 
+#!N #!N Example Visual Programs #!N #!N Nearly every example visual 
+program uses Color, including: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N 
+Sealevel.net #!N UsingColormaps.net #!N SIMPLE/Color #!EF #!N #!N #!EC #!N #!N 
+See Also #!N #!N  #!Lautocol,dxall772 h AutoColor  #!EL  ,  #!Lcaption,dxall781 h Caption  #!EL  ,  #!Lconvert,dxall799 h Convert  #!EL  ,  #!Lmap,dxall891 h Map  #!EL  
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lcolorba,dxall793 h ColorBar  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

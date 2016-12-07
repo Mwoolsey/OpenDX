@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu273.htm">Previous Page</A> &#124; <A HREF="progu275.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXQACVM" HREF="progu097.htm#PToC_368">DXQueryArrayCommon,
+DXQueryArrayCommonV</A></H3>
+<A NAME="IDX1965"></A>
+<A NAME="IDX1966"></A>
+<A NAME="IDX1967"></A>
+<A NAME="IDX1968"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Return a type, category, rank, and shape to which all of the Arrays
+can be converted.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Error DXQueryArrayCommon(Type *type, Category *category, int *rank, int
+*shape<BR>
+                         int n, Array a, ...)<BR>
+Error DXQueryArrayCommonV(Type *type, Category *category, int *rank, int
+*shape<BR>
+                         int n, Array *alist)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+All Arrays <TT><STRONG>a</STRONG></TT> or <TT><STRONG>alist</STRONG></TT> are
+converted to a common type, category, rank, and shape if
+a common conversion exists.
+Both routines set <TT><STRONG>*type</STRONG></TT>,
+<TT><STRONG>*category</STRONG></TT>,
+<TT><STRONG>*rank</STRONG></TT>, and
+<TT><STRONG>*shape</STRONG></TT> to
+the new converted values if
+the pointers to these
+parameters are not
+<TT><STRONG>NULL</STRONG></TT>.
+<P>
+Arrays with items that have one or more dimensions of
+shape = <TT><STRONG>1</STRONG></TT> are reduced in that dimension to a
+smaller rank.
+For example, an array of
+<TT><STRONG>1 &times; n</STRONG></TT> matrices,
+rank = <TT><STRONG>2</STRONG></TT>,
+shape = &#91;<TT><STRONG>1,n</STRONG></TT>&#93;, is reduced to an Array
+of vectors
+rank = <TT><STRONG>1</STRONG></TT>,
+shape = &#91;<TT><STRONG>n</STRONG></TT>&#93;.
+This rank and shape are then used for comparison.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">This reduction is always performed.
+The resulting rank may be less than the rank of all Arrays given.
+(A single <TT><STRONG>1 &times; n</STRONG></TT> matrix results in a rank of
+<TT><STRONG>1</STRONG></TT>.)
+<A HREF="#TBLTCT2">Table 6</A> and <A HREF="#TBLCCT2">Table 7</A> summarize the
+conversions allowed between types and between categories.
+</td></tr></table>
+<P>
+The resulting rank and shape are the
+reduced versions created as previously
+described.  The resulting type is the simplest type that is
+sufficient for all Arrays.  The resulting category is the simplest
+category that is sufficient for all Arrays.
+<P>
+The
+<TT><STRONG>
+shape
+</STRONG></TT>
+Array
+must be preallocated with sufficient memory to store the returned
+<TT><STRONG>
+rank
+</STRONG></TT>
+integers. This will not exceed the maximum rank of the given arrays.
+<BR>
+<P><B><A NAME="TBLTCT2" HREF="progu002.htm#FT_TBLTCT2">Table 6. Summary of Type
+Conversions</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&nbsp;
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Byte
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">Unsigned Byte
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Short
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">Unsigned Short
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Int
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">Unsigned Int
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Float
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">&nbsp;
+<BR>
+Double
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Byte</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Unsigned
+Byte</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Short</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Unsigned
+Short</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Int</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Unsigned Int</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Float</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>Double</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="10%">A
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="9"><B>Notes&#58; </B>
+<DL COMPACT>
+<DD>CNS = Conversion not supported
+<DD>A = ANSI &#39;C&#39; type conversion-semantics
+</DL>
+</TD></TR></TABLE>
+<BR>
+<P><B><A NAME="TBLCCT2" HREF="progu002.htm#FT_TBLCCT2">Table 7. Summary of
+Category Conversions</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">&nbsp;
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Real
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Complex
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>Real</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Conversion
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Conversion
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%"><TT><STRONG>Complex</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">CNS
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Conversion
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="3"><B>Notes&#58; </B>
+<DL COMPACT>
+<DD>CNS = Conversion not supported
+<DD>Real-&gt;Complex: a -&gt; a + 0i
+</DL>
+</TD></TR></TABLE>
+<P><STRONG>Return Value</STRONG>
+<P>
+Return <TT><STRONG>OK</STRONG></TT> and sets the
+non-<TT><STRONG>NULL</STRONG></TT>
+parameters;
+otherwise, returns <TT><STRONG>ERROR</STRONG></TT> and sets an error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu109.htm#HDRDXACV">DXArrayConvert, DXArrayConvertV</A>,
+<A HREF="progu142.htm#HDRDXEF">DXExtractFloat</A>,
+<A HREF="progu143.htm#HDRDXEI">DXExtractInteger</A>,
+<A HREF="progu144.htm#HDRDXENS">DXExtractNthString</A>,
+<A HREF="progu145.htm#HDRDXEP">DXExtractParameter</A>,
+<A HREF="progu146.htm#HDRDXES">DXExtractString</A>,
+<A HREF="progu275.htm#HDRDXQACV">DXQueryArrayConvert, DXQueryArrayConvertV</A>,
+<A HREF="progu282.htm#HDRDXQP">DXQueryParameter</A>
+</STRONG></TT>
+<P>
+<A HREF="progu051.htm#HDRMDEPS">12.8 , "Extracting Module Parameters"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu273.htm">Previous Page</A> &#124; <A HREF="progu275.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

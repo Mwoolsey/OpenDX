@@ -1,0 +1,45 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxaad DXAddArrayData #!N #!N Function Adds items to an 
+Array. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include 
+<dx/dx.h> #!N #!N Array DXAddArrayData(Array a, int start, int n, Pointer 
+data) #!EF #!EF . #!N #!N #!EC #!N #!N Functional Details 
+Adds  #!F-adobe-times-bold-r-normal--18*   n #!EF items to Array  #!F-adobe-times-bold-r-normal--18*   a #!EF , 
+starting at the numbered item specified by  #!F-adobe-times-bold-r-normal--18*   start #!EF . 
+The additions may replace or supplement items already defined. If  #!F-adobe-times-bold-r-normal--18*   
+data #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the routine copies 
+the data into the Array; otherwise, it increases the number of 
+items in the Array by  #!F-adobe-times-bold-r-normal--18*   n #!EF , but leaves 
+them uninitialized. #!N #!N To avoid having memory allocated every time, 
+ #!F-adobe-times-bold-r-normal--18*   DXAddArrayData #!EF may allocate more than is needed for the 
+requested number of items. If Array  #!F-adobe-times-bold-r-normal--18*   a #!EF is part 
+of a Field, any extra space will be freed when  #!F-adobe-times-bold-r-normal--18*   
+DXEndField #!EF is called. If it is not part of a 
+Field,  #!F-adobe-times-bold-r-normal--18*   DXTrim #!EF can be called to free the extra 
+space, though this is not required. #!N #!N To allocate space 
+"up front" for an Array of known size, use  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(0, 
+n, NULL) #!EF , which is the preferred means for preallocating 
+space for the data. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXAllocateArray(0, n, NULL) #!EF 
+also preallocates space, but the number of items in the Array 
+will be 0. If  #!F-adobe-times-bold-r-normal--18*   DXAllocateArray #!EF is called,  #!F-adobe-times-bold-r-normal--18*   DXTrim 
+#!EF can be called to resize the Array to the space 
+required for the actual number of items. #!N #!N Allocating more 
+space for an Array may result in its being copied to 
+a new location in memory. If you call  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF 
+to obtain a pointer for an Array and then allocate more 
+space for it, you must call  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF again because 
+the pointer may no longer be valid. #!N #!N There are 
+four ways to add data to irregular Arrays: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Add items one at a 
+time:  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(a, i, 1,item) #!EF . #!N #!I30 #!N o 
+Add items in batches:  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(a, i, n, items) #!EF . 
+#!N #!I30 #!N o Add multiple items all at one time: 
+ #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(a, 0, n, items) #!EF . #!N #!I30 #!N o 
+Allocate the memory: call  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData(a, 0, n, NULL) #!EF ; 
+get a pointer to global memory with  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData(a) #!EF ; 
+and put the items directly into global memory "by hand." #!N 
+#!I0 #!N #!EF #!N #!N #!N Return Value Returns  #!F-adobe-times-bold-r-normal--18*   a 
+#!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. 
+#!N #!N See Also  #!F-adobe-times-bold-r-normal--18*    #!Ldxaa,dxall1172 h DXAllocateArray  #!EL  ,  #!Ldxendf,dxall1201 h DXEndField  #!EL  ,  #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  , 
+ #!Ldxt,dxall1400 h DXTrim  #!EL  #!EF , #!N #!N  #!Lirreg,dxall1071 h Irregular Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxafns,dxall1166 h DXAddFaceNormal, DXAddFaceNormals  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

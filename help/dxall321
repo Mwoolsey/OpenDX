@@ -1,0 +1,81 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rprobes Using Probes (Cursors) #!N #!EC #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rtdcurs59 
+#!N #!N Graphics omitted from Online Documentation. Please see the manual. 
+#!N Figure 59. 3-D Cursor with a Selected Point #!EF #!N 
+#!EC #!N #!N A probe is a list of one or 
+more vectors that represent points in the image. You can use 
+them with Data Explorer modules that accept vectors as input, such 
+as ClipPlane and Streamline. #!N #!N After you execute a visual 
+program and have an image in the Image window, you can 
+modify the visual program to include a  #!F-adobe-times-bold-r-normal--18*   Probe #!EF or 
+ #!F-adobe-times-bold-r-normal--18*   ProbeList #!EF tool from the  #!F-adobe-times-bold-r-normal--18*   Special #!EF category. The 
+probe tool accepts input from the 3-D cursor tool, specifying the 
+points to use as vectors for input into another tool. The 
+ #!F-adobe-times-bold-r-normal--18*   Probe #!EF tool accepts one point as its input; the 
+ #!F-adobe-times-bold-r-normal--18*   ProbeList #!EF tool accepts multiple points as input. #!N #!N 
+To use probes to select points for input into tools: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Execute a visual 
+program to produce an image in the Image window. #!N #!I30 
+#!N 2. In the VPE, place one or more probe tools 
+from the  #!F-adobe-times-bold-r-normal--18*   Special #!EF category in the visual program, connecting 
+them to the tools for which you want to provide input. 
+#!N #!N The probe icons are numbered as you place them 
+on the canvas. For example, the first probe icon you place 
+is labeled "Probe_1," the second "Probe_2," and so on. You can 
+change the label of the icon by using its Configuration dialog 
+box. #!N #!I30 #!N 3. In the  #!F-adobe-times-bold-r-normal--18*   View Control... #!EF 
+dialog box, select  #!F-adobe-times-bold-r-normal--18*   Cursors #!EF mode from the  #!F-adobe-times-bold-r-normal--18*   Mode 
+#!EF option box, or use the  #!F-adobe-times-bold-r-normal--18*   Ctrl+X #!EF accelerator key. 
+A wire frame appears around the object. The dialog box changes 
+to add the Probe controls. Select the probe you want to 
+set by choosing the  #!F-adobe-times-bold-r-normal--18*   Probe(s) #!EF option box. This opens 
+an options menu with a list of the available probes, from 
+which you can select the desired probe. #!N #!I30 #!N 4. 
+Use the mouse to select a point or points to use 
+as input to the tool connected to the  #!F-adobe-times-bold-r-normal--18*   Probe #!EF 
+or  #!F-adobe-times-bold-r-normal--18*   ProbeList #!EF icon. #!N #!N To add a point, 
+double-click on the  #!F-adobe-times-medium-i-normal--18*   left #!EF mouse button inside the wire-frame 
+box. A small square box appears, marking the point. #!N Note: 
+The  #!F-adobe-times-bold-r-normal--18*   Probe #!EF tool allows only one point, while the 
+ #!F-adobe-times-bold-r-normal--18*   ProbeList #!EF allows several. #!N #!N #!N To move a 
+point, select the point by pressing the left mouse button with 
+the mouse pointer positioned on it. When the left mouse button 
+is depressed on the point, the three projections (one for each 
+axis) appear inside the wire-frame box as dots, and the values 
+for the  #!F-adobe-times-medium-i-normal--18*   x, y, #!EF and  #!F-adobe-times-medium-i-normal--18*   z #!EF coordinates 
+are displayed on the right side of the Image window menu 
+bar, as illustrated in  #!Ltdcurs59,dxall321 f Figure 59  #!EL  . You can move the point 
+by dragging the selected point inside the box along the same 
+direction as any of the axes. When you have moved the 
+point to the desired area, release the left mouse button. #!N 
+#!N Note that since perspective projection does not preserve parallel lines, 
+the directions in the axes diagram do not necessarily correspond with 
+the direction that the point moves in the Image window. However, 
+these axes do correspond with the values of the coordinates. #!N 
+#!N While using orthographic projection, the movement of the point in 
+the Image window corresponds to the directions of the axes diagram. 
+#!N #!N To delete a point, double click on it with 
+the left mouse button. #!N #!N You can restrict the movement 
+of the 3-D cursor with the  #!F-adobe-times-bold-r-normal--18*   Constraints #!EF option. Selecting 
+the  #!F-adobe-times-bold-r-normal--18*   Constraints #!EF option box reveals an options menu that 
+lets you choose which of the three axis projections to that 
+movement is constrained. For example, if the  #!F-adobe-times-medium-i-normal--18*   x #!EF axis 
+is selected from the cascade menu, you are able to move 
+only the  #!F-adobe-times-medium-i-normal--18*   x #!EF projection in the 3-D cursor box. 
+When cursor movement is constrained, the portion of the wire-frame box 
+that corresponds to the selected axis is highlighted. To remove movement 
+constraints on the cursors, select  #!F-adobe-times-bold-r-normal--18*   None #!EF from the options 
+menu. #!N #!N Constraining is useful for more precise positioning of 
+the cursor. Note that exact positioning is not possible with the 
+3-D cursor tool. #!N #!I30 #!N 5. Repeat the previous three 
+steps for each probe icon in your visual program. #!N #!N 
+Reexecute the visual program to implement the probes. #!N #!I0 #!N 
+#!EF #!N #!N #!N While in  #!F-adobe-times-bold-r-normal--18*   Cursors #!EF mode, the 
+center and right mouse buttons have the same functions as they 
+do in  #!F-adobe-times-bold-r-normal--18*   Rotate #!EF mode. Note: You can also enable 
+Probe (cursors) mode by using the  #!F-adobe-times-bold-r-normal--18*   intrctnMode #!EF parameter to 
+the Image tool (see Image in IBM Visualization Data Explorer User's 
+Reference). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lpickin,dxall322 h Using Pick  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

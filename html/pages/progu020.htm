@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu019.htm">Previous Page</A> &#124; <A HREF="progu021.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="Header_42" HREF="progu015.htm#PToC_42">3.6 Module Builder:
+Individual Parameter Information Section</A></H2>
+<A NAME="IDX179"></A>
+<A NAME="IDX180"></A>
+<A NAME="IDX181"></A>
+<P>
+Use this section to specify the following information about each
+input and output parameter.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><B><TT><STRONG>Input or Output?</STRONG></TT>
+</B></TD><TD>The kind of parameter: input or output.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Number</STRONG></TT>
+</B></TD><TD>The ordinal number of the input or output being defined: "1"
+(first), "2" (second), and so on.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Name</STRONG></TT>
+</B></TD><TD>The parameter name, which appears in the module&#39;s
+configuration dialog box and is displayed when the tab
+of the module stand-in is selected.
+It may also be used in script mode and appear in the C-code framework
+file.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Description</STRONG></TT>
+</B></TD><TD>A brief description of the parameter being defined.
+It appears in a <TT><STRONG>Description of...</STRONG></TT> box when the
+<TT><STRONG>Description...</STRONG></TT> button of the module&#39;s
+configuration dialog box is selected.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Required</STRONG></TT>
+</B></TD><TD>Specification that the parameter must be set, because no default
+value is possible.
+This option is grayed-out for output parameters.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Default value</STRONG></TT>
+</B></TD><TD>The default value of the parameter.
+It appears in the module configuration dialog box and is included in
+the C-code framework file as a comment.
+<P><B>Note: </B>Implementing the default value is the module writer&#39;s
+responsibility.
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Descriptive</STRONG></TT>
+</B></TD><TD>Specifies whether the default value is an actual value or a
+descriptive phrase (e.g., "center of object").
+</TD></TR><TR VALIGN="TOP"><TD><B><TT><STRONG>Object Type</STRONG></TT>
+</B></TD><TD>This parameter allows the user to specify a Field Object or a
+simple parameter.
+Each specification has an associated set of options that are
+enabled when the appropriate toggle button is activated.
+<P>
+<TT><STRONG>Field Parameter Options</STRONG></TT>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Data type</STRONG></TT>
+</B></TD><TD><P>The type of the data associated with the parameter (click on
+the associated button to display a list of valid types).
+This information is used in the C-code framework file to check for
+errors before the user&#39;s routine is called.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Data Shape</STRONG></TT>
+</B></TD><TD><P>The "shape" of the data associated with the parameter
+(e.g., scalar).
+This information is used in the C-code framework file to check for
+errors before the user&#39;s routine is called.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Positions</STRONG></TT>
+</B></TD><TD><P>One of the following options controlling information about the
+positions component of the first input parameter:
+<UL COMPACT>
+<LI><TT><STRONG>Not required</STRONG></TT>--No positions information
+is passed.
+<LI><TT><STRONG>Regular</STRONG></TT>--a compact representation of the
+positions is passed.
+<LI><TT><STRONG>Irregular</STRONG></TT>--An explicit Array of positions
+is passed.
+</UL>
+This option is grayed-out for all but the first input argument.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Connections</STRONG></TT>
+</B></TD><TD><P>One of the following options controlling information about the
+connections component of the first input parameter:
+<UL COMPACT>
+<LI><TT><STRONG>Not required</STRONG></TT>--No connections information
+is passed.
+<LI><TT><STRONG>Regular</STRONG></TT>--a compact representation of the
+connections is passed.
+<LI><TT><STRONG>Irregular</STRONG></TT>--An explicit Array of
+connections is passed.
+</UL>
+This option is grayed-out for all but the first input argument.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Element type</STRONG></TT>
+</B></TD><TD><P>The type of connection element expected by the module:
+lines, quads, cubes, triangles, or tetrahedra.
+The specification is checked against the connection type of the first
+input argument before the user&#39;s routine is called.
+<P>
+This option is grayed-out unless the connections component is
+passed in by the Connections option.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Dependency</STRONG></TT>
+</B></TD><TD><P>The dependency of the data component of the input.
+The specification is checked against the dependency of the input
+Fields.
+</TD></TR></TABLE>
+<P>
+<TT><STRONG>Simple Parameter Options</STRONG></TT>
+<P>
+This set of options is enabled and displayed only when the
+<TT><STRONG>simple parameter</STRONG></TT> toggle button
+is activated (see above).
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Type</STRONG></TT>
+</B></TD><TD><P>The type of the parameter, as specified by activating one of
+10 toggle buttons.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Vector Length</STRONG></TT>
+</B></TD><TD><P>The length of the vector (given that the parameter type is a
+vector).
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu019.htm">Previous Page</A> &#124; <A HREF="progu021.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu015.htm#PToC5">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

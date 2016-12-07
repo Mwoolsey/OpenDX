@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu337.htm">Previous Page</A> &#124; <A HREF="progu339.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXTS" HREF="progu097.htm#PToC_432">DXTypeSize,
+DXCategorySize</A></H3>
+<A NAME="IDX2137"></A>
+<A NAME="IDX2138"></A>
+<A NAME="IDX2139"></A>
+<A NAME="IDX2140"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Return size information.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+int DXTypeSize(Type t)<BR>
+int DXCategorySize(Category c)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TT><STRONG>DXTypeSize</STRONG></TT> returns the size in bytes of a variable
+of type <TT><STRONG>t</STRONG></TT>.
+<BR>
+<TT><STRONG>DXCategorySize</STRONG></TT> returns the size multiplier for
+category <TT><STRONG>c</STRONG></TT>.
+<P>
+For a variable of type <TT><STRONG>t</STRONG></TT> and category
+<TT><STRONG>c</STRONG></TT>, the size in bytes is
+<TT><STRONG>DXTypeSize(t) * DXCategorySize(c)</STRONG></TT>.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">This is the size of a single item of that type (e.g., a single
+component of a 3-vector).
+<TT><STRONG>DXGetItemSize</STRONG></TT>, in contrast, returns the size in
+bytes of the 3-vector.
+</td></tr></table>
+<P>
+The type is one of the following:
+<P>
+The category is either <TT><STRONG>CATEGORY_REAL</STRONG></TT> or
+<TT><STRONG>CATEGORY_COMPLEX</STRONG></TT>.
+<P><STRONG>Return Value</STRONG>
+<P>
+<TT><STRONG>DXTypeSize</STRONG></TT> returns the size in bytes.
+<TT><STRONG>DXCategorySize</STRONG></TT> returns the multiplier in bytes.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu180.htm#HDRDXGIS">DXGetItemSize</A>
+</STRONG></TT>
+<P>
+<A HREF="progu058.htm#HDRTY">"Setting Data Types"</A>.
+<P><P>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu337.htm">Previous Page</A> &#124; <A HREF="progu339.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

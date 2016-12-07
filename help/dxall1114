@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rasyns Asynchronous Services #!N #!EC #!N #!N 
+The asynchronous services routines enable a module with an external interface 
+(e.g., to another application through a socket) to signal the executive 
+that it is ready to run again. #!N #!N If the 
+module has signaled its readiness to run again, and Data Explorer 
+is in  #!F-adobe-times-bold-r-normal--18*   Execute on Change #!EF mode, the system reexecutes 
+the module immediately (and any modules downstream as well). Otherwise, it 
+does not run until the next time the user initiates an 
+execution. #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error 
+DXReadyToRun() #!EF #!EF #!I50 #!N Enables an asynchronous module to signal 
+that it is ready to execute again. See  #!Ldxrtr,dxall1351 h DXReadyToRun  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXRegisterInputHandler() #!EF #!EF #!I50 #!N Assigns 
+a handler routine for input coming from an open file descriptor. 
+See  #!Ldxregih,dxall1354 h DXRegisterInputHandler  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXFreeModuleId() #!EF 
+#!N Pointer DXGetModuleId() #!EF #!I50 #!N Get a unique identifier for 
+each instance of a module. See  #!Ldxfmid,dxall1216 h DXFreeModuleId  #!EL  and  #!Ldxgmid,dxall1250 h DXGetModuleId  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXCompareModuleId() #!EF #!EF #!I50 #!N Returns 
+OK if the two specified module identifiers are the same; otherwise 
+returns ERROR. See  #!Ldxcmpmi,dxall1183 h DXCompareModuleId  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Pointer 
+DXCopyModuleId() #!EF #!EF #!I50 #!N Returns a pointer to a copy 
+of the specified module identifier. See  #!Ldxcpmi,dxall1188 h DXCopyModuleId  #!EL  . #!I0 #!N #!N 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lprochap,dxall1115 h Data Processing  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

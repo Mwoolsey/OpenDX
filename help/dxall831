@@ -1,0 +1,64 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Requaliz Equalize #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N 
+Function #!N #!N Applies histogram equalization to a field. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   equalized #!EF = Equalize( 
+ #!F-adobe-times-bold-r-normal--18*   data, bins, min, max, ihist, ohist #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB data TAB 
+scalar field TAB none TAB data to be equalized #!N TAB 
+bins TAB integer TAB input dependent TAB number of equalization bins 
+#!N TAB min TAB scalar or field TAB min of data 
+TAB lower bound of equalization #!N TAB max TAB scalar or 
+field TAB max of data TAB upper bound of equalization #!N 
+TAB ihist TAB field TAB histogram of data TAB input distribution 
+#!N TAB ohist TAB field TAB uniform distribution TAB output distribution 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description 
+#!EF #!N TAB equalized TAB scalar field TAB histogram-equalized data #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module equalizes an input data field so that the 
+histogram of the output approximates a specified distribution (  #!F-adobe-times-bold-r-normal--18*   ohist 
+#!EF ), which by default is a uniform distribution. #!N #!N 
+If  #!F-adobe-times-bold-r-normal--18*   data #!EF specifies a series, the histogram of the 
+entire series is used to construct the probability distribution, which is 
+then applied to each field in the series. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N is 
+the scalar data field to be equalized. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   bins #!EF #!EF #!I50 #!N is the number of bins 
+to be used in creating the equalization histogram. The default value 
+is 100, unless  #!F-adobe-times-bold-r-normal--18*   data #!EF consists of byte values. In 
+that case, the default is:  #!F-adobe-times-bold-r-normal--18*   max #!EF -  #!F-adobe-times-bold-r-normal--18*   min 
+#!EF + 1 #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   min #!EF  #!F-adobe-times-medium-r-normal--18*   
+and #!EF  #!F-adobe-times-bold-r-normal--18*   max #!EF #!EF #!I50 #!N specify the range 
+of the data values to be equalized. Values outside that range 
+remain unchanged. #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. 
+If neither parameter is specified, the values used are the minimum 
+and maximum of the input field. #!N #!I30 #!N 2. If 
+ #!F-adobe-times-bold-r-normal--18*   min #!EF is a scalar value, it is the minimum 
+value equalized. #!N #!I30 #!N 3. If  #!F-adobe-times-bold-r-normal--18*   min #!EF is 
+a data field, the minimum data value of that field is 
+used. #!N #!I30 #!N 4.  #!F-adobe-times-bold-r-normal--18*   max #!EF is similarly interpreted. 
+#!N #!I30 #!N 5. If  #!F-adobe-times-bold-r-normal--18*   min #!EF is a data 
+field and  #!F-adobe-times-bold-r-normal--18*   max #!EF is unspecified, the module uses the 
+minimum and maximum values of that field. #!I0 #!N #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   ihist #!EF #!EF #!I50 #!N is the 
+histogram used to determine the equalization function required, and by default 
+it is the histogram of  #!F-adobe-times-bold-r-normal--18*   data #!EF . If  #!F-adobe-times-bold-r-normal--18*   
+ihist #!EF is specified explicitly and the number of bins specified 
+does not match the number in the histogram, the module resamples 
+the histogram so that it contains the specified number. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   ohist #!EF #!EF #!I50 #!N is the type 
+of output histogram desired. By default, the module equalizes to a 
+uniform distribution. You can equalize to some other distribution by specifying 
+an appropriate histogram for this parameter. #!I0 #!N #!N Note: A 
+well-formed histogram (for  #!F-adobe-times-bold-r-normal--18*   ihist #!EF and  #!F-adobe-times-bold-r-normal--18*   ohist #!EF ) 
+consists of a field with a "positions" component that defines the 
+bins of the histogram; a "connections" component that connects the positions; 
+and a "data" component that contains the number of items in 
+each bin. The data should be connection dependent ("dep" "connections"). #!N 
+#!N Components #!N #!N Equalize modifies the data component. All other 
+components are unmodified. #!N #!N Example Visual Programs #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N UsingEqualize.net #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lfilter,dxall849 h Filter  #!EL  ,  #!Lmorph,dxall896 h Morph  #!EL  ,  #!Lhistogr,dxall859 h Histogram  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lexecute,dxall832 h Execute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

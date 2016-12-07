@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxs DXStatistics 
+#!N #!N Function #!N #!N Returns statistical information about a specified 
+Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXStatistics(Object o, 
+char *component, float *min, float *max, float *avg, float *sigma) #!EF 
+#!N #!N Functional Details #!N #!N Returns statistical information about all 
+specified components (  #!F-adobe-times-bold-r-normal--18*   component #!EF ) of Object  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF . If  #!F-adobe-times-bold-r-normal--18*   min #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+, this routine returns the minimum value in  #!F-adobe-times-bold-r-normal--18*   *min #!EF 
+. If  #!F-adobe-times-bold-r-normal--18*   max #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , 
+the routine returns the maximum value in  #!F-adobe-times-bold-r-normal--18*   *max #!EF . 
+If  #!F-adobe-times-bold-r-normal--18*   avg #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it 
+routine returns the average value in  #!F-adobe-times-bold-r-normal--18*   *avg #!EF . If 
+ #!F-adobe-times-bold-r-normal--18*   sigma #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns 
+the standard deviation in  #!F-adobe-times-bold-r-normal--18*   *sigma #!EF . The "  #!F-adobe-times-medium-i-normal--18*   
+component #!EF statistics" component is added to Fields for which it 
+does not already exist. If Object  #!F-adobe-times-bold-r-normal--18*   o #!EF is an 
+Array, the routine ignores  #!F-adobe-times-bold-r-normal--18*   component #!EF and returns statistics for 
+the Array. #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   OK 
+#!EF or returns  #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets an error code. 
+#!N #!N See Also #!N #!N  #!Lstdcs,dxall1086 h Standard Components  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxswp,dxall1397 h DXSwap  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

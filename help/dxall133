@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N 
+ #!Rall132 Example 1. Scalar and Vector Data on a Regular Grid. 
+#!N #!EC #!N #!N This example illustrates the importation of a 
+data file that contains two variables (pressure and velocity) in spreadsheet 
+style. The data are in row majority order (last index varies 
+fastest) and organized in four columns: the first contains the pressure 
+data; the other three, the velocity components. The grid is 5 
+* 8 * 6. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N 1. In the Data Prompter initial dialog box, select  #!F-adobe-times-bold-r-normal--18*   
+Grid or Scattered File #!EF , then select the leftmost button 
+in the row labeled  #!F-adobe-times-bold-r-normal--18*   Grid type #!EF (regular grid). #!N 
+#!I30 #!N 2. Set  #!F-adobe-times-bold-r-normal--18*   Number of variables #!EF to "2." 
+#!N #!I30 #!N 3. For  #!F-adobe-times-bold-r-normal--18*   Data organization #!EF , activate 
+the  #!F-adobe-times-bold-r-normal--18*   Columnar #!EF toggle button. #!N #!I30 #!N 4. Click 
+on  #!F-adobe-times-bold-r-normal--18*   Describe Data #!EF to bring up the simplified prompter. 
+#!N #!I30 #!N 5. Enter the path name of the data 
+file in the  #!F-adobe-times-bold-r-normal--18*   Data file #!EF field: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N /usr/lpp/dx/samples/data/spreadsheet_2var #!EF #!N #!N #!EC #!N #!I30 #!N 6. 
+Enter the values "5," "8," and "6," in that order, in 
+the first three  #!F-adobe-times-bold-r-normal--18*   Grid size #!EF fields. #!N #!I30 #!N 
+7. In the  #!F-adobe-times-bold-r-normal--18*   Field list #!EF , change the name 
+"field0" to "pressure" and confirm the change by clicking on the 
+ #!F-adobe-times-bold-r-normal--18*   Modify #!EF button at the bottom of the panel. #!N 
+#!I30 #!N 8. Change the name of "field1" to "velocity" and 
+its  #!F-adobe-times-bold-r-normal--18*   Structure #!EF to "3-vector." (See Steps 9 through 11 
+of Example 6 in the preceding section,  #!Lmltvrx6,dxall129 h Example 6. Deformed (Warped) Regular Grid  #!EL  , for procedure.) 
+#!N #!I30 #!N 9. Save the header file (Step 10 of 
+Example 1 in  #!Lex1a,dxall116 s To save the header file  #!EL  ), which should look like: #!N #!I0 
+#!N #!EF #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/spreadsheet_2var 
+#!N grid = 5 x 8 x 6 #!N format = 
+text #!N interleaving = field #!N majority = row #!N field 
+= temperature, velocity #!N structure = scalar, 3-vector #!N type = 
+float, float #!N dependency = positions, positions #!N positions = regular, 
+regular, regular, 0, 1, 0, 1, 0, 1 #!N #!N end 
+#!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall133,dxall134 h Example 2. Deformed (Warped) Regular Grid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

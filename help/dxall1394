@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxsxfo DXSetXformObject #!N #!N Function #!N #!N Sets the Object to 
+which a transform is applied. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> Xform DXSetXformObject(Xform x, Object o) #!EF #!N #!N Functional Details 
+#!N #!N Replaces the object to be transformed, given an existing 
+Xform object  #!F-adobe-times-bold-r-normal--18*   x #!EF . If  #!F-adobe-times-bold-r-normal--18*   o #!EF is 
+not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , then the object to be transformed 
+contained in the Xform object  #!F-adobe-times-bold-r-normal--18*   x #!EF is replaced by 
+ #!F-adobe-times-bold-r-normal--18*   o #!EF . #!N #!N Return Value #!N #!N Returns 
+ #!F-adobe-times-bold-r-normal--18*   x #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgxfi,dxall1272 h DXGetXformInfo  #!EL  , 
+ #!Ldxnxf,dxall1328 h DXNewXform  #!EL  #!EF #!N #!N  #!Lxformsc,dxall1135 h Xform Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxsk,dxall1395 h DXShrink  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

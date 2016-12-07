@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML>
+
+	<HEAD>
+		<TITLE>User's Reference - Parse</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD>
+
+	<BODY BGCOLOR="#FFFFFF" LINK="#00004b" VLINK="#4b004b">
+		<TABLE WIDTH=510 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD COLSPAN=9><IMG SRC="../images/flcgh_01.gif" WIDTH=510 HEIGHT=24 ALT="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD COLSPAN=2><A HREF="../allguide.htm"><IMG SRC="../images/flcgh_02.gif" WIDTH=129 HEIGHT=25 BORDER="0" ALT="Full Contents"></A></TD>
+				<TD COLSPAN=3><A HREF="../qikguide.htm"><IMG SRC="../images/flcgh_03.gif" WIDTH=127 HEIGHT=25 BORDER="0" ALT="QuickStart Guide"></A></TD>
+				<TD><A HREF="../usrguide.htm"><IMG SRC="../images/flcgh_04.gif" WIDTH=127 HEIGHT=25 BORDER="0" ALT="User's Guide"></A></TD>
+				<TD COLSPAN=3><B><A HREF="../refguide.htm"><IMG SRC="../images/flcgh_05d.gif" WIDTH=127 HEIGHT=25 BORDER="0" ALT="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A HREF="refgu100.htm"><IMG SRC="../images/flcgh_06.gif" WIDTH=80 HEIGHT=17 BORDER="0" ALT="Previous Page"></A></TD>
+				<TD COLSPAN=2><A HREF="refgu102.htm"><IMG SRC="../images/flcgh_07.gif" WIDTH=73 HEIGHT=17 BORDER="0" ALT="Next Page"></A></TD>
+				<TD><A HREF="../refguide.htm"><IMG SRC="../images/flcgh_08.gif" WIDTH=100 HEIGHT=17 BORDER="0" ALT="Table of Contents"></A></TD>
+				<TD COLSPAN=3><A HREF="refgu009.htm"><IMG SRC="../images/flcgh_09.gif" WIDTH=136 HEIGHT=17 BORDER="0" ALT="Partial Table of Contents"></A></TD>
+				<TD><A HREF="refgu175.htm"><IMG SRC="../images/flcgh_10.gif" WIDTH=50 HEIGHT=17 BORDER="0" ALT="Index"></A></TD>
+				<TD><A HREF="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" WIDTH=71 HEIGHT=17 BORDER="0" ALT="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A NAME="HDRPARSE"></A>Parse</H3>
+		<A NAME="IDX613"></A><A NAME="IDX614"></A>
+		<P><STRONG>Category</STRONG></P>
+		<P><A HREF="refgu008.htm#HDRCATANN">Annotation</A> <A NAME="IDX615"></A><A NAME="IDX616"></A></P>
+		<P><STRONG>Function</STRONG></P>
+		<P>Extracts values from an input string.</P>
+		<P><STRONG>Syntax</STRONG></P>
+		<PRE><STRONG>
+value, ...</STRONG> = Parse(<STRONG>input, format</STRONG>);
+</PRE>
+		<P><STRONG>Inputs</STRONG><BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">string to be operated on</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>format</STRONG></TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;%s&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">format control string</TD>
+			</TR>
+		</TABLE>
+		<P><STRONG>Outputs</STRONG><BR>
+		</P>
+		<TABLE BORDER>
+			<TR>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type</TH>
+				<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description</TH>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>value</STRONG></TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">value or string</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">value extracted from input string</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>...</STRONG></TT></TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">value or string</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">additional values extracted</TD>
+			</TR>
+		</TABLE>
+		<P><STRONG>Functional Details</STRONG></P>
+		<P>This module uses a format-control string (<TT><STRONG>format</STRONG></TT>) to extract values from a specified input string (<TT><STRONG>input</STRONG></TT>).</P>
+		<P><B>Note: </B>The control string resembles a C-language scanf format string.</P>
+		<P>The &quot;%&quot; symbol in the control string specifies that extraction is to begin at the corresponding position in the input string. The character immediately following this symbol specifies the type of value to be extracted:</P>
+		<DL COMPACT>
+			<DD><TT><STRONG>c</STRONG></TT>: single character
+			<DD><TT><STRONG>d</STRONG></TT>: integer
+			<DD><TT><STRONG>f</STRONG></TT>: floating point (with a fixed number of digits after the decimal point)
+			<DD><TT><STRONG>g</STRONG></TT>: general (scientific notation if appropriate)
+			<DD><TT><STRONG>s</STRONG></TT>: string.
+		</DL>
+		<P>The number of outputs is equal to the number of extractions specified in <TT><STRONG>format</STRONG></TT>.</P>
+		<P><STRONG>Example</STRONG></P>
+		<P>Given the statements:</P>
+		<PRE>
+string = &quot;temperature = 45.8  index = 4 color = red&quot;
+format = &quot;temperature = %f index = %d color = %s&quot;
+output1, output2, output3 = Parse(string, format);
+</PRE>
+		the three outputs of Parse will be 45.8, 4, and &quot;red.&quot;
+		<P></P>
+		<P>Given the statements:</P>
+		<PRE>string = &quot;/usr/home/data/cloudwater.dx&quot;
+format = &quot;%[^.].dx&quot;
+ouput1 = Parse(string, format);
+</PRE>
+		<P>the output of Parse will be &quot;/usr/home/data/cloudwater&quot;. This can be very useful to parse filenames and combined with format useful in changing the filename extension.</P>
+		<P><STRONG>Example Visual Program</STRONG></P>
+		<PRE>
+UsingParse.net
+</PRE>
+		<P><STRONG>See Also</STRONG></P>
+		<P>&nbsp;<A HREF="refgu065.htm#HDRFORMAT">Format</A></P>
+		<P></P>
+		<HR>
+		<DIV ALIGN="center">
+			<P><A HREF="../allguide.htm"><IMG SRC="../images/foot-fc.gif" WIDTH="94" HEIGHT="18" BORDER="0" ALT="Full Contents"></A> <A HREF="../qikguide.htm"><IMG SRC="../images/foot-qs.gif" WIDTH="94" HEIGHT="18" BORDER="0" ALT="QuickStart Guide"></A> <A HREF="../usrguide.htm"><IMG SRC="../images/foot-ug.gif" WIDTH="94" HEIGHT="18" BORDER="0" ALT="User's Guide"></A> <A HREF="../refguide.htm"><IMG SRC="../images/foot-ur.gif" WIDTH="94" HEIGHT="18" BORDER="0" ALT="User's Reference"></A></P>
+		</DIV>
+		<DIV ALIGN="center">
+			<P><FONT SIZE="-1">[ <A HREF="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A HREF="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY>
+
+</HTML>

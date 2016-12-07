@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxcpmi DXCopyModuleId 
+#!N #!N Function #!N #!N Returns a pointer to a copy 
+of a specified module identifier. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> Pointer DXCopyModuleId(Pointer id); #!EF #!N #!N Functional Details #!N #!N 
+When it is no longer needed, the copy should be deleted 
+with DXFreeModuleId. #!N #!N Return Value #!N #!N Returns the pointer 
+or returns NULL (and sets an error code if an error 
+occurs). #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcmpmi,dxall1183 h DXCompareModuleId  #!EL  ,  #!Ldxfmid,dxall1216 h DXFreeModuleId  #!EL  
+,  #!Ldxgmid,dxall1250 h DXGetModuleId  #!EL  #!EF #!N #!N  #!Lcache,dxall1102 h Cache  #!EL  , #!N  #!Lasyns,dxall1114 h Asynchronous Services  #!EL  #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

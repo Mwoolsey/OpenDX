@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu054.htm">Previous Page</A> &#124; <A HREF="progu056.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRSYSCHAP" HREF="../proguide.htm#ToC_122">Chapter 13. System
+Services</A></H1>
+<P><A NAME="PToC15" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_123" HREF="#HDRERRSEC">13.1 Error Handling and Messages</A>
+<LI><A NAME="PToC_124" HREF="progu056.htm#HDRTIMG">13.2 Timing</A>
+<LI><A NAME="PToC_125" HREF="progu057.htm#HDRSTORAL">13.3 Memory Allocation</A>
+<LI><A NAME="PToC_126" HREF="progu058.htm#HDROBJSEC">13.4 Object Class</A>
+<MENU>
+<LI><A NAME="PToC_127" HREF="progu058.htm#Header_127">Type Definitions</A>
+<LI><A NAME="PToC_128" HREF="progu058.htm#Header_128">Classes and Subclasses</A>
+<LI><A NAME="PToC_129" HREF="progu058.htm#HDROTRS">Object Routines</A>
+<LI><A NAME="PToC_130" HREF="progu058.htm#HDRTY">Setting Data Types</A>
+</MENU>
+<LI><A NAME="PToC_131" HREF="progu059.htm#HDRCACHE">13.5 Cache</A>
+<LI><A NAME="PToC_132" HREF="progu060.htm#HDRPNDCMD">13.6 Pending Commands</A>
+<LI><A NAME="PToC_133" HREF="progu061.htm#HDRLOOPING">13.7 Looping Support</A>
+<LI><A NAME="PToC_134" HREF="progu062.htm#HDRPLSM">13.8 Parallelism</A>
+<LI><A NAME="PToC_135" HREF="progu063.htm#Header_135">13.9 Basic Data Types</A>
+<MENU>
+<LI><A NAME="PToC_136" HREF="progu063.htm#HDRPSVS">Points and Vectors</A>
+<LI><A NAME="PToC_137" HREF="progu063.htm#HDRLTQTC">Lines, Triangles,
+Quadrilaterals, Tetrahedra, and Cubes</A>
+<LI><A NAME="PToC_138" HREF="progu063.htm#HDRCLRS">Colors</A>
+<LI><A NAME="PToC_139" HREF="progu063.htm#Header_139">Angles</A>
+<LI><A NAME="PToC_140" HREF="progu063.htm#HDRMATRXSC">Transformation
+Matrices</A>
+<LI><A NAME="PToC_141" HREF="progu063.htm#HDRBOPS">Basic Operations</A>
+</MENU>
+<LI><A NAME="PToC_142" HREF="progu064.htm#HDRMODACSS">13.10 Module Access</A>
+<LI><A NAME="PToC_143" HREF="progu065.htm#HDRASYNS">13.11 Asynchronous
+Services</A>
+</MENU><HR><P>
+<P>
+This chapter describes the programming interface to basic system
+services:
+error handling and messages, timing, memory allocation, basic object
+services, types, Private Objects, String Objects, the cache,
+parallel programming, some basic convenience types and
+operations, module access, and asynchronous services.
+<P>
+For detailed descriptions of library routines see
+<A HREF="progu097.htm#HDRALLR">Appendix C. "Data Explorer Library Routines"</A>.
+<HR>
+<H2><A NAME="HDRERRSEC" HREF="#PToC_123">13.1 Error Handling and
+Messages</A></H2>
+<A NAME="IDX762"></A>
+<A NAME="IDX763"></A>
+<A NAME="IDX764"></A>
+<A NAME="IDX765"></A>
+<A NAME="IDX766"></A>
+<A NAME="IDX767"></A>
+<P>
+Most Data Explorer library routines return either a pointer or an integer error
+code.
+A non-<TT><STRONG>NULL</STRONG></TT> pointer or the nonzero integer constant
+<TT><STRONG>OK</STRONG></TT> indicates success.
+<TT><STRONG>NULL</STRONG></TT> or <TT><STRONG>ERROR</STRONG></TT> (defined as
+zero)
+indicates failure.
+<P>
+If a library routine fails, it may use <TT><STRONG>DXSetError()</STRONG></TT>
+to set an error code.
+If it does, the (user-written) calling routine should return
+<TT><STRONG>NULL</STRONG></TT> or <TT><STRONG>ERROR</STRONG></TT> to
+propagate the error back to the user.
+<P>
+However, if the library routine does not set an error code, the calling
+routine should determine whether the <TT><STRONG>NULL</STRONG></TT>
+return indicates an error:
+<UL COMPACT>
+<LI>If an error is indicated, the calling routine should set an error
+code (by calling <TT><STRONG>DXSetError()</STRONG></TT>) and return
+<TT><STRONG>NULL</STRONG></TT> or <TT><STRONG>ERROR</STRONG></TT>.
+<LI>If no error is indicated, the calling routine should proceed.
+</UL>
+<P>
+For example, <TT><STRONG>DXGetComponentValue()</STRONG></TT> returns
+<TT><STRONG>NULL</STRONG></TT> if the specified component does
+not exist, but it does not set an error code:
+the calling routine must determine whether the absence of that component is
+an error.
+<P>
+How any one Data Explorer routine handles error codes is described in the
+relevant entry in <A HREF="progu097.htm#HDRALLR">Appendix C. "Data Explorer
+Library Routines"</A>.
+<P>
+The error codes are defined as follows:
+<PRE>
+typedef enum errorcode {
+    ERROR_MIN,
+    ERROR_NONE,
+    ERROR_INTERNAL,
+    ERROR_UNEXPECTED,
+    ERROR_ASSERTION,
+    ERROR_NOT_IMPLEMENTED,
+    ERROR_NO_MEMORY,
+    ERROR_BAD_CLASS,
+    ERROR_BAD_TYPE,
+    ERROR_NO_CAMERA,
+    ERROR_MISSING_DATA,
+    ERROR_INVALID_DATA,
+    ERROR_BAD_PARAMETER,
+    ERROR_MAX
+} ErrorCode;
+</PRE>
+<PRE>
+typedef int Error;
+#define ERROR 0
+#define OK 1
+typedef void *Pointer;
+#undef NULL
+#define NULL 0
+</PRE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXSetError()
+<BR>
+#define DXErrorReturn()
+<BR>
+#define DXErrorGoto()
+<BR>
+#define DXASSERT()
+</STRONG></TT>
+</B></TD><TD><P>Set an error code and an explanatory message.
+<A NAME="IDX768"></A>
+<A NAME="IDX769"></A>
+<A NAME="IDX770"></A>
+<A NAME="IDX771"></A>
+<A NAME="IDX772"></A>
+<A NAME="IDX773"></A>
+<A NAME="IDX774"></A>
+<A NAME="IDX775"></A>
+See <A HREF="#SPTUN">Note on Use</A> and  <A
+HREF="progu312.htm#HDRDXSE">DXSetError, DXErrorReturn, DXErrorGoto</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXAddMessage()
+<BR>
+#define DXMessageReturn()
+<BR>
+#define DXMessageGoto()
+</STRONG></TT>
+</B></TD><TD><P>Append a message to the current error message.
+<A NAME="IDX776"></A>
+<A NAME="IDX777"></A>
+<A NAME="IDX778"></A>
+<A NAME="IDX779"></A>
+<A NAME="IDX780"></A>
+<A NAME="IDX781"></A>
+See <A HREF="#SPTUN">Note on Use</A> and  <A
+HREF="progu103.htm#HDRDXAM">DXAddMessage, DXMessageReturn, DXMessageGoto</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void DXWarning()</STRONG></TT>
+</B></TD><TD><P>Presents a warning message to the user.
+<A NAME="IDX782"></A>
+<A NAME="IDX783"></A>
+See  <A HREF="progu342.htm#HDRDXW">DXWarning</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void DXMessage()</STRONG></TT>
+</B></TD><TD><P>Presents an informational message to the user.
+<A NAME="IDX784"></A>
+<A NAME="IDX785"></A>
+See  <A HREF="progu242.htm#HDRDXMESS">DXMessage</A>.
+</TD></TR></TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<A NAME="SPTUN"></A>
+<A NAME="IDX786"></A>
+<P>
+When a function signals an error by returning <TT><STRONG>NULL</STRONG></TT>,
+it should also set an error code and an error message, using
+one of the following error routines:
+<OL COMPACT>
+<LI><TT><STRONG>DXErrorReturn(errorcode, message);</STRONG></TT>
+&nbsp;
+Sets an error code and an error message, then returns
+<TT><STRONG>NULL</STRONG></TT>; this function should be
+invoked by the lowest-level routine that detects the
+error.
+<LI><TT><STRONG>DXMessageReturn(message);</STRONG></TT>
+&nbsp;
+Appends its own message to the message already recorded; this should be
+done by routines that:
+<UL COMPACT>
+<LI>Detect an error returned by a lower-level routine that has already
+set an error code.
+<LI>Contain useful information to add to the message.
+</UL>
+<LI><TT><STRONG>return ERROR;</STRONG></TT>
+&nbsp;
+Is used when an error return is detected from a lower-level routine
+and the current routine has nothing useful to add to the
+message.
+</OL>
+If cleanup is required before return, <TT><STRONG>DXErrorGoto()</STRONG></TT>
+or <TT><STRONG>DXMessageGoto()</STRONG></TT> may be used instead.
+Both routines require an <TT><STRONG>error:</STRONG></TT> label, after which
+cleanup is performed and either <TT><STRONG>NULL</STRONG></TT> (as
+shown here) or <TT><STRONG>ERROR</STRONG></TT> is returned.
+<PRE>
+    error:
+        ... cleanup goes here ...
+        return NULL;
+</PRE>
+</TD></TR></TABLE>
+<P>
+<B><U>Less Commonly Used Routines</U></B>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>ErrorCode DXGetError()</STRONG></TT>
+</B></TD><TD><P>Returns an error code for the last error that occurred.
+<A NAME="IDX787"></A>
+<A NAME="IDX788"></A>
+See  <A HREF="progu170.htm#HDRDXGE">DXGetError</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>char
+*DXGetErrorMessage()</STRONG></TT>
+</B></TD><TD><P>Returns the current error message.
+<A NAME="IDX789"></A>
+<A NAME="IDX790"></A>
+See  <A HREF="progu172.htm#HDRDXGERM">DXGetErrorMessage</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void
+DXResetError()</STRONG></TT>
+</B></TD><TD><P>Resets the error state.
+<A NAME="IDX791"></A>
+<A NAME="IDX792"></A>
+See  <A HREF="progu294.htm#HDRDXRE">DXResetError</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void DXBeginLongMessage()
+<BR>
+void DXEndLongMessage();</STRONG></TT>
+</B></TD><TD><P>Together create a single "long" message from multiple calls
+to <TT><STRONG>DXMessage()</STRONG></TT>.
+<A NAME="IDX793"></A>
+<A NAME="IDX794"></A>
+<A NAME="IDX795"></A>
+<A NAME="IDX796"></A>
+See  <A HREF="progu110.htm#HDRDXBLM">DXBeginLongMessage, DXEndLongMessage</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>void DXDebug()
+<BR>
+void DXEnableDebug();
+<BR>
+int DXQueryDebug();</STRONG></TT>
+</B></TD><TD><P>Operate on global debug keys.
+<A NAME="IDX797"></A>
+<A NAME="IDX798"></A>
+<A NAME="IDX799"></A>
+<A NAME="IDX800"></A>
+<A NAME="IDX801"></A>
+<A NAME="IDX802"></A>
+See  <A HREF="progu129.htm#HDRDXDB">DXDebug, DXEnableDebug, DXQueryDebug</A>.
+<P>
+<TT><STRONG>DXDebug()</STRONG></TT> compares an Array of keys to the global
+debug keys and calls
+<BR>
+&nbsp;&nbsp;
+<TT><STRONG>DXMessage()</STRONG></TT> if any are common to both.
+<BR>
+<TT><STRONG>DXEnableDebug()</STRONG></TT> enables or disables one or more
+global debug keys.
+<BR>
+<TT><STRONG>DXQueryDebug()</STRONG></TT> compares an Array of keys to the
+global debug keys and
+<BR>
+&nbsp;&nbsp;
+returns "1" if any are common to both.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu054.htm">Previous Page</A> &#124; <A HREF="progu056.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

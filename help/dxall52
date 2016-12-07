@@ -1,0 +1,43 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtstmln3 Streamlines #!N #!EC 
+#!N #!N The  #!F-adobe-times-bold-r-normal--18*   Streamline #!EF module traces the path of 
+a massless particle through a static velocity field. #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Open and execute visual program 
+.../Streamlines3D.net. The image is a translucent isosurface with a single streamline 
+starting from the point [25000 5000 25000] (as specified in the 
+ #!F-adobe-times-bold-r-normal--18*   Streamline #!EF module's configuration dialog box). This streamline can be 
+transformed into a ribbon: #!N #!I30 #!N 2. Select  #!F-adobe-times-bold-r-normal--18*   Annotation 
+#!EF in the categories palette and then  #!F-adobe-times-bold-r-normal--18*   Ribbon #!EF in 
+the tools palette. #!N #!I30 #!N 3. Position the  #!F-adobe-times-bold-r-normal--18*   Ribbon 
+#!EF icon below  #!F-adobe-times-bold-r-normal--18*   Streamline #!EF in the VPE canvas. #!N 
+#!I30 #!N 4. Disconnect  #!F-adobe-times-bold-r-normal--18*   Streamline #!EF output from  #!F-adobe-times-bold-r-normal--18*   Collect 
+#!EF input and reconnect it to  #!F-adobe-times-bold-r-normal--18*   Ribbon #!EF input. #!N 
+#!I30 #!N 5. Connect  #!F-adobe-times-bold-r-normal--18*   Ribbon #!EF output to  #!F-adobe-times-bold-r-normal--18*   Collect 
+#!EF input. #!N #!I30 #!N 6. Reexecute the visual program. The 
+streamline changes to a ribbon. #!N #!I0 #!N #!EF #!N #!N 
+#!N If you want the twist of the ribbon to represent 
+the vorticity of the wind field: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N 1. Open the  #!F-adobe-times-bold-r-normal--18*   Streamline #!EF configuration dialog 
+box. #!N #!I30 #!N 2. Change the  #!F-adobe-times-bold-r-normal--18*   flag #!EF parameter 
+value from "(input dependent)" to "1" and click on  #!F-adobe-times-bold-r-normal--18*   OK 
+#!EF .  #!F-adobe-times-bold-r-normal--18*   Streamline #!EF computes the degree of twist from 
+the vorticity of the wind field. #!N #!I30 #!N 3. Reexecute 
+the visual program. The twist is greater in regions of higher 
+wind vorticity. #!N #!I0 #!N #!EF #!N #!N #!N To make 
+the color of the ribbon correspond to wind velocity: #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Select  #!F-adobe-times-bold-r-normal--18*   Transformation #!EF 
+and then  #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF in the palettes. #!N #!I30 #!N 
+2. Position the  #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF icon between  #!F-adobe-times-bold-r-normal--18*   Ribbon #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   Collect #!EF in the VPE canvas. #!N #!I30 #!N 
+3. Disconnect the  #!F-adobe-times-bold-r-normal--18*   Ribbon #!EF output from the  #!F-adobe-times-bold-r-normal--18*   Collect 
+#!EF input and reconnect it to the first (leftmost) input of 
+ #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF . Note: Both input tabs can accept a 
+connection, but the semi-highlighting indicates  #!F-adobe-times-medium-i-normal--18*   required #!EF input (i.e., the 
+module cannot function without it). #!N #!I30 #!N 4. Connect the 
+first (leftmost) output of  #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF to the available input 
+of  #!F-adobe-times-bold-r-normal--18*   Collect #!EF . #!N #!I30 #!N 5. Reexecute the 
+visual program. Note the variation of color in the ribbon. #!N 
+#!N See Ribbon and Streamline in IBM Visualization Data Explorer User's 
+Reference. #!N #!I0 #!N #!EF #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lt3dsgly,dxall53 h 3-D Scalar Glyphs  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

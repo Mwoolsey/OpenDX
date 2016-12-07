@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxpt DXPrintTimes #!N #!N Function #!N #!N Prints time 
+marks. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> void DXPrintTimes() #!EF 
+#!N #!N Functional Details #!N #!N Prints a merged summary of 
+the "global" time events recorded by  #!F-adobe-times-bold-r-normal--18*   DXMarkTime #!EF and the 
+"local" time events recorded by  #!F-adobe-times-bold-r-normal--18*   DXMarkTimeLocal #!EF since the last 
+call to  #!F-adobe-times-bold-r-normal--18*   DXPrintTimes #!EF . #!N #!N For each global 
+event, the following are printed: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N o The identifying tag that was specified by the 
+ #!F-adobe-times-bold-r-normal--18*   DXMarkTime #!EF call #!N #!I30 #!N o The time of 
+the last previous global event #!N #!I30 #!N o The difference 
+in time between that previous event and this event #!N #!I30 
+#!N o The time of this event. #!N #!I0 #!N #!EF 
+#!N #!N #!N For each local event, the following are printed: 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o The processor 
+on which the event occurred #!N #!I30 #!N o The time 
+of the last previous local event on this processor or the 
+last previous global event, whichever occurred later #!N #!I30 #!N o 
+The difference in time between that previous event and this event 
+#!N #!I30 #!N o The time of this event. #!N #!I0 
+#!N #!EF #!N #!N #!N All times are printed in seconds. 
+In addition, on some architectures the difference in user and system 
+times are printed, as recorded by the operating system. These times 
+are not printed on the IBM POWER Visualization System, and appear 
+as zeros. #!N #!N Return Value #!N #!N None. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgt,dxall1269 h DXGetTime  #!EL  ,  #!Ldxmt,dxall1306 h DXMarkTime, DXMarkTimeLocal  #!EL  ,  #!Ldxtt,dxall1398 h DXTraceTime  #!EL  #!EF 
+#!N #!N  #!Ltimg,dxall1095 h Timing  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxproi,dxall1334 h DXProcessorId  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

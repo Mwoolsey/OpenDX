@@ -1,0 +1,12 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxmakf DXMakeFloat #!N #!N Function #!N #!N Returns a floating-point Array 
+with a single floating-point value. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> Array DXMakeFloat(float f); #!EF #!N #!N Functional Details #!N #!N 
+Creates an Array of type TYPE_FLOAT containing a single specified floating-point 
+value (  #!F-adobe-times-bold-r-normal--18*   f #!EF ). The Array can be deleted 
+with  #!F-adobe-times-bold-r-normal--18*   DXDelete() #!EF . #!N #!N Return Value #!N #!N 
+Returns the Array or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

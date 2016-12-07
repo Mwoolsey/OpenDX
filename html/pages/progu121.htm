@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu120.htm">Previous Page</A> &#124; <A HREF="progu122.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXC" HREF="progu097.htm#PToC_215">DXCopy</A></H3>
+<A NAME="IDX1612"></A>
+<A NAME="IDX1613"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Performs various copying operations.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Object DXCopy(Object o, enum copy copy)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+The DXCopy operations differ in the depth to which they copy the
+structure of an Object <TT><STRONG>o</STRONG></TT>.
+Depth is specified by the <TT><STRONG>copy</STRONG></TT> parameter, which may
+be one of the following:
+<UL>
+<P><LI><TT><STRONG>COPY_STRUCTURE</STRONG></TT>&#58;
+<UL COMPACT>
+<LI>For Groups, copies the Group header and recursively copies all
+Group members.
+<LI>For Fields, copies the Field header but <I>does not</I> copy
+the components (which are generally Arrays);
+instead it puts references to the components of the given
+Object into the resulting Field.
+<LI>For Arrays, passes back a pointer to the data and makes no copy.
+</UL>
+<P><LI><TT><STRONG>COPY_HEADER</STRONG></TT>&#58;
+Copies only the header of the immediate Object but <I>does not</I>
+copy attributes, members, components, and so on;
+instead it puts references to them into the new Object.
+<P>
+The Object created can be deleted with DXDelete.
+See <A HREF="progu023.htm#HDRMEMNG">4.2 , "Memory Management"</A>.
+<P><LI><TT><STRONG>COPY_ATTRIBUTES</STRONG></TT>&#58;
+Creates a new Object of the same type as the old, and copies all
+attributes and type information, but <I>does not</I>
+put references (to members, components, and so on) in the new Object.
+</UL>
+<P><B>Notes: </B><OL>
+<P><LI>Because of the data-flow execution model used by Data Explorer, it is
+critical that no module actually alter its inputs.  Instead,
+<TT><STRONG>
+DXCopy
+</STRONG></TT>
+is generally used to create a modifiable copy of the input that is
+then altered and produced as output.  This is most often done by
+using the
+<TT><STRONG>COPY_STRUCTURE</STRONG></TT> form.  This produces a copy of
+the structure of the input, but uses references to the Arrays of the
+input, rather than actual copies.  Once a structure has been copied
+in this manner, the Arrays (which are most often found as components
+of Fields) may be replaced in the copied Field by new results.
+The result will be a copy of the input that shares all
+<I>unchanged</I> data with the original, thereby
+saving memory space.
+<P><LI><TT><STRONG>DXCopy</STRONG></TT>
+applied to an Object of type Array performs no copy and simply returns
+its input.  This presents the problem that in order to clean up,
+copied Objects of other types may be deleted without deleting the
+original, while the result of applying
+<TT><STRONG>
+DXCopy
+</STRONG></TT>
+to Arrays
+<I>may not</I>
+be deleted without deleting the original.
+</OL>
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the copy or returns <TT><STRONG>NULL</STRONG></TT> and sets an error
+code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu122.htm#HDRDXCA">DXCopyAttributes</A>,
+<A HREF="progu251.htm#HDRDXNF">DXNewField</A>,
+<A HREF="progu252.htm#HDRDXNG">DXNewGroup</A>
+</STRONG></TT>
+<P>
+<A HREF="progu058.htm#HDROTRS">"Object Routines"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu120.htm">Previous Page</A> &#124; <A HREF="progu122.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

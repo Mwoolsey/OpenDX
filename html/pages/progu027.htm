@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu026.htm">Previous Page</A> &#124; <A HREF="progu028.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu025.htm#PToC7">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRADD2I" HREF="progu025.htm#PToC_59">5.3 Add2Invalid Module
+Example--Manipulate Invalid Data</A></H2>
+<A NAME="IDX232"></A>
+<A NAME="IDX233"></A>
+<A NAME="IDX234"></A>
+<A NAME="IDX235"></A>
+<P>
+The Data Explorer data model makes it possible to identify invalid input
+(position and connections elements) and mark the resulting
+output as "invalid." (see <A HREF="progu068.htm#HDRINVDATA">14.3 , "Invalid
+Data"</A>).
+Invalid elements (and the data associated with them) are ignored by
+Data Explorer modules.
+<P>
+In the example given here, the Add2Invalid module processes two input
+data components.
+If either of the two data values is invalid, the resulting sum is
+treated as invalid.
+The routines that support this function check for matching data types,
+matching dependencies, missing Fields, and so on.
+<P>
+<B><U>Repeat Steps (1) through (5)</U></B> of the first example (see
+<A HREF="progu025.htm#HDRADDMODX">5.1 , "Add Module Example--Add a Number to
+Every Data Value"</A>), using the file name
+"add2invalid" instead of "add."
+Step (5) will produce files <TT>add2invalid.c</TT>,
+<TT>add2invalid.mdf</TT>, and
+<TT>add2invalid.make</TT>.
+<P>
+<B><U>(6) Implement the Add2Invalid function.</U></B>
+<A NAME="SPTIMPAD2I"><I>(Ref #1.)</I></A>
+Because this module uses routines for handling invalid data, the
+necessary modifications of the <TT><STRONG>.c</STRONG></TT> file
+are more extensive than those required for the preceding
+examples.
+<P>
+As written, the <TT>add2_invalid.c</TT> file passes only the data
+component to the lowest-level routine (Add2Invalid_worker);
+it does not pass information about the data&#39;s
+validity.
+The solution is to modify the doLeaf routine, rather than the worker
+routine.
+The doLeaf routine has access to all the components of an input or
+output Field and not to just the data component.
+<P>
+In the routine doLeaf, starting at the comment "Call the user&#39;s
+routine. Check the return code." insert the following:
+<PRE>
+  /* create invalid component handles for each input field */
+  inv_handle1 = DXCreateInvalidComponentHandle(in&#91;0&#93;, NULL,
+                                               src_dependency);
+  inv_handle2 = DXCreateInvalidComponentHandle(in&#91;1&#93;, NULL,
+                                               src_dependency);
+  /* the loop that actually adds the data components.
+   * if either of the two input data values is invalid, then the
+   * output is marked invalid, and set to the value 0
+   */
+  out_ptr = (float *)out_data&#91;0&#93;;
+  in1_ptr = (float *)in_data&#91;0&#93;;
+  in2_ptr = (float *)in_data&#91;1&#93;;
+  for (i=0; i&lt;out_knt&#91;0&#93;; i++) {
+    if (DXIsElementValid(inv_handle1, i) &&
+        DXIsElementValid(inv_handle2, i)) {
+      *out_ptr =  *in1_ptr + *in2_ptr;
+    }
+    else {
+      *out_ptr = 0.0;
+      DXSetElementInvalid(inv_handle1, i);
+    }
+    out_ptr++;
+    in1_ptr++;
+    in2_ptr++;
+  }
+  /* the invalid-component-handle information is added to the output field */
+  if (!DXSaveInvalidComponent((Field)out&#91;0&#93;, inv_handle1))
+     goto error;
+  DXFreeInvalidComponentHandle(inv_handle1);
+  DXFreeInvalidComponentHandle(inv_handle2);
+  return OK;
+error:
+  return ERROR;
+</PRE>
+<P>
+<B><U>(7) Remove the call to Add2Invalid_worker:</U></B> it is not needed.
+All of the data processing code has been added to doLeaf.
+<P>
+<B><U>(8) Insert the following declarations</U></B> at the top of the
+routine doLeaf:
+<PRE>
+  InvalidComponentHandle inv_handle1, inv_handle2;
+  float *out_ptr, *in1_ptr, *in2_ptr;
+</PRE>
+<P>
+The file <TT>/usr/local/dx/samples/program_guide/add2invalid.c</TT>
+contains a completed version of this program.
+<P>
+<B><U>(9) To create a version of Data Explorer that includes</U></B> the
+Add2Invalid module, enter the command:
+<PRE>
+make -f add2invalid.make dxexec
+</PRE>
+<P>
+(You have now created an executable that contains the
+Add2Invalid module.)
+<P>
+<B><U>(10) To invoke this version, enter&#58;</U></B>
+<PRE>
+dx  -mdf ./add2invalid.mdf -exec ./dxexec
+</PRE>
+<P>
+This command starts Data Explorer (the <TT><STRONG>add2invalid.mdf</STRONG></TT>
+file
+tells the graphical user interface about Add2Invalid
+and its inputs and outputs).
+The executable dxexec invoked here is the one created in Step 8.
+<P>
+<B><U>(11) With this version of Data Explorer</U></B> you can now run any visual
+program that uses the Add2Invalid module.
+One such program is
+<TT>/usr/local/dx/samples/program_guide/add2_invalid.net</TT>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu026.htm">Previous Page</A> &#124; <A HREF="progu028.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu025.htm#PToC7">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

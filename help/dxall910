@@ -1,0 +1,37 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rpost 
+Post #!N #!N Category #!N #!N  #!Lcattrn,dxall763 h Transformation  #!EL  #!N #!N Function #!N 
+#!N Changes the data dependency of a field. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   output #!EF = Post(  #!F-adobe-times-bold-r-normal--18*   
+field, dependency #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB input TAB field TAB none TAB field 
+whose data dependency is to #!N TAB - TAB - TAB 
+- TAB be changed #!N TAB dependency TAB string TAB "positions" 
+TAB data dependency desired #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB output TAB field TAB 
+field with data dependency changed #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N is a field 
+whose data dependency on one component is to be changed to 
+dependency on another component. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   dependency #!EF 
+#!EF #!I50 #!N is the output dependency desired and must be 
+"positions" or "connections." #!I0 #!N #!N #!N #!N If you are 
+changing the dependency from "positions" to "connections," all components that are 
+dependent on "positions" (but do not contain references to that or 
+any other component, such as colors, data, and normals) are changed 
+to "connections" dependency. The Post module uses an average of the 
+vertex values for each connection element to determine the new value 
+for the component. #!N #!N Similarly, when changing from connection dependence 
+to position dependence, the Post module associates with a vertex the 
+average of the values for each connection touching that vertex. #!N 
+#!N Components #!N #!N Creates a new component for each input 
+component that is either dependent on connections if  #!F-adobe-times-bold-r-normal--18*   dependency #!EF 
+is "positions" or that is dependent on positions if the  #!F-adobe-times-bold-r-normal--18*   
+dependency #!EF is "connections." The dependencies of the new components are 
+set to  #!F-adobe-times-bold-r-normal--18*   dependency #!EF . #!N #!N Example Visual Programs 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Thunder_cellcentered.net #!N SIMPLE/Post.net #!EF #!N #!N 
+#!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lprint,dxall911 h Print  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

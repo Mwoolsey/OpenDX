@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall558 Example #!N #!EC 
+#!N #!N The following is a sample script that illustrates how 
+variables are treated in macros: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N // 
+This is a complete sample script #!N #!N macro add(a, b) 
+-> (sum) #!N { #!N c = a + b; // 
+c is created and given the value a+b #!N c = 
+a + x; // x is found in the top level, 
+and used in this expression #!N c = a + z; 
+// z does not exist anywhere; NULL is used #!N sum 
+= a + b; // sum is created local to the 
+macro, separate from the #!N // version of sum in the 
+top level #!N } #!N #!N x = 7; #!N sum 
+= 10; #!N total = add(4, 4); // total = 8, 
+sum stays at 10 #!EF #!N #!N #!EC #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall559,dxall560 h Assignment and Function Call Semantics  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

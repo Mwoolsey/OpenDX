@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rkwifdf General Array Importer: Keyword Information from Data Files 
+#!N #!EC #!N #!N In addition to the syntaxes for the 
+grid, points, and positions keywords described in IBM Visualization Data Explorer 
+QuickStart Guide, it is also possible to derive information for these 
+keywords directly from the data file. This allows you to write 
+"filters" for specific applications that output their data in a set 
+format which includes the grid size within the file. #!N #!N 
+The syntax for the grid keyword is (in addition to the 
+syntax given in  #!Lsydfgi,dxall139 h Header File Syntax: Keyword Statements  #!EL  in IBM Visualization Data Explorer QuickStart Guide): 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N bytes n bytes n #!N 
+grid = [format],[type]{lines n , [skip, width] [skip, width],.. {lines n, 
+... #!N marker string marker string #!EF #!EF #!N #!N #!EC 
+#!N #!N where: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+format #!EF #!EF #!I50 #!N is the format in which the 
+grid values will be found, and must be one of the 
+following:  #!F-adobe-times-bold-r-normal--18*   binary #!EF ,  #!F-adobe-times-bold-r-normal--18*   ieee #!EF ,  #!F-adobe-times-bold-r-normal--18*   text 
+#!EF , or  #!F-adobe-times-bold-r-normal--18*   ascii #!EF . The first two parameters 
+are synonymous, as are the second two. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   type #!EF #!EF #!I50 #!N is the type of the 
+values, and should be one of the following: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N byte int short #!N unsigned byte signed int 
+signed short #!N signed byte unsigned int unsigned short #!EF #!EF 
+#!N #!N #!EC Note that in each of the three groupings 
+shown here, the first and second (reading down) are equivalent to 
+each other. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   bytes #!EF , #!EF 
+ #!F-adobe-times-bold-r-normal--18*   lines #!EF , and  #!F-adobe-times-bold-r-normal--18*   marker #!EF #!I50 #!N specify 
+where to begin reading the grid values. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   skip #!EF , and  #!F-adobe-times-bold-r-normal--18*   width #!EF #!EF #!I50 #!N 
+are optional and should be used when two pieces of information 
+are on the same line with other information separating them (see 
+Example 2). If necessary, different portions of the grid specification can 
+be read separately by repeating the bytes, lines, or marker specification 
+(see Example 3). #!I0 #!N #!N #!N #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall619,dxall620 h Example 1  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxns DXNewSeries #!N #!N Function 
+#!N #!N Creates a new Series Object. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Series DXNewSeries() #!EF #!N #!N Functional Details #!N 
+#!N A Series is intended to represent a single field sampled 
+across some parameter, such as time or temperature (e.g., a simulation 
+of a CMOS device across a temperature range). Members of a 
+Series have a position. A copy of the position is found 
+in the "series position" attribute. #!N #!N For Realization modules, a 
+Series should be a collection of compatible Fields, each with the 
+same "data," "position," and "connection" types, and the Series positions of 
+all members should be increasing only or decreasing only for the 
+whole Series. #!N #!N The type of a Series is set 
+the first time a typed member is added; a typed member 
+is either a Field with a "data" component or a typed 
+Group. All typed members added to a typed Series must match 
+the type of the Series. If a Series has no members, 
+it is untyped. #!N #!N The Object created can be deleted 
+with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N #!N 
+Returns the Series or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxncf,dxall1313 h DXNewCompositeField  #!EL  , 
+ #!Ldxng,dxall1317 h DXNewGroup  #!EL  ,  #!Ldxnmg,dxall1320 h DXNewMultiGrid  #!EL  ,  #!Ldxssm,dxall1391 h DXSetSeriesMember  #!EL  #!EF #!N #!N  #!Lssgs,dxall1065 h Series Groups  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxnsg,dxall1327 h DXNewString  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

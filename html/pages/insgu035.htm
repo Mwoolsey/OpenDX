@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Installation and Configuration
+Guide</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Installation and Configuration Guide">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Installation and Configuration Guide</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="insgu034.htm">Previous Page</A> &#124; <A HREF="insgu036.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="insgu032.htm#PToC10">Partial Table of Contents</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRHPLIC" HREF="insgu032.htm#PToC_62">15.4 Installing a License
+Server for an HP Workstation</A></H2>
+<P>
+<P>
+<H3><A NAME="HDRHPLIFL" HREF="insgu032.htm#PToC_63">Floating License Issues on
+an HP Workstation</A></H3>
+<P>
+NetLS and NCS are provided as part of the operating system distribution
+for HP-UX. HP-UX users should insure that both the NCS and NetLS
+components of their operating system have been installed. If not they
+should be installed and started from your O/S vendor's distribution
+media.
+<P>
+The HP-UX 8.0x operating system contains an older and incompatible
+version of the network license server daemon (netlsd). Users of this
+operating system must run the install_lsk or install_lsk.sh script from
+the Data Explorer distribution media (see <A HREF="#HDRHPLITP">"Installing a
+License Server for HP Workstation from Tape"</A>
+or <A HREF="#HDRHPLICD">"Installing a License Server for HP Workstation from
+CD-ROM"</A>).
+This script will detect the
+older version and replace it with a current version of netlsd which is
+delivered on the Data Explorer distribution media.
+<P>
+HP-UX 9.0x users do not need to run the NetLS installation script and
+may proceed with the section <A HREF="insgu016.htm#HDRHPCFG">8.3 , "Configuring
+a Data Explorer License for an HP Workstation"</A>
+once the NetLS software is up and running.
+<P>
+HP users can refer to the following documents for assistance in
+installing and configuring NetLS and NCS:
+<P>
+<P>
+<H4><A NAME="Header_64">HP Document Numbers</A></H4>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P>11895-A02
+</TD><TD><P>Managing NCS Software 11272-A01 Managing Software Products
+with the Network License System
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRHPLITP" HREF="insgu032.htm#PToC_65">Installing a License Server
+for HP Workstation from Tape</A></H3>
+<P>
+Tape distributions of Data Explorer contain three tar format files. The first
+contains two install scripts (<TT>installdx</TT>,
+<TT>install_lsk</TT>) and a PostScript file documenting the Network
+Computing System (<TT>ncs_ps.Z</TT>). The second contains the Data Explorer
+installation tree which contains Data Explorer for all supported architectures.
+The third file contains NetLS license server installation kits for each
+supported architecture.
+<P>
+To install the license server, log in as root, insert the tape in the
+drive, and type:
+<PRE>
+cd /tmp
+tar xvf &lt;device&gt; install_lsk
+&#46;/install_lsk
+</PRE>
+<P>
+&lt;device&gt; is the appropriate tape device for the operating system
+from which you run <TT>install_lsk</TT>. Example HP-UX tape devices are:
+<PRE>
+/dev/rmt/0
+</PRE>
+<P>
+Please follow the instructions presented by <TT>install_lsk</TT>
+carefully. In
+particular, when asked to give the name of the tape device, be sure to
+give the name of the non-autorewinding tape drive, examples of which are
+provided by the script. Also, if at anytime during the tape installation
+you are asked to mount the next tape, just press the &lt;ENTER&gt; key
+to have the installation continue normally.
+<P>
+<H3><A NAME="HDRHPLICD" HREF="insgu032.htm#PToC_66">Installing a License Server
+for HP Workstation from CD-ROM</A></H3>
+<P>
+CD-ROM distributions of Data Explorer contain a mountable file system that
+includes the installation scripts (installdx.sh for Data Explorer and
+install_lsk.sh for the NetLS license server software), the software
+itself (in tar format) and documentation.
+<P>
+To install the license server, log in as root, insert the distribution
+media in the drive, and type:
+<PRE>
+mkdir /cdrom
+</PRE>
+<P>
+Mount the CD on /cdrom. Mount the disk by entering the following
+command:
+<PRE>
+mount -r -t cdfs &lt;CD-ROM-Device&gt; /cdrom
+</PRE>
+where &lt;CD-ROM-device&gt; is the actual name of the CD-ROM drive on
+your system. A typical name is <TT>/dev/dsk/2s0</TT>.
+<P>
+Type:
+<PRE>
+cd /cdrom
+&#46;/install_lsk.sh
+</PRE>
+<P>
+<P><B>Note: </B>On HP-UX systems, the file names will appear capitalized and
+include a version number (e.g. INSTALL_LSK.SH&#59;1). If this is the case,
+then you must enter:
+<PRE>
+'./INSTALL_LSK.SH&#59;1'
+</PRE>
+(including the single quotes) instead of <TT>./install_lsk</TT>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="insgu034.htm">Previous Page</A> &#124; <A HREF="insgu036.htm">Next
+Page</A> &#124; <A HREF="../insguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="insgu032.htm#PToC10">Partial Table of Contents</A> &#93;</B>
+<br><b>&#91;<a href="../allguide.htm">Data Explorer
+Documentation</a>&nbsp;&#124;&nbsp;<a href="../qikguide.htm">QuickStart
+Guide</a>&nbsp;&#124;&nbsp;<a href="../usrguide.htm">User&#39;s
+Guide</a>&nbsp;&#124;&nbsp;<a href="../refguide.htm">User&#39;s
+Reference</a>&nbsp;&#124;&nbsp;<a href="../proguide.htm">Programmer&#39;s
+Reference</a>&nbsp;&#124;&nbsp;<a href="../insguide.htm">Installation and
+Configuration Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

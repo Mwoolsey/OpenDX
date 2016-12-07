@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - GetLocal</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu066.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu068.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRGETLOC" ></A>GetLocal</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATFLOW">Flow Control</A>
+<A NAME="IDX526"></A>
+<A NAME="IDX527"></A>
+<A NAME="IDX528"></A>
+<A NAME="IDX529"></A>
+<A NAME="IDX530"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Retrieves an object from the cache. State is not maintained between
+executions of any macros containing GetLocal.
+<P><STRONG>Syntax</STRONG>
+<P>
+<TT><STRONG>object, link</STRONG></TT> = GetLocal(<TT><STRONG>object,
+reset</STRONG></TT>);
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">object to be output if nothing
+has been set
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>reset</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: the object cached by SetLocal
+(if there is one) is passed to output
+<BR>
+1: <TT><STRONG>object</STRONG></TT> (not the cached object) is passed to
+output.
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">retrieved object
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>link</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">link to corresponding SetLocal
+module
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+GetLocal works with SetLocal to place objects in and retrieve them
+from the cache. GetLocal differs from GetGlobal in that GetLocal and
+SetLocal are used when the state maintained by the Get/Set pair should be
+reset when a macro containing these modules is reexecuted. In contrast,
+GetGlobal and SetGlobal will maintain state when the macro is reexecuted.
+Note that for a single execution of a macro (for example, throughout
+the execution of an entire loop), state is of course maintained by both
+GetLocal and GetGlobal.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>object</STRONG></TT>
+</B></TD><TD><P>specifies the object to be output by GetLocal if nothing has
+been placed
+in the cache (e.g., as on the first execution of a visual program)
+or if <TT><STRONG>reset</STRONG></TT> = 1.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>reset</STRONG></TT>
+</B></TD><TD><P>causes the module to output <TT><STRONG>object</STRONG></TT>.
+If this parameter is set to 0 (zero), GetLocal retrieves the last object
+placed in the cache by SetLocal (if there is one).
+Otherwise, the module passes <TT><STRONG>object</STRONG></TT> to the output.
+</TD></TR></TABLE>
+<P>
+The <TT><STRONG>link</STRONG></TT> output is to be connected to the
+<TT><STRONG>link</STRONG></TT> input of the corresponding SetLocal
+module.
+GetLocal should always be used with
+SetLocal, not with SetGlobal. SetLocal must be executed on the same
+machine as GetLocal (i.e., it cannot be distributed to a different
+machine).
+<P>
+It is not necessary to use the First tool to provide input to the
+<TT><STRONG>reset</STRONG></TT> parameter of GetLocal inside a macro, since
+this is done automatically whenever the macro is reexecuted.
+<P>
+A detailed description of the behavior and use of the GetLocal,
+GetGlobal, SetLocal, and SetGlobal modules can be found in
+<A HREF="usrgu031.htm#HDRSTATES">4.6 , "Preserving Explicit State"</A> in <I>IBM
+Visualization Data Explorer User&#39;s Guide</I>.
+<P><STRONG>Example Visual Programs</STRONG>
+<P>
+<PRE>
+Accumulate.net
+Bounce.net
+SimpleGetSetLoop.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu050.htm#HDRODONE">Done</A>,
+&nbsp;<A HREF="refgu062.htm#HDROFIRST">First</A>,
+&nbsp;<A HREF="refgu136.htm#HDRSETLOC">SetLocal</A>,
+&nbsp;<A HREF="refgu066.htm#HDRGETGLO">GetGlobal</A>,
+&nbsp;<A HREF="refgu135.htm#HDRSETGLO">SetGlobal</A>,
+&nbsp;<A HREF="refgu121.htm#HDRRESET">Reset</A>
+<P>
+&nbsp;<A HREF="usrgu026.htm#HDRXMOD">Chapter 4. "Data Explorer Execution
+Model"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

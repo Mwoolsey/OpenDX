@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Data Prompter Browser</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu030.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu032.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu027.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>5.5 Data Prompter Browser</H2>
+		<A NAME="IDX376"></A>
+		<P>
+The Browser is a file-viewing tool to help you determine details of
+the layout and organization of a data file.
+Specifically, the Browser can measure offsets from a particular point
+(the top of a file, the beginning of a line, or a marker) and
+display the results in bytes and lines.
+These results can be copied and pasted (with standard Motif Copy/Paste
+operations) into the appropriate sections of the Data Prompter.
+<P>
+<H3><A NAME="HDRSTRTBRS" ></A>Starting the Browser
+</H3>
+<A NAME="IDX379"></A>
+<A NAME="IDX380"></A>
+<P>
+To browse a particular file:
+<OL>
+<P><LI>Enter the path name of the file in the <TT><STRONG>Data
+file</STRONG></TT>
+field of either the simplified or the full Data Prompter.
+<P>
+You can enter a name directly in the field or click on the ellipsis
+button (<TT><STRONG>...</STRONG></TT>) to the right and select a
+name from the <TT><STRONG>File Selection Dialog...</STRONG></TT>
+box.
+<P><LI>Click on the ellipsis button again and select
+<TT><STRONG>Browser...</STRONG></TT>.
+The File Browser window appears, displaying the selected file
+(<A HREF="#FIGDP6">Figure 18</A>).
+</OL>
+<A NAME="IDX381"></A>
+<P><B><A NAME="FIGDP6" HREF="../qikguide.htm#FT_FIGDP6">Figure 18. File Browser
+Window</A></B>. This window has just been opened and the cursor has not been
+moved from its initial position at the beginning of the file. No numbers will
+appear in the offset fields until the cursor is moved. The file displayed in the
+window is <TT>/usr/local/dx/samples/data/record_multiscalar</TT> (see Example 1 of
+<A HREF="qikgu028.htm#HDRMVARDAT">"Record Style: Multivariable Data"</A>).<BR>
+<B><BR><CENTER><IMG SRC="../images/brwswin.gif" ALT="Figure brwswin not
+displayed."></CENTER><BR></B><BR>
+The File Browser window consists of three areas:
+<UL COMPACT>
+<LI>The menu bar provides access to most of the Browser
+commands.
+<LI>The text window displays the contents of the selected
+data file.
+<LI>The offset area displays (in number of lines and bytes) the
+"distance" (or offset) between the cursor and a
+specified starting point.
+</UL>
+<P>
+<H3><A NAME="Header_181" ></A>Browser Menu Bar</H3>
+<A NAME="IDX382"></A>
+<A NAME="IDX383"></A>
+<P>
+<H4><A NAME="HDRBRFLEMN"></A><U>Browser File Menu</U></H4>
+<A NAME="IDX384"></A>
+<A NAME="IDX385"></A>
+<A NAME="IDX386"></A>
+<A NAME="IDX387"></A>
+<P>
+The single command in this menu is <TT><STRONG>Close</STRONG></TT>, which
+removes the Browser from the screen.
+<P>
+<H4><A NAME="HDRBRMRKMN"></A><U>Browser Mark Menu</U></H4>
+<A NAME="IDX388"></A>
+<A NAME="IDX389"></A>
+<A NAME="IDX390"></A>
+<A NAME="IDX391"></A>
+<P>
+The commands in this menu control the placement of a "mark" in
+the selected file.
+The numbers displayed in the offset area are useful in specifying
+offset values for <TT><STRONG>header</STRONG></TT> (see
+<A HREF="qikgu030.htm#SPTDPRHDR">Header</A>), <TT><STRONG>layout</STRONG></TT>
+(see <A HREF="qikgu030.htm#SPTDPRLAYT">Layout</A>), and
+<TT><STRONG>block</STRONG></TT> (see
+<A HREF="qikgu030.htm#SPTDPRBLOK">Block</A>)
+in the Data Prompter.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Place mark
+</B></TD><TD><P>Replaces the character to the right of the cursor with a solid
+diamond-shaped mark.
+It will remain in place until moved to another position (with a new
+Place Mark command) or removed altogether.
+Note that the Browser allows only one mark at any time.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Clear mark
+</B></TD><TD><P>Removes a mark from the file.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Goto mark
+</B></TD><TD><P>Causes the Browser to display the text associated with a mark
+(if it is not already displayed in the file window).
+</TD></TR></TABLE>
+<P>
+<H4><A NAME="HDRBRPGEMN"></A><U>Browser Page Menu</U></H4>
+<A NAME="IDX392"></A>
+<A NAME="IDX393"></A>
+<A NAME="IDX394"></A>
+<P>
+The two commands in this menu position the Browser at the beginning of
+the selected file (<TT><STRONG>First page</STRONG></TT>) or at the end of the
+file (<TT><STRONG>Last page</STRONG></TT>).
+<P>
+<H4><A NAME="HDRBRSRCMN"></A><U>Browser Search Menu</U></H4>
+<A NAME="IDX396"></A>
+<A NAME="IDX397"></A>
+<A NAME="IDX398"></A>
+<A NAME="IDX399"></A>
+<P>
+The single command in this menu is <TT><STRONG>Search...</STRONG></TT>,
+which displays a search dialog box.
+Any string or regular expression can be entered in the <TT><STRONG>Search
+for</STRONG></TT> field.
+The search begins at the current position of the cursor and proceeds
+forward (the <TT><STRONG>Find Next</STRONG></TT> button) or back
+(the <TT><STRONG>Find Previous</STRONG></TT> button).
+Searches "wrap around" in either direction.
+The <TT><STRONG>Close</STRONG></TT> button closes the dialog box.
+<A NAME="IDX400"></A>
+<P>
+<H3><A NAME="HDRBRSWIND" ></A>Browser Text Window
+</H3>
+<A NAME="IDX401"></A>
+<A NAME="IDX402"></A>
+<P>
+The File Browser window displays the contents of the file being
+browsed.
+The cursor can be positioned anywhere in the text (with the left mouse
+button).
+When the cursor is repositioned, the values in the offset area
+below the file window are updated.
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Browsing Large Data
+Files</TH><TR><TD>
+<A NAME="IDX403"></A>
+<A NAME="IDX404"></A>
+<P>
+If the file in the text window exceeds a certain size, the Browser
+displays it in "chunks," the scroll bar controlling only the
+current chunk.
+When the slider is moved to the bottom of the scroll bar, the
+Browser reads in the next chunk; to top of the scroll bar,
+the preceding chunk.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRBRSOFFA" ></A>Browser Offset Area
+</H3>
+<A NAME="IDX405"></A>
+<A NAME="IDX406"></A>
+<P>
+Five text fields at the bottom of the Browser display the "offsets"
+(in bytes and lines) from the top of the file or from a "mark"
+to the current position of the cursor.
+When the cursor is repositioned, the offset values are updated.
+<P>
+The text fields can be used to reposition the cursor anywhere in the
+file: enter a new value in a text field and press the
+Enter key.
+The cursor moves to the position specified by the new offset.
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Copying Offset Values to the
+Data Prompter</TH><TR><TD>
+<A NAME="IDX407"></A>
+<P>
+<OL COMPACT>
+<LI>Highlight an offset value by triple clicking on the value field
+or dragging the cursor over the value.
+<LI>Position the cursor in the target field in the Data Prompter and click
+once with the <I>middle</I>
+mouse button.
+The offset value appears in the target field.
+</OL>
+</TD></TR></TABLE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

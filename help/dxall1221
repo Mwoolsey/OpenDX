@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgaey DXGetArrayEntry, DXGetArrayEntries #!N #!N Function #!N #!N Return 
+a specified item or items from an Array. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Pointer DXGetArrayEntry(ArrayHandle handle, int offset, Pointer scratch) 
+void DXGetArrayEntries(ArrayHandle handle, int count, int *offsets, Pointer *entries, Pointer scratch) 
+#!EF #!N #!N Functional Details #!N #!N Given an  #!F-adobe-times-bold-r-normal--18*   offset 
+#!EF or list of  #!F-adobe-times-bold-r-normal--18*   *offsets #!EF into an Array, the 
+routine returns a pointer or pointers to the memory location(s) containing 
+the Array elements specified. (The Array is specified by the Array 
+handle  #!F-adobe-times-bold-r-normal--18*   handle #!EF , which must first be created by 
+ #!F-adobe-times-bold-r-normal--18*   DXCreateArrayHandle #!EF ). #!N #!N For  #!F-adobe-times-bold-r-normal--18*   DXGetArrayEntry #!EF : 
+The region of memory pointed to by  #!F-adobe-times-bold-r-normal--18*   scratch #!EF must 
+be large enough to hold a specified element. #!N #!N For 
+ #!F-adobe-times-bold-r-normal--18*   DXGetArrayEntries #!EF : The routine returns a list of pointers 
+in  #!F-adobe-times-bold-r-normal--18*   entries #!EF , which must be large enough to 
+hold  #!F-adobe-times-bold-r-normal--18*   count #!EF pointers. The parameter  #!F-adobe-times-bold-r-normal--18*   scratch #!EF must 
+be large enough to hold  #!F-adobe-times-bold-r-normal--18*   count #!EF items of the 
+Array. #!N #!N Return Value #!N #!N Return a pointer or 
+pointers to the specified entry or entries if the "offset" value(s) 
+are valid for the Array. If not, the results are undefined. 
+Note that you should use the return value of this function, 
+ #!F-adobe-times-medium-r-normal--18*   not #!EF _________  #!F-adobe-times-bold-r-normal--18*   scratch #!EF . #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  ,  #!Ldxfah,dxall1214 h DXFreeArrayHandle  #!EL  ,  #!Ldxgaey,dxall1221 h DXGetArrayEntry, DXGetArrayEntries  #!EL  ,  #!Ldxia,dxall1291 h DXIterateArray  #!EL  
+#!EF #!N #!N  #!Larhand,dxall1073 h Array Handling  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxgai,dxall1222 h DXGetArrayInfo  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rreadimw ReadImageWindow 
+#!N #!N Category #!N #!N  #!Lcatwin,dxall764 h Windows  #!EL  #!N #!N Function #!N #!N 
+Retrieves the contents of a window #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   image #!EF = ReadImageWindow(  #!F-adobe-times-bold-r-normal--18*   where #!EF 
+); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   
+#!N TAB Name TAB Type TAB Default TAB Description #!EF #!N 
+TAB where TAB window TAB none TAB window identifier #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB image TAB field TAB image found in window #!N TAB 
+- TAB - TAB #!EF #!N #!N Functional Details #!N #!N 
+ReadImageWindow retrieves the contents of a window. #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   where #!EF #!EF #!I50 #!N is the 
+window identifier, and should be the  #!F-adobe-times-bold-r-normal--18*   where #!EF output of 
+either Display or Image. #!I0 #!N #!N #!N #!N Note that 
+on some platforms, if you call ReadImageWindow on a window that 
+is partially obscured (by another window for example), some pixels may 
+be missing from the output  #!F-adobe-times-bold-r-normal--18*   image #!EF . #!N #!N 
+See Also #!N #!N  #!Ldisplay,dxall807 h Display  #!EL  ,  #!Limage,dxall860 h Image  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lreceive,dxall917 h Receiver  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

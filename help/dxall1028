@@ -1,0 +1,64 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Raddmodx Add Module Example--Add a Number to Every Data Value #!N 
+#!EC #!N #!N The Add module adds a number to every 
+data value in a Field. #!N Note: This example is for 
+illustration rather than "practice," since its function is already provided by 
+Compute (see  #!Lcompute,dxall795 h Compute  #!EL  in IBM Visualization Data Explorer User's Reference). #!N 
+#!N #!N The Add module takes two inputs: the first,  #!F-adobe-times-bold-r-normal--18*   
+data #!EF , is of type  #!F-adobe-times-bold-r-normal--18*   field #!EF and has 
+no default value; the second,  #!F-adobe-times-bold-r-normal--18*   addend #!EF , is of 
+type  #!F-adobe-times-bold-r-normal--18*   scalar #!EF , and has a default value of 
+zero (0). #!N #!N The Add module has one output:  #!F-adobe-times-bold-r-normal--18*   
+result #!EF , of type  #!F-adobe-times-bold-r-normal--18*   field #!EF . #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   (1) START THE MODULE BUILDER #!EF with the command: __________________________________ 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -builder #!EF #!N #!N #!EC 
+#!N #!N The Module Builder dialog box appears. Note that the 
+dialog box carries no information, since no module has been specified. 
+(For a simple example of creating a module with the Module 
+Builder, see  #!Ltmodbld,dxall1006 h Using the Module Builder: A Quick Walk Through  #!EL  ) #!N #!N  #!F-adobe-times-bold-r-normal--18*   (2) SELECT ___________  #!F-adobe-times-bold-r-normal--18*   
+OPEN #!EF #!EF from the _______________________  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu. 
+An  #!F-adobe-times-bold-r-normal--18*   Open a Module Builder file... #!EF dialog box appears. 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*   (3) READ IN #!EF /usr/lpp/dx/samples/program_guide/add.mb as follows: __________________ 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Type the 
+full path name in the  #!F-adobe-times-bold-r-normal--18*   Filter #!EF field of the 
+dialog box. #!N #!I30 #!N o Click on (in sequence): #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N - the  #!F-adobe-times-bold-r-normal--18*   Filter 
+#!EF button #!N #!I30 #!N - the name of the file 
+in the  #!F-adobe-times-bold-r-normal--18*   Files #!EF field #!N #!I30 #!N - the 
+ #!F-adobe-times-bold-r-normal--18*   OK #!EF button. #!N #!I0 #!N #!EF #!N Information describing 
+the inputs and output of the module (extracted from the add.mb 
+file) appears in the Module Builder dialog box. (Of course, if 
+you were creating this module from scratch, you would fill in 
+the information yourself.) #!N #!I0 #!N #!EF #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+(4) SAVE THE .MB FILE #!EF to a writable directory (use 
+___________________________  #!F-adobe-times-bold-r-normal--18*   Save As... #!EF in the  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down 
+menu). #!N #!N  #!F-adobe-times-bold-r-normal--18*   (5) SELECT #!EF ________________  #!F-adobe-times-bold-r-normal--18*   Create All 
+#!EF from the  #!F-adobe-times-bold-r-normal--18*   Build #!EF pull-down menu of the dialog 
+box. This option creates three files for the module: add.c, add.mdf, 
+and add.make. #!N #!N  #!F-adobe-times-bold-r-normal--18*   (6) IMPLEMENT THE ADD FUNCTION #!EF 
+. ____________________________________ #!N #!N Use an editor to add the following 
+lines after "User's code goes here," near the end of the 
+add.c file: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N int i; #!N float 
+value; #!N #!N /* first implement the default for addend of 
+0 */ #!N if (addend_knt == 0) #!N value = 0; 
+#!N else #!N value = *addend_data; #!N #!N /* add addend 
+to each value in the data field */ #!N for (i=0; 
+i < result_knt; i++) { #!N result_data[i] = data_data[i] + value; 
+#!N } #!N return 1; #!EF #!N #!N #!EC #!N #!N 
+The file /usr/lpp/dx/samples/program_guide/add.c contains a completed version of this program. #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   (7) TO CREATE A VERSION OF DATA EXPLORER THAT 
+INCLUDES #!EF the Add module, enter the command: ____________________________________________________________ #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N make -f add.make dxexec #!EF #!N #!N #!EC 
+#!N #!N (You have now created an executable that contains the 
+Add module.) #!N #!N  #!F-adobe-times-bold-r-normal--18*   (8) TO INVOKE THIS VERSION, ENTER: 
+#!EF _________________________________________ #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf ./add.mdf 
+-exec ./dxexec #!EF #!N #!N #!EC #!N #!N This command starts 
+Data Explorer (the  #!F-adobe-times-bold-r-normal--18*   add.mdf #!EF file tells the graphical user 
+interface about Add and its inputs and outputs). The executable dxexec 
+invoked here is the one created in Step 6. #!N #!N 
+ #!F-adobe-times-bold-r-normal--18*   (9) WITH THIS VERSION OF DATA EXPLORER #!EF you can 
+now run any visual program that uses the Add module. One 
+____________________________________________ such program is /usr/lpp/dx/samples/program_guide/add.net #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Laddtwo,dxall1029 h Add2 Module Example--Add Two Data Fields  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

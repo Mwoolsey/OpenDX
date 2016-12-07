@@ -1,0 +1,30 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgad 
+DXGetArrayData #!N #!N Function #!N #!N Returns a pointer to the 
+start of a global memory area containing the items constituting the 
+data stored in an Array. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> Pointer DXGetArrayData(Array a) #!EF #!N #!N Functional Details #!N #!N 
+For irregular Arrays, the pointer points to the actual data that 
+was stored in the Array; this data may be changed directly 
+to change the contents of the Array. For compact Arrays (regular, 
+grid, path, or mesh Arrays), this routine expands the compact data 
+and returns a pointer to the result; such data should not 
+be changed because changes to this data will not be reflected 
+in the original Array. The returned Array contains  #!F-adobe-times-medium-i-normal--18*   n #!EF 
+items numbered from  #!F-adobe-times-medium-i-normal--18*   0 #!EF to  #!F-adobe-times-medium-i-normal--18*   n-1 #!EF , 
+where  #!F-adobe-times-medium-i-normal--18*   n #!EF is the number of items in  #!F-adobe-times-bold-r-normal--18*   
+a #!EF .  #!F-adobe-times-bold-r-normal--18*   DXAddArrayData #!EF must be called before calling 
+ #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF ; otherwise, the values of items in an 
+irregular Array are undefined. #!N Note: To reduce memory requirements, it 
+is preferable, where possible, to recognize compact Arrays using  #!F-adobe-times-bold-r-normal--18*   DXGetArrayClass 
+#!EF , and not to expand them by calling  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData 
+#!EF . The Array handle routines may be used to access 
+arrays of any class without expansion. #!N #!N Memory pointed to 
+by the return from  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF should  #!F-adobe-times-medium-i-normal--18*   not #!EF 
+be freed by the user. #!N #!N #!N Return Value #!N 
+#!N Returns a pointer to the data or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and sets an error code. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  ,  #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  ,  #!Ldxgac,dxall1218 h DXGetArrayClass  #!EL  ,  #!Ldxgadl,dxall1220 h DXGetArrayDataLocal  #!EL  ,  #!Ldxnav,dxall1310 h DXNewArray, DXNewArrayV  #!EL  
+#!EF #!N  #!Larraysc,dxall1069 h Array Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxgadl,dxall1220 h DXGetArrayDataLocal  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

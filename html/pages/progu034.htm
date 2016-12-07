@@ -1,0 +1,630 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu033.htm">Previous Page</A> &#124; <A HREF="progu035.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu033.htm#PToC11">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRSHOWP" HREF="progu033.htm#PToC_70">9.2 ShowPick Module
+Example--Using Color to Show a Picked Object</A></H2>
+<A NAME="IDX265"></A>
+<A NAME="IDX266"></A>
+<A NAME="IDX267"></A>
+<P>
+<P>
+In the following example, the ShowPick module colors the entire object
+in white, except for the Field, element, or vertex containing the
+pick point(s).
+The color of the latter is specified by the user.
+<P>
+The module description file for ShowPick is:
+<PRE>
+MODULE ShowPick
+CATEGORY User
+DESCRIPTION sets a triangle in a picked Field to a particular color
+INPUT input; object; (none); object with picked points
+INPUT pickobject; field; (none); picking structure
+INPUT color; string; "red"; color to set
+INPUT colorwhich; integer; 0; color the element (0), vertex (1) or entire field (2)
+INPUT poke; integer; (all); poke selection
+INPUT pick; integer; (all); pick selection
+INPUT depth; integer; (bottom); selection depth
+OUTPUT output; object; object with picked structures marked using color
+</PRE>
+<P>
+As the <TT><STRONG>.mdf</STRONG></TT> file shows, the ShowPick module takes
+seven inputs and generates one output.
+To create a version of Data Explorer that includes this module, copy the
+following files to the directory where you want to work:
+<PRE>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/Makefile&#95;</STRONG><VAR>supported workstation model</VAR></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/showpick.c</STRONG></TT>
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide/showpick.mdf</STRONG></TT>
+</PRE>
+Now rename the makefile to <TT><STRONG>Makefile</STRONG></TT> and enter:
+<TT>make showpick</TT>.
+This command creates an executable that contains the ShowPick module.
+<P>
+To invoke this version (from the directory to which the files were
+copied), enter:
+<PRE>
+dx  -mdf ./showpick.mdf -exec ./dxexec
+</PRE>
+This command starts Data Explorer (the <TT><STRONG>showpick.mdf</STRONG></TT>
+file
+tells the graphical user interface about ShowPick
+and its inputs and outputs).
+With this version of Data Explorer you can now run any visual program  that
+uses the ShowPick module.
+One such program is <TT><STRONG>showpick.net</STRONG></TT> in the
+<TT><STRONG>/usr/local/dx/samples/program&#95;guide</STRONG></TT>
+directory.
+<PRE>
+01   #include &lt;dx/dx.h&gt;
+02   #include "pick.h"
+03
+04   static Error DoPick(Object, Object, RGBColor, int, int, int, int);
+05   static Error SetColor(Object, RGBColor);
+06
+07   Error m_ShowPick(Object *in, Object *out)
+08   {
+09     Object o = NULL, pickfield;
+10     char *colorstring;
+11     int colorwhich, poke, pick, depth;
+12     RGBColor color;
+</PRE>
+<P>&nbsp;
+<P>&nbsp;
+Copy the structure of <TT><STRONG>in&#91;0&#93;</STRONG></TT>,
+the object in which picking took place.
+<PRE>
+13     if (!in&#91;0&#93;) {
+14       DXSetError(ERROR_BAD_PARAMETER, "missing input");
+15       goto error;
+16     }
+17     o = (Object)DXCopy(in&#91;0&#93;, COPY_STRUCTURE);
+18     if (!o)
+19       goto error;
+</PRE>
+<P>
+First, set all the colors to white, to initialize.
+(The SetColor routine is defined below.)
+<PRE>
+20     if (!SetColor(o, DXRGB(1.0, 1.0, 1.0)))
+21       goto error;
+</PRE>
+<P>
+<TT><STRONG>in&#91;1&#93;</STRONG></TT> is the pick Field.
+If the pick Field is <TT><STRONG>NULL</STRONG></TT> or an empty Field,
+just return the copy of the object.
+<PRE>
+22     if (!in&#91;1&#93; || DXEmptyField(in&#91;1&#93;)) {
+23       out&#91;0&#93; = o;
+24       return OK;
+25     }
+26     pickfield = in&#91;1&#93;;
+</PRE>
+<P>
+Get the color that will be used for picked Objects, which is
+<TT><STRONG>in&#91;2&#93;</STRONG></TT>.
+<PRE>
+27     if (in&#91;2&#93;) {
+28       if (!DXExtractString((Object)in&#91;2&#93;, &colorstring)) {
+29         DXSetError(ERROR_BAD_PARAMETER,"color must be a string");
+30         goto error;
+31       }
+</PRE>
+<P>
+Convert the color name to an RGB vector.
+<PRE>
+32
+33       if (!DXColorNameToRGB(colorstring, &color))
+34         goto error;
+35     }
+36     else {
+</PRE>
+<P>
+If <TT><STRONG>in&#91;2&#93;</STRONG></TT> is not specified, then
+the default color is red.
+<PRE>
+37       color = DXRGB(1.0, 0.0, 0.0);
+38     }
+</PRE>
+<P>
+Determine if we are to color just the picked element, just the
+vertex closest to the picked point, or the entire Field.
+The default is to color just the picked element.
+<PRE>
+39     if (!in&#91;3&#93;) {
+40       colorwhich = 0;
+41     }
+42     else {
+43       if (!DXExtractInteger(in&#91;3&#93;, &colorwhich)) {
+44         DXSetError(ERROR_BAD_PARAMETER,"colorwhich flag must be 0, 1, or 2");
+45         goto error;
+46       }
+47       if ((colorwhich &lt; 0)&&(colorwhich &gt; 2)) {
+48         DXSetError(ERROR_BAD_PARAMETER,"colorwhich flag must be 0, 1, or 2");
+49         goto error;
+50       }
+51     }
+</PRE>
+<P>
+Determine if we are to select a particular poke, or all of them.
+The default is to select all of them.
+<PRE>
+52
+53     if (!in&#91;4&#93;) {
+54       poke = -1;
+55     }
+56     else {
+57       if (!DXExtractInteger(in&#91;4&#93;, &poke)) {
+58         DXSetError(ERROR_BAD_PARAMETER,"poke must be a nonnegative integer");
+59         goto error;
+60       }
+61       if (poke &lt; 0) {
+62         DXSetError(ERROR_BAD_PARAMETER,"poke must be a nonnegative integer");
+63         goto error;
+64       }
+65     }
+</PRE>
+<P>
+Determine if we are to select a particular pick, or all of them.
+The default is to select all of them.
+<PRE>
+66     if (!in&#91;5&#93;) {
+67       pick = -1;
+68     }
+69     else {
+70       if (!DXExtractInteger(in&#91;5&#93;, &pick)) {
+71         DXSetError(ERROR_BAD_PARAMETER,"pick must be a nonnegative integer");
+72         goto error;
+73       }
+74       if (pick &lt; 0) {
+75         DXSetError(ERROR_BAD_PARAMETER,"pick must be a nonnegative integer");
+76         goto error;
+77       }
+78     }
+</PRE>
+<P>
+Determine if we are to select a depth.
+The default is to select the deepest level.
+<PRE>
+79     if (!in&#91;6&#93;) {
+80       depth = -1;
+81     }
+82     else {
+83       if (!DXExtractInteger(in&#91;6&#93;, &depth)) {
+84         DXSetError(ERROR_BAD_PARAMETER,"depth must be a nonnegative integer");
+85         goto error;
+86       }
+87       if (depth &lt; 0) {
+88         DXSetError(ERROR_BAD_PARAMETER,"depth must be a nonnegative integer");
+89         goto error;
+90       }
+91     }
+</PRE>
+<P>
+Traverse the picked object, using the pick structure,
+passing the given parameters.
+<PRE>
+92     if (!DoPick(o, pickfield, color, colorwhich, poke, pick, depth))
+93       goto error;
+</PRE>
+<P>
+Delete the <TT><STRONG>opacities</STRONG></TT> component.
+<PRE>
+94     if (DXExists(o, "opacities"))
+95       DXRemove(o,"opacities");
+</PRE>
+<P>
+Successful return.
+<PRE>
+96     out&#91;0&#93; = o;
+97     return OK;
+</PRE>
+<P>
+Return on error.
+<PRE>
+98    error:
+99     DXDelete(o);
+100    return ERROR;
+101  }
+</PRE>
+<P>
+The <TT><STRONG>DoPick()</STRONG></TT> routine traverses the picked object.
+<PRE>
+102  static
+103    Error
+104    DoPick(Object o, Object pickfield, RGBColor color, int colorwhich,
+105       int pokes, int picks, int depth)
+106  {
+107    int pokecount, pickcount, poke, pick, i, pathlength;
+108    int vertexid, elementid, *path, numitems, index;
+109    Object current;
+110    Matrix matrix;
+111    Array a, newcolors=NULL, oldcolors;
+112    char *depatt;
+113    RGBColor *newcolors_ptr, oldcolor;
+114    int pokemin, pokemax;
+115    int pickmin, pickmax;
+116    int thisdepth;
+</PRE>
+<P>
+<TT><STRONG>pickfield</STRONG></TT> is expected to be a Field.
+<PRE>
+117    if (!(DXGetObjectClass(pickfield)==CLASS_FIELD)) {
+118      DXSetError(ERROR_INVALID_DATA,"pickfield must be a field");
+119      goto error;
+120    }
+</PRE>
+<P>
+Find out the number of pokes.
+<PRE>
+121    DXQueryPokeCount(pickfield, &pokecount);
+</PRE>
+<P>
+The user has chosen to mark all pokes.
+<PRE>
+122    if (pokes &lt; 0) {
+123      pokemin = 0, pokemax = pokecount-1;
+124    }
+</PRE>
+<P>
+The user has specified a poke larger than the number present.
+<PRE>
+125    else if (pokes &gt; pokecount-1) {
+126      DXSetError(ERROR_BAD_PARAMETER,
+127             "only %d pokes are present", pokecount);
+128      return ERROR;
+129    }
+</PRE>
+<P>
+Consider only the specified poke.
+<PRE>
+130    else
+131      pokemin = pokemax = pokes;
+</PRE>
+<P>
+For each poke...
+<PRE>
+132    for (poke=pokemin; poke&lt;=pokemax; poke++) {
+</PRE>
+<P>
+Find out how many picks there are in this poke.
+<PRE>
+133      if (!DXQueryPickCount(pickfield, poke, &pickcount))
+134        goto error;
+</PRE>
+<P>
+Issue warning if this particular poke does not contain as many picks
+as the user has specified.
+<PRE>
+135      if (picks &gt; pickcount-1) {
+136        DXWarning("poke %d contains only %d picks", poke, pickcount);
+137      }
+138
+139      else {
+140        if (picks &lt; 0) {
+141          pickmin = 0, pickmax = pickcount-1;
+142        }
+143        else {
+144          pickmin = pickmax = picks;
+145        }
+</PRE>
+<P>
+For each pick...
+<PRE>
+146
+147        for (pick=pickmin; pick&lt;=pickmax; pick++) {
+</PRE>
+<P>
+For the given <TT><STRONG>pickfield</STRONG></TT>, the current poke number,
+and the current pick number, get the traversal path
+<TT><STRONG>path</STRONG></TT>, the length of the
+traversal path
+<TT><STRONG>pathlength</STRONG></TT>,
+and the IDs of the picked element and the picked vertex.
+<PRE>
+148   DXQueryPickPath(pickfield, poke, pick, &pathlength, &path,
+149                   &elementid, &vertexid);
+</PRE>
+<P>
+Initialize <TT><STRONG>current</STRONG></TT> to the picked object, and
+<TT><STRONG>matrix</STRONG></TT> to the identity matrix.
+<PRE>
+150   current = o;
+151   matrix = Identity;
+152   if (depth != -1 && pathlength &gt; depth)
+153     thisdepth = depth;
+154   else
+155     thisdepth = pathlength;
+</PRE>
+<P>
+Iterate through the pick path.
+<PRE>
+156   for (i=0; i&lt;thisdepth; i++) {
+157     current = DXTraversePickPath(current, path&#91;i&#93;, &matrix);
+158     if (!current)
+159       goto error;
+160   }
+</PRE>
+<P>
+<TT><STRONG>current</STRONG></TT>
+is now the Field level of the picked Object, and we have
+the element and vertex IDs of the picked object.
+<PRE>
+161   if (colorwhich == 2 || DXGetObjectClass(current) != CLASS_FIELD) {
+</PRE>
+<P>
+We are simply to color the entire Field.
+<PRE>
+162     if (!SetColor(current, color))
+163       goto error;
+164   }
+165   else {
+</PRE>
+<P>
+Otherwise, we want to set the indicated element or vertex to
+the given color.  We start by making a new colors component
+(not compact), but only if the input colors component
+is still compact.  If it is already expanded, then
+modify it.
+<P>
+First, determine the dependency of the colors.
+<PRE>
+166     if (colorwhich == 0) {
+167          if (a = DXGetComponentValue(current, "connections")) {
+168              index = elementid;
+169              depatt = "connections";
+170          }
+171          else if (a = DXGetComponentValue(current, "faces")) {
+172              index = elementid;
+173              depatt = "faces";
+174          }
+175          else {
+176               a = DXGetComponentValue(current, "positions");
+177               index = vertexid;
+178               depatt = "positions";
+179          }
+180     }
+181     else {
+182       a = DXGetComponentValue(current, "positions");
+183       index = vertexid;
+184       depatt = "positions";
+185     }
+</PRE>
+<P>
+Determine the number of items.
+<PRE>
+186     if (!DXGetArrayInfo(a, &numitems,NULL,NULL,NULL,NULL))
+187       goto error;
+</PRE>
+<P>
+If the traversal index is greater than the number of items,
+something is wrong.
+<PRE>
+188        if (index &gt;= numitems) {
+189          DXSetError(ERROR_INVALID_DATA,
+190                  "pick structure does not correspond to picked object");
+191          goto error;
+192        }
+</PRE>
+<P>
+Get the original colors component.
+<PRE>
+193        oldcolors = DXGetComponentValue((Field)current, "colors");
+</PRE>
+<P>
+If it is a constant Array, we need to expand it so that we can
+set just one element or vertex to the given color.
+<PRE>
+194     if (DXQueryConstantArray(oldcolors, NULL, &oldcolor)) {
+</PRE>
+<P>
+Create a new colors Array and allocate space to it.
+<PRE>
+195       newcolors = DXNewArray(TYPE_FLOAT,CATEGORY_REAL, 1, 3);
+196       if (!DXAddArrayData(newcolors, 0, numitems, NULL))
+197         goto error;
+</PRE>
+<P>
+Start by setting all colors to the original constant color.
+<PRE>
+198       newcolors_ptr = (RGBColor *)DXGetArrayData(newcolors);
+199       for (i=0; i&lt;numitems; i++) {
+200         newcolors_ptr&#91;i&#93; = oldcolor;
+201       }
+</PRE>
+<P>
+Replace the colors in the Field with the new
+colors
+component.
+<PRE>
+202       if (!DXSetComponentValue((Field)current, "colors",
+203                        (Object)newcolors))
+204         goto error;
+205       newcolors=NULL;
+206
+207       DXSetComponentAttribute((Field)current, "colors", "dep",
+208                        (Object)DXNewString(depatt));
+209     }
+210
+211
+212     else {
+</PRE>
+<P>
+The colors are already expanded, presumably from an
+earlier pick in this Field.
+<PRE>
+213       newcolors_ptr = (RGBColor *)DXGetArrayData(oldcolors);
+214     }
+</PRE>
+<P>
+Set the correct triangle or position to the given color.
+<PRE>
+215     newcolors_ptr&#91;index&#93; = color;
+216    }
+217   }
+218  }
+219 }
+220
+221  return OK;
+222
+223   error:
+224    DXDelete((Object)newcolors);
+225    return ERROR;
+226  }
+</PRE>
+<P>
+This routine sets all colors
+in object <TT><STRONG>o</STRONG></TT>
+to the given color.
+<PRE>
+227  static Error SetColor(Object o, RGBColor color)
+228  {
+229    Object subo;
+230    Array a, newcolors=NULL;
+231    int numitems, i;
+232
+233
+234    switch (DXGetObjectClass(o)) {
+235
+236
+237    case (CLASS_GROUP):
+238
+</PRE>
+<P>
+If <TT><STRONG>o</STRONG></TT> is a
+Group, call <TT><STRONG>SetColor</STRONG></TT> recursively on its children.
+<PRE>
+239      for (i=0; subo = DXGetEnumeratedMember((Group)o, i, NULL); i++))
+240        SetColor(subo, color);
+241      break;
+242
+243
+244    case (CLASS_XFORM):
+</PRE>
+<P>
+If <TT><STRONG>o</STRONG></TT> is an Xform, call
+<TT><STRONG>SetColor</STRONG></TT> on its child.
+<PRE>
+245      DXGetXformInfo((Xform)o, &subo, NULL);
+246      SetColor(subo, color);
+247      break;
+248
+249
+250    case (CLASS_CLIPPED):
+</PRE>
+<P>
+If <TT><STRONG>o</STRONG></TT> is a Clipped object, call
+<TT><STRONG>SetColor</STRONG></TT> on its child.
+<PRE>
+251      DXGetClippedInfo((Clipped)o, &subo, NULL);
+252      SetColor(subo, color);
+253      break;
+254
+255
+256    case (CLASS_FIELD):
+</PRE>
+<P>
+If <TT><STRONG>o</STRONG></TT> is a Field,
+set the colors to the given color.
+<PRE>
+257      if (DXEmptyField((Field)o))
+258        return OK;
+</PRE>
+<P>
+The number of colors and the dependency of the colors will
+depend on whether connections are present.  If not,
+it is checked for the presence of faces. Otherwise, the
+colors will be dependent on positions.
+<PRE>
+259      if (a = DXGetComponentValue((Field)o, "connections")) {
+260        DXGetArrayInfo(a, &numitems, NULL, NULL, NULL, NULL);
+261        newcolors = (Array)DXNewConstantArray(numitems, &color,
+262                                TYPE_FLOAT,
+263                                CATEGORY_REAL, 1, 3);
+264        DXSetComponentValue((Field)o, "colors", (Object)newcolors);
+265        newcolors = NULL;
+266        DXSetComponentAttribute((Field)o,"colors", "dep",
+267                        (Object)DXNewString("connections"));
+268      }
+269      else if (a = DXGetComponentValue((Field)o, "faces")) {
+270        DXGetArrayInfo(a, &numitems, NULL, NULL, NULL, NULL);
+271        newcolors = (Array)DXNewConstantArray(numitems, &color,
+272                                TYPE_FLOAT,
+273                                CATEGORY_REAL, 1, 3);
+274        DXSetComponentValue((Field)o, "colors", (Object)newcolors);
+275        newcolors = NULL;
+276        DXSetComponentAttribute((Field)o,"colors", "dep",
+277                        (Object)DXNewString("faces"));
+278      }
+</PRE>
+<PRE>
+279      else {
+280        a = DXGetComponentValue((Field)o, "positions");
+281        DXGetArrayInfo(a, &numitems, NULL, NULL, NULL, NULL);
+282        newcolors = (Array)DXNewConstantArray(numitems, &color,
+283                                TYPE_FLOAT,
+284                                CATEGORY_REAL, 1, 3);
+285        DXSetComponentValue((Field)o, "colors", (Object)newcolors);
+286        newcolors = NULL;
+287        DXSetComponentAttribute((Field)o,"colors", "dep",
+288                        (Object)DXNewString("positions"));
+289      }
+290
+291      break;
+292    }
+293
+</PRE>
+<P>
+Successful return or return on error.
+<PRE>
+294
+295    return OK;
+296   error:
+297    DXDelete((Object)newcolors);
+298    return ERROR;
+299  }
+</PRE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu033.htm">Previous Page</A> &#124; <A HREF="progu035.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu033.htm#PToC11">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

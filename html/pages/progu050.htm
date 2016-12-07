@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu049.htm">Previous Page</A> &#124; <A HREF="progu051.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="Header_112" HREF="progu044.htm#PToC_112">12.7 Field
+Construction</A></H2>
+<A NAME="IDX613"></A>
+<A NAME="IDX615"></A>
+<P>
+This section describes routines that aid in the construction of fields.
+<P>
+<H3><A NAME="HDRPPOINTS" HREF="progu044.htm#PToC_113">Points and Dependent
+Data</A></H3>
+<P>
+<A NAME="IDX616"></A>
+<A NAME="IDX617"></A>
+<A NAME="IDX618"></A>
+<P>
+Some Field components are often in one-to-one correspondence with the
+"positions" component (e.g., "data," "colors,"
+"opacities," and surface "normals").
+(Alternatively, any of these components may be in one-to-one
+correspondence with the "connections" component.)
+If they are in one-to-one correspondence with positions (indicated by a
+"dep" attribute of "positions"), then they are also
+expected to be the same size as the positions component.
+The following routines aid in constructing such components.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field DXAddPoint()
+<BR>
+Field DXAddColor();
+<BR>
+Field DXAddFrontColor();
+<BR>
+Field DXAddBackColor();
+<BR>
+Field DXAddOpacity();
+<BR>
+Field DXAddNormal();
+<BR>
+</STRONG></TT>
+<A NAME="IDX619"></A>
+<A NAME="IDX620"></A>
+<A NAME="IDX621"></A>
+<A NAME="IDX622"></A>
+<A NAME="IDX623"></A>
+<A NAME="IDX624"></A>
+<A NAME="IDX625"></A>
+<A NAME="IDX626"></A>
+<A NAME="IDX627"></A>
+<A NAME="IDX628"></A>
+<A NAME="IDX629"></A>
+<A NAME="IDX630"></A>
+<A NAME="IDX631"></A>
+<A NAME="IDX632"></A>
+<TT><STRONG>
+<P>
+Field DXAddPoints();
+<BR>
+Field DXAddColors();
+<BR>
+Field DXAddFrontColors();
+<BR>
+Field DXAddBackColors();
+<BR>
+Field DXAddOpacities();
+<BR>
+Field DXAddNormals();
+</STRONG></TT>
+</B></TD><TD><P>Add points or point-dependent data to a Field.
+See  <A HREF="progu104.htm#HDRDXADDM">DXAddPoint, ...Color, ...FrontColor,
+...BackColor, ...Opacity, ...Normal,</A>.
+<A NAME="IDX633"></A>
+<A NAME="IDX634"></A>
+<A NAME="IDX635"></A>
+<A NAME="IDX636"></A>
+<A NAME="IDX637"></A>
+<A NAME="IDX638"></A>
+<A NAME="IDX639"></A>
+<A NAME="IDX640"></A>
+<A NAME="IDX641"></A>
+<A NAME="IDX642"></A>
+<A NAME="IDX643"></A>
+<A NAME="IDX644"></A>
+<A NAME="IDX645"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field DXAddFaceNormal()
+<BR>
+Field DXAddFaceNormals();</STRONG></TT>
+</B></TD><TD><P>Add connection-dependent normals to a Field.
+<A NAME="IDX646"></A>
+<A NAME="IDX647"></A>
+See  <A HREF="progu101.htm#HDRDXAFNS">DXAddFaceNormal, DXAddFaceNormals</A>.
+</TD></TR></TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<P>
+The fourteen routines listed above are all suitable for adding a small
+number of points or for rapid prototyping; but for better
+performance, see <TT><STRONG>DXAddArrayData()</STRONG></TT>
+in <A HREF="progu046.htm#HDRIRREG">"Irregular Arrays"</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRCNN" HREF="progu044.htm#PToC_114">Connections</A></H3>
+<A NAME="IDX648"></A>
+<A NAME="IDX649"></A>
+<A NAME="IDX650"></A>
+<P>
+The routines listed here define the interpolation elements of a Field,
+creating a "connections" component with an appropriate
+"element type" attribute.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field DXAddLine()
+<BR>
+Field DXAddTriangle();
+<BR>
+Field DXAddQuad();
+<BR>
+Field DXAddTetrahedron();
+</STRONG></TT>
+</B></TD><TD><P>Add a single interpolation element to a Field.
+See  <A HREF="progu102.htm#HDRDXALS">DXAddLine, ...Triangle, ...Quad,
+...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra</A>.
+<A NAME="IDX651"></A>
+<A NAME="IDX652"></A>
+<A NAME="IDX653"></A>
+<A NAME="IDX654"></A>
+<A NAME="IDX655"></A>
+<A NAME="IDX656"></A>
+<A NAME="IDX657"></A>
+<A NAME="IDX658"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field DXAddLines()
+<BR>
+Field DXAddTriangles();
+<BR>
+Field DXAddQuads();
+<BR>
+Field DXAddTetrahedra();
+</STRONG></TT>
+</B></TD><TD><P>Add interpolation element(s) to a Field.
+See  <A HREF="progu102.htm#HDRDXALS">DXAddLine, ...Triangle, ...Quad,
+...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra</A>.
+<A NAME="IDX659"></A>
+<A NAME="IDX660"></A>
+<A NAME="IDX661"></A>
+<A NAME="IDX662"></A>
+<A NAME="IDX663"></A>
+<A NAME="IDX664"></A>
+<A NAME="IDX665"></A>
+<A NAME="IDX666"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field
+DXSetConnections()</STRONG></TT>
+</B></TD><TD><P>Sets the "connections" component of a Field as a specified
+Array with a specified element type.
+See  <A HREF="progu308.htm#HDRDXSC">DXSetConnections</A>.
+<A NAME="IDX667"></A>
+<A NAME="IDX668"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXGetConnections()</STRONG></TT>
+</B></TD><TD><P>Gets the "connections" component of a Field and checks to
+see if it has a specified "element type" attribute.
+See  <A HREF="progu164.htm#HDRDXGC">DXGetConnections</A>.
+<A NAME="IDX669"></A>
+<A NAME="IDX670"></A>
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRSTDCS" HREF="progu044.htm#PToC_115">Standard Components</A></H3>
+<A NAME="IDX671"></A>
+<A NAME="IDX672"></A>
+<P>
+The following routines create and manipulate standard
+components of a Field.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field DXEndField()</STRONG></TT>
+</B></TD><TD><P>Creates the standard components that a Field is expected to
+contain
+if they do not already exist.
+See  <A HREF="progu136.htm#HDRDXENDF">DXEndField</A>.
+<A NAME="IDX673"></A>
+<A NAME="IDX674"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error
+DXEndObject()</STRONG></TT>
+</B></TD><TD><P>Creates the standard components that Fields are expected to
+contain,
+sharing the results when components are shared between Fields.
+See  <A HREF="progu137.htm#HDRDXEO">DXEndObject</A>.
+<A NAME="IDX675"></A>
+<A NAME="IDX676"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>int
+DXEmptyField()</STRONG></TT>
+</B></TD><TD><P>Determines whether a Field contains information.
+See  <A HREF="progu135.htm#HDRDXEMF">DXEmptyField</A>.
+<A NAME="IDX677"></A>
+<A NAME="IDX678"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Field
+DXChangedComponentValues()
+<BR>
+Field DXChangedComponentStructure();</STRONG></TT>
+</B></TD><TD><P>Both routines delete all components of a Field that are derived
+from a specified component.
+<TT><STRONG>DXChangedComponentStructure()</STRONG></TT> also deletes all
+Field components that are dependent on or refer to a specified
+component.
+See <A HREF="#SPTUN6">Note on Use</A>.
+See  <A HREF="progu113.htm#HDRDXCCVS">DXChangedComponentValues,
+DXChangedComponentStructure</A>.
+<A NAME="IDX679"></A>
+<A NAME="IDX680"></A>
+<A NAME="IDX681"></A>
+<A NAME="IDX682"></A>
+</TD></TR></TABLE>
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">Note on Use</TH><TR><TD>
+<A NAME="SPTUN6"></A>
+<A NAME="IDX683"></A>
+<P>
+This example illustrates one use of
+<TT><STRONG>DXChangedComponentValues()</STRONG></TT>:
+<PRE>
+    g = DXCopy(f, COPY&#95;STRUCTURE);
+    a = DXGetComponentValue(g, "positions");
+    b = ... modification of a ...
+    DXSetComponentValue(g, "positions", b);
+    DXChangedComponentValues(g, "positions");
+</PRE>
+</TD></TR></TABLE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXBoundingBox()</STRONG></TT>
+</B></TD><TD><P>Computes the bounding box of an Object.
+See  <A HREF="progu111.htm#HDRDXBB">DXBoundingBox</A>.
+<A NAME="IDX684"></A>
+<A NAME="IDX685"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Array
+DXNeighbors()</STRONG></TT>
+</B></TD><TD><P>Returns the neighbors Array of a Field.
+See  <A HREF="progu243.htm#HDRDXN">DXNeighbors</A>.
+<A NAME="IDX686"></A>
+<A NAME="IDX687"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error
+DXStatistics()</STRONG></TT>
+</B></TD><TD><P>Returns statistical information for an Object.
+See  <A HREF="progu331.htm#HDRDXS">DXStatistics</A>.
+<A NAME="IDX688"></A>
+<A NAME="IDX689"></A>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXValidPositionsBoundingBox()</STRONG></TT>
+</B></TD><TD><P>Computes the bounding box of the valid positions of
+an Object.
+See  <A HREF="progu341.htm#HDRDXVPBB">DXValidPositionsBoundaryBox</A>.
+<A NAME="IDX690"></A>
+<A NAME="IDX691"></A>
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu049.htm">Previous Page</A> &#124; <A HREF="progu051.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu044.htm#PToC14">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

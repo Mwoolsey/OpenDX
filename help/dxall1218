@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxgac DXGetArrayClass #!N #!N Function #!N #!N Returns the subclass of 
+an Array Object. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Class 
+DXGetArrayClass(Array a) #!EF #!N #!N Functional Details #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   
+CLASS_ARRAY #!EF if the Array  #!F-adobe-times-bold-r-normal--18*   a #!EF is irregular. Otherwise 
+returns one of  #!F-adobe-times-bold-r-normal--18*   CLASS_REGULARARRAY #!EF ,  #!F-adobe-times-bold-r-normal--18*   CLASS_PRODUCTARRAY #!EF , 
+ #!F-adobe-times-bold-r-normal--18*   CLASS_PATHARRAY #!EF ,  #!F-adobe-times-bold-r-normal--18*   CLASS_MESHARRAY, #!EF or  #!F-adobe-times-bold-r-normal--18*   CLASS_CONSTANTARRAY #!EF 
+. #!N #!N Return Value #!N #!N Returns the subclass of 
+an Array Object. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  
+,  #!Ldxgai,dxall1222 h DXGetArrayInfo  #!EL  #!EF #!N #!N  #!Larraysc,dxall1069 h Array Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

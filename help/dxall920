@@ -1,0 +1,66 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rregrid Regrid #!N #!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function 
+#!N #!N Maps scattered points onto a grid. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Regrid(  #!F-adobe-times-bold-r-normal--18*   
+input, grid, nearest, radius, exponent, missing #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB input TAB field 
+or vector list TAB none TAB field with positions to regrid 
+#!N TAB grid TAB field TAB none TAB grid to be 
+used as template #!N TAB nearest TAB integer or string TAB 
+1 TAB number of nearest neighbors to use #!N TAB radius 
+TAB scalar or string TAB "infinity" TAB radius from grid point 
+#!N TAB exponent TAB scalar TAB 1.0 TAB weighting exponent #!N 
+TAB missing TAB value TAB no default TAB missing value to 
+be inserted if #!N TAB - TAB - TAB - TAB 
+necessary #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB output TAB field TAB regridded field #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module uses a specified set of scattered points ( 
+ #!F-adobe-times-bold-r-normal--18*   input #!EF ) to assign data values to every position 
+of a specified grid. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N should be either (1) a 
+field with a 1-, 2-, or 3-dimensional "positions" component or (2) 
+a list of 1-, 2-, or 3-dimensional vectors. In the second 
+case, the vectors are interpreted as positions. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   grid #!EF #!EF #!I50 #!N is required. It specifies the 
+grid to be used as a base for creating a "connections" 
+component. The dimensionality of positions in this grid must match that 
+of the positions in  #!F-adobe-times-bold-r-normal--18*   input #!EF . The specified  #!F-adobe-times-bold-r-normal--18*   
+grid #!EF could be created with the Construct module. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   nearest #!EF #!EF #!I50 #!N must be an 
+integer or the string "infinity." An integer value specifies the number 
+of nearest points (to each grid point) to be used in 
+computing an average data value for that grid point. #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   radius #!EF #!EF #!I50 #!N specifies the maximum 
+radius (from the grid point) within which the nearest neighbors can 
+be found. The parameter must specify a scalar value or the 
+string "infinity." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   exponent #!EF #!EF #!I50 
+#!N The averaging method is a weighted average. The expression for 
+this average is 1/radius(  #!F-adobe-times-bold-r-normal--18*   (exponent) #!EF ) . The default 
+value is 1.0, reducing the expression to the reciprocal of the 
+radius. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   missing #!EF #!EF #!I50 #!N 
+is used when  #!F-adobe-times-bold-r-normal--18*   radius #!EF is set to a value 
+other than "infinity." The parameter specifies how to treat those grid 
+points for which no points in  #!F-adobe-times-bold-r-normal--18*   input #!EF occur within 
+the specified radius. #!N #!N If  #!F-adobe-times-bold-r-normal--18*   missing #!EF  #!F-adobe-times-medium-i-normal--18*   is 
+not set #!EF , the module creates an "invalid positions" component, 
+and grid points with no assigned data value are invalidated. If 
+ #!F-adobe-times-bold-r-normal--18*   missing #!EF is set, the data value is inserted for 
+the missing data values. It must match the data component of 
+ #!F-adobe-times-bold-r-normal--18*   input #!EF in rank, type, and shape. #!N #!N All 
+components that are position-dependent are treated in the same way as 
+the "data" component. #!I0 #!N #!N Note: To remove invalidated positions, 
+use the Include module. However, it is not necessary to remove 
+invalidated positions in order to have them treated as invalid by 
+other modules. #!N #!N Components #!N #!N Adds a "connections" component. 
+The "positions" and "connections" components are those of  #!F-adobe-times-bold-r-normal--18*   grid #!EF 
+while all components in  #!F-adobe-times-bold-r-normal--18*   input #!EF that depend on "positions" 
+will be present in the output, modified by averaging. #!N #!N 
+Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N SIMPLE/Regrid.net #!N 
+#!EF #!N #!N #!EC #!N #!N See Also #!N #!N  #!Lconnect,dxall797 h Connect  #!EL  
+,  #!Lconstru,dxall798 h Construct  #!EL  ,  #!Linclude,dxall873 h Include  #!EL  ,  #!Lautgrid,dxall778 h AutoGrid  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lremove,dxall921 h Remove  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

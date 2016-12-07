@@ -1,0 +1,47 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rreorent Reorient #!N #!N Category #!N 
+#!N  #!Lcatren,dxall760 h Rendering  #!EL  #!N #!N Function #!N #!N Changes the orientation of 
+an image or group of images. #!N #!N Syntax #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   image #!EF = Reorient(  #!F-adobe-times-bold-r-normal--18*   image, how 
+#!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description #!EF 
+#!N TAB image TAB field or group TAB none TAB image(s) 
+to be reoriented #!N TAB how TAB integer TAB none TAB 
+specific change of orientation #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB image TAB image TAB 
+reoriented image #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N This module rotates or inverts an image. 
+(Use Refine or Reduce to change the size of an image.) 
+Note: This module is intended for images that will be displayed 
+directly without rendering (i.e., using Display without a camera). So if 
+you are rendering an object (using Image, Display with a camera, 
+or Render), you should instead use Transpose, Rotate, Scale, and Translate 
+to reorient that object before rendering it. #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   image #!EF #!EF #!I50 #!N is an 
+image or group of images. An image is (1) a regular 
+2-dimensional field  #!F-adobe-times-medium-i-normal--18*   or #!EF the output of Render or ReadImage 
+and (2) must have the following characteristics. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o regular 2-dimensional positions and quad connections 
+#!N #!I30 #!N o position-dependent colors #!N #!I30 #!N o origin 
+at [0, 0]. #!N #!I0 #!N #!EF #!N #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   how #!EF #!EF #!I50 #!N specifies one of several 
+possible reorientations. Allowed values are 0-7 (see figure). #!I0 #!N #!N 
+#!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rfrornt117 #!N Graphics omitted from Online Documentation. Please 
+see the manual. #!N #!N Figure 117. Reorientation of the letter 
+F. #!EF #!N #!EC #!N #!N If  #!F-adobe-times-bold-r-normal--18*   how #!EF is 
+set to 0, the image's appearance does not change. However, if 
+the origin or deltas are not in the preferred image order 
+(i.e., origin at [0, 0] and x varying fastest), the internal 
+layout is altered to the preferred order. The result is a 
+more efficient display of the image. #!N #!N Thus Reorient can 
+be used to align images from two sources so that the 
+pixels are in one-to-one correspondence. A tool like Compute can then 
+operate on corresponding pixels from the two images. #!N #!N Components 
+#!N #!N Modifies the positions and connections components and reorders the 
+position-dependent components. #!N #!N Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N Topo.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Ldisplay,dxall807 h Display  #!EL  ,  #!Loverlay,dxall900 h Overlay  #!EL  ,  #!Lreadima,dxall915 h ReadImage  #!EL  ,  #!Lreduce,dxall918 h Reduce  #!EL  ,  #!Lrefine,dxall919 h Refine  #!EL  , 
+ #!Lrender,dxall923 h Render  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lreplace,dxall925 h Replace  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

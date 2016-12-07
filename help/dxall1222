@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgai DXGetArrayInfo #!N 
+#!N Function #!N #!N Returns the number of items, type, category, 
+rank, and shape of an Array. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Array DXGetArrayInfo(Array a, int *items, Type *type, Category *category, 
+int *rank, int *shape) #!EF #!N #!N Functional Details #!N #!N 
+If  #!F-adobe-times-bold-r-normal--18*   items #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , this 
+routine returns in  #!F-adobe-times-bold-r-normal--18*   *items #!EF the number of items currently 
+in the Array. If type is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , 
+it returns in  #!F-adobe-times-bold-r-normal--18*   *type #!EF the type of each item. 
+If  #!F-adobe-times-bold-r-normal--18*   category #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it 
+returns in  #!F-adobe-times-bold-r-normal--18*   *category #!EF the category of each item. If 
+ #!F-adobe-times-bold-r-normal--18*   rank #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns 
+in  #!F-adobe-times-bold-r-normal--18*   *rank #!EF the number of dimensions in each item. 
+If shape is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns in 
+ #!F-adobe-times-bold-r-normal--18*   *shape #!EF an Array of the extents of each dimension 
+of the items. #!N #!N The type is one of the 
+following: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N TYPE_BYTE TYPE_HYPER TYPE_SHORT #!N 
+TYPE_UBYTE TYPE_INT TYPE_USHORT #!N TYPE_DOUBLE TYPE_UINT TYPE_STRING #!N TYPE_FLOAT #!EF #!EF 
+#!N #!N #!EC #!N #!N The category is either  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL 
+#!EF or  #!F-adobe-times-bold-r-normal--18*   CATEGORY_COMPLEX #!EF . #!N #!N (For information on 
+rank and shape, see  #!Ldatmod,dxall197 h Understanding the Data Model  #!EL  in IBM Visualization Data Explorer User's 
+Guide.) #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF without setting an error code. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgac,dxall1218 h DXGetArrayClass  #!EL  ,  #!Ldxgis,dxall1245 h DXGetItemSize  #!EL  ,  #!Ldxtcv,dxall1402 h DXTypeCheck, DXTypeCheckV  #!EL  
+#!EF #!N #!N  #!Larraysc,dxall1069 h Array Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxga,dxall1223 h DXGetAttribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

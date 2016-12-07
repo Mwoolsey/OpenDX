@@ -1,0 +1,378 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Design for Interactive Use</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu063.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu065.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu062.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="Header_402" ></A>A.3 Design for Interactive Use
+</H2>
+		<A NAME="IDX961"></A>
+		<P>
+Data Explorer is first and foremost designed for interactive
+exploration using data as the raw material for creating,
+modifying, and understanding imagery.
+As such, the system is designed to permit operation at several
+different levels of expertise:
+"exploring", "authoring", and "programming."
+You can engage in exploring by opening previously created visual programs (e.g.,
+the visual programs provided with Data Explorer) and changing values of the
+Interactors
+found in Control Panels, changing values in the Image window
+controls, or by manipulating the Sequencer (if one is
+provided).
+You author a visual program when you place and interconnect additional modules
+on
+the VPE or reorganize connections between modules already present,
+or when you create a new visual program from scratch.
+At the advanced level, you can learn how to write and add your own
+custom modules to Data Explorer.
+This involves writing in a traditional programming language like C,
+taking advantage of a rich function library provided,
+compiling your new module, and running your customized
+version of Data Explorer.
+While it is nice to know you can do this, do not worry if you
+are not a programmer, because you may never find a need to
+write your own module considering how powerful the
+"stock" Data Explorer tool set is.
+<P>
+The next section addresses those who want to create new visual programs,
+So here are a few tips on design for interactive use.
+<P>
+<H3><A NAME="Header_403" ></A>Interactors and Control Panels
+</H3>
+<A NAME="IDX962"></A>
+<A NAME="IDX963"></A>
+<P>
+Interactors are special two-part modules.
+To incorporate an interactor into your visual program, you select the preferred
+type of interactor from the Interactor category, place it on the
+VPE <I>canvas</I> just like any other module, and
+connect it to the appropriate input tab or tabs on
+other modules.
+The interactor module that appears on the canvas is called a
+"stand-in."
+To use the interactor interactively, you also place an instance of the
+interactor in a Control Panel window.
+The interactor in the control panel represents the actual manipulator
+used by the user exploring the data.
+When a value is set by a user, it becomes the new output of the
+interactor stand-in and is thereby fed to the modules
+connected to the stand-in&#39;s output.
+Interactors have different appearances depending on its type;
+numeric (integer or scalar) interactors can be made to look like dials
+or sliders, while string interactors give you a place to type in
+a string.
+List interactors let you keep a list of items: there are lists of
+strings, vectors, values, integers, and scalars.
+<P>
+It is good "programming" practice to set interactor minima, maxima,
+and increments to reasonable values.
+For example, a Scale module will accept a value of 0.0, but the effect
+will be to make the scaled object disappear!
+That is usually not desirable; set the minimum permitted scale value to
+be a positive value greater than 0.0 if you do not want to confuse
+users of your visual program.
+<P>
+Some interactors can be used in a different mode than interactive:
+these are called <I>data-driven interactors</I>.
+Scalar, Integer, and Vector interactors, (and their respective List
+types) all have input tabs of their own.
+By default, all the numeric interactors have arbitrary ranges preset to
+&#45;1,000,000 to +1,000,000.
+Clearly, these will rarely be the appropriate ranges for your data.
+As part of good interactive visual program design, you, the visual program
+author, would
+like to restrict these ranges to the "correct" values for
+the input data sets.
+But if you are building a visual program for use by others, you won&#39;t know
+in
+advance the ranges of data sets the user will import.
+If you build your visual program such that the data Field (the output of Import,
+for example) connects to the input tab on one of these interactors,
+the correct maximum and minimum values will be automatically set
+the first time the visual program is executed, and they will be updated
+appropriately as the input data set changes.
+Thereafter, the user cannot accidentally exceed the range
+of values by turning a dial or sliding a slider too far in one
+direction or the other.
+<P>
+Data-driven interactors can be directly driven by Compute functions that
+might in turn be connected to a Sequencer or other data Fields or data
+components in a Field.
+As just a simple example, a Sequencer could emit a series of integers
+from 0 to 360;
+a Compute can turn the integers into floating-point angles in the range
+from 0.0 to 1.0 then make this new number the first component of a
+3-vector ("&#91;a/360.0, 1.0, 1.0&#93;"); then Convert can
+change this HSV vector into RGB.
+Connect the output of Convert to a Vector Interactor and feed the
+interactor output to Color.
+The result is that the Sequencer will make the color of an object
+attached to this Color module pass through the entire spectrum
+of hues;
+simultaneously, you can watch the RGB values change on the Vector
+interactor in the Control Panel.
+<P>
+You can have as many Control Panels associated with a visual program as you
+like.
+Furthermore, a handy feature is that the same "stand-in" (the
+Interactor module that appears in the visual program) can have multiple
+interactor instances associated with it.
+This means you can have both simple Control Panels and elaborate Control
+Panels with commonly needed interactors appearing in both.
+When you do set things up like this, you will notice that the multiple
+instances of the interactors will always maintain the same value:
+as you change the value in one Control Panel(s), the associated
+interactor(s) in the other Control Panel will stay in
+perfect agreement.
+<P>
+Control Panels can be named and accessed by name.
+This allows you to set up hierarchies or even rings of Control
+Panels.
+You might choose to make a simple panel with only the most commonly used
+interactors, then create additional panels with less-used interactors.
+The main panel can then be set up to access the subpanels by name, using
+the Control Panel&#39;s <TT><STRONG>Panels</STRONG></TT> menu.
+Select <TT><STRONG>Open Control Panel by Name</STRONG></TT> to see the list of
+other
+Control Panels accessible by the current panel.
+<P>
+It is very important to create sensible labels for the interactors in
+your Control Panels.
+Data Explorer will automatically assign a name to a new interactor that reflects
+the name of the module and input to which you have attached the
+interactor stand-in in the visual program.
+However, this name tends to be too generic, especially if you have
+several interactors connected to several similar modules.
+For example, you connect a Scalar Interactor to the "value" input
+of an Isosurface module.
+The interactor label in your control panel will acquire the title
+<TT><STRONG>Isosurface value</STRONG></TT>.
+But if you also place another Scalar connected to a different
+Isosurface, you will end up with two interactors with
+identical names.
+So it is incumbent upon you, the visual program author, to change the names of
+your interactors to reflect their function in your visual program.
+See <A HREF="usrgu043.htm#HDRBUICO">7.1 , "Using Control Panels and
+Interactors"</A> and <A HREF="usrgu043.htm#HDRINTERAC">"Using Interactors"</A>
+for the instructions
+on using Control Panels and Interactors.
+<P>
+A very handy interactor is the Selector.
+This interactor lets you construct a pop-up menu containing one or
+more string items each associated with a value, either a scalar
+(including integer scalar), vector or a string.
+Selector has two outputs, the value and the string you have
+entered.
+This allows you to present a menu that describes clearly what choices
+the user has, and when the user picks an item, Selector outputs both
+the value (through its left-hand output tab) and the string choice
+(through the right-hand output tab).
+The right-hand output can be attached to modules that accept string
+input.
+Remember Format?
+You can use this technique to change a caption depending on the
+user&#39;s current Selector choice.
+<P>
+If you use integers as the "values" in your Selector, the left-hand
+output will be the currently selected integer.
+You can direct this numeric output of Selector to any module that takes
+an integer;
+a common use is to connect the integer output of Selector to a Switch
+module.
+<P>
+The Switch module (in the Structuring category) uses a number to pick
+which of several inputs to pass to its output.
+Suppose you have connected an Isosurface to the first "input"
+(the second tab) of Switch and a ShowConnections to the second
+"input" (third tab).
+You have also constructed a Selector menu to offer the three choices:
+0 = Both off; 1 = Show Isosurface; and 2 = Show Connections.
+The left-hand output of Selector is connected to the first tab (the
+"selector") of Switch.
+Now when the user chooses item 1 on the menu in the Selector interactor
+(located on a control panel, of course), the number 1 is emitted and
+received by Switch.
+Switch then lets the isosurface pass through.
+One more trick: you may want to allow both the Isosurface and the
+ShowConnections images to appear at the same time.
+Use a Collect module just before the Switch.
+Attach the Isosurface output both to Switch input 1, and to Collect;
+similarly, attach the ShowConnections output to Switch input 2 and to
+the Collect.
+Now add a fourth choice to the Selector menu: 3 = Show both.
+Attach the output of Collect to "input" 3 of Switch, and you have
+provided this new capability to the user.
+By the way, the value "0" will always turn off all output from the
+Switch; you do not need to provide a "0" valued choice if that
+is not appropriate;
+in other words, if you always want Switch to pass at least one item.
+<P>
+The default settings for Selector are 0 = off, 1 = on.
+You may find this handy as you begin to develop more complicated visual programs
+containing a number of objects in the Image window.
+As you develop each "subnet" (that is, a branch of the visual program that
+yields a particular visual object), attach it to a Switch and add
+an on-off Selector.
+Change the label of the Selector interactor in the Control Panel to
+identify the object it controls.
+Run the output of each Switch to a Collect (add inputs to Collect as
+needed), then to Image.
+This way, you have a whole panel of Switches, allowing you to turn off
+and on each object in the scene.
+This will decrease the amount of time you wait for all objects to be
+rendered if you know that certain ones are OK but wish to test
+new ones in the scene.
+This technique is easier than connecting and breaking wires, too.
+<P>
+<H3><A NAME="Header_404" ></A>Transmitters and Receivers
+</H3>
+<A NAME="IDX964"></A>
+<A NAME="IDX965"></A>
+<P>
+In the Special category, there are two modules, Transmitter and
+Receiver, that should be used in larger visual programs.
+Each Transmitter can "broadcast" to any number of identically
+named Receivers.
+The name you choose for the Transmitter is analogous to a radio
+station&#39;s broadcast frequency.
+Receivers with the identical name are like radios tuned to that
+channel.
+Like radios, more than one Receiver can receive from a single
+Transmitter; more than one
+Transmitter can broadcast, each on a different frequency, requiring
+differently named ("tuned") Receivers.
+This means you reduce the clutter of wires looping all over the screen
+in the VPE.
+But the real advantage of Transmitters and Receivers is that you, the
+visual program author, can provide meaningful names that then appear on
+the modules in the visual program.
+This is a handy way to provide some visual documentation of the way
+the visual program is wired.
+<P>
+Although you can add Transmitters and Receivers to your net at any time,
+and do not have to add them in pairs, you will find it is easier to
+add one or more Receivers to a net right after you place and
+name the corresponding Transmitter because Data Explorer
+automatically gives Receivers the same name as
+the most recently placed Transmitter.
+However, if you decide to add a Receiver later, just be sure to
+double-click the Receiver module and set its name to the name
+of the Transmitter you wish it to receive from.
+Changing the name of any Transmitter will automatically change the names
+of all associated Receivers, but changing the name of a Receiver
+affects only that specific module.
+<P>
+A good way to use Transmitters is to broadcast "global variables",
+to use the terminology of traditional programming.
+For example, you are allowed only one Sequencer per visual program, but, as
+discussed earlier, the output of Sequencer may be used by many
+"subnets" to perform various functions.
+You may find it most convenient to place the Sequencer connected to a
+Transmitter you name "sequencer" near the top of your visual program
+(the lowercase "s" helps remind you of the function of
+this Transmitter, but you may use any name you like).
+Then, wherever in the net that you need to receive the current value of
+the Sequencer, attach a Receiver named "sequencer."
+<P>
+Another global that you may want available is the path name of your
+current work directory.
+Attach a String Interactor to a Transmitter.
+Then pick up this "channel" with Receivers throughout the visual program,
+for instance, as an input to a Format module (the Format template
+must include a "%s" as a place-holder for a string input).
+You will find this especially convenient when you give your visual program to a
+colleague who will naturally place the visual program and data files in a
+differently named subdirectory on your colleague&#39;s
+workstation.
+By simply changing the name in the Interactor to identify the name of
+the work directory on the new machine, the visual program will be back in
+business.
+If you had "hard-coded" the name of the path into several modules
+on your visual program, the new user would have to hunt down all these
+references and do a lot of extra typing.
+<P>
+<H3><A NAME="Header_405" ></A>Documentation</H3>
+<P>
+When you author a visual program or create a macro (a special kind of visual
+program,
+discussed in <A HREF="usrgu044.htm#HDRCREMAC">"Creating Macros"</A>), you should
+describe its
+function using the Comment capability (found on the
+<TT><STRONG>Edit</STRONG></TT> menu in the VPE).
+This Comment will be viewable by other users (or yourself) when they
+run your visual program and choose the Help menu item <TT><STRONG>Application
+Comment</STRONG></TT>.
+<P>
+Another brief kind of documentation is available in
+each module.
+Double-click a module, and its default name is shown in the
+"Notation" box at the top of the module description
+dialog box.
+You can add to or change this notation.
+This is particularly helpful in Compute modules to describe the meaning
+of the expression, for example, "square root of pressure per cubic
+inch."
+And any time you do something "tricky" with a module, enter a note
+to yourself in the Notation box for later reference.
+<P>
+Compute also offers a useful way to document the terms of an
+expression.
+Each input to Compute can be given a meaningful name (the default names
+are simply a and b).
+If you like, you can change the input letter names to words, like
+"pressure" and "scale", then use an expression like
+<TT>sqrt(pressure / scale) * 0.5</TT>.
+You may add more inputs to Compute by simply pressing
+<TT><STRONG>Ctrl+A</STRONG></TT>
+when you have selected the Compute module.
+
+		<P>
+You can also add annotation text directly to the canvas using the
+<TT><STRONG>Add Annotation</STRONG></TT> option of the Edit menu of the VPE
+(see <A HREF="usrgu041.htm#HDRVPEANOT">"Adding Annotation to a Visual
+Program"</A>).
+And you can segment your visual program with pages (see
+<A HREF="usrgu041.htm#HDRVPEPAGE">"Creating pages in the VPE"</A>).
+
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

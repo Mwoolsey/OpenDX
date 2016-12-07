@@ -1,0 +1,81 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall634 Example 
+10. Faces, Loops, and Edges with a Hole #!N #!EC #!Cbrown 
+#!N  #!F-adobe-times-medium-r-normal--18*    #!Rfledge112 #!N Graphics omitted from Online Documentation. Please see 
+the manual. #!N #!N Figure 112. Example of Faces, Loops, and 
+Edges with a Hole #!EF #!N #!EC #!N #!N The following 
+data file is identical to the previous data file except that 
+the third polygon has a square hole in it. The resulting 
+connections are illustrated in  #!Lfledge112,dxall635 f Figure 112  #!EL  . #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+# #!N # Example of faces, loops and edges components. The 
+third face has a #!N # square hole in it. #!N 
+# #!N # #!N # Positions array. These are a list 
+of all the vertices of the object; #!N # no particular 
+order is required here. #!N # #!N object "position list" class 
+array type float rank 1 shape 2 items 15 #!N data 
+follows #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!T,16,104,190 #!N 
+TAB 0.133985 TAB 0.812452 TAB # point number 0 #!N TAB 
+0.375019 TAB 0.896258 TAB # point number 1 #!N TAB 0.532733 
+TAB 0.76484 TAB # point number 2 #!N TAB 0.523806 TAB 
+0.404777 TAB # point number 3 #!N TAB 0.300626 TAB 0.327407 
+TAB # point number 4 #!N TAB 0.145888 TAB 0.508927 TAB 
+# point number 5 #!N TAB 0.68152 TAB 0.851137 TAB # 
+point number 6 #!N TAB 0.815428 TAB 0.758889 TAB # point 
+number 7 #!N TAB 0.94636 TAB 0.592248 TAB # point number 
+8 #!N TAB 0.729132 TAB 0.416679 TAB # point number 9 
+#!N TAB 0.535709 TAB 0.190524 TAB # point number 10 #!N 
+TAB 0.600000 TAB 0.700000 TAB # point number 11 #!N TAB 
+0.700000 TAB 0.700000 TAB # point number 12 #!N TAB 0.700000 
+TAB 0.600000 TAB # point number 13 #!N TAB 0.600000 TAB 
+0.600000 TAB # point number 14 #!EF #!N #!N #!EC #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # #!N # Edges array. This is 
+a list of connected points, by point number. All #!N # 
+the edges associated with a particular face need to be listed 
+together. #!N # If points 10, 3 and 7 make a 
+triangle, the list is "10 3 7" and the 10 #!N 
+# is not repeated. Following a polygon, the front of the 
+polygon is #!N # determined by the right-hand rule. #!N object 
+"edge list" class array type int rank 0 items 25 data 
+follows #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!T,16,51,86,242 #!N 
+TAB 1 TAB 2 TAB 6 TAB # edge point index 
+0 #!T,16,51,86,121,156,190,242 #!N TAB 0 TAB 5 TAB 4 TAB 3 
+TAB 2 TAB 1 TAB # edge point index 3 #!N 
+TAB 2 TAB 3 TAB 9 TAB 8 TAB 7 TAB 
+6 TAB # edge point index 9 #!T,16,51,86,121,242 #!N TAB 11 
+TAB 12 TAB 13 TAB 14 TAB # edge point index 
+15 (hole in third face) #!T,16,51,86,242 #!N TAB 3 TAB 10 
+TAB 9 TAB # edge point index 19 #!N TAB 3 
+TAB 4 TAB 10 TAB # edge point index 22 #!N 
+attribute "ref" string "positions" #!EF #!N #!N #!EC #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N # #!N # Loops array. This is a list 
+of connected edges, by edge number. Each #!N # number is 
+the edge index of where the next loop starts. #!N object 
+"loop list" class array type int rank 0 items 6 data 
+follows #!T,26,61 #!N TAB 0 TAB # loop index 0 #!N 
+TAB 3 TAB # 1 #!N TAB 9 TAB # 2 
+#!N TAB 15 TAB # 3 #!N TAB 19 TAB # 
+4 #!N TAB 22 TAB # 5 #!N attribute "ref" string 
+"edges" #!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # 
+#!N # Faces array. This is list of which loops make 
+faces. If there are #!N # no holes in the faces, 
+this is list of all loops. If two or more #!N 
+# loops actually describe the outside edges and inside hole edges 
+of #!N # a face, then this list contains the starting 
+loop numbers of the #!N # list of loops making up 
+a face. #!N # #!N object "face list" class array type 
+int rank 0 items 5 data follows #!N 0 #!N 1 
+#!N 2 #!N 4 #!N 5 #!N attribute "ref" string "loops" 
+#!EF #!N #!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # #!N 
+# data array. Dependent on faces. #!N # #!N object "data" 
+class array type float rank 0 items 5 data follows #!T,16,51,86,121,156 
+#!N TAB 0 TAB 2.5 TAB 1.2 TAB 0.4 TAB 1.8 
+#!N attribute "dep" string "faces" #!EF #!N #!N #!EC #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N # #!N # #!N # Field definition to 
+put the arrays together. #!N # #!N object "map with hole" 
+class field #!T,34,190 #!N TAB component "positions" TAB "position list" #!N 
+TAB component "edges" TAB "edge list" #!N TAB component "loops" TAB 
+"loop list" #!N TAB component "faces" TAB "face list" #!N TAB 
+component "data" TAB "data" #!N end #!EF #!N #!N #!EC #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall635,dxall636 h Example 11. Three-dimensional Faces, Loops, and Edges  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

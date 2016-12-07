@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen 
+#!N  #!Rall118 Example 4. Naming a Field #!N #!EC #!N #!N 
+By default, the Data Prompter names data fields in numerical order: 
+field0, field1, and so on. But a data field can be 
+named with a  #!F-adobe-times-bold-r-normal--18*   field #!EF keyword statement. #!N #!N Once 
+the data are imported into Data Explorer, you can, for example, 
+extract the name (using the Attribute module) and include it in 
+a caption (using the Caption module). So if there are two 
+types of data (e.g., temperature and pressure), each can be automatically 
+and appropriately labeled with an identifying name, thereby "tagging" the associated 
+data for future reference. As a result, it is also possible 
+to import a field  #!F-adobe-times-medium-i-normal--18*   by name #!EF when there is 
+more than one field. #!N #!N For this example suppose that 
+the data in Example 1 are temperature values (see  #!Lex1a,dxall116 s To save the header file  #!EL  ). 
+#!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Open the 
+record_scalar header file, as in Example 2. #!N #!I30 #!N 2. 
+In the right-hand panel of the prompter, change  #!F-adobe-times-bold-r-normal--18*   Field name 
+#!EF from "Field0" to "Temperature." To confirm this change, click on 
+ #!F-adobe-times-bold-r-normal--18*   Modify #!EF at the bottom of the dialog box (note 
+the instruction there). #!N #!I30 #!N 3. Repeat Example 1, Step 
+10 (see  #!Lex1a,dxall116 s To save the header file  #!EL  ), to save the header file, which should 
+look like: #!N #!I0 #!N #!EF #!N #!N #!N #!CForestGreen #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N file = /usr/lpp/dx/samples/data/record_scalar #!N grid = 5 x 8 
+x 6 #!N format = text #!N interleaving = record #!N 
+majority = row #!N field = Temperature #!N structure = scalar 
+#!N type = float #!N dependency = positions #!N positions = 
+regular, regular, regular, 1, .5, 3, 1.0, 2.0, .75 #!N #!N 
+end #!EF #!N #!N #!EC #!N #!N Note the change in 
+the  #!F-adobe-times-bold-r-normal--18*   field #!EF keyword statement (line 6). #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldgrdinf,dxall120 h Example 5. Deriving Grid Information from a Data File  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

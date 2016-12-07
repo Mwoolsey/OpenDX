@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxblm 
+DXBeginLongMessage, DXEndLongMessage #!N #!N Function #!N #!N Enables multiple  #!F-adobe-times-bold-r-normal--18*   DXMessage 
+#!EF calls to create a single long message. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> void DXBeginLongMessage() void DXEndLongMessage() #!EF #!N #!N 
+Functional Details #!N #!N The  #!F-adobe-times-bold-r-normal--18*   DXMessage #!EF routine is suitable 
+for relatively short, unformatted messages. For long, multiple-line messages, you may 
+enclose a series of calls to  #!F-adobe-times-bold-r-normal--18*   DXMessage #!EF between  #!F-adobe-times-bold-r-normal--18*   
+DXBeginLongMessage #!EF and  #!F-adobe-times-bold-r-normal--18*   DXEndLongMessage #!EF . In this case, new 
+lines are not automatically appended to each message, and it is 
+your responsibility to indicate appropriate line breaks by including newline characters 
+in the various  #!F-adobe-times-bold-r-normal--18*   DXMessage #!EF calls. For example, multiple calls 
+to  #!F-adobe-times-bold-r-normal--18*   DXMessage #!EF may be printed on the same line, 
+or one call to  #!F-adobe-times-bold-r-normal--18*   DXMessage #!EF may contain multiple lines. 
+#!N #!N Return Value #!N #!N None. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxmess,dxall1307 h DXMessage  #!EL  #!EF #!N #!N  #!Lerrsec,dxall1094 h Error Handling and Messages  #!EL  . #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxbb,dxall1176 h DXBoundingBox  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

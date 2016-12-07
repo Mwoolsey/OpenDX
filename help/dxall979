@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rverify Verify #!N #!N Category #!N #!N 
+ #!Lcatdbg,dxall754 h Debugging  #!EL  #!N #!N Function #!N #!N Checks an object for internal 
+consistency. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output 
+#!EF = Verify(  #!F-adobe-times-bold-r-normal--18*   input, how #!EF ); #!EF #!N #!N 
+#!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Default TAB Description #!EF #!N TAB input TAB object 
+TAB none TAB object to be checked #!N TAB how TAB 
+string TAB no default TAB level of verification #!N TAB - 
+TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*   
+ #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N TAB 
+output TAB object TAB same object #!N TAB - TAB - 
+TAB #!EF #!N #!N Functional Details #!N #!N The Verify module 
+checks an object  #!F-adobe-times-bold-r-normal--18*   input #!EF for internal consistency. #!N #!I0 
+#!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o For Fields and Groups, 
+it checks that each component is an array. #!N #!I30 #!N 
+o If there are connections, it checks that there are also 
+positions. #!N #!I30 #!N o It checks that the positions, if 
+any, are type float, category real, and rank 1. #!N #!I30 
+#!N o It checks that the connections, if any, are type 
+integer, category real, rank 1, and that they possess an "element 
+type" attribute. #!N #!I30 #!N o For the various element types, 
+it checks that the shape of the connections array is consistent. 
+#!N #!I30 #!N o It checks that the ordering of points 
+in triangles or tetrahedra is consistent. #!N #!I30 #!N o For 
+each component in each field, it checks that components that depend 
+on another component have the same number of items as the 
+other component, and that components that reference another component only reference 
+items that exist in the other component. #!N #!I0 #!N #!EF 
+#!N #!N #!N The  #!F-adobe-times-bold-r-normal--18*   how #!EF parameter is currently not 
+used. #!N #!N Example Visual Program #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+SIMPLE/Verify.net #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lvisuobj,dxall980 h VisualObject  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

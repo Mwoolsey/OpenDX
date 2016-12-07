@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rclo 
+...as an outboard module #!N #!N #!N Copy the following files 
+to the directory you want to work in: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/Makefile_ #!EF  #!F-adobe-times-bold-i-normal--18*   workstation #!EF #!N  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/hello.c 
+#!EF #!N  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide/hello_outboard.mdf #!EF #!EF #!N #!N #!EC Now rename 
+the makefile to  #!F-adobe-times-bold-r-normal--18*   Makefile #!EF (the name of the default 
+makefile) and enter: make hello_outboard. This command creates the executable  #!F-adobe-times-bold-r-normal--18*   
+hello_outboard #!EF . #!N #!N To invoke the executable (from the 
+directory to which the files were copied), enter: #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf ./hello_outboard.mdf #!EF #!N #!N #!EC This 
+command starts Data Explorer (the  #!F-adobe-times-bold-r-normal--18*   hello_outboard.mdf #!EF file tells the 
+graphical user interface about Hello and its inputs and outputs). #!N 
+#!N You can now run any visual program that uses the 
+Hello module. One such program is  #!F-adobe-times-bold-r-normal--18*   hello.net #!EF in the 
+directory  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/program_guide #!EF . Note: The mdf file of the 
+outboard module contains one additional statement,  #!F-adobe-times-bold-r-normal--18*   OUTBOARD #!EF , which 
+specifies the executable (hello_outboard; see  #!Lmdfsec,dxall1046 h Module Description Files  #!EL  ). This statement may also 
+specify the name of a host on which to run the 
+executable. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N MODULE Hello #!N CATEGORY Greetings 
+#!N DESCRIPTION Prefixes "hello" to the input string #!N OUTBOARD hello_outboard 
+#!N INPUT value; string; "world"; input string #!N OUTPUT greeting; string; 
+prefixed string #!EF #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lclrtlm,dxall999 h ...as a runtime-loadable module  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

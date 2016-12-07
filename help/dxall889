@@ -1,0 +1,53 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmngimgw ManageImageWindow #!N #!N Category #!N #!N  #!Lcatictl,dxall758 h Interface Control  #!EL  #!N 
+#!N Function #!N #!N Allows Image or Display windows to be 
+opened and closed from within a visual program. #!N #!N Syntax 
+#!N #!N Available only in the user interface. #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB name TAB string or string list TAB 
+no default TAB name of the windows to be opened #!N 
+TAB - TAB - TAB - TAB or closed #!N TAB 
+open TAB flag, flag list, or string list TAB 0 TAB 
+0: close the windows #!N TAB - TAB - TAB - 
+TAB 1: open the windows #!N TAB how TAB string TAB 
+"title" TAB open or close the Image or Display #!N TAB 
+- TAB - TAB - TAB windows by title, label, or 
+window #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Functional Details #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   name #!EF #!EF #!I50 #!N specifies the windows to be 
+opened. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   open #!EF #!EF #!I50 #!N 
+determines whether the specified windows will be opened (1) or closed 
+(0). The effect of this parameter depends on the type of 
+argument supplied: #!N #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o If the argument is a  #!F-adobe-times-medium-i-normal--18*   single integer #!EF , 
+all the specified windows will be opened or they will all 
+be closed. #!N #!I30 #!N o If the argument is an 
+ #!F-adobe-times-medium-i-normal--18*   integer list #!EF , it must have the same number 
+of items as the list of strings given in  #!F-adobe-times-bold-r-normal--18*   name 
+#!EF , and the flags are associated one-to-one with the named 
+windows. #!N #!I30 #!N o If the argument is a  #!F-adobe-times-medium-i-normal--18*   
+string list #!EF , the windows listed in  #!F-adobe-times-bold-r-normal--18*   open #!EF 
+will be opened, and those listed in  #!F-adobe-times-bold-r-normal--18*   name #!EF but 
+not in  #!F-adobe-times-bold-r-normal--18*   open #!EF will be closed. #!N #!I0 #!N 
+#!EF #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   how #!EF #!EF #!I50 
+#!N if specified, determines how the  #!F-adobe-times-bold-r-normal--18*   name #!EF parameter is 
+to be interpreted: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "title" 
+#!EF #!I50 #!N the name specified is the title of the 
+window (accessible through the  #!F-adobe-times-bold-r-normal--18*   Image Name #!EF option in the 
+ #!F-adobe-times-bold-r-normal--18*   Options #!EF pull-down menu of the Image window, the  #!F-adobe-times-bold-r-normal--18*   
+title #!EF parameter of the Image tool or the  #!F-adobe-times-bold-r-normal--18*   where 
+#!EF parameter of the Display module). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   "label" 
+#!EF #!I50 #!N the name specified is the label of the 
+window (accessible through the  #!F-adobe-times-bold-r-normal--18*   Notation #!EF field of the configuration 
+dialog box of the Image or Display module). #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*   "window" #!EF #!I50 #!N the window identifier. If using SuperviseWindow 
+and SuperviseState, then  #!F-adobe-times-bold-r-normal--18*   name #!EF should be the  #!F-adobe-times-bold-r-normal--18*   where 
+#!EF output of SuperviseWindow. #!I0 #!N #!N #!I0 #!N #!N Note: 
+If you use this module to close a window, you must 
+also turn off rendering to that window, using the Route module. 
+Otherwise the window will open and then immediately close. #!N #!N 
+Example Visual Program InterfaceControl2.net #!N #!N See Also  #!Lexecute,dxall832 h Execute  #!EL  ,  #!Lmngcmpe,dxall887 h ManageColormapEditor  #!EL  
+,  #!Lmngcntp,dxall888 h ManageControlPanel  #!EL  ,  #!Lmngseq,dxall890 h ManageSequencer  #!EL  ,  #!Lroute,dxall929 h Route  #!EL  ,  #!Lsupwind,dxall961 h SuperviseWindow  #!EL  ,  #!Lsupstat,dxall958 h SuperviseState  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmngseq,dxall890 h ManageSequencer  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

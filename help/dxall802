@@ -1,0 +1,41 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxlinpt DXLInput #!N 
+#!N Category #!N #!N  #!Lcatdxl,dxall753 h DXLink  #!EL  #!N #!N Function #!N #!N Enables 
+a remote DXLink application to set a parameter value in a 
+visual program. #!N #!N Syntax Available only through the user interface. 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB default TAB value, string, 
+object TAB no default TAB default value (overridden by the #!N 
+TAB - TAB - TAB - TAB remote application) #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB output TAB object TAB the default value or the value 
+sent from a remote #!N TAB - TAB - TAB application. 
+#!N TAB - TAB - TAB #!EF #!N #!N Functional Details 
+#!N #!N This tool receives variable values from a remote application 
+that uses the DXLink library of function calls (see  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  in 
+IBM Visualization Data Explorer Programmer's Reference). The value received from the 
+application is passed as output from the DXLInput tool. #!N #!N 
+The module's label (set in the  #!F-adobe-times-bold-r-normal--18*   Notation #!EF field of 
+the Configuration dialog box) is used to establish a global variable, 
+which is then set by the DXLSet... functions of the DXLink 
+development library. One of the parameters of these functions is the 
+global variable name, which must be the same as the label 
+of the DXLInput tool that is intended to receive the value 
+given in the function call. Changing the text of the  #!F-adobe-times-bold-r-normal--18*   
+Notation #!EF field in DXLInput's configuration dialog box changes the label 
+displayed on the tool's VPE stand-in, just as it does for 
+Receivers and Transmitters. #!N #!N If there is no remote application 
+setting the default values, DXLInput will output the value specified by 
+ #!F-adobe-times-bold-r-normal--18*   default #!EF . If a remote application sets the value, 
+that value overrides  #!F-adobe-times-bold-r-normal--18*   default #!EF . This parameter provides a 
+mechanism that makes it easier to debug visual programs that are 
+intended to be used and controlled by remote DXLink applications. Note: 
+The  #!F-adobe-times-bold-r-normal--18*   default #!EF value must be set in the module's 
+configuration dialog box. Any value set by a connection to the 
+output of another tool will  #!F-adobe-times-medium-i-normal--18*   not #!EF be overridden by 
+a value set by a remote application. #!N #!N See Also 
+ #!Ldxloutp,dxall804 h DXLOutput  #!EL  ,  #!Ldxlinpn,dxall803 h DXLInputNamed  #!EL  ,  #!Linput,dxall876 h Input  #!EL  ,  #!Loutput,dxall899 h Output  #!EL  #!N #!N  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  in 
+IBM Visualization Data Explorer Programmer's Reference. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxlinpn,dxall803 h DXLInputNamed  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

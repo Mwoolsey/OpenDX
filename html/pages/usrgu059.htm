@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML>
+
+	<HEAD>
+		<TITLE>User's Guide - Java Explorer</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD>
+
+	<BODY BGCOLOR="#FFFFFF" LINK="#00004b" VLINK="#4b004b">
+		<TABLE WIDTH=510 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD COLSPAN=9><IMG SRC="../images/flcgh_01.gif" WIDTH=510 HEIGHT=24 BORDER="0" ALT="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD COLSPAN=2><A HREF="../allguide.htm"><IMG SRC="../images/flcgh_02.gif" WIDTH=129 HEIGHT=25 BORDER="0" ALT="Full Contents"></A></TD>
+				<TD COLSPAN=3><A HREF="../qikguide.htm"><IMG SRC="../images/flcgh_03.gif" WIDTH=127 HEIGHT=25 BORDER="0" ALT="QuickStart Guide"></A></TD>
+				<TD><A HREF="../usrguide.htm"><B><IMG SRC="../images/flcgh_04d.gif" WIDTH=127 HEIGHT=25 BORDER="0" ALT="User's Guide"></B></A></TD>
+				<TD COLSPAN=3><A HREF="../refguide.htm"><IMG SRC="../images/flcgh_05.gif" WIDTH=127 HEIGHT=25 BORDER="0" ALT="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A HREF="usrgu049.htm"><IMG SRC="../images/flcgh_06.gif" WIDTH=80 HEIGHT=17 BORDER="0" ALT="Previous Page"></A></TD>
+				<TD COLSPAN=2><A HREF="usrgu060.htm"><IMG SRC="../images/flcgh_07.gif" WIDTH=73 HEIGHT=17 BORDER="0" ALT="Next Page"></A></TD>
+				<TD><A HREF="../usrguide.htm"><IMG SRC="../images/flcgh_08.gif" WIDTH=100 HEIGHT=17 BORDER="0" ALT="Table of Contents"></A></TD>
+				<TD COLSPAN=3><A HREF="usrgu047.htm"><IMG SRC="../images/flcgh_09.gif" WIDTH=136 HEIGHT=17 BORDER="0" ALT="Partial Table of Contents"></A></TD>
+				<TD><A HREF="usrgu080.htm"><IMG SRC="../images/flcgh_10.gif" WIDTH=50 HEIGHT=17 BORDER="0" ALT="Index"></A></TD>
+				<TD><A HREF="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" WIDTH=71 HEIGHT=17 BORDER="0" ALT="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRJVEXP"></A>Chapter 11. Java Explorer<A NAME="IDX_1000"></A></H2>
+		<P><A NAME="PToC14"></A>Partial Table-of-Contents</P>
+		<MENU>
+			<LI><A NAME="PToC_308" HREF="#HDRJAVAEXP">11.1 About Java Explorer</A>
+			<LI><A NAME="PToC_314" HREF="#HDRCRWEBP">11.2 Creating Web Pages</A>
+			<MENU>
+				<LI><A NAME="PToC_321" HREF="#HDRTCHNOT">Technical Notes</A>
+				<LI><A NAME="PToC_322" HREF="#HDRGENFIL">Generated Files</A>
+				<LI><A NAME="PToC_324" HREF="#HDRGENMAK">Generated Makefile</A>
+				<LI><A HREF="#HDRJAVAMA">Java Explorer Macros</A>
+			</MENU>
+			<LI><A HREF="#HDRINTERIM">11.3 Interacting with Images </A>
+		<li><a href="#HDRDISPCAP">11.4 Displaying Captions: The CaptionsLabel Applet</a>
+		<li><a href="#HDRDISPHTML">11.5 Displaying HTML: The HTMLDisplay Applet</a>
+		<li><a href="#HDRDISPURL">11.6 Linking to Other Web Pages: The HTMLDisplay Applet</a>
+		<LI><A HREF="usrgu060.htm">11.7 The Java Explorer Server</A>
+			<MENU>
+				<LI><A NAME="PToC_321" HREF="usrgu060.htm#running">Running the Server</A>
+				<LI><A NAME="PToC_322" HREF="usrgu060.htm#cmds">Scripts for Controlling the Server</A>
+				<LI><A NAME="PToC_324" HREF="usrgu060.htm#HDRJSCONF">Configuration Files</A>
+				<LI><A HREF="usrgu060.htm#HDRCNFNOTE">Configuration Notes</A>
+			</MENU>
+			<LI><A NAME="PToC_340" HREF="usrgu061.htm#HDRLIMBUG">11.8 Limitations/Bugs</A>
+		<LI><A HREF="usrgu061.htm#HDRJAVAINT">11.9 Java Interfaces</A></MENU>
+			<HR>
+		<H2><A NAME="HDRJAVAEXP"></A>11.1 About Java Explorer</H2>
+		<P>Java Explorer is a network based server and a set of Java applets that allow Data Explorer networks to run from within a web browser. In an authoring step, the visualization expert selects to add the required Java Explorer modules; thus, activating the option to then generate an appropriate html page and applet code that corresponds to the network's user interface Control Panels and Images. Once the Java Explorer modules are added, the network can be executed from either the standard DX user interface or a web browser via the Java Explorer server, eliminating dual-source problems. The Image macro when running in the Java Explorer environment outputs image formatted files for the web server to send. Results of a visualization can be sent as Images (single or multiple), or geometry (as VRML), determined by the visualization programmer or the end-user's settings. Direct user interactions (e.g. rotate, pick, etc.) are implemented by the client or the server depending upon the presentation mode.</P>
+		<P>In order to view a network with a web browser, the network is first converted to a web page, installed into the Java Explorer server's specified web page directory and then the server must be started. If Java Explorer is to be used to allow users via the Internet to run specified visualizations, then a web server must also be running and set up in conjunction with Java Explorer.</P>
+		<P>If Java Explorer is to produce images to send to a web browser, it is required that ImageMagick be included within the DX framework.</P>
+		<HR>
+		<H2><A NAME="HDRCRWEBP"></A>11.2 Creating Web Pages</H2>
+		<P>Once a visualization is ready to be shared via Java Explorer, the network must be converted to a web page. The following steps show how to perform this transformation:</P>
+		<P><A NAME="FIGJXTOOLS"></A>Figure 95. Java Explorer Tools Options</P>
+		<DIV ALIGN="center">
+			<P><IMG SRC="../images/javatls.gif" ALT="" HEIGHT="397" WIDTH="480" BORDER="0"></P>
+			<P></P>
+		</DIV>
+		<OL>
+			<LI TYPE="1">Load network - Start by loading the appropriate network into the Visual Programming Environment.
+			<LI TYPE="1">Choose Add Tools - Once loaded, choose the <B><KBD>Java-&gt;</KBD></B><KBD><B>Add Tools</B></KBD>  option of the <B><KBD>Edit</KBD></B> menu of the VPE menu bar. This will add a page to the network named &quot;java tools&quot; and set up the control panels and Image modules to work with the Java applets.			<LI TYPE="1">Save the visual program - The visual program can still be used as before within the DX user interface. No need to save a second copy.
+			<LI TYPE="1">Choose Save As Web Page - Once the network is saved, the <B><KBD>Java-&gt;Save As Web Page</KBD></B> option from the <B><KBD>Edit</KBD></B> menu is made available. This will save a minimum of four new files within the same directory as the network.
+			<LI TYPE="1">Compile the Java files - Of the files created, one is <I>myprog</I>.java and another is <I>myprog</I>.make, where <I>myprog</I> is the name of your network. The .java file must be compiled to create a .jar file that can be used with the Java Explorer server. Data Explorer helps by  providing a make file. make is a command line utility to compile programs. Invoke the make file by issuing the following command:
+			<blockquote><KBD><B>make -f <I>myprog</I>.make</B></KBD></blockquote>
+			<LI TYPE="1">Install the Java files - The files must be put into the Java Explorer server's specified web page directory. Again the make file helps since it has some notion of where these files should be stored. To install using the make file, issue the following command:<BR>
+				<blockquote><KBD><B>make -f <I>myprog</I>.make install</B></KBD></blockquote>
+
+		</OL>
+		<P><A NAME="HDRTCHNOT"></A><B>Technical Notes</B></P>
+		<UL>
+			<LI>The actual .net file which runs under control of Java Explorer is the same .net file you use when you run with the Data Explorer user interface. The 'Add Tools' step makes minor modifications to the visualization which don't interfere with using the Image window as you normally do.
+			<LI>Java Explorer will not work with visual programs containing Display tools. You must manually change your nets so that you use Image tools rather than Display tools for all your images.
+			<LI>Java Explorer will provide camera interaction modes and possibly pick mode for any image whose Image window in the .net file <strong>is assigned a name</strong> using the 'Options/Change Image Name' menu bar option. If you're converting Display tools to Image tools, then you'll probably want to assign a name to the original Image tools and leave the Display tools unnamed.<LI>'Edit/Java/Remove Tools' reverses the affect of 'Edit/Java/Add Tools'. You can add and remove Java tools as often as you like without changing the meaning of the visual program. After you add tools, you'll need to choose 'Edit/Java/Net to Applet' and build and install the resulting Java code.			<LI>After you've chosen the 'Add Tools' menu bar option in the VPE, the visual program will execute more slowly under control of the Data Explorer user interface.			<LI>The 'Save as Web Page' option will reset dxexec and start an execution in order to produce the first batch of images for your web page. This batch of images allows the web page to be complete at initial browser contact. This differs conceptually from the way Data Explorer works. When you run a visualization under control of Data Explorer you must execute once before you can see any images. If you choose the 'Save as Web Page' option when the Data Explorer user interface is not connected to dxexec, then a complete web page will be written however the images will not be saved to your disk. Of course that's perfectly reasonable if you've already saved these images.
+		
+				<li>It is possible to pass information into the network from java parameters within the html. To do this, set a parameter with the name DXLInput, for example &lt;param name=DXLInput value='filename=&quot;cloudwater.dx&quot;;'&gt;. This will replace the DXLInput named filename with the value &quot;cloudwater.dx&quot;. Multiple parameters can be sent in by using compound assignments, for example &lt;param name=DXLInput value='filename, length = &quot;cloudwater.dx&quot;, 1.23 ;'&gt;.</UL>
+		<H4><A NAME="HDRGENFIL"></A>Generated Files</H4>
+		<P>Data Explorer will write the following files:</P>
+		<UL>
+			<LI><I>myprog</I>.html
+			<LI><I>myprog</I>.make
+			<LI><I>myprog</I>.java
+			<LI>For each Image tool which executes <I>myprog%d</I>_0_0.[gif | wrl] <SMALL>Note that if dxexec is executing in a different directory than the Data Explorer user interface, you might have to go searching for the .gif or .wrl files.</SMALL>
+		</UL>
+		<H4><A NAME="HDRGENMAK"></A>Generated Makefile</H4>
+		<P><I>myprog</I>.make contains values which you can change using you favorite text editor, such as where files should be installed if you do not want them installed into the default location or where files are installed if DX is not installed in its default directory. Some of the relevant variables are:</P>
+		<UL>
+			<LI>JARFILE - Location of dx.jar file.
+			<LI>JDKFILE - Classpath needed to compile Java programs.			<LI>DXSERVER - Directory where the Java Explorer server resides.
+			<LI>DXSERVER_DIR - Directory where the .net file is installed.
+			<LI>JAVADIR - Directory where web files are stored.
+		</UL>
+		<H4><A NAME="HDRJAVAMA"></A>Java Explorer Macros</H4>
+		<P>In order for Java Explorer to work, several macros were created to extend the Image Module. The macros are listed below:</P>
+		<UL>
+			<LI>DXExport			<LI>ImageExport			<LI>VRMLExport			<LI>WebOptions
+		</UL>
+		<HR>
+		<H2><A NAME="HDRINTERIM"></A>11.3 Interacting with Images</H2>
+		<P>Java Explorer provides interaction modes similar to those within Data Explorer: Rotate, Pan, Zoom, and Pick. A new interaction mode available in Java Explorer is called <I>Orbit</I> mode. Orbit mode produces an applet with a group of images that allows the users to feel as if they can minimally rotate the object quickly.</P>
+			<UL>
+			<LI>Java Explorer's Pick mode reflects the design of Data Explorer. Select an Image then choose Pick mode. Place a pick by clicking with the left mouse button on something in the image. The original net must contain a Pick tool with appropriate wiring.
+			<LI>Rotate mode provides a gnomon for rotating in the x and y planes using the left mouse button. Ctrl+mouse button rotates in the z plane.
+			<LI>Zoom mode provides a 2d area of interest in response the mouse button. Ctrl+mouse button zooms out.
+			<LI>Pan mode provides a single pan cursor which moves the screen in response to a mouse button drag.
+			<LI>The <I>Execution</I> control panel provides a 'Reset Camera' button which works the same way Data Explorer's Reset menu bar option works.
+			</UL>
+			<p></p>
+			<hr>
+			<h2><a name="IDX1032"></a><a name="HDRDISPCAP"></a>11.4 Displaying Captions: The CaptionLabels Applet</h2>
+			<p>Java Explorer sends information to the end-user's browser via an imageWindow applet as discussed in Interacting with Images. In addition to displaying text in the Image window, you can also display captions and other labels by sending strings to DXLOutput modules within a network.</p>
+			<UL>
+				<LI>A web page generated by the VPE will contain a CaptionLabels applet for each DXLOutput module. Modify the generated applet tags as desired to set the size, font, and colors.
+				<LI>See the AutoInsurance demo for an example.
+			</UL>
+			<p></p>
+			<hr>
+			<h2><a id="IDX1033" name="IDX1033"></a><a name="HDRDISPHTML"></a>11.5 Displaying HTML: The HTMLDisplay Applet</h2>
+			<p>Java Explorer can also display HTML generated by your network. (E.g., to provide even more formatting for labels, include icons, links, etc.) </p>
+		<ul>
+			<li>As with CaptionLabels, send the HTML to a DXLOutput module.
+			<li>In the generated html page, you must change the class name in the applet tag from &quot;CaptionLabels.class&quot; to &quot;HTMLDisplay.class&quot;
+			<li>Optionally, add a PARAM to the applet, setting NAME to &quot;Content-type&quot; and VALUE to &quot;text/html&quot;.
+			<li>HTMLDisplay will also render plain text (use content type &quot;text/plain&quot;) and rich text format (use &quot;text/rtf&quot;).
+			<li>Scrollbars are added automatically if the rendered document is larger than the applet's size.
+			<li>Full support for rendering HTML 3.2. Links work. Forms and buttons do not.
+		</ul>
+			<p></p>
+			<hr>
+			<h2><a name="HDRDISPURL"></a>11.6 Linking to Other Web Pages: The HTMLDisplay Applet</h2>
+			<p>Java Explorer can cause the user's browser to open a desired web page (e.g., to link an object in your scene to an external resource).</p>
+		<ul>
+			<li>Send a string containing the URL and a target window name to a DXLOutput. (Example: send the string &quot;http://www.opendx.org Foo&quot; to open the OpenDX home page in window Foo.) Standard HTML target names (e.g., &quot;_self&quot;) apply.
+			<li>Change the applet's class to HTMLDisplay.class.
+			<li>Add a PARAM with NAME=&quot;Content-type&quot; and VALUE=&quot;text/url&quot;.
+			<li>The applet itself simply displays the URLs you send it. You can make the applet size 1x1 pixel if you don't want to see it.
+		</ul>
+			<p></p>
+			<HR>
+		
+		<div align="center">
+			<p><a href="../allguide.htm"><img src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></a> <a href="../qikguide.htm"><img src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></a> <a href="../usrguide.htm"><img src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></a> <a href="../refguide.htm"><img src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></a></p>
+			<p><font size="-1">[ <a href="http://www.research.ibm.com/dx">OpenDX Home at IBM</a>&nbsp;|&nbsp;<a href="http://www.opendx.org/">OpenDX.org</a>&nbsp;] </font></p>
+			<p></p>
+		</div>
+	</BODY>
+
+</HTML>

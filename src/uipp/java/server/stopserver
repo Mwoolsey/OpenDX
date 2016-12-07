@@ -1,0 +1,47 @@
+#!/bin/sh
+TERM=vt100
+export TERM
+##
+## Check to see if there is already a server running on this machine
+## Note: The socket number must match what's checked into the code
+## in src/ui++/java/DXServer.java.  There is no mechanism for using
+## an alternative socket if the desired one is busy, nor is there
+## a mechanism for specifying a different one to use.  The socket
+## in use by DXServer has to match what the clients look for, and they
+## have no way of finding DXServer if DXServer decides on some
+## alternative port.
+##
+mach=localhost
+if [ ! "$1" = "" ]; then
+    mach=$1
+fi
+
+
+##
+## Loop over an echo because SunOS 5.5 and Linux drops bytes on the floor
+## if the originating process terminates before the destination
+## process reads them.  Therefore we need some way to keep the 
+## connection open until DXServer shuts it off
+##
+archstr=`uname`
+if [ $archstr = "Linux" ] || [ $archstr = "SunOS" ] || [ $archstr = "Darwin" ] ; then
+    ans=`while true 
+    do 
+    echo "dx.protocol.server.shutdownMsg|1,2.0.0"
+    done | telnet $mach 4655`
+    noans=`echo $ans | sed -e 's/closed//g'`
+else
+    ans=`echo "dx.protocol.server.shutdownMsg|1,2.0.0" | telnet $mach 4655`
+    noans=`echo $ans | sed -e 's/closed//g'`
+fi
+
+
+if [ "$ans" = "$noans" ]; then
+   echo The DXServer is not running on this machine.
+   echo ...DXServer not stopped.
+   exit 1 
+fi
+
+exit 0
+
+

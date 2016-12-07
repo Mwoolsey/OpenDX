@@ -1,0 +1,46 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxlinpn DXLInputNamed 
+#!N #!N Category #!N #!N  #!Lcatdxl,dxall753 h DXLink  #!EL  #!N #!N Function #!N #!N 
+Enables a remote DXLink application to set a parameter value in 
+a visual program, while also setting the name of the variable. 
+#!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   output #!EF 
+= DXLInputNamed(  #!F-adobe-times-bold-r-normal--18*   name, default #!EF ); #!EF #!N #!N #!EC 
+#!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Default TAB Description #!EF #!N TAB name TAB string TAB 
+none TAB name of variable #!N TAB default TAB value, string, 
+object TAB no default TAB default value (overridden by the #!N 
+TAB - TAB - TAB - TAB remote application) #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB output TAB object TAB the default value or the value 
+sent from a remote application #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N This tool receives variable 
+values from a remote application that uses the DXLink library of 
+function calls (see  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  in IBM Visualization Data Explorer Programmer's Reference). 
+The value received from the application is passed as output from 
+the DXLInputNamed tool. #!N #!N This module differs from DXLInput in 
+that the name of the variable is set using the  #!F-adobe-times-bold-r-normal--18*   
+name #!EF parameter, rather than using the Notation field of the 
+Configuration Dialog box. This enables the variable name to be passed 
+in via a wire, rather than preset for the module. This 
+allows you to place DXLInputNamed in a macro and have different 
+instances of the macro use different variable names. #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF #!EF #!I50 #!N is 
+the variable name. This variable is then set by DXLSet... functions 
+of the DXLink development library. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   default 
+#!EF #!EF #!I50 #!N is the default value for the output 
+of DXLInputNamed. #!I0 #!N #!N #!N #!N If there is no 
+remote application setting the default values, DXLInputNamed will output the value 
+specified by  #!F-adobe-times-bold-r-normal--18*   default #!EF . If a remote application sets 
+the value, that value overrides  #!F-adobe-times-bold-r-normal--18*   default #!EF . This parameter 
+provides a mechanism that makes it easier to debug visual programs 
+that are intended to be used and controlled by remote DXLink 
+applications. Note: The  #!F-adobe-times-bold-r-normal--18*   default #!EF value must be set in 
+the module's configuration dialog box. Any value set by a connection 
+to the output of another tool will  #!F-adobe-times-medium-i-normal--18*   not #!EF be 
+overridden by a value set by a remote application. #!N #!N 
+See Also #!N #!N  #!Ldxlinpt,dxall802 h DXLInput  #!EL   #!Ldxloutp,dxall804 h DXLOutput  #!EL  ,  #!Linput,dxall876 h Input  #!EL  ,  #!Loutput,dxall899 h Output  #!EL  #!N 
+#!N  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  in IBM Visualization Data Explorer Programmer's Reference. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxloutp,dxall804 h DXLOutput  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

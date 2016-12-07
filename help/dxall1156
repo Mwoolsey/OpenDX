@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rall1155 
+Window Control #!N #!EC #!N #!N The following routines allow an 
+application to control the behavior of user interface windows. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLOpenVPE(DXLConnection *conn); #!EF #!EF 
+#!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLCloseVPE(DXLConnection *conn); #!EF 
+#!EF #!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLOpenSequencer(DXLConnection *conn); 
+#!EF #!EF #!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLCloseSequencer(DXLConnection 
+*conn); #!EF #!EF #!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError 
+uiDXLOpenAllImages(DXLConnection *conn); #!EF #!EF #!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+DXLError uiDXLCloseAllImages(DXLConnection *conn); #!EF #!EF #!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLOpenColorMapEditorByTitle(DXLConnection *conn, char *title); #!EF #!EF #!I50 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLCloseAllColorMapEditors(DXLConnection *conn); #!EF #!EF #!I50 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLCloseColorMapEditorByLabel(DXLConnection *conn, char *label); #!EF 
+#!EF #!I50 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXLError uiDXLCloseColorMapEditorByTitle(DXLConnection *conn, 
+char *title); #!EF #!EF #!I50 #!N #!I0 #!N #!N When the 
+application is connected to the Data Explorer user interface, these routines 
+allow control over DXUI windows. See  #!Lmngimgw,dxall889 h ManageImageWindow  #!EL  and and  #!Lmngcmpe,dxall887 h ManageColormapEditor  #!EL  in 
+IBM Visualization Data Explorer User's Reference for a description of the 
+difference between "title" and "label." #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall1156,dxall1157 h Data Explorer Libraries  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

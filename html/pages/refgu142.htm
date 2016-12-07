@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - SimplifySurface</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu141.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu143.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRSIMPSUR" ></A>SimplifySurface</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<P><STRONG>Function</STRONG>
+<P>
+Simplifies a triangulated surface and resamples data attached to the surface.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>simplified</STRONG> = SimplifySurface(<STRONG>original_surface, max_error, max_data_error,
+                             volume, boundary, length, data, stats</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>original_surface</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">(none)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">triangulated surface
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>max_error</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">maximum positional error
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP"
+WIDTH="20%"><TT><STRONG>max_data_error</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">maximum data error
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>volume</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">1: move vertices to preserve
+volume
+<BR>
+0: do not move vertices
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>boundary</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">1: simplify surface boundaries
+<BR>
+0: do not simplify surface boundaries
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>length</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">1: move vertices to preserve the
+length of boundaries
+<BR>
+0: do not move vertices
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">1: use data dependent on
+"positions" to constrain simplification
+<BR>
+0: ignore data for simplification
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>stats</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">1: provide simple statistics.
+<BR>
+0: do not provide statistics
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>simplified</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">simplified triangulated surface
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+SimplifySurface builds a <TT><STRONG>simplified</STRONG></TT> surface that is
+guaranteed to deviate from <TT><STRONG>original_surface</STRONG></TT> by less
+than <TT><STRONG>max_error</STRONG></TT>. This means that each vertex of
+<TT><STRONG>simplified</STRONG></TT> as well as each point inside a triangle
+of <TT><STRONG>simplified</STRONG></TT> is at a Euclidean
+distance no further than
+<TT><STRONG>max_error</STRONG></TT> from
+<TT><STRONG>original_surface</STRONG></TT>.
+Similarly, each vertex of <TT><STRONG>original_surface</STRONG></TT> as well
+as each point inside a triangle of <TT><STRONG>original_surface</STRONG></TT>
+is at a distance no further than <TT><STRONG>max_error</STRONG></TT> from the
+simplified surface.
+<P>
+In addition, if a "data" component of
+<TT><STRONG>original_surface</STRONG></TT> is dependent on the
+"positions" component and is not <TT><STRONG>TYPE_STRING</STRONG></TT>,
+SimplifySurface will perform a data dependent simplification:
+SimplifySurface will resample "data" on the simplified surface and
+guarantee that the maximum deviation between the original and re-sampled
+data is less than <TT><STRONG>max_error_data</STRONG></TT>. For efficiency
+reasons, the dimensionality of the "data" component is currently
+limited to 3: for instance, it will work for RGB colors or for gradient
+values in 3-dimension.
+Note that data dependent on connections will <B>not</B> constrain
+simplification.
+<P>
+Vertex normals for the <TT><STRONG>simplified</STRONG></TT> surface are
+automatically computed.
+<P>
+Components dependent on "positions" or "connections" of
+<TT><STRONG>original_surface</STRONG></TT> are added to
+<TT><STRONG>simplified</STRONG></TT> and re-sampled. For components dependent
+on "connections", the triangle areas are used to weight the
+resampling.
+<P>
+The following components are not re-sampled: "positions",
+"connections", "invalid positions", "invalid
+connections" "normals", "neighbors", and
+"positional error".
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>original_surface</STRONG></TT>
+</B></TD><TD><P>must have triangular connections.
+<TT><STRONG>original_surface</STRONG></TT> is the field that is being
+simplified.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>max_error</STRONG></TT>
+</B></TD><TD><P>maximum distance
+(in the units of the "position" component)
+between <TT><STRONG>simplified</STRONG></TT> and
+<TT><STRONG>original_surface</STRONG></TT>. The default value for
+<TT><STRONG>max_error</STRONG></TT> is 1% of the diagonal of the bounding box
+of <TT><STRONG>original_surface</STRONG></TT>. You may decide to set
+<TT><STRONG>max_error</STRONG></TT> to a lower or higher value than the
+default.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>max_data_error</STRONG></TT>
+</B></TD><TD><P>maximum deviation between data attached to
+<TT><STRONG>original_surface</STRONG></TT> vertices, and the resampling of
+that data on the <TT><STRONG>simplified</STRONG></TT> surface. (Again the
+maximum deviation also holds for points inside triangles, not just
+vertices).
+<P>
+The default value for the maximum error on the data is set to 10% of the
+diagonal of the bounding box in data space. If the data is one
+dimensional, the default error is (max_data-min_data)/10.
+<P>
+<TT><STRONG>max_data_error</STRONG></TT> is ignored if
+<TT><STRONG>data</STRONG></TT> = 0 or if the data are connection-dependent.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>volume</STRONG></TT>
+</B></TD><TD><P>specifies whether the volume enclosed by the surface should be
+preserved or not. If set to 1, SimplifySurface will
+move the surface vertices in order to preserve the volume while the
+number of vertices is being reduced. In this case, the volume is
+preserved to within floating point or higher accuracy. If set to 0,
+the surface vertices will not be moved. The default is 1.
+<P>
+The volume is only truly defined for a surface that does not have a
+boundary (closed surface). Setting
+<TT><STRONG>volume</STRONG></TT> to 1 on a surface with boundary will have the
+effect of preventing shrinkage and producing more regular triangles.
+<P>
+Note that if several surfaces share the same boundary, as when
+Isosurface is used on partitioned data, the volume can still be
+preserved with <TT><STRONG>volume</STRONG></TT> set to 1 if the boundary is
+left intact (<TT><STRONG>boundary</STRONG></TT> set to 0).
+<P>
+With surfaces that present sharp angles, such as CAD data, setting
+<TT><STRONG>volume</STRONG></TT> to 1 might not work well. In general, we
+recommend setting <TT><STRONG>volume</STRONG></TT> to zero when operating on
+CAD data.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>boundary</STRONG></TT>
+</B></TD><TD><P>specifies whether the boundary of a surface should be simplified
+or
+left intact. If set to 1, then the boundary is
+simplified while respecting the same errors
+<TT><STRONG>max_error</STRONG></TT> and
+<TT><STRONG>max_data_error</STRONG></TT>. If
+set to 0, then the boundary is left intact. The
+default is 0. If <TT><STRONG>original_surface</STRONG></TT> has no boundary,
+this option is ignored.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>length</STRONG></TT>
+</B></TD><TD><P>if <TT><STRONG>boundary</STRONG></TT> set
+to 1, specifies whether the length of the simplified boundary should be
+preserved. If set to 1, in a manner analogous to
+volume preservation, SimplifySurface will move the boundary vertices in
+order to preserve the boundary length while the number of boundary
+vertices is being reduced. If set to 0, the boundary
+vertices will not be moved. The default is 1. If
+<TT><STRONG>boundary</STRONG></TT> is set to 0 then the value of
+<TT><STRONG>length</STRONG></TT> is ignored.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>if set to 1, instructs SimplifySurface
+use <TT><STRONG>max_data_error</STRONG></TT> to constrain simplification if
+data are dependent on "positions" and are not
+<TT><STRONG>TYPE_STRING</STRONG></TT>, and if the dimensionality of such
+data is 3 or lower. If set to 0, simplification will not be constrained
+by data. In any case, SimplifySurface will resample
+data after simplification.
+The default is 1.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>stats</STRONG></TT>
+</B></TD><TD><P>if set to 1, instructs SimplifySurface to write simple
+statistics:
+number of vertices and triangles in original_surface, number of vertices
+and triangles in simplified, and percentage of original numbers of
+vertices and triangles. This information will appear in the Message window.
+If set to 0, SimplifySurface will not provide
+statistics. The default is 0.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>simplified</STRONG></TT>
+</B></TD><TD><P>simplified surface.
+</TD></TR></TABLE>
+<P>
+<H4><A NAME="HDRLOD">Generating surface levels of detail.</A></H4>
+<P>SimplifySurface adds a "positional error" component  to the
+<TT><STRONG>simplified</STRONG></TT> surface. "positional error"
+is a component dependent on "positions" that provides for each
+vertex of <TT><STRONG>simplified</STRONG></TT> a positive number. This
+positive number, the error value, represents
+the radius of a sphere centered on the vertex, that is guaranteed to
+intersect the original surface. The union of such spheres represents the
+error volume of the simplified surface, which is guaranteed to enclose
+the original surface. Points inside triangles are assigned an error
+value that is interpolated from the error values at the triangle
+vertices using barycentric coordinates.
+<P>
+Using the "positional error" component, a simplified surface can be
+re-simplified to any <TT><STRONG>max_error</STRONG></TT> while still
+guaranteeing a bound with respect to the original surface. This is
+useful for generating successive levels of detail.
+<P>
+If the same error bound is used, a marginal additional simplification
+can be observed: the algorithm implements a greedy method, and does not
+guarantee to find the minimum number of triangles that respects a given
+error bound.
+<P>
+The use of the "positional error" component by SimplifySurface is
+transparent to you, but you may occasionally want to visualize the
+simplification error, using the Mark module. An example is provided in
+SimplifySurface.net.
+<P><STRONG>Components</STRONG>
+<P>
+SimplifySurface adds a "positional error" component that is dependent
+on "positions" (see <A HREF="#HDRLOD">"Generating surface levels of
+detail."</A>).
+<P>
+In general <TT><STRONG>simplified</STRONG></TT> has the same components as
+<TT><STRONG>original_surface</STRONG></TT> except for "invalid positions",
+"invalid connections", "neighbors", and components that are
+<TT><STRONG>TYPE_STRING</STRONG></TT>.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+SimplifySurface.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+<A HREF="refgu114.htm#HDRREFINE">Refine</A>,
+<A HREF="refgu113.htm#HDRREDUCE">Reduce</A>,
+<A HREF="refgu081.htm#HDRISOSURF">Isosurface</A>,
+<A HREF="refgu091.htm#HDRMAP">Map</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

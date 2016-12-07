@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu076.htm">Previous Page</A> &#124; <A HREF="progu078.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu075.htm#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="Header_161" HREF="progu075.htm#PToC_161">16.3 Tiling</A></H2>
+<A NAME="IDX1233"></A>
+<A NAME="IDX1234"></A>
+<P>
+Tiling is the process of combining shaded surface and volume
+interpolation elements to produce an image.
+The following table lists elements that are defined and implemented
+("yes").
+A dash identifies a meaningless combination.
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Component
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">irregular
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">regular
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">opaque
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">translucent
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"lines"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"triangles"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">--
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"quads"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"tetrahedra"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">--
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">--
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"cubes"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">--
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">"faces," "loops," "edges"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">--
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="17%">yes
+</TD></TR></TABLE>
+<P>
+Lines may be irregular unconnected vectors or <I>paths</I> having
+regular 1-dimensional connections.
+Surfaces and volumes may be (1) completely irregular, (2) regular in
+connections but irregular in positions, or (3) regular in both
+connections and positions (<A HREF="#FIGAO6AFG3">Figure 11</A>).
+<P>
+<P><B><A NAME="FIGAO6AFG3" HREF="../proguide.htm#FT_FIGAO6AFG3">Figure 11. Types of
+Connections and Positions</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/gridtype.gif" ALT="Figure gridtype not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H3><A NAME="HDRRENDMDL" HREF="progu075.htm#PToC_162">Rendering Model</A></H3>
+<A NAME="IDX1235"></A>
+<A NAME="IDX1236"></A>
+<P>
+The interpretation of "colors" and "opacities" differs
+between surfaces and volumes.
+For surfaces, a surface of color <I>c<SUB>f</SUB></I> and opacity <I>o</I>
+are combined with the color <I>c<SUB>b</SUB></I> of the objects behind it,
+resulting in a combined color
+<I>c<SUB>f</SUB>o&nbsp;&#43;&nbsp;c<SUB>b</SUB>&nbsp;(1&nbsp;&#45;&nbsp;o)</I>.
+<P>
+For volumes, the "dense emitter" model is used, in which the
+opacity represents the instantaneous rate of absorption of
+light passing through the volume per unit thickness,
+and the color represents the instantaneous rate
+of light emission per unit thickness.
+If <I>c(z)</I> represents the color of the object at
+<I>z</I> and <I>o(z)</I> represents its
+opacity at <I>z</I>, the total color <I>c</I>
+of a ray passing through the volume is given by:
+c % = % integral to infinity from &lt; - infinity &gt; % c ( z ) % 'exp' %
+left lparen minus integral to &lt; z &gt; from &lt; - infinity &gt; % o ( zeta )
+d
+zeta right rparen % dz
+<P>
+<H3><A NAME="Header_163" HREF="progu075.htm#PToC_163">Tiling Options</A></H3>
+<A NAME="IDX1237"></A>
+<P>
+Tiling options are controlled by a set of Object
+attributes.
+These attributes may be associated with Objects at any level of a
+Field/Group hierarchy.
+The attributes may be set by using the
+<TT><STRONG>DXSetAttribute()</STRONG></TT>
+function, or by using the Options
+module.
+The attributes are:
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Attribute
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Meaning
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">"fuzz"
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">object fuzz
+</TD></TR></TABLE>
+<A NAME="IDX1238"></A>
+<A NAME="IDX1239"></A>
+<P>
+<I>Object fuzz</I> is a method of resolving conflicts between
+objects at the same distance from the camera.
+For example, it may be desirable to define a set of lines coincident
+with a plane.
+Normally it will be unclear which object is to be displayed
+in front.
+In addition, single-pixel lines are inherently inaccurate (i.e. they
+deviate from the actual geometric line) by as much as one-half
+pixel;
+when displayed against a sloping surface, this <I>x</I> or
+<I>y</I> inaccuracy is equivalent to a <I>z</I>
+inaccuracy related to the slope of the surface.
+The "fuzz" attribute specifies a <I>z</I> value that will be
+added to the object before it is compared with other objects in
+the scene, thus resolving this problem.
+The fuzz value is specified in pixels.
+For example, a fuzz value of one pixel can compensate for the
+described half-pixel inaccuracy when the line is displayed
+against a surface with a slope of two.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu076.htm">Previous Page</A> &#124; <A HREF="progu078.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu075.htm#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

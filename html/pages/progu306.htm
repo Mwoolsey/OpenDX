@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu305.htm">Previous Page</A> &#124; <A HREF="progu307.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXSCA"
+HREF="progu097.htm#PToC_400">DXSetComponentAttribute</A></H3>
+<A NAME="IDX2054"></A>
+<A NAME="IDX2055"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Adds or removes a named attribute from a component of a Field.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Field DXSetComponentAttribute(Field f, char *name, char *attribute, Object
+value)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Adds an attribute/value pair to
+the component
+if the component
+<TT><STRONG>name</STRONG></TT> exists in the Field <TT><STRONG>f</STRONG></TT>,
+and
+<TT><STRONG>value</STRONG></TT> is not
+<TT><STRONG>NULL</STRONG></TT>.  <TT><STRONG>attribute</STRONG></TT>
+specifies the name of the associated
+attribute and
+<TT><STRONG>value</STRONG></TT> represents its value.  If
+<TT><STRONG>attribute</STRONG></TT> specifies an attribute that the component
+already has, then its value is replaced by
+<TT><STRONG>value</STRONG></TT>.
+<P>
+If
+<TT><STRONG>value</STRONG></TT> is
+<TT><STRONG>NULL</STRONG></TT>, then
+the attribute referred to by
+<TT><STRONG>attribute</STRONG></TT> is removed from the component
+if it exists.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns <TT><STRONG>f</STRONG></TT> on success;
+returns <TT><STRONG>NULL</STRONG></TT> and does not set an error code
+if the component specified by <TT><STRONG>name</STRONG></TT> does
+not exist;
+returns <TT><STRONG>NULL</STRONG></TT> and sets an error code if
+<TT><STRONG>f</STRONG></TT> is not a Field.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu162.htm#HDRDXGCA">DXGetComponentAttribute</A>,
+<A HREF="progu302.htm#HDRDXSETA">DXSetAttribute, DXDeleteAttribute</A>,
+<A HREF="progu314.htm#HDRDXSFA">DXSetFloatAttribute</A>,
+<A HREF="progu316.htm#HDRDXSIA">DXSetIntegerAttribute</A>,
+<A HREF="progu327.htm#HDRDXSSA">DXSetStringAttribute</A>
+</STRONG></TT>
+<P>
+<A HREF="progu044.htm#HDRFIELDSC">12.1 , "Field Class"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu305.htm">Previous Page</A> &#124; <A HREF="progu307.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

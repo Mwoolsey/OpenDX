@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue 
+#!N  #!Rpkse The Pick Structure #!N #!EC #!N #!N Picking is 
+the selection of a location on an object in an image 
+by use of the mouse. A straight line from the camera 
+through the location selected constitutes a "poke," which may intersect the 
+object in the image in one or more places or in 
+none at all. The intersections are called "picks." For example, a 
+poke through a spherical isosurface results in two picks: one on 
+the "front" surface and one on the "back." Picks differ from 
+probes in that probes may be present anywhere in 3-dimensional space, 
+picks only on the surface of an object. #!N #!N The 
+pick structure is a Field, and the picked points are listed 
+in its "positions" component. A number of routines in Data Explorer 
+allow you to query the pick structure output by the Pick 
+tool and to traverse a picked Object. (See  #!Lpies,dxall1123 h Pick-Assistance Routines  #!EL  for details.) 
+The structure includes information on how to traverse the picked Object 
+to reach the picked element. It also identifies: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o the connection in which the 
+picked point resides (the element ID) #!N #!I30 #!N o the 
+vertex of the picked element closest to the picked point (the 
+vertex ID) #!N #!I30 #!N o the position of the picked 
+point itself. #!N #!I0 #!N #!EF #!N #!N #!N If the 
+picked Object has no connections, the element ID and the vertex 
+ID both refer to the position closest to the picked point. 
+Other information can be accessed with pick-assistance routines. Note: For a 
+module that uses the pick structure, the Object displayed in the 
+image being picked must (1) be the same as the Object 
+passed to the module or (2) have a matching Object hierarchy. 
+The reason for this requirement is that the output of the 
+Pick tool describes the location of the picked Object as it 
+exists in the hierarchy of the rendered Object. To use the 
+pick structure, therefore, requires an Object with a matching structure. #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lshowp,dxall1041 h ShowPick Module Example--Using Color to Show a Picked Object  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

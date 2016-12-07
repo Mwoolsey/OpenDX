@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmngcntp ManageControlPanel #!N #!N Category #!N 
+#!N  #!Lcatictl,dxall758 h Interface Control  #!EL  #!N #!N Function #!N #!N Allows control panels to 
+be opened and closed from within a visual program. #!N #!N 
+Syntax #!N #!N Available only in the user interface. #!N #!N 
+Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default 
+TAB Description #!EF #!N TAB name TAB string or string list 
+TAB no default TAB name of the control panel(s) to be 
+#!N TAB - TAB - TAB - TAB opened or closed 
+#!N TAB open TAB flag, flag list, or string list TAB 
+0 TAB 0: close the control panels(s) #!N TAB - TAB 
+- TAB - TAB 1: open the control panels(s) #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Functional Details 
+#!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   name #!EF 
+#!EF #!I50 #!N specifies the control panel(s) to be opened. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   open #!EF #!EF #!I50 #!N determines whether 
+the specified control panel(s) will be opened (1) or closed (0). 
+The effect of this parameter depends on the type of argument 
+supplied: #!N #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+If the argument is a  #!F-adobe-times-medium-i-normal--18*   single integer #!EF , all 
+the specified panels will be opened or they will all be 
+closed. #!N #!I30 #!N o If the argument is an  #!F-adobe-times-medium-i-normal--18*   
+integer list #!EF , it must have the same number of 
+items as the list of strings given in  #!F-adobe-times-bold-r-normal--18*   name #!EF 
+, and the flags are associated one-to-one with the named panels. 
+#!N #!I30 #!N o If the argument is a  #!F-adobe-times-medium-i-normal--18*   string 
+list #!EF , the panels listed in  #!F-adobe-times-bold-r-normal--18*   open #!EF will 
+be opened, and those listed in  #!F-adobe-times-bold-r-normal--18*   name #!EF but not 
+in  #!F-adobe-times-bold-r-normal--18*   open #!EF will be closed. #!N #!I0 #!N #!EF 
+#!N #!I0 #!N #!N #!N #!N Example Visual Program InterfaceControl1.net #!N 
+#!N See Also  #!Lexecute,dxall832 h Execute  #!EL  ,  #!Lmngcmpe,dxall887 h ManageColormapEditor  #!EL  ,  #!Lmngimgw,dxall889 h ManageImageWindow  #!EL  ,  #!Lmngseq,dxall890 h ManageSequencer  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmngimgw,dxall889 h ManageImageWindow  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

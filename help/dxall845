@@ -1,0 +1,25 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rextract Extract #!N #!N 
+Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N Extracts a 
+component from a field. #!N #!N Syntax #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+output #!EF = Extract(  #!F-adobe-times-bold-r-normal--18*   input, name #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB input TAB 
+field TAB none TAB the field from which a component #!N 
+TAB - TAB - TAB - TAB is to be extracted 
+#!N TAB name TAB string TAB "data" TAB the component to 
+extract #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB output TAB object TAB the named component 
+#!N TAB - TAB - TAB #!EF #!N #!N Functional Details 
+#!N #!N This module creates an  #!F-adobe-times-bold-r-normal--18*   output #!EF object containing 
+only the  #!F-adobe-times-bold-r-normal--18*   name #!EF component from the  #!F-adobe-times-bold-r-normal--18*   input #!EF 
+field. If  #!F-adobe-times-bold-r-normal--18*   input #!EF is a group,  #!F-adobe-times-bold-r-normal--18*   output #!EF 
+is a group of array objects. #!N #!N Components #!N #!N 
+Only the components extracted are propagated to the output. #!N #!N 
+Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N MultipleDataSets.net #!N PlotTwoLines.net 
+#!N UsingTextAndTextGlyphs.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lmark,dxall893 h Mark  #!EL  ,  #!Lremove,dxall921 h Remove  #!EL  ,  #!Lrename,dxall922 h Rename  #!EL  ,  #!Lreplace,dxall925 h Replace  #!EL  ,  #!Lunmark,dxall972 h Unmark  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lfft,dxall846 h FFT  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

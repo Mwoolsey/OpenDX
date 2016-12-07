@@ -1,0 +1,130 @@
+//
+// time: Fri Mar 21 09:13:53 1997
+//
+// version: 3.1.1 (format), 3.1.4 (DX Beta)
+//
+//
+// MODULE main
+//
+// comment: TIFF, RGB, YUV, MIFF, and GIF images can be imported directly.  The process is similar to data importation.  In this example visual program, the image is simply displayed, and can not be interactively manipulated.
+// comment: 
+// comment: If you would like to modify or use this visual program in the future, choose Open Visual Program Editor from the Windows menu, then Save As from the File menu of the VPE.
+// workspace: width = 565, height = 614
+// layout: snap = 0, width = 25, height = 25, align = NN
+//
+macro main(
+) -> (
+) {
+    // 
+    // node FileSelector[1]: x = 0, y = 0, inputs = 0, label = FileSelector
+    // output[1]: visible = 1, type = 32, value = "_filename_"
+    // output[2]: visible = 1, type = 32, value = "_filename_"
+    //
+    // 
+    // node String[1]: x = 160, y = 0, inputs = 0, label = String
+    // output[1]: visible = 1, type = 32, value = "_image_format_"
+    //
+    // 
+    // node ReadImage[1]: x = 85, y = 96, inputs = 9, label = ReadImage
+    //
+main_ReadImage_1_out_1 = 
+    ReadImage(
+    main_FileSelector_1_out_1,
+    main_String_1_out_1,
+    main_ReadImage_1_in_3,
+    main_ReadImage_1_in_4,
+    main_ReadImage_1_in_5,
+    main_ReadImage_1_in_6,
+    main_ReadImage_1_in_7,
+    main_ReadImage_1_in_8,
+    main_ReadImage_1_in_9
+    ) [instance: 1, cache: 1];
+    // 
+    // node Inquire[1]: x = 34, y = 201, inputs = 3, label = Inquire
+    // input[2]: defaulting = 0, visible = 1, type = 32, value = "is group + 1"
+    //
+main_Inquire_1_out_1 = 
+    Inquire(
+    main_ReadImage_1_out_1,
+    main_Inquire_1_in_2,
+    main_Inquire_1_in_3
+    ) [instance: 1, cache: 1];
+    // 
+    // node Route[1]: x = 338, y = 236, inputs = 2, outputs = 2, label = Route
+    //
+main_Route_1_out_1,
+main_Route_1_out_2 = 
+    Route(
+    main_Inquire_1_out_1,
+    main_ReadImage_1_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node ForEachMember[1]: x = 223, y = 304, inputs = 1, label = ForEachMember
+    //
+main_ForEachMember_1_out_1,
+main_ForEachMember_1_out_2,
+main_ForEachMember_1_out_3 = 
+    ForEachMember(
+    main_Route_1_out_2
+    ) [instance: 1, cache: 1];
+    // 
+    // node Switch[1]: x = 115, y = 390, inputs = 3, label = Switch
+    //
+main_Switch_1_out_1 = 
+    Switch(
+    main_Inquire_1_out_1,
+    main_ReadImage_1_out_1,
+    main_ForEachMember_1_out_1
+    ) [instance: 1, cache: 1];
+    // 
+    // node Display[3]: x = 51, y = 552, inputs = 8, label = Display
+    // title: value = ReadImage
+    // depth: value = 24
+    // window: position = (0.3359,0.3076), size = 0.5109x0.5117
+    //
+main_Display_3_out_1[cache: 2] = 
+    Display(
+    main_Switch_1_out_1,
+    main_Display_3_in_2,
+    main_Display_3_in_3,
+    main_Display_3_in_4,
+    main_Display_3_in_5,
+    main_Display_3_in_6,
+    main_Display_3_in_7,
+    main_Display_3_in_8
+    ) [instance: 3, cache: 1];
+    //
+    // decorator Annotate	pos=(198,76) size=367x60 style(Label), value = <NULL>
+    // annotation user_begin: 133
+    // annotation user: This visual  program displays  an  image,  or, if it is
+    // annotation user: a series of images, uses ForEachMember to display
+    // annotation user: each image in the sequence.
+    // annotation user_end: <NULL>
+// network: end of macro body
+}
+main_FileSelector_1_out_1 = "_filename_";
+main_String_1_out_1 = "_image_format_";
+main_ReadImage_1_in_3 = NULL;
+main_ReadImage_1_in_4 = NULL;
+main_ReadImage_1_in_5 = NULL;
+main_ReadImage_1_in_6 = NULL;
+main_ReadImage_1_in_7 = NULL;
+main_ReadImage_1_in_8 = NULL;
+main_ReadImage_1_in_9 = NULL;
+main_ReadImage_1_out_1 = NULL;
+main_Inquire_1_in_2 = "is group + 1";
+main_Inquire_1_in_3 = NULL;
+main_Inquire_1_out_1 = NULL;
+main_Route_1_out_2 = NULL;
+main_ForEachMember_1_out_1 = NULL;
+main_Switch_1_out_1 = NULL;
+main_Display_3_in_2 = NULL;
+main_Display_3_in_3 = "X24,,ReadImage";
+main_Display_3_in_4 = NULL;
+main_Display_3_in_5 = NULL;
+main_Display_3_in_6 = NULL;
+main_Display_3_in_7 = NULL;
+main_Display_3_in_8 = NULL;
+Executive("product version 3 1 4");
+$sync
+main();

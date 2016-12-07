@@ -1,0 +1,28 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxncav DXNewConstantArray, DXNewConstantArrayV #!N #!N Function #!N 
+#!N Create an Array containing constant data. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> ConstantArray DXNewConstantArray (int items, Pointer data, Type t, 
+Category c, int rank, ...) ConstantArray DXNewConstantArrayV (int items, Pointer data, 
+Type t, Category c, int rank, int *shape) #!EF #!N #!N 
+Functional Details #!N #!N Constant Arrays provide a compact mechanism for 
+representing constant values in Array form. All parameters are required: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   items #!EF 
+specifies the number of items in the Array. #!N #!I30 #!N 
+o  #!F-adobe-times-bold-r-normal--18*   data #!EF should point to a memory location containing 
+the constant value to be stored in the Array. #!N #!I30 
+#!N o  #!F-adobe-times-bold-r-normal--18*   t #!EF specifies the type of the data: 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N TYPE_BYTE TYPE_HYPER TYPE_SHORT #!N TYPE_UBYTE 
+TYPE_INT TYPE_USHORT #!N TYPE_DOUBLE TYPE_UINT TYPE_STRING #!N TYPE_FLOAT #!EF #!EF #!N 
+#!N #!EC #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   c #!EF specifies the 
+category of the data:  #!F-adobe-times-bold-r-normal--18*   CATEGORY_REAL #!EF or  #!F-adobe-times-bold-r-normal--18*   CATEGORY_COMPLEX #!EF 
+. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   rank #!EF specifies the rank 
+of the data. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   shape #!EF (or 
+the remaining  #!F-adobe-times-bold-r-normal--18*   rank #!EF arguments given in the  #!F-adobe-times-bold-r-normal--18*   DXNewConstantArray 
+#!EF form) specify the shape of the data. #!N #!I0 #!N 
+#!EF #!N #!N #!N The Array created can be deleted with 
+DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value #!N #!N Return 
+the Constant Array or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an 
+error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxnav,dxall1310 h DXNewArray, DXNewArrayV  #!EL  #!EF 
+#!N #!N  #!Lctas,dxall1079 h Constant Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxndl,dxall1315 h DXNewDistantLight  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

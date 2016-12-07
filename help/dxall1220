@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgadl DXGetArrayDataLocal #!N #!N 
+Function #!N #!N Returns a pointer to the start of memory 
+of a local copy of the data stored in an Array. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Pointer DXGetArrayDataLocal(Array a) #!EF 
+#!N #!N Functional Details #!N #!N This routine performs the same 
+operation as  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF , on a machine without processor 
+local memory. #!N #!N On a machine with processor local memory, 
+it performs the same operation as  #!F-adobe-times-bold-r-normal--18*   DXGetArrayData #!EF , after 
+which, the Array data contents of  #!F-adobe-times-bold-r-normal--18*   a #!EF are copied 
+to local memory. When you no longer need the local copy, 
+ #!F-adobe-times-bold-r-normal--18*   DXFreeArrayDataLocal #!EF must be called. #!N #!N The local data 
+should be considered a read-only copy. #!N #!N Return Value #!N 
+#!N Returns a pointer to the data or returns  #!F-adobe-times-bold-r-normal--18*   NULL 
+#!EF and sets an error code. #!N #!N See Also  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxfadl,dxall1213 h DXFreeArrayDataLocal  #!EL  ,  #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  #!EF #!N #!N  #!Larraysc,dxall1069 h Array Class  #!EL  . #!N #!N #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgaey,dxall1221 h DXGetArrayEntry, DXGetArrayEntries  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

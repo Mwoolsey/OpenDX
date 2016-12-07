@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - ForEachN</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu063.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu065.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRFOREN" ></A>ForEachN</H3>
+		<P><STRONG>Category</STRONG>
+		<P>
+<A HREF="refgu008.htm#HDRCATFLOW">Flow Control</A>
+<A NAME="IDX517"></A>
+<A NAME="IDX518"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Iterates through the specified set of integers.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>current, last</STRONG> = ForEachN(<STRONG>start</STRONG>, <STRONG>end</STRONG>, <STRONG>delta</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>start</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">value of the first integer
+through the loop
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>end</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">value of the last integer through
+the loop
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>delta</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">numerical interval between
+successive integers output by the loop
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>current</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">the current integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>last</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">status of loop
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module initiates an iteration for each integer in the set unless
+execution is terminated earlier by Done.
+Its function is similar to that of a "for" in standard programming
+languages.
+
+In the user interface, this module would usually be part of a macro, and
+<I>only</I> the contents of the macro
+would be executed for each iteration of the loop.
+If this module is placed in the top level visual program, the entire program
+will
+be executed during the loop.
+<P>
+Typically, loops are initiated with ForEachMember or ForEachN,
+although they can also be implemented with a Get/Set pair and
+Done.
+<P>
+<P><B>Note: </B>If this module is used in the scripting language, the results
+are defined only if they are used inside a macro.
+<P>
+
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>start</STRONG></TT>
+</B></TD><TD><P>is the value of the first integer of the loop
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>end</STRONG></TT>
+</B></TD><TD><P>is the value of the last integer of the loop
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>delta</STRONG></TT>
+</B></TD><TD><P>is the interval between successive integers of the loop
+</TD></TR></TABLE>
+
+<P>
+This module has two outputs:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>current</STRONG></TT>
+</B></TD><TD><P>is the value of the integer currently being iterated.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>last</STRONG></TT>
+</B></TD><TD><P>is a flag indicating whether or not this is the last iteration
+through the loop.
+</TD></TR></TABLE>
+<P><STRONG>Example Macro and Program</STRONG>
+<P>
+<PRE>
+FactorialMacro.net
+Factorial.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu050.htm#HDRODONE">Done</A>,
+&nbsp;<A HREF="refgu062.htm#HDROFIRST">First</A>,
+&nbsp;<A HREF="refgu063.htm#HDRFOREMEM">ForEachMember</A>,
+
+&nbsp;<A HREF="refgu066.htm#HDRGETGLO">GetGlobal</A>,
+&nbsp;<A HREF="refgu067.htm#HDRGETLOC">GetLocal</A>,
+&nbsp;<A HREF="refgu135.htm#HDRSETGLO">SetGlobal</A>,
+&nbsp;<A HREF="refgu136.htm#HDRSETLOC">SetLocal</A>
+
+<P>
+&nbsp;<A HREF="usrgu026.htm#HDRXMOD">Chapter 4. "Data Explorer Execution
+Model"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

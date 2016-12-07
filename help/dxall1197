@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxdhe DXDeleteHashElement 
+#!N #!N Function #!N #!N Removes from a hash table any 
+element that matches a search key. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   
+#include <dx/dx.h> Error DXDeleteHashElement(HashTable hashtable, Key searchKey) #!EF #!N #!N Functional 
+Details #!N #!N If a hash function was provided at the 
+time the hash table was created, then that function will be 
+used to derive a pseudokey from  #!F-adobe-times-bold-r-normal--18*   searchKey #!EF . If 
+a hash function was not provided, then the first long integer 
+word of  #!F-adobe-times-bold-r-normal--18*   searchKey #!EF is assumed to be the pseudokey. 
+#!N #!N If more than one element is stored under that 
+pseudokey (possibly only if a compare function was provided at the 
+time the hash table was created), then that compare function will 
+be used to delete only that element that matches  #!F-adobe-times-bold-r-normal--18*   searchKey 
+#!EF . #!N #!N  #!F-adobe-times-bold-r-normal--18*   Key #!EF is defined as: #!N 
+ #!F-adobe-times-bold-r-normal--18*   typedef Pointer Key; #!EF #!N #!N Return Value #!N #!N 
+Always returns  #!F-adobe-times-bold-r-normal--18*   OK #!EF . #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxch,dxall1190 h DXCreateHash  #!EL  ,  #!Ldxihe,dxall1283 h DXInsertHashElement  #!EL  #!EF #!N #!N  #!Lhash,dxall1121 h Hashing  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxdhsh,dxall1198 h DXDestroyHash  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

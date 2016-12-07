@@ -1,0 +1,30 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rty Setting Data Types #!N #!EC #!N #!N The data 
+type of Arrays, Fields, and Groups are determined as follows. #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Arrays #!EF 
+: The data type is set when the Array is created. 
+(See  #!Larraysc,dxall1069 h Array Class  #!EL  .) #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Fields #!EF : 
+The data type is that of the "data" component, if there 
+is one. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Groups #!EF : The 
+data type is set explicitly by  #!F-adobe-times-bold-r-normal--18*   DXSetGroupType() #!EF ; it 
+is set implicitly for Series and Composite Groups (because members of 
+these Groups must be of the same type). #!N #!I0 #!N 
+#!EF #!N  #!Rtipes #!N #!N #!CForestGreen #!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+#!N typedef enum { #!N TYPE_BYTE #!EF (1 byte) #!N  #!F-adobe-times-bold-r-normal--18*   
+TYPE_UBYTE #!EF (2 bytes) #!N  #!F-adobe-times-bold-r-normal--18*   TYPE_SHORT #!EF (2 bytes) #!N 
+ #!F-adobe-times-bold-r-normal--18*   TYPE_USHORT #!EF (2 bytes) #!N  #!F-adobe-times-bold-r-normal--18*   TYPE_FLOAT #!EF (4 bytes) 
+#!N  #!F-adobe-times-bold-r-normal--18*   TYPE_INT #!EF (4 bytes) #!N  #!F-adobe-times-bold-r-normal--18*   TYPE_UINT #!EF (4 
+bytes) #!N  #!F-adobe-times-bold-r-normal--18*   TYPE_DOUBLE #!EF (8 bytes) #!N  #!F-adobe-times-bold-r-normal--18*   TYPE_HYPER #!EF 
+(8 bytes) #!N  #!F-adobe-times-bold-r-normal--18*   TYPE_STRING #!EF (dynamic) #!N #!N  #!F-adobe-times-bold-r-normal--18*   #!N 
+} Type; #!N #!N typedef enum { #!N CATEGORY_REAL #!EF #!N 
+ #!F-adobe-times-bold-r-normal--18*   CATEGORY_COMPLEX #!EF #!N  #!F-adobe-times-bold-r-normal--18*   #!N } Category; #!EF #!EF #!N 
+#!N #!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object 
+DXGetType() #!EF #!EF #!I50 #!N Returns the type, category, rank, and 
+shape of an Object. See  #!Ldxgte,dxall1270 h DXGetType  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   int DXTypeSize() #!EF #!N int DXCategorySize(); #!EF #!I50 #!N The 
+first returns the size (in bytes) of a variable of a 
+given type; the second, the size multiplier for a given category. 
+See  #!Ldxts,dxall1403 h DXTypeSize, DXCategorySize  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lcache,dxall1102 h Cache  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

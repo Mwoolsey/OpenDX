@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Overlay</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu099.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu101.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDROVERLAY" ></A>Overlay</H3>
+		<A NAME="IDX609"></A><A NAME="IDX610"></A>
+<A NAME="IDX611"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREN">Rendering</A>
+<A NAME="IDX612"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Overlays one image with another.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+combined</STRONG> = Overlay(<STRONG>overlay, base, blend</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>overlay</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">image
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">overlay image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>base</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">image
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">base image
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>blend</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar, vector, field, or string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">.5
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">
+0: for base image only
+<BR>
+1: for overlay image only
+<BR></TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>combined</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">image
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">combined image
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>overlay</STRONG></TT>
+</B></TD><TD><P>is the overlay image.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>base</STRONG></TT>
+</B></TD><TD><P>is the base image under <TT><STRONG>overlay</STRONG></TT>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>blend</STRONG></TT>
+</B></TD><TD><P>determines how the module combines the two images and what the
+output image will be.
+If the parameter is:
+<UL COMPACT>
+<LI><I>a scalar value</I>: the resulting image
+(<TT><STRONG>combined</STRONG></TT>) is equal to
+<PRE>
+((1 - <STRONG>blend</STRONG>) &times; <STRONG>base</STRONG>) &#43; (<STRONG>blend</STRONG> &times; <STRONG>overlay</STRONG>)
+</PRE>
+<LI><I>a vector or string</I>: this value will be interpreted as
+an RGB color.
+The <TT><STRONG>combined</STRONG></TT> image is the base image
+<I>except</I> for the pixels where the base image
+is equal to <TT><STRONG>blend</STRONG></TT>.
+These pixels will be taken from the overlay image.
+This specification allows you to perform chromakeying.
+<P>
+Two pixels are considered to have the same color if the corresponding
+component colors (i.e., red, green, blue) of one are each within
+0.1&#37; of the other.
+<P>
+The <TT><STRONG>blend</STRONG></TT> can also be specified (in a string) as
+one of the standard X Window System** colors (see
+<A HREF="refgu033.htm#HDRCOLOR">Color</A>).
+<LI><I>a field of position-dependent data</I>:
+each data value in the field is used as a blending value to overlay the
+two pixels (one from each image) corresponding to that position.
+That is, the blending is pixel by pixel.
+The "blending" field must have a grid that is compatible with both
+the overlay and the base image.
+<P>
+The <TT><STRONG>blend</STRONG></TT> values in the field must be scalar values
+between 0.0 and 1.0.
+</UL>
+</TD></TR></TABLE>
+<P><B>Notes: </B><OL>
+<P><LI>The images <TT><STRONG>base</STRONG></TT> and
+<TT><STRONG>overlay</STRONG></TT>
+must be the same size and have the same
+grid positions.
+The "colors" component must be dependent on "positions."
+The <TT><STRONG>base</STRONG></TT> and <TT><STRONG>overlay</STRONG></TT> images
+must both have the same partitioning (or none).
+<P><LI>To add two images together, or subtract one from the other, use the
+Compute module.
+First mark the "colors" component in each image (with the Mark
+module), then, use Compute to perform the desired operation on
+each.
+Finally, use Unmark to return the modified data to the "colors"
+component.
+</OL>
+
+<P><STRONG>Components</STRONG>
+<P>
+Modifies the "colors" component.
+All other input components are propagated to the output.
+<P><STRONG>Example Visual Program</STRONG>
+<PRE>
+UsingOverlay.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu012.htm#HDRARRANGE">Arrange</A>,
+&nbsp;<A HREF="refgu033.htm#HDRCOLOR">Color</A>,
+&nbsp;<A HREF="refgu036.htm#HDRCOMPUTE">Compute</A>,
+&nbsp;<A HREF="refgu048.htm#HDRDISPLAY">Display</A>,
+&nbsp;<A HREF="refgu118.htm#HDRRENDER">Render</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

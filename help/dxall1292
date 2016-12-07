@@ -1,0 +1,23 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxltqt DXLn, DXTri, DXQuad, DXTetra 
+#!N #!N Function #!N #!N Constructs a line, triangle, quadrilateral, or 
+tetrahedron from point identifiers. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Line DXLn(PointId p, PointId q) Triangle DXTri(PointId p, PointId q, PointId 
+r) Quadrilateral DXQuad(PointId p, PointId q, PointId r, PointId s) Tetrahedron 
+DXTetra(PointId p, PointId q, PointId r, PointId s) #!EF #!N #!N 
+Functional Details #!N #!N Each of the connection primitives defined here 
+consists of indices into an Array that stores the coordinate data, 
+which are typically stored in the "positions" component of a Field. 
+#!N #!N The type definitions for a  #!F-adobe-times-bold-r-normal--18*   Line #!EF , 
+ #!F-adobe-times-bold-r-normal--18*   Triangle #!EF ,  #!F-adobe-times-bold-r-normal--18*   Quadrilateral #!EF , and  #!F-adobe-times-bold-r-normal--18*   Tetrahedron 
+#!EF are as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef struct line { PointId 
+p, q; } Line; typedef struct triangle { PointId p, q, 
+r; } Triangle; typedef struct quadrilateral { PointId p, q, r, 
+s; } Quadrilateral; typedef struct tetrahedron { PointId p, q, r, 
+s; } Tetrahedron; #!EF #!N #!N A Point Id is defined 
+as follows: #!N  #!F-adobe-times-bold-r-normal--18*   typedef int PointId; #!EF #!N #!N Return 
+Value #!N #!N Returns a line, triangle, quadrilateral, or tetrahedron. #!N 
+#!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxaad,dxall1165 h DXAddArrayData  #!EL  ,  #!Ldxals,dxall1167 h DXAddLine, ...Triangle, ...Quad, ...Tetrahedron, ...Lines, ...Triangles, ...Quads, ...Tetrahedra  #!EL  ,  #!Ldxnav,dxall1310 h DXNewArray, DXNewArrayV  #!EL  
+#!EF #!N #!N  #!Lltqtc,dxall1108 h Lines, Triangles, Quadrilaterals, Tetrahedra, and Cubes  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxli,dxall1293 h DXLocalizeInterpolator  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

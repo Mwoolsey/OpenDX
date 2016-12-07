@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxiup DXInvalidateUnreferencedPositions #!N #!N Function 
+#!N #!N Determines which positions in the Fields of the input 
+Object are not referenced by any connections, faces, or polylines element 
+and then invalidates them. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> 
+Object DXInvalidateUnreferencedPositions(Object object) #!EF #!N #!N Functional Details #!N #!N Positions 
+referenced by invalid connection elements (as determined from the contents of 
+an "invalid" connections, faces, or polylines component) are considered to be 
+unreferenced. #!N #!N Positions are invalidated by use of the "invalid 
+positions" component. If that component does not already exist, one is 
+created. #!N #!N To remove the invalidated positions, use  #!F-adobe-times-bold-r-normal--18*   DXCull 
+#!EF . #!N #!N Return Value #!N #!N Returns the updated 
+Object or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. 
+#!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxcul,dxall1193 h DXCull  #!EL  ,  #!Ldxic,dxall1285 h DXInvalidateConnections  #!EL  #!EF 
+#!N #!N  #!Linvdata,dxall1118 h Invalid Data  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxiv,dxall1288 h DXInvertValidity  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

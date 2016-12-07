@@ -1,0 +1,41 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgsi DXGetScreenInfo #!N #!N Function 
+#!N #!N Returns information about a Screen Object. #!N #!N Syntax 
+#!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Screen DXGetScreenInfo(Screen s, Object *o, int *position, 
+int *z) #!EF #!N #!N Functional Details #!N #!N Returns the 
+Object being transformed and the screen transformation parameters from Screen Object 
+ #!F-adobe-times-bold-r-normal--18*   s #!EF . If  #!F-adobe-times-bold-r-normal--18*   o #!EF is not  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF , then the Object being transformed by the screen 
+transformation is returned in  #!F-adobe-times-bold-r-normal--18*   o #!EF . Similarly, if position 
+is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , then the type of screen 
+transformation is returned in  #!F-adobe-times-bold-r-normal--18*   position #!EF . Finally, if  #!F-adobe-times-bold-r-normal--18*   
+z #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , the depth of 
+the Screen Object is returned in  #!F-adobe-times-bold-r-normal--18*   z #!EF . #!N 
+#!N The value returned in  #!F-adobe-times-bold-r-normal--18*   position #!EF will be one 
+of the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+o  #!F-adobe-times-bold-r-normal--18*   SCREEN_VIEWPORT #!EF --The origin of  #!F-adobe-times-bold-r-normal--18*   o #!EF is 
+in viewport-relative coordinates.  #!F-adobe-times-bold-r-normal--18*   o #!EF will be centered in the 
+viewport when displayed. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   SCREEN_PIXEL #!EF --The 
+origin of  #!F-adobe-times-bold-r-normal--18*   o #!EF is in pixel coordinates.  #!F-adobe-times-bold-r-normal--18*   o 
+#!EF will be centered about the specified pixel coordinate when displayed. 
+#!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   SCREEN_WORLD #!EF --The origin of  #!F-adobe-times-bold-r-normal--18*   
+o #!EF is in world coordinates.  #!F-adobe-times-bold-r-normal--18*   o #!EF will be 
+located in the world coordinate system. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   
+SCREEN_STATIONARY #!EF --  #!F-adobe-times-bold-r-normal--18*   o #!EF is parallel to the screen, 
+but in its own coordinate system. #!N #!I0 #!N #!EF #!N 
+#!N #!N When position is  #!F-adobe-times-bold-r-normal--18*   SCREEN_STATIONARY #!EF , then  #!F-adobe-times-bold-r-normal--18*   
+z #!EF will take one of the following values: #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   < 0 #!EF #!EF #!I50 
+#!N Object  #!F-adobe-times-bold-r-normal--18*   o #!EF is to be displayed behind the 
+other Objects in the scene. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   0 
+#!EF #!EF #!I50 #!N Object  #!F-adobe-times-bold-r-normal--18*   o #!EF is to be 
+displayed in the middle of the scene. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   > 0 #!EF #!EF #!I50 #!N Object  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+is to be displayed in front of the other Objects in 
+the scene. #!I0 #!N #!N #!N #!N Return Value #!N #!N 
+Returns  #!F-adobe-times-bold-r-normal--18*   s #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets 
+an error code if  #!F-adobe-times-bold-r-normal--18*   s #!EF is not a Screen 
+Object. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxnsn,dxall1325 h DXNewScreen  #!EL  ,  #!Ldxsso,dxall1390 h DXSetScreenObject  #!EL  
+#!EF #!N #!N  #!Lsncs,dxall1136 h Screen Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Ldxgsm,dxall1266 h DXGetSeriesMember  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

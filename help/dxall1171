@@ -1,0 +1,38 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxalp DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, 
+DXAllocateLocalOnly, DXAllocateLocalOnlyZero #!N #!N Function Allocate global or local memory. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> #!N 
+#!N Pointer DXAllocate(unsigned int n) #!N Pointer DXAllocateZero(unsigned int n) #!N 
+Pointer DXAllocateLocal(unsigned int n) #!N Pointer DXAllocateLocalZero(unsigned int n) #!N Pointer 
+DXAllocateLocalOnly(unsigned int n) #!N Pointer DXAllocateLocalOnlyZero(unsigned int n) #!EF #!EF . 
+#!N #!N #!EC #!N #!N Functional Details For all of these 
+routines,  #!F-adobe-times-bold-r-normal--18*   n #!EF must be greater than zero. #!N #!I0 
+#!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAllocate #!EF #!EF #!I50 #!N 
+Allocates  #!F-adobe-times-bold-r-normal--18*   n #!EF bytes of memory in global memory. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAllocateZero #!EF #!EF #!I50 #!N Allocates and 
+clears  #!F-adobe-times-bold-r-normal--18*   n #!EF bytes of global memory. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAllocateLocal #!EF #!EF #!I50 #!N On platforms with per-processor 
+local memory (such as multiprocessor workstations), allocates  #!F-adobe-times-bold-r-normal--18*   n #!EF bytes 
+of memory in local memory. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAllocateLocalZero 
+#!EF #!EF #!I50 #!N Allocates  #!F-adobe-times-bold-r-normal--18*   n #!EF bytes in local 
+memory and zeros the allocated memory. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+DXAllocateLocal #!EF , #!EF  #!F-adobe-times-bold-r-normal--18*   DXAllocateLocalZero #!EF #!I50 #!N If  #!F-adobe-times-bold-r-normal--18*   
+n #!EF bytes of local memory are not available, allocate them 
+from global memory. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   DXAllocateLocalOnly #!EF , 
+#!EF  #!F-adobe-times-bold-r-normal--18*   DXAllocateLocalOnlyZero #!EF #!I50 #!N Allocate local memory only. #!I0 
+#!N #!N #!N #!N On platforms without per-processor local memory (such 
+as all currently supported workstations),  #!F-adobe-times-bold-r-normal--18*   DXAllocateLocal #!EF is identical to 
+ #!F-adobe-times-bold-r-normal--18*   DXAllocate #!EF . #!N #!N Although local is usually faster 
+than global access, local memory should be used only for Objects 
+within a task or for parts of a module not in 
+a task Group: Objects in local memory cannot be shared between 
+processors. Objects that are the output of a module must be 
+in global memory. Note: Memory allocated by any routine listed here 
+should be freed (with DXFree) when it is no longer needed. 
+#!N #!N Return Value Returns a pointer to the allocated memory 
+or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N 
+#!N See Also  #!F-adobe-times-bold-r-normal--18*    #!Ldxatg,dxall1163 h DXAbortTaskGroup  #!EL  ,  #!Ldxat,dxall1170 h DXAddTask  #!EL  ,  #!Ldxctg,dxall1192 h DXCreateTaskGroup  #!EL  ,  #!Ldxetg,dxall1203 h DXExecuteTaskGroup  #!EL  
+,  #!Ldxfre,dxall1212 h DXFree  #!EL  ,  #!Ldxpa,dxall1332 h DXPrintAlloc  #!EL  ,  #!Ldxrea,dxall1352 h DXReAllocate  #!EL  #!EF #!N #!N  #!Lstoral,dxall1096 h Memory Allocation  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxaa,dxall1172 h DXAllocateArray  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,48 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxccvs DXChangedComponentValues, DXChangedComponentStructure #!N #!N 
+Function #!N #!N Delete components of a Field. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N #include <dx/dx.h> #!N #!N Field 
+DXChangedComponentValues(Field f, char *component) #!N Field DXChangedComponentStructure(Field f, char *component) #!EF 
+#!EF #!N #!N #!EC #!N #!N Functional Details #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+DXChangedComponentValues #!EF deletes all the components of  #!F-adobe-times-bold-r-normal--18*   f #!EF that 
+have a "der" attribute naming the specified component  #!F-adobe-times-bold-r-normal--18*   component #!EF 
+. This routine is typically used when the values of the 
+items of an Array change (e.g., the values of the "data" 
+component) but not the number of items. #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXChangedComponentStructure 
+#!EF deletes all the components of  #!F-adobe-times-bold-r-normal--18*   f #!EF that have 
+a "dep," "der," or "ref" attribute naming the specified component  #!F-adobe-times-bold-r-normal--18*   
+component #!EF . This routine is typically used when the number 
+of items in an Array (e.g., the number of items in 
+the "positions" component) has been changed. #!N #!N Both of these 
+routines recursively apply  #!F-adobe-times-bold-r-normal--18*   DXChangedComponentStructure #!EF to the components they delete. 
+They ensure that Fields remain internally consistent when they are altered. 
+#!N #!N By deleting components derived from a changed component, a 
+call to  #!F-adobe-times-bold-r-normal--18*   DXChangedComponentValues #!EF ensures that the derived component will 
+be recalculated when necessary and will remain up-to-date. For example, the 
+"data statistics" component is derived from the "data" component. If the 
+"data" component is changed, the current contents of data statistics become 
+invalid. A call to  #!F-adobe-times-bold-r-normal--18*   DXChangedComponentValues(field, "data") #!EF will delete data 
+statistics, and the values will be recomputed on the next call 
+to  #!F-adobe-times-bold-r-normal--18*   DXStatistics #!EF . #!N #!N Similarly,  #!F-adobe-times-bold-r-normal--18*   DXChangedComponentStructure #!EF 
+ensures that components that depend on, refer to, or are derived 
+from another component will be as up-to-date as possible. For example, 
+the "connections" component refers to the "positions" component. If the structure 
+of the "positions" component is changed, perhaps by deleting a position, 
+the references in the "connections" component that are indices into the 
+"positions" component cease to apply. Rather than leave an invalid "connections" 
+component in the Field, it is better to remove it by 
+calling  #!F-adobe-times-bold-r-normal--18*   DXChangedComponentStructure #!EF . #!N Note: Most components depend on, 
+refer to, or are derived from others. These routines may cause 
+important information to be discarded. It is often better to correct 
+the component that has a "dep," "der," or "ref" attribute than 
+to delete it. In the example just described, you can avoid 
+deleting the "connections" component when a point is deleted from the 
+"positions" component by deleting all connections elements that refer to the 
+discarded position and remapping the remaining references to reflect the moved 
+points in the "positions" component. #!N #!N #!N Return Value #!N 
+#!N Returns  #!F-adobe-times-bold-r-normal--18*   f #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxendf,dxall1201 h DXEndField  #!EL  ,  #!Ldxgcv,dxall1228 h DXGetComponentValue  #!EL  ,  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  #!EF #!N #!N  #!Lstdcs,dxall1086 h Standard Components  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxcrih,dxall1179 h DXCheckRIH  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

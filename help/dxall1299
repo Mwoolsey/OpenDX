@@ -1,0 +1,18 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxmi DXMakeImage #!N #!N Function #!N #!N Creates a new empty 
+image Field. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Field DXMakeImage(int 
+width, int height) #!EF #!N #!N Functional Details #!N #!N Simplifies 
+creating a Field that represents an image of the specified  #!F-adobe-times-bold-r-normal--18*   
+width #!EF and  #!F-adobe-times-bold-r-normal--18*   height #!EF . #!N #!N An image 
+Field is a regular 2-dimensional grid of "positions" and "connections," with 
+a "colors" component that is floating-point, 3-vector. The sign of the 
+deltas of the "positions" component determines the orientation of the image. 
+This routine creates each of these components, adds them to a 
+Field, and returns the Field. #!N #!N The Field created can 
+be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N Return Value 
+#!N #!N Returns the image or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and 
+sets an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxgisb,dxall1241 h DXGetImageSize, DXGetImageBounds  #!EL  ,  #!Ldxgpx,dxall1261 h DXGetPixels  #!EL  #!EF #!N #!N  #!Liefs,dxall1140 h Image Fields  #!EL  . #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxmaki,dxall1300 h DXMakeInteger  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

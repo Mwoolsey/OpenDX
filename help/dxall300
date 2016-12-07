@@ -1,0 +1,79 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rchav Controlling the 
+Image: View Control... #!N #!EC #!N #!N You can change your 
+view of an object in the Image window by using the 
+ #!F-adobe-times-bold-r-normal--18*   View Control... #!EF option of the Image window  #!F-adobe-times-bold-r-normal--18*   Options 
+#!EF menu. The way an object appears in the Image window 
+is controlled by a  #!F-adobe-times-medium-i-normal--18*   camera #!EF . The camera specifies 
+the  #!F-adobe-times-medium-i-normal--18*   look-from point #!EF , the  #!F-adobe-times-medium-i-normal--18*   look-to point #!EF 
+, the field of view, the size and shape of the 
+window, and whether the rendering method is orthographic or perspective. #!N 
+#!N If you are using orthographic projection, the field of view 
+is controlled by a parameter called  #!F-adobe-times-medium-i-normal--18*   width #!EF , which 
+specifies the width of the Image window in world coordinates. For 
+perspective projection, the field of view is controlled by the camera 
+look-from position and the view angle of the camera. The differences 
+between these two projection methods is discussed in  #!Lprojmet,dxall302 h Changing the Projection Method  #!EL  . #!N 
+#!N You can change the camera settings with  #!F-adobe-times-medium-i-normal--18*   direct interactors 
+#!EF , which let you use the mouse in conjunction with 
+dialog box options to manipulate the view of the object directly, 
+and which provide immediate visual feedback for your actions. Or, you 
+can specify precise values for the camera settings, as described in 
+ #!Lcamset,dxall310 h Precise Camera Settings  #!EL  . #!N #!N You control your view of the object 
+by selecting one of the control  #!F-adobe-times-medium-i-normal--18*   modes #!EF . Each 
+mode allows you to control different aspects of your view. When 
+you select this option, the  #!F-adobe-times-bold-r-normal--18*   View Control... #!EF dialog box 
+appears. The basic configuration of this dialog box is illustrated in 
+ #!Lviewc54,dxall300 f Figure 54  #!EL  . #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rviewc54 #!N Graphics omitted from Online 
+Documentation. Please see the manual. #!N #!N Figure 54. View Control 
+Dialog Box #!EF #!N #!EC #!N #!N Depending on the view 
+mode selected, the appearance of the dialog box changes, automatically adding 
+controls particular to the current mode. #!N #!N Accelerator keys are 
+associated with many of the modes, so that it is not 
+even necessary to open the  #!F-adobe-times-bold-r-normal--18*   View Control... #!EF dialog box 
+to access these view control modes.  #!Lmode55,dxall300 f Figure 55  #!EL  lists the modes with 
+their respective accelerator keys. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rmode55 #!T,1,31,56 #!N TAB 
+None| #!N TAB Came|aCtr|+K #!N TAB Curs|rCtr|+X #!N TAB Pick| Ctr|+I 
+#!N TAB Navi|aCtr|+N #!N TAB Pan/|oCtr|+G #!N TAB Roam| Ctr|+W #!N 
+TAB Rota|eCtr|+R #!N TAB Zoom| Ctr|+Z #!N Figure 55. View Control 
+Modes with Accelerator Keys #!EF #!N #!EC #!N #!N You can 
+change your view of the image by: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o Changing your viewing direction #!N #!I30 
+#!N o Changing the projection method #!N #!I30 #!N o Rotating 
+the object (  #!F-adobe-times-bold-r-normal--18*   Rotate #!EF mode) #!N #!I30 #!N o 
+Zooming in or out of the image (  #!F-adobe-times-bold-r-normal--18*   Zoom #!EF 
+mode) #!N #!I30 #!N o Changing the look-to point (the center) 
+of the image (  #!F-adobe-times-bold-r-normal--18*   Roam #!EF mode) #!N #!I30 #!N 
+o Panning and zooming in or out of the image ( 
+ #!F-adobe-times-bold-r-normal--18*   Pan/Zoom #!EF mode) #!N #!I30 #!N o Moving the camera 
+within the scene (  #!F-adobe-times-bold-r-normal--18*   Navigate #!EF mode) #!N #!I30 #!N 
+o Specifying precise values for the camera settings (  #!F-adobe-times-bold-r-normal--18*   Camera 
+#!EF mode) #!N #!I30 #!N o Setting probe points in the 
+image (  #!F-adobe-times-bold-r-normal--18*   Cursors #!EF mode) #!N #!I30 #!N o Picking 
+objects in the image (  #!F-adobe-times-bold-r-normal--18*   Pick #!EF mode) #!N #!I30 
+#!N o Resizing the image #!N #!I30 #!N o Resetting previous 
+views (  #!F-adobe-times-bold-r-normal--18*   Undo #!EF and  #!F-adobe-times-bold-r-normal--18*   Redo #!EF buttons). #!N 
+#!I0 #!N #!EF #!N #!N #!N To select a mode, use 
+its accelerator key, or do the following: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. Click on the  #!F-adobe-times-bold-r-normal--18*   Mode #!EF 
+option box. A menu of the mode options is displayed. #!N 
+#!I30 #!N 2. Click on the desired option. The option box 
+displays the name of the new mode. The dialog box also 
+displays any additional controls for the new mode. #!N #!I0 #!N 
+#!EF #!N The different modes are discussed in more detail in 
+subsequent sections. Most of the modes use two or three mouse 
+buttons to manipulate the view. A diagram is provided in the 
+margin to the left of each section to illustrate the mouse 
+button functions, the mode, and the accelerator key. #!N #!N Some 
+of the modes use an overlay, which provides visual feedback before 
+any action is taken to change the image. This temporary overlay 
+(typically an axes diagram, rectangle, or brick) is laid over the 
+image. As you drag with the mouse, the overlay changes accordingly. 
+The image does not change until you release the mouse button, 
+at which time it is updated according to the action you 
+selected. #!N Note: If  #!F-adobe-times-bold-r-normal--18*   Execute on Change #!EF is enabled, 
+Data Explorer does update the image  #!F-adobe-times-medium-i-normal--18*   while #!EF you perform 
+rotation actions, and while you place probes in  #!F-adobe-times-bold-r-normal--18*   Cursors #!EF 
+mode. #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lchvudir,dxall301 h Changing Your Viewing Direction  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

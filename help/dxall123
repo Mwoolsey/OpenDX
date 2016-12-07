@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rex4a Example 
+9. Data and Header in the Same File #!N #!EC #!N 
+#!N The  #!F-adobe-times-bold-r-normal--18*   header #!EF and  #!F-adobe-times-bold-r-normal--18*   end #!EF keywords make 
+it possible to combine header information and data in the same 
+file. Note: Although the General Array Importer is designed to process 
+files that contain both header information and data, the Data Prompter 
+is not. It cannot create them or read them in. Such 
+files, like the one in this example, must be created with 
+an editor. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N # The Importer disregards 
+this line, since it is a comment line. #!N grid = 
+5 x 5 #!N dependency = connections #!N type = byte 
+#!N structure = scalar #!N format = ascii #!N header = 
+marker "Start data \n" #!N #!N end #!N #!N # There 
+may be comments about the data here (e.g., who created it 
+and #!N # when). These will be passed over because of 
+the marker specified #!N # in the header keyword statement. #!N 
+#!N Start data #!T,26,43,61,78,94,112,129 #!N 17 TAB 8 TAB 11 TAB 
+4 TAB 12 TAB 18 TAB 3 TAB 9 #!N 10 
+TAB 2 TAB 19 TAB 13 TAB 1 TAB 7 TAB 
+14 TAB 20 #!EF #!N #!N #!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   
+end #!EF keyword marks the end of the header section. The 
+ #!F-adobe-times-bold-r-normal--18*   header #!EF keyword statement specifies "Start data" as the search 
+string and the next line as the start of the actual 
+data. Note that if the data starts on the  #!F-adobe-times-medium-i-normal--18*   same 
+#!EF line, the new-line character (\n) is not required as part 
+of the marker (see also Step 6 of Example 8 in 
+ #!Lsvarx86,dxall122 s Enter "Time Step 1 \n"  #!EL  ). #!N #!N The "positions" keyword, omitted in this example, 
+defaults to an origin of [0 0] and deltas of [1 
+1]. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lmvardat,dxall124 h Record Style: Multivariable Data  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

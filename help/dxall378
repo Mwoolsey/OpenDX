@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall377 Using Data-Driven Colormap 
+Editors #!N #!EC #!N #!N The Colormap Editor may be  #!F-adobe-times-medium-i-normal--18*   
+data-driven #!EF , meaning that its attributes (e.g., minimum and maximum) 
+can be set by connecting the output of a tool to 
+the input of the Colormap tool in the VPE or by 
+typing a value into the Colormap configuration dialog box, instead of 
+into the Colormap Editor itself. #!N #!N If the Colormap Editor 
+is data-driven, the information transmitted via the connections or set in 
+the Configuration dialog box overrides values set in the Colormap Editor. 
+#!N #!N Data-driven Colormap Editors allow you to create color maps 
+that are appropriate for a variety of input data sets without 
+the need to reset the minimum and maximum of the color 
+map. #!N #!N The Colormap tool has a data input to 
+which an input data field may be connected. In this case, 
+the Colormap Editor is automatically set so that the minimum is 
+the minimum of the data set and the maximum is the 
+maximum of the data set. However, if you would like to 
+have more control over the exact values that are used, the 
+Colormap tool allows you to specify the minimum and maximum directly 
+through other input tabs that are by default hidden. You can 
+also pass a color map or opacity map directly to the 
+Colormap tool. The inputs for the Colormap tool are summarized in 
+the corresponding module description in IBM Visualization Data Explorer User's Reference. 
+#!N #!N Each time an input to a data-driven Colormap Editor 
+is changed (e.g., by importing a new data set), the interactor 
+is reexecuted, updating its attributes. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lundus3,dxall379 h Graphical User Interface: Control Panels, Interactors, and Macros  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

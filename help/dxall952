@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rstack Stack #!N #!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N Function 
+#!N #!N Stacks fields or series of fields. #!N #!N Syntax 
+#!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Stack(  #!F-adobe-times-bold-r-normal--18*   
+input, dimension #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB input TAB field, field series, or group 
+TAB none TAB data to be stacked #!N TAB dimension TAB 
+integer or string TAB 0 TAB dimension in which the data 
+is to #!N TAB - TAB - TAB - TAB be 
+stacked #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB output TAB field TAB stacked data #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module stacks a series of  #!F-adobe-times-medium-i-normal--18*   n #!EF -dimensional 
+fields to form a single (  #!F-adobe-times-medium-i-normal--18*   n #!EF +1)-dimensional field. 
+You can also use Stack to add a dimension to a 
+single field (e.g., "stack" it from 2 dimensions to 3 dimensions). 
+Note that Stack does  #!F-adobe-times-medium-i-normal--18*   not #!EF accept partitioned data as 
+ #!F-adobe-times-bold-r-normal--18*   input #!EF . #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N specifies the object(s) to be 
+stacked. The field(s) must have regular connections. #!N If the parameter 
+specifies a series, the location of the stacked field in the 
+new  #!F-adobe-times-bold-r-normal--18*   dimension #!EF is equal to the series position of 
+that field. If the parameter specifies a group, then the location 
+of each member of the group in the new  #!F-adobe-times-bold-r-normal--18*   dimension 
+#!EF will be 0, 1, .... If the parameter specifies a 
+field (rather than a field series), the  #!F-adobe-times-medium-i-normal--18*   n #!EF -dimensional 
+data is converted to (  #!F-adobe-times-medium-i-normal--18*   n #!EF +1)-dimensional data, with 
+the value of the extra dimension set to zero. #!N A 
+dimension can be specified by number (from 0 to  #!F-adobe-times-medium-i-normal--18*   n 
+#!EF - 1). The first three can also be specified as 
+ #!F-adobe-times-medium-i-normal--18*   x #!EF ,  #!F-adobe-times-medium-i-normal--18*   y #!EF , and  #!F-adobe-times-medium-i-normal--18*   z 
+#!EF , respectively. The default value is dimension 0 (zero). #!I0 
+#!N #!N #!N #!N Components #!N #!N All input components are 
+propagated to the output. #!N #!N Example Visual Program #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N ManipulateGroups.net #!N #!EF #!N #!N #!EC #!N 
+#!N See Also #!N #!N  #!Lcollecs,dxall791 h CollectSeries  #!EL  ,  #!Lslice,dxall950 h Slice  #!EL  ,  #!Ltranspo,dxall970 h Transpose  #!EL  #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lstatist,dxall953 h Statistics  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rserskwd series #!N #!EC #!T,235,390 #!N TAB  #!F-adobe-times-bold-r-normal--18*   bytes #!EF 
+n #!N [  #!F-adobe-times-bold-r-normal--18*   series #!EF = t, start, delta  #!F-adobe-times-bold-r-normal--18*   
+[, separator = TAB lines #!EF n #!N TAB  #!F-adobe-times-bold-r-normal--18*   marker 
+#!EF "string" ] ] #!N #!T,0 #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*   Function: #!EF #!I50 #!N Specifies, to the Importer, information 
+about a series. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Use: #!EF #!I50 #!N 
+Optional. This keyword is required only for the importation of series 
+data. The default assumes no separation between series sections. Descriptive information 
+between series sections is described with the  #!F-adobe-times-bold-r-normal--18*   separator #!EF parameter. 
+If descriptive information precedes the  #!F-adobe-times-medium-i-normal--18*   first #!EF member of the 
+series, it can be skipped by means of a  #!F-adobe-times-bold-r-normal--18*   header 
+#!EF statement. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+ #!F-adobe-times-bold-r-normal--18*   t #!EF is a required parameter that specifies the number 
+of series elements in the data file. Its default value is 
+1. #!N #!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   start #!EF and  #!F-adobe-times-bold-r-normal--18*   delta 
+#!EF are optional parameters that specify the series positions. The position 
+values are defined as: #!N start, start + d e l 
+t a, start + (2 x d e l t a), 
+..., start + (t - 1) x d e l t 
+a #!N #!N #!N The defaults for  #!F-adobe-times-bold-r-normal--18*   start #!EF and 
+ #!F-adobe-times-bold-r-normal--18*   delta #!EF are 0 (zero) and 1 (one) respectively. #!N 
+#!I30 #!N o The following example specifies that there are four 
+series members, with positions 0.8, 1.2, 1.6, and 2.0. #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N series = 4, 0.8, 0.4 #!EF #!N #!N 
+#!EC #!N #!I30 #!N o The specification of  #!F-adobe-times-bold-r-normal--18*   separator #!EF 
+is very much like that of the  #!F-adobe-times-bold-r-normal--18*   header #!EF keyword 
+(see  #!Lhdrkwd,dxall147 h header  #!EL  ). #!N #!I0 #!N #!EF #!N #!I0 #!N #!N 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lstrckwd,dxall153 h structure  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

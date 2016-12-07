@@ -1,0 +1,62 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rselect 
+Select #!N #!N Category #!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N 
+#!N Selects a member of a group or a list. #!N 
+#!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N object #!EF = 
+Select(  #!F-adobe-times-bold-r-normal--18*   input, which #!EF ); #!EF #!N #!N #!EC #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB input TAB group, series, value 
+list, string TAB none TAB the object from which one or 
+more #!N TAB - TAB list TAB - TAB members are 
+to be selected #!N TAB which TAB integer, integer list, string 
+list TAB 0 TAB the member(s) to be selected #!N TAB 
+except TAB flag TAB 0 TAB 0: copy all listed members 
+#!N TAB - TAB - TAB - TAB 1: copy all 
+but listed members #!N TAB - TAB - TAB - TAB 
+#!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Description #!EF #!N TAB object TAB object TAB the 
+selected member(s) #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+input #!EF #!EF #!I50 #!N is a series or group from 
+which items are to be selected. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+which #!EF #!EF #!I50 #!N specifies the item(s) to be selected. 
+#!N #!N If  #!F-adobe-times-bold-r-normal--18*   input #!EF is: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   a series or group: #!EF 
+the module selects items #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 
+#!N - by name if  #!F-adobe-times-bold-r-normal--18*   which #!EF is a string 
+or string list. #!N #!I30 #!N - by index in the 
+group if  #!F-adobe-times-bold-r-normal--18*   which #!EF is an integer or integer list. 
+#!N #!I0 #!N #!EF #!N #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   a 
+list: #!EF  #!F-adobe-times-bold-r-normal--18*   which #!EF must be an integer or integer 
+list, and the module selects the corresponding items. #!N #!I0 #!N 
+#!EF #!N #!N #!N If this parameter is not specified, the 
+module selects the first (0th) object. Note: Members of a series 
+can be selected only by ordinal number, not by series position. 
+For both groups and lists, counting begins at 0 (zero). #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   except #!EF #!EF #!I50 #!N specifies whether 
+ #!F-adobe-times-bold-r-normal--18*   which #!EF is to be interpreted as an inclusive or 
+exclusive selection list. #!I0 #!N #!N #!N #!N #!I0 #!N Notes: 
+#!N #!I30 #!N 1. Since the components of fields are typically 
+arrays (lists), you can select a particular position as follows: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N Use Extract to extract 
+the "positions" component. #!N #!I30 #!N Use Select on that array, 
+setting  #!F-adobe-times-bold-r-normal--18*   which #!EF to the appropriate value (e.g., 7 for 
+the eighth position). #!N #!I0 #!N #!EF #!N #!N #!N You 
+can also use the Select module to select individual frames from 
+a data series, passing the Sequencer output to  #!F-adobe-times-bold-r-normal--18*   which #!EF 
+. #!N #!I30 #!N 2. If you pass a series to 
+Select, and that series has groups of fields as members, the 
+output of Select is one of the groups of fields. Selecting 
+a single field from one of these groups requires two calls 
+to Select: the first to select the group of fields, and 
+the second to select the individual field. #!N #!I30 #!N 3. 
+If  #!F-adobe-times-bold-r-normal--18*   which #!EF is a string, Select finds the object 
+with that name only if it lies at the top hierarchical 
+level of the  #!F-adobe-times-bold-r-normal--18*   input #!EF passed to Select. #!I0 #!N 
+#!N #!N #!N Components #!N #!N All input components are propagated 
+to the output. #!N #!N Example Visual Programs #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N ConnectingScatteredPoints.net #!N GeneralImport1.net #!N GeneralImport2.net #!N PlotTwoLines.net #!N UsingTextAndTextGlyphs.net 
+#!EF #!N #!N #!EC #!N #!N See Also #!N #!N  #!Lcollect,dxall788 h Collect  #!EL  
+,  #!Lcollecn,dxall790 h CollectNamed  #!EL  ,  #!Lcollecs,dxall791 h CollectSeries  #!EL  ,  #!Llist,dxall885 h List  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lselecto,dxall937 h Selector  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

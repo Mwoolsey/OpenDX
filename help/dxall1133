@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen 
+#!N  #!Rrendmdl Rendering Model #!N #!EC #!N #!N The interpretation of 
+"colors" and "opacities" differs between surfaces and volumes. For surfaces, a 
+surface of color  #!F-adobe-times-medium-i-normal--18*   c[f] #!EF and opacity  #!F-adobe-times-medium-i-normal--18*   o #!EF 
+are combined with the color  #!F-adobe-times-medium-i-normal--18*   c[b] #!EF of the objects 
+behind it, resulting in a combined color  #!F-adobe-times-medium-i-normal--18*   c[f]o + c[b] 
+(1 - o) #!EF . #!N #!N For volumes, the "dense 
+emitter" model is used, in which the opacity represents the instantaneous 
+rate of absorption of light passing through the volume per unit 
+thickness, and the color represents the instantaneous rate of light emission 
+per unit thickness. If  #!F-adobe-times-medium-i-normal--18*   c(z) #!EF represents the color of 
+the object at  #!F-adobe-times-medium-i-normal--18*   z #!EF and  #!F-adobe-times-medium-i-normal--18*   o(z) #!EF represents 
+its opacity at  #!F-adobe-times-medium-i-normal--18*   z #!EF , the total color  #!F-adobe-times-medium-i-normal--18*   
+c #!EF of a ray passing through the volume is given 
+by: #!N c = integral to infinity from - infinity c 
+( z ) 'exp' (- integral to z from - infinity 
+o ( zeta ) d zeta) dz #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall1133,dxall1134 h Tiling Options  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

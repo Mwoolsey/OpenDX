@@ -1,0 +1,68 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rsellist SelectorList #!N #!N 
+Category #!N #!N  #!Lcatint,dxall757 h Interactor  #!EL  #!N #!N Function #!N #!N Generates a 
+list of values and a strings based on user input. #!N 
+#!N Syntax #!N #!N Available only through the user interface. #!N 
+#!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Default TAB Description #!EF #!N TAB stringdata TAB string list or 
+group TAB no default TAB specifies or derives a list of 
+#!N TAB - TAB - TAB - TAB potential output strings 
+#!N TAB valuelist TAB integer or string list or value TAB 
+0-based list TAB list of potential output values #!N TAB - 
+TAB list TAB - TAB #!N TAB cull TAB flag TAB 
+0 TAB determines whether zero-length #!N TAB - TAB - TAB 
+- TAB strings are removed (1) or not (0) #!N TAB 
+label TAB string TAB "Selector" TAB global name applied to interactor 
+#!N TAB - TAB - TAB - TAB stand-ins #!N TAB 
+- TAB - TAB - TAB #!EF #!N #!N Outputs #!T,1,161,321,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description #!EF #!N 
+TAB value TAB string or value TAB value #!N TAB name 
+TAB string TAB string name #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N This module allows the 
+user to interactively select zero, one, or more items from a 
+list. Through inputs to the module (outputs from other tools or 
+values set in its configuration dialog box) the interactor can be 
+"data-driven." #!N #!N If the interactor is not data-driven, its attributes 
+are taken from its  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box (accessed 
+from the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu in the Control Panel). 
+#!N #!N This interactor requires a list of strings and a 
+list of values or strings that are then paired up one-to-one 
+and used as selectable outputs. The inputs to SelectorList are used 
+to generate both lists. If there are no inputs, the module 
+uses the values in its  #!F-adobe-times-bold-r-normal--18*   Set Attributes... #!EF dialog box. 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   stringdata #!EF #!EF 
+#!I50 #!N controls the string values that appear as output in 
+ #!F-adobe-times-bold-r-normal--18*   name #!EF . It is required if the interactor is 
+data-driven. #!N #!N If the parameter value is: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   a string list: #!EF 
+the individual strings are used as potential outputs. #!N #!I30 #!N 
+o  #!F-adobe-times-medium-i-normal--18*   a group: #!EF the names of the group members 
+(or member1, member2, ...) are used as possible output names. #!N 
+#!I30 #!N o  #!F-adobe-times-medium-i-normal--18*   a series group: #!EF the names are 
+"position =  #!F-adobe-times-medium-i-normal--18*   n #!EF ," (where  #!F-adobe-times-medium-i-normal--18*   n #!EF is 
+the series position of each series member). #!N #!I0 #!N #!EF 
+#!N #!N #!N In every case, the items in the resulting 
+string list are displayed in the list of selections in the 
+corresponding SelectorList interactor. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   valuelist #!EF #!EF 
+#!I50 #!N is a list of potential output values. #!N #!N 
+If this parameter is a value or string list, these values 
+are mapped one-to-one onto the string list that results from  #!F-adobe-times-bold-r-normal--18*   
+stringdata #!EF input. #!N #!N If the interactor is data-driven, the 
+parameter value can also be a single integer used to generate 
+a list of integers beginning with that one. #!N #!N If 
+the parameter is defaulted and the interactor is data-driven, the value 
+list is a list of integers starting at 0 (zero). #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   cull #!EF #!EF #!I50 #!N is specified 
+only when the interactor is data-driven. It determines whether or not 
+empty strings are culled from the string list that results from 
+ #!F-adobe-times-bold-r-normal--18*   stringdata #!EF input. If set to 1, empty strings are 
+removed. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   label #!EF #!EF #!I50 #!N 
+is the global label of all instances of the corresponding interactor 
+stand-in. An interactor instance's local label (set from the Control Panel) 
+overrides a global label. If not specified, the global label is 
+set by the user interface. #!I0 #!N #!N #!N #!N Example 
+Visual Program #!N #!N #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N InterfaceControl3.net #!EF 
+#!N #!N #!EC #!N #!N See Also #!N #!N  #!Linteger,dxall878 h Integer  #!EL  , 
+ #!Lintegel,dxall879 h IntegerList  #!EL  ,  #!Lscalar,dxall932 h Scalar  #!EL  ,  #!Lscalarl,dxall933 h ScalarList  #!EL  ,  #!Lvector,dxall977 h Vector  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lsequenc,dxall939 h Sequencer  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

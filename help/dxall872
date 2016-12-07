@@ -1,0 +1,86 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rimpspsh ImportSpreadsheet #!N 
+#!N Category #!N #!N  #!Lcatiae,dxall756 h Import and Export  #!EL  #!N #!N Function #!N #!N Import 
+spreadsheet format data #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+ #!F-adobe-times-bold-r-normal--18*   field, labellist #!EF = ImportSpreadsheet(  #!F-adobe-times-bold-r-normal--18*   filename, delimiter, #!N columnname, 
+format, categorize, #!N start, end, delta, #!N headerlines, labelline #!EF ); 
+#!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Name TAB Type TAB Default TAB Description #!EF #!N TAB 
+filename TAB string TAB (none) TAB name of file to import 
+#!N TAB delimiter TAB string TAB " " TAB one-character delimiter 
+(what #!N TAB - TAB - TAB - TAB separates the 
+columns) #!N TAB columnname TAB string list TAB (all) TAB names 
+of columns to import #!N TAB format TAB string TAB 1-d 
+TAB import as 1-d or 2-d field #!N TAB categorize TAB 
+string list TAB "" TAB list of columns to categorize #!N 
+TAB - TAB - TAB - TAB during import #!N TAB 
+start TAB integer TAB (first record) TAB record (row) to begin 
+importing #!N TAB end TAB integer TAB (last record) TAB record 
+(row) to end importing #!N TAB delta TAB integer TAB 1 
+TAB increment of rows to import #!N TAB headerlines TAB integer 
+TAB 0 TAB number of lines to skip before #!N TAB 
+- TAB - TAB - TAB start of data/column labels #!N 
+TAB labelline TAB integer TAB no default TAB line number labels 
+are on #!N TAB - TAB - TAB - TAB #!EF 
+#!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type 
+TAB Description #!EF #!N TAB field TAB field TAB a field 
+with each of the columns as a component, with the #!N 
+TAB - TAB - TAB name of the column as the 
+component name #!N TAB labellist TAB string list TAB a list 
+of the imported column names #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N ImportSpreadsheet imports spreadsheet (i.e. 
+tabular) ASCII data. Each column in the file is imported as 
+a separate component in the resulting output field. The name of 
+the component is taken from a name at the top of 
+the column in the file, if present. If no name is 
+found, a default name of "column#" is used instead. #!N #!N 
+If any column entry is NULL or consists of just white 
+space this entry is treated as invalid data in Data Explorer. 
+If it is a column of type #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o string #!N A place holder of 
+" " is placed at that entry, #!N #!I30 #!N o 
+float or int #!N A -999 is placed at that entry. 
+#!N #!I0 #!N #!EF #!N In addition, an "componentname missingvalues" component 
+is created which references those invalid entries. Also an "invalid positions" 
+component is created which is the union of all the "componentname 
+missingvalues" components. For more information on invalid positions, see  #!Linval,dxall211 h Invalid Positions and Invalid Connections Components  #!EL  in 
+IBM Visualization Data Explorer User's Guide. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   filename #!EF #!EF #!I50 #!N is the file 
+to import. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   delimiter #!EF #!EF #!I50 
+#!N specifies a one-character delimiter which defines the columns. If you 
+do not specify  #!F-adobe-times-bold-r-normal--18*   delimiter #!EF , white space is assumed 
+to delimit the columns. Note: The tab delimiter is specified as 
+"\t." #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   columnname #!EF #!EF #!I50 #!N 
+is a list of the names of the columns you wish 
+to import. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   format #!EF #!EF #!I50 
+#!N must be either "1-d" or "2-d." If you specify "1-d," 
+then positions of the output field will simply be the indices 
+(row numbers) from 0 to number-of-rows. The field will have as 
+many components as there are imported columns, with each component named 
+by the column name. If you specify "2-d," then the output 
+field will be a c x r grid, where r is 
+the number of imported rows, and c is the number of 
+imported columns. It will have a single data component which contains 
+all the values in the imported rows and columns. If you 
+specify "2-d," then the columns imported can not mix string data 
+with numerical data. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   categorize #!EF #!EF 
+#!I50 #!N specifies columns to be categorized, using the Categorize module. 
+If "allstring" is specified, all columns with a data type of 
+"string" are categorized. For additional information, see  #!Lcategor,dxall782 h Categorize  #!EL  . #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   headerlines #!EF #!EF #!I50 #!N specifies the number 
+of lines to skip before the start of the data/column labels, 
+for skipping comments at the top of the file. Note that 
+this would typically be necessary only when the data being imported 
+is all strings, or if you have comments at the top 
+of the file that could be misinterpreted as labels or data. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   labelline #!EF #!EF #!I50 #!N specifies 
+the line number labels are on. Note that this would only 
+be necessary when the data being imported is all strings. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   start #!EF , #!EF  #!F-adobe-times-bold-r-normal--18*   end #!EF 
+,  #!F-adobe-times-medium-r-normal--18*   and #!EF  #!F-adobe-times-bold-r-normal--18*   delta #!EF #!I50 #!N specify the 
+records (rows) you wish to import. #!I0 #!N #!N #!N #!N 
+Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Categorical.net #!N Duplicates.net 
+#!N Zipcodes.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lcategor,dxall782 h Categorize  #!EL  ,  #!Limport,dxall871 h Import  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Linclude,dxall873 h Include  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

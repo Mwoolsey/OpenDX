@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu242.htm">Previous Page</A> &#124; <A HREF="progu244.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXN" HREF="progu097.htm#PToC_337">DXNeighbors</A></H3>
+<A NAME="IDX1892"></A>
+<A NAME="IDX1893"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Returns the neighbors Array of a Field.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Array DXNeighbors(Field f)<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+For a Field with irregular connections,
+returns the "neighbors" component of Field
+<TT><STRONG>f</STRONG></TT>.  If it does
+not exist, it is computed and added to the Field before
+returning.  Neighbors are not computed for connections with element type
+"lines."
+
+		<p>For connections with element type &quot;cubes&quot;, neighbors may be generated differently if the field has the attribute &quot;neighbors hint&quot; set to &quot;degenerate cubes&quot;. This will cause the neighbors to be generated such that more internal cancelation of faces take place if cubes have been decomposed into other shapes such as pyramids and tetrahedra. It may cause triangles to be a neighbor to a quad.</p>
+		<P>
+For a Field with regular connections, returns
+<TT><STRONG>
+NULL
+</STRONG></TT>
+without setting the error code because neighbors in a regular grid
+can be implicitly determined
+without using additional memory.
+<TT><STRONG>DXQueryGridConnections</STRONG></TT> can be
+used to determine if the
+connections are regular or irregular.
+<P>
+The "neighbors"
+Array is used to indicate which connection elements
+share faces.  For additional details on neighbors,
+see <A HREF="usrgu024.htm#HDRDATMOD">Chapter 3. "Understanding the Data
+Model"</A>
+in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the "neighbors" Array or returns <TT><STRONG>NULL</STRONG></TT>
+and sets an error code (unless the Field has regular or
+"line" connections., in which case no error code
+is set.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu278.htm#HDRDXQGC">DXQueryGridConnections</A>
+</STRONG></TT>
+<P>
+<A HREF="progu050.htm#HDRSTDCS">"Standard Components"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu242.htm">Previous Page</A> &#124; <A HREF="progu244.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

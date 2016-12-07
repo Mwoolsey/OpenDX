@@ -1,0 +1,52 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N 
+ #!Rtcntxec Controlling Execution with Switch #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   Switch 
+#!EF allows you to decide which portions of a visual program 
+are executed (e.g., whether a data set is visualized with  #!F-adobe-times-bold-r-normal--18*   
+Isosurface #!EF or  #!F-adobe-times-bold-r-normal--18*   MapToPlane #!EF ). #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. Open visual program .../Switch.net. #!N #!I30 
+#!N 2. Select  #!F-adobe-times-bold-r-normal--18*   Execute on Change #!EF in the  #!F-adobe-times-bold-r-normal--18*   
+Execute #!EF pull-down menu. The image that appears is a streamline 
+representation of the data set. #!N #!I30 #!N 3. Select  #!F-adobe-times-bold-r-normal--18*   
+Open All Control Panels #!EF in the  #!F-adobe-times-bold-r-normal--18*   Windows #!EF pull-down 
+menu. You can now use the selector interactor to switch from 
+one visualization to the other. #!N #!I0 #!N #!EF #!N #!N 
+#!N You can modify the selector interactor and increase the number 
+of choices. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. 
+Double click on the interactor to open the  #!F-adobe-times-bold-r-normal--18*   Set Selector 
+Attributes #!EF dialog box. #!N #!I30 #!N 2. Double click on 
+the  #!F-adobe-times-bold-r-normal--18*   Value #!EF parameter field and type "3" in that 
+space. #!N #!I30 #!N 3. Double click on the  #!F-adobe-times-bold-r-normal--18*   Label 
+#!EF parameter field and type "MapToPlane." in that space. Note: The 
+integer passed from  #!F-adobe-times-bold-r-normal--18*   Selector #!EF to the first input tab 
+of  #!F-adobe-times-bold-r-normal--18*   Switch #!EF determines what input, if any, is passed 
+on to another module. If the integer is "0" or greater 
+than the number of objects being passed to the module, the 
+output is NULL. Thus, "1" selects the first input (second input 
+tab), "2" the second input (third input tab), and so on. 
+#!N #!I30 #!N 4. Click on  #!F-adobe-times-bold-r-normal--18*   Add #!EF . A 
+new third line should appear under the first two. #!N #!I30 
+#!N 5. Click on  #!F-adobe-times-bold-r-normal--18*   OK #!EF to close the dialog 
+box. If you click on the option button in the selector, 
+you will see that it now offers a third choice. Leave 
+the control panel open. #!N #!I0 #!N #!EF #!N #!N #!N 
+The third choice shown in the Selector, however, is not yet 
+operative (select  #!F-adobe-times-bold-r-normal--18*   MapToPlane #!EF in the control panel and reexecute 
+the visual program). To implement this choice, you must incorporate a 
+third visualization in the program, such as that represented by the 
+program segment on the right side of the VPE canvas. This 
+segment computes a MapToPlane of temperature data. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. Click on the  #!F-adobe-times-bold-r-normal--18*   Switch #!EF 
+icon to highlight it. #!N #!I30 #!N 2. Select  #!F-adobe-times-bold-r-normal--18*   Add 
+Input Tab #!EF in the  #!F-adobe-times-bold-r-normal--18*   Edit #!EF pull-down menu. A 
+new input tab is added to  #!F-adobe-times-bold-r-normal--18*   Switch #!EF . #!N 
+#!I30 #!N 3. Connect the first ("mapped") output tab of the 
+ #!F-adobe-times-bold-r-normal--18*   AutoColor #!EF icon (below the MapToPlane icon) to the new 
+input tab of  #!F-adobe-times-bold-r-normal--18*   Switch #!EF . #!N #!I30 #!N 4. 
+Select  #!F-adobe-times-bold-r-normal--18*   MapToPlane #!EF in the control panel and reexecute the 
+visual program. The  #!F-adobe-times-bold-r-normal--18*   MapToPlane #!EF visualization appears in the Image 
+window. #!N #!I0 #!N #!EF #!N Note: Switch selects among inputs. 
+The corresponding module that selects among outputs is Route. Both are 
+described in IBM Visualization Data Explorer User's Reference. #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ltcnfgbx,dxall61 h Controlling Inputs: Configuration Dialog Boxes  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

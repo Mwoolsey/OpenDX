@@ -1,0 +1,1287 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Using the VPE</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu040.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu042.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu040.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A name="HDRUSVPE" ></A>6.2 Using the VPE</H2>
+		<A NAME="IDX700"></A><A NAME="IDX701"></A>
+<P>
+A visual program is a collection of interconnected tools that acts upon one or
+more inputs to create one or more outputs (for example, an image).
+You derive program inputs from the output of tools in the program, or
+by setting the input values to constants.
+Tools that provide output values as input to other tools are (in
+alphabetical order):
+<UL COMPACT>
+<LI>Colormap Editors (see <A HREF="usrgu042.htm#HDRCOLMAPE">6.3 , "Using the
+Colormap Editor"</A>)
+<LI>Interactors (see <A HREF="usrgu043.htm#HDRINTERAC">"Using Interactors"</A>)
+<LI>Macros (see <A HREF="usrgu044.htm#HDRMACROS">7.2 , "Creating and Using
+Macros"</A>)
+<LI>Modules (see <A HREF="refgu008.htm#HDRMDA">Chapter 1. "Data Explorer
+Tools"</A> in <I>IBM Visualization Data Explorer User&#39;s Reference</I>)
+<LI>Picks (see <A HREF="usrgu040.htm#HDRPICKIN">"Using Pick"</A>)
+<LI>Probes (see <A HREF="usrgu040.htm#HDRPROBES">"Using Probes (Cursors)"</A>)
+<LI>Sequencers (see <A HREF="usrgu039.htm#HDRSEQUEN">"Using the Sequencer"</A>)
+<LI>Transmitters and Receivers (see <A HREF="#HDRTNR">"Using Transmitters and
+Receivers"</A>).
+</UL>
+<P>
+Before building a visual program, you should be familiar with the information
+presented in this chapter as well as the information on Data Explorer
+modules presented in <A HREF="refgu008.htm#HDRMDA">Chapter 1. "Data Explorer
+Tools"</A> in <I>IBM Visualization Data Explorer Programmer&#39;s Reference</I>.
+<P>
+<A HREF="qikgu011.htm">Chapter 2. "Tutorial I: Using Data Explorer"</A>
+in <I>IBM Visualization Data Explorer QuickStart Guide</I> introduces the Data
+Explorer graphical user
+interface.
+<A HREF="qikgu016.htm">Chapter 3. "Tutorial II: Editing and Creating
+Visual Programs"</A> in <I>IBM Visualization Data Explorer QuickStart Guide</I>
+introduces the basic aspects of working
+with visual programs.
+These tutorials will familiarize you with the user interface as well as
+some of the commonly used Data Explorer modules.
+<P>
+<H3><A NAME="HDRCREATVP" ></A>Creating a Visual Program
+</H3>
+<A NAME="IDX702"></A>
+<P>
+To create a visual program, use the Visual Program Editor (VPE) window, in
+which you place and connect tools and specify values for those
+tools.
+<A HREF="#FIGUSE3">Figure 47</A> illustrates the VPE window and
+a sample visual program.
+<P><B><A NAME="FIGUSE3" HREF="../usrguide.htm#FT_FIGUSE3">Figure 47. VPE
+Window</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/example1.gif" ALT="Figure example1 not
+displayed."></CENTER><BR></B><BR>
+<P>The title bar of the VPE displays the name of the current visual program file. On the left side of the window is a palette. You can expand the cateogries by clicking on the (+) sign next to the category name to list the tools associated. The large area on the right side of the window is called the <I>canvas</I>.
+You place tools on the canvas to construct a visual program.
+<P>
+<A NAME="IDX703"></A>
+In some cases, the visual program may be too large to be displayed all
+at once on the canvas.
+On the right and bottom sides of the canvas are <I>scroll bars</I>, which allow you to move the display to different parts of the visual program. To display a different part of the visual program, click on the arrows at the end of the scroll bars, or click and hold the button on the bar between the arrows and move it until the desired portion of the visual program is displayed. Scroll bars may also appear in the tool palette, if the list of tools is too long to fit. <A NAME="IDX704"></A>
+<A NAME="IDX705"></A>
+<P>
+When you place a tool onto the canvas, it is represented by an icon.
+<A HREF="#FIGTOOLI">Figure 48</A> illustrates an example of a <I>tool
+icon</I>.
+<P><B><A NAME="FIGTOOLI" HREF="../usrguide.htm#FT_FIGTOOLI">Figure 48. Example of a
+Tool Icon</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/exticon.gif" ALT="Figure exticon not
+displayed." HEIGHT="429" WIDTH="558"></CENTER><BR></B><BR>
+<P>
+The tool icon, which has a highlighted border when selected, consists
+of a rectangle displaying the name of the tool, plus one or more
+tabs on the top, the bottom, or the top and the bottom of the
+rectangle.
+The rectangle is the active area and is used for selecting and moving
+the tool.
+The tabs on the top represent inputs to the tool, and the tabs on the
+bottom represent outputs.
+It is possible for a tool to have either no inputs or
+no outputs.
+Some of a tool&#39;s input tabs may be hidden (i.e., not displayed).
+It is possible to reveal the hidden tabs or hide additional tabs.
+It is also possible to add or remove input tabs for tools that allow a
+variable number of inputs.
+On many tools, one or more of the inputs are highlighted with a
+different color, indicating that the input is required.
+These tabs are discussed in more detail in <A HREF="#HDRSETVAL">"Specifying
+Values for a Tool&#39;s Inputs"</A>.
+<P>
+The basic steps in creating a visual program are&#58;
+<OL COMPACT>
+<LI>Select and place the desired tools on the canvas.
+<LI>Connect tool outputs to inputs.
+<LI>Set values for the tools.
+<LI>If you plan to change input parameters frequently while viewing
+an image (e.g., an isosurface value), then you should build a
+Control Panel and set interactors (see <A HREF="usrgu043.htm#HDRCPI">"Building
+Control Panels"</A>
+and <A HREF="usrgu043.htm#HDRINTERAC">"Using Interactors"</A>).
+</OL>
+<P>
+<H4><U>Placing Tools on the Canvas</U></H4>
+<A NAME="IDX706"></A>The tools are divided into categories, and a list of these categories appears with exandable icons next to them within the Tools palette on the left side of the VPE window. To locate a tool:<OL COMPACT>
+<LI>Click on the (+) next to the desired category. The names of the tools in that category appear below the category name. All palette lists are presented in alphabetic order.<LI>Select the appropriate tool name from the palette by clicking on the tool's name. Clicking on an already selected tool deselects that tool.
+			<LI>It is also possible to locate a tool by placing the cursor of the Tools list and begin typing the first few letters of a desired tool.
+		</OL>
+<P>
+To place one instance of the selected tool on the canvas&#58;
+<A NAME="IDX707"></A>
+<OL COMPACT>
+<LI>Move the cursor to where you want to position the tool on the
+canvas.
+Note that the style of the cursor changes when you move it onto the
+canvas.
+Exact placement of the tool depends on the grid settings
+(see <A HREF="#HDRWINDSET">"Customizing the VPE Window"</A>).
+<LI>Click the mouse. The tool icon appears at the specified location. When you have placed the tool, its name is no longer highlighted in the tool palette.</OL>
+To place multiple instances of the tool&#58;
+<OL COMPACT>
+<LI>Double click on the tool name in the tool palette.<LI>Click the mouse on the canvas to place one instance of the tool.
+Repeat this step for further instances of the tool.
+<LI>To stop placing the same tool, deselect the tool&#39;s name in the
+palette by clicking on any tool name.
+</OL>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">After you place a tool, its icon stays selected until you place
+another tool, or deselect the tool as described in <A HREF="#HDRSMD">"Selecting,
+Moving, and Deleting Tool Icons"</A>.
+<P>
+If you place one tool icon on top of another, the bottom tool icon
+is pushed to the right to allow room for the new one.
+To avoid the displacement of tool icons, allow enough space for each
+tool icon you plan to use.
+</td></tr></table>
+<P>To deselect a tool name in the palette, do one of the following:<UL COMPACT>
+<LI>Click on the tool name.
+<LI>Select another tool name.
+<LI>Select another category.
+
+			<LI>Press the space bar with the cursor located over the Tools palette.
+		</UL>
+<P>
+<P>
+<H4><U><a name="HDRSMD"></a>Selecting, Moving, and Deleting Tool Icons</U></H4>
+<P>
+To select a tool icon, click on it.
+<P>
+To select a group of tool icons, use one of these methods&#58;
+<A NAME="IDX708"></A>
+<UL>
+<P><LI>Hold down the Shift key and click on each tool icon in turn.
+<P><LI>Position the cursor on the canvas near a corner of the group and
+drag the mouse to draw a selection box around the tool icons
+you want.
+To select the tool icon, you must completely enclose it in the selection
+box.
+As a tool icon is encompassed by the selection box, it is highlighted
+(indicating that it is selected).
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If you have tools selected already and you want to select more,
+hold down the Shift key and either click on a single icon,
+or drag the selection box over several icons to
+select them.
+To select all icons on the canvas, use the <TT><STRONG>Select All</STRONG></TT>
+option
+of the <TT><STRONG>Edit</STRONG></TT> pull-down menu.
+</td></tr></table>
+</UL>
+<A NAME="IDX709"></A>
+<P>
+To deselect an icon, shift-click on it.
+<P>
+To deselect a group of tools, use one of these methods:
+<UL>
+<P><LI>Shift-click on each icon.
+<P><LI>Shift-drag to draw a box around the tools you want to
+deselect.
+As a selected tool is encompassed in the box, it becomes unhighlighted.
+Release the button to deselect the tools.
+</UL>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Clicking on an empty part of the canvas deselects all selected
+tools.
+</td></tr></table>
+<P>
+To move a tool icon&#58;
+
+		<OL COMPACT>
+<LI>Press and hold the left mouse button on the tool icon and drag it
+to the desired location.
+While you are dragging the tool, an outline of the tool icon follows the
+motion of the mouse, but the tool icon remains in the original
+location.
+
+			<LI>Release the mouse button at the desired location.
+The tool icon moves to that location.
+Any lines connecting to other tools are rerouted to the tool&#39;s new
+location.
+
+		</OL>
+		<P>or</P>
+		<OL>
+			<LI>Select a tool icon to be moved.
+			<LI>Press the up, down, left, or right cursor keys to move the tools one pixel at a time in the direction pressed.
+		</OL>
+		<P>
+To move a group of tool icons&#58;
+<A NAME="IDX710"></A>
+		<OL COMPACT>
+<LI>Select a group of tool icons to be moved.
+<LI>Position the cursor on any member of the group and drag it.
+An outline of each tool icon follows the motion of the mouse.
+<LI>Release the mouse button.
+The icons representing the tools move to the new location.
+Any affected connections are rerouted.
+</OL>
+<P>
+To delete tool icons&#58;
+<A NAME="IDX711"></A>
+<OL COMPACT>
+<LI>Select the tool icon or group to be deleted.
+<LI>Press the <TT><STRONG>Ctrl+Delete</STRONG></TT> accelerator key or click on
+the
+<TT><STRONG>Delete</STRONG></TT> option of the <TT><STRONG>Edit</STRONG></TT>
+menu.
+</OL>
+<P>
+<H3><A NAME="HDRSETVAL" ></A>Specifying Values for a Tool's Inputs
+</H3>
+<A NAME="IDX712"></A>
+<P>
+To provide the values of a given input for a tool, use one of these
+methods:
+<UL COMPACT>
+<LI>Connect the output tab of another tool to the desired input tab.
+<LI><I>or</I>
+<LI>Use the tool&#39;s Configuration dialog box.
+</UL>
+<P>
+When you specify an input value for a tool, the corresponding tab on
+the tool&#39;s icon automatically folds in.
+If you do not specify an input value, the input tab remains folded out,
+indicating that the input is unbound and the tool uses its default
+for that input.
+The default values are given in the Configuration dialog box.
+The tabs that are folded in give you a visual representation of the
+inputs that have user-specified values.
+<A NAME="IDX713"></A>
+Some tabs require an input; those tabs remain highlighted in a different
+color until you specify an input with a connection or through a
+Configuration dialog box.
+Some of the tabs are not displayed, termed hidden.
+The hidden tabs can be revealed or additional tabs can be hidden
+(see <A HREF="#HDRRAHIT">"Revealing and Hiding Input Tabs"</A>).
+Also, some tools allow you to add or remove input tabs
+(see <A HREF="#HDRARTABS">"Adding and Removing Input and Output Tabs"</A>).
+<A HREF="#FIGTABS">Figure 49</A> illustrates tools whose inputs have been
+specified.
+<P><B><A NAME="FIGTABS" HREF="../usrguide.htm#FT_FIGTABS">Figure 49. How Tabs
+Work</A></B>. An input tab folds in when its input is supplied through a
+connecting "arc" or is defined in the module&#39;s configuration dialog box.
+When the default input is used, the tab remains up. An output tab folds in when
+it is connected to another module by an arc.<BR>
+<B><BR><CENTER><IMG SRC="../images/htswork.gif" ALT="Figure htswork not
+displayed." HEIGHT="429" WIDTH="558"></CENTER><BR></B><BR>
+<P>
+A tab that is folded in but has no connecting line leading to it
+indicates that its input was specified using the tool&#39;s
+Configuration dialog box.
+<P>
+<H3><A NAME="HDRCDMTC" ></A>Creating, Deleting, and Moving Tab Connections
+</H3>
+<P>
+To connect tabs&#58;
+<A NAME="IDX714"></A>
+<OL COMPACT>
+<LI>Click and hold the mouse button on the output tab.
+This causes the cursor to change to a downward pointing arrow.
+When the cursor is placed over the output tab, the name of the tab is
+displayed in the tool icon.
+<LI>While pressing the mouse button, drag the cursor to the desired
+input tab.
+While you are dragging the cursor from the output tab, a white line
+appears indicating that a connection is being created.
+<LI>When you enter the area encompassing a tool icon, the tabs that
+are compatible with the output tab you are trying to connect
+will change color.
+When the cursor is placed over an input tab, the name of the tab is
+displayed in the tool icon.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">You can also connect tabs by starting at the input tab.
+Simply
+press and hold the mouse button on the desired input tab;
+this causes the cursor to change to an upward pointing arrow.
+Drag the cursor to the desired output tab.
+When the cursor enters the area encompassing a tool icon, the output
+tabs that are compatible with the input tab will change color.
+</td></tr></table>
+<LI>Place the pointer over the input tab you want and release the mouse
+button.
+If you release the mouse button in the rectangle area of the icon, the
+line automatically connects to the leftmost of the newly colored tabs.
+<P>
+When you release the mouse button, the white temporary line is replaced
+with a black line, and the corresponding tabs fold in.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">Sometimes, when tools are placed too close together on the canvas,
+a connection that you made is not visible.
+In this case, the affected input tabs are still folded in, and a dark
+line is visible on each one, but the connecting line is not
+visible.
+To correct this, move one of the affected tools to another spot on
+the canvas.
+</td></tr></table>
+</OL>
+<P>
+You can connect an output tab to more than one input tab (either on
+different tool icons or on the same tool icon).
+Therefore, you can make a connection from an output tab even though the
+output tab is folded in.
+<P>
+An input tab can receive a value from only one source, either from a
+connection to an output tab or from a value entered in a
+Configuration dialog box.
+Once an input tab folds in, you cannot make a new connection to the tab
+until the tab is released.
+<P>
+Because output tabs can have multiple destinations, connections can
+only be moved or deleted from an input tab.
+<P>
+To delete a tab connection&#58;
+<A NAME="IDX715"></A>
+<OL COMPACT>
+<LI>Depress the mouse button on the input tab.
+<LI>Drag the cursor to an empty space on the canvas (away from the
+active area of the tool).
+A white line from the output tab follows the mouse pointer.
+If you decide at this point <I>not</I> to break the connection, you
+must place the cursor back on the input tab where the connection was,
+and release the mouse button.
+<LI>Release the mouse button.
+The connection is deleted and the input tab released.
+</OL>
+<P>
+To move a tab connection&#58;
+<A NAME="IDX716"></A>
+<OL COMPACT>
+<LI>Depress the mouse button on the input tab.
+<LI>Drag the cursor to an empty input tab (one that has not already
+been folded in).
+<LI>Release the mouse button.
+The connection is rerouted to the new input tab.
+</OL>
+<P>
+<H3><A NAME="HDRMACTS" ></A>Moving and Copying Tools
+</H3>
+<A NAME="IDX717"></A>
+<A NAME="IDX718"></A>
+<A NAME="IDX719"></A>
+<P>
+The Drag and Drop capability provided by Data Explorer allows you to move or
+copy selected tools within a Data Explorer window (e.g., the VPE or a
+control panel) or between different Data Explorer windows (i.e.,
+between two different VPE windows).
+You can also drag interactor stand-ins to control panels to create
+interactors.
+<P>
+To initiate a drag and drop, first select the tools you want to move
+or copy, either by rubber-band or shift selection.
+Then place the mouse cursor over one of the selected tools and press
+the middle mouse button.
+Keeping the button pressed, move the cursor to an empty spot on the
+canvas and release the button.
+A copy of the selected tool will be placed where the mouse button was
+released.
+To do a cut and drop (move), use Shift-middle mouse button.
+<P>
+When dragging and dropping tools from the VPE, you may drop the tools
+on a VPE in another Data Explorer session or in another VPE (i.e., macro
+editor) of the same Data Explorer session.
+Interactors in control panels can only be dragged and dropped between
+panels in the same visual program.
+<P>
+If you drag a set of tools to an inappropriate window (e.g., from a
+control panel to a VPE), no action will occur.
+If you drag a set of tools that includes transmitters, the latter (along
+with their corresponding receivers) will be renamed to wireless-1,
+wireless-2, and so on.
+<P><B>Note: </B>To include an existing <TT>.net</TT> file in the VPE, use the
+<TT><STRONG>Insert Visual Program</STRONG></TT> option of the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu in the VPE.
+The inserted visual program is placed to the right of the rightmost tool in
+the existing network.
+<P>
+<H3><A NAME="HDRTNR" ></A>Using Transmitters and Receivers
+</H3>
+<A NAME="IDX720"></A>
+<A NAME="IDX721"></A>
+<A NAME="IDX722"></A>
+<P>
+It is possible to create large visual programs in Data Explorer.
+Data Explorer provides two tools, Transmitter and Receiver, to maintain the
+modularity and readability of large programs.
+These tools allow connections between input and output tabs without
+using a visible connecting line.
+Using the Transmitter and Receiver tools allows you to separate visual
+programs into logical blocks.
+For example, the output of several logical blocks can be transmitted
+to another block that receives them, collects them, and produces
+the image.
+Macros, described in <A HREF="usrgu044.htm#HDRMACROS">7.2 , "Creating and Using
+Macros"</A>, provide another way to
+structure visual programs into logical blocks.
+<P>
+To remotely connect input and output tabs&#58;
+<OL COMPACT>
+<LI>Select the Transmitter tool, which appears under the Special
+category in the tool palette, and place it near the output tab.
+<LI>Connect the tool&#39;s output tab to the input tab of
+the Transmitter.
+<LI>Select the Receiver tool (also in the Special category), and place
+it near the input tab to be connected to the output tab above.
+<LI>Connect the Receiver&#39;s output tab to the receiving
+tool icon&#39;s input tab.
+<P>
+The Receiver automatically assumes the same name as the
+Transmitter.
+There can be multiple instances of a Receiver corresponding
+to a single Transmitter.
+These Receivers assume the same name until a new Transmitter is selected.
+<P>
+The name of a Transmitter and Receiver can be changed using the notation
+field of the Configuration dialog box (as described in
+<A HREF="#HDRUCB">"Entering Values in a Configuration Dialog Box"</A>).
+When you change the name of the Transmitter, all Receivers that share a
+name with that Transmitter also change their names.
+However, when you change the name of a particular Receiver, the
+associated Transmitter and the other Receivers are not affected.
+</OL>
+<P>
+<H3><A NAME="HDRARTABS" ></A>Adding and Removing Input and Output Tabs
+</H3>
+<A NAME="IDX723"></A>
+<A NAME="IDX724"></A>
+<A NAME="IDX725"></A>
+<P>
+Most of the tools have a fixed number of inputs and outputs, but some,
+such as <TT><STRONG>Collect</STRONG></TT> and <TT><STRONG>Compute</STRONG></TT>,
+allow the number
+of inputs to vary.
+For example, the default number of inputs for <TT><STRONG>Compute</STRONG></TT>
+is
+two, but you may want to use the output from an expression that
+has six inputs.
+Data Explorer lets you change such tools to accommodate the extra inputs.
+<P>
+To add input tabs to a tool on the canvas:
+<OL COMPACT>
+<LI>Select the tool icon by clicking on it.
+<LI>Select the <TT><STRONG>Add Input Tab</STRONG></TT> option from the
+<TT><STRONG>Input/Output Tabs</STRONG></TT> option from the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+(You can also use the <TT><STRONG>Ctrl&#43;A</STRONG></TT> accelerator key.)
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If the tool you selected has a fixed number of inputs, the
+<TT><STRONG>Add Input Tab</STRONG></TT> option is grayed out.
+</td></tr></table>
+</OL>
+<P>
+The appropriate number of input tabs are added to the tool icon.
+Typically, the <TT><STRONG>Add Input Tab</STRONG></TT> option adds one tab to
+the
+icon.
+In the case of some tools, such as CollectNamed, that require inputs in
+pairs, two input tabs are added.
+To add multiple tabs, repeat the previous steps.
+<P>
+When you change the number of input tabs on the tool icon, the
+tool&#39;s Configuration dialog box is updated to reflect
+the change.
+<P>
+To remove input tabs from a tool on the canvas:
+<OL COMPACT>
+<LI>Select the tool by clicking on it.
+<LI>Select the <TT><STRONG>Remove Input Tab</STRONG></TT> option from the
+<TT><STRONG>Input/Output Tabs</STRONG></TT> option from the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+(You can also use the <TT><STRONG>Ctrl&#43;R</STRONG></TT> accelerator key.)
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If the tool you selected has a fixed number of inputs, or if the
+icon has only the minimum number of tabs required for that tool,
+the <TT><STRONG>Remove Input Tab</STRONG></TT> option is grayed out.
+</td></tr></table>
+<P>
+The appropriate number of input tabs are removed from the right-side
+tool icon.
+If the tabs that are removed previously had connections to them, those
+connections are broken.
+It is possible for some tools to have zero input tabs.
+For example, you may want the <TT><STRONG>Compute</STRONG></TT> module to
+contain only
+an expression, with no inputs.
+The output would be the result of the expression.
+</OL>
+<P>
+<H3><A NAME="HDRUCB" ></A>Entering Values in a Configuration Dialog Box
+</H3>
+<P>
+<A NAME="IDX726"></A>
+The Configuration dialog box displays the current state of a tool&#39;s
+inputs.
+You can modify the contents of the box directly.
+The contents are also automatically updated when changes in the visual program
+or
+in interactors in a Control Panel affect a tool&#39;s inputs.
+In general, specifying input values using the Configuration dialog box
+should be reserved for those values that remain constant during
+a visualization session.
+Use an interactor set in a Control Panel to specify values that are
+likely to be changed frequently.
+<P>
+This section describes a typical Configuration dialog box, illustrated
+in <A HREF="#FIGCONFIG">Figure 50</A>.
+The Configuration dialog box for the Compute module, which is unlike
+the other
+Configuration dialog boxes, is described in <A HREF="#HDRCOMPDI">"Using the
+Compute Module Configuration Dialog Box"</A>.
+<P><B><A NAME="FIGCONFIG" HREF="../usrguide.htm#FT_FIGCONFIG">Figure 50. Typical
+Configuration Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/confgdb.gif" ALT="Figure confgdb not
+displayed." HEIGHT="221" WIDTH="525"></CENTER><BR></B><BR>
+<P>
+You can open a Configuration dialog box in one of the following
+ways&#58;
+<UL COMPACT>
+<LI>Double-click on the rectangular portion of a tool&#39;s icon.
+<LI>Select the icon and click on the <TT><STRONG>Edit</STRONG></TT> menu
+<TT><STRONG>Configuration</STRONG></TT> option (or use the
+<TT><STRONG>Ctrl&#43;F</STRONG></TT> accelerator key).
+</UL>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">If the tool icon is an interactor stand-in, a colormap editor
+stand-in, or an image tool, you must use the <TT><STRONG>Edit</STRONG></TT>
+menu <TT><STRONG>Configuration</STRONG></TT> option
+(or use the <TT><STRONG>Ctrl&#43;F</STRONG></TT>
+accelerator key) to open the
+Configuration dialog box.
+</td></tr></table>
+<P>
+A typical Configuration dialog box consists of four major parts:
+<UL COMPACT>
+<LI>Notation
+<LI>Inputs section
+<LI>Outputs section
+<LI>Pushbuttons
+</UL>
+<P>
+The following sections describe the elements in a Configuration
+dialog box.
+<P>
+<H4><U><a name="HDRNOTA"></a>Notation Field</U></H4>
+<A NAME="IDX727"></A>
+<A NAME="IDX728"></A>
+<P>
+By default, the Notation field displays the name of the tool.
+You can use this field to enter a short notation about the use of the
+tool in the current visual program&#58;
+<OL COMPACT>
+<LI>Select the field by clicking on it.
+<LI>Edit the field as a normal text field (i.e., using Backspace,
+Delete, and the alphanumeric keys).
+</OL>
+<P>
+In the case of Transmitter, Receiver, Probe, ProbeList, and Pick
+tools, use the Notation field to rename the tool, thus changing
+the name appearing on the tool icon.
+<P>
+<H4><a name="HDRINSECT"></a><U>Inputs Section</U></H4>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Toggle buttons
+</B></TD><TD><P>Specifies whether an input is active; that is, whether the input
+tab on the icon is folded in.
+The toggle buttons are the small square buttons on the far left of the
+dialog box.
+<A NAME="IDX729"></A>
+<P>
+The toggle buttons provide a visual indication of the inputs that have
+been specified.
+These buttons are analogous to the input tabs on the tool icon and are
+coherent with the tabs&#58; the buttons can be activated and
+deactivated by clicking on them.
+<UL>
+<P><LI>When you activate a toggle button, the value of the input is either
+the output of another module (specified in the Source field of the
+dialog box), or the value specified in the Value field.
+<P><LI>When you deactivate a toggle button, the input parameter is unbound
+and the tool uses its default value for the input.
+</UL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Name
+</B></TD><TD><P>Specifies the name of an input parameter.
+You cannot modify this field.
+This field is grayed out if the name is specified with tab connections.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Hide
+</B></TD><TD><P>Indicates whether an input tab is to be hidden.
+When you activate the <TT><STRONG>Hide</STRONG></TT> toggle button, the
+corresponding
+tab on the tool icon is removed.
+If a tab is connected to another tool it cannot be hidden.
+Once a tab is hidden, it can be removed from display in the
+Configuration dialog box by using the <TT><STRONG>Collapse</STRONG></TT>
+button.
+<P>
+To reveal individual input tabs, first click on the
+<TT><STRONG>Expand</STRONG></TT>
+button.
+This will cause the Configuration dialog box to resize, displaying all
+of the tool&#39;s inputs.
+Then deactivate the <TT><STRONG>Hide</STRONG></TT> toggle buttons of the desired
+inputs
+by clicking on the toggle buttons.
+As the inputs are revealed, the tool icon is updated to reflect the
+additional inputs.
+Once you have revealed all the desired tabs, you can click on the
+<TT><STRONG>Collapse</STRONG></TT> button to remove the remaining hidden tabs
+from being displayed in the Configuration dialog box.
+<P>
+See also <A HREF="#HDRRAHIT">"Revealing and Hiding Input Tabs"</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Type
+</B></TD><TD><P>Specifies the type of an input parameter.
+You cannot modify this field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Source
+<A NAME="SPTSOUR"></A>
+</B></TD><TD><P>Displays the name of the tool connected to the input, if
+a connection exists.
+If the name of a tool is displayed in the source field, the toggle
+button is activated and the name field is grayed out, and
+this input cannot be modified until the connecting line
+is deleted.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Value
+</B></TD><TD><P>You use the Value field to specify a value for an input.
+<A NAME="IDX730"></A>
+Initially the field contains the default value for an input.
+To modify the Value field, select the field by clicking on it.
+Then, edit it as a normal text field.
+The value must be specified in the syntax described in <A
+HREF="usrgu050.htm#HDRUSL">Chapter 10. "Data Explorer Scripting Language"</A>.
+After you change the field, do one of the following&#58;
+<UL>
+<P><LI>Press Enter (which automatically activates the toggle button if it
+is not already activated).
+<P><LI>Activate the toggle button by clicking on it.
+<P><LI>Click on either the <TT><STRONG>OK</STRONG></TT> pushbutton or the
+<TT><STRONG>Apply</STRONG></TT>
+button at the bottom of the box (see button descriptions in
+<A HREF="#HDRBTNS">"Pushbuttons"</A>).
+</UL>
+<P>
+Data Explorer automatically adds the appropriate delimiters for the type of
+value entered.
+For instance, if you specified a string parameter in the Configuration
+dialog box, Data Explorer automatically adds the quotes around it.
+If you specified a scalar list, Data Explorer adds braces.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">
+<A NAME="IDX731"></A>
+If a source is displayed, you cannot modify the Value field.
+If you have modified the Value field and you want to use the default
+value, release the toggle button.
+With the toggle button, you can flip between the modified value and the
+default value.
+</td></tr></table>
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>...</STRONG></TT>
+</B></TD><TD><P>This button, when enabled, brings up a list of possible values
+for
+the parameter.
+This list is for convenience only; you may enter values other than those
+listed as long as they are valid inputs for that parameter.
+For example, the <TT><STRONG>...</STRONG></TT> button for the
+<TT><STRONG>color</STRONG></TT> parameter to the Color module lists red,
+green, and blue.
+</TD></TR></TABLE>
+<P>
+<H4><U>Outputs Section</U></H4>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Name
+</B></TD><TD><P>Specifies the name of an output parameter.
+You cannot modify this field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Type
+</B></TD><TD><P>Specifies the type of an output parameter.
+You cannot modify this field.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Destination
+</B></TD><TD><P>Displays the name of the tool (or tools) to which the output
+tabs
+are connected.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Cache
+</B></TD><TD><P>Specifies the number of results for this output of the tool that
+are
+eligible for caching.
+Cache can be "All Results", in which all results are eligible for
+cache, "Last Result", in which only the last value of the
+output is eligible, or "No Results", in which no
+results from the module should be cached.
+(See <A HREF="usrgu062.htm#HDRCCTRLEX">"Cache Control: Executive"</A>.)
+</TD></TR></TABLE>
+<P>
+<H4><U><a name="HDRBTNS"></a>Pushbuttons</U></H4>
+<A NAME="IDX732"></A>
+<A NAME="IDX733"></A>
+<P>
+The seven buttons at the bottom of the Configuration dialog box are
+labeled boxes that perform an action when you click on them.
+The buttons are&#58;
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>OK
+</B></TD><TD><P>Applies new values and closes the box.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Apply
+</B></TD><TD><P>Saves newly entered values.
+Once you click on the
+<TT><STRONG>Apply</STRONG></TT> button,
+you can no longer restore previous values.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Expand
+</B></TD><TD><P>Causes all hidden inputs to be displayed in the Configuration
+dialog box.
+You can then unhide hidden tabs using the <TT><STRONG>Hide</STRONG></TT>
+toggle button.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Collapse
+</B></TD><TD><P>Causes all hidden input tabs to be removed from display in the
+Configuration dialog box.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Description
+</B></TD><TD><P>Displays a window with descriptions of the input and output
+parameters of the tool.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Restore
+</B></TD><TD><P>Restores previous values that were present when you opened the
+box
+or when you last clicked on the <TT><STRONG>Apply</STRONG></TT> button.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Cancel
+</B></TD><TD><P>Restores previous values that were present when you opened the
+box
+or when you last clicked on the <TT><STRONG>Apply</STRONG></TT> button,  and
+then
+closes the box.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRRAHIT" ></A>Revealing and Hiding Input Tabs
+</H3>
+<A NAME="IDX734"></A>
+<A NAME="IDX735"></A>
+<A NAME="IDX736"></A>
+<P>
+Most of the tools have more input tabs than are displayed when a tool
+icon is initially displayed.
+For example, the Isosurface module has six inputs, but when an
+Isosurface tool icon is initially placed on the canvas, only
+three input tabs are displayed.
+The displayed tabs represent those that are most frequently used.
+<P>
+To reveal the hidden input tabs:
+<OL COMPACT>
+<LI>Select the tool icon by clicking on it.
+<LI>Select the <TT><STRONG>Reveal All Tabs</STRONG></TT> option from the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+(You can also use the <TT><STRONG>Ctrl&#43;L</STRONG></TT> accelerator key.)
+</OL>
+<P>
+Once the input tabs have been revealed, they can be hidden.
+<P>
+To hide input tabs:
+<OL COMPACT>
+<LI>Select the tool icon by clicking on it.
+<LI>Select the <TT><STRONG>Hide All Tabs</STRONG></TT> option from the
+<TT><STRONG>Edit</STRONG></TT> pull-down menu.
+(You can also use the <TT><STRONG>Ctrl&#43;H</STRONG></TT> accelerator key.)
+</OL>
+<P>
+Hiding input tabs in this way will cause all tabs that are not connected
+to another module to be hidden.
+<P>
+If you wish to hide or reveal individual inputs, use the
+<TT><STRONG>hide</STRONG></TT>
+toggle button in the Configuration dialog box (see
+<A HREF="#HDRINSECT">"Inputs Section"</A>).
+<P>
+<H3><A NAME="HDRCOMPDI" ></A>Using the Compute Module Configuration Dialog Box
+</H3>
+<A NAME="IDX737"></A>
+<P>
+The Configuration dialog box for the Compute module, illustrated in
+<A HREF="#FIGCONFCOM">Figure 51</A>, differs in some respects from the other
+Configuration dialog boxes.
+It consists of&#58;
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Notation
+</B></TD><TD><P>See <A HREF="#HDRNOTA">"Notation Field"</A> for information.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Name
+</B></TD><TD><P>These fields allow you to enter names for the parameters of the
+expression.
+By default, the names are labeled <TT>a</TT> and <TT>b</TT>, but you
+can change them to a name more relevant to the particular computation.
+(You can have fewer or more than two inputs to the Compute module;
+see <A HREF="#HDRARTABS">"Adding and Removing Input and Output Tabs"</A>.)
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Source
+</B></TD><TD><P>See information on <A HREF="#SPTSOUR">Source fields</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Expression
+</B></TD><TD><P>The expression is entered in this field.
+See Compute in <I>IBM Visualization Data Explorer User&#39;s Reference</I> for
+more information.
+</TD></TR></TABLE>
+<P><B><A NAME="FIGCONFCOM" HREF="../usrguide.htm#FT_FIGCONFCOM">Figure 51. Typical
+Dialog Box for the Compute Module</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/cmputcfg.gif" ALT="Figure cmputcfg not
+displayed." HEIGHT="213" WIDTH="525"></CENTER><BR></B><BR>
+<P>
+<H3><A NAME="HDRLTFTDB" ></A>Locating Tools: The Find Tool Dialog Box
+</H3>
+<A NAME="IDX738"></A>
+<A NAME="IDX739"></A>
+<A NAME="IDX740"></A>
+<P>
+The <TT><STRONG>Find Tool...</STRONG></TT> dialog box provides you with
+an easy way
+to locate tools on the VPE canvas.
+You may find this dialog box especially useful if you are editing a
+large visual program.
+The dialog box can also be used to locate transmitters and receivers by
+the names  you give them.
+You open this dialog box by selecting the <TT><STRONG>Find
+Tool...</STRONG></TT>
+option from the <TT><STRONG>Edit</STRONG></TT> pull-down menu.
+<P><B><A NAME="FIGFINDTOL" HREF="../usrguide.htm#FT_FIGFINDTOL">Figure 52. Find
+Tool Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/findtool.gif" ALT="Figure findtool not
+displayed."></CENTER><BR></B><BR>
+<P>
+<A HREF="#FIGFINDTOL">Figure 52</A> illustrates the layout of the Find Tool
+dialog
+box.
+The dialog consists of three parts:
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Tool list
+</B></TD><TD><P>Displays an alphabetized list of all the tools in the visual
+program
+currently displayed on the VPE canvas.
+If the visual program contains transmitters, receivers, probes or picks,
+then the tool name (e.g., Transmitter) is displayed instead of the
+user-supplied name.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Selection
+</B></TD><TD><P>Displays the current tool to be located.
+When the dialog first appears, this field is blank.
+To change the selected tool either click on the desired tool name, or
+click on the <TT><STRONG>Undo</STRONG></TT> or <TT><STRONG>Redo</STRONG></TT>
+buttons, or type
+the name of the tool, transmitter or receiver directly in the
+selection text field.
+The next time you open the dialog box, the selection field will display
+the last selection you made.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Pushbuttons
+</B></TD><TD><P><TT><STRONG>Find</STRONG></TT> initiates the search for the
+selected tool.
+<TT><STRONG>Undo</STRONG></TT> undoes the last find and updates Selection.
+<TT><STRONG>Redo</STRONG></TT> redoes an undone find and updates Selection.
+<TT><STRONG>Restore</STRONG></TT> restores the canvas to the location at the
+time the
+dialog box was opened.
+<TT><STRONG>Close</STRONG></TT> closes the dialog box.
+</TD></TR></TABLE>
+<P>
+To locate a particular tool on the canvas&#58;
+<OL COMPACT>
+<LI>Click on the tool name.
+<LI>Click on the <TT><STRONG>Find</STRONG></TT> button.
+This will initiate the search for the first occurrence of the tool icon
+on the canvas.
+When the tool is found, the portion of the canvas that is displayed may
+be updated to include the located tool icon.
+</OL>
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">The located tool icon is selected.
+</td></tr></table>
+<P>
+If you wish to find another occurrence of the same tool, simply click on
+<TT><STRONG>Find</STRONG></TT> again.
+This can be repeated as many time as you desire.
+When no more occurrences of the tool can be found, a message is
+displayed.
+If you click on the <TT><STRONG>Find</STRONG></TT> button again, the search will
+be
+reset and the first occurrence of the tool icon will be located.
+<P>
+If the selected tool is a transmitter, receiver, probe, or pick,
+occurrences of the tool will be found independently of the
+user-supplied name.
+To locate a transmitter, receiver, probe, or pick tool by name&#58;
+<OL COMPACT>
+<LI>Enter the name of the transmitter, receiver, pick or probe in the
+<TT><STRONG>Selection:</STRONG></TT> text field.
+<LI>Click on the <TT><STRONG>Find</STRONG></TT> button.
+</OL>
+<P>
+You can initiate the search for a different tool at any point.
+If you wish to retrace your steps, the <TT><STRONG>Find</STRONG></TT> dialog
+provides
+an <TT><STRONG>Undo</STRONG></TT> button, allowing you to undo up to 10
+previous searches.
+When you click on the <TT><STRONG>Undo</STRONG></TT> pushbutton, the name of the
+tool
+(or transmitter or receiver) that was previously located will
+appear in the <TT><STRONG>Selection:</STRONG></TT> text field and the
+canvas is updated to reflect the location of
+the tool icon.
+<P>
+The dialog box also provides a <TT><STRONG>Redo</STRONG></TT> button.
+This enables you to repeat a search that was undone with the
+<TT><STRONG>Undo</STRONG></TT> button.
+<P>
+If you wish to return the canvas to its former "state" (i.e., to
+the set of tool icons it displayed) prior to the first search,
+click on <TT><STRONG>Restore</STRONG></TT> button.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">
+Clicking on <TT><STRONG>Undo</STRONG></TT>, <TT><STRONG>Redo</STRONG></TT>, or
+<TT><STRONG>Restore</STRONG></TT> will deselect the tool that is
+selected in the Tools palette.
+</td></tr></table>
+<P>
+<H3><A NAME="HDRWINDSET" ></A>Customizing the VPE Window
+</H3>
+<A NAME="IDX741"></A>
+<A NAME="IDX742"></A>
+<A NAME="IDX743"></A>
+<P>
+Under the <TT><STRONG>Options</STRONG></TT> menu bar category are selections
+for customizing the window&#58;
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Tool Palettes
+</B></TD><TD><P>Use as a toggle by clicking to close the palettes and make
+the working area on the canvas larger.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Grid...
+</B></TD><TD><P>A dialog box, illustrated in <A HREF="#FIGGRIDBOX">Figure
+53</A>, appears for
+you to enter new values.
+</TD></TR></TABLE>
+<P><B><A NAME="FIGGRIDBOX" HREF="../usrguide.htm#FT_FIGGRIDBOX">Figure 53. Grid
+Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/griddb.gif" ALT="Figure griddb not
+displayed."></CENTER><BR></B><BR>
+<P>
+The <TT><STRONG>Grid...</STRONG></TT> option allows you to specify
+whether the tools you place on the canvas automatically
+align on a
+grid pattern.
+You can enable the grid pattern by clicking on one of the following:
+<PRE><STRONG>
+1D Horizontal
+1D Vertical
+2D
+</STRONG>
+</PRE>
+The default is none.
+<P>
+You can control the spacing of the grid pattern by changing the number
+of vertical and horizontal pixels.
+Specify how the tools are to be aligned on the grid by changing the
+alignment toggle buttons.
+For example, the dialog box in <A HREF="#FIGGRIDBOX">Figure 53</A> specifies
+grid spacing of 50 pixels, with the center of a tool being
+placed at a grid position.
+<P>
+		<H3><A NAME="IDX744"></A><A NAME="HDRADCOM" ></A>Adding Comments to a Visual Program
+</H3>
+		<P>
+For your own documentation purposes, you can add comments to
+your visual program.
+These comments are saved and restored as you save and restore the
+program.
+
+		<P>
+To add a comment to the visual program:
+<OL COMPACT>
+<LI>Select the <TT><STRONG>Comment...</STRONG></TT> option from the
+<TT><STRONG>Edit</STRONG></TT>
+pull-down menu.
+A window opens with space for a large text field.
+If a comment has been entered previously, it is displayed in the text
+field.
+<LI>Enter the desired comment in the text field.
+Edit the field the same way you edit any text field.
+This text field has multiple lines; you can generate line breaks
+using the Enter key, or type continuously and have the line
+breaks added automatically.
+</OL>
+<P>
+You can view these comments by using the <TT><STRONG>Comment...</STRONG></TT>
+option of the <TT><STRONG>Edit</STRONG></TT> pull-down menu in the VPE,
+or by using the <TT><STRONG>Application Comment</STRONG></TT>
+option of the <TT><STRONG>Help</STRONG></TT> pull-down
+menu in any primary window.
+
+<P>
+<H3><A NAME="HDRVPEANOT" ></A>Adding Annotation to a Visual Program
+</H3>
+<P>You can also add annotation directly to the canvas.
+Select the <TT><STRONG>Add Annotation option</STRONG></TT> from the Edit
+pull-down
+menu. A cursor appears. Click on the canvas where you would like to place
+annotation. You can modify the text in the annotation by double-clicking
+on the annotation. A text-entry dialog appears.
+<P>
+By default, the annotation text is visible on the canvas. You can choose
+the <TT><STRONG>Hide Text</STRONG></TT> option on the text-entry dialog, in
+which case only a "marker" appears on the canvas.
+<P>
+<H3><A NAME="HDRVPEPAGE" ></A>Creating pages in the VPE
+</H3>
+<P>You can structure your visual program to make it more readable by
+using pages. A visual program can consist of a number of pages. Each
+page contains a set of modules completely disconnected from modules on
+other pages. Receivers and transmitters are used to connect modules on
+different pages.
+
+		<P>
+To use pages, select the <TT><STRONG>Pages...</STRONG></TT> option in
+the Edit menu of the VPE.
+A cascade
+menu allows you to create an empty page, create a page containing the
+currently
+selected tools, delete the currently displayed page, or configure the page,
+that is, change its name or position.
+
+		<H3><A NAME="HDRVPEGLAY" ></A>Automatic Graph Layout of a Visual Program</H3>
+		The <TT><B>Layout Graph</B></TT> options of the <B><TT>Edit</TT></B> pull-down menu will rearrange a network on a page using a graph algorithm to try and organize its layout. Locate the page you wish to rearrange and select this option. The new layout should have more straight lines and less crossing lines between modules.
+		<H3><A NAME="HDRSAVERVP" ></A>Saving and Restoring a Visual Program
+</H3>
+		<A NAME="IDX746"></A>
+<A NAME="IDX747"></A>
+<A NAME="IDX748"></A>
+<P>
+The <TT><STRONG>Save As...</STRONG></TT> and <TT><STRONG>Open...
+</STRONG></TT> options of the
+<TT><STRONG>File</STRONG></TT> pull-down menu use similar dialog boxes.
+A sample <TT><STRONG>Save As...</STRONG></TT> dialog box is illustrated in
+<A HREF="#FIGSAVEAS">Figure 54</A>.
+<P><B><A NAME="FIGSAVEAS" HREF="../usrguide.htm#FT_FIGSAVEAS">Figure 54. Save As
+Dialog Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/saveas.gif" ALT="Figure saveas not
+displayed."></CENTER><BR></B><BR>
+<P>
+<H4><U><a name="HDRFSBOX"></a>File Selection Dialog Boxes</U></H4>
+The components of the dialog box are: 
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B>Filter
+</B></TD><TD><P>Specifies the current search argument for files.
+You can broaden or narrow the scope of the files displayed in the
+<TT><STRONG>Files</STRONG></TT> area by changing the filter string.
+You can also use the filter to specify a directory in which to search
+for the files.
+For example, a filter of <TT>/abc/*.net</TT> displays all of the visual programs
+in the <TT>abc</TT> directory.
+Change the filter string by clicking on it and typing the new string.
+Because Data Explorer appends the <TT>.net</TT> extension to visual programs
+when it saves them, be sure to specify <TT>.net</TT> at the end of the
+filter string.
+To request smaller groups of files in the current directory&#58;
+<OL COMPACT>
+<LI>Type standard file regular expression notation into the File Filter
+field.
+For example, type <TT>ab*.net</TT> to select all <TT>.net</TT> files
+whose names begin with <TT>ab</TT>.
+<LI>Click on the <TT><STRONG>Filter</STRONG></TT> button at the bottom of the
+dialog
+box, or press Enter, to update the information shown.
+</OL>
+To request files located in a different directory:
+<OL COMPACT>
+<LI>Use standard file regular expression notation to specify the
+directory to search.
+For example, to select all the <TT>.net</TT> files in the
+<TT>/u/xyz</TT> directory, you would change the filter
+string to <TT>/u/xyz/*.net</TT>.
+<LI>Click on the <TT><STRONG>Filter</STRONG></TT> button at the bottom of the
+dialog
+box to update the information shown.
+</OL>
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Directories
+</B></TD><TD><P>Displays the directories in the current filter path.
+When you click on a directory, its name is displayed in the filter
+field; pressing the Enter key then applies that filter.
+You can traverse through the available paths by double-clicking on the
+paths displayed in this portion of the dialog box.
+The parent directory of the filter path can be reached by selecting and
+applying the directory name that ends with two periods (..)
+as a filter.
+As you change directories this way, the <TT><STRONG>Selection</STRONG></TT> box
+and
+<TT><STRONG>Files</STRONG></TT> section are updated accordingly.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Files
+</B></TD><TD><P>Displays the files specified by the <TT><STRONG>File
+Filter</STRONG></TT> and the
+directory shown in the <TT><STRONG>Selection</STRONG></TT> area.
+<P>
+Clicking on a file name once will change the current selection.
+Double-clicking on a file name will select that file and proceed with
+the Open, Save As, or Load Macro operation.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Selection
+</B></TD><TD><P>Displays the current file selection.
+When the dialog box first appears, <TT><STRONG>Selection</STRONG></TT> displays
+the
+current directory.
+To change the current selection, either click on the desired file in
+the <TT><STRONG>File</STRONG></TT> area or click on the
+<TT><STRONG>Selection</STRONG></TT>
+area and type the desired file name.
+The next time you open the dialog box, the <TT><STRONG>Selection</STRONG></TT>
+field
+displays the directory you most recently specified.
+</TD></TR><TR VALIGN="TOP"><TD><P><B>Pushbuttons
+</B></TD><TD><P><TT><STRONG>OK</STRONG></TT> approves the file name in the
+<TT><STRONG>Selection</STRONG></TT>
+area and proceeds with the Open, Save As, or Load Macro
+operation.
+<TT><STRONG>Filter</STRONG></TT> applies the filter string specified in the
+<TT><STRONG>File
+Filter</STRONG></TT> area.
+<TT><STRONG>Cancel</STRONG></TT> closes the dialog box.
+In the <TT><STRONG>Open...</STRONG></TT> and <TT><STRONG>Load
+Macro...</STRONG></TT> file
+selection dialog boxes, the <TT><STRONG>Comments</STRONG></TT> button lets you
+view any comments associated with the selected visual program file.
+</TD></TR></TABLE>
+<P>
+You can use the scroll bars provided on the right side and the bottom
+of the directories and file listings to view file and path names
+that are either too long or too numerous to fit in the
+available space.
+<P>
+<H4><A NAME="HDRSVVISPR"></A><U>Saving a Visual Program</U></H4>
+<P>
+When saving a visual program,
+Data Explorer saves the following files:
+<UL COMPACT>
+<LI>The visual program, with a <TT>.net</TT> extension
+<LI>The configuration settings, with a <TT>.cfg</TT> extension
+</UL>
+Data Explorer automatically appends <TT>.net</TT>, <TT>.cfg</TT> to the
+name you enter in the <TT><STRONG>Save As...</STRONG></TT>
+dialog box.
+However, if you enter your file name with a <TT>.net</TT> extension,
+Data Explorer does not add another <TT>.net</TT>.
+If you end the file name with any other extension, Data Explorer appends the
+<TT>.net</TT> extension to the extension you have specified.
+For example, a file named <TT>abc.xyz</TT> would be
+renamed <TT>abc.xyz.net</TT>.
+<P>
+An existing file can be saved in the following ways:
+<UL>
+<P><LI>Under the same name, replacing the previous version of the file
+<P><LI>Under a new name or directory, thus creating a new file and
+preserving the previous version.
+</UL>
+<P>
+<H5><U>Replacing a Previously Saved File</U></H5>
+<A NAME="IDX749"></A>
+<P>
+To save a program that has been named and saved previously, press
+<TT><STRONG>Ctrl+S</STRONG></TT> or select the <TT><STRONG>File</STRONG></TT>
+menu
+<TT><STRONG>Save</STRONG></TT> option.
+This replaces the previous version of the file.
+A named visual program has its name displayed in the title bar of the VPE
+window.
+<P>
+<H5><U>Saving a Visual Program as a New File</U></H5>
+<A NAME="IDX750"></A>
+<P>
+To save program as a new file:
+<OL COMPACT>
+<LI>Select the <TT><STRONG>Save As...</STRONG></TT> option from the
+<TT><STRONG>File</STRONG></TT> pull-down menu.
+The <TT><STRONG>Save As...</STRONG></TT> dialog box appears
+(see <A HREF="#FIGSAVEAS">Figure 54</A>).
+The <TT><STRONG>Selection</STRONG></TT> field displays the current file path.
+<LI>Click on the <TT><STRONG>Selection</STRONG></TT> field and add the new file
+name.
+If you want to save the file to a different directory, change the file
+path in the field as well.
+<LI>Press the Enter key or click on <TT><STRONG>OK</STRONG></TT>.
+</OL>
+<P>
+The file is saved and the <TT><STRONG>Save As...</STRONG></TT> dialog box
+disappears.
+<P>
+<H4><U><a name="HDRRESTPRE"></a>Restoring a Previously Created Program</U></H4>
+<A NAME="IDX751"></A>
+<P>
+To restore a previously created visual program, select the
+<TT><STRONG>File</STRONG></TT> menu
+<TT><STRONG>Open</STRONG></TT> option.
+<P>
+The <TT><STRONG>Open</STRONG></TT> dialog box appears (<A HREF="#FIGOPEN">Figure
+55</A>).
+<P><B><A NAME="FIGOPEN" HREF="../usrguide.htm#FT_FIGOPEN">Figure 55. Open Dialog
+Box</A></B><BR>
+<B><BR><CENTER><IMG SRC="../images/opendb.gif" ALT="Figure opendb not
+displayed."></CENTER><BR></B><BR>
+<P>
+It lists all file names in the current directory that are found through
+the specified file filter.
+A file can be selected in one of the following ways&#58;
+<UL>
+<P><LI>Double-click on the file name under the <TT><STRONG>Files</STRONG></TT>
+heading.
+<P><LI>Click on the file name under the <TT><STRONG>Files</STRONG></TT> heading.
+The file name appears in the <TT><STRONG>Selection</STRONG></TT> text box.
+Click on <TT><STRONG>OK</STRONG></TT>.
+<P><LI>Click in the <TT><STRONG>Selection</STRONG></TT> text box and type the
+file name,
+then press Enter or click on <TT><STRONG>OK</STRONG></TT>.
+</UL>
+<P>
+Note that a complete file name must be specified in the
+<TT><STRONG>Selection</STRONG></TT> field to read in a file.
+A file name may be highlighted under the <TT><STRONG>Files</STRONG></TT> heading
+without appearing in the <TT><STRONG>Selection</STRONG></TT> field.
+To select the file, click on its name under the
+<TT><STRONG>Files</STRONG></TT> heading.
+<P>
+To see any comments that might be associated with a visual program before you
+load it, select a file by clicking on its name once or by
+entering its name in the <TT><STRONG>Selection</STRONG></TT> text box, then
+click
+on the <TT><STRONG>Comments</STRONG></TT> button.
+If the visual program has comments associated with it, they are displayed;
+otherwise, a message appears telling you that there are
+no comments.
+<P>
+To see a different list of files, change either the file filter or the
+file directory (<A HREF="#HDRFSBOX">"File Selection Dialog Boxes"</A>).
+<P>
+When you open a file, its name is displayed in the title bar
+of the VPE.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

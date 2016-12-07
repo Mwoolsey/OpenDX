@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu024.htm">Previous Page</A> &#124; <A HREF="progu026.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu022.htm#PToC6">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H1><A NAME="HDRMODEXSC" HREF="../proguide.htm#ToC_56">Chapter 5. Working with
+Data</A></H1>
+<P><A NAME="PToC7" HREF="../proguide.htm#ToC">Partial Table-of-Contents</A>
+<MENU>
+<LI><A NAME="PToC_57" HREF="#HDRADDMODX">5.1 Add Module Example--Add a Number to
+Every Data Value</A>
+<LI><A NAME="PToC_58" HREF="progu026.htm#HDRADDTWO">5.2 Add2 Module Example--Add
+Two Data Fields</A>
+<LI><A NAME="PToC_59" HREF="progu027.htm#HDRADD2I">5.3 Add2Invalid Module
+Example--Manipulate Invalid Data</A>
+</MENU><HR><P>
+<P>
+For modules that manipulate the data component of an Object, positions
+and connections are often irrelevant.
+The Statistics module, for example, computes the mean of a data Field
+regardless of whether the connections are quads or cubes.
+In fact, it is unnecessary for the Statistics module to examine or
+access the connections component at all.
+<P>
+The Module Builder is well suited to creating such modules.
+<HR>
+<H2><A NAME="HDRADDMODX" HREF="#PToC_57">5.1 Add Module Example--Add a Number to
+Every Data Value</A></H2>
+<A NAME="IDX225"></A>
+<A NAME="IDX226"></A>
+<A NAME="IDX227"></A>
+<P>
+The Add module adds a number to every data value in a Field.
+<TABLE><TR><TD ALIGN="LEFT" VALIGN="TOP"><B>Note:</B></TD><TD ALIGN="LEFT"
+VALIGN="TOP">This example is for illustration rather than "practice,"
+since its function is already provided by Compute (see
+<A HREF="refgu036.htm#HDRCOMPUTE">Compute</A> in <I>IBM Visualization Data
+Explorer User&#39;s Reference</I>).
+</td></tr></table>
+<P>
+The Add module takes two inputs: the first, <TT><STRONG>data</STRONG></TT>,
+is of type <TT><STRONG>field</STRONG></TT> and has no default value;
+the second, <TT><STRONG>addend</STRONG></TT>, is of type
+<TT><STRONG>scalar</STRONG></TT>, and has a default
+value of zero (0).
+<P>
+The Add module has one output: <TT><STRONG>result</STRONG></TT>, of type
+<TT><STRONG>field</STRONG></TT>.
+<P>
+<B><U>(1) Start the Module Builder</U></B> with the command:
+<PRE>
+  dx -builder
+</PRE>
+<P>
+The Module Builder dialog box appears.
+Note that the dialog box carries no information, since no module
+has been specified.
+(For a simple example of creating a module with the Module Builder,
+see <A HREF="progu017.htm#HDRTMODBLD">3.3 , "Using the Module Builder: A Quick
+Walk Through"</A>)
+<P>
+<B><U>(2) Select <TT><STRONG>Open</STRONG></TT></U></B> from the
+<TT><STRONG>File</STRONG></TT> pull-down menu.
+An <TT><STRONG>Open a Module Builder file...</STRONG></TT> dialog box appears.
+<P>
+<B><U>(3) Read in</U></B>
+<TT>/usr/local/dx/samples/program_guide/add.mb</TT> as follows:
+<UL COMPACT>
+<LI>Type the full path name in the <TT><STRONG>Filter</STRONG></TT> field of the
+dialog box.
+<LI>Click on (in sequence):
+<UL COMPACT>
+<LI>the <TT><STRONG>Filter</STRONG></TT> button
+<LI>the name of the file in the <TT><STRONG>Files</STRONG></TT> field
+<LI>the <TT><STRONG>OK</STRONG></TT> button.
+</UL>
+Information describing the inputs and output of the module (extracted
+from the <TT>add.mb</TT> file) appears in the Module Builder
+dialog box.
+(Of course, if you were creating this module from scratch, you would
+fill in the information yourself.)
+</UL>
+<P>
+<B><U>(4) Save the .mb file</U></B> to a writable directory (use
+<TT><STRONG>Save As...</STRONG></TT> in the <TT><STRONG>File</STRONG></TT>
+pull-down menu).
+<P>
+<B><U>(5) Select</U></B> <TT><STRONG>Create All</STRONG></TT> from the
+<TT><STRONG>Build</STRONG></TT> pull-down menu
+of the dialog box.
+This option creates three files for the module:
+<TT>add.c</TT>, <TT>add.mdf</TT>, and <TT>add.make</TT>.
+<P>
+<B><U>(6) Implement the Add function</U></B>.
+<P>
+Use an editor to add the following lines after "User&#39;s code goes
+here," near the end of the <TT>add.c</TT> file:
+<PRE>
+   int i;
+   float value;
+   /* first implement the default for addend of 0 */
+   if (addend_knt == 0)
+      value = 0;
+   else
+      value = *addend_data;
+   /* add addend to each value in the data field */
+   for (i=0; i &lt; result_knt; i++) {
+      result_data&#91;i&#93; = data_data&#91;i&#93; + value;
+   }
+   return 1;
+</PRE>
+<P>
+The file <TT>/usr/local/dx/samples/program_guide/add.c</TT> contains a
+completed version of this program.
+<P>
+<B><U>(7) To create a version of Data Explorer that includes</U></B> the
+Add module, enter the command:
+<PRE>
+make -f add.make dxexec
+</PRE>
+<P>
+(You have now created an executable that contains the
+Add module.)
+<P>
+<B><U>(8) To invoke this version, enter&#58;</U></B>
+<PRE>
+dx  -mdf ./add.mdf -exec ./dxexec
+</PRE>
+<P>
+This command starts Data Explorer (the <TT><STRONG>add.mdf</STRONG></TT> file
+tells
+the graphical user interface about Add and its inputs
+and outputs).
+The executable dxexec invoked here is the one created in Step 6.
+<P>
+<B><U>(9) With this version of Data Explorer</U></B> you can now run any visual
+program that uses the Add module.
+One such program is
+<TT>/usr/local/dx/samples/program_guide/add.net</TT>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu024.htm">Previous Page</A> &#124; <A HREF="progu026.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="#PToC7">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

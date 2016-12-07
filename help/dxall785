@@ -1,0 +1,45 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rchggrty ChangeGroupType #!N #!N Category 
+#!N #!N  #!Lcatstr,dxall762 h Structuring  #!EL  #!N #!N Function #!N #!N Changes the group 
+type #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   changed 
+#!EF = ChangeGroupType(  #!F-adobe-times-bold-r-normal--18*   data, newtype, idlist #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB data TAB 
+group TAB (none) TAB input group object #!N TAB newtype TAB 
+string TAB (none) TAB type for output group #!N TAB idlist 
+TAB scalar list or string list TAB input dependent TAB series 
+positions or member names #!N TAB - TAB - TAB - 
+TAB #!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Description #!EF #!N TAB name TAB type TAB 
+description #!N TAB changed TAB group TAB different type of group 
+with same members as input #!N TAB - TAB - TAB 
+#!EF #!N #!N Functional Details #!N #!N ChangeGroupType allows you to 
+change the group type of an input object, for example, change 
+a generic group to a series, or change a series to 
+a multigrid. The output group  #!F-adobe-times-bold-r-normal--18*   changed #!EF will contain the 
+same members as the input group  #!F-adobe-times-bold-r-normal--18*   data #!EF . You 
+can also use this module to change the series positions of 
+a Series group. #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+data #!EF #!EF #!I50 #!N is the input group to be 
+changed. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   newtype #!EF #!EF #!I50 #!N 
+is the type for the output group. It must be one 
+of "series," "multigrid," or "generic." Note that any combination of objects 
+can be placed in a generic group, but there are restrictions 
+on the objects which can be placed in a series or 
+multigrid. In these cases, all the members must have the same 
+data type and connection type. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   idlist 
+#!EF #!EF #!I50 #!N is the list of series positions or 
+list of member names. The number of items in this list, 
+if given, must be the same as the number of members 
+in  #!F-adobe-times-bold-r-normal--18*   data #!EF . This parameter is optional. If you 
+are changing the group type to series and do not provide 
+this parameter, the members of the series will automatically be given 
+series positions 0, 1, ..., n-1, where n is the number 
+of members in  #!F-adobe-times-bold-r-normal--18*   data #!EF . #!I0 #!N #!N #!N 
+#!N Components #!N #!N This module does not change any components 
+of the input object. It changes only the group type. #!N 
+#!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N ManipulateGroups.net #!EF 
+#!N #!N #!EC #!N #!N See Also #!N #!N  #!Lchggrme,dxall784 h ChangeGroupMember  #!EL  , 
+ #!Lcollect,dxall788 h Collect  #!EL  ,  #!Lcollecs,dxall791 h CollectSeries  #!EL  ,  #!Lcollecn,dxall790 h CollectNamed  #!EL  ,  #!Lmultigr,dxall789 h CollectMultiGrid  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lclipbox,dxall786 h ClipBox  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

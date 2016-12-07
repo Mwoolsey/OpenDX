@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Understanding the Script Execution Model</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu056.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu058.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu050.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRSEM" ></A>10.8 Understanding the Script Execution Model
+</H2>
+		<P>
+An execution model is applied to the constructs defined by the Data Explorer
+scripting language.
+This model consists of the environment structure that is maintained
+during function calls, the behavior associated with macro
+expansions, the scope rules used for locating the value
+associated with a variable, and the semantics
+associated with assignment statements and
+function calls.
+
+		<P>
+<P>
+<H3><A NAME="Header_356" ></A>Top-level Environment
+</H3>
+<A NAME="IDX927"></A>
+<P>
+All <I>global</I> assignment statements and <I>initial</I>
+function invocations occur in the top-level environment.
+This environment is special in that all assignment statements and
+function invocations initiated in this environment are always
+executed.
+<P>
+<P>
+<H3><A NAME="Header_357" ></A>Function Execution
+</H3>
+<A NAME="IDX928"></A>
+<P>
+When either a macro or a module function is executed, a new dynamically
+scoped environment specific to that function call is created.
+Variables that correspond to the function&#39;s input and output formal
+parameters are created in this new environment.
+The variables corresponding to the output formal parameters are
+initialized to <TT><STRONG>NULL</STRONG></TT>.
+Those variables corresponding to the input formal parameters are
+initialized in the manner described in the preceding section.
+If an input and an output formal parameter both have the same name, then
+they share a single parameter and are initialized to the value passed
+as input when the function is called.
+<P>
+<P>
+<H3><A NAME="Header_358" ></A>Macro Expansion</H3>
+<A NAME="IDX929"></A>
+<A NAME="IDX930"></A>
+<P>
+When the function being called is a macro, the macro is effectively
+expanded in-line after first constructing the necessary
+environment for its input and output parameters.
+This guarantees that the partial orderings defined by macros are
+maintained.
+<P>
+<P>
+<H3><A NAME="HDRVUIM" ></A>Variables Used in Macros
+</H3>
+<P>
+The Data Explorer allows you to use variables on both the left and right sides
+of a function assignment; that is, as both left-side and right-side.
+<A NAME="IDX931"></A>
+<P>
+<H4><U>Variables as Left-Side Values</U></H4>
+<P>
+All assignments in a macro&#39;s environment affect variables that are
+local to the macro.
+These variables, if they do not already exist, are created in the
+macro&#39;s environment when they are first used on the
+left-hand side of an assignment expression.
+Thus, a variable outside of a macro cannot be modified with that macro.
+<P>
+The only way to make such a change is to propagate a new value out of
+the macro using its output formal parameters, and to use this
+returned value in an assignment statement in the
+enclosing environment.
+<P>
+Given these semantics, it is possible for a local version of a variable
+to come into existence and obscure a more global version of a
+variable, midway through a macro&#39;s execution.
+<P>
+<P>
+<H4><U>Variables as Right-Side Values</U></H4>
+<P>
+The values of variables used in a macro in expressions and as function
+arguments are found according to standard dynamic scoping
+rules.
+If the variable exists in the macro&#39;s local environment, then its
+value is used.
+Otherwise, the enclosing environments, all the way to the top-level
+environment, are searched to locate the variable.
+The value used is the value associated with the first instance of the
+variable.
+If the variable is not found in any environment, then the value
+<TT><STRONG>NULL</STRONG></TT> is used.
+<P>
+<H4><U>Example</U></H4>
+<P>
+The following is a sample script that illustrates how variables
+are treated in macros:
+<PRE>
+// This is a complete sample script
+macro add(a, b) -&gt; (sum)
+{
+
+c = a + b;    // c is created and given the value a+b
+c = a + x;    // x is found in the top level, and used in this expression
+c = a + z;    // z does not exist anywhere; NULL is used
+sum = a + b;  // sum is created local to the macro, separate from the
+              //     version of sum in the top level
+}
+x = 7;
+sum = 10;
+total = add(4, 4);  // total = 8, sum stays at 10
+</PRE>
+<P>
+<H3><A NAME="Header_363" ></A>Assignment and Function Call Semantics
+</H3>
+<P>
+As stated earlier, all assignment statements and function calls
+initiated at the top-level environment are executed.
+In a macro, the process is slightly different.
+When a macro is expanded, its statements are first analyzed to
+determine whether they need to be executed.
+The rule of thumb for determining if a statement will be executed is
+that it must contribute, either directly or indirectly, to:
+<UL COMPACT>
+<LI>One of the values passed into a module that has a side effect
+<LI>A value assigned to a top-level variable, using a macro&#39;s
+formal output parameters.
+</UL>
+<P>
+There are two kinds of "side effect" modules:
+<UL>
+<P><LI>Those that do not produce any Object outputs.
+Display and WriteImage are examples of this kind of module because
+they modify things such as monitors and files, which are outside
+of the language&#39;s domain and control.
+This type of module is represented in the graphical user interface
+as having no output tabs.
+<P><LI>Those that make use of internal executive features.
+These modules are specially marked in their <TT>.mdf</TT> (module
+description) files as ones that can cause side effects.
+</UL>
+Side effect modules are always executed.
+(For information on the SIDE_EFFECT flag, see <A
+HREF="progu037.htm#HDRMDFSEC">11.1 , "Module Description Files"</A>
+in <I>IBM Visualization Data Explorer Programmer&#39;s Reference</I>.)
+<P>
+<P>
+<H3><A NAME="Header_364" ></A>Execution Example</H3>
+<A NAME="IDX932"></A>
+<P>
+The macro <TT><STRONG>sum3</STRONG></TT> in the following example computes
+both the sum of its first two arguments and the sum of all three
+of its arguments.
+When the top-level assignment statement on line 7 is executed, the
+statements in lines 3 and 4 are both executed, resulting in
+the values 11 and 111 being assigned to the top-level
+variables <VAR>x</VAR> and <VAR>y</VAR> respectively.
+When the top-level assignment statement on line 8 is executed, only
+the statement on line 3 is executed.
+Since the value in the output variable <VAR>e</VAR> is not assigned to
+anything in the calling environment, the statement on line 4 need
+not be executed.
+<P>
+<PRE>
+macro sum3 (a, b, c) -&gt; (d, e)                 // 1
+{                                               // 2
+    d = a + b;                                  // 3
+    e = d + c;                                  // 4
+}                                               // 5
+                                                // 6
+x, y = sum3 (1, 10, 100);                       // 7
+x    = sum3 (1, 10, 100);                       // 8
+</PRE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+	</BODY></HTML>

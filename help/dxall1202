@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxeo DXEndObject #!N #!N Function #!N #!N Creates the standard components 
+"box" and "neighbors" that other modules expect a Field to contain. 
+#!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXEndObject(Object o) #!EF 
+#!N #!N Functional Details #!N #!N  #!F-adobe-times-bold-r-normal--18*   DXEndObject #!EF provides a 
+higher-level interface to the Field-completion processing provided by  #!F-adobe-times-bold-r-normal--18*   DXEndField #!EF 
+, since it will traverse a variety of Object classes to 
+access embedded Fields. In addition,  #!F-adobe-times-bold-r-normal--18*   DXEndObject #!EF detects if the 
+Fields contained as subObjects of  #!F-adobe-times-bold-r-normal--18*   o #!EF share components, and 
+if so, share the newly created "box" and/or "neighbors" components between 
+Fields containing the shared components. Finally,  #!F-adobe-times-bold-r-normal--18*   DXEndObject #!EF processes the 
+Fields that are subObjects of  #!F-adobe-times-bold-r-normal--18*   o #!EF in parallel on 
+architectures supporting parallelism. #!N #!N Thus, unless the Object to be 
+completed is simply a single Field,  #!F-adobe-times-bold-r-normal--18*   DXEndObject #!EF provides a 
+more flexible, faster, and potentially more space-efficient processing stage than  #!F-adobe-times-bold-r-normal--18*   
+DXEndField #!EF . #!N #!N Return Value #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   
+o #!EF or returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error 
+code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxendf,dxall1201 h DXEndField  #!EL  #!EF #!N 
+#!N  #!Lstdcs,dxall1086 h Standard Components  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Ldxetg,dxall1203 h DXExecuteTaskGroup  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

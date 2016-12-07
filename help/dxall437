@@ -1,0 +1,39 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rlodmac Loading Macros #!N #!EC #!N #!N For a 
+macro to be available for use, it must be loaded into 
+the tool palette. To load a saved macro: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Select the  #!F-adobe-times-bold-r-normal--18*   Load Macro... 
+#!EF option from the  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu in the 
+VPE. A file selection dialog box appears. For information about how 
+to use the dialog box, see  #!Lfsbox,dxall358 h File Selection Dialog Boxes  #!EL  . #!N #!I30 #!N 
+2. Use the dialog box to locate the macro you want 
+to load, and select the desired file. The macro name appears 
+on the tool palette under its assigned category. #!N #!I30 #!N 
+3. You can also load all the macros in a selected 
+directory by clicking on  #!F-adobe-times-bold-r-normal--18*   Load All Macros #!EF in the 
+dialog box. #!N Note: If the macro you loaded has the 
+same name as a macro previously loaded, the "new" macro replaces 
+the earlier one, whether or not they were assigned to the 
+same category. #!N #!N #!I0 #!N #!EF #!N #!N #!N When 
+the new macro is available for use, it is listed in 
+the tool palette as a member of the category you assigned 
+it to. For example, the MapAndDeform macro would be listed under 
+the MyMacros category. #!N #!N When you save a visual program 
+which uses a macro, the path to the macro is saved 
+in the visual program. When you reload the visual program, the 
+macro will automatically be loaded for you from the same location, 
+so it will only be necessary to explicitly load the macro 
+if it has been moved to a new location. You can 
+also easily see what macros need to be included with a 
+visual program, if for example, you are sending a visualization program 
+to another user. Simply look at the top of the .net 
+file for the list of referenced macros. #!N #!N You can 
+configure Data Explorer to automatically load macros from a specified directory 
+when you begin the Data Explorer program. To do this, use 
+the -macros  #!F-adobe-times-bold-i-normal--18*   pathlist #!EF option when starting Data Explorer, where 
+ #!F-adobe-times-bold-i-normal--18*   pathlist #!EF specifies one or more paths where the macros 
+can be found. Alternatively, you can use the  #!F-adobe-times-bold-i-normal--18*   DXMACROS #!EF 
+environment variable. For more information on how to do this, see 
+ #!Lenvar,dxall276 h Using Environment Variables  #!EL  , and  #!Lenvvar,dxall684 h Environment Variables  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lumacvp,dxall438 h Using Macros in a Visual Program  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

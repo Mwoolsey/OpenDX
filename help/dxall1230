@@ -1,0 +1,22 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxgcad DXGetConstantArrayData #!N #!N Function #!N #!N Returns a pointer to 
+the value stored in a Constant Array. #!N #!N Syntax #!N 
+ #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Pointer DXGetConstantArrayData (Array a) #!EF #!N #!N Functional 
+Details #!N #!N The data pointed to by this pointer should 
+be interpreted by the user according the type, category, rank, and 
+shape parameters associated with  #!F-adobe-times-bold-r-normal--18*   a #!EF . #!N #!N While 
+a Constant Array may contain numerous items, as may be indicated 
+by either  #!F-adobe-times-bold-r-normal--18*   DXGetArrayInfo #!EF or  #!F-adobe-times-bold-r-normal--18*   DXQueryConstantArray #!EF , the 
+pointer returned by  #!F-adobe-times-bold-r-normal--18*   DXGetConstantArrayData #!EF should not be incremented beyond 
+the amount necessary to index a single item since the value 
+of all items in a Constant Array is actually stored in 
+a single item. #!N #!N For compatibility with previous versions, this 
+routine will also work with Regular Arrays where the delta vectors 
+consist solely of zeros. #!N #!N Return Value #!N #!N Returns 
+a pointer to the data contained in the Constant Array or 
+returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF and sets an error code. #!N #!N 
+See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgad,dxall1219 h DXGetArrayData  #!EL  ,  #!Ldxgai,dxall1222 h DXGetArrayInfo  #!EL  ,  #!Ldxncav,dxall1314 h DXNewConstantArray, DXNewConstantArrayV  #!EL  , 
+ #!Ldxqca,dxall1341 h DXQueryConstantArray  #!EL  #!EF #!N #!N  #!Lctas,dxall1079 h Constant Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Ldxgea,dxall1231 h DXGetEnumeratedAttribute  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

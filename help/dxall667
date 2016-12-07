@@ -1,0 +1,20 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall666 Example of a Regular Grid #!N #!EC 
+#!N #!N The following file describes a 3 * 3 * 
+3 regular grid at origin 0, 0, 0 with deltas of 
+1.0 along each axis. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N netCDF volume 
+{ #!N #!T,26 #!N dimensions: #!N TAB nx = 3; #!N 
+TAB ny = 3; #!N TAB nz = 3; #!EF #!N 
+#!N #!EC #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N variables: #!N TAB float 
+field_data(nx, ny, nz); #!N #!N data: #!N TAB field_data = #!T,51 
+#!N TAB 0, 0, 0 #!N TAB 0, 0, 0 #!N 
+TAB 0, 5, 0 #!EF #!N #!N #!EC #!CForestGreen #!N #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N TAB 0, 0, 5 #!N TAB 0, 0, 0 
+#!N TAB 0, 0, 0 #!EF #!N #!N #!EC #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N #!N TAB 5, 0, 0 #!N TAB 0, 
+0, 0 #!N TAB 0, 0, 0; #!N } #!EF #!N 
+#!N #!EC #!N #!N netCDF on completely regular grids can be 
+imported directly by Data Explorer without modifying the netCDF file. See 
+ #!Lnetcdf,dxall665 h netCDF Files  #!EL  for more information. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lape,dxall668 h netCDF Files: Complex Fields  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

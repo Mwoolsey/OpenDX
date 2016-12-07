@@ -1,0 +1,116 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rinvdata Invalid 
+Data #!N #!EC #!N #!N In order to support the elimination 
+of unwanted items from a data set, positions, connections, faces, or 
+polylines in a Field can be "invalidated" by placing a corresponding 
+"invalid positions," "invalid connections," "invalid faces," or "invalid polylines" component in 
+that Field. An "invalid" component lists the individual data items of 
+the positions, connections, faces, or polylines component that are invalid. #!N 
+#!N In position-, connection-, face-, and polyline-dependent components, data items that 
+correspond to invalid elements are themselves invalid. Data may be invalidated 
+by modifying (or creating, if necessary) these invalid components. If no 
+invalid component exists, all data items are assumed to be valid. 
+#!N #!N An invalid component is represented by one of two 
+types of Array: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+1. An Array of length equal to the length of the 
+"positions," "connections," "faces," or "polylines" component. This component has the "dep" 
+attribute of "positions," "connections," "faces," or "polylines" (i.e., the elements correspond 
+one-to-one with the elements in the applicable Array). The Array is 
+either  #!F-adobe-times-bold-r-normal--18*   TYPE_BYTE #!EF or  #!F-adobe-times-bold-r-normal--18*   TYPE_UBYTE #!EF ; its valid 
+elements have a value of  #!F-adobe-times-bold-r-normal--18*   DATA_VALID #!EF (0), invalid elements 
+a value of  #!F-adobe-times-bold-r-normal--18*   DATA_INVALID #!EF (1). #!N #!I30 #!N 2. 
+An Array of length equal to the number of invalid members 
+of the applicable component. This component has the "ref" attribute of 
+"positions," "connections," "faces," or "polylines." The Array is either  #!F-adobe-times-bold-r-normal--18*   TYPE_INT 
+#!EF or  #!F-adobe-times-bold-r-normal--18*   TYPE_UINT #!EF , and the indices of the 
+invalid members are listed. #!N #!I0 #!N #!EF #!N #!N #!N 
+If many elements of the component are invalid, the first type 
+of Array is preferable. If only a few elements are invalid, 
+the second is preferable. #!N #!N The routines described here simplify 
+the handling of both types of invalid component. #!N #!N Once 
+positions have been invalidated, their immediate connections, faces, or polylines can 
+also be invalidated by calling  #!F-adobe-times-bold-r-normal--18*   DXInvalidateConnections() #!EF , which will 
+create an "invalid connections," "invalid faces," or "invalid polylines" component if 
+necessary. (Note that this component cannot be assumed to be up-to-date 
+unless this routine is called.) #!N #!N Invalid positions, connections, faces, 
+and polylines (and their dependent information) can be removed from the 
+data set by calling  #!F-adobe-times-bold-r-normal--18*   DXCull() #!EF . This routine: #!N 
+#!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Removes all invalidated 
+elements and the corresponding elements of components that are dependent on 
+invalidated elements. #!N #!I30 #!N o Renumbers components that reference positions, 
+connections, faces, and polylines (inserting a -1 for indices that refer 
+to removed positions, connections, faces, and polylines). #!N #!I30 #!N o 
+Removes invalid positions, invalid connections, invalid faces, and invalid polylines components. 
+#!N #!I0 #!N #!EF #!N #!N #!N Removal of invalid components 
+may affect system performance significantly if it requires the conversion of 
+regular positions and connections components to irregular form (i.e., by greatly 
+increasing the memory used for these components). For example,  #!F-adobe-times-bold-r-normal--18*   DXCreateInvalidComponentHandle() 
+#!EF creates a "handle" for a specified invalid component. Other routines 
+set particular elements as valid or invalid or they determine the 
+validity of a given element. The module writer can set up 
+a handle to mark elements as either valid or invalid (e.g., 
+initializing all elements to invalid and validating the appropriate elements or 
+vice versa). #!N #!N When the time comes to create an 
+invalid-component Array, the information stored in the handle is used to 
+create one of the two kinds of Array just described, depending 
+on the relative number of invalid elements. Note: Before adding a 
+new invalid component to a Field, it is important to explicitly 
+remove any invalid component having the same name. The reason for 
+this requirement is that the attributes of an existing component will 
+be copied to the new component. Overwriting a "dep" invalid component 
+with a "ref" invalid component will result in a component with 
+ #!F-adobe-times-medium-i-normal--18*   both #!EF attributes, which is self-contradictory. #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N #define DATA_VALID 0 #!N #define DATA_INVALID 1 #!EF #!N #!N 
+#!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXInvalidateConnections() 
+#!EF #!EF #!I50 #!N Propagates the invalidity of positions. See  #!Ldxic,dxall1285 h DXInvalidateConnections  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXInvalidateDupBoundary() #!EF #!EF #!I50 
+#!N Invalidates all but one of the positions shared between partitions 
+in a Composite Field. See  #!Ldxidb,dxall1286 h DXInvalidateDupBoundary  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Object DXInvalidateUnreferencedPositions() #!EF #!EF #!I50 #!N Determines which positions in 
+the Fields of the input Object are not referenced by any 
+connections element and invalidates them. See  #!Ldxiup,dxall1287 h DXInvalidateUnreferencedPositions  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Object DXCull() #!EF #!EF #!I50 #!N Removes invalid positions 
+and connections (and their dependent information) from an Object. See  #!Ldxcul,dxall1193 h DXCull  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   InvalidComponentHandle DXCreateInvalidComponentHandle() #!EF #!EF #!I50 
+#!N Creates an invalid-component handle. See  #!Lun9,dxall1119 h Examples  #!EL  . See  #!Ldxcich,dxall1191 h DXCreateInvalidComponentHandle  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXFreeInvalidComponentHandle() #!EF #!EF #!I50 #!N 
+Frees all memory associated with an invalid-component handle. See  #!Ldxfich,dxall1215 h DXFreeInvalidComponentHandle  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXSaveInvalidComponent() #!EF #!EF #!I50 #!N 
+Creates a new invalid-component Array containing the information stored in an 
+invalid-component handle and stores it in a given Field. See  #!Lun9,dxall1119 h Examples  #!EL  
+. See  #!Ldxsic,dxall1363 h DXSaveInvalidComponent  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Array DXGetInvalidComponentArray() 
+#!EF #!EF #!I50 #!N Returns an Array containing the information stored 
+in an invalid-component handle. See  #!Ldxgica,dxall1243 h DXGetInvalidComponentArray  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Error DXSetElementValid() #!EF #!EF #!I50 #!N Sets the validity state 
+of a specified element in an invalid-component handle to  #!F-adobe-times-bold-r-normal--18*   DATA_VALID 
+#!EF . See  #!Ldxsev,dxall1375 h DXSetElementValid  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error 
+DXSetElementInvalid() #!EF #!EF #!I50 #!N Sets the validity state of a 
+specified element in an invalid-component handle to  #!F-adobe-times-bold-r-normal--18*   DATA_INVALID #!EF . 
+See  #!Lun9,dxall1119 h Examples  #!EL  . See  #!Ldxsei,dxall1374 h DXSetElementInvalid  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+int DXIsElementValid() #!EF #!N int DXIsElementInvalid(); #!EF #!I50 #!N Return the 
+validity state of a specified element of an invalid-component handle. See 
+ #!Lun9,dxall1119 h Examples  #!EL  . See  #!Ldxiev,dxall1289 h DXIsElementValid, DXIsElementInvalid  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int 
+DXIsElementValidSequential() #!EF #!N int DXIsElementInvalidSequential(); #!EF #!I50 #!N Return the validity 
+state of a specified element of an invalid-component handle when the 
+queries come in sequential order. See  #!Ldxievs,dxall1290 h DXIsElementValidSequential, DXIsElementInvalidSequential  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int DXGetValidCount() #!EF #!EF #!I50 #!N Returns the number 
+of valid elements in an invalid-component handle. See  #!Ldxgvc,dxall1271 h DXGetValidCount  #!EL  . #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int DXGetInvalidCount() #!EF #!EF #!I50 #!N Returns 
+the number of invalid elements in an invalid-component handle. See  #!Ldxgic,dxall1244 h DXGetInvalidCount  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXSetAllValid() #!EF #!EF #!I50 
+#!N Sets all elements valid. See  #!Ldxsav,dxall1366 h DXSetAllValid  #!EL  . #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXSetAllInvalid() #!EF #!EF #!I50 #!N Sets all elements 
+invalid. See  #!Lun9,dxall1119 h Examples  #!EL  . See  #!Ldxsai,dxall1365 h DXSetAllInvalid  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   Error DXInvertValidity() #!EF #!EF #!I50 #!N Reverses the validity state 
+of every element in a specified invalid-component handle. See  #!Ldxiv,dxall1288 h DXInvertValidity  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Error DXInitGetNextInvalidElementIndex() #!EF #!N Error DXInitGetNextValidElementIndex(); 
+#!EF #!I50 #!N Prepare an invalid-component handle for iteration through the 
+invalid or valid elements. See  #!Ldxignie,dxall1281 h DXInitGetNextInvalidElementIndex, DXInitGetNextValidElementIndex  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   int DXGetNextInvalidElementIndex() #!EF #!EF #!I50 #!N Returns the index of 
+the next invalid element after the index returned on the previous 
+call. See  #!Ldxgniei,dxall1252 h DXGetNextInvalidElementIndex  #!EL  . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int DXGetNextValidElementIndex() 
+#!EF #!EF #!I50 #!N Returns the index of the next valid 
+element after the index returned on the previous call. See  #!Ldxgnvei,dxall1253 h DXGetNextValidElementIndex  #!EL  
+. #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lun9,dxall1119 h Examples  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,40 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rcvolrnd 
+Coloring Objects for Volume Rendering #!N #!N #!N The volume renderer 
+interprets colors and opacities as values per unit distance. Thus the 
+amount of color and degree of attenuation seen in an image 
+object is determined in part by the extent of the object's 
+volume. The Color, AutoColor, and AutoGrayScale modules attach "color multiplier" and 
+"opacity multiplier" attributes to the object so that colors and opacities 
+will be appropriate to the volume, while maintaining "color" and "opacity" 
+components that range from 0 to 1 (so that objects derived 
+from the colored volume, such as glyphs and boundaries, are colored 
+correctly). See  #!Lrendmdl,dxall1133 h Rendering Model  #!EL  in IBM Visualization Data Explorer Programmer's Reference. #!N 
+#!N These attributes adjust the colors and opacities to values that 
+should be "appropriate" for the object being colored. However, if the 
+simple heuristics used by these modules to compute the attribute values 
+are not producing the desired colors and opacities, you have two 
+alternatives. #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o One 
+is to modify the result by changing the multiplier values of 
+the color and opacity attributes: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N 1. extract the "color multiplier" and "opacity multiplier" with 
+the Attribute module; #!N #!I30 #!N 2. modify them with the 
+Compute module; and #!N #!I30 #!N 3. replace them in the 
+object with the Options module. #!N #!I0 #!N #!EF #!N #!N 
+#!I30 #!N o A second is to multiply the values in 
+the "color" or "opacities" component: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N 
+#!I30 #!N 1. mark the component ("colors" or "opacities") with the 
+Mark module; #!N #!I30 #!N 2. modify the values with the 
+Compute module; and #!N #!I30 #!N 3. "unmark" them with the 
+Unmark module to return them to the appropriate component. #!N #!I0 
+#!N #!EF #!N #!N #!I0 #!N #!EF #!N #!N #!N Only 
+the first of these methods should be used for "delayed" colors. 
+#!N #!N Finally, if you color a group of volumes and 
+the resulting image is black, the reason is that the current 
+renderer does not support coincident volumes. #!N #!N #!T,1,161,321,646  #!F-adobe-times-bold-r-normal--18*   #!N 
+TAB Attribute TAB Type TAB Description #!EF #!N TAB color multiplier 
+TAB scalar TAB Multiplies values in the "color" component #!N TAB 
+opacity multiplier TAB scalar TAB Multiplies values in the "opacity" component 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lshading,dxall821 h Shading  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

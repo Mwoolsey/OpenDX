@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Map</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu090.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu092.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRMAP" ></A>Map</H3>
+		<A NAME="IDX582"></A><A NAME="IDX583"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATTRN">Transformation</A>
+<P><STRONG>Function</STRONG>
+<P>
+Applies a map to a field or value list.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>output</STRONG> = Map(<STRONG>input, map, source, destination</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">field, value, or value list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">field to be mapped
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>map</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar, vector, or field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">identity
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">map to be used
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>source</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component used as index into map
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>destination</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;data&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">component in which to place the
+interpolated data.
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field, value, or value list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">mapped input field
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+
+Map is a general purpose module which maps from one field to another.
+
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is the field or value list to which
+<TT><STRONG>map</STRONG></TT> is
+applied.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>map</STRONG></TT>
+</B></TD><TD><P>is the map to be applied to the input object.
+Unless this parameter specifies a single value, it should contain both
+a "positions" and a "data" component.
+<P>
+Because the module performs interpolation, the map it applies to the
+input must also contain either (1) a "connections" component
+or (2) "faces,"  "loops," and
+"edges" (see <A HREF="usrgu025.htm#HDRFLEC">"Faces, Loops, and Edges
+Components"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>).
+The "data" component may be dependent on "positions,"
+"connections," or "faces."
+(If the field contains faces, loops, and edges, the data <I>must</I>
+be dependent on faces.)
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>source</STRONG></TT>
+</B></TD><TD><P>specifies the component of <TT><STRONG>input</STRONG></TT> that
+is to be
+used for indexing into the "positions" component of
+<TT><STRONG>map</STRONG></TT>.
+The value of the
+corresponding "data" in <TT><STRONG>map</STRONG></TT> is determined
+by interpolation
+
+between the "positions" in <TT><STRONG>map</STRONG></TT>,
+using the interpolation elements of <TT><STRONG>map</STRONG></TT> (either
+"connections" or "faces", "loops", and "edges").
+<TT><STRONG>source</STRONG></TT> is ignored if <TT><STRONG>input</STRONG></TT>
+is a value list.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>destination</STRONG></TT>
+</B></TD><TD><P>specifies the <TT><STRONG>output</STRONG></TT> component in
+which
+interpolated values should be placed.
+
+If <TT><STRONG>input</STRONG></TT> is a value list, then the interpolated
+values simply replace the values in <TT><STRONG>input</STRONG></TT>.
+
+</TD></TR></TABLE>
+<P>
+The Map module steps through the <TT><STRONG>source</STRONG></TT> component
+of <TT><STRONG>input</STRONG></TT>.
+For each item in that component, the module looks up that value in the
+"positions" component of <TT><STRONG>map</STRONG></TT> and finds the
+corresponding value in the "data" component of
+<TT><STRONG>map</STRONG></TT>, interpolating if necessary.
+The resulting value is placed in the <TT><STRONG>destination</STRONG></TT>
+component of <TT><STRONG>output</STRONG></TT>
+
+(see <A HREF="#FIGMAP">Figure 3</A>).
+<P><B><A NAME="FIGMAP" HREF="../refguide.htm#FT_FIGMAP">Figure 3. Mapping from one
+field to another</A></B>. This figure shows an input field and a map field, both
+with two-dimensional positions and triangle connections. The figure shows how a
+data value is found for the position (a,b) in the input field by interpolating
+in the map field when the parameters to the Map module are
+<TT><STRONG>input</STRONG></TT>= Input Field, <TT><STRONG>map</STRONG></TT>= Map
+Field, and <TT><STRONG>source</STRONG></TT> and
+<TT><STRONG>destination</STRONG></TT> default to "positions" and "data"
+respectively. <P> As with all maps in Data Explorer, the map field must have
+"positions", "data", and "connections". Since the
+<TT><STRONG>source</STRONG></TT> component is "positions", the "positions"
+component of <TT><STRONG>input</STRONG></TT> is used to index into the
+"positions" component of <TT><STRONG>map</STRONG></TT>. Thus we lookup the
+position (a,b) in the map field. This leads us to the triangle connecting
+positions 0, 1, and 2 in the map field. The data values corresponding to
+positions 0, 1, and 2 are interpolated to yield the result 1.3, which is then
+placed in the "data" component of the output of Map (since
+<TT><STRONG>destination</STRONG></TT> is "data"). <B><BR><CENTER><IMG
+SRC="../images/map.gif" ALT="Figure map not displayed."></CENTER><BR></B><BR>
+
+<P>
+So, for example, if <TT><STRONG>source</STRONG></TT> is "positions,"
+<TT><STRONG>destination</STRONG></TT> is "data,"
+<TT><STRONG>input</STRONG></TT> is an isosurface,
+and <TT><STRONG>map</STRONG></TT> is a 3-D field
+with temperature values, then Map steps
+through the "positions" component
+of the isosurface and finds the
+temperature value for each
+position, interpolating
+if necessary.
+The resulting temperature value is placed in the "data" component
+of the output field.
+<P>
+If <TT><STRONG>map</STRONG></TT> is a value, the Map module adds to
+<TT><STRONG>output</STRONG></TT> a <TT><STRONG>destination</STRONG></TT>
+component that (1) contains one element for each element
+of the <TT><STRONG>source</STRONG></TT> component and (2)
+derives its dependency from the
+<TT><STRONG>source</STRONG></TT>
+component.
+All elements in this component have the value given them by
+<TT><STRONG>map</STRONG></TT>.
+<P>
+The following table summarizes some of the uses of Map.
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Source
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Destination
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Use
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">
+"data"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">
+"colors"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">color mapping
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">
+"positions"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">
+"data"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">data mapping
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">
+"data"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">
+"data"
+<BR></TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">arbitrary tabular function
+</TD></TR></TABLE>
+<P><B>Notes: </B><OL COMPACT>
+<LI>The dimensionality of the positions in <TT><STRONG>input</STRONG></TT>
+and in <TT><STRONG>map</STRONG></TT> must agree and must also match
+the dimensionality of the connections in
+<TT><STRONG>map</STRONG></TT>.
+That is, if <TT><STRONG>map</STRONG></TT> has 2-D connections (quads or
+triangles), the positions must also be 2-D.
+<LI>There are few constraints on Map&#39; functionality.
+For instance, the Color module is generally preferable for performing
+mapping, because that module prevents the formation of invalid
+colors, whereas Map does not.
+</OL>
+<P><STRONG>Components</STRONG>
+<P>
+If <TT><STRONG>input</STRONG></TT> is a field, a new component name, specified
+by <TT><STRONG>destination</STRONG></TT>, is created.
+All other input components are propagated to the output.
+<P>
+If <TT><STRONG>input</STRONG></TT> is an array, the output is an array.
+<P>
+If any <TT><STRONG>source</STRONG></TT> values cannot be interpolated, an
+"invalid positions" or "invalid connections" component
+(depending on the dependency of the <TT><STRONG>source</STRONG></TT>
+parameter) will be created, and values that are not
+interpolated will be marked invalid.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+AlternateVisualizations.net
+Interop.net
+
+ManipulateGroups.net
+
+MappedIso.net
+PlotTwoLines.net
+Thunder&#95;cellcentered.net
+UsingMap.net
+SIMPLE/Map.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu016.htm#HDRAUTOCOL">AutoColor</A>,
+&nbsp;<A HREF="refgu033.htm#HDRCOLOR">Color</A>,
+&nbsp;<A HREF="refgu092.htm#HDRMAPTOPL">MapToPlane</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

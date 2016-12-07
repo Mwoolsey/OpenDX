@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Select</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu130.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu132.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRSELECT" ></A>Select</H3>
+		<A NAME="IDX679"></A><A NAME="IDX680"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATSTR">Structuring</A>
+<A NAME="IDX681"></A>
+<A NAME="IDX682"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Selects a member of a group or a list.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+object</STRONG> = Select(<STRONG>input, which</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">group, series, value list, string
+list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the object from which one or more
+members are to be selected
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>which</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer, integer list, string
+list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the member(s) to be selected
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>except</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">0: copy all listed members
+<BR>
+1: copy all but listed members
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>object</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">the selected member(s)
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>is a series or group from which items are to be selected.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>which</STRONG></TT>
+</B></TD><TD><P>specifies the item(s) to be selected.
+<P>
+If <TT><STRONG>input</STRONG></TT> is:
+<UL COMPACT>
+<LI><I>a series or group:</I> the module selects items
+<UL COMPACT>
+<LI>by name if <TT><STRONG>which</STRONG></TT> is a string or
+string list.
+<LI>by index in the group if <TT><STRONG>which</STRONG></TT> is an integer
+or integer list.
+</UL>
+<LI><I>a list:</I> <TT><STRONG>which</STRONG></TT> must be an integer or
+integer list, and the module selects the corresponding items.
+</UL>
+<P>
+If this parameter is not specified, the module selects the first
+(0th) object.
+<P><B>Note: </B>Members of a series can be selected only by ordinal number,
+not by series position.
+For both groups and lists, counting begins at 0 (zero).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>except</STRONG></TT>
+</B></TD><TD><P>specifies whether <TT><STRONG>which</STRONG></TT> is to be
+interpreted as
+an inclusive or exclusive selection list.
+</TD></TR></TABLE>
+<P><B>Notes: </B><OL>
+<P><LI>Since the components of fields are typically arrays (lists),
+you can select a particular position as follows:
+<DL>
+<DD><P>Use Extract to extract the "positions" component.
+<DD><P>Use Select on that array, setting <TT><STRONG>which</STRONG></TT> to the
+appropriate value (e.g., 7 for the eighth position).
+</DL>
+<P>
+You can also use the Select module to select individual frames from a
+data series, passing the Sequencer output to <TT><STRONG>which</STRONG></TT>.
+<P><LI>If you pass a series to Select, and that series has groups of
+fields as members, the output of Select is one of the groups
+of fields.
+Selecting a single field from one of these groups requires two calls
+to Select: the first to select the group of fields, and the second
+to select the individual field.
+<P><LI>If <TT><STRONG>which</STRONG></TT> is a string, Select finds the object
+with that name only if it lies at the top hierarchical level of
+the <TT><STRONG>input</STRONG></TT> passed to Select.
+</OL>
+<P><STRONG>Components</STRONG>
+<P>
+All input components are propagated to the output.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+ConnectingScatteredPoints.net
+GeneralImport1.net
+GeneralImport2.net
+PlotTwoLines.net
+UsingTextAndTextGlyphs.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu029.htm#HDRCOLLECT">Collect</A>,
+&nbsp;<A HREF="refgu031.htm#HDRCOLLECN">CollectNamed</A>,
+&nbsp;<A HREF="refgu032.htm#HDRCOLLECS">CollectSeries</A>,
+&nbsp;<A HREF="refgu085.htm#HDRLIST">List</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

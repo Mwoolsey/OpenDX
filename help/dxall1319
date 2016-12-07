@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxnmav DXNewMeshArray, DXNewMeshArrayV #!N #!N Function #!N #!N 
+Create an Array that is the product of a set of 
+regular or irregular connection Arrays. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include 
+<dx/dx.h> MeshArray DXNewMeshArray(int n, ...) MeshArray DXNewMeshArrayV(int n, Array *terms) #!EF 
+#!N #!N Functional Details #!N #!N The terms of the product 
+are given by the Array pointer  #!F-adobe-times-bold-r-normal--18*   terms #!EF (for  #!F-adobe-times-bold-r-normal--18*   
+DXNewMeshArrayV #!EF ) or by the last  #!F-adobe-times-bold-r-normal--18*   n #!EF arguments 
+(for  #!F-adobe-times-bold-r-normal--18*   DXNewMeshArray #!EF ). #!N #!N Mesh Arrays are generally 
+used to specify regular or partially regular "connections" components in compact 
+form as combinations of lower-degree Arrays. For example, a fully regular 
+cubic "connections" component can be created by combining three Path Arrays 
+in a Mesh Array. A fully regular "connections" component is more 
+easily created with  #!F-adobe-times-bold-r-normal--18*   DXMakeGridConnections #!EF . #!N #!N The Array 
+created can be deleted with DXDelete. See  #!Lmemng,dxall1023 h Memory Management  #!EL  . #!N #!N 
+Return Value #!N #!N Return the Mesh Array or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgmai,dxall1248 h DXGetMeshArrayInfo  #!EL  ,  #!Ldxgmo,dxall1249 h DXGetMeshOffsets  #!EL  ,  #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  ,  #!Ldxsmo,dxall1383 h DXSetMeshOffsets  #!EL  #!EF 
+#!N #!N  #!Lmarray,dxall1078 h Mesh Arrays  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxnmg,dxall1320 h DXNewMultiGrid  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,26 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgcv DXGetComponentValue #!N 
+#!N Function #!N #!N Returns a specified component of a specified 
+Field. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGetComponentValue(Field f, 
+char *name) #!EF #!N #!N Functional Details #!N #!N Typically, Fields 
+have a "positions" component defining a set of points in space, 
+a "connections" component defining the connectivity of the positions, and a 
+"data" component containing the individual data values associated with the individual 
+positions or connections. A Field can be manipulated by accessing these 
+components. The following are just two examples: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N o You can transform a Field by 
+calling  #!F-adobe-times-bold-r-normal--18*   DXGetComponentValue(field, "positions") #!EF to return the "positions" component, and 
+then transforming the points it contains. #!N #!I30 #!N o You 
+can convert a Field containing vector data to one containing the 
+magnitude of the vector data by calling  #!F-adobe-times-bold-r-normal--18*   DXGetComponentValue(field, "data") #!EF 
+to return the "data" component, and then creating a new "data" 
+component containing the magnitude data to replace it in the Field. 
+#!N #!I0 #!N #!EF #!N #!N #!N Return Value Returns the 
+ #!F-adobe-times-bold-r-normal--18*   name #!EF component of Field  #!F-adobe-times-bold-r-normal--18*   f #!EF or returns 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF and Sets an error code if  #!F-adobe-times-bold-r-normal--18*   f 
+#!EF is not a Field. It does not set an error 
+code if the component does not exist. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxdc,dxall1196 h DXDeleteComponent  #!EL  ,  #!Ldxgca,dxall1227 h DXGetComponentAttribute  #!EL  ,  #!Ldxgecv,dxall1233 h DXGetEnumeratedComponentValue  #!EL  ,  #!Ldxscv,dxall1372 h DXSetComponentValue  #!EL  #!EF 
+#!N #!N  #!Lfieldsc,dxall1062 h Field Class  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Ldxgc,dxall1229 h DXGetConnections  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,15 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen  #!Rall553 Function Execution #!N #!EC #!N 
+#!N When either a macro or a module function is executed, 
+a new dynamically scoped environment specific to that function call is 
+created. Variables that correspond to the function's input and output formal 
+parameters are created in this new environment. The variables corresponding to 
+the output formal parameters are initialized to  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . 
+Those variables corresponding to the input formal parameters are initialized in 
+the manner described in the preceding section. If an input and 
+an output formal parameter both have the same name, then they 
+share a single parameter and are initialized to the value passed 
+as input when the function is called. #!N #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall554,dxall555 h Macro Expansion  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

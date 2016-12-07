@@ -1,0 +1,33 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N 
+ #!Rdxqgp DXQueryGridPositions #!N #!N Function #!N #!N Returns information about a 
+positions grid. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Array DXQueryGridPositions(Array 
+a, int *n, int *counts, float *origin, float *deltas) #!EF #!N 
+#!N Functional Details #!N #!N Returns  #!F-adobe-times-bold-r-normal--18*   NULL #!EF if  #!F-adobe-times-bold-r-normal--18*   
+a #!EF is not a regular grid of the sort constructed 
+by  #!F-adobe-times-bold-r-normal--18*   DXMakeGridPositions #!EF (i.e. a Product Array containing n terms, 
+each term being a  #!F-adobe-times-bold-r-normal--18*   TYPE_FLOAT #!EF , n-dimensional Regular Array). 
+If  #!F-adobe-times-bold-r-normal--18*   n #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it 
+returns the number of dimensions in the grid in  #!F-adobe-times-bold-r-normal--18*   *n 
+#!EF . If  #!F-adobe-times-bold-r-normal--18*   counts #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF 
+, it returns the number of points along each delta vector 
+in the Array pointed to by  #!F-adobe-times-bold-r-normal--18*   counts #!EF . If 
+ #!F-adobe-times-bold-r-normal--18*   origin #!EF is not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns 
+the  #!F-adobe-times-bold-r-normal--18*   n #!EF -dimensional origin in the Array pointed to 
+by  #!F-adobe-times-bold-r-normal--18*   origin #!EF . If  #!F-adobe-times-bold-r-normal--18*   deltas #!EF is not 
+ #!F-adobe-times-bold-r-normal--18*   NULL #!EF , it returns the  #!F-adobe-times-bold-r-normal--18*   n #!EF  #!F-adobe-times-bold-r-normal--18*   
+n #!EF -dimensional delta vectors in the Array pointed to by 
+ #!F-adobe-times-bold-r-normal--18*   deltas #!EF . #!N #!N This routine is commonly used 
+to determine whether the "positions" components are fully regular and to 
+provide an easy mechanism for accessing information that describes the regular-positions 
+grid. The information returned by  #!F-adobe-times-bold-r-normal--18*   DXQueryGridPositions #!EF often makes it 
+possible to process regular positions Arrays without explicit expansion. #!N #!N 
+Array handles provide a simple mechanism for accessing individual elements of 
+a regular grid without expansion. #!N #!N Return Value #!N #!N 
+Returns  #!F-adobe-times-bold-r-normal--18*   a #!EF (if  #!F-adobe-times-bold-r-normal--18*   a #!EF is a regular 
+grid ) or  #!F-adobe-times-bold-r-normal--18*   NULL #!EF (if it is not) without 
+setting an error code. #!N #!N See Also #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!Ldxcah,dxall1189 h DXCreateArrayHandle  #!EL  ,  #!Ldxmgcv,dxall1297 h DXMakeGridConnections, DXMakeGridConnectionsV  #!EL  ,  #!Ldxmgpv,dxall1298 h DXMakeGridPositions, DXMakeGridPositionsV  #!EL  ,  #!Ldxqgc,dxall1343 h DXQueryGridConnections  #!EL  #!EF #!N #!N  #!Lcotas,dxall1074 h Creating Positions and Connections Grids  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxqhe,dxall1345 h DXQueryHashElement  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

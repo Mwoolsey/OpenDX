@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Guide - Data Explorer Scripting Language</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=80 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=49 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=24 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=100 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=3 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=127 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=6 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=50 HEIGHT=1></TD>
+				<TD><IMG SRC="../images/spacer.gif" WIDTH=71 HEIGHT=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 border="0" alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><B><IMG src="../images/flcgh_04d.gif" width=127 height=25 border="0" alt="User's Guide"></B></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="usrgu049.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="usrgu051.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="usrgu047.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="usrgu080.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG SRC="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2><A NAME="HDRUSL" ></A>Chapter 10. Data Explorer Scripting Language
+</H2>
+		<P><A NAME="PToC13" HREF="../usrguide.htm">Partial Table-of-Contents</A>
+		<MENU>
+<LI><A NAME="PToC_308" HREF="#HDRSTARTSC">10.1 Starting Data Explorer in Script
+Mode</A>
+<MENU>
+<LI><A NAME="PToC_309" HREF="#Header_309">Setting Environment Variables</A>
+</MENU>
+<LI><A NAME="PToC_314" HREF="usrgu051.htm#HDRBASELM">10.2 Understanding the
+Script Structure</A>
+<LI><A NAME="PToC_320" HREF="usrgu052.htm#Header_320">10.3 Language
+Delimiters</A>
+<MENU>
+<LI><A NAME="PToC_321" HREF="usrgu052.htm#Header_321">Commenting Scripts</A>
+<LI><A NAME="PToC_322" HREF="usrgu052.htm#Header_322">Naming Variables and
+Macros</A>
+<LI><A NAME="PToC_324" HREF="usrgu052.htm#Header_324">Specifying Values in a
+Script</A>
+</MENU>
+<LI><A NAME="PToC_334" HREF="usrgu053.htm#HDRBLD">10.4 Building Expressions and
+Statements</A>
+<MENU>
+<LI><A NAME="PToC_335" HREF="usrgu053.htm#Header_335">Arithmetic Expressions</A>
+<LI><A NAME="PToC_337" HREF="usrgu053.htm#Header_337">Assignment Statements</A>
+<LI><A NAME="PToC_339" HREF="usrgu053.htm#HDRFUNCALL">Function Call
+Assignments</A>
+</MENU>
+<LI><A NAME="PToC_340" HREF="usrgu054.htm#HDRCALLF">10.5 Invoking Data Explorer
+Macros and Modules</A>
+<MENU>
+<LI><A NAME="PToC_341" HREF="usrgu054.htm#Header_341">Function Call
+Arguments</A>
+<LI><A NAME="PToC_346" HREF="usrgu054.htm#HDRFCA">Function Call Attributes</A>
+</MENU>
+<LI><A NAME="PToC_347" HREF="usrgu055.htm#HDRMACRDEF">10.6 Defining Macros</A>
+<MENU>
+<LI><A NAME="PToC_348" HREF="usrgu055.htm#Header_348">Macro Header</A>
+<LI><A NAME="PToC_349" HREF="usrgu055.htm#Header_349">Macro Body</A>
+<LI><A NAME="PToC_350" HREF="usrgu055.htm#Header_350">Macro Examples</A>
+</MENU>
+<LI><A NAME="PToC_351" HREF="usrgu056.htm#HDRSDXSC">10.7 Using Data Explorer
+Script Commands</A>
+<MENU>
+<LI><A NAME="PToC_352" HREF="usrgu056.htm#HDRVCRCOMM">Sequencer</A>
+<LI><A NAME="PToC_353" HREF="usrgu056.htm#HDRFILINCL">File Inclusion</A>
+<LI><A NAME="PToC_354" HREF="usrgu056.htm#Header_354">Prompts</A>
+</MENU>
+<LI><A NAME="PToC_355" HREF="usrgu057.htm#HDRSEM">10.8 Understanding the Script
+Execution Model</A>
+<MENU>
+<LI><A NAME="PToC_356" HREF="usrgu057.htm#Header_356">Top-level Environment</A>
+<LI><A NAME="PToC_357" HREF="usrgu057.htm#Header_357">Function Execution</A>
+<LI><A NAME="PToC_358" HREF="usrgu057.htm#Header_358">Macro Expansion</A>
+<LI><A NAME="PToC_359" HREF="usrgu057.htm#HDRVUIM">Variables Used in Macros</A>
+<LI><A NAME="PToC_363" HREF="usrgu057.htm#Header_363">Assignment and Function
+Call Semantics</A>
+<LI><A NAME="PToC_364" HREF="usrgu057.htm#Header_364">Execution Example</A>
+</MENU>
+<LI><A NAME="PToC_365" HREF="usrgu058.htm#Header_365">10.9 Running .net files in
+script mode</A>
+</MENU><HR><P>
+<A NAME="IDX878"></A>
+<A NAME="IDX879"></A>
+<P>
+When you create a visual program with the graphical user interface, Data
+Explorer saves
+the program in a <TT>.net</TT> file.
+This saved version is actually a set of scripting-language
+commands.
+You do not need to understand the script language unless you are
+running Data Explorer in script mode.
+<P>
+In Data Explorer script mode you can also perform tasks that would be awkward
+with a visual program (e.g., facilitation of batch processing or debugging of
+a module).
+<HR>
+<H2><A NAME="HDRSTARTSC" ></A>10.1 Starting Data Explorer in Script Mode
+</H2>
+<P>
+To run Data Explorer in script mode on a workstation, you must have an account
+on that workstation.
+<P>
+To start Data Explorer, follow these steps:
+<OL>
+<P><LI>Start the X Window System session on the workstation.
+<P><LI>Type:
+<PRE>
+dx -script
+</PRE>
+When script mode starts, you will see a prompt symbol (<TT>dx&gt;</TT>),
+indicating that Data Explorer is ready to accept input.
+(If you want to change the prompt symbol, see <A
+HREF="usrgu056.htm#HDRSDXSC">10.7 , "Using Data Explorer Script Commands"</A>.)
+</OL>
+<P>
+(All of the command line options for Data Explorer are described in
+<A HREF="usrgu074.htm#HDRCMDLOPT">C.2 , "Command Line Options"</A>.)
+<P>
+You can type commands directly at the command line, but you may find it
+more convenient to create a script and submit it to Data Explorer for
+execution.
+To submit a script, type:
+<PRE>
+include "<VAR>scriptname</VAR>"
+</PRE>
+at the prompt, where <VAR>scriptname</VAR> is the name of the script.
+<P>
+Once you have submitted a script, Data Explorer will process the commands it
+contains.
+Note that none of the direct interactor options are available in script
+mode: you must use the Image tool in the graphical user interface
+to take advantage of those options.
+<P>
+After the included script has been processed, you can include another
+script.
+To terminate your Data Explorer session, type:
+<PRE>quit
+</PRE>
+<P>
+You can also include a script name directly in the script command: add
+the name of the script after the <TT><STRONG>-script</STRONG></TT> option.
+Data Explorer will terminate automatically when it has executed the script.
+For example, type:
+<PRE>
+include "/usr/local/dx/samples/scripts/scriptexample"
+</PRE>
+You will see a sequence of images created with sequencer commands.
+The directory <TT><STRONG>/usr/local/dx/samples/scripts</STRONG></TT> contains
+examples for many modules.
+You may find it helpful to experiment with them to learn how they
+function.
+<P><B>Note: </B>To ensure that an example program does not exit before you want
+it
+to, invoke script mode first and then "include" the program.
+Otherwise, some programs will execute and disappear so quickly that you
+won&#39;t be able to identify the image.
+<P>
+<H3><A NAME="Header_309" ></A>Setting Environment Variables</H3>
+<P>
+There are several environment variables that you may find useful to
+customize Data Explorer.
+These can be set in your login profile.
+<P>
+<H5><U>DXDATA</U></H5>
+<P>
+The DXDATA environment variable specifies a list of directories in which
+Data Explorer will search for data files.
+If the data you wish to import is in one of the directories specified
+in the DXDATA environment variable, you do not need to provide the
+complete path name to the Import tool.
+Specify the file name, and the Import module will look in the specified
+directories for the data file.
+The directories will be searched in the order in which they are listed
+in the environment variable; and the first occurrence of the data
+file will be used.
+<P>
+An example of a statement that sets the DXDATA environment variable (in
+the C shell environment) is the following:
+<PRE>
+setenv DXDATA /usr/mydirectory/mydata:/usr/group/groupdata
+</PRE>
+where <TT><STRONG>/usr/mydirectory/mydata</STRONG></TT> and
+<TT><STRONG>/usr/group/groupdata</STRONG></TT> are two
+directories that contain data files.
+Multiple directories can be listed, with each directory name separated
+by a colon.
+<P>
+<H5><U>DXHOST</U></H5>
+<P>
+The DXHOST environment variable is the initial machine name of the
+server on which to run the executive.
+If DXHOST is not specified, then a default of "localhost" is used.
+See <A HREF="usrgu049.htm#HDRCONSERV">9.3 , "Connecting to the Server"</A> for
+more information on how to connect to the
+server.
+The host name should be the name that results when you issue the
+<TT><STRONG>uname -n</STRONG></TT> shell command.
+<P>
+<H5><U>DXINCLUDE</U></H5>
+<P>
+If this environment variable is set, Data Explorer looks for included scripts
+first in the current directory, and then in each of the directories
+specified in the colon-separated list specified by this variable.
+<P>
+<H5><U>DXMACROS</U></H5>
+<P>
+The DXMACROS environment variable is a list of the directories in which
+Data Explorer will look for macros.
+
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

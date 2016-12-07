@@ -1,0 +1,21 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue 
+#!N  #!Rall270 External Asynchronous Data Sources #!N #!EC #!N #!N Many 
+applications of visualization tools call for a direct interface to external 
+data sources, especially ones that generate data to be studied (e.g. 
+a computational simulation). The execution model of Data Explorer provides the 
+framework for real-time visualization of data generated asynchronously by such a 
+process. An external data source is linked into a Data Explorer 
+network by incorporating a communications module, which receives data from the 
+external source, often across a socket, and passes the resulting data 
+object to the module's output. This module (and its descendents) will 
+only run when the external data source has indicated that new 
+data are available (see  #!Lasynmod,dxall1048 h Asynchronous Modules  #!EL  in IBM Visualization Data Explorer Programmer's 
+Reference). #!N #!N Data Explorer also provides a mechanism for direct 
+manipulation of the executive (e.g., mode, passing data, error handling, etc.) 
+and the user interface (e.g., window visibility and mode) from an 
+external application. This allows control of Data Explorer from other software 
+and peer-to-peer communications (see  #!Ldxlink,dxall1141 h DXLink Developer's Toolkit  #!EL  in IBM Visualization Data Explorer Programmer's 
+Reference). #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall271,dxall272 h Parallelism using Distributed Processing  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

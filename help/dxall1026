@@ -1,0 +1,52 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rexecm Data Explorer Execution Model #!N #!EC #!N #!N 
+The executive executes your module by calling the C function that 
+you provide and passing it two arguments: one pointer to an 
+Array for the input Object(s); another to an Array for the 
+output Object(s) the module creates. In each case, the size of 
+the Array is defined by the corresponding mdf file and the 
+number of input and output statements found there. #!N #!N If 
+a parameter is not specified by the user when the module 
+is called, the corresponding element of the input Array is set 
+to  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . #!N #!N #!N #!N As noted 
+earlier, Data Explorer modules are generally required to be pure functions, 
+producing the same results from the same inputs. The reason for 
+this requirement is that the executive caches the results of module 
+execution and does not reexecute the module (given the same input) 
+if the previously computed result is still in the cache. #!N 
+#!N In particular, modules must not maintain state (e.g., by saving 
+values in global or static variables). Indeed, it may be impossible 
+for a module to maintain state in a multiprocessor environment, since 
+it may execute on a different processor each time. However, a 
+module may use the cache to maintain information that makes succeeding 
+invocations more efficient, provided that it maintains pure-function semantics. (For more 
+information, see  #!Lcache,dxall1102 h Cache  #!EL  .) #!N #!N Outboard modules whose  #!F-adobe-times-bold-r-normal--18*   PERSISTENT 
+#!EF flag is set (see page  #!Lprsflag,dxall1046 s PRSFLAG  #!EL  ) may maintain state, 
+but they are still required to maintain pure-function semantics: the executive 
+might not execute a module if its inputs have not changed 
+and the results are still in the cache. Modules that have 
+no outputs are executed every time a visual program using them 
+is run, regardless of whether or not their inputs have changed. 
+See also  #!Lxmod,dxall263 h Data Explorer Execution Model  #!EL  in IBM Visualization Data Explorer User's Guide. #!CIndianRed 
+#!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   For Future Reference #!N #!N Although you 
+must supply a C function for Data Explorer to call, it 
+is still possible to write the bulk of a module in 
+FORTRAN: Write a C "wrapper" that (1) extracts the data from 
+the input Object (using the programming interface described in this manual) 
+and (2) passes the data to the FORTRAN subroutine. #!N #!N 
+You should be aware of the following when writing a module 
+that interfaces to a FORTRAN routine: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o FORTRAN variables are always called by reference. 
+For example, if you are using the Module Builder you need 
+to modify the worker routine so that it passes the addresses 
+of the parameters. #!N #!I30 #!N o Since FORTRAN routines do 
+not return a value, the ERROR (or OK) return value must 
+be a parameter. #!N #!I30 #!N o Depending on the compiler, 
+it may be necessary to affix an underscore to the name 
+of the FORTRAN routine and to lowercase the name of the 
+worker routine. #!N #!I30 #!N o Passing strings from C to 
+a FORTRAN routine may require passing both the string length and 
+the string pointer. Consult the appropriate compiler manual. #!N #!I0 #!N 
+#!EF #!N #!N #!N #!EC #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lmodexsc,dxall1027 h Working with Data  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,57 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rscalscr ScaleScreen #!N #!N Category #!N #!N  #!Lcatren,dxall760 h Rendering  #!EL  
+#!N #!N Function #!N #!N Increases or decreases size of all 
+screen objects (e.g. captions and colorbars) by specified factor. #!N #!N 
+Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   output, newcamera #!EF = 
+ScaleScreen(  #!F-adobe-times-bold-r-normal--18*   object, scalefactor, #!N finalres, currentcamera #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB object TAB 
+field TAB none TAB object to scale #!N TAB scalefactor TAB 
+scalar TAB 1 TAB scale factor for screen objects #!N TAB 
+finalres TAB integer TAB no default TAB final (x) resolution of 
+desired #!N TAB - TAB - TAB - TAB image #!N 
+TAB currentcamera TAB camera TAB no default TAB current camera used 
+to view object #!N TAB - TAB - TAB - TAB 
+#!EF #!N #!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB 
+Type TAB Description #!EF #!N TAB output TAB object TAB object 
+with screen objects scaled as specified #!N TAB newcamera TAB camera 
+TAB current camera updated by specified scale factors #!N TAB - 
+TAB - TAB #!EF #!N #!N Functional Details #!N #!N The 
+ScaleScreen module is used to scale all the screen objects within 
+ #!F-adobe-times-bold-r-normal--18*   object #!EF by a specified amount. It does not affect 
+the size of any other objects in the input  #!F-adobe-times-bold-r-normal--18*   object 
+#!EF . A typical use of ScaleScreen is when you have 
+created an image for display using Render, and you wish to 
+re-render it at a higher resolution for printing, for example. You 
+would need to use ScaleScreen to increase the pixel size of 
+any screen objects (such as captions and color bars) in the 
+object before re-rendering. Note that ScaleScreen is called implicitly when you 
+use the "Allow Rerendering" option of the Save/Print Image dialogs of 
+the Image window, so you do not need to use it. 
+You would only need to use ScaleScreen if you are doing 
+the re-rendering yourself using Render or Display. #!N #!N #!I0 #!N 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   object #!EF #!EF #!I50 #!N specifies 
+the object containing screen objects to be scaled. #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   scalefactor #!EF #!EF #!I50 #!N specifies the scale factor 
+you intend to use on re-rendering; for example  #!F-adobe-times-bold-r-normal--18*   scalefactor #!EF 
+should be set to 2 if you want the re-rendered image 
+to be twice as large. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   finalres 
+#!EF #!EF #!I50 #!N is used as an alternative to  #!F-adobe-times-bold-r-normal--18*   
+scalefactor #!EF , if, for example, you know that you want 
+your final resolution of your image to be 1000 pixels. If 
+you specify  #!F-adobe-times-bold-r-normal--18*   final_res #!EF , you must also provide the 
+ #!F-adobe-times-bold-r-normal--18*   currentcamera #!EF input. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   currentcamera #!EF 
+#!EF #!I50 #!N is the camera you are currently using to 
+view your object. This can be the output of AutoCamera or 
+Camera, or the  #!F-adobe-times-bold-r-normal--18*   camera #!EF output of Image. #!I0 #!N 
+#!N #!N #!N The output  #!F-adobe-times-bold-r-normal--18*   output #!EF is the object 
+with all screen objects scaled. If you specify  #!F-adobe-times-bold-r-normal--18*   currentcamera #!EF 
+, then the module will, in addition, output  #!F-adobe-times-bold-r-normal--18*   newcamera #!EF 
+, which is a new camera for you to use with 
+Render or Display. #!N #!N Components #!N #!N All components in 
+the input are propagated to the output. Only screen objects are 
+modified. #!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+SIMPLE/ScaleScreen.net #!EF #!N #!N #!EC #!N #!N See Also #!N #!N 
+ #!Lrender,dxall923 h Render  #!EL  ,  #!Lautocam,dxall771 h AutoCamera  #!EL  ,  #!Lcamera,dxall780 h Camera  #!EL  ,  #!Limage,dxall860 h Image  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   
+Next Topic #!EF #!N #!N  #!Lselect,dxall936 h Select  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

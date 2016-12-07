@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu245.htm">Previous Page</A> &#124; <A HREF="progu247.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<H3><A NAME="HDRDXNCA" HREF="progu097.htm#PToC_340">DXNewCamera</A></H3>
+<A NAME="IDX1900"></A>
+<A NAME="IDX1901"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Creates a new Camera.
+<P><STRONG>Syntax</STRONG>
+<BR>
+<TT><STRONG><BR>
+&#35;include &lt;dx/dx.h&gt;<BR>
+<P><BR>
+Camera DXNewCamera()<BR>
+</STRONG></TT><BR>
+<P><STRONG>Functional Details</STRONG>
+<P>
+Creates a new Camera.  A
+camera defines the position and orientation of the viewer, the
+volume of interest of the object being viewed, and the size of the
+image to contain the resulting view.
+<P>
+A summary of how to interpret a camera follows.
+<P>
+The position and orientation of the view are defined by where the
+viewer is standing,
+<TT><STRONG>from</STRONG></TT>,
+where the viewer is looking,
+<TT><STRONG>to</STRONG></TT>,
+and the tilt of the viewer&#39;s head,
+<TT><STRONG>up</STRONG></TT>.
+<P>
+The volume of interest of the object being viewed depends on the
+type of camera.  An orthographic camera defines a box that is centered
+on the
+<TT><STRONG>
+to
+</STRONG></TT>
+point and has an infinite
+<TT><STRONG>
+z
+</STRONG></TT>
+axis lying along the
+<TT><STRONG>to</STRONG></TT>-<TT><STRONG>from</STRONG></TT> vector.  The
+<TT><STRONG>
+y
+</STRONG></TT>
+axis is perpendicular to the
+<TT><STRONG>to</STRONG></TT>-<TT><STRONG>from</STRONG></TT> vector in the
+direction
+of the
+<TT><STRONG>
+up
+</STRONG></TT>
+vector.
+The x- and y-dimensions of the box are given by the
+<TT><STRONG>
+width
+</STRONG></TT>
+and
+<TT><STRONG>aspect</STRONG></TT> parameters
+of the camera, where
+<TT><STRONG>aspect</STRONG></TT> is defined as the ratio of the height to
+width.
+<P>
+In orthographic projection, objects do not appear smaller as they
+get more distant, and in fact, distance between the object and the
+viewer has no effect on the appearance of the object. The distance
+between the
+<TT><STRONG>to</STRONG></TT>
+and
+<TT><STRONG>from</STRONG></TT> points is irrelevant; only the direction is
+important.
+<P>
+The volume of interest defined by a perspective camera is a
+pyramid with an apex at the
+<TT><STRONG>from</STRONG></TT> position, and a base at the
+<TT><STRONG>to</STRONG></TT> point perpendicular to the
+<TT><STRONG>to</STRONG></TT>-<TT><STRONG>from</STRONG></TT> vector.  The width
+of
+the base is defined by the angle formed by the sides of the pyramid
+at the apex and the distance between the
+<TT><STRONG>to</STRONG></TT> and
+<TT><STRONG>from</STRONG></TT> points.  The angle formed
+by the sides of the pyramid is also known as the "field of view"
+and is the
+<TT><STRONG>fov</STRONG></TT> parameter.
+<P>
+The
+<TT><STRONG>fov</STRONG></TT> is defined as twice the tangent of half the
+angle (e.g., for a 90-degree sweep, the fov is
+2 * tan(45 degrees), or 2.0).
+The <TT><STRONG>fov</STRONG></TT> can also be thought as the ratio of the
+width of the base to the distance to the viewer (e.g., for
+a 20-meter wide area from a distance of 10 meters , set the
+<TT><STRONG>fov</STRONG></TT> to 20/10, or 2.0).
+The base
+height is defined by the
+resulting width times the
+<TT><STRONG>aspect</STRONG></TT>.
+<P>
+With a perspective camera, objects appear smaller with increasing
+distance.
+When the perspective pyramid is
+projected onto the image, the sides of the pyramid are made parallel,
+with a cross-section equal to the base dimensions.
+This has the effect
+of widening (in x and y) the objects in front of the pyramid base and
+compressing (in x and y) the objects behind the pyramid base.
+<P>
+The Camera created can be deleted with DXDelete.
+See <A HREF="progu023.htm#HDRMEMNG">4.2 , "Memory Management"</A>.
+<P>
+The horizontal size of the image containing the resulting view is
+defined as the
+<TT><STRONG>resolution</STRONG></TT> in pixels, and the vertical size is
+determined by the
+<TT><STRONG>resolution</STRONG></TT> * <TT><STRONG>aspect</STRONG></TT>.  The
+same
+aspect ratio is used for both the size of the image and the volume of
+interest to prevent the object from being stretched in one of the
+dimensions.  The background color of the image is also a parameter to the
+camera.
+<P>
+By default, the camera is orthographic, looking from the positive
+z axis toward the origin; x and y each range from
+<I>-1</I> to <I>+1</I>. The image is 640 by 480 pixels, with
+the origin at the center of the image.
+<P><STRONG>Return Value</STRONG>
+<P>
+Returns the Camera or returns <TT><STRONG>NULL</STRONG></TT> and sets an
+error code.
+<P><STRONG>See Also</STRONG>
+<P>
+<TT><STRONG>
+<A HREF="progu160.htm#HDRDXGCMP">DXGetCameraMatrix, DXGetCameraRotation,
+DXGetCameraMatrixWithFuzz</A>,
+<A HREF="progu292.htm#HDRDXRNDR">DXRender</A>,
+<A HREF="progu303.htm#HDRDXSBC">DXSetBackgroundColor, DXGetBackgroundColor</A>,
+<A HREF="progu319.htm#HDRDXSOC">DXSetOrthographic, DXGetOrthographic</A>,
+<A HREF="progu323.htm#HDRDXSPE">DXSetPerspective, DXGetPerspective</A>,
+<A HREF="progu324.htm#HDRDXSRN">DXSetResolution, DXGetCameraResolution</A>,
+<A HREF="progu328.htm#HDRDXSVW">DXSetView, DXGetView</A>
+</STRONG></TT>
+<P>
+<A HREF="progu081.htm#HDRCAMSEC">16.7 , "Camera Class"</A>.
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu245.htm">Previous Page</A> &#124; <A HREF="progu247.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu097.htm#PToC20">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

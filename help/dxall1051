@@ -1,0 +1,46 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue 
+#!N  #!Rclo2 Compiling, Linking, and Debugging an Outboard Module #!N #!EC 
+#!N #!N The following sample makefile templates for creating outboard modules 
+can be found in  #!F-adobe-times-bold-r-normal--18*   /usr/lpp/dx/samples/user #!EF : #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o RISC System/6000* Systems:  #!F-adobe-times-bold-r-normal--18*   Makefile_outboard_ibm6000 
+#!EF #!N #!I30 #!N o Silicon Graphics**:  #!F-adobe-times-bold-r-normal--18*   Makefile_outboard_sgi #!EF #!N 
+#!I30 #!N o Sun Microsystems**:  #!F-adobe-times-bold-r-normal--18*   Makefile_outboard_solaris #!EF or  #!F-adobe-times-bold-r-normal--18*   Makefile_outboard_sun4 
+#!EF #!N #!I30 #!N o Hewlett-Packard**:  #!F-adobe-times-bold-r-normal--18*   Makefile_outboard_hp700 #!EF #!N #!I30 
+#!N o Data General AViiON**:  #!F-adobe-times-bold-r-normal--18*   Makefile_outboard_aviion #!EF #!N #!I30 #!N 
+o DEC Alpha**:  #!F-adobe-times-bold-r-normal--18*   Makefile_outboard_alphax #!EF #!N #!I0 #!N #!EF #!N 
+#!N #!N Replace  #!F-adobe-times-bold-r-normal--18*   makex.o #!EF ,  #!F-adobe-times-bold-r-normal--18*   add.o #!EF , 
+and  #!F-adobe-times-bold-r-normal--18*   hello.o #!EF with the names of your  #!F-adobe-times-bold-r-normal--18*   .o 
+#!EF files; replace  #!F-adobe-times-bold-r-normal--18*   m_Hello #!EF , etc. with the names 
+of your modules; and replace  #!F-adobe-times-bold-r-normal--18*   hello #!EF , etc. with 
+the names you want for your executables. The .mdf file for 
+the outboard modules is  #!F-adobe-times-bold-r-normal--18*   user_outboard.mdf #!EF . #!CIndianRed #!N #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*   Linking Outboard Modules #!N #!N Typically outboard modules are 
+linked to the library dxlite, which contains the Data Explorer data 
+model routines (see  #!Ldxlap1,dxall1161 h Data Explorer Data Model Library: DXlite Routines  #!EL  ). This library does not contain all 
+of the Data Explorer routines (see  #!Lallr,dxall1162 h Data Explorer Library Routines  #!EL  ), and an outboard 
+module requiring access to such "additional" routines must be linked to 
+the library dxcallm. However, the resulting outboard executable will be significantly 
+larger than it would be otherwise. #!N #!N #!EC #!N #!N 
+Starting Data Explorer requires specifying the .mdf file to the user 
+interface: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N dx -edit -mdf my.mdf #!EF 
+#!N #!N #!EC #!N #!N #!I0 #!N Notes: #!N #!I30 #!N 
+1. You can also load a .mdf. file after Data Explorer 
+has started. Use the  #!F-adobe-times-bold-r-normal--18*   Load Module Description(s) #!EF option in 
+the  #!F-adobe-times-bold-r-normal--18*   File #!EF pull-down menu of the VPE window. #!N 
+#!I30 #!N 2. In script mode, Data Explorer does not recognize 
+the -mdf flag, so you must add the following commands to 
+your script before calling the module: #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N 
+Executive("mdf file", "module_name.mdf"); #!N $sync #!EF #!N #!N #!EC #!I0 #!N 
+#!N #!N #!N To debug a module you must first modify 
+the CFLAGS line of the makefile to compile your source code 
+as debuggable (  #!F-adobe-times-bold-r-normal--18*   -g #!EF ) rather than optimized ( 
+ #!F-adobe-times-bold-r-normal--18*   -O #!EF ). Note: Data Explorer library routines are available 
+only as optimized object code. #!N #!N To debug a module, 
+start Data Explorer with the additional flag -outboarddebug. Instead of automatically 
+starting the module, Data Explorer will prompt you to start the 
+executable. You can then run the module from a debugger, using 
+the flags specified to you by Data Explorer when it prompts 
+you to start the module. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lall1051,dxall1052 h Special Considerations for Outboard Modules  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

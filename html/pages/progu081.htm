@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu080.htm">Previous Page</A> &#124; <A HREF="progu082.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu075.htm#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRCAMSEC" HREF="progu075.htm#PToC_167">16.7 Camera Class</A></H2>
+<A NAME="IDX1267"></A>
+<A NAME="IDX1268"></A>
+<P>
+A Camera Object stores parameters that relate a scene to an image of
+the scene, including camera position and orientation, field of
+view, type of projection, and resolution.
+It specifies the transformation from world coordinates to image
+coordinates.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><TT><STRONG>Camera DXNewCamera()</STRONG></TT>
+</TD><TD><P>Creates a new Camera.
+<A NAME="IDX1269"></A>
+<A NAME="IDX1271"></A>
+See  <A HREF="progu246.htm#HDRDXNCA">DXNewCamera</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera DXSetView()</STRONG></TT>
+</TD><TD><P>Specifies the Camera position, a point on the line of sight of the
+Camera, and the Camera orientation.
+<A NAME="IDX1272"></A>
+<A NAME="IDX1273"></A>
+See  <A HREF="progu328.htm#HDRDXSVW">DXSetView, DXGetView</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera
+DXSetOrthographic()</STRONG></TT>
+</TD><TD><P>Specifies an orthographic view.
+The width of the viewport in the world coordinates and the aspect ratio
+are specified.
+<A NAME="IDX1274"></A>
+<A NAME="IDX1275"></A>
+See  <A HREF="progu319.htm#HDRDXSOC">DXSetOrthographic, DXGetOrthographic</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera
+DXSetPerspective()</STRONG></TT>
+</TD><TD><P>Specifies a perspective view.
+The field of view specifies the tangent of half the angle of the field
+of view.
+The height of the view is the specified <TT><STRONG>aspect</STRONG></TT> times
+the width.
+<A NAME="IDX1276"></A>
+<A NAME="IDX1277"></A>
+<A NAME="IDX1278"></A>
+See  <A HREF="progu323.htm#HDRDXSPE">DXSetPerspective, DXGetPerspective</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera
+DXSetBackgroundColor()</STRONG></TT>
+</TD><TD><P>Specifies the background color of a scene.
+<A NAME="IDX1279"></A>
+<A NAME="IDX1280"></A>
+See  <A HREF="progu303.htm#HDRDXSBC">DXSetBackgroundColor,
+DXGetBackgroundColor</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera
+DXSetResolution()</STRONG></TT>
+</TD><TD><P>Specifies the resolution of a Camera.
+<A NAME="IDX1281"></A>
+<A NAME="IDX1282"></A>
+See  <A HREF="progu324.htm#HDRDXSRN">DXSetResolution, DXGetCameraResolution</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera DXGetView()</STRONG></TT>
+</TD><TD><P>Returns the camera view parameters.
+<A NAME="IDX1283"></A>
+<A NAME="IDX1284"></A>
+See  <A HREF="progu328.htm#HDRDXSVW">DXSetView, DXGetView</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera
+DXGetOrthographic()</STRONG></TT>
+</TD><TD><P>Returns the orthographic camera parameter.
+<A NAME="IDX1285"></A>
+<A NAME="IDX1286"></A>
+See  <A HREF="progu319.htm#HDRDXSOC">DXSetOrthographic, DXGetOrthographic</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera
+DXGetPerspective()</STRONG></TT>
+</TD><TD><P>Returns the perspective camera parameters.
+<A NAME="IDX1287"></A>
+<A NAME="IDX1288"></A>
+<A NAME="IDX1289"></A>
+See  <A HREF="progu323.htm#HDRDXSPE">DXSetPerspective, DXGetPerspective</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera
+DXGetBackgroundColor()</STRONG></TT>
+</TD><TD><P>Extracts a scene background color associated with a camera.
+<A NAME="IDX1290"></A>
+<A NAME="IDX1291"></A>
+See  <A HREF="progu303.htm#HDRDXSBC">DXSetBackgroundColor,
+DXGetBackgroundColor</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Camera
+DXGetCameraResolution()</STRONG></TT>
+</TD><TD><P>Returns the camera resolution.
+<A NAME="IDX1292"></A>
+<A NAME="IDX1293"></A>
+See  <A HREF="progu324.htm#HDRDXSRN">DXSetResolution, DXGetCameraResolution</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><TT><STRONG>Matrix DXGetCameraMatrix()
+<BR>
+Matrix DXGetCameraMatrixWithFuzz();
+<BR>
+Matrix DXGetCameraRotation();</STRONG></TT>
+</TD><TD><P>Return matrices that represent stages of the viewing operation.
+<A NAME="IDX1294"></A>
+<A NAME="IDX1295"></A>
+<A NAME="IDX1296"></A>
+<A NAME="IDX1297"></A>
+<A NAME="IDX1298"></A>
+<A NAME="IDX1299"></A>
+See  <A HREF="progu160.htm#HDRDXGCMP">DXGetCameraMatrix, DXGetCameraRotation,
+DXGetCameraMatrixWithFuzz</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu080.htm">Previous Page</A> &#124; <A HREF="progu082.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu075.htm#PToC18">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

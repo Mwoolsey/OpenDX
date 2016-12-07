@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu023.htm">Previous Page</A> &#124; <A HREF="progu025.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu022.htm#PToC6">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDREXECM" HREF="progu022.htm#PToC_55">4.3 Data Explorer Execution
+Model</A></H2>
+<A NAME="IDX220"></A>
+<P>
+The executive executes your module by calling the C function that you
+provide and passing it two arguments: one pointer to an Array
+for the input Object(s); another to an Array for the output
+Object(s) the module creates.
+In each case, the size of the Array is defined by the corresponding
+mdf file and the number of input and
+output statements found there.
+<P>
+If a parameter is not specified by the user when the module is called,
+the corresponding element of the input Array is set to
+<TT><STRONG>NULL</STRONG></TT>.
+<P>
+<A NAME="IDX221"></A>
+<A NAME="IDX222"></A>
+<A NAME="IDX223"></A>
+<A NAME="IDX224"></A>
+<P>
+As noted earlier, Data Explorer modules are generally required to be pure
+functions, producing the same results from the same
+inputs.
+The reason for this requirement is that the executive caches the results
+of module execution and does not reexecute the module (given
+the same input) if the previously computed result is
+still in the cache.
+<P>
+In particular, modules must not maintain state (e.g., by saving
+values in global or static variables).
+Indeed, it may be impossible for a module to maintain state in a
+multiprocessor environment, since it may execute on a
+different processor each time.
+However, a module may use the cache to maintain information that makes
+succeeding invocations more efficient, provided that it maintains
+pure-function semantics.
+(For more information, see <A HREF="progu059.htm#HDRCACHE">13.5 , "Cache"</A>.)
+<P>
+Outboard modules whose <TT><STRONG>PERSISTENT</STRONG></TT> flag is set (see
+page <A HREF="progu037.htm#SPTPRSFLAG">reference #2</A>) may maintain state, but
+they are
+still required to maintain pure-function semantics:
+the executive might not execute a module if its inputs have not
+changed and the results are still in the cache.
+Modules that have no outputs are executed every time a visual program using
+them is run, regardless of whether or not their inputs have
+changed.
+See also <A HREF="usrgu026.htm#HDRXMOD">Chapter 4. "Data Explorer Execution
+Model"</A> in <I>IBM Visualization Data Explorer User&#39;s Guide</I>.
+<TABLE BORDER WIDTH="100%"><TR><TH ALIGN="LEFT">For Future
+Reference</TH><TR><TD>
+<P>
+Although you must supply a C function for Data Explorer to call, it is still
+possible to write the bulk of a module in FORTRAN:
+Write a C "wrapper" that (1) extracts the data from the input
+Object (using the programming interface described in this
+manual) and (2) passes the data to the
+FORTRAN subroutine.
+<P>
+You should be aware of the following when writing a module that
+interfaces to a FORTRAN routine:
+<UL COMPACT>
+<LI>FORTRAN variables are always called by reference.
+For example, if you are using the Module Builder you need to modify the
+worker routine so that it passes the addresses of the
+parameters.
+<LI>Since FORTRAN routines do not return a value, the ERROR (or OK)
+return value must be a parameter.
+<LI>Depending on the compiler, it may be necessary to affix an
+underscore to the name of the FORTRAN routine and to
+lowercase the name of the worker routine.
+<LI>Passing strings from C to a FORTRAN routine may require passing both
+the string length and the string pointer.
+Consult the appropriate compiler manual.
+</UL>
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu023.htm">Previous Page</A> &#124; <A HREF="progu025.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu022.htm#PToC6">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

@@ -1,0 +1,16 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rpttg Data Partitioning 
+#!N #!EC #!N #!N Partitioning is the process of dividing a 
+Field into spatially disjoint subsets called "partitions." The result is a 
+ #!F-adobe-times-medium-i-normal--18*   Composite Field #!EF , whose members are partitions. Partitioning is 
+particularly useful for parallel processing. #!N #!N Since each interpolation element 
+of an input Field is assigned to one and only one 
+partition, the resulting partitions cover precisely the same region of space 
+as the original input Field did without overlap. However, because the 
+input elements cover the same region of space, the bounding boxes 
+of the resulting partitions may overlap. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   Group DXPartition() #!EF #!EF #!I50 #!N Divides a 
+Field into partitions. See  #!Ldxpart,dxall1330 h DXPartition  #!EL  . #!I0 #!N #!N #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Linadmg,dxall1117 h Interpolation and Mapping  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

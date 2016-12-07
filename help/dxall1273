@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgrov DXGrow, DXGrowV #!N 
+#!N Function #!N #!N Add information from neighboring partitions to a 
+Composite Field. #!N #!N Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Object DXGrow(Object 
+object, int n, Pointer fill, ...) Object DXGrowV(Object object, int n, 
+Pointer fill, char **components) #!EF #!N #!N Functional Details #!N #!N 
+Recursively add boundary information to each partition of any Composite Fields 
+encountered in  #!F-adobe-times-bold-r-normal--18*   object #!EF . #!N #!N The depth of 
+overlap is defined by  #!F-adobe-times-bold-r-normal--18*   n #!EF . The treatment of 
+the boundary of the Field is specified by the  #!F-adobe-times-bold-r-normal--18*   fill 
+#!EF parameter: specify  #!F-adobe-times-bold-r-normal--18*   GROW_NONE #!EF for no expansion at the 
+exterior boundary of the entire field;  #!F-adobe-times-bold-r-normal--18*   GROW_REPLICATE #!EF to expand 
+at the exterior boundary by replicating the nearest edge values;  #!F-adobe-times-bold-r-normal--18*   
+GROW_NOFILL #!EF to expand the exterior boundary by leaving space for 
+the extra data but leaving their value undefined; any other value 
+of  #!F-adobe-times-bold-r-normal--18*   fill #!EF must be a pointer to a data 
+item of the correct type to expand at the boundary. It 
+is used as the fill value. For  #!F-adobe-times-bold-r-normal--18*   DXGrowV #!EF , 
+the  #!F-adobe-times-bold-r-normal--18*   components #!EF Array contains a  #!F-adobe-times-bold-r-normal--18*   NULL #!EF -terminated 
+list of components to be grown; all others remain unaffected. For 
+ #!F-adobe-times-bold-r-normal--18*   DXGrow #!EF , the final arguments after  #!F-adobe-times-bold-r-normal--18*   n #!EF 
+consist of a  #!F-adobe-times-bold-r-normal--18*   NULL #!EF -terminated list of the components 
+to be grown. For each component that is grown, the original 
+component is renamed to "original  #!F-adobe-times-medium-i-normal--18*   component #!EF " before the 
+grown component is created. #!N #!N Return Value #!N #!N Returns 
+the input Object with the overlapping data added or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. If  #!F-adobe-times-bold-r-normal--18*   o #!EF 
+is a field, returns  #!F-adobe-times-bold-r-normal--18*   o #!EF unmodified. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxqosm,dxall1346 h DXQueryOriginalSizes, DXQueryOriginalMeshExtents  #!EL  ,  #!Ldxsk,dxall1395 h DXShrink  #!EL  #!EF #!N #!N  #!Lgns,dxall1120 h Growing and Shrinking Partitioned Data  #!EL  
+. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxicdf,dxall1274 h DXImportCDF  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

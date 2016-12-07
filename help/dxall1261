@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxgpx DXGetPixels #!N #!N Function #!N #!N Returns 
+a pointer to the data in an image Field. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> RGBColor *DXGetPixels(Field i) #!EF #!N #!N 
+Functional Details #!N #!N Returns a pointer to the Array of 
+RGBColors of an image  #!F-adobe-times-bold-r-normal--18*   i #!EF . The length of 
+this array can be determined using  #!F-adobe-times-bold-r-normal--18*   DXGetImageSize #!EF . #!N 
+#!N Return Value #!N #!N Returns a pointer or returns  #!F-adobe-times-bold-r-normal--18*   
+NULL #!EF and sets an error code. #!N #!N See Also 
+#!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxgisb,dxall1241 h DXGetImageSize, DXGetImageBounds  #!EL  ,  #!Ldxmi,dxall1299 h DXMakeImage  #!EL  #!EF #!N #!N  #!Liefs,dxall1140 h Image Fields  #!EL  . 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxgpd,dxall1262 h DXGetPrivateData  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

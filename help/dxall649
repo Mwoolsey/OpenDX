@@ -1,0 +1,41 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rall648 gridpositions Keyword #!N 
+#!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   gridpositions #!EF keyword is used to 
+represent an  #!F-adobe-times-medium-i-normal--18*   n #!EF -dimensional grid of geometrically regular points 
+in a compact form. It is a kind of Array Object 
+and can be used in any context where an Array Object 
+would be used. It is typically used as a regular positions 
+component. The shape of the grid (number of points in each 
+dimension) is specified by a list of  #!F-adobe-times-medium-i-normal--18*   n #!EF numbers 
+following the optional  #!F-adobe-times-bold-r-normal--18*   counts #!EF keyword in the  #!F-adobe-times-bold-r-normal--18*   object 
+#!EF clause. The number  #!F-adobe-times-medium-i-normal--18*   n #!EF of items in this 
+list determines the dimensionality of the grid. The last item in 
+this list corresponds to the fastest varying dimension. #!N #!N A 
+grid has an origin, which can be specified by an  #!F-adobe-times-bold-r-normal--18*   
+origin #!EF clause (which lists the  #!F-adobe-times-medium-i-normal--18*   n #!EF coordinates of 
+the origin). If the  #!F-adobe-times-bold-r-normal--18*   origin #!EF clause is not present, 
+the  #!F-adobe-times-bold-r-normal--18*   origin #!EF defaults to 0. The  #!F-adobe-times-bold-r-normal--18*   origin #!EF 
+clause can be followed by  #!F-adobe-times-medium-i-normal--18*   n #!EF  #!F-adobe-times-bold-r-normal--18*   delta #!EF 
+clauses, listing the deltas for each dimension. Each  #!F-adobe-times-bold-r-normal--18*   delta #!EF 
+clause has  #!F-adobe-times-medium-i-normal--18*   n #!EF elements. The last  #!F-adobe-times-bold-r-normal--18*   delta #!EF 
+clause corresponds to the fastest varying dimension.  #!Lex1,dxall626 h Example 1. A Regular Grid  #!EL  shows how to 
+use the  #!F-adobe-times-bold-r-normal--18*   delta #!EF clause to specify a grid in 
+which  #!F-adobe-times-medium-i-normal--18*   z #!EF varies fastest. If the  #!F-adobe-times-bold-r-normal--18*   delta #!EF 
+clauses are not specified, the deltas default to unit vectors in 
+each dimension, with the last dimension varying fastest. #!T,54 #!CForestGreen #!N 
+#!N  #!F-adobe-courier-bold-r-normal--18*   #!N  #!F-adobe-times-bold-r-normal--18*   object #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number #!EF [ 
+ #!F-adobe-times-bold-r-normal--18*   class #!EF ]  #!F-adobe-times-bold-r-normal--18*   gridpositions #!EF [  #!F-adobe-times-bold-r-normal--18*   counts #!EF 
+]  #!F-adobe-times-bold-i-normal--18*   number... #!EF #!N TAB "  #!F-adobe-times-bold-i-normal--18*   name #!EF " 
+#!N  #!F-adobe-times-bold-r-normal--18*   origin #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number ... #!EF #!N  #!F-adobe-times-bold-r-normal--18*   
+delta #!EF TAB  #!F-adobe-times-bold-i-normal--18*   number ... #!EF #!N [  #!F-adobe-times-bold-r-normal--18*   delta 
+#!EF TAB  #!F-adobe-times-bold-i-normal--18*   number ... #!EF ] #!N . #!N #!EF 
+#!N #!N #!EC #!N #!N The  #!F-adobe-times-bold-r-normal--18*   gridpositions #!EF keyword does 
+not actually correspond to a primitive Object type in the system, 
+but instead is a convenient way of representing an important special 
+case of the more general product (Product Array Object) of  #!F-adobe-times-medium-i-normal--18*   
+n #!EF 1-dimensional Regular Arrays (Regular Array Objects). For most purposes 
+the  #!F-adobe-times-bold-r-normal--18*   gridpositions #!EF keyword is sufficient and more convenient. The 
+more primitive Regular and Product Arrays are described next. #!N #!N 
+#!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall649,dxall650 h Regular Array Objects  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
+

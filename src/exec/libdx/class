@@ -1,0 +1,73 @@
+#
+# This script generates one of two files from a .X file:
+#
+# With the -h flag, it generates a .h file for inclusion in the class
+# implementations file(s); the .h file contains declarations of
+# method routines, declarations of class vectors, and the contents
+# of the .X file (and .X  files it INCLUDEs) itself.
+#
+# With the -c flag, it generates a .c file that contains the contents
+# of the class vectors, method routines, not-implemented routines,
+# and Get...Class routines.  This should can be turned immediately
+# into a .o file and deleted.
+#
+
+#
+# Check/get arguments
+#
+
+if [ $# != 2 ]; then
+    echo "Usage: $0 -ch file" 1>&2
+    exit 1
+fi
+
+flag=$1
+file=$2
+
+
+#
+# This routine recursively searches for
+# and does the INCLUDE statements
+#
+
+out() {
+    x=`basename $1 .X `
+    echo "#ifndef __$x"
+    echo "#define __$x"
+    cat $1
+    echo "#endif"
+}
+
+include() {
+    incl=`sed -n -e "/^INCLUDE[ \t]*\(.*\)/s//\1/p" <$1`
+    incl=`echo $incl`
+    if [ -n "$incl" ]; then
+        (include ${srcdir}/$incl)
+	out ${srcdir}/$incl
+    fi
+}
+
+
+#
+# If we're generating the .c file, we set do_h so that the .h file
+# is already included in the .c file, so we don't have to include
+# it explicitly (which might be difficult, because we may not know
+# its name).  Note that do_c is not set until just before we cat the
+# base file; this allows the awk script to distinguish the base file
+# from the others, so that it only generates the method routines and
+# class vectors once, not each time the .X  file is INCLUDEd.
+#
+# For the .h file, we set do_h at the beginning, so that the .h file
+# contains the contents of the .h files generated from all the other
+# INCLUDEd .X  files, so once again we don't have to explicitly
+# include the .h files of the superclasses, which is good because
+# we may not know their names.  Note that this isn't a performance
+# problem, since even if we #included the superclass .h files somehow,
+# they would still be processed by the C compiler.
+#
+
+if [ $flag = "-c" ]; then
+    (echo "#do_h"; include $file; echo "#do_c"; out $file) | awk -f ${srcdir}/class.awk
+elif [ $flag = "-h" ]; then
+    (echo "#do_h"; include $file; out $file) | awk -f ${srcdir}/class.awk
+fi

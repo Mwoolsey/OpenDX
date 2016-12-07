@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall1053 Persistent outboard modules #!N 
+#!EC #!N #!N To prevent the executable program of the outboard 
+module from exiting after each execution, set the PERSISTENT flag on 
+the FLAGS line in its  #!F-adobe-times-bold-r-normal--18*   .mdf #!EF file. This setting 
+may be necessary so that the module can save information from 
+one execution to another, or because repeated exits and restarts take 
+too much time. #!N #!N A persistent outboard module is started 
+from the user interface the first time the module is called 
+and does not exit until its icon is deleted from the 
+network (program), the entire network is deleted, or the  #!F-adobe-times-bold-r-normal--18*   Reset 
+Server #!EF option is selected from the  #!F-adobe-times-bold-r-normal--18*   Connection #!EF pull-down 
+menu. #!N #!N In script mode, persistent outboard modules are loaded 
+the first time they are called and they do not exit 
+until the executive exits or the command #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   
+#!N Executive ("flush dictionary"); #!EF #!N #!N #!EC is run. #!N 
+#!N Global variables can be safely used to save information between 
+executions of an outboard module. If the same outboard module occurs 
+in a network more than once, a different process is started 
+for each occurrence. #!N #!N Note that the module may not 
+be called at every execution: If the inputs are changed from 
+their original values and then back again, Data Explorer saves the 
+previous results and uses them without recalling the module. The "cache 
+none" option prevents previous results from being saved, but you also 
+need to set "cache none" for all downstream modules that process 
+the outputs. Otherwise, caching at the lower levels will still prevent 
+the module from being called each time. The SIDE_EFFECT flag specifies 
+that the module is to be called each time, the performance 
+penalty being that the module continues to execute even if the 
+inputs remain unchanged. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N 
+#!N  #!Lall1054,dxall1055 h Modules that can cause executions:  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

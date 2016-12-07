@@ -1,0 +1,970 @@
+4.4.4
+=================
+Fix a bug in Compute when comparing two strings of
+different length using == (Bug #205)
+
+Added a new algorithm for generating the neighbors
+component for irregular cubic connections.
+
+Update Refine for tetras to remove any degenerate
+results. Only valid tetras are returned.
+
+Fix a bug with hardware rendering where turning
+on the transparency for all surfaces caused problems
+with opaque surfaces within some GL codes.
+
+Fix a bug in the quad interpolator where some results 
+could be returned as NAN.
+
+Make it possible to change the way TMESH's are generated. 
+See docs for environment variable: 
+DX_HW_TMESH_ORIENT_SENSITIVE.
+
+Correct a bug introduced with the Column Plot with 
+respect to using fixedfontsizes in Plot and Colorbar 
+(Bug #212)
+
+Add the ability to have the executive pass more than 
+4095 characters to the UI or other DXLink apps. Useful 
+with JavaExplorer when passing something like a webpage 
+back in response to a pick.
+
+Add the ability to set the Integer, Scalar and Vector 
+Interactor default caclulated output to the min, max 
+as well as the default midpoint.
+
+Add the capability to be able to pass much larger
+strings through the packet handlers. This will 
+accomodate sending full html pages through as responses
+to clicks in Java Explorer.
+
+Corrected a problem where some code would cause
+problems when the compiler optimized aliasing (Bug #196)
+
+Set the shared library flags to reflect the more
+updated compilers on Linux (Bug #208)
+
+Correct a Java Explorer server problem where a blank
+line in dxserver.hosts would cause the server to die.
+
+Fix a case for stricmp in Compute where the function
+would return success when a was a prefix of b.
+
+Added an option to Lookup to allow a different return
+value if the item was not found.
+
+Add a fix for hardware texture mapping where an error
+would sometimes occur stating that the 'uv' component
+didn't exist when it obviously did. This manifested
+itself quite easily--just turn on AutoAxes with a
+texture mapped field.
+
+4.4.0
+===============
+Fix for colors in the Colormap Editor when the OS's
+depth is set to thousands of colors. (bug #134)
+
+Fix for macros with space in their filename in the
+VPE. (bug #148)
+
+Added fix for Xinerama environment and placement
+of Windows. (bug #135)
+
+Added a fix for the Sequencer VCRControl so that it
+pops up in the right place all the time.
+
+Corrected throttle problem for mult platforms. (bug #168)
+
+Improper array indexing in Histogram module fixed. (bug #183)
+
+Major update to JavaDX. Updated for Java 1.1 event model.
+Added a better tabbed panel. Updated a bunch of the layout
+code to use TableLayout (can be easier and more efficient.)
+Added functionality to allow data to be passed in through
+a DXLInput via an Applet Param. Fix for stopserver script.
+A fix for FileSelector to pass quoted text.
+
+Added functionality for multi-line Text objects using \n.
+
+Added support for compiling loadable modules on cygwin.
+Updated the module building makefiles to better reflect
+some assigned values during build.
+
+Fix Lookup to work again.
+
+Replace can now accept a string list not just value lists.
+
+Add an option to Inquire to test for a "string" data component.
+
+Add an option to allow Categorize to not sort the added lookup
+table. 
+
+Fix Categorize's hash function for vector data so more unique
+hash keys are produced.
+
+Fix for ImportSpreadsheet inability to use one row SS. (bug #173)
+
+Fix for ImportSpreadsheet tendency to munge large integers.
+
+Fix when using more than 31 labels on an AutoAxes. (bug #166)
+
+Added a resize attribute to the ImageMagick format in order
+to use the Lanczos Filter for reduction before saving an image.
+
+Changed the default behavior of nested loops within dx. Now
+the more time consuming but less crash prone TriangulateNestedLoops
+is used instead of the faster simpler version. Can change with
+the environment variable DX_SIMPLE_LOOPS
+
+Fix for module builder crash (bug #162)
+
+Fix for crash in exec when excluding a text based field
+in select (bug #161)
+
+Added some support for a Multithreaded exec (still a long
+way from full mt). This makes way for wrapper classes for
+Microsoft .NET world.
+
+Outboard modules working again.
+
+Have eliminated the Red cache bug (Bug Id#90)
+
+Added a fix to eliminate the socket lock problem (Bug Id#147)
+
+Added "column chart" feature to Plot.
+
+Minor code cleanup matching delete[]'s and new[]'s
+
+4.3.2
+===============
+Native Stereo Rendering for Windows added.
+
+Minor fixes to clean up errors from 4.3
+---------------
+Put in a new fix for hdfi.h file compile conflicts.
+
+Add a fix to default back to regular help if browser
+help fails.
+
+A little more fixup on the ExHostToFQDN for hosts with no
+reverse lookup.
+
+Fix a bug in DXLStartDX when the environment wasn't defined.
+
+Add some fixes to compile on the ia64 platform.
+
+Fix up the saving of dx-ad files so they are only created
+when need be.
+
+Fix a bug in WriteImage that could cause a core dump.
+
+Fix (bug #125) within the Module builder plus some memory leaks
+
+Added seq2c to correctly process net files into .h files for
+JavaDX (bug #124)
+
+Fix so that loadable modules work correctly within AIX 4.2 and
+higher.
+
+Typo in EditorWindow code
+
+Disable debug info on GraphLayout code
+
+Removed the "commercial" fonts from standard font popdown menus
+
+Fixed a problem where adding an 'invalids' component did
+not work correctly.
+
+NULL terminate "Help on Syntax" string.
+
+4.3
+===============
+Added the RTLD_GLOBAL to loading modules so that functions 
+between loadable modules are visible.
+
+Fix a crash bug when a parameter value is set to "". It probably 
+happened only when the Display tool had a user-specified Where 
+param as would be the case with SuperviseWindow AND the user 
+did some operation like drag-n-drop, cut/copy/paste, 
+'Edit/Insert Program...'.
+
+Added better handling of resize calls to an Image window
+so that the update call isn't called continually with Window
+managers that expose the image during resize.
+
+Fix in the 2D quad interpolator where point is on edge.
+
+Remove the new-line character on some new annotations to remove
+the funny character at the end to be displayed.
+
+Fixed up the JavaDX macros to include comments and put some of 
+them in the "" category so they do not show up in the UI.
+
+Add a work around to fix a bug when the PageUp, PageDown, or End
+keys were pressed and caused a crash. This is a bug in Motif < 2.3.
+
+Fix the Tabbed windows so they have rounded corners even with
+Hummingbird's Exceed without requiring Hummingbird to fix their
+software.
+
+Changed the tool selector to be a tree view type list and updated
+all functionality to go along with that.
+
+Implemented a preferences file that saves the state of the
+tree view expansion from launch to launch. Also saves a list
+of recent files that is now available in the File menu.
+
+Fix for the random function in Compute for Windows version.
+(Bug ID#66)
+
+Fix the module builder to work and use CR/LF on DOS based
+systems. (Bug ID#109)
+
+Fix the activation of application wide commands unless the 
+Network object == the application's main network. (Bug ID#106)
+
+Fix problem where a large stream going to the message window
+on Windows would Quit the Exec (Bug ID#107)
+
+Converted dxworker to bourne shell from csh. Now allows spaces
+in filenames and exe names and better handles special characters
+passed in to the exec with scriptcmd option.
+
+Corrected problem where Gamma was not being applied to images
+saved via ImageMagick (Bug ID#67).
+
+Added capabilities to affect the compression method and quality
+in images saved with ImageMagick.
+
+Fix a memory leak in the XHandler within the EditorWindow.
+
+Fix a memory leak with respect to the rotation globes and cfg files.
+
+Fix a memory leak with open file descriptors on systems with 
+HAVE_OPEN_DIR and HAVE_DIRENT_H. Free regular expression compiled
+with regcomp.
+
+Fixed the placement of the Throttle dialog of the Image window.
+
+Fixed a problem with the Frame Control of the Sequencer popping
+up directly over the Sequencer on the first pop-up.
+
+Fix "Visualize Data..." in the prompter to pass unix path
+separators instead of DOS on Windows machines.
+
+User Interface performance improvements.
+
+New option under the edit menu for automatic graph layout, which
+rearranges the nodes in the graph of the current vpe page.
+    Pros n Cons:
+	- It ignores the current layout.  That can be pretty disorienting.
+	- If the graph has connections going all over the place and doesn't
+	  use transmitters,receivers then the output might not be any better
+	  than the input.
+	- It works stupendously on many graphs especially those that don't really
+	  need to be rearranged.
+	- What looks good and what looks bad is pretty subjective.
+
+Undo now available in the editor window.
+How's it work:
+	Every node or annotation move in the canvas is recorded and
+	can be undone via Ctrl+U (Ctrl+Z).
+	
+Cursor keys now affect module movement on the VPE. Helps people 
+who lay out nets really carefully.  Now it's easy to make small 
+movements and you get to see the lines redrawn as the node moves.
+How's it work:  
+	Select a node(s) or annotation.  Then use up, down, left, right
+	arrows to move the selected objects 1 pixel at a time.
+
+There is some code for reading in Selector interactors out of .net 
+files that was cleaned up and corrected.
+	
+Fix a memory leak in configuration dialog boxes.
+
+Bug ID#45
+Implement OPTIONS processing on behalf of macros. Now possible
+to add drop down options on Macros. Use semi-colons to separate
+items of the list.
+
+Fixed Bug ID#18
+EditorWindow destructor was deleting cache-optimization menu 
+items twice, now only once.
+
+Fixed Bug ID# 38, 61
+Object deleted during the dropFinish callback.  The new Motif
+interprets Widget deletion as a need to cancel drag-n-drop which 
+triggers the dropFinish callback a 2nd time. Problem is object 
+already deleted. Now, object deletion is queued so object is
+deleted from dropFinish callback.
+
+Fixed Bug ID#10
+Set Min Width, Height on the container so it can't be resized
+to small.
+
+Added isnan functionality for Windows in stat functions.
+
+Added isnan and finite to the Compute module for those systems
+that support it.
+
+A fix for Streamline when checking for Invalid Data components.
+
+A correction to check to see if "invalid" components are added
+then recompute "dep" components.
+
+Added Visual Studio loadable modules example.
+
+Fix for invalid() to return error instead of crash in Compute.
+
+A correction for netCDF where an invalid file would crash OpenDX
+instead of returning an error.
+
+DXTrimItems() has been added as a function to remove items from
+the end of an array.
+
+Incorporating some native Windows code to begin making a Windows
+native executive.
+
+Began adding WIN32 support and building with Visual Studio 6.0. Due to
+some bugs in Visual Studio 7 (which are acknowledged by MS), we will
+not be able to build with VS7 until fixed.
+
+For libtool purposes and the new work on making a thread safe exec,
+the yacc code must be parsed with bison. Thus we are adding the
+generated *.c files in the cvs tree and in for distribution.
+
+Now building with libtool to allow dynamic libraries to be built. This
+required updates of some global variable initialization and renaming
+some files to be unique in the libraries.
+
+4.2.0
+===============
+
+Java Explorer's macros have been updated to reflect the removal of the
+gif image format internally from OpenDX. They have also been renamed
+to use the standard DX naming convention uc/lc. This will require any
+user networks to be opened and saved with 4.2.0 before serving them
+up with JavaDX.
+
+Fix to update multiple DrawingArea windgets with the same size during
+expose event.
+
+On a multiple image display windows application, the key value computation
+on hash() function on libdx/notify.c is too simple. Two different input
+parameters will return same key value. The result is the system runs out
+of memory. For example: "CACHED_OBJECT_X24,:0,#X205520899" and 
+"CACHED_OBJECT_X24,:0,#X184549379" generate same l value 73. Adding one
+more factor "s" the sum of character string will reduce the probability
+of same key value return.
+
+Added the ability to use a web browser and the html documentation
+as the DX help viewer. To enable, under UNIX set the environment 
+variable DX_WEB_BROWSER to your web browser. Under Windows and MacOS X
+set this environment variable to anything and the system default
+browser will launch. Due to bugs in Exceed XDK and MacOS X (Bug ID#2879972,
+#1951588) their may be some annoyances using this feature.
+
+Added a new keymapping scheme -- a new set of accelerators. This new
+set of accelerators follows the Windows, MacOS, KDE styles. This is
+enabled during compilation as a configure flag.
+
+Update to allow the user to specify their own object colors (via
+the "colors" component) to light and modulate a hardware rendered textured
+object, instead of accepting the hard-coded solid white.  "opacities" can
+now be defined and used as well.
+
+Activated linear interpolation and mipmaping texture filters.
+
+For OpenGL (hardware) rendering mode, adds the following field
+attributes that affect culling and lighting:
+     attribute "cull face" string ["off"|"front"|"back"|"front and back"]
+     attribute "light model" string ["one side"|"two side"]
+and the following field attributes that affect texturing (when the
+"texture" attribute and "uv" component are also correctly provided of course):
+     attribute "texture wrap s" string ["clamp"|"repeat"]
+     attribute "texture wrap t" string ["clamp"|"repeat"]
+     attribute "texture min filter" string \
+         ["nearest"|"linear"|"nearest_mipmap_nearest"|"nearest_mipmap_linear"|
+          "linear_mipmap_nearest"|"linear_mipmap_linear"]
+     attribute "texture mag filter" string ["nearest"|"linear"]
+     attribute "texture function" string ["decal"|"replace"|"modulate"|"blend"]
+Note that "light model = two side" is particularly useful when
+lighting polygonal models with no normals where the auto-computed normal
+may bear no resemblence to the "outside" of a rendered object (without it,
+only software rendering in DX is worthwhile).  The rest are useful when 3D
+polygonal models that require specific culling and texturing state for
+correct display are integrated into DX visualizations.
+--Note that the default OpenGL state when these attributes are not
+specified is the same as it was before.
+--Also, now that texture maps are registered via gluBuild2DMipmaps in
+the OpenGL back-end, the restrictions on supplied texture maps being powers
+of two and larger than >= 64x64 is no longer the case in general, so the
+checks have been removed.  Back-end specific checks can be added later if
+other back-ends are still used.
+
+Fix for expanding CDB boxes on LessTif systems.
+
+Much needed updates to some of the html documentation. It now includes
+a client side search engine provided using JavaScript.
+
+Support OpenGL 1.3's GL_CLAMP_TO_EDGE texture wrap mode in the OpenGL back
+end; support via extension for OpenGL 1.2.
+    To activate, set the "texture wrap s" and/or "texture wrap t" 
+    attributes on the field to be textured to "clamp to border" (instead 
+    of "clamp", "repeat", or "clamp to edge").
+
+Updates to allow compiling with SGI n64 ABI
+
+Corrected a problem with lex/parsing of programs from the UI after
+and error occurs when trying to open a network. A consecutive open
+now works correctly and does not give false error messages.
+
+Added TypeAhead functionality to the tools list of the VPE. With Motif 
+2, this functionality was minimally there, but my additions extend it. 
+To use it, place the mouse over the Tool List and begin typing the name 
+of the module you wish to use. Other keys other than alpha that affect 
+this are: Up, Down arrows do the expected. Space bar deselects the tools.
+
+Add translucent texturing with alpha blending support to the OpenGL
+hardware rendering back-end.  
+
+   Intuitively, translucent textures are represented as image fields with
+   opacities components -- either float opacities, or ubyte opacities and 
+   a float opacity map.  (FWIW the ImageMagick ReadImage mods I made back 
+   in Sept '01 read translucent images to this field format)
+
+   As with opacities objects, translucent textured objects aren't meshed, 
+   are tossed into the translucent SORTLIST, sorted by depth, and rendered 
+   with the DrawTransparent back-end callback.
+
+   Various related changes such as:
+     - Suppress Z buffer write for fully-tranparent alpha values
+     - Display list texture activation ops in DrawTransparent, as is done 
+       in DrawOpaque
+
+   Also, it fixes texturing support in general for texture composite field
+   objects which have ubyte[3] or float[3] direct colors (didn't work 
+   previously).
+
+A fix for the Ellipses page selector. Now when you click on the Ellipses
+if it's popped up, it will pop back down (like other Motif menus). It
+also now initially opens up with a height of 12 lines instead of 1 line
+(which was very annoying).
+
+Removed Xm errors when Grid Dialog box displayed.
+
+Added a Mode menu to the Option menu in the Image Window. This allows
+direct access to the image manipulation routines without having to 
+remember the shortcut keys or open the View Control dialog. It also
+adds some increased functionality internally to the code by removing
+the dependency on X based accelerators in the Picture widget.
+
+Mapped the following accelerators from the VPE to configuration dialogs
+     - save program accelerator
+     - all the execute menu accelerators
+     - add and remove input tabs
+
+Added the functionality to allow the accelerators to be mapped onto
+subpanels that can be popped up from the Image Window. The accelerators 
+now work in:
+     - View Control (always has, but is now handled the same as the others)
+     - Auto Axes (can now click apply and then use accelerators--handy)
+     - Rendering Options (very nice to click hardware then execute once)
+     - Throttle (to be consistent)
+All the accelerators such as Save, Print, Close all work in the sub-
+panels giving a more consistent feel to the ImageWindow.
+
+Fix Selection color on Selector List Interactor so the selected
+value is visible.
+
+Fix Background on Selector Option Menu so the menu is green in the
+developer mode.
+
+Fix the Control-Click on Close of a user style Control Panel to
+work as described.
+
+Fix the attribute copying logic for Band since Isosurface creates a 
+separate field for each isosurface, Band creates only one. 
+
+Added  DX_SOCKET_BUFSIZE environment variable allowing the user to 
+specify the size of the send and recieve buffers for the socket 
+connection between the UI and the exec. This provides a fix until time
+permits to write the significant logic change to make the UI interlace
+reading data from the exec and writing data to the exec. This value
+is clamped to the max allowed by the system. This can fix a problem
+where the executive and UI hang involving a deadlock situation in the
+socket communication. The value assigned to it is passed as the parameter 
+to setsockopt for SOL_SNDBUF and SOL_RCVBUF.  I think the default is 
+32767. A typcial value may be 262144.
+
+Fixes to to prevent hanging processes if the UI disconnects from the
+server while the server is running.
+
+A fix where some Packet logic could core dump.
+
+Added MacOS X memory routines for the Executive. Added MacOS X arch
+dependent info needed.
+
+Added configuration flags to make it possible to build loadable modules
+with Windows.
+
+Fix bug where field with ubyte colors (refing a float[3] colormap), which
+is constructed by ReadImage and storable with Export, won't load with
+Import.  Patch allows general UBYTE components to ref other components in
+Import.
+
+Changes to the way invalid components are handled so that two thresholds
+are used: one for storage in an Array (20% of total values, as before)
+and another for building the InvalidComponentHandle for transient
+processing (currently 1024); small size for storage and faster access
+performance. SORTED lists are always converted to HASHes or DEP_ARRAYs
+now for processing (as they were when originally created), not left as
+SORTED_LISTs.
+
+Fixed bug in computing conncetion-dependent normals for 2-D positions.
+Of course, the real question is whay are we computing them at all?  
+They'll be {0.0 0.0 1.0}.
+
+Permit invocation of script functionality from the command-line via:
+
+    dx -script script_macros.scr -scriptcmd "MyMacro(value1,value2)"
+or
+    dx -scriptcmd 'data = Import("junk"); Print(data);'
+
+without requiring the user to use shell scripting tricks or build temp
+script files.
+
+
+Add ImageMagick support to ReadImage.
+   - Works with ImageMagick 5 (tested with 5.3.7)
+   
+   - Reads images from PNGs, GIFs, MPEGs, Postscript files, etc. -- 
+     whatever support your ImageMagick library was built with
+
+   - Creates opacities/opacity map components for images which have 
+     opacities or a transparency map (e.g. GIFs, PNGs, ...); use Render
+
+   - Supports both delayed and direct color images, with delayed->direct
+     option and float/byte option
+
+   - Smart chomping of supported ImageMagick extensions
+
+   - Supports DX convention for reading multi-frame multi-file sequences; 
+     e.g. name="t.gif", where images are t.0.gif, t.1.gif, t.2.gif, etc.
+
+   - For multi-frame single-file images (e.g. animated GIFs, stacked
+     TIFF/PNGs, etc.), only loading the first image is supported
+     (ImageMagick is missing basic sub-image support; see the source
+     comments for details).
+     
+Ugly but overdue changes so that ImageMagick can write files directly 
+without dx writing an intermediate miff file.
+
+Added support for polylines to the opacity renderer.
+
+Fix error where Sample would core dump on Sampling lines.
+
+Within Isosurface, was trying to interpolate all components that are dep on 
+positions.  In some cases, invalid positions components are positions-dependent; 
+made it skip them.
+
+Fix to make dxexec release processor when in wait loop. This fixes the
+99% CPU usage on NT.
+
+Fix to allow clicking off Connect to Already running server in the Options
+dialog box.
+
+4.1.3
+===============
+
+Fixes to several problems that quickly arose with 4.1.2
+---------------------------------------------------
+
+- Dependencies of source files on built sources caused build to stop.
+It would continue correctly after restarting, but by making the objects
+dependent instead we made it work in one pass.
+
+- References in _regstream.c.  Missing references/deletes in _regstream.c 
+and steamline.c caused objects to be really deleted before their time.
+Problem appeared in ThunderStreamlines example.  Did this ever work?
+
+- Not enough memory allocated for buffer in parse.c.
+
+- Needed to pass in class_srcdir value to invokation of class script
+in libdx/local.mk
+
+- Include net2c in distribution
+
+- Correctly free search_for in Browser.C.  Proper behavior dependent on
+compile-time definitions.
+
+- Not enoucgh memory allocated for type-in string in GARApplication.C.  
+Caused segfaults in prompter.
+
+4.1.2
+===============
+
+Distributed-memory extension to OpenDX
+---------------------------------------------------
+dxmpi checked in as a new part within OpenDX. No significant documentation
+has been written. 
+
+dxmpi works by starting an instance of the DX executive on each MPI
+host, with one (rank 0) designated the master.  The master communicates
+with the UI or directly in script language (though rather than by typing
+directly in, a separate program is used to connect the keyboard to dxexec).
+Absent any use of OpenDX-MPI extensions, the master performs as a
+completely normal OpenDX exec.
+
+The MPI extensions to OpenDX fit two forms: modules that appear to run on
+the master but which use MPI internally to run in parallel, and macros that
+are run in parallel on the slaves at the behest of a "RunOnSlaves" module
+that runs on the master.  I've put in an API allowing modules to register
+and call remote procedures and to pass DX objects around to support the
+first type.  For the second, there's a set of new modules that provide
+tools for data distribution from the master to the slaves, leaving the
+distributed data as named objects in the slaves' cache, where they can be
+retrieved by name by macros run on the slaves by RunOnSlaves.
+
+As an example of the first type, a parallel regular-grid importer 
+(DRegularImporter) that works like this.  As inputs, it receives
+the name of an ad-hoc data description file that describes the layout of
+data found in a separate file.  It registers a remote procedure with the
+slaves, and then invokes that procedure on the slaves, passing them the
+data description and a destination object name.   Each slave, knowing how
+many slaves there are and its own rank among them, is able to determine
+what portion of the data its responsible for (essentially, partitioning the
+data as a part of importing it, and including a "ghost zone" of overlap
+with neighboring partitions).   Each imports its part, saves it in the
+cache under the destination object name (the same on all slaves), and
+returns the bounding box and min max of its partition to the master.  The
+master (still in the guts of the DReguarImport module) gathers this info
+together into an output Group object where member i is the box and minmax
+of partition i residing on slave i.
+
+Now suppose you want to isosurface and render that data.  You create a
+macro on the slaves that accesses the data by the name under which
+DRegularImporter left it and an isovalue (again by name, from the cache).
+The macro then sends the data through Isosurface and Color and whatever,
+then passes that result to the SlaveDone module, which indicates to the
+master that the execution of the macro is complete and returns the object.
+On the master, a scalar interactor feeds the input of  Broadcast(value,
+name) that broadcasts the interactor's value to the slaves under the
+associated name.  The dummy output of Broadcast and the output of
+DRegularImporter are passed to "control" inputs to RunOnSlaves(macro name,
+control ...) that just serve to ensure correct module sequencing.
+RunOnSlaves causes the slaves to run the named macro, waits for their
+results, and gathers it all together in a group where member i contains the
+result of slave i.  This could then be passed directly into Image for
+rendering.
+
+There are a couple other cool pieces to this, most notably a distributed
+parallel renderer and a new streamline module that runs on distributed
+vector fields.  There are a lot of holes to fix; for example, errors in
+slave macros very often cause system hangs.  There is no integration of the
+notion of slave macros into the UI. Lots of things.
+
+Added command-line arg to configure for compatibility with ddx.  Either
+way the resulting code works exactly as before, but if --enable-ddx is set
+the libraries will work with ddx.
+
+Implement compatibility with ddx, which requires code in the main loop
+to check for input from MPI.  ddx.c is a stub file, so whether or not
+--enable-ddx, the dxexec built in the source tree works as before.  
+---------------------------------------------------
+
+Added mechanisms to directly connect OpenDX to other processes.
+Includes a new module, SocketConnection, that supports sending objects 
+from an external process to OpenDX across a socket (and back, as a 
+future enhancement). The idea is that the process makes a call to
+see if an OpenDX instance has opened a port.  If it has, it can send data
+to OpenDX by creating an object using the data model calls in the DXlite
+library,  buffer it, and write it to the socket.  On the OpenDX side,
+SocketConnection creates a port and an associated fd, then adds an input
+handler to watch for input on the fd.  When input arrives, its read off the
+socket and converted to a DX object via _dxfImportBin_Buffer, and
+DXReadyToRun is called to indicate that new data is available.  When the
+module runs, the received object is the module result.  This allows the
+external process to send arbitrary objects to OpenDX across a socket.
+
+Added a new subclass of Array to further assist with direct connection.
+A SharedArray is very similar to a generic Array, but allows the array
+contents to be shared with the external process directly.    When a
+SharedArray is created, DXNewSharedArray is given a shared memory segment
+ID and the address of the data, which must lie in that segment.  Unlike
+generic Arrays, which copy data using the DXAddArrayData call, SharedArrays
+use it directly.   DX keeps track of how many SharedArrays reference each
+segment, and maintains an attachment to that segment as long as there are
+references to it.   When the external process creates an object containing
+a SharedArray, the buffering process transmits the segment id and offset
+within the segment to OpenDX.  When its unbuffered, a new OpenDX-side
+SharedArray is created, the segment is attached (if necessary - it may have
+been seen before), and the SharedArray stores the address of the data in
+OpenDX' memory space.  Thus the external-side SharedArray (which itself
+shares data with the external process) and the OpenDX side SharedArray
+actually share memory.
+
+Support for SMP linux boxes:
+Since this is not well tested it is an optional make- --with-smp-linux
+on the configure command line.  The memory available to OpenDX in SMP mode 
+is limited to the max size of a shared-memory segment.  This may be set 
+low and must be changed in /proc/sys/kernel/shmmax. Created inter-process 
+locking from IPC semaphores, and its not confidence-inspiring.
+
+Fixed a bug in the handling of the deletion of task groups in task.c.
+
+RSH enhancements: 
+  - configure now picks up system rsh and bsh or is setable by the user.
+  
+  - The default command "rsh" has been left in place, but
+    a user-specified remote shell command can be specified via the
+    $DXRSH environment variable. Example: setenv DXRSH /usr/bin/ssh
+
+  - FQDNs (full host paths) are used under the hood when available
+    when creating the remote "invoke dxexec" script and connecting
+    back to the master exec,
+
+  - Users can now enter host names of the form "user@machine" in
+    the Execute Group Assignment... dialog, and
+
+  - setting the $DXRSH_NOENV in the local environment prevents the
+    remote "invoke dxexec" script from being written with a full
+    carbon copy of the local environment (only $DISPLAY is set).
+
+  - dumped pcreateve on SGI in favor of vfork/fork and exec for
+    kicking off rsh.
+
+Correctly avoiding a memory leak with hardware rendering due to a mysterious
+reference.
+
+Add the capability to change the logo and splash screen by adding a
+hook into the Xpm libraries. Now users can customize if they so desire.
+
+New Regrid option of Radius 0 that basically performs a snap to grid
+functionality. This option will make regrid apply data to the nearest
+grid position and average it if there are multiple (not weighted).
+
+Initial support for MacOS X. It appears that there are quite a few bugs
+in 10.0.2 still so it may have to wait a little longer. Also, somebody
+needs to work on the memory routines for OS X.
+
+Further corrections for the Windows code versions. Updated several 
+places where the DOS path may get munged. Updated JavaDX to be able to
+pass in DOS pathnames to start the server.
+
+An addition made to edfparse to allow the creation of a local reference
+to an external file within the native file format. This local reference
+can then be used repeatedly within the other objects without having to
+reread the external file.
+(Example:
+  object "localobj" file "externalfile.dx",1
+
+  object "f1" field
+    component "positions" "localobj"
+
+  object "f2" field
+    component "positions" "localobj"
+)
+
+A correction to the edfparse to accept data description in the native
+file format with object names as references instead of numbers.
+
+A correction to isosurface to pass attributes through not remove them.
+
+Fix to make CDBs open at correct opening width when scrollbar is needed.
+
+Modifications to avoid glx functions not implemented by wiregl.
+
+Some memory leak patches to general import, task, and redce.
+
+Now installing the built dx.mdf file so that the BSpline
+module is now visible in the VPE.
+
+Add functionality to SuperviseWindow to use a camera to set the
+window size.
+
+If DXMDF env variable is set to NULL then an error occured. Check
+it first before trying to open it.
+
+Fixed SMP OpenDX to use parent process and fork in a better 
+order. Didn't change the default behavior.
+
+A fix in the List module that could go past array bounds.
+
+A fix for DXcallm that allows Rubbersheet to be used again.
+
+A small memory leak fixed from not closing a message file.
+
+Fix in the Tube module that could cause a possible core dump.
+
+Provided a fix in dxworker so the exec could launch on Solaris 2.8.
+
+Cleaned up the warnings in src/exec/libdx, src/exec/dpexec, 
+and src/exec/dxmods -- this included adding header files and
+removing many of the extern prototypes making APIs more
+usable.
+
+Added the functionality to build C++ modules from the module
+builder.
+
+Fixed a possible memory leak in the Post module.
+
+Added Randall Hopper's lock fixes to decrease execution
+time on single processor machines by 20%.
+
+Added Randall Hopper's module path fix that can decrease
+execution time on cached networks significantly.
+
+Dropped support for ImageMagick 5.1.1 and added support for ImageMagick > 5.2.
+ImageMagick < 5.0 support still exists.
+
+Added support for compiling with Microsoft compilers. Updated much
+of the Windows environment setups.
+
+Added more support for the AIX xl series of compilers.
+
+Correction for 2D Map when point is on edge it is detected.
+
+More cleanup to JavaDX. DX_JAVA_CLASSPATH is now the variable that
+stores all classpath info. Removed the multiple ones of Netscape and
+WRL.
+
+Added support in configure to work with ImageMagick's Magick-config,
+thus reducing the amount of checks that are required when configuring.
+
+4.1.0 
+===============
+
+With this revision, a lot of the Gnu AutoConf stuff was cleaned up to
+help improve building the package from the source code.
+
+Many updates to the AutoConf build routines for JavaDX. JavaDX should
+now build readily on all systems.
+
+Added new configuration options to disable building some libraries and
+JavaDX. Added options to direct where java files reside if they can't be
+found: --disable-buildlibdx --disable-installhtml --without-javadx
+(remove compilation alltogether)
+--with-jni-path=/PathToDirectoryContaining-jni.h:/PathToDirectoryContaining-jni_md.h
+--with-cosmojar-path=/PathToCosmoJarFile/cosmoFileName.jar
+--with-java40jar-path=/PathToJava40JarFile/java40.jar
+
+The internal copyright mechanisms all get updated from the configure
+scripts this makes tracking versions from the user interface easier.
+
+Some general source code clean-up was done, there will be much more to
+come in the next set of revisions.
+
+OpenDX-generated makefiles are now largely platform independent as
+created. To the extent that they have platform dependencies, these are
+(or should be) determined by dx configure and written into arch.mak.
+This allows the module builder to generate makefiles compatible with
+OpenDX, such that runtime loadables work on a number of platforms and
+dxui now writes compatible makefiles for building and installing JX
+applets.
+
+Problems with Interactors not working properly on some systems is fixed.
+
+Linux binaries can now use loadable modules.
+
+dx script is now stored in two locations during installation in case the
+installation is moved and /usr/bin/dx is forgotten to be collected.
+
+name change of dx.workerscript to dxworker
+
+defaulting of the environment variable of DXMACROS, DXDATA, and DXROOT
+if they are not set.
+
+added -whereami option to dx to detect location of dx install
+
+LD_LIBRARY_PATH is not overwritten on Solaris but just added to now.
+
+mdf2c is now constructed with appropriate open source paths.
+
+Help files links and install should now be correct after installation.
+
+Added support for 15 bit and 32 bit color displays.
+
+Added outboard.c to source tree to be included with outboard modules.
+
+Added support for including libraries from ImageMagick build into
+libDX.a. If the libraries are shared, then they are not added and must
+be linked at a later time.
+
+Forced Linux versions to run as single processor only not SMP until
+shared memory is correctly addressed.
+
+Fixed a memory leak where if DXMACROS was set, it would tromp on memory.
+This is now fixed and relieves many core dumps in the exec.
+
+Removal of some hard coded geometries on dialog boxes to make dialogs
+work better with Lesstif. So far no reports of any problems with Motif.
+
+Added support for using ImageMagick. If ImageMagick is available during
+compilation, then many more image export formats will be available by
+choosing the ImageMagick formats.
+
+Correction to AutoRegrid module. "infinity" used as the radius caused a
+core dump. This did not show up with all compilers.
+
+Fix in Colorbar to make positions "dep positions". Fixes compliance with
+some other tools.
+
+Fix in the Enumerate module for properly creating counts.
+
+A few minor fixes with the import routines for HDF and netCDF.
+
+Corrected typos in module SimplifySurface.
+
+Correction in Stack module for series data.
+
+libDX is now being built correctly so modules can be linked to it with
+proper functionality.
+
+Added functionality for dx to use its default memory rules on linux. Fix
+for possible negative memory request.
+
+Correction to quads for possible loop when point coincides with vertex.
+
+Correction when a point is on the line containing an edge. Need to check
+sign.
+
+Fixes to allow FreeBSD to compile correctly.
+
+A correction the Grid Dialog box. Some testing may still be in order.
+
+A error with postscript printing the networks was corrected.
+
+Correction in the Browser for a pointer to an array.
+
+Clean up a lot of the Motif function calls prototype mismatches.
+
+
+4.0.6 
+============= 
+
+First initial stable release.
+
+
+4.0.3 
+============= 
+
+Added code to makefiles and c files to create libDX, libDXlite, libcallm
+
+Fixed missing splat in WorkspaceW.c
+
+Removed apparently unnecessary code referring to
+_XmDestroyParentCallback
+
+Changed configure to look for old versions of Lesstif and set
+OLD_LESSTIF, rather than any version of Lesstif and set USING_LESSTIF
+
+HP_UX -> HP-UX
+
+More general test for cygwin
+
+install change - mkdir dx/bin rather than use INSTALL
+
+configure test for sys/select and use in PacketIF.C
+
+

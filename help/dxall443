@@ -1,0 +1,66 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rvpefmen VPE File Menu #!N #!EC 
+#!N #!N The  #!F-adobe-times-bold-r-normal--18*   File #!EF menu displays the options you 
+can use to create new programs, view or edit previously created 
+programs, load macros, and save programs. You must have write permission 
+for a file to save changes directly to that file. #!N 
+#!N The following options appear on the  #!F-adobe-times-bold-r-normal--18*   File #!EF menu: 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   New #!EF #!I50 #!N 
+Initializes the VPE for a new program and clears the canvas. 
+If you have opened Control Panels and Image windows from the 
+VPE, they are closed. If a program you changed but did 
+not save currently exists on the canvas, a dialog box appears 
+so you can save changes. If you opened the VPE using 
+ #!F-adobe-times-bold-r-normal--18*   Open Macro #!EF or  #!F-adobe-times-bold-r-normal--18*   Open Visual Program Editor #!EF 
+, this option is grayed out. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Open 
+Program... #!EF #!I50 #!N Opens an existing visual program. A dialog 
+box appears for you to specify the desired program name. If 
+a program you changed but did not save currently exists on 
+the canvas, a dialog box appears asking if you want to 
+save changes. If you opened the VPE using  #!F-adobe-times-bold-r-normal--18*   Open Macro 
+#!EF , this option is grayed out. See  #!Lfsbox,dxall358 h File Selection Dialog Boxes  #!EL  for more 
+information. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Save Program #!EF #!I50 #!N Saves 
+the current visual program, and associated Control Panels. This option saves 
+the following files:  #!F-adobe-times-medium-i-normal--18*   filename #!EF  #!F-adobe-times-bold-r-normal--18*   .net #!EF (for network; 
+that is, a Data Explorer visual program);  #!F-adobe-times-medium-i-normal--18*   filename #!EF  #!F-adobe-times-bold-r-normal--18*   
+.cfg #!EF (for configuration). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Save Program As... 
+#!EF #!I50 #!N Saves the current visual program and all associated 
+Control Panels under a name you type into the dialog box. 
+This option saves the following files:  #!F-adobe-times-medium-i-normal--18*   filename #!EF  #!F-adobe-times-bold-r-normal--18*   .net 
+#!EF (for network; that is, a Data Explorer visual program),  #!F-adobe-times-medium-i-normal--18*   
+filename #!EF  #!F-adobe-times-bold-r-normal--18*   .cfg #!EF (for configuration). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+Program Settings #!EF #!I50 #!N Brings up a cascade menu with 
+two choices: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+ #!F-adobe-times-bold-r-normal--18*   Save As #!EF saves the current settings for the visual 
+program (e.g., window placement, interaction mode, camera viewpoint, interactor setup, etc. 
+The settings are saved in a  #!F-adobe-times-bold-r-normal--18*   .cfg #!EF file. #!N 
+#!I30 #!N o  #!F-adobe-times-bold-r-normal--18*   Load #!EF loads previously saved settings from 
+a  #!F-adobe-times-bold-r-normal--18*   .cfg #!EF file. #!N #!I0 #!N #!EF #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Load Macro... #!EF #!I50 #!N Loads a macro 
+and makes it available in a tools palette. A file selection 
+dialog box appears for you to specify the desired macro file 
+name. See also  #!Llodmac,dxall437 h Loading Macros  #!EL  #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Load Module Definition(s)... 
+#!EF #!I50 #!N Loads a module definition and makes it available 
+in a tool palette. A file selection dialog box appears for 
+you to specify the desired module file name. The executable you 
+are using must either include this module, or this module definition 
+must refer to an outboard or run-time loadable module. See  #!Lvfm,dxall492 h Loading and Using Outboard and Runtime-Loadable Modules  #!EL  
+. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Print Program... #!EF #!I50 #!N Prints 
+or saves to a file a representation of a visual program. 
+#!N #!N If the  #!F-adobe-times-bold-r-normal--18*   Label Set Input #!EF toggle button 
+is activated, then any parameter value(s) set in the configuration module's 
+Configuration dialog box will also be printed next to the corresponding 
+tab(s), if scale allows. #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   Quit  #!F-adobe-times-medium-r-normal--18*   
+or #!EF Close #!EF #!I50 #!N Closes all windows created from 
+the current VPE window. If you have made changes since the 
+last save, a dialog box appears so you can save changes. 
+If you opened the VPE from the Image window or with 
+the  #!F-adobe-times-bold-r-normal--18*   Open Macro #!EF option,  #!F-adobe-times-bold-r-normal--18*   Close #!EF appears as 
+an option instead of  #!F-adobe-times-bold-r-normal--18*   Quit #!EF .  #!F-adobe-times-bold-r-normal--18*   Quit #!EF 
+is grayed out if the  #!F-adobe-times-bold-r-normal--18*   Execute #!EF menu title is 
+highlighted. You must select the  #!F-adobe-times-bold-r-normal--18*   End Execution #!EF option in 
+the  #!F-adobe-times-bold-r-normal--18*   Execute #!EF pull-down menu; or if the Sequencer is 
+running, you must stop it or pause before quitting. #!I0 #!N 
+#!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lvpeemen,dxall444 h VPE Edit Menu  #!EL  
+#!N  #!F-adobe-times-medium-i-normal--18*   #!N 

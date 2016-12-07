@@ -1,0 +1,2 @@
+## Process this file with automake to produce Makefile.in
+EXTRA_DIST = hwBoundingBoxDrawSB.c hwCacheUtilSB.c hwCacheUtilSB.h hwCubeDrawSB.c hwInteractorEchoSB.c hwLineDrawSB.c hwLoad.c hwMeshDrawSB.c.h hwPlineDrawSB.c hwPolygonDrawSB.c.h hwPolyhedraDrawSB.c.h hwPolylineDrawSB.c hwPortSB.c hwPortSB.h hwQmeshDrawSB.c hwQuadDrawSB.c hwStub.c hwTetraDrawSB.c hwTmeshDrawSB.c hwTriDrawSB.c hwUnconPointDrawSB.c hwWinSB.c sbutils.c.h wsutils.c wsutils.h

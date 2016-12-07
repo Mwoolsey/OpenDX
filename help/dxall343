@@ -1,0 +1,32 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CSeaGreen #!N  #!Rtnr Using Transmitters and Receivers #!N #!EC #!N 
+#!N It is possible to create large visual programs in Data 
+Explorer. Data Explorer provides two tools, Transmitter and Receiver, to maintain 
+the modularity and readability of large programs. These tools allow connections 
+between input and output tabs without using a visible connecting line. 
+Using the Transmitter and Receiver tools allows you to separate visual 
+programs into logical blocks. For example, the output of several logical 
+blocks can be transmitted to another block that receives them, collects 
+them, and produces the image. Macros, described in  #!Lmacros,dxall435 h Creating and Using Macros  #!EL  , provide 
+another way to structure visual programs into logical blocks. #!N #!N 
+To remotely connect input and output tabs: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   
+#!N #!N #!I30 #!N 1. Select the Transmitter tool, which appears 
+under the Special category in the tool palette, and place it 
+near the output tab. #!N #!I30 #!N 2. Connect the tool's 
+output tab to the input tab of the Transmitter. #!N #!I30 
+#!N 3. Select the Receiver tool (also in the Special category), 
+and place it near the input tab to be connected to 
+the output tab above. #!N #!I30 #!N 4. Connect the Receiver's 
+output tab to the receiving tool icon's input tab. #!N #!N 
+The Receiver automatically assumes the same name as the Transmitter. There 
+can be multiple instances of a Receiver corresponding to a single 
+Transmitter. These Receivers assume the same name until a new Transmitter 
+is selected. #!N #!N The name of a Transmitter and Receiver 
+can be changed using the notation field of the Configuration dialog 
+box (as described in  #!Lucb,dxall345 h Entering Values in a Configuration Dialog Box  #!EL  ). When you change the name 
+of the Transmitter, all Receivers that share a name with that 
+Transmitter also change their names. However, when you change the name 
+of a particular Receiver, the associated Transmitter and the other Receivers 
+are not affected. #!N #!I0 #!N #!EF #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lartabs,dxall344 h Adding and Removing Input and Output Tabs  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

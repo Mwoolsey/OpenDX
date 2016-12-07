@@ -1,0 +1,104 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall24 Specifying Colormap Values 
+#!N #!EC #!N #!N You can specify a Colormap value in 
+two ways: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o 
+Directly by manipulating a control point. #!N #!I30 #!N o Indirectly 
+through the  #!F-adobe-times-bold-r-normal--18*   Add Control Points #!EF dialog box. #!N #!I0 
+#!N #!EF #!N The first is quick and approximate. The second 
+is slower and precise. #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Rcmaped9 #!N Graphics omitted 
+from Online Documentation. Please see the manual. #!N #!N Figure 9. 
+Colormap Editor for .../example1.net. The four image characteristics controlled by the 
+editor (hue, saturation, value, and opacity) are also listed in  #!Lcolmped1,dxall24 t Table 1  #!EL  
+. The numerical range for each is 0.0-1.0. For  #!F-adobe-times-bold-r-normal--18*   Hue 
+#!EF this range is "r g b r" (red green blue 
+red); the current setting corresponds to the red-green-blue spectrum of the 
+color column to the left. The column furthest left (RGB) displays 
+the red-green-blue color values corresponding to the four settings on the 
+right. Note that each setting is determined by a "line" whose 
+position can be changed by moving the "control point" at one 
+of its ends; the shape of the line can be modified 
+by adding control points (see text). The values 0.0 and 2.5000000 
+are the minimum and maximum of the data values used in 
+the visual program. #!EF #!N #!EC #!N #!N  #!F-adobe-times-bold-r-normal--18*   Specifying approximate 
+values: #!EF #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. 
+Position the mouse cursor in the middle of the large  #!F-adobe-times-bold-r-normal--18*   
+Value #!EF rectangle and  #!F-adobe-times-medium-i-normal--18*   double click #!EF the left mouse 
+button. Note the changes that result: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o A new control point appears (turning the 
+vertical line into two line segments) and the  #!F-adobe-times-bold-r-normal--18*   Value #!EF 
+button is activated. #!N #!I30 #!N o The data value of 
+the new point is displayed in the data range next to 
+the color column (the RGB area, color column, and image show 
+corresponding changes). #!N #!I0 #!N #!EF #!N #!N #!I30 #!N 2. 
+To move the control point, use the left mouse button to 
+drag it. The RGB area, color column, data value, and image 
+all change accordingly. #!N #!I30 #!N 3. To return Value to 
+its previous state, double click on the control point. #!N #!I0 
+#!N #!EF #!N  #!F-adobe-times-bold-r-normal--18*   Specifying exact values: #!EF #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. Select  #!F-adobe-times-bold-r-normal--18*   Edit #!EF in 
+the menu bar of the Colormap Editor and then select  #!F-adobe-times-bold-r-normal--18*   
+Add Control Points #!EF in the pull-down menu. A dialog box 
+appears (see  #!Laddcon10,dxall25 f Figure 10  #!EL  ). #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Raddcon10 #!N #!N Graphics 
+omitted from Online Documentation. Please see the manual. #!N Figure 10. 
+Add Control Points Dialog Box. This dialog box has two interactors: 
+The first specifies the actual data value for which a corresponding 
+set of Colormap values are to be implemented. The second specifies 
+one of the four Colormap values, such as  #!F-adobe-times-bold-r-normal--18*   Hue #!EF 
+in this example (see text). #!EF #!N #!EC #!N #!I30 #!N 
+2. Click on the  #!F-adobe-times-bold-r-normal--18*   Saturation #!EF rectangle of the Colormap 
+Editor. The label button in the editor is activated (recessed) and 
+the new interactor label in the  #!F-adobe-times-bold-r-normal--18*   Add Control Points #!EF 
+dialog box changes to "Saturation value (0.0 to 1.0)." #!N #!I30 
+#!N 3. Click on the data value displayed in the dialog 
+box, type in the value 1, and press  #!F-adobe-times-bold-r-normal--18*   Enter #!EF 
+. The new value is displayed as 1.00000. #!N #!I30 #!N 
+4. Click on the saturation value displayed in the dialog box, 
+type in the value  #!F-adobe-times-bold-r-normal--18*   . #!EF 28, and press  #!F-adobe-times-bold-r-normal--18*   
+Enter #!EF . The new value is displayed as 0.28000. #!N 
+#!I30 #!N 5. Click on  #!F-adobe-times-bold-r-normal--18*   Add #!EF in the dialog 
+box: A control point corresponding to the new values in the 
+dialog box appears in the  #!F-adobe-times-bold-r-normal--18*   Saturation #!EF rectangle of the 
+editor. The RGB area, color column, and image all change accordingly. 
+#!N #!I0 #!N #!EF #!N #!N #!N Now that you know 
+how to open and execute visual programs and to control the 
+images they generate, you can proceed to Tutorial II, which deals 
+with various techniques for visualizing data. #!CIndianRed #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   
+Additional Notes on Control Points #!N #!N  #!F-adobe-times-bold-r-normal--18*   Displaying Control Point 
+Values #!EF #!N #!N By default the Colormap Editor displays the 
+values of all control points. To display the value of an 
+individual point: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 1. 
+Select in order: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N 
+a.  #!F-adobe-times-bold-r-normal--18*   Options #!EF in the menu bar of the ColorMap 
+Editor #!N #!I30 #!N b.  #!F-adobe-times-bold-r-normal--18*   Display Control Point Data Value 
+#!EF in the pull-down menu #!N #!I30 #!N c.  #!F-adobe-times-bold-r-normal--18*   Selected 
+#!EF in the pull-down list. #!N #!I0 #!N #!EF #!N #!N 
+#!I30 #!N 2. Click on the desired control point in the 
+ColorMap Editor (the rectangle containing the control point is automatically activated 
+if it is not already activated). The data value corresponding to 
+the selected control point appears in the data range next to 
+the color column. #!N #!I30 #!N 3. Repeat the preceding selection 
+procedure, except click on  #!F-adobe-times-bold-r-normal--18*   All #!EF in the pull-down list 
+(instead of  #!F-adobe-times-bold-r-normal--18*   Selected #!EF ). Data values for all control 
+points in the  #!F-adobe-times-medium-i-normal--18*   activated #!EF rectangle now appear in the 
+data range. #!N #!I0 #!N #!EF #!N #!N #!N  #!F-adobe-times-bold-r-normal--18*   Deleting 
+Control Points #!EF #!N #!N You can delete control points one 
+at a time or in groups: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N o To remove control points one at a 
+time (in an activated rectangle),  #!F-adobe-times-medium-i-normal--18*   double click #!EF on each 
+point to be removed #!N #!I30 #!N o To remove two 
+or more points at a time: #!N #!I0 #!N  #!F-adobe-times-medium-r-normal--18*   #!N 
+#!N #!I30 #!N 1. Select points by either: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N - Shift-clicking: Press the Shift key 
+and click on each point to be deleted;  #!F-adobe-times-medium-i-normal--18*   or #!EF 
+#!N #!I30 #!N - Drawing a selection box: Hold down the 
+left mouse button and drag the cursor to generate a "selection 
+box" in the selected rectangle and enlarge it to the desired 
+size. Release the button (the box disappears, but any "boxed" points 
+are selected). #!N #!I0 #!N #!EF #!N #!N #!I30 #!N 2. 
+Select  #!F-adobe-times-bold-r-normal--18*   Edit #!EF in the menu bar and then  #!F-adobe-times-bold-r-normal--18*   
+Delete Selected Control Points #!EF in the pull-down menu. All selected 
+control points are deleted and the image is updated. #!N #!I0 
+#!N #!EF #!N #!N #!I0 #!N #!EF #!N #!N #!N #!EC 
+#!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lapg,dxall26 h Tutorial II: Editing and Creating Visual Programs  #!EL  #!N 
+ #!F-adobe-times-medium-i-normal--18*   #!N 

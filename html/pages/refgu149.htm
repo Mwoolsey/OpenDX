@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Streamline</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu148.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu150.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRSTREAML" ></A>Streamline</H3>
+		<A NAME="IDX728"></A><A NAME="IDX729"></A>
+<A NAME="IDX730"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATREL">Realization</A>
+<P><STRONG>Function</STRONG>
+<P>
+Computes streamlines to represent the movement of particles through
+static vector fields.
+<P><STRONG>Syntax</STRONG>
+<PRE>
+<STRONG>line</STRONG> = Streamline(<STRONG>data, start, time, head, curl, flag, stepscale</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>data</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">vector field
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>start</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector list or geometric field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">center of the first series member
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">starting point(s)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>time</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">scalar list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">series start time(s)
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">starting time(s)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>head</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">integer
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">final series frame number
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">series time-step at which the
+streamlines end
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>curl</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">vector field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">no curl
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">vorticity of vector field(s)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>flag</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">flag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">input dependent
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">
+0: curl not used
+<BR>
+1: curl used to generate twist of streamline(s)
+<BR></TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>stepscale</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">value
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">0.1
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">step length as a fraction of the
+size of the connection
+element
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>line</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">field or group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">one or more streamlines
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+This module traces the path of a particle through a static vector field
+in discrete steps.
+The visual form of this trace is a streamline, which starts at a
+specified time and continues until the particle it represents
+exits from the field or reaches a region of zero velocity.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>data</STRONG></TT>
+</B></TD><TD><P>specifies a vector field.
+Vector fields are limited to <I>n</I>-D vectors defined in
+<I>n</I> space; for example, 2-D vectors on a 2-D sheet or
+3-D vectors defined in a 3-D volume.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>start</STRONG></TT>
+</B></TD><TD><P>specifies a set of positions at which streamlines originate.
+It can be either a list of positions or a geometric field (e.g., the
+output of a Grid module or even an isosurface).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>time</STRONG></TT>
+</B></TD><TD><P>specifies a set of times at which streamlines begin to be
+traced.
+The units of time correspond to the units of the vector field.
+That is, a particle travelling at a unit velocity moves one unit of
+distance in one unit of time.
+<P>
+Both <TT><STRONG>time</STRONG></TT> and <TT><STRONG>start</STRONG></TT> can
+contain
+single or multiple elements.
+If either parameter contains a single element, that element is
+associated with each element of the other list.
+If both parameters contain multiple elements, they must contain the
+same number of elements, which are then matched in pairs.
+<P>
+
+You can use the time parameter to start different streamlines at
+different times. Note that for the static vector fields used by
+Streamline, a particle at a given location will trace the same
+streamline, regardless of what time it is started.
+
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>head</STRONG></TT>
+</B></TD><TD><P>specifies an expiration time for streamlines that have not
+otherwise terminated.
+The streamline points are computed iteratively, and the spacing between
+the points depends on the element size of the connections and the
+stepscale.
+If this maximum is reached, a warning is produced and the streamline
+is terminated.
+The maximum number of streamline points is 25,000.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>curl</STRONG></TT>
+</B></TD><TD><P>causes Streamline to produce normals and binormals components
+that represent the vorticity of the vector field.
+<A HREF="refgu049.htm#HDRDIVCURL">DivCurl</A>).
+In that case, the default value for <TT><STRONG>flag</STRONG></TT>
+is 1.
+The "normals" and "binormals" components of the resulting
+streamlines rotate according to the vorticity of the vector
+field.
+This information is either interpolated from the vector field passed
+in as the <TT><STRONG>curl</STRONG></TT> parameter or is computed
+internally.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>flag</STRONG></TT>
+</B></TD><TD><P>specifies whether or not the twist specified by
+<TT><STRONG>curl</STRONG></TT> is enabled.
+A setting of 0 (zero) disables the twist.
+<P>
+However, if <TT><STRONG>curl</STRONG></TT> is not specified, the default
+value for <TT><STRONG>flag</STRONG></TT> is 0, and no twist is
+produced.
+In that case you have the option of setting <TT><STRONG>flag</STRONG></TT>
+to 1, which causes Streamline to compute the curl internally.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>stepscale</STRONG></TT>
+</B></TD><TD><P>specifies the accuracy of the interpolation.
+Streamline traces the path of a particle through the vector field in
+discrete steps.
+These steps are determined by interpolating a vector from the vector
+field at the current end of the streamline and appending a new
+segment that extends the streamline in the direction of the
+vector.
+<P>
+The length of the new segment is determined by two factors.
+First, the length of the projection of the segment along the edges of
+the cells of the prior and subsequent vector fields in which the
+starting point of the segment is found does not exceed a
+proportion (specified by the <TT><STRONG>stepscale</STRONG></TT>
+parameter) of the length of the edge.
+Second, if grid is irregular, the segment is truncated at the boundary
+of the element in which it begins.
+This allows the segment length to be determined anew for the next
+element.
+<P>
+Thus the <TT><STRONG>stepscale</STRONG></TT> parameter offers the user control
+over the accuracy of the streamline.
+If <TT><STRONG>stepscale</STRONG></TT> is a small value (perhaps in the range
+of 0.01 to 0.05), the resulting streamline contains a relatively
+large number of segments that closely trace small variations
+in the vector field.
+If <TT><STRONG>stepscale</STRONG></TT> is assigned a large number (0.5 to 1),
+the steps are larger and less accurate, but require less execution
+time.
+Note, however, that since the step is determined as a proportion of the
+size of the grid cell in which it is contained, the segments are
+small in areas in which the grid elements are small, and
+proportionally larger in areas in which the grid
+elements are large.
+</TD></TR></TABLE>
+<P>
+Streamlines trace particles through time.
+Associated with the streamline is a "time" component that
+indicates, for each position of the streamline, the time at
+which the particle reached that position.
+The initial value in this component, therefore, is equal to the
+starting time for that stream, which is by default the first
+series position, or settable by the user using the
+<TT><STRONG>time</STRONG></TT> parameter.
+The final value in the time component is equal to (1) the time at which
+the particle exits from the vector field or (2) the time specified
+by the <TT><STRONG>head</STRONG></TT> parameter.
+<P>
+The output streamlines also contain a "data" component that
+indicates the velocity of the data field at each position
+in the streamline.
+<P><STRONG>Components</STRONG>
+<P>
+Creates new
+"positions,"
+"connections,"
+"data,"
+"time," and
+"colors"
+components.
+If the flag argument is set, "normals" and "binormals"
+components are also created.
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+Interop.net
+InvalidData.net
+RubberTube.net
+Streamline.net
+ThunderStreamlines.net
+</PRE>
+<P><STRONG>See Also</STRONG>
+<P>
+&nbsp;<A HREF="refgu049.htm#HDRDIVCURL">DivCurl</A>,
+&nbsp;<A HREF="refgu068.htm#HDRGLYPH">Glyph</A>,
+&nbsp;<A HREF="refgu122.htm#HDRRIBBON">Ribbon</A>,
+&nbsp;<A HREF="refgu148.htm#HDRSTREAKL">Streakline</A>,
+&nbsp;<A HREF="refgu163.htm#HDRTUBE">Tube</A>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

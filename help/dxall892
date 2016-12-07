@@ -1,0 +1,47 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rmaptopl MapToPlane 
+#!N #!N Category #!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N #!N 
+Maps a 3-dimensional field onto a plane. #!N #!N Syntax #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N plane #!EF = MapToPlane(  #!F-adobe-times-bold-r-normal--18*   data, 
+point, normal #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs 
+#!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB 
+Description #!EF #!N TAB data TAB field TAB none TAB data 
+to be mapped #!N TAB point TAB vector TAB center of 
+object TAB a point on the map plane #!N TAB normal 
+TAB vector TAB [0 0 1] TAB normal to the map 
+plane #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB plane TAB field TAB mapped plane #!N 
+TAB - TAB - TAB #!EF #!N #!N Functional Details #!N 
+#!N This module creates an arbitrary cutting plane through 3-dimensional space 
+and interpolates data values onto it. #!N #!I0 #!N #!N #!I0 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   data #!EF #!EF #!I50 #!N must be a 
+field with 3-dimensional connections (i.e., cubes or tetrahedra). #!N #!I0 #!N 
+ #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   point #!EF #!EF #!I50 #!N is a vector value 
+specifying a point on the cutting plane. If this parameter is 
+not specified, Data Explorer uses the center of the bounding box 
+of  #!F-adobe-times-bold-r-normal--18*   data #!EF . #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   normal 
+#!EF #!EF #!I50 #!N is a vector value specifying the normal 
+to the map plane and is interpreted as the end point 
+of a vector from the origin (not from  #!F-adobe-times-bold-r-normal--18*   point #!EF 
+). The parameter defaults to [0 0 1]. #!I0 #!N #!N 
+#!N #!N #!I0 #!N Notes: #!N #!I30 #!N 1. To create 
+a plane parallel to one of the axes along a connections 
+boundary (for regular data) it is more efficient to use the 
+Slab module with zero thickness, because it performs no interpolation. #!N 
+#!I30 #!N 2. MapToPlane (unlike Slab) adds a "normals" component to 
+the plane, so that the result is shaded. To eliminate the 
+shading, remove the "normals" component with the Remove module or turn 
+off the shading with the Shade module. #!N #!I30 #!N 3. 
+If the specified plane is precisely at the edge of the 
+data, the output may or may not appear, depending on the 
+direction of  #!F-adobe-times-bold-r-normal--18*   normal #!EF . #!I0 #!N #!N #!N #!N 
+Components #!N #!N Creates new "positions," "connections," and "normals" components. New 
+"components" of all other input components are created (e.g., the "data" 
+component) and contain values interpolated from the originals. #!N #!N Example 
+Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N AlternateVisualizations.net #!N ContoursAndCaption.net #!N 
+ThunderGlyphSheet.net #!N SIMPLE/MapToPlane.net #!EF #!N #!N #!EC #!N #!N See Also 
+#!N #!N  #!Lautocol,dxall772 h AutoColor  #!EL  ,  #!Lmap,dxall891 h Map  #!EL  ,  #!Lremove,dxall921 h Remove  #!EL  ,  #!Lrubbers,dxall930 h RubberSheet  #!EL  ,  #!Lshade,dxall942 h Shade  #!EL  
+,  #!Lslab,dxall949 h Slab  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Lmark,dxall893 h Mark  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

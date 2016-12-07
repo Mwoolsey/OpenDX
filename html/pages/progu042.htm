@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu041.htm">Previous Page</A> &#124; <A HREF="progu043.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDRMODRUNS" HREF="progu037.htm#PToC_88">11.6 Compiling, Linking,
+and Debugging a Runtime-loadable Module</A></H2>
+<A NAME="IDX370"></A>
+<A NAME="IDX371"></A>
+<A NAME="IDX372"></A>
+<A NAME="IDX373"></A>
+<A NAME="IDX374"></A>
+<A NAME="IDX375"></A>
+<A NAME="IDX376"></A>
+<P>
+The following sample makefile templates for creating runtime-loadable
+modules can be found in <TT><STRONG>/usr/local/dx/samples/user</STRONG></TT>:
+<A NAME="IDX377"></A>
+<A NAME="IDX378"></A>
+<A NAME="IDX379"></A>
+<A NAME="IDX380"></A>
+<A NAME="IDX381"></A>
+<A NAME="IDX382"></A>
+<UL COMPACT>
+<LI>RISC System/6000&#42; Systems:
+<TT><STRONG>Makefile&#95;loadable&#95;ibm6000</STRONG></TT>
+<LI>Silicon Graphics&#42;&#42;:
+<TT><STRONG>Makefile&#95;loadable&#95;sgi</STRONG></TT>
+<LI>Sun Microsystems&#42;&#42;:
+<TT><STRONG>Makefile&#95;loadable&#95;solaris</STRONG></TT>
+<LI>Hewlett-Packard&#42;&#42;:
+<TT><STRONG>Makefile&#95;loadable&#95;hp700</STRONG></TT>
+<LI>DEC Alpha&#42;&#42;:
+<TT><STRONG>Makefile&#95;loadable&#95;alphax</STRONG></TT>
+</UL>
+<P>
+The makefile target "loadablelib" is an example of how to make a
+"library" of runtime-loadable modules.
+Replace <TT><STRONG>makex.o</STRONG></TT>, <TT><STRONG>add.o</STRONG></TT>, and
+<TT><STRONG>hello.o</STRONG></TT> with the names of your
+modules.
+The makefile target <TT><STRONG>hello</STRONG></TT> is an example of how to
+make an executable containing a single module.
+See also the files <TT><STRONG>hello&#95;loadable.mdf</STRONG></TT> and
+<TT><STRONG>user&#95;loadable.mdf</STRONG></TT>.
+Starting Data Explorer requires specifying the module description file to the
+user interface:
+<PRE>
+dx  -mdf my.mdf
+</PRE>
+<P><B>Note: </B>You can also load a &#46;mdf file after Data Explorer has
+started.
+Use the <TT><STRONG>Load Module Description(s)</STRONG></TT> option in
+the <TT><STRONG>File</STRONG></TT> pull-down menu of the VPE
+window.
+<P>
+To debug a module you must first modify the CFLAGS line of the makefile
+to compile your source code as debuggable (<TT><STRONG>-g</STRONG></TT>)
+rather than optimized (<TT><STRONG>-O</STRONG></TT>).
+<P><B>Note: </B>Data Explorer library routines are available only as optimized
+object code.
+<P>
+To debug a module:
+<OL COMPACT>
+<LI>Start up just the user interface:
+<PRE>
+dx -uionly -mdf yourmdf.mdf
+</PRE>
+<LI>Start a debugging session with the <TT><STRONG>-r</STRONG></TT> (remote)
+flag on <TT>/usr/local/dx/bin&#95;<VAR>workstation</VAR>/dxexec</TT>.
+<LI>Connect the user interface to the debugging session by selecting
+<TT><STRONG>Connect to already running server</STRONG></TT> in the
+<TT><STRONG>Options</STRONG></TT> dialog box of the
+<TT><STRONG>Start Server...</STRONG></TT>
+dialog box.
+
+You should check the port number specified when you start your
+executable from the debugging session, and ensure that the port number
+listed in the <TT><STRONG>Options</STRONG></TT> dialog box is the same.
+
+<LI>Set your breakpoints in the debugger and continue.
+<P><B>Note: </B>On some architectures it may be necessary to build a module as
+inboard in order to debug it.
+</OL>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu041.htm">Previous Page</A> &#124; <A HREF="progu043.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu037.htm#PToC13">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

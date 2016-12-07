@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>QuickStart Guide - Scripting Language</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><B><IMG src="../images/flcgh_03d.gif" width=127 height=25 border="0" alt="QuickStart Guide"></B></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><A href="../refguide.htm"><IMG src="../images/flcgh_05.gif" width=127 height=25 border="0" alt="User's Reference"></A></TD>
+			</TR>
+			<TR>
+				<TD><A href="qikgu023.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="qikgu025.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../qikguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="qikgu016.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="qikgu035.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H2>3.9 Scripting Language</H2>
+		<A NAME="IDX186"></A>
+		<P>
+Sometimes it may be more convenient to use the Data Explorer scripting language
+instead of the Visual Program Editor to create visualizations.
+A common instance is that of using Data Explorer scripts in overnight batch jobs
+to create visualizations and save them to disk for analysis the
+next day.
+<P>
+A simple script that computes a series of isosurfaces and exports them
+to disk is <TT>/usr/local/dx/samples/tutorial/batch_script</TT>
+(this is not a visual program, so you cannot read it into the Visual Program
+Editor):
+<PRE>
+data = Import("/usr/local/dx/samples/data/watermolecule");
+counter = 1;
+macro create_iso(isovalue,counter)-&gt;(counter)
+{
+  isosurface = Isosurface(data,isovalue);
+  filename = Format("iso%d", counter);
+  counter++;
+  Export(isosurface, filename);
+}
+</PRE>
+(continued on the next page)
+<PRE>
+counter=create_iso(0.1, counter);
+counter=create_iso(0.2, counter);
+counter=create_iso(0.3, counter);
+counter=create_iso(0.4, counter);
+counter=create_iso(0.5, counter);
+counter=create_iso(0.6, counter);
+# (end of script)
+</PRE>
+This script first imports data from a file called
+<TT>watermolecule</TT>.
+It then defines a macro that takes two parameters: an isovalue and a
+counter.
+The macro returns the counter as an output.
+It then computes an isosurface, creates a filename (using the counter
+as part of the name), and exports the isosurface to that
+filename.
+The counter is also incremented.
+Finally the macro is called six times, with six different isovalues.
+<P>
+To run this script, first copy
+<TT>/usr/local/dx/samples/tutorial/batch_script</TT> to the directory
+being used.
+Then enter the command:
+<PRE>
+    dx -script &lt; batch_script
+</PRE>
+<I>or</I>
+<PRE>
+    dx -script
+</PRE>
+and at the <TT>dx&gt;</TT> prompt:
+<PRE>
+    include "batch_script"
+</PRE>
+<P>
+If you want to view the exported isosurfaces, you can use visual program
+<TT>/usr/local/dx/samples/tutorial/view_isosurfaces.net</TT>.
+<P>
+<P><B>Note: </B>Visual programs are also scripts.
+However, if a visual program uses a macro, you must include that
+macro before including the visual program.
+For example:
+<PRE>
+dx&gt; include "my_macro.net"
+dx&gt; include "program.net"
+</PRE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

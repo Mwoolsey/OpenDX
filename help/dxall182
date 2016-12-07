@@ -1,0 +1,19 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N  #!Rc11 System Structure #!N #!EC #!N #!N Data 
+Explorer is designed as a client-server model. The Data Explorer client-server 
+architecture incorporates system components such as TCP/IP, sockets, X Window System, 
+and Motif. #!N #!N In this client-server model, the user interface 
+is the client. The executive, modules, and data management components, often 
+referred to collectively as the executive, make up the server portion. 
+The user interface client can be on a different platform from 
+the server (executive), and the executive can run on multiple platforms 
+simultaneously (distributed processing). Data Explorer allows you to switch among servers 
+running on different hardware platforms. #!N #!N The Data Explorer system 
+can be thought of as consisting of four "layers," each with 
+its own defined interface. These layers are described in the order 
+in which you are likely to encounter them: #!N #!I0 #!N 
+ #!F-adobe-times-medium-r-normal--18*   #!N #!N #!I30 #!N o Graphical user interface #!N #!I30 
+#!N o Executive #!N #!I30 #!N o Modules #!N #!I30 #!N 
+o Data management. #!N #!I0 #!N #!EF #!N #!N #!N #!N 
+ #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Lall182,dxall183 h Graphical User Interface  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

@@ -1,0 +1,981 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+		<TITLE>User's Reference - Inquire</TITLE>
+		<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+	<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF" link="#00004b" vlink="#4b004b">
+		<TABLE width=510 border=0 cellpadding=0 cellspacing=0>
+			<TR>
+				<TD><IMG src="../images/spacer.gif" width=80 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=49 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=24 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=100 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=3 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=127 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=6 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=50 height=1></TD>
+				<TD><IMG src="../images/spacer.gif" width=71 height=1></TD>
+			</TR>
+			<TR>
+				<TD colspan=9><IMG src="../images/flcgh_01.gif" width=510 height=24 alt="OpenDX - Documentation"></TD>
+			</TR>
+			<TR>
+				<TD colspan=2><A href="../allguide.htm"><IMG src="../images/flcgh_02.gif" width=129 height=25 border="0" alt="Full Contents"></A></TD>
+				<TD colspan=3><A href="../qikguide.htm"><IMG src="../images/flcgh_03.gif" width=127 height=25 border="0" alt="QuickStart Guide"></A></TD>
+				<TD><A href="../usrguide.htm"><IMG src="../images/flcgh_04.gif" width=127 height=25 border="0" alt="User's Guide"></A></TD>
+				<TD colspan=3><B><A href="../refguide.htm"><IMG src="../images/flcgh_05d.gif" width=127 height=25 border="0" alt="User's Reference"></A></B></TD>
+			</TR>
+			<TR>
+				<TD><A href="refgu076.htm"><IMG src="../images/flcgh_06.gif" width=80 height=17 border="0" alt="Previous Page"></A></TD>
+				<TD colspan=2><A href="refgu078.htm"><IMG src="../images/flcgh_07.gif" width=73 height=17 border="0" alt="Next Page"></A></TD>
+				<TD><A href="../refguide.htm"><IMG src="../images/flcgh_08.gif" width=100 height=17 border="0" alt="Table of Contents"></A></TD>
+				<TD colspan=3><A href="refgu009.htm"><IMG src="../images/flcgh_09.gif" width=136 height=17 border="0" alt="Partial Table of Contents"></A></TD>
+				<TD><A href="refgu175.htm"><IMG src="../images/flcgh_10.gif" width=50 height=17 border="0" alt="Index"></A></TD>
+				<TD><A href="../srchindx.htm"><IMG src="../images/flcgh_11.gif" width=71 height=17 border="0" alt="Search"></A></TD>
+			</TR>
+		</TABLE>
+		<H3><A name="HDRINQUIRE" ></A>Inquire</H3>
+		<A NAME="IDX553"></A><A NAME="IDX554"></A>
+<P><STRONG>Category</STRONG>
+<P>
+<A HREF="refgu008.htm#HDRCATSTR">Structuring</A>
+<A NAME="IDX555"></A>
+<P><STRONG>Function</STRONG>
+<P>
+Returns information about an object.
+<P><STRONG>Syntax</STRONG>
+<PRE><STRONG>
+output</STRONG> = Inquire(<STRONG>input, inquiry, value</STRONG>);
+</PRE>
+<P><STRONG>Inputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">Default
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>input</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">the subject of the inquiry
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>inquiry</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">&quot;is null&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">a request for particular
+information
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%"><TT><STRONG>value</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="20%">none
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="40%">additional qualifiers
+</TD></TR></TABLE>
+<P><STRONG>Outputs</STRONG>
+<BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Name
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">Type
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Description
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%"><TT><STRONG>output</STRONG></TT>
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="25%">integer or object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="50%">Examples include 1 and 0 (for
+yes/no inquiries), arrays, fields,
+groups, and vectors.
+</TD></TR></TABLE>
+<P><STRONG>Functional Details</STRONG>
+<P>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>input</STRONG></TT>
+</B></TD><TD><P>specifies the subject of the module&#39;s inquiry.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>inquiry</STRONG></TT>
+</B></TD><TD><P>specifies the query (see <A HREF="#SPTINQUIRY">Notes</A>).
+Some queries require an additional parameter (see value).
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>value</STRONG></TT>
+</B></TD><TD><P>specifies an item of information needed for identifying
+the appropriate subject of the query.
+For example, the "attribute" inquiry requires the name of the
+attribute.
+</TD></TR></TABLE>
+<P><B>Notes: </B>
+		<OL>
+<A NAME="SPTINQUIRY"></A>
+<P>
+			<LI><A HREF="#TBLTAB1">Table 3</A> through <A HREF="#TBLTAB4">Table 6</A>
+list the "inquiries"
+that can be made, the type(s) of object appropriate
+to each, an explanatory version of each, and
+the answer or type of answer returned.
+<BR>
+				<BR>
+			<LI>Inquiries that start with "is" are true/false queries,
+returning 1 (one) for "yes" and 0 (zero) for "no."
+Such queries can be reversed, however, by inserting "not" after
+the initial "is"&#58;
+An "is not" query also returns 1 (one) for "yes" and 0 (zero)
+for "no."
+For example, if the subject of the inquiry is a scalar field,
+"is scalar" returns 1 (one) and "is not scalar"
+returns 0 (zero).
+<BR>
+				<BR>
+			<LI>Any "is" query about a group whose members contain different
+types of objects will return 0 (zero) unless all members have the
+characteristic specified in the query.
+For example, if a group is composed of two fields, one scalar and one
+vector, the answer to the question "is scalar"
+will be 0 (zero).
+<BR>
+				<BR>
+			<LI>Any inquiry that returns a scalar integer value can be made to
+return a value that is "1" higher or lower than that
+value.
+For example, "is array + 1" will return 2 (instead of 1) or
+1 (instead of 0).
+<BR>
+				<BR>
+				<LI>Capitalization of an inquiry is optional and its words may be
+separated or run together.
+
+		<br>
+					<br>
+				<li><A HREF="refgu129.htm">Scale</A> transformations can generate unwanted distortions in objects such as <A HREF="refgu163.htm#HDRTUBE">Tube</A> or <A HREF="refgu122.htm#HDRRIBBON">Ribbon</A>.  The inquiry <tt>"apply transform"</tt> can be used to prevent these distortions.
+			
+				
+					
+				
+				
+			
+				
+			</OL>
+		<P><B><A NAME="TBLTAB1" HREF="refgu002.htm#FT_TBLTAB1">Table 3. Inquiries about
+objects</A></B><BR>
+		<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="27%"><TT><STRONG>Inquiry</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="18%"><TT><STRONG>Input
+operated on</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP"
+WIDTH="36%"><TT><STRONG>Question</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="18%"><TT><STRONG>Answer</STRONG></TT>
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is array&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input an array?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is byte&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component unsigned
+byte?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is camera&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a camera object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is clipped&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a clipped object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is composite field&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a composite field?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is constant array&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a constant array?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is data string&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component string?</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0</TD>
+			</TR>
+			<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is double&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component
+double-precision
+floating point?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is empty&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input an empty field, an
+empty group, or an array with
+no items?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is field&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a field?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is float&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component floating
+point?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is generic array&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a generic array?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is generic group&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a generic group?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is group&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a group of any kind?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is image&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the object an image?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is int&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component integral?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is integer&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component integral?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is irregular array&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input an irregular array?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is light&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a light object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is line&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the connections component
+1-dimensional (i.e., a line)?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is matrix&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component a matrix?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is mesh array&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a mesh array?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is multigrid&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a multigrid?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is null&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input null?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is object&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input an object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is path array&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a path array?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is private&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a private object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is product array&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a product array?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is regular array&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a regular array?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is scalar&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component scalar?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is screen&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a screen object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is series&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a series?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is short&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component short
+integral?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is string&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a string?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is surface&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Are the connections
+2-dimensional?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is transform&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a transform object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is xform&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a generic array?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is vector&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component vectorial?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is volume&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Are the connections
+3-dimensional?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 2vector&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component
+2-vectorial?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 3vector&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the data component
+3-vectorial?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 1D connections&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+1-dimensional
+connections?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 2D connections&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+2-dimensional
+connections?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 3D connections&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+3-dimensional
+connections?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 1D positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+1-dimensional
+positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 2D positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+2-dimensional
+positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 3D positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+3-dimensional
+positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 4D positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+4-dimensional
+positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 1D grid connections&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+1-dimensional regular connections?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 2D grid connections&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+2-dimensional
+regular connections?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 3D grid connections&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+3-dimensional
+regular connections?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 1D grid positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+1-dimensional
+regular positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 2D grid positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+2-dimensional
+regular positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 3D grid positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+3-dimensional
+regular positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is 4D grid positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the object have
+4-dimensional
+regular positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;primitives&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many of each type of
+primitive does the object contain?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">string list
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;object tag&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Returns the unique object
+identifying tag
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+
+</TD></TR></TABLE>
+<P>&nbsp;
+<BR>
+<P><B><A NAME="TBLTAB2" HREF="refgu002.htm#FT_TBLTAB2">Table 4. Inquiries about
+particular types of objects</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="27%"><TT><STRONG>Inquiry</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="18%"><TT><STRONG>Input
+operated on</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP"
+WIDTH="36%"><TT><STRONG>Question</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="18%"><TT><STRONG>Answer</STRONG></TT>
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;category&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What category does the input
+belong to?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">string (see <A
+HREF="#LIPOSSCAT">1</A>)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;connection counts&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many connections are there?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;connection type&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the element type?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">string
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;count&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many items does the input
+contain?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;data counts&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many data items are there?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;deltas&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the deltas in each
+dimension?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">vector list
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;grid counts&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the counts in each
+dimension?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is empty array&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input an array with no
+items?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;items&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many items does the input
+contain?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;origin&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the origin of the input?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">vector
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;position counts&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many positions are there?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;rank&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the rank of the input?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;shape&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the shape of the input?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">vector
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;type&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Array or list
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the type of the input?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">string (see <A
+HREF="#LIPOSSTYP">2</A>)
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera angle&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the camera angle?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">scalar
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera aspect&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the aspect ratio of the
+input camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">scalar
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera background&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the background color of
+the input camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">3-vector
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera fieldofview&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the field of view of the
+input camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">scalar
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera from&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the "from" point of the
+input camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">vector
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera matrix&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the matrix of the input
+camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">matrix
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera perspective&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the value of the
+perspective option?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">0 or 1
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera resolution&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the resolution of the
+input camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera to&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the "to" point of the
+input camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">vector
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera transform&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the matrix of the input
+camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">matrix
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera up&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the up direction of the
+input camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">vector
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;camera width&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the width of the input
+camera?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">scalar
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is camera orthographic&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input camera orthographic?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is camera perspective&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Camera
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input camera perspective?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;clipped object&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Clipped
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the clipped object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">object
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;clipping object&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Clipped
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the clipping object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">object
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;component count&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many components does the
+field contain?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;component names&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the names of the field
+components?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">string list
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;connection gridcounts&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the connection counts in
+each dimension?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer vector
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is empty field&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input an empty field
+(i.e., with no components,
+"positions" component, or position items)?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is regular&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the field have regular
+positions and connections?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is regular connections&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the field have regular
+connections?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is regular positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Does the field have regular
+positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;is empty group &quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Is the input a group with no
+members?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;member count&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many members belong to the
+group?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;member names&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the names of the group
+members?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">string list
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;position gridcounts&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the position counts in
+each dimension?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer vector
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;product terms&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Product Array
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the individual product
+terms?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Group of Arrays
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;mesh terms&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Mesh Array
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the individual mesh
+terms?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Group of Arrays
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;screen depth&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Screen
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the screen depth?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;screen object&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Screen
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the screen object?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">object
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;screen position&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Screen
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the screen position?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;member positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the series positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">scalar list
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;series positions&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Series
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What are the series positions?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">scalar list
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;transform matrix&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Transform
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the transform matrix?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">matrix
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;transform object&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Transform
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">What is the object to be
+transformed?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">object
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;valid count&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many valid data items are
+there?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;invalid count&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">How many invalid data items are
+there?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">integer
+
+</TD></TR>
+			<TR>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;apply transform&quot;</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">Any object</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="36%">Not a question, but applies a transformation matrix to the positions components of an object then removes the Transform. See notes in <A href="refgu122.htm#HDRRIBBON" >Ribbon</A> and <A HREF="refgu163.htm#HDRTUBE">Tube</A>.</TD>
+				<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">object</TD>
+			</TR>
+			<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" COLSPAN="4"><B>Notes&#58; </B>
+<OL>
+						<LI><A NAME="LIPOSSCAT"></A>Possible categories:
+"real,"
+"complex."
+<BR>
+							<BR>
+						
+						
+						<LI><A NAME="LIPOSSTYP"></A>Possible types:
+"signed byte," "unsigned byte,"
+"short," "unsigned short,"
+"integer," "unsigned integer,"
+"float," "double," and
+"string."
+
+					</OL>
+</TD></TR></TABLE>
+<P>&nbsp;
+<BR>
+<P><B><A NAME="TBLTAB3" HREF="refgu002.htm#FT_TBLTAB3">Table 5. Inquiries that
+take a value parameter</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="18%"><TT><STRONG>Inquiry</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="11%"><TT><STRONG>Input operated
+on</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="26%"><TT><STRONG>Value</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP"
+WIDTH="33%"><TT><STRONG>Question</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="11%"><TT><STRONG>Answer</STRONG></TT>
+</TH></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;attribute&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">attribute name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">What is the value of the
+specified attribute?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">string
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;counts&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">component name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">How many items does the specified
+component contain?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;grid counts&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">component name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">What are the counts in each
+dimension of the specified component?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">integer
+<BR>
+vector
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;has attribute&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">attribute name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Does the object have the
+specified attribute?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;has component&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">component name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Is the specified component
+present?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;has member&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">member name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Is the specified member present?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">1 or 0
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;is connection&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">element type
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Are the connections of the
+specified type?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">1 or 0
+
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;is data dependent&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Any object
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">component name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Is the data dependent on the
+specified component?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">0 or 1
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;is regular&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">component name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Is the specified component
+regular?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">1 or 0
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;items&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Field
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">component name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">How many items in the specified
+component?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">integer
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;member attribute&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">attribute name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">What is the value of the
+specified attribute?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">string, list
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;member attributes&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">Group
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">attribute name
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">What is the value of the
+specified attribute?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">string, list
+</TD></TR><TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="18%">&quot;string match&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">String
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="26%">character string
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="33%">Does the output match the
+specified string?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="11%">1 or 0
+</TD></TR></TABLE>
+<P>&nbsp;
+<BR>
+<P><B><A NAME="TBLTAB4" HREF="refgu002.htm#FT_TBLTAB4">Table 6. Miscellaneous
+Inquiries</A></B><BR>
+<TABLE BORDER>
+<TR>
+<TH ALIGN="LEFT" VALIGN="TOP" WIDTH="27%"><TT><STRONG>Inquiry</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP"
+WIDTH="60%"><TT><STRONG>Question</STRONG></TT>
+</TH><TH ALIGN="LEFT" VALIGN="TOP" WIDTH="13%"><TT><STRONG>Answer</STRONG></TT>
+</TH></TR>
+			<TR>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="27%">&quot;processors&quot;
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="60%">How many processors is Data
+Explorer Using?
+</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH="13%">integer
+</TD></TR>
+		</TABLE>
+<P><STRONG>Example Visual Programs</STRONG>
+<PRE>
+MultipleDataSets.net
+PlotTwoLines.net
+UsingAttributes.net
+UsingTextandTextGlyphs.net
+WindVorticity.net
+</PRE>
+		<P>
+		<HR>
+		<DIV align="center">
+			<P><A href="../allguide.htm"><IMG src="../images/foot-fc.gif" width="94" height="18" border="0" alt="Full Contents"></A> <A href="../qikguide.htm"><IMG src="../images/foot-qs.gif" width="94" height="18" border="0" alt="QuickStart Guide"></A> <A href="../usrguide.htm"><IMG src="../images/foot-ug.gif" width="94" height="18" border="0" alt="User's Guide"></A> <A href="../refguide.htm"><IMG src="../images/foot-ur.gif" width="94" height="18" border="0" alt="User's Reference"></A></P>
+		</DIV>
+		<DIV align="center">
+			<P><FONT size="-1">[ <A href="http://www.research.ibm.com/dx">OpenDX Home at IBM</A>&nbsp;|&nbsp;<A href="http://www.opendx.org/">OpenDX.org</A>&nbsp;] </FONT></P>
+			<P></P>
+		</DIV>
+		<P></P>
+	</BODY></HTML>

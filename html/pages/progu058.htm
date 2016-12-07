@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu057.htm">Previous Page</A> &#124; <A HREF="progu059.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+<HR>
+<H2><A NAME="HDROBJSEC" HREF="progu055.htm#PToC_126">13.4 Object Class</A></H2>
+<A NAME="IDX844"></A>
+<A NAME="IDX845"></A>
+<P>
+The next four subsections summarize the type definitions and routines
+that apply to the Object class.
+<P>
+<H3><A NAME="Header_127" HREF="progu055.htm#PToC_127">Type Definitions</A></H3>
+<A NAME="IDX846"></A>
+<A NAME="IDX847"></A>
+<P>
+An Object is represented by a pointer to a C structure stored in global
+memory.
+The content of the structure is private to the implementation.
+A <TT><STRONG>typedef</STRONG></TT> is provided for each class of Object:
+<PRE>
+typedef struct object *Object;
+typedef struct string *String;
+typedef struct private *Private;
+typedef struct field *Field;
+</PRE>
+<PRE>
+typedef struct group *Group;
+typedef struct multigrid *Multigrid
+typedef struct series *Series;
+typedef struct compositefield *CompositeField;
+</PRE>
+<PRE>
+typedef struct array *Array;
+typedef struct regulararray *RegularArray;
+typedef struct patharray *PathArray;
+typedef struct productarray *ProductArray;
+typedef struct mesharray *MeshArray;
+</PRE>
+<PRE>
+typedef struct interpolator *Interpolator;
+</PRE>
+<PRE>
+typedef struct xform *Xform;
+typedef struct screen *Screen;
+typedef struct clipped *Clipped;
+typedef struct camera *Camera;
+typedef struct light *Light;
+</PRE>
+<P>
+An <TT><STRONG>enum</STRONG></TT> provides a number for each class and
+subclass:
+<PRE>
+typedef enum {
+    CLASS_MIN,
+    CLASS_OBJECT,
+    CLASS_PRIVATE,
+    CLASS_STRING,
+    CLASS_FIELD,
+</PRE>
+<PRE>
+    CLASS_GROUP,
+    CLASS_MULTIGRID,
+    CLASS_SERIES,
+    CLASS_COMPOSITEFIELD,
+</PRE>
+<PRE>
+    CLASS_ARRAY,
+    CLASS_REGULARARRAY,
+    CLASS_PATHARRAY,
+    CLASS_PRODUCTARRAY,
+    CLASS_MESHARRAY,
+</PRE>
+<PRE>
+    CLASS_INTERPOLATOR,
+    CLASS_FIELDINTERPOLATOR,
+    CLASS_GROUPINTERPOLATOR,
+    CLASS_LINESRR1DINTERPOLATOR,
+    CLASS_LINESRI1DINTERPOLATOR,
+    CLASS_QUADSRR2DINTERPOLATOR,
+    CLASS_QUADSII2DINTERPOLATOR,
+    CLASS_TRISRI2DINTERPOLATOR,
+    CLASS_CUBESRRINTERPOLATOR,
+    CLASS_CUBESIIINTERPOLATOR,
+    CLASS_TETRASINTERPOLATOR,
+</PRE>
+<PRE>
+    CLASS_GROUPITERATOR,
+    CLASS_ITEMITERATOR,
+</PRE>
+<PRE>
+    CLASS_XFORM,
+    CLASS_SCREEN,
+    CLASS_CLIPPED,
+    CLASS_CAMERA,
+    CLASS_LIGHT,
+    CLASS_MAX,
+    CLASS_DELETED
+} Class;
+</PRE>
+<P>
+<H3><A NAME="Header_128" HREF="progu055.htm#PToC_128">Classes and
+Subclasses</A></H3>
+<A NAME="IDX848"></A>
+<A NAME="IDX849"></A>
+<A NAME="IDX850"></A>
+<A NAME="IDX851"></A>
+<A NAME="IDX852"></A>
+<P>
+<P>
+Every Data Explorer Object is a member of <TT><STRONG>CLASS_OBJECT</STRONG></TT>
+and
+thus can be manipulated with generic-Object-class routines
+like <TT><STRONG>DXDelete()</STRONG></TT> and
+<TT><STRONG>DXGetObjectClass()</STRONG></TT>.
+Each Data Explorer Object is also a member of one of the subclasses of
+<TT><STRONG>CLASS_OBJECT</STRONG></TT> (e.g.,
+<TT><STRONG>CLASS_FIELD</STRONG></TT>,
+<TT><STRONG>CLASS_GROUP</STRONG></TT>,
+and so on).
+Two of these subclasses (<TT><STRONG>CLASS_GROUP</STRONG></TT> and
+<TT><STRONG>CLASS_ARRAY</STRONG></TT>) themselves have subclasses
+(see <A HREF="progu044.htm#TBLCL">Table 1</A>).
+<P>
+For any Object, <TT><STRONG>DXGetObjectClass()</STRONG></TT> returns the name
+of the "lowest" subclass to which that Object belongs.
+If an operation does not require a particular subclass of Object, it
+will not be affected if the Object is a not a member.
+If an operation does require a particular subclass, however,
+<TT><STRONG>DXGetGroupClass()</STRONG></TT> or
+<TT><STRONG>DXGetArrayClass()</STRONG></TT>
+can be used to identify it.
+<UL COMPACT>
+<LI>For Groups, <TT><STRONG>DXGetGroupClass()</STRONG></TT> returns one of
+its three subclasses or (if the Group is generic)
+<TT><STRONG>CLASS_GROUP</STRONG></TT>.
+<LI>For Arrays, <TT><STRONG>DXGetArrayClass()</STRONG></TT> returns one of
+its five subclasses or (if the Array is generic)
+<TT><STRONG>CLASS_ARRAY</STRONG></TT>.
+</UL>
+<P>
+Any member of (superclass) <TT><STRONG>CLASS_ARRAY</STRONG></TT> or
+<TT><STRONG>CLASS_GROUP</STRONG></TT> can be manipulated with
+generic superclass routines such as
+<TT><STRONG>DXGetGroupType()</STRONG></TT> and
+<TT><STRONG>DXGetArrayInfo()</STRONG></TT>.
+<P>
+<H3><A NAME="HDROTRS" HREF="progu055.htm#PToC_129">Object Routines</A></H3>
+<A NAME="IDX853"></A>
+<A NAME="IDX854"></A>
+<P>
+A number of routines can operate on any Object.
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Class DXGetObjectClass()</STRONG></TT>
+</B></TD><TD><P>Returns the class of an Object.
+<A NAME="IDX855"></A>
+<A NAME="IDX856"></A>
+See  <A HREF="progu189.htm#HDRDXGOC">DXGetObjectClass</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error DXDelete()</STRONG></TT>
+</B></TD><TD><P>Deletes a reference to an Object.
+<A NAME="IDX857"></A>
+<A NAME="IDX858"></A>
+See  <A HREF="progu130.htm#HDRDXDEL">DXDelete</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXSetAttribute()
+<BR>
+Object DXDeleteAttribute();</STRONG></TT>
+</B></TD><TD><P>Add or remove a named attribute from an Object.
+<A NAME="IDX859"></A>
+<A NAME="IDX860"></A>
+<A NAME="IDX861"></A>
+<A NAME="IDX862"></A>
+See  <A HREF="progu302.htm#HDRDXSETA">DXSetAttribute, DXDeleteAttribute</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXGetAttribute()
+<BR>
+Object DXGetEnumeratedAttribute();</STRONG></TT>
+</B></TD><TD><P>Retrieve an attribute from an Object.
+<A NAME="IDX863"></A>
+<A NAME="IDX864"></A>
+<A NAME="IDX865"></A>
+<A NAME="IDX866"></A>
+See  <A HREF="progu158.htm#HDRDXGA">DXGetAttribute</A> and
+ <A HREF="progu166.htm#HDRDXGEA">DXGetEnumeratedAttribute</A>.
+<P>
+The first retrieves a named attribute from an Object; the second, the
+<I>n</I>th attribute.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetFloatAttribute()</STRONG></TT>
+</B></TD><TD><P>Retrieves a named attribute from an Object, verifies that its
+contents are a floating-point number, and returns that number.
+<A NAME="IDX867"></A>
+<A NAME="IDX868"></A>
+See  <A HREF="progu173.htm#HDRDXGFA">DXGetFloatAttribute</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetIntegerAttribute()</STRONG></TT>
+</B></TD><TD><P>Retrieves a named attribute from an Object, verifies that it
+contains an integer number, and returns that number.
+<A NAME="IDX869"></A>
+<A NAME="IDX870"></A>
+See  <A HREF="progu177.htm#HDRDXGIA">DXGetIntegerAttribute</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXGetStringAttribute()</STRONG></TT>
+</B></TD><TD><P>Retrieves a named attribute from an Object, verifies that it
+contains a string, and returns a pointer to that string.
+<A NAME="IDX871"></A>
+<A NAME="IDX872"></A>
+See  <A HREF="progu203.htm#HDRDXGSA">DXGetStringAttribute</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXSetFloatAttribute()
+<BR>
+Object DXSetIntegerAttribute();
+<BR>
+Object DXSetStringAttribute();</STRONG></TT>
+</B></TD><TD><P>Associate a floating-point, integer, or string attribute with an
+Object.
+<A NAME="IDX873"></A>
+<A NAME="IDX874"></A>
+<A NAME="IDX875"></A>
+<A NAME="IDX876"></A>
+<A NAME="IDX877"></A>
+<A NAME="IDX878"></A>
+See  <A HREF="progu314.htm#HDRDXSFA">DXSetFloatAttribute</A>,
+ <A HREF="progu316.htm#HDRDXSIA">DXSetIntegerAttribute</A>, and
+ <A HREF="progu327.htm#HDRDXSSA">DXSetStringAttribute</A>.
+</TD></TR></TABLE>
+<P>
+Objects can also be copied:
+<P>
+<PRE>
+enum copy {
+    COPY_ATTRIBUTES,
+    COPY_HEADER,
+    COPY_STRUCTURE
+};
+</PRE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXCopy()</STRONG></TT>
+</B></TD><TD><P>Copies the structure of an object.
+<A NAME="IDX879"></A>
+<A NAME="IDX880"></A>
+The <TT><STRONG>COPY_</STRONG></TT> parameter determines the depth to which
+an Object is copied:
+<UL COMPACT>
+<LI><TT><STRONG>COPY_ATTRIBUTES</STRONG></TT>
+Creates a new Object of the same type as the old and copies all
+attributes and type information.
+It <I>does not</I> put references to members, components,
+etc. into the new object.
+<LI><TT><STRONG>COPY_HEADER</STRONG></TT>
+Copies only the header of the immediate Object.
+It <I>does not</I> copy the attributes, members, etc.; instead it
+puts references to them into the new Object.
+<LI><TT><STRONG>COPY_STRUCTURE</STRONG></TT>
+Is the parameter most frequently used with this routine.
+<UL COMPACT>
+<LI>For Groups: copies the Group header and recursively copies all
+Group members.
+<LI>For Fields: copies the Field header.
+It <I>does not</I> copy the components (which are usually Arrays);
+instead it puts references to the components into the
+resulting Field.
+<LI>For Arrays: passes back a pointer to the Array and makes no copy.
+</UL>
+</UL>
+<P>
+On error, the routine returns <TT><STRONG>NULL</STRONG></TT> and sets an
+error code.
+See <A HREF="progu121.htm#HDRDXC">DXCopy</A>.
+See also <A HREF="progu028.htm#HDRPOSIT">Chapter 6. "Working with
+Positions"</A>, <A HREF="progu030.htm#HDRCONNEC">Chapter 7. "Working with
+Connections"</A>, and <A HREF="progu031.htm#HDRIMPTD">Chapter 8. "Importing
+Data"</A>
+for examples of this routine&#39;s use.
+</TD></TR></TABLE>
+<P><B><U>Less Commonly Used Routines</U></B>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXReference()</STRONG></TT>
+</B></TD><TD><P>Increments the reference count of a specified Object.
+<A NAME="IDX881"></A>
+<A NAME="IDX882"></A>
+See  <A HREF="progu288.htm#HDRDXREF">DXReference</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Error
+DXUnreference()</STRONG></TT>
+</B></TD><TD><P>Removes a reference from an Object without deleting it.
+<A NAME="IDX883"></A>
+<A NAME="IDX884"></A>
+See  <A HREF="progu339.htm#HDRDXUREF">DXUnreference</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>int DXGetObjectTag()
+<BR>
+Object DXSetObjectTag();</STRONG></TT>
+</B></TD><TD><P>Manipulate unique Object identifiers.
+<A NAME="IDX885"></A>
+<A NAME="IDX886"></A>
+<A NAME="IDX887"></A>
+<A NAME="IDX888"></A>
+See  <A HREF="progu190.htm#HDRDXGSOT">DXGetObjectTag, DXSetObjectTag</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object
+DXCopyAttributes()</STRONG></TT>
+</B></TD><TD><P>Copies attributes from one Object to another.
+<A NAME="IDX889"></A>
+<A NAME="IDX890"></A>
+See  <A HREF="progu122.htm#HDRDXCA">DXCopyAttributes</A>.
+</TD></TR></TABLE>
+<P>
+<H3><A NAME="HDRTY" HREF="progu055.htm#PToC_130">Setting Data Types</A></H3>
+<A NAME="IDX891"></A>
+<A NAME="IDX892"></A>
+<A NAME="IDX893"></A>
+<A NAME="IDX894"></A>
+<A NAME="IDX895"></A>
+<A NAME="IDX896"></A>
+<P>
+The data type of Arrays, Fields, and Groups are determined as follows.
+<UL COMPACT>
+<LI><TT><STRONG>Arrays</STRONG></TT>: The data type is set when the Array is
+created.
+(See <A HREF="progu046.htm#HDRARRAYSC">12.3 , "Array Class"</A>.)
+<LI><TT><STRONG>Fields</STRONG></TT>: The data type is that of the "data"
+component, if there is one.
+<LI><TT><STRONG>Groups</STRONG></TT>: The data type is set explicitly by
+<TT><STRONG>DXSetGroupType()</STRONG></TT>;
+it is set implicitly for Series and Composite Groups (because members
+of these Groups must be of the same type).
+</UL>
+<A NAME="SPTTIPES"><I>(Ref #11.)</I></A>
+<P>
+<PRE>
+<STRONG>
+typedef enum {
+    TYPE_BYTE</STRONG>                  (1 byte)
+    <STRONG>TYPE_UBYTE</STRONG>                 (2 bytes)
+    <STRONG>TYPE_SHORT</STRONG>                 (2 bytes)
+    <STRONG>TYPE_USHORT</STRONG>                (2 bytes)
+    <STRONG>TYPE_FLOAT</STRONG>                 (4 bytes)
+    <STRONG>TYPE_INT</STRONG>                   (4 bytes)
+    <STRONG>TYPE_UINT</STRONG>                  (4 bytes)
+    <STRONG>TYPE_DOUBLE</STRONG>                (8 bytes)
+    <STRONG>TYPE_HYPER</STRONG>                 (8 bytes)
+    <STRONG>TYPE_STRING</STRONG>                (dynamic)
+<STRONG>
+} Type;
+typedef enum {
+    CATEGORY_REAL</STRONG>
+    <STRONG>CATEGORY_COMPLEX</STRONG>
+<STRONG>
+} Category;
+</STRONG>
+</PRE>
+<TABLE CELLPADDING="3">
+<TR VALIGN="TOP"><TD><P><B><TT><STRONG>Object DXGetType()</STRONG></TT>
+</B></TD><TD><P>Returns the type, category, rank, and shape of an Object.
+<A NAME="IDX897"></A>
+<A NAME="IDX898"></A>
+See  <A HREF="progu205.htm#HDRDXGTE">DXGetType</A>.
+</TD></TR><TR VALIGN="TOP"><TD><P><B><TT><STRONG>int DXTypeSize()
+<BR>
+int DXCategorySize();</STRONG></TT>
+</B></TD><TD><P>The first returns the size (in bytes) of a variable of a given
+type;
+the second, the size multiplier for a given category.
+<A NAME="IDX899"></A>
+<A NAME="IDX900"></A>
+<A NAME="IDX901"></A>
+<A NAME="IDX902"></A>
+See  <A HREF="progu338.htm#HDRDXTS">DXTypeSize, DXCategorySize</A>.
+</TD></TR></TABLE>
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu057.htm">Previous Page</A> &#124; <A HREF="progu059.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu055.htm#PToC15">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

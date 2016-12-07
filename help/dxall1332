@@ -1,0 +1,42 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxpa DXPrintAlloc #!N #!N 
+Function #!N #!N Prints a summary of memory use. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> void DXPrintAlloc(int t) #!EF #!N #!N 
+Functional Details #!N #!N This routine can be run from Data 
+Explorer, with the Usage module, in script mode or in the 
+user interface. When it is run, memory areas should be quiescent 
+(on a multiprocessor system, for example, no other tasks should be 
+running). The parameter  #!F-adobe-times-bold-r-normal--18*   t #!EF specifies the level of detail 
+of the printout: #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   0 
+#!EF #!I50 #!N Prints out a summary of the current use 
+of memory, both in small and in large areas. A typical 
+printout might look like: #!I0 #!N #!N #!N #!N #!CForestGreen #!N 
+ #!F-adobe-courier-bold-r-normal--18*   #!N 0: small: 4194304 = hdr 16472 + used 486864 
++ free 3920 #!N + pool 3687048 (limit 4194304) #!N #!N 
+0: large: 2097152 = hdr 16472 + used 494656 + free 
+29704 #!N + pool 1558120 (limit 54525952) #!EF #!N #!N #!EC 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   where: #!EF #!I50 #!N 
+#!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   small #!EF #!I50 #!N 
+is the total number of bytes currently managed by the memory 
+manager for the small arena. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   large #!EF 
+#!I50 #!N is the total number of bytes currently managed by 
+the memory manager for the large arena. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+hdr #!EF #!I50 #!N is the amount of memory space used 
+by internal data structures. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   used #!EF #!I50 
+#!N is the amount of memory space allocated for use. #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   free #!EF #!I50 #!N is the amount of 
+memory previously used and available for reuse. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+pool #!EF #!I50 #!N is the amount of memory space allocated 
+to Data Explorer but not yet used. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+limit #!EF #!I50 #!N is the largest amount of memory that 
+can be managed by the memory manager. #!I0 #!N #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*   1 #!EF #!I50 #!N Prints one line for 
+every individual  #!F-adobe-times-medium-i-normal--18*   allocated #!EF block, stating its size and address. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   2 #!EF #!I50 #!N In addition to 
+the information for allocated blocks (how = 1), prints the same 
+information for every  #!F-adobe-times-medium-i-normal--18*   freed #!EF block. #!I0 #!N #!N #!N 
+#!N Return Value #!N #!N None. #!N #!N See Also #!N 
+#!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxalp,dxall1171 h DXAllocate, DXAllocateZero, DXAllocateLocal, DXAllocateLocalZero, DXAllocateLocalOnly, DXAllocateLocalOnlyZero  #!EL  ,  #!Ldxfre,dxall1212 h DXFree  #!EL  #!EF #!N #!N  #!Lstoral,dxall1096 h Memory Allocation  #!EL  . #!N 
+#!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N  #!Ldxpt,dxall1333 h DXPrintTimes  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   
+#!N 

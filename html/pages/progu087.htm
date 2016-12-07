@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3//EN">
+<HTML><HEAD>
+<TITLE>IBM Visualization Data Explorer Programmer&#39;s Reference</TITLE>
+
+<META HTTP-EQUIV="abstract" CONTENT="IBM Visualization Data Explorer
+Programmer&#39;s Reference">
+<META HTTP-EQUIV="contact" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="owner" CONTENT="IBM Visualization Data Explorer
+(ibmdx@watson.ibm.com)">
+<META HTTP-EQUIV="updated" CONTENT="Tue, 16 Sep 1997 ">
+<META HTTP-EQUIV="review" CONTENT="Fri, 14 Aug 1998 ">
+
+<META HTTP-EQUIV="keywords" CONTENT="GRAPHICS VISUALIZATION VISUAL PROGRAM DATA
+MINING">
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+</HEAD><BODY BGCOLOR="#FFFFFF">
+
+<A NAME="Top_Of_Page"></A>
+<H1>IBM Visualization Data Explorer Programmer&#39;s Reference</H1>
+<B>&#91; <A HREF="#Bot_Of_Page">Bottom of Page</A> &#124; <A
+HREF="progu086.htm">Previous Page</A> &#124; <A HREF="progu088.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B><HR><P>
+
+<HR>
+<H2><A NAME="Header_174" HREF="progu084.htm#PToC_174">17.4 Example 3:
+xapp.c</A></H2>
+<P>
+The third example which we will discuss is xapp.c. This sample
+program does not use the Data Explorer user interface at all;
+rather it creates its own (simple) user interface. The program
+communicates with Data Explorer entirely through the scripting
+language.
+<P>
+The interface
+presents the user with four buttons. Depending on which button
+is pressed, a different data file is imported. The maximum value
+in the data set is then computed and sent back to the DXLink
+application using a DXLOutput tool. The result is then displayed
+in a text widget created by the DXLink program.
+<P>
+<PRE>
+#include &lt;Xm/Xm.h&gt;
+#include &lt;Xm/Form.h&gt;
+#include &lt;Xm/Label.h&gt;
+#include &lt;Xm/PushB.h&gt;
+#include &lt;Xm/ToggleB.h&gt;
+#include &lt;Xm/Text.h&gt;
+#include "dx/dxl.h"
+void radio_cloudCB(Widget, XtPointer, XtPointer);
+void radio_rainCB(Widget, XtPointer, XtPointer);
+void radio_windCB(Widget, XtPointer, XtPointer);
+void radio_tempCB(Widget, XtPointer, XtPointer);
+void cloudhandler(DXLConnection *, const char *, const char *, void *);
+void rainhandler(DXLConnection *, const char *, const char *, void *);
+void windhandler(DXLConnection *, const char *, const char *, void *);
+void temphandler(DXLConnection *, const char *, const char *, void *);
+static String DefaultResources&#91;&#93; =
+{
+    "*background:              #b4b4b4b4b4b4",
+    "*foreground:              black",
+#ifdef sgi
+    "*fontList:                 -adobe-helvetica*bold-r*14*=bold\n\
+                                -adobe-helvetica*medium-r*14*=normal\n\
+                                -adobe-helvetica*medium-o*14*=oblique",
+#else
+    "*fontList:                 -adobe-helvetica*bold-r*14*=bold\
+                                -adobe-helvetica*medium-r*14*=normal\
+                                -adobe-helvetica*medium-o*14*=oblique",
+#endif
+   "*XmToggleButton.selectColor:            CadetBlue",
+    "*XmText.shadowThickness:                1",
+    NULL
+};
+main(argc, argv)
+int argc;
+char *argv&#91;&#93;;
+{
+   Widget          toplevel, main_w, label, textfield, radio_box;
+   Widget          radio_cloud, radio_rain, radio_temp, radio_wind;
+   XtAppContext    app;
+   XmString        xms;
+   DXLConnection   *conn;
+   int             n;
+   Arg             wargs&#91;50&#93;;
+   /*
+    *  Start the Data Explorer executive.
+    */
+   conn = DXLStartDX("dx -exonly",NULL);
+   if (!conn)
+    {
+      printf("could not start dx");
+      exit(0);
+    }
+   XtSetLanguageProc (NULL, NULL, NULL);
+   toplevel = XtVaAppInitialize (&app, "Demos",
+                                 NULL, 0, &argc, argv,
+                                 DefaultResources, NULL);
+   DXLInitializeXMainLoop(app, conn);
+   /*
+    * Create the user interface for this application
+    */
+   main_w = XtVaCreateManagedWidget("form",
+                 xmFormWidgetClass, toplevel,
+                 XmNwidth,    400,
+                 XmNheight,   180,
+                 XmNfractionBase, 5,
+                 NULL);
+   n = 0;
+   XtSetArg(wargs&#91;n&#93;, XmNtopAttachment, XmATTACH_FORM); n++;
+   XtSetArg(wargs&#91;n&#93;, XmNleftAttachment, XmATTACH_FORM); n++;
+   XtSetArg(wargs&#91;n&#93;, XmNleftOffset, 30); n++;
+   radio_box = (Widget)XmCreateRadioBox(main_w, "choice", wargs, n);
+   XtManageChild(radio_box);
+   xms = XmStringCreateSimple("cloudwater");
+   radio_cloud = XtVaCreateManagedWidget("radio_cloud",
+                      xmToggleButtonWidgetClass, radio_box,
+                      XmNlabelString, xms,
+                      NULL);
+   XmStringFree(xms);
+   XtAddCallback(radio_cloud, XmNvalueChangedCallback,
+                 (XtCallbackProc)radio_cloudCB,
+                 (XtPointer)conn);
+   xms = XmStringCreateSimple("rainwater");
+   radio_rain = XtVaCreateManagedWidget("radio_rain",
+                      xmToggleButtonWidgetClass, radio_box,
+                      XmNlabelString, xms,
+                      NULL);
+   XmStringFree(xms);
+   XtAddCallback(radio_rain, XmNvalueChangedCallback,
+                 (XtCallbackProc)radio_rainCB,
+                 (XtPointer)conn);
+   xms = XmStringCreateSimple("temperature");
+   radio_temp = XtVaCreateManagedWidget("radio_temp",
+                      xmToggleButtonWidgetClass, radio_box,
+                      XmNlabelString, xms,
+                      NULL);
+   XmStringFree(xms);
+   XtAddCallback(radio_temp, XmNvalueChangedCallback,
+                 (XtCallbackProc)radio_tempCB,
+                 (XtPointer)conn);
+   xms = XmStringCreateSimple("wind");
+   radio_wind = XtVaCreateManagedWidget("radio_wind",
+                      xmToggleButtonWidgetClass, radio_box,
+                      XmNlabelString, xms,
+                      NULL);
+   XmStringFree(xms);
+   XtAddCallback(radio_wind, XmNvalueChangedCallback,
+                 (XtCallbackProc)radio_windCB,
+                 (XtPointer)conn);
+   xms = XmStringCreateSimple("returned value:");
+   label = XtVaCreateManagedWidget("label",
+                 xmLabelWidgetClass,
+                 main_w,
+                 XmNtopAttachment,   XmATTACH_WIDGET,
+                 XmNtopWidget,       radio_box,
+                 XmNbottomAttachment,   XmATTACH_FORM,
+                 XmNleftAttachment,  XmATTACH_FORM,
+                 XmNlabelString, xms,
+                 NULL);
+   XmStringFree(xms);
+   textfield = XtVaCreateManagedWidget("text",
+                 xmTextWidgetClass,
+                 main_w,
+                 XmNtopAttachment,   XmATTACH_OPPOSITE_WIDGET,
+                 XmNtopWidget,       label,
+                 XmNleftAttachment,  XmATTACH_WIDGET,
+                 XmNleftWidget,      label,
+                 XmNrightAttachment,  XmATTACH_FORM,
+                 XmNbottomAttachment,  XmATTACH_FORM,
+                 NULL);
+   /*
+    * Set the handlers for the various parameters
+    */
+   DXLSetValueHandler(conn,"cloudmax", cloudhandler, textfield);
+   DXLSetValueHandler(conn,"rainmax", rainhandler, textfield);
+   DXLSetValueHandler(conn,"windmax", windhandler, textfield);
+   DXLSetValueHandler(conn,"tempmax", temphandler, textfield);
+   XtRealizeWidget (toplevel);
+   XtAppMainLoop (app);
+}
+/*
+ * The following are the handlers for data coming from DXLOutput. If
+ * data is received by the handler, it is presented in a text widget.
+ */
+void rainhandler(DXLConnection *conn, const char *name, const char *value,
+             void *data)
+{
+   char string&#91;100&#93;;
+   Widget text_widget = (Widget)data;
+   sprintf(string,"rainwater max value = %s", value);
+   XmTextSetString(text_widget, string);
+}
+void cloudhandler(DXLConnection *conn, const char *name, const char *value,
+             void *data)
+{
+   char string&#91;100&#93;;
+   Widget text_widget = (Widget)data;
+   sprintf(string,"cloudwater max value = %s", value);
+   XmTextSetString(text_widget, string);
+}
+void temphandler(DXLConnection *conn, const char *name, const char *value,
+             void *data)
+{
+   char string&#91;100&#93;;
+   Widget text_widget = (Widget)data;
+   sprintf(string,"temperature max value = %s", value);
+   XmTextSetString(text_widget, string);
+}
+void windhandler(DXLConnection *conn, const char *name, const char *value,
+             void *data)
+{
+   char string&#91;100&#93;;
+   Widget text_widget = (Widget)data;
+   sprintf(string,"wind max value = %s", value);
+   XmTextSetString(text_widget, string);
+}
+/*
+ * The following are the callbacks for the buttons in the
+ * user interface created above. In each case, some simple
+ * script language commands are sent to the Data Explorer
+ * executive. The maximum as computed by the Statistics
+ * module is then input to the DXLOutput tool. The handlers
+ * defined above wait for values to be received from
+ * DXLOutput, and then present the result in the text widget.
+ */
+void radio_cloudCB(Widget w, XtPointer xp1, XtPointer xp2)
+{
+   DXLConnection *conn = (DXLConnection *)xp1;
+   DXLSend(conn, "g = Import(\"/usr/local/dx/samples/data/cloudwater\");");
+   DXLSend(conn, "mean,sd,var,min,max = Statistics(g);");
+   DXLSend(conn, "DXLOutput(\"cloudmax\", max);");
+}
+void radio_rainCB(Widget w, XtPointer xp1, XtPointer xp2)
+{
+   DXLConnection *conn = (DXLConnection *)xp1;
+   DXLSend(conn, "g = Import(\"/usr/local/dx/samples/data/rainwater\");");
+   DXLSend(conn, "mean,sd,var,min,max = Statistics(g);");
+   DXLSend(conn, "DXLOutput(\"rainmax\", max);");
+}
+void radio_tempCB(Widget w, XtPointer xp1, XtPointer xp2)
+{
+   DXLConnection *conn = (DXLConnection *)xp1;
+   DXLSend(conn, "g = Import(\"/usr/local/dx/samples/data/temperature\");");
+   DXLSend(conn, "mean,sd,var,min,max = Statistics(g);");
+   DXLSend(conn, "DXLOutput(\"tempmax\", max);");
+}
+void radio_windCB(Widget w, XtPointer xp1, XtPointer xp2)
+{
+   DXLConnection *conn = (DXLConnection *)xp1;
+   DXLSend(conn, "g = Import(\"/usr/local/dx/samples/data/wind\");");
+   DXLSend(conn, "mean,sd,var,min,max = Statistics(g);");
+   DXLSend(conn, "DXLOutput(\"windmax\", max);");
+}
+</PRE>
+
+<P><HR><B>&#91; <A HREF="#Top_Of_Page">Top of Page</A> &#124; <A
+HREF="progu086.htm">Previous Page</A> &#124; <A HREF="progu088.htm">Next
+Page</A> &#124; <A HREF="../proguide.htm#ToC">Table of Contents</A> &#124; <A
+HREF="progu084.htm#PToC19">Partial Table of Contents</A> &#124; <A
+HREF="progu344.htm#HDRINDEX_START">Index</A> &#93;</B> <br><b>&#91;<a
+href="../allguide.htm">Data Explorer Documentation</a>&nbsp;&#124;&nbsp;<a
+href="../qikguide.htm">QuickStart Guide</a>&nbsp;&#124;&nbsp;<a
+href="../usrguide.htm">User&#39;s Guide</a>&nbsp;&#124;&nbsp;<a
+href="../refguide.htm">User&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../proguide.htm">Programmer&#39;s Reference</a>&nbsp;&#124;&nbsp;<a
+href="../insguide.htm">Installation and Configuration
+Guide</a>&nbsp;&#93;</b><br><p><b>&#91;<a
+href="http://www.research.ibm.com/dx">Data Explorer Home
+Page</a>&#93;</b><p><HR ALIGN=LEFT WIDTH=600><b>&#91;<A
+HREF="http://www.ibm.com/">IBM Home Page</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Orders/">Order</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Search/">Search</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Assist/">Contact IBM</A>&nbsp;&#124;&nbsp;<A
+HREF="http://www.ibm.com/Legal/">Legal</A>&nbsp;&#93;</b><hr><p>
+<A NAME="Bot_Of_Page"></A>
+</BODY></HTML>

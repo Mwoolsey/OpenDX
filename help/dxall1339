@@ -1,0 +1,66 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rdxqacvm DXQueryArrayCommon, DXQueryArrayCommonV #!N 
+#!N Function #!N #!N Return a type, category, rank, and shape 
+to which all of the Arrays can be converted. #!N #!N 
+Syntax #!N  #!F-adobe-times-bold-r-normal--18*   #include <dx/dx.h> Error DXQueryArrayCommon(Type *type, Category *category, int 
+*rank, int *shape int n, Array a, ...) Error DXQueryArrayCommonV(Type *type, 
+Category *category, int *rank, int *shape int n, Array *alist) #!EF 
+#!N #!N Functional Details #!N #!N All Arrays  #!F-adobe-times-bold-r-normal--18*   a #!EF 
+or  #!F-adobe-times-bold-r-normal--18*   alist #!EF are converted to a common type, category, 
+rank, and shape if a common conversion exists. Both routines set 
+ #!F-adobe-times-bold-r-normal--18*   *type #!EF ,  #!F-adobe-times-bold-r-normal--18*   *category #!EF ,  #!F-adobe-times-bold-r-normal--18*   *rank #!EF 
+, and  #!F-adobe-times-bold-r-normal--18*   *shape #!EF to the new converted values if 
+the pointers to these parameters are not  #!F-adobe-times-bold-r-normal--18*   NULL #!EF . 
+#!N #!N Arrays with items that have one or more dimensions 
+of shape =  #!F-adobe-times-bold-r-normal--18*   1 #!EF are reduced in that dimension 
+to a smaller rank. For example, an array of  #!F-adobe-times-bold-r-normal--18*   1 
+* n #!EF matrices, rank =  #!F-adobe-times-bold-r-normal--18*   2 #!EF , shape 
+= [  #!F-adobe-times-bold-r-normal--18*   1,n #!EF ], is reduced to an Array 
+of vectors rank =  #!F-adobe-times-bold-r-normal--18*   1 #!EF , shape = [ 
+ #!F-adobe-times-bold-r-normal--18*   n #!EF ]. This rank and shape are then used 
+for comparison. #!N Note: This reduction is always performed. The resulting 
+rank may be less than the rank of all Arrays given. 
+(A single  #!F-adobe-times-bold-r-normal--18*   1 * n #!EF matrix results in a 
+rank of  #!F-adobe-times-bold-r-normal--18*   1 #!EF .)  #!Ltct228,dxall1339 t Table 28  #!EL  and  #!Lcct229,dxall1339 t Table 29  #!EL  summarize the 
+conversions allowed between types and between categories. #!N #!N #!N The 
+resulting rank and shape are the reduced versions created as previously 
+described. The resulting type is the simplest type that is sufficient 
+for all Arrays. The resulting category is the simplest category that 
+is sufficient for all Arrays. #!N #!N The  #!F-adobe-times-bold-r-normal--18*   shape #!EF 
+Array must be preallocated with sufficient memory to store the returned 
+ #!F-adobe-times-bold-r-normal--18*   rank #!EF integers. This will not exceed the maximum rank 
+of the given arrays.  #!Rtct228 #!T,1,131,196,261,326,391,456,521,586,651  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 28. 
+Summary of Type Conversions #!N TAB - TAB - TAB Unsigned 
+TAB - TAB Unsigned TAB - TAB Unsigned TAB - TAB 
+#!N TAB - TAB Byte TAB Byte TAB Short TAB Short 
+TAB Int TAB Int TAB Float TAB Double #!N TAB - 
+TAB - TAB - TAB - TAB - TAB - TAB 
+- TAB - TAB #!EF #!N TAB Byte TAB A TAB 
+CNS TAB A TAB CNS TAB A TAB CNS TAB A 
+TAB A #!N TAB Unsigned Byte TAB CNS TAB A TAB 
+A TAB A TAB A TAB A TAB A TAB A 
+#!N TAB Short TAB CNS TAB CNS TAB A TAB CNS 
+TAB A TAB CNS TAB A TAB A #!N TAB Unsigned 
+Short TAB CNS TAB CNS TAB CNS TAB A TAB A 
+TAB A TAB A TAB A #!N TAB Int TAB CNS 
+TAB CNS TAB CNS TAB CNS TAB A TAB CNS TAB 
+A TAB A #!N TAB Unsigned Int TAB CNS TAB CNS 
+TAB CNS TAB CNS TAB CNS TAB A TAB A TAB 
+A #!N TAB Float TAB CNS TAB CNS TAB CNS TAB 
+CNS TAB CNS TAB CNS TAB A TAB A #!N TAB 
+Double TAB CNS TAB CNS TAB CNS TAB CNS TAB CNS 
+TAB CNS TAB CNS TAB A #!N TAB Notes: #!N TAB 
+#!N TAB CNS = Conversion not supported #!N TAB A = 
+ANSI 'C' type conversion-semantics  #!Rcct229 #!T,1,216,431,646  #!F-adobe-times-bold-r-normal--18*   #!N TAB Table 29. 
+Summary of Category Conversions #!N TAB - TAB Real TAB Complex 
+#!EF #!N TAB Real TAB Conversion TAB Conversion #!N TAB Complex 
+TAB CNS TAB Conversion #!N TAB Notes: #!N TAB #!N TAB 
+CNS = Conversion not supported #!N TAB Real-->Complex: a --> a 
++ 0i #!N #!N Return Value #!N #!N Return  #!F-adobe-times-bold-r-normal--18*   OK 
+#!EF and sets the non-  #!F-adobe-times-bold-r-normal--18*   NULL #!EF parameters; otherwise, returns 
+ #!F-adobe-times-bold-r-normal--18*   ERROR #!EF and sets an error code. #!N #!N See 
+Also #!N #!N  #!F-adobe-times-bold-r-normal--18*    #!Ldxacv,dxall1174 h DXArrayConvert, DXArrayConvertV  #!EL  ,  #!Ldxef,dxall1207 h DXExtractFloat  #!EL  ,  #!Ldxei,dxall1208 h DXExtractInteger  #!EL  ,  #!Ldxens,dxall1209 h DXExtractNthString  #!EL  
+,  #!Ldxep,dxall1210 h DXExtractParameter  #!EL  ,  #!Ldxes,dxall1211 h DXExtractString  #!EL  ,  #!Ldxqacv,dxall1340 h DXQueryArrayConvert, DXQueryArrayConvertV  #!EL  ,  #!Ldxqp,dxall1347 h DXQueryParameter  #!EL  #!EF #!N #!N 
+ #!Lmdeps,dxall1087 h Extracting Module Parameters  #!EL  . #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ldxqacv,dxall1340 h DXQueryArrayConvert, DXQueryArrayConvertV  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

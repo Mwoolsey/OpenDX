@@ -1,0 +1,36 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rshowpos ShowPositions #!N #!N Category 
+#!N #!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N #!N Shows the positions 
+of a field. #!N #!N Syntax #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+#!N output #!EF = ShowPositions(  #!F-adobe-times-bold-r-normal--18*   input #!EF ); #!EF #!N 
+#!N #!EC #!N #!N Inputs #!T,1,91,276,461,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name 
+TAB Type TAB Default TAB Description #!EF #!N TAB input TAB 
+field TAB none TAB field whose positions are to be #!N 
+TAB - TAB - TAB - TAB shown #!N TAB every 
+TAB scalar TAB 1.0 TAB factor used to reduce the number 
+#!N TAB - TAB - TAB - TAB of positions shown 
+#!N TAB - TAB - TAB - TAB #!EF #!N #!N 
+Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Description 
+#!EF #!N TAB output TAB color field TAB renderable positions of 
+input field #!N TAB - TAB - TAB #!EF #!N #!N 
+Functional Details #!N #!N This module creates an output field that 
+shows the positions of a specified input. #!N #!I0 #!N #!N 
+#!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   input #!EF #!EF #!I50 #!N specifies the 
+object whose positions are to be shown. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*   
+ #!F-adobe-times-bold-r-normal--18*   every #!EF #!EF #!I50 #!N determines the relative number of 
+input positions shown in the output. By default, all positions are 
+shown. #!N #!N The multiplicand used is the reciprocal of the 
+parameter value (e.g., given a value of 2, the output shows 
+half the positions in the input). #!I0 #!N #!N #!N #!N 
+#!I0 #!N Notes: #!N #!I30 #!N 1. If the input object 
+lacks a "colors" component, the module adds a default color to 
+the output. #!N #!I30 #!N 2. Position-dependent color and data components 
+are passed to the output. #!I0 #!N #!N #!N #!N Components 
+#!N #!N Adds a "colors" component if the input does not 
+already have one. All input components, except "connections," are propagated to 
+the output. Invalid positions are not passed through to the output. 
+#!N #!N Example Visual Programs #!CForestGreen #!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N MovingCamera.net 
+#!N UsingSwitchAndRoute.net #!EF #!N #!N #!EC #!N #!N See Also #!N 
+#!N  #!Lshowbou,dxall943 h ShowBoundary  #!EL  ,  #!Lshowbox,dxall944 h ShowBox  #!EL  ,  #!Lshowcon,dxall945 h ShowConnections  #!EL  #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next 
+Topic #!EF #!N #!N  #!Lsimpsur,dxall947 h SimplifySurface  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

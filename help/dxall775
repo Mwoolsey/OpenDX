@@ -1,0 +1,53 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CDarkGreen #!N  #!Rall774 Vector and Tensor 
+Data #!N #!EC #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   
+shape #!EF #!EF #!I50 #!N is used to change the thickness 
+of the glyph relative to its length. The default value for 
+ #!F-adobe-times-bold-r-normal--18*   shape #!EF is 1 (e.g., to make a glyph twice 
+as thick, set this parameter to twice the default value (i.e., 
+to 2). #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   scale #!EF #!EF #!I50 
+#!N sets the scale factor for the size of the glyphs 
+relative to the default glyph. #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   ratio 
+#!EF #!EF #!I50 #!N determines which data values are displayed. To 
+display only those values larger than 0.5 *  #!F-adobe-times-bold-r-normal--18*   max #!EF 
+, set this parameter to 0.5. The default value is 0.0. 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF 
+#!EF #!I50 #!N are the data values used to set glyph 
+sizes. #!N #!N For  #!F-adobe-times-medium-i-normal--18*   3x3 symmetric tensor data #!EF three 
+arrows are drawn, representing the eigenvectors of the matrix. For  #!F-adobe-times-medium-i-normal--18*   
+2x2 symmetric tensor data #!EF two arrows are drawn, representing the 
+eigenvectors of the matrix. For  #!F-adobe-times-medium-i-normal--18*   vector data #!EF , one 
+arrow is drawn, representing the magnitude of the data. The default 
+value of  #!F-adobe-times-bold-r-normal--18*   min #!EF is 0 (zero), and the length 
+of the glyphs is always directly proportional to the magnitude of 
+the data (or the magnitude of the eigenvector). If you set 
+ #!F-adobe-times-bold-r-normal--18*   min #!EF to a value greater than zero, all data 
+with a magnitude smaller than  #!F-adobe-times-bold-r-normal--18*   min #!EF are represented by 
+a dot if  #!F-adobe-times-bold-r-normal--18*   type #!EF is "needle," and by a 
+small sphere otherwise. This can be useful to weed out small 
+and perhaps noisy vectors. You can also set  #!F-adobe-times-bold-r-normal--18*   ratio #!EF 
+to a value larger than zero; in that case, all data 
+with a magnitude smaller than  #!F-adobe-times-bold-r-normal--18*   ratio #!EF *  #!F-adobe-times-bold-r-normal--18*   max 
+#!EF is shown by a small sphere or dot. This allows 
+you, for example, to set  #!F-adobe-times-bold-r-normal--18*   ratio #!EF = 0.5 to 
+see only those vectors with a magnitude greater than half of 
+ #!F-adobe-times-bold-r-normal--18*   max #!EF . #!N #!N If you have vector data 
+and want to show all the vectors as having the same 
+length, you can use the  #!F-adobe-times-bold-r-normal--18*   norm #!EF function in the 
+Compute module to normalize all the vectors to unit magnitude before 
+passing them to AutoGlyph. #!I0 #!N #!N #!N #!N You can 
+also use a field as the input for  #!F-adobe-times-bold-r-normal--18*   min #!EF 
+and  #!F-adobe-times-bold-r-normal--18*   max #!EF , in which case the statistics of 
+that field are used instead. If the input  #!F-adobe-times-bold-r-normal--18*   data #!EF 
+is changing from frame to frame, and you want to keep 
+the glyph sizes consistent from frame to frame, you can use 
+the entire field or series as the input for  #!F-adobe-times-bold-r-normal--18*   min 
+#!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF . #!N #!N Note that if 
+you set  #!F-adobe-times-bold-r-normal--18*   min #!EF and  #!F-adobe-times-bold-r-normal--18*   max #!EF , and 
+there are data values far outside that range, then it is 
+possible to get very large glyphs. This is because  #!F-adobe-times-bold-r-normal--18*   max 
+#!EF is used to set the size scaling for the glyphs. 
+Data values much larger in absolute value than  #!F-adobe-times-bold-r-normal--18*   max #!EF 
+have proportionally larger-sized glyphs. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Lall775,dxall776 h User-supplied and Annotation Glyphs  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

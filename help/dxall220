@@ -1,0 +1,34 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Rflec 
+Faces, Loops, and Edges Components #!N #!N #!N The "faces," "loops," 
+and "edges" components are used for special-purpose applications, such as fonts 
+or geometric models. The "faces" component represents a set of faces, 
+each described as a set of loops. Each entry in the 
+face Array is a single integer index into the "loops" Array 
+identifying the first of a consecutive set of loops for this 
+face. The loops are listed in order of the faces they 
+are associated with, so that the list of loops for face 
+ #!F-adobe-times-medium-i-normal--18*   i #!EF ends in the loops Array just before the 
+first loop for face  #!F-adobe-times-medium-i-normal--18*   i+1 #!EF . Each entry in 
+the "loops" Array is a single integer index into the "edges" 
+Array, identifying the first of a consecutive set of edges for 
+this loop. The edges are listed in order of the loops 
+they are associated with, so that the list of edges for 
+loop  #!F-adobe-times-medium-i-normal--18*   i #!EF in the edges Array ends just before 
+the first edge for loop  #!F-adobe-times-medium-i-normal--18*   i+1 #!EF . Each entry 
+in the edges Array is a single integer index into the 
+"points" Array identifying one vertex of an edge; the other vertex 
+of an edge is the next entry in the "edges" Array, 
+except that the last edge in a loop that connects the 
+last point to the first point is not listed explicitly. This 
+is illustrated in  #!Ledarray26,dxall220 f Figure 26  #!EL  . #!Cbrown #!N  #!F-adobe-times-medium-r-normal--18*    #!Redarray26 #!N #!N 
+Graphics omitted from Online Documentation. Please see the manual. #!N Figure 
+26. Use of Faces, Loops, and Edge Components #!EF #!N #!EC 
+#!N #!N It is assumed that the first loop for each 
+face is the enclosing loop, and that subsequent loops, if any, 
+are holes in the face. If this is not true, then 
+set the DX_NESTED_LOOPS environment variable (see  #!Lmorevar,dxall695 h Other Environment Variables  #!EL  ). However, setting this 
+environment variable will cause a decrease in performance when processing faces, 
+loops, and edges data. #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF 
+#!N #!N  #!Legnpols,dxall221 h Edges and Polylines  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

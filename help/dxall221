@@ -1,0 +1,17 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Regnpols Edges and Polylines 
+#!N #!N #!N "Polylines" are a way of collecting a set 
+of line segments into a single object with which data can 
+be associated. They are implemented much as faces, loops, and edges 
+are (see above). An "edges" component contains the indices of the 
+vertices along polylines. A "polylines" component contains the indices of the 
+first element in the "edges" component of each polyline sequence. In 
+other words, the  #!F-adobe-times-medium-i-normal--18*   i #!EF (th) element of the "polylines" 
+component is the index in the "edges" component at which the 
+sequence of vertex indices of polyline  #!F-adobe-times-medium-i-normal--18*   i #!EF starts. The 
+sequence corresponding to polyline[  #!F-adobe-times-medium-i-normal--18*   i #!EF ] continues to the 
+beginning of the next polyline sequence (or to the end of 
+the "edges" component). Polyline data may be dependent on either "polylines" 
+or "positions." #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic #!EF #!N #!N 
+ #!Ltrippp,dxall222 h Pokes, Picks, and Pick Paths Components  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

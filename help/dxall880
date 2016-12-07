@@ -1,0 +1,29 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!N  #!Risolate Isolate #!N #!N Category #!N 
+#!N  #!Lcatrel,dxall759 h Realization  #!EL  #!N #!N Function #!N #!N "Shrinks" the connection elements 
+of a specified field, creating new positions. #!N #!N Syntax #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   #!N output #!EF = Isolate(  #!F-adobe-times-bold-r-normal--18*   field, 
+scale #!EF ); #!EF #!N #!N #!EC #!N #!N Inputs #!T,1,91,276,461,646 
+ #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB Default TAB Description 
+#!EF #!N TAB field TAB field TAB none TAB field whose 
+connections are to be #!N TAB - TAB - TAB - 
+TAB isolated #!N TAB scale TAB scalar TAB 0.5 TAB shrinkage 
+factor #!N TAB - TAB - TAB - TAB #!EF #!N 
+#!N Outputs #!T,1,161,321,646  #!F-adobe-times-medium-r-normal--14*    #!F-adobe-times-bold-r-normal--18*   #!N TAB Name TAB Type TAB 
+Description #!EF #!N TAB output TAB field TAB field of isolated 
+connections #!N TAB - TAB - TAB #!EF #!N #!N Functional 
+Details #!N #!N This module moves all positions closer to the 
+center of the connection elements to which they belong, by an 
+amount specified by a scaling parameter (0 ó  #!F-adobe-times-bold-r-normal--18*   scale #!EF 
+ó 1). Each original position yields as many new positions as 
+there are connection elements that include it. This "shrinkage" makes it 
+possible to view the connection elements of a field (triangles, quads, 
+cubes, or tetrahedra) individually. #!N #!N Using Isolate followed by ShowBoundary 
+on volumetric data can provide a way to see values throughout 
+a volume. #!N #!N Components #!N #!N Creates new positions and 
+connections components. Items belonging to position-dependent components will be duplicated as 
+necessary for the new positions. #!N #!N Example Visual Program #!CForestGreen 
+#!N #!N  #!F-adobe-courier-bold-r-normal--18*   #!N Isolate.net #!EF #!N #!N #!EC #!N #!N 
+See Also #!N #!N ShowConnections #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lisosurf,dxall881 h Isosurface  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 

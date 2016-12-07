@@ -1,0 +1,13 @@
+#!F-adobe-helvetica-medium-r-normal--18*
+#!N 
+#!CNavyBlue #!N 
+ #!Rlooping Looping Support #!N #!EC #!N #!N Two routines are supplied 
+which affect the behavior of loops within Data Explorer. Loops are 
+typically initiated with the ForEachMember or ForEachN modules. From within a 
+user-written module, you could terminate a loop by calling  #!F-adobe-times-bold-r-normal--18*   DXLoopDone 
+#!EF . #!N #!I0 #!N #!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   void 
+DXLoopDone() #!EF #!EF #!I50 #!N Terminates a loop. See  #!Ldxld,dxall1294 h DXLoopDone  #!EL  . 
+#!N #!I0 #!N  #!F-adobe-times-bold-r-normal--18*    #!F-adobe-times-bold-r-normal--18*   int DXLoopFirst() #!EF #!EF #!I50 #!N 
+Indicates whether it is the first time through a loop. See 
+ #!Ldxlf,dxall1295 h DXLoopFirst  #!EL  . #!I0 #!N #!N #!N #!N #!N  #!F-adobe-times-medium-i-normal--18*   Next Topic 
+#!EF #!N #!N  #!Lplsm,dxall1105 h Parallelism  #!EL  #!N  #!F-adobe-times-medium-i-normal--18*   #!N 
