@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 #include <dx/dx.h>
 #include "exobject.h"
 #include "config.h"
@@ -17,49 +16,43 @@
 #include "parse.h"
 
 /* DXFree lists of GLOBAL objects only */
-typedef struct {
-    lock_type	lock;
-    gvar 	*gvarHead;
-    gvar 	*gvarTail;
+typedef struct
+{
+  lock_type lock;
+  gvar *gvarHead;
+  gvar *gvarTail;
 } FreeList;
 static FreeList *freeList;
 
-static node *FuncFreeList	= NULL;
+static node *FuncFreeList = NULL;
 
-#define INIT_GVARS	512	/* Number of gvars to allocate initially */
-
-PFIP _dxd_EXO_default_methods[] =
-{
-    _dxf__EXO_delete
-};
+#define INIT_GVARS 512 /* Number of gvars to allocate initially */
 
 static lock_type *allocLock;
 
 #ifdef LEAK_DEBUG
-    EXObj head;
+EXObj head;
 #endif
-
 
 /*
  * Initialize the executive's object facility.
  */
 
-Error
-_dxf_EXO_init (void)
+Error _dxf_EXO_init( void )
 {
 #if 0
     int i;
     gvar *gvars;
 #endif
 
-    freeList = (FreeList *)DXAllocateZero (sizeof (FreeList));
-    if (freeList == NULL)
-	return (ERROR);
-    if (DXcreate_lock (&freeList->lock, "exobj freeList") != OK)
-	return (ERROR);
-    allocLock = (lock_type *)DXAllocateZero (sizeof (lock_type));
-    if (DXcreate_lock (allocLock, "exobj freeList allocation") != OK)
-	return (ERROR);
+  freeList = (FreeList *)DXAllocateZero( sizeof( FreeList ) );
+  if ( freeList == NULL )
+    return ( ERROR );
+  if ( DXcreate_lock( &freeList->lock, "exobj freeList" ) != OK )
+    return ( ERROR );
+  allocLock = (lock_type *)DXAllocateZero( sizeof( lock_type ) );
+  if ( DXcreate_lock( allocLock, "exobj freeList allocation" ) != OK )
+    return ( ERROR );
 
 #if 0
     gvars = freeList->gvarHead = (gvar *)DXAllocateZero (INIT_GVARS * sizeof (gvar));
@@ -75,60 +68,57 @@ _dxf_EXO_init (void)
     if (DXcreate_lock (&gvars[i].object.lock, "exobj gvar") != OK)
 	return (ERROR);
 #endif
-    
+
 #ifdef LEAK_DEBUG
-    head = (EXObj) DXAllocateZero (sizeof (exo_object));
-    head->DBGnext = head->DBGprev = head;
+  head = (EXObj)DXAllocateZero( sizeof( exo_object ) );
+  head->DBGnext = head->DBGprev = head;
 #endif
 
-    return (OK);
+  return ( OK );
 }
-
 
 /*
  * DXFree the executive's object locking structures.
  */
 
-Error
-_dxf_EXO_cleanup (void)
+Error _dxf_EXO_cleanup( void )
 {
-    return (OK);
+  return ( OK );
 }
 
-int
-_dxf_EXO_compact (void)
+int _dxf_EXO_compact( void )
 {
-    int			result;
-    EXO_Object		obj;
+  int result;
+  EXO_Object obj;
 
-    DXlock (allocLock, 0);
-    DXlock (&freeList->lock, exJID);
-    result = freeList->gvarHead != NULL;
-    while (freeList->gvarHead)
+  DXlock( allocLock, 0 );
+  DXlock( &freeList->lock, exJID );
+  result = freeList->gvarHead != NULL;
+  while ( freeList->gvarHead )
+  {
+    if ( freeList->gvarHead->next == NULL )
     {
-	if (freeList->gvarHead->next == NULL)
-	{
-	    if (freeList->gvarHead->next == NULL)
-		freeList->gvarTail = NULL;
-	}
-	obj = (EXO_Object) freeList->gvarHead;
-	freeList->gvarHead = ((gvar *) obj)->next;
-	DXFree((Pointer) obj);
+      if ( freeList->gvarHead->next == NULL )
+        freeList->gvarTail = NULL;
     }
-    DXunlock (allocLock, 0);
-    DXunlock (&freeList->lock, exJID);
+    obj = (EXO_Object)freeList->gvarHead;
+    freeList->gvarHead = ( (gvar *)obj )->next;
+    DXFree( (Pointer)obj );
+  }
+  DXunlock( allocLock, 0 );
+  DXunlock( &freeList->lock, exJID );
 
-    if (!result && exJID == 1)
+  if ( !result && exJID == 1 )
+  {
+    result = FuncFreeList != NULL;
+    while ( FuncFreeList != NULL )
     {
-	result = FuncFreeList != NULL;
-	while (FuncFreeList != NULL)
-	{
-	    obj = (EXObj) FuncFreeList;
-	    FuncFreeList = FuncFreeList->next;
-	    DXFree((Pointer) obj);
-	}
+      obj = (EXObj)FuncFreeList;
+      FuncFreeList = FuncFreeList->next;
+      DXFree( (Pointer)obj );
     }
-    return (result);
+  }
+  return ( result );
 }
 
 /*
@@ -136,29 +126,29 @@ _dxf_EXO_compact (void)
  * an executive object.
  */
 
-Error _dxf_EXOCheck (EXO_Object obj)
+Error _dxf_EXOCheck( EXO_Object obj )
 {
-    if (obj && !((long)obj & 0x03) && obj->tag == EXO_TAG)
+  if ( obj && !( (long)obj & 0x03 ) && obj->tag == EXO_TAG )
+  {
+    switch ( obj->exclass )
     {
-	switch (obj->exclass)
-	{
-	    case EXO_CLASS_DELETED:
-	    case EXO_CLASS_FUNCTION:
-	    case EXO_CLASS_GVAR:
-	    case EXO_CLASS_TASK:
-		return (OK);
+      case EXO_CLASS_DELETED:
+      case EXO_CLASS_FUNCTION:
+      case EXO_CLASS_GVAR:
+      case EXO_CLASS_TASK:
+        return ( OK );
 
-	    default:
-		break;
-	}
+      default:
+        break;
     }
-    
-    DXWarning ("#4610", obj);
+  }
 
-    DXqflush ();
-    abort();			/* Die here please */
+  DXWarning( "#4610", obj );
 
-    return (ERROR);
+  DXqflush();
+  abort(); /* Die here please */
+
+  return ( ERROR );
 }
 
 /*
@@ -166,190 +156,190 @@ Error _dxf_EXOCheck (EXO_Object obj)
  * not specified
  */
 
-static EXO_Object
-EXO_create_object_worker (EXO_Class exclass, int size, PFIP *methods, int local)
+static EXO_Object EXO_create_object_worker( EXO_Class exclass, int size,
+                                            PFIP *methods, int local )
 {
-    EXO_Object		obj;
-    int			locked;
+  EXO_Object obj;
+  int locked;
 
-    switch (exclass)
-    {
-	case EXO_CLASS_FUNCTION:
-	    if (FuncFreeList == NULL)
-		obj = (EXObj) DXAllocateLocal (size);
-	    else
-	    {
-		obj = (EXObj) FuncFreeList;
-		FuncFreeList = FuncFreeList->next;
-	    }
-	    break;
+  switch ( exclass )
+  {
+    case EXO_CLASS_FUNCTION:
+      if ( FuncFreeList == NULL )
+        obj = (EXObj)DXAllocateLocal( size );
+      else
+      {
+        obj = (EXObj)FuncFreeList;
+        FuncFreeList = FuncFreeList->next;
+      }
+      break;
 
-	case EXO_CLASS_GVAR:
-	    DXlock (allocLock, 0);
-	    if (freeList->gvarHead)
-	    {
-		locked = freeList->gvarHead->next == NULL;
-		if (locked)
-		{
-		    DXlock (&freeList->lock, exJID);
-		    if (freeList->gvarHead->next == NULL)
-			freeList->gvarTail = NULL;
-		}
-		obj = (EXO_Object) freeList->gvarHead;
-		freeList->gvarHead = ((gvar *) obj)->next;
-		if (locked)
-		    DXunlock (&freeList->lock, exJID);
-		DXunlock (allocLock, 0);
-	    }
-	    else 
-	    {
-		DXunlock (allocLock, 0);
-		obj = (EXO_Object) DXAllocate (size);
-	    }
-	    break;
+    case EXO_CLASS_GVAR:
+      DXlock( allocLock, 0 );
+      if ( freeList->gvarHead )
+      {
+        locked = freeList->gvarHead->next == NULL;
+        if ( locked )
+        {
+          DXlock( &freeList->lock, exJID );
+          if ( freeList->gvarHead->next == NULL )
+            freeList->gvarTail = NULL;
+        }
+        obj = (EXO_Object)freeList->gvarHead;
+        freeList->gvarHead = ( (gvar *)obj )->next;
+        if ( locked )
+          DXunlock( &freeList->lock, exJID );
+        DXunlock( allocLock, 0 );
+      }
+      else
+      {
+        DXunlock( allocLock, 0 );
+        obj = (EXO_Object)DXAllocate( size );
+      }
+      break;
 
-	default:
-	    obj = (EXO_Object) (local ? DXAllocateLocal (size)
-				      : DXAllocate (size));
-	    break;
-    }
+    default:
+      obj = ( EXO_Object )( local ? DXAllocateLocal( size )
+                                  : DXAllocate( size ) );
+      break;
+  }
 
+  if ( obj == NULL )
+    _dxf_ExDie( "_dxf_EXO_create_object:  can't DXAllocate" );
 
-    if (obj == NULL)
-	_dxf_ExDie ("_dxf_EXO_create_object:  can't DXAllocate");
+  if ( !local && DXcreate_lock( &obj->lock, "exec object" ) != OK )
+    _dxf_ExDie( "_dxf_EXO_create_object: can't create lock\n" );
 
-    if (! local && DXcreate_lock (&obj->lock, "exec object") != OK)
-	_dxf_ExDie ("_dxf_EXO_create_object: can't create lock\n");
+  ExZero( obj + 1, size - sizeof( exo_object ) );
 
-    ExZero (obj + 1, size - sizeof (exo_object));
-
-    obj->tag	   = EXO_TAG;
-    obj->exclass   = exclass;
-    obj->local	   = local;
-    obj->refs	   = 0;
-    obj->m.copy    = FALSE;
-    obj->m.methods = methods ? methods : _dxd_EXO_default_methods;
-    obj->lastref  = 0;
+  obj->tag = EXO_TAG;
+  obj->exclass = exclass;
+  obj->local = local;
+  obj->refs = 0;
+  obj->m.copy = FALSE;
+  obj->m.methods = methods ? methods : (PFIP *)_dxf__EXO_delete;
+  obj->lastref = 0;
 
 #ifdef LEAK_DEBUG
-    if (!local) {
-	obj->DBGnext = head->DBGnext;
-	obj->DBGprev = head;
-	head->DBGnext->DBGprev = obj;
-	head->DBGnext = obj;
-    }
+  if ( !local )
+  {
+    obj->DBGnext = head->DBGnext;
+    obj->DBGprev = head;
+    head->DBGnext->DBGprev = obj;
+    head->DBGnext = obj;
+  }
 #endif
 
-    return (obj);
+  return ( obj );
 }
 
-
-EXO_Object _dxf_EXO_create_object (EXO_Class exclass, int size, PFIP *methods)
+EXO_Object _dxf_EXO_create_object( EXO_Class exclass, int size, PFIP *methods )
 {
-    return (EXO_create_object_worker (exclass, size, methods, FALSE));
+  return ( EXO_create_object_worker( exclass, size, methods, FALSE ) );
 }
 
-
-EXO_Object _dxf_EXO_create_object_local (EXO_Class exclass, int size, PFIP *methods)
+EXO_Object _dxf_EXO_create_object_local( EXO_Class exclass, int size,
+                                         PFIP *methods )
 {
-    return (EXO_create_object_worker (exclass, size, methods, TRUE));
+  return ( EXO_create_object_worker( exclass, size, methods, TRUE ) );
 }
-
 
 /*
  * DXDelete an object.  Note that the delete macro has already decremented the
  * reference count and decided the object should go away
  */
-int _dxf_EXO_delete (EXO_Object obj)
+int _dxf_EXO_delete( EXO_Object obj )
 {
-    int		del	= FALSE;
-    if (obj->refs == 0)
-    {
+  int del = FALSE;
+  if ( obj->refs == 0 )
+  {
 #ifdef LEAK_DEBUG
-	if (!obj->local) {
-	    obj->DBGnext->DBGprev = obj->DBGprev;
-	    obj->DBGprev->DBGnext = obj->DBGnext;
-	}
-#endif
-	switch (obj->exclass)
-	{
-	    case EXO_CLASS_FUNCTION:
-		((node *) obj)->next = FuncFreeList;
-		FuncFreeList = (node *) obj;
-		break;
-
-	    case EXO_CLASS_GVAR:
-		((gvar *) obj)->next = NULL;
-		DXlock (&freeList->lock, exJID);
-		if (freeList->gvarTail)
-		    freeList->gvarTail->next = (gvar *) obj;
-		else
-		    freeList->gvarHead = (gvar *) obj;
-		freeList->gvarTail = (gvar *) obj;
-		DXunlock (&freeList->lock, exJID);
-		break;
-
-	    default:
-		del = TRUE;
-		break;
-	}
-
-	obj->exclass = EXO_CLASS_DELETED;
-	if (obj->m.copy)
-	    DXFree ((Pointer) obj->m.methods);
-	if (! obj->local)
-	    DXdestroy_lock (&obj->lock);
-	if (del)
-	    DXFree ((Pointer) obj);
-    }
-    else
+    if ( !obj->local )
     {
-	DXWarning ("#4620", obj, obj->refs);
-	DXqflush ();
-	if (_dxd_exDebug)
-	    abort();		/* Die here please */
+      obj->DBGnext->DBGprev = obj->DBGprev;
+      obj->DBGprev->DBGnext = obj->DBGnext;
+    }
+#endif
+    switch ( obj->exclass )
+    {
+      case EXO_CLASS_FUNCTION:
+        ( (node *)obj )->next = FuncFreeList;
+        FuncFreeList = (node *)obj;
+        break;
+
+      case EXO_CLASS_GVAR:
+        ( (gvar *)obj )->next = NULL;
+        DXlock( &freeList->lock, exJID );
+        if ( freeList->gvarTail )
+          freeList->gvarTail->next = (gvar *)obj;
+        else
+          freeList->gvarHead = (gvar *)obj;
+        freeList->gvarTail = (gvar *)obj;
+        DXunlock( &freeList->lock, exJID );
+        break;
+
+      default:
+        del = TRUE;
+        break;
     }
 
-    return (0);
+    obj->exclass = EXO_CLASS_DELETED;
+    if ( obj->m.copy )
+      DXFree( (Pointer)obj->m.methods );
+    if ( !obj->local )
+      DXdestroy_lock( &obj->lock );
+    if ( del )
+      DXFree( (Pointer)obj );
+  }
+  else
+  {
+    DXWarning( "#4620", obj, obj->refs );
+    DXqflush();
+    if ( _dxd_exDebug )
+      abort(); /* Die here please */
+  }
+
+  return ( 0 );
 }
 
 /*
  * Default delete routine does nothing
  */
-int _dxf__EXO_delete (EXO_Object obj)
+int _dxf__EXO_delete( EXO_Object obj )
 {
-    return (OK);
+  return ( OK );
 }
 
-
 #ifdef LEAK_DEBUG
-void
-PrintEXObj()
+void PrintEXObj()
 {
-    EXObj o;
+  EXObj o;
 
-    for (o = head->DBGnext; o != head; o = o->DBGnext) {
-	switch (o->exclass) {
-	case EXO_CLASS_DELETED:
-	    printf ("0x%08x (refs %d) EXO_CLASS_DELETED\n", o, o->refs);
-	    break;
-	case EXO_CLASS_FUNCTION:
-	    printf ("0x%08x (refs %d) EXO_CLASS_FUNCTION\n", o, o->refs);
-	    break;
-	case EXO_CLASS_GVAR:
-	    printf ("0x%08x (refs %d) EXO_CLASS_GVAR, type is %d\n",
-		o, o->refs, ((gvar*)o)->type);
-	    break;
-	case EXO_CLASS_TASK:
-	    printf ("0x%08x (refs %d) EXO_CLASS_TASK\n", o, o->refs);
-	    break;
-	case EXO_CLASS_UNKNOWN:
-	    printf ("0x%08x (refs %d) EXO_CLASS_UNKNOWN\n", o, o->refs);
-	    break;
-	default:
-	    printf ("0x%08x (refs %d) of unknown class %d\n", o, o->refs, o->exclass);
-	    break;
-	}
+  for ( o = head->DBGnext; o != head; o = o->DBGnext )
+  {
+    switch ( o->exclass )
+    {
+      case EXO_CLASS_DELETED:
+        printf( "0x%08x (refs %d) EXO_CLASS_DELETED\n", o, o->refs );
+        break;
+      case EXO_CLASS_FUNCTION:
+        printf( "0x%08x (refs %d) EXO_CLASS_FUNCTION\n", o, o->refs );
+        break;
+      case EXO_CLASS_GVAR:
+        printf( "0x%08x (refs %d) EXO_CLASS_GVAR, type is %d\n", o, o->refs,
+                ( (gvar *)o )->type );
+        break;
+      case EXO_CLASS_TASK:
+        printf( "0x%08x (refs %d) EXO_CLASS_TASK\n", o, o->refs );
+        break;
+      case EXO_CLASS_UNKNOWN:
+        printf( "0x%08x (refs %d) EXO_CLASS_UNKNOWN\n", o, o->refs );
+        break;
+      default:
+        printf( "0x%08x (refs %d) of unknown class %d\n", o, o->refs,
+                o->exclass );
+        break;
     }
+  }
 }
 #endif
