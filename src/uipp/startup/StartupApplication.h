@@ -8,16 +8,14 @@
 
 #include <dxconfig.h>
 
-
-
 #ifndef _StartupApplication_h
 #define _StartupApplication_h
 
-#if defined(HAVE_SSTREAM)
+#if defined( HAVE_SSTREAM )
 #include <sstream>
-#elif defined(HAVE_STRSTREAM_H)
+#elif defined( HAVE_STRSTREAM_H )
 #include <strstream.h>
-#elif defined(HAVE_STRSTREA_H)
+#elif defined( HAVE_STRSTREA_H )
 #include <strstrea.h>
 #endif
 
@@ -26,11 +24,10 @@
 #include "../base/MainWindow.h"
 #include "../base/Dialog.h"
 #include "../base/IBMApplication.h"
-#if !defined(DXD_OS_NON_UNIX) && defined(DXD_LICENSED_VERSION)
+#if !defined( DXD_OS_NON_UNIX ) && defined( DXD_LICENSED_VERSION )
 #include "../base/TemporaryLicense.h"
 #endif
 #include "../base/List.h"
-
 
 class StartupWindow;
 class Command;
@@ -38,111 +35,123 @@ class Command;
 //
 // Class name definition:
 //
-#define ClassStartupApplication	"StartupApplication"
+#define ClassStartupApplication "StartupApplication"
 
 //
 // XtCallbackProc (*CB), XtEventHandler (*EH) and XtActionProc (*AP)
 // DialogCallback (*DCB), XtInputCallbackProc (*ICP), XtWorkProc (*WP)
 // functions for this and derived classes
 //
-extern "C" void StartupApplication_XtWarningHandler(char*);
-extern "C" void StartupApplication_HelpCB(Widget, XtPointer, XtPointer);
-extern "C" int	StartupApplication_XErrorHandler(Display *display, 
-						XErrorEvent *event);
+extern "C" void StartupApplication_XtWarningHandler( char * );
+extern "C" void StartupApplication_HelpCB( Widget, XtPointer, XtPointer );
+extern "C" int StartupApplication_XErrorHandler( Display *display,
+                                                 XErrorEvent *event );
 
-
-#if defined(DXD_LICENSED_VERSION)
+#if defined( DXD_LICENSED_VERSION )
 class StartupApplication : public IBMApplication, public TemporaryLicense
 #else
 class StartupApplication : public IBMApplication
 #endif
 {
 
-  private:
-    //
-    // Private class data:
-    //
-    static boolean    StartupApplicationClassInitialized; // class initialized?
-    friend void StartupApplication_XtWarningHandler(char *message);
-    friend int	      StartupApplication_XErrorHandler(Display *display, 
-						XErrorEvent *event);
+ private:
+  //
+  // Private class data:
+  //
+  static boolean StartupApplicationClassInitialized;  // class initialized?
+  friend void StartupApplication_XtWarningHandler( char *message );
+  friend int StartupApplication_XErrorHandler( Display *display,
+                                               XErrorEvent *event );
 
-    void shutdownApplication() {};
+  void shutdownApplication() {};
 
-    StartupWindow	*mainWindow;
+  StartupWindow *mainWindow;
 
-    List                dumpedObjects;
+  List dumpedObjects;
 
-    List		argList;
+  List argList;
 
-    friend void StartupApplication_HelpCB(Widget, XtPointer , XtPointer);
+  friend void StartupApplication_HelpCB( Widget, XtPointer, XtPointer );
 
-    void destroyDumpedObjects();
+  void destroyDumpedObjects();
 
-  protected:
-    //
-    // Overrides the Application class version:
-    //   Initializes Xt Intrinsics with option list (switches).
-    //
-    virtual boolean initialize(unsigned int* argcp, char**argv);
+ protected:
+  //
+  // Overrides the Application class version:
+  //   Initializes Xt Intrinsics with option list (switches).
+  //
+  virtual boolean initialize( unsigned int *argcp, char **argv );
 
-    CommandScope       *commandScope;   // command scope
+  CommandScope *commandScope;  // command scope
 
-    virtual const char* getRootDir() { return this->getUIRoot(); }
+  virtual const char *getRootDir()
+  {
+    return this->getUIRoot();
+  }
 
-  public:
+ public:
+  void postStartupWindow();
+  StartupWindow *getMainWindow()
+  {
+    return (StartupWindow *)this->mainWindow;
+  };
 
-    void postStartupWindow();
-    StartupWindow *getMainWindow(){return (StartupWindow *)this->mainWindow;};
+  static void addHelpCallbacks( Widget );
 
+  List *getCommandLineArgs()
+  {
+    return &this->argList;
+  }
 
-    static void addHelpCallbacks(Widget);
+  //
+  // Constructor:
+  //
+  StartupApplication( char *className );
 
-    List * getCommandLineArgs() { return &this->argList; }
+  //
+  // Destructor:
+  //
+  ~StartupApplication();
 
-    //
-    // Constructor:
-    //
-    StartupApplication(char* className);
+  //
+  // Return the name of the application (i.e. 'Data Explorer',
+  // 'Data Prompter', 'Medical Visualizer'...).
+  //
+  virtual const char *getInformalName()
+  {
+    return "Startup";
+  }
 
-    //
-    // Destructor:
-    //
-    ~StartupApplication();
+  //
+  // Return the formal name of the application (i.e.
+  // 'Open Visualization Data Explorer', 'Open Visualization Data Prompter'...)
+  //
+  virtual const char *getFormalName()
+  {
+    return "Open Visualization Startup";
+  }
 
-    //
-    // Return the name of the application (i.e. 'Data Explorer',
-    // 'Data Prompter', 'Medical Visualizer'...).
-    //
-    virtual const char *getInformalName() { return "Startup"; }
+  //
+  // Get the applications copyright notice, for example...
+  // "Copyright International Business Machines Corporation 1991-1993
+  // All rights reserved"
+  //
+  virtual const char *getCopyrightNotice();
 
-    //
-    // Return the formal name of the application (i.e.
-    // 'Open Visualization Data Explorer', 'Open Visualization Data Prompter'...)
-    //
-    virtual const char *getFormalName() { return "Open Visualization Startup"; }
+  void dumpObject( Base *object )
+  {
+    this->dumpedObjects.appendElement( (void *)object );
+  }
 
-    //
-    // Get the applications copyright notice, for example...
-    // "Copyright International Business Machines Corporation 1991-1993
-    // All rights reserved"
-    //
-    virtual const char *getCopyrightNotice();
-
-
-    void dumpObject(Base *object) { this->dumpedObjects.appendElement((void*)object); }
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-        return ClassStartupApplication;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassStartupApplication;
+  }
 };
 
-
-extern StartupApplication* theStartupApplication;
+extern StartupApplication *theStartupApplication;
 
 #endif /*  _StartupApplication_h */
-

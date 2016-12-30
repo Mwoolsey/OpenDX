@@ -9,21 +9,18 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 //////////////////////////////////////////////////////////////////////////////
 
 #include "GlobalLocalDefinition.h"
 #include "GlobalLocalNode.h"
 
-Node *GlobalLocalDefinition::newNode(Network *net, int inst)
+Node *GlobalLocalDefinition::newNode( Network *net, int inst )
 {
-    GlobalLocalNode *n = new GlobalLocalNode(this, net, inst);
-    return n;
+  GlobalLocalNode *n = new GlobalLocalNode( this, net, inst );
+  return n;
 }
 
 NodeDefinition *GlobalLocalDefinition::AllocateDefinition()
 {
-    return (NodeDefinition*) new GlobalLocalDefinition();
+  return (NodeDefinition *)new GlobalLocalDefinition();
 }
-

@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -46,7 +45,7 @@ $+1$, or $-1$ respectively.
 #define SCREEN_PIXEL 2
 #define SCREEN_STATIONARY 3
 
-Screen DXNewScreen(Object o, int position, int z);
+Screen DXNewScreen( Object o, int position, int z );
 /**
 \index{DXNewScreen}
 Creates a new object representing {\tt o} aligned to the final screen.
@@ -58,7 +57,7 @@ described above.  Returns the screen object, or returns null and sets
 the error code to indicate an error.
 **/
 
-Screen DXGetScreenInfo(Screen s, Object *o, int *position, int *z);
+Screen DXGetScreenInfo( Screen s, Object *o, int *position, int *z );
 /**
 \index{DXGetScreenInfo}
 If {\tt o} is not null, returns the object to be transformed in {\tt
@@ -69,7 +68,7 @@ when the screen object was created.  Returns {\tt s}, or returns null
 and sets the error code to indicate an error.
 **/
 
-Screen DXSetScreenObject(Screen s, Object o);
+Screen DXSetScreenObject( Screen s, Object o );
 /**
 \index{DXSetScreenObject}
 This routine sets the object to which the screen transform is applied
@@ -79,6 +78,6 @@ to indicate an error.
 
 #endif /* _DXI_SCREEN_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

@@ -9,32 +9,31 @@
  * (C) COPYRIGHT International Business Machines Corp. 1997
  * All Rights Reserved
  * Licensed Materials - Property of IBM
- * 
+ *
  * US Government Users Restricted Rights - Use, duplication or
  * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  */
 
 #include <dxconfig.h>
 
-
 #include <dx/dx.h>
 #include "changemember.h"
 
 /* inputs:  object to copy
  */
-Error m_CopyContainer(Object *in, Object *out)
+Error m_CopyContainer( Object *in, Object *out )
 {
-    enum _dxd_copy how = COPY_ATTRIBUTES;
+  enum _dxd_copy how = COPY_ATTRIBUTES;
 
-    if (!in[0]) {
-        DXSetError(ERROR_BAD_PARAMETER, "#10000", "input");
-        return ERROR;
-    }
+  if ( !in[0] )
+  {
+    DXSetError( ERROR_BAD_PARAMETER, "#10000", "input" );
+    return ERROR;
+  }
 
-    out[0] = DXCopy(in[0], how);
-    return (out[0] != NULL ? OK : ERROR);
+  out[0] = DXCopy( in[0], how );
+  return ( out[0] != NULL ? OK : ERROR );
 }
-
 
 #if 0
 
@@ -78,5 +77,3 @@ Error m_CopyContainer(Object *in, Object *out)
     out[0] = DXCopy(in[0], how);
     return (out[0] != NULL ? OK : ERROR);
 #endif
-
-

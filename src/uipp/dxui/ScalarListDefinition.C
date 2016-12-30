@@ -9,18 +9,16 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "ScalarListDefinition.h"
 #include "ScalarListNode.h"
 
-Node *ScalarListDefinition::newNode(Network *net, int inst)
+Node *ScalarListDefinition::newNode( Network *net, int inst )
 {
-    ScalarListNode *n = new ScalarListNode(this, net, inst, FALSE, 1);
-    return n;
+  ScalarListNode *n = new ScalarListNode( this, net, inst, FALSE, 1 );
+  return n;
 }
 
-NodeDefinition *
-ScalarListDefinition::AllocateDefinition()
+NodeDefinition *ScalarListDefinition::AllocateDefinition()
 {
-    return (NodeDefinition*) new ScalarListDefinition;
+  return (NodeDefinition *)new ScalarListDefinition;
 }

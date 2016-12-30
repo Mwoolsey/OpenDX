@@ -9,9 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include <string.h>
 
 #include "PrintNode.h"
@@ -19,8 +16,8 @@
 #include "MsgWin.h"
 static char *message_token = "PRINT";
 
-PrintNode::PrintNode(NodeDefinition *nd, Network *net, int instnc) :
-    ModuleMessagingNode(nd, net, instnc)
+PrintNode::PrintNode( NodeDefinition *nd, Network *net, int instnc )
+    : ModuleMessagingNode( nd, net, instnc )
 {
 }
 
@@ -34,15 +31,16 @@ PrintNode::~PrintNode()
 // this->Node::netPrintNode() to receive messages for this node.
 // The format of the message coming back is defined by the derived class.
 //
-void PrintNode::execModuleMessageHandler(int id, const char *line)
+void PrintNode::execModuleMessageHandler( int id, const char *line )
 {
-    const char *p = strstr(line,message_token);
+  const char *p = strstr( line, message_token );
 
-    if (p) {
-        MsgWin *mw = theDXApplication->getMessageWindow();
-        if (theDXApplication->doesInfoOpenMessage(TRUE))
-	    mw->infoOpen();
-    }
+  if ( p )
+  {
+    MsgWin *mw = theDXApplication->getMessageWindow();
+    if ( theDXApplication->doesInfoOpenMessage( TRUE ) )
+      mw->infoOpen();
+  }
 }
 
 //
@@ -53,21 +51,19 @@ void PrintNode::execModuleMessageHandler(int id, const char *line)
 //
 const char *PrintNode::getModuleMessageIdString()
 {
-     if (!this->moduleMessageId)
-        this->moduleMessageId = DuplicateString(message_token);
-     return (const char*) this->moduleMessageId;
-
+  if ( !this->moduleMessageId )
+    this->moduleMessageId = DuplicateString( message_token );
+  return (const char *)this->moduleMessageId;
 }
-
 
 //
 // Determine if this node is of the given class.
 //
-boolean PrintNode::isA(Symbol classname)
+boolean PrintNode::isA( Symbol classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(ClassPrintNode);
-    if (s == classname)
-	return TRUE;
-    else
-	return this->ModuleMessagingNode::isA(classname);
+  Symbol s = theSymbolManager->registerSymbol( ClassPrintNode );
+  if ( s == classname )
+    return TRUE;
+  else
+    return this->ModuleMessagingNode::isA( classname );
 }

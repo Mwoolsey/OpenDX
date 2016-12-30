@@ -8,8 +8,7 @@
 
 #include <dxconfig.h>
 
-
-#define	RECLAIM_TIMING	0
+#define RECLAIM_TIMING 0
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,21 +27,20 @@
 #include "status.h"
 #include "distp.h"
 
-#define LOCK_REC() 	 (  have_rec_sem++ ? OK :   DXlock (rec_sem, 0))
-#define UNLOCK_REC()	 (--have_rec_sem   ? OK : DXunlock (rec_sem, 0))
+#define LOCK_REC() ( have_rec_sem++ ? OK : DXlock( rec_sem, 0 ) )
+#define UNLOCK_REC() ( --have_rec_sem ? OK : DXunlock( rec_sem, 0 ) )
 
 static lock_type *rec_sem;
 
-static int		have_rec_sem	= 0;
-static EXO_Object	rec_obj		= NULL;		/* for time stamp */
-static int		reclaiming_mem  = 0;
+static int have_rec_sem = 0;
+static EXO_Object rec_obj = NULL; /* for time stamp */
+static int reclaiming_mem = 0;
 
 extern int _dxd_exEnableDebug;
 
-int
-_dxf_ExReclaimingMemory()
+int _dxf_ExReclaimingMemory()
 {
-    return(reclaiming_mem);
+  return ( reclaiming_mem );
 }
 
 /*
@@ -55,28 +53,24 @@ _dxf_ExReclaimingMemory()
  * to wait.
  */
 
-
-int
-_dxf_ExReclaimDisable ()
+int _dxf_ExReclaimDisable()
 {
-    int result;
+  int result;
 
-    if (have_rec_sem++)
-	return FALSE;
+  if ( have_rec_sem++ )
+    return FALSE;
 
-    result = DXtry_lock(rec_sem, 0);
-    if (!result)
-	DXlock(rec_sem, 0);
+  result = DXtry_lock( rec_sem, 0 );
+  if ( !result )
+    DXlock( rec_sem, 0 );
 
-    return(!result);
+  return ( !result );
 }
 
-
-void _dxf_ExReclaimEnable ()
+void _dxf_ExReclaimEnable()
 {
-    UNLOCK_REC ();
+  UNLOCK_REC();
 }
-
 
 /*
  * Initialize the cache memory scavenger.
@@ -84,28 +78,29 @@ void _dxf_ExReclaimEnable ()
 
 static float factor = 1.0;
 
-Error _dxf_ExInitMemoryReclaim ()
+Error _dxf_ExInitMemoryReclaim()
 {
-    char *cp;
+  char *cp;
 
-    if ((rec_sem = (lock_type *) DXAllocate (sizeof (lock_type))) == NULL)
-	return (ERROR);
+  if ( ( rec_sem = (lock_type *)DXAllocate( sizeof( lock_type ) ) ) == NULL )
+    return ( ERROR );
 
-    if (DXcreate_lock (rec_sem, "cache reclamation") != OK)
-	return (ERROR);
+  if ( DXcreate_lock( rec_sem, "cache reclamation" ) != OK )
+    return ( ERROR );
 
-    if ((rec_obj = (EXO_Object) DXAllocate (sizeof (exo_object))) == NULL)
-	return (ERROR);
-    
-    rec_obj->lastref = 0.0;
+  if ( ( rec_obj = (EXO_Object)DXAllocate( sizeof( exo_object ) ) ) == NULL )
+    return ( ERROR );
 
-    if ((cp = getenv("DX_RECLAIM_FACTOR")) != NULL) {
-	factor = atof(cp);
-	if (factor <= 0.0 || factor >= 10.0)
-	    factor = 1.0;
-    }
+  rec_obj->lastref = 0.0;
 
-    return (OK);
+  if ( ( cp = getenv( "DX_RECLAIM_FACTOR" ) ) != NULL )
+  {
+    factor = atof( cp );
+    if ( factor <= 0.0 || factor >= 10.0 )
+      factor = 1.0;
+  }
+
+  return ( OK );
 }
 
 #if 0
@@ -117,12 +112,12 @@ cleanupMemoryReclaim()
 }
 #endif
 
-void _dxf_ExSetGVarCost(gvar *gv, double cost)
+void _dxf_ExSetGVarCost( gvar *gv, double cost )
 {
-    if (gv == NULL || gv->type == GV_UNRESOLVED)
-	return;
+  if ( gv == NULL || gv->type == GV_UNRESOLVED )
+    return;
 
-    gv->cost = cost;
+  gv->cost = cost;
 }
 
 /*
@@ -146,183 +141,180 @@ void _dxf_ExSetGVarCost(gvar *gv, double cost)
  * first off, the timestamps on objects used to be the create time and
  * not the time of last reference, so we could not do a real LRU algorithm
  * even if we wanted to.  this was fixed, so the timestamps are the last
- * use.  now we walk the cache in least-recently-used order, throwing 
- * away objects until we have enough space to hold the object we are 
+ * use.  now we walk the cache in least-recently-used order, throwing
+ * away objects until we have enough space to hold the object we are
  * trying to make space for.  the memory manager was changed to bookkeep
- * the size of the largest free block during cache scavenging, so this 
+ * the size of the largest free block during cache scavenging, so this
  * code no longer picks an arbitrary number of objects to delete.
  *
  */
 
-#define	N_PER_ITER	512
+#define N_PER_ITER 512
 
-extern void  DXInitMaxFreedBlock(); /* from libdx/memory.c */
-extern ulong DXMaxFreedBlock();     /* from libdx/memory.c */
+extern void DXInitMaxFreedBlock(); /* from libdx/memory.c */
+extern ulong DXMaxFreedBlock();    /* from libdx/memory.c */
 
 static int nDeleted;
 
-static int
-__ExReclaimMemory (ulong nbytes)
+static int __ExReclaimMemory( ulong nbytes )
 {
-    EXObj	obj;
-    gvar	*gv;
-    int		skipped;
-    char	*key;
-    CacheTagList pkg;
-    uint32	 *ctp;
+  EXObj obj;
+  gvar *gv;
+  int skipped;
+  char *key;
+  CacheTagList pkg;
+  uint32 *ctp;
 
-    _dxf_ExDictionaryBeginIterateSorted(_dxd_exCacheDict, 0);
+  _dxf_ExDictionaryBeginIterateSorted( _dxd_exCacheDict, 0 );
 
-    pkg.numtags = 0;
-    ctp = pkg.ct;
+  pkg.numtags = 0;
+  ctp = pkg.ct;
 
-    while (NULL !=
-	(obj = _dxf_ExDictionaryIterateSorted(_dxd_exCacheDict, &key)))
+  while ( NULL !=
+          ( obj = _dxf_ExDictionaryIterateSorted( _dxd_exCacheDict, &key ) ) )
+  {
+    gv = (gvar *)obj;
+
+    if ( gv->type == GV_UNRESOLVED || gv->cost == CACHE_PERMANENT )
+      continue;
+
+    ExDebug( "2", "Free %s from cache", key );
+
+    if ( key[0] == 'X' )
     {
-	gv = (gvar *)obj;
+      *ctp = strtoul( key + 1, NULL, 16 );
+      if ( _dxf_ExDictionaryDelete( _dxd_exCacheDict, key ) == OK )
+      {
+        pkg.numtags++;
+        ctp++;
 
-	if (gv->type == GV_UNRESOLVED || gv->cost == CACHE_PERMANENT)
-	    continue;
-	
-	ExDebug ("2", "Free %s from cache", key);
-
-        if(key[0] == 'X') {
-            *ctp = strtoul(key+1, NULL, 16);
-	    if (_dxf_ExDictionaryDelete (_dxd_exCacheDict, key) == OK)
-	    {
-                pkg.numtags++;
-                ctp++;
-
-		if (pkg.numtags >= N_CACHETAGLIST_ITEMS)
-		{
-		    _dxf_ExDistributeMsg(DM_EVICTCACHELIST, (Pointer)&pkg, 
-                             sizeof(CacheTagList), TOPEERS);
-		    pkg.numtags = 0;
-		    ctp = pkg.ct;
-		}
-            }
+        if ( pkg.numtags >= N_CACHETAGLIST_ITEMS )
+        {
+          _dxf_ExDistributeMsg( DM_EVICTCACHELIST, ( Pointer ) & pkg,
+                                sizeof( CacheTagList ), TOPEERS );
+          pkg.numtags = 0;
+          ctp = pkg.ct;
         }
-        else 
-	    _dxf_ExDictionaryDelete(_dxd_exCacheDict, key);
-	
-	nDeleted ++;
-	    
-	if (nbytes <= DXMaxFreedBlock())
-	    break;
+      }
     }
+    else
+      _dxf_ExDictionaryDelete( _dxd_exCacheDict, key );
 
-    skipped = (obj) ? 1 : 0;
+    nDeleted++;
 
-    if(pkg.numtags > 0)
-        _dxf_ExDistributeMsg(DM_EVICTCACHELIST, (Pointer)&pkg, 
-                             sizeof(CacheTagList), TOPEERS);
+    if ( nbytes <= DXMaxFreedBlock() )
+      break;
+  }
 
-    _dxf_ExDictionaryEndIterate (_dxd_exCacheDict);
+  skipped = ( obj ) ? 1 : 0;
 
-    return skipped;
+  if ( pkg.numtags > 0 )
+    _dxf_ExDistributeMsg( DM_EVICTCACHELIST, ( Pointer ) & pkg,
+                          sizeof( CacheTagList ), TOPEERS );
+
+  _dxf_ExDictionaryEndIterate( _dxd_exCacheDict );
+
+  return skipped;
 }
 
-int _dxf_ExReclaimMemory (ulong nbytes)
+int _dxf_ExReclaimMemory( ulong nbytes )
 {
-    int	status;
-    int	found;
+  int status;
+  int found;
 
-    /*
-     * Sorry, the cache has to stay consistent for a while.  Can't eject
-     * anything at the present time.
-     * Note, that if _dxf_ExReclaimDisable returns TRUE, then someone else has
-     * been mucking with the cache, and may have freed memory, go ahead
-     * and say there's more space.
-     */
+/*
+ * Sorry, the cache has to stay consistent for a while.  Can't eject
+ * anything at the present time.
+ * Note, that if _dxf_ExReclaimDisable returns TRUE, then someone else has
+ * been mucking with the cache, and may have freed memory, go ahead
+ * and say there's more space.
+ */
 
 #if RECLAIM_TIMING
-    DXMarkTimeLocal ("> RECLAIM");
+  DXMarkTimeLocal( "> RECLAIM" );
 #endif
-    if (_dxf_ExReclaimDisable ())
-    {
-	_dxf_ExReclaimEnable ();
-	return (TRUE);
-    }
+  if ( _dxf_ExReclaimDisable() )
+  {
+    _dxf_ExReclaimEnable();
+    return ( TRUE );
+  }
 
-    reclaiming_mem = 1;
+  reclaiming_mem = 1;
 
-    /*
-     * Get the last time this occurred if this is the first time then
-     * we need to initialize this for the entire system.  So, let's 
-     * assume that the last sweep just occurred.
-     */
+  /*
+   * Get the last time this occurred if this is the first time then
+   * we need to initialize this for the entire system.  So, let's
+   * assume that the last sweep just occurred.
+   */
 
-    DXDebug ("*0M", "Memory reclamation:  looking for %lu bytes", nbytes);
+  DXDebug( "*0M", "Memory reclamation:  looking for %lu bytes", nbytes );
 
-    status = get_status ();
-    set_status (PS_RECLAIM);
+  status = get_status();
+  set_status( PS_RECLAIM );
 
-    nDeleted = 0;
+  nDeleted = 0;
 
-    /* 
-     * Now we run over the cache dictionary trying to delete something
-     * that gives us a block big enough.
-     */
-    DXInitMaxFreedBlock();
+  /*
+   * Now we run over the cache dictionary trying to delete something
+   * that gives us a block big enough.
+   */
+  DXInitMaxFreedBlock();
 
-    DXDebug ("M", " initial max free blocksize %lu bytes", DXMaxFreedBlock());
+  DXDebug( "M", " initial max free blocksize %lu bytes", DXMaxFreedBlock() );
 
-    /* 
-     * EXPERIMENT!!  try reclaiming just a bit more than we need, and
-     * if we can't get it than try to get exactly what we do need.  the
-     * idea is that we make larger holes in memory if we reclaim too much
-     * and perhaps delay fragementation by some amount.
-     */
+  /*
+   * EXPERIMENT!!  try reclaiming just a bit more than we need, and
+   * if we can't get it than try to get exactly what we do need.  the
+   * idea is that we make larger holes in memory if we reclaim too much
+   * and perhaps delay fragementation by some amount.
+   */
 
+  /*
+   * ask for too much.  if this fails, see if we got at least
+   * as much as we really need.
+   */
+  found = __ExReclaimMemory( ( ulong )( nbytes * factor ) );
+  if ( found )
+    goto done;
 
-    /*
-     * ask for too much.  if this fails, see if we got at least
-     * as much as we really need.
-     */
-    found = __ExReclaimMemory((ulong)(nbytes*factor));
-    if (found)
-	goto done;
- 
-    DXDebug ("M", " after deleting %d items max blocksize now %lu", 
-	     nDeleted, DXMaxFreedBlock());
-    DXDebug ("M", " could not get %lu bytes (%g times %lu needed)", 
-	     (ulong)(nbytes*factor), factor, nbytes);
+  DXDebug( "M", " after deleting %d items max blocksize now %lu", nDeleted,
+           DXMaxFreedBlock() );
+  DXDebug( "M", " could not get %lu bytes (%g times %lu needed)",
+           ( ulong )( nbytes * factor ), factor, nbytes );
 
-    /*
-     * the first request looked at all objects which were valid to
-     * discard.  there's no point in traversing the same list again.
-     * just look at the largest remaining block and see if it's big enough.
-     */
+  /*
+   * the first request looked at all objects which were valid to
+   * discard.  there's no point in traversing the same list again.
+   * just look at the largest remaining block and see if it's big enough.
+   */
+  found = nbytes <= DXMaxFreedBlock();
+  if ( found )
+    goto done;
+
+  DXDebug( "M", " going to try to compact dictionary" );
+
+  /*
+   * If we still failed, clean up the dictionary and try again
+   */
+
+  if ( _dxf_ExDictionaryCompact( _dxd_exCacheDict ) || _dxf_ExGraphCompact() ||
+       _dxf_EXO_compact() )
+  {
     found = nbytes <= DXMaxFreedBlock();
-    if (found)
-	goto done;
+    if ( !found )
+      found = __ExReclaimMemory( nbytes );
+  }
 
-    DXDebug ("M", " going to try to compact dictionary"); 
-    
-    /*
-     * If we still failed, clean up the dictionary and try again
-     */
+done:
 
+  DXDebug( "M", "deleted %d items, max blocksize now %lu, found=%d", nDeleted,
+           DXMaxFreedBlock(), found );
 
-    if (_dxf_ExDictionaryCompact(_dxd_exCacheDict) ||
-	_dxf_ExGraphCompact() ||
-	_dxf_EXO_compact())
-    {
-       found = nbytes <= DXMaxFreedBlock();
-       if (! found)
-	   found = __ExReclaimMemory(nbytes);
-    }
+  reclaiming_mem = 0;
 
-  done:
-	       
-    DXDebug ("M", "deleted %d items, max blocksize now %lu, found=%d", 
-	     nDeleted, DXMaxFreedBlock(), found);
+  _dxf_ExReclaimEnable();
 
-    reclaiming_mem = 0;
+  set_status( status );
 
-    _dxf_ExReclaimEnable ();
-
-    set_status (status);
-
-    return found;
+  return found;
 }

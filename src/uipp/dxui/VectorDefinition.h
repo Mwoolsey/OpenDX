@@ -9,7 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _VectorDefinition_h
 #define _VectorDefinition_h
 
@@ -17,59 +16,62 @@
 
 #include "ScalarDefinition.h"
 
-
 //
 // Class name definition:
 //
-#define ClassVectorDefinition	"VectorDefinition"
+#define ClassVectorDefinition "VectorDefinition"
 
 //
-// Forward definitions 
+// Forward definitions
 //
 class ParameterDefinition;
 class Interactor;
 
 //
 // VectorDefinition class definition:
-//				
-class VectorDefinition : public ScalarDefinition 
+//
+class VectorDefinition : public ScalarDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
-  public:
-    //
-    // Constructor:
-    //
-    VectorDefinition() { }
+ public:
+  //
+  // Constructor:
+  //
+  VectorDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~VectorDefinition() { }
-	
-    //
-    // Allocate a new VectorDefinition.  
-    // This function is intended to be used as an allocator in
-    // theNDAllocatorDictionary.
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Destructor:
+  //
+  ~VectorDefinition()
+  {
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() 
-		{ return ClassVectorDefinition; }
+  //
+  // Allocate a new VectorDefinition.
+  // This function is intended to be used as an allocator in
+  // theNDAllocatorDictionary.
+  //
+  static NodeDefinition *AllocateDefinition();
+
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char *getClassName()
+  {
+    return ClassVectorDefinition;
+  }
 };
 
-
-#endif // _VectorDefinition_h
+#endif  // _VectorDefinition_h

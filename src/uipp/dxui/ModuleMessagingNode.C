@@ -9,18 +9,16 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #include "ModuleMessagingNode.h"
 
 //
 // Determine if this node is of the given class.
 //
-boolean ModuleMessagingNode::isA(Symbol classname)
+boolean ModuleMessagingNode::isA( Symbol classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(ClassModuleMessagingNode);
-    if (s == classname)
-	return TRUE;
-    else
-	return this->Node::isA(classname);
+  Symbol s = theSymbolManager->registerSymbol( ClassModuleMessagingNode );
+  if ( s == classname )
+    return TRUE;
+  else
+    return this->Node::isA( classname );
 }

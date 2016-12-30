@@ -9,63 +9,57 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _MWClearCmd_h
 #define _MWClearCmd_h
 
-
 #include "NoUndoCommand.h"
-
 
 //
 // Class name definition:
 //
-#define ClassMWClearCmd	"MWClearCmd"
+#define ClassMWClearCmd "MWClearCmd"
 
 class MsgWin;
 
 //
 // MWClearCmd class definition:
-//				
+//
 class MWClearCmd : public NoUndoCommand
 {
-  private:
-    //
-    // Private member data:
-    //
+ private:
+  //
+  // Private member data:
+  //
 
-  protected:
-    //
-    // Protected member data:
-    //
-    MsgWin *messageWindow;
+ protected:
+  //
+  // Protected member data:
+  //
+  MsgWin *messageWindow;
 
-    virtual boolean doIt(CommandInterface *ci);
+  virtual boolean doIt( CommandInterface *ci );
 
-  public:
-    //
-    // Constructor:
-    //
-    MWClearCmd(const char *name,
-	       CommandScope *scope,
-	       boolean active,
-	       MsgWin *win);
+ public:
+  //
+  // Constructor:
+  //
+  MWClearCmd( const char *name, CommandScope *scope, boolean active,
+              MsgWin *win );
 
-    //
-    // Destructor:
-    //
-    ~MWClearCmd(){}
+  //
+  // Destructor:
+  //
+  ~MWClearCmd()
+  {
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassMWClearCmd;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassMWClearCmd;
+  }
 };
 
-
-#endif // _MWClearCmd_h
+#endif  // _MWClearCmd_h

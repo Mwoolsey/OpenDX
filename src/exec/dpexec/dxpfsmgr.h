@@ -6,12 +6,13 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dpexec/dxpfsmgr.h,v 1.2 2000/08/11 15:28:10 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dpexec/dxpfsmgr.h,v 1.2 2000/08/11 15:28:10
+ * davidt Exp $
  */
 
-#ifndef _DXPFSMGR_H 
+#ifndef _DXPFSMGR_H
 #define _DXPFSMGR_H
 
-Error _dxf_pfsmgr(int argc, char **argv);
+Error _dxf_pfsmgr( int argc, char **argv );
 
 #endif /* _DXPFSMGR_H */

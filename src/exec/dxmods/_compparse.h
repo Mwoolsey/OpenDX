@@ -1,7 +1,8 @@
 /* A Bison parser, made by GNU Bison 1.875.  */
 
 /* Skeleton parser for Yacc-like parsing with Bison,
-   Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002 Free Software Foundation,
+   Inc.
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -25,51 +26,52 @@
 
 /* Tokens.  */
 #ifndef YYTOKENTYPE
-# define YYTOKENTYPE
-   /* Put the tokens into the symbol table, so that GDB and other debuggers
-      know about them.  */
-   enum yytokentype {
-     T_NAME = 258,
-     T_FLOAT = 259,
-     T_DOUBLE = 260,
-     T_INT = 261,
-     T_INPUT = 262,
-     T_ID = 263,
-     T_STRING = 264,
-     T_EOF = 265,
-     T_LPAR = 266,
-     T_RPAR = 267,
-     T_LBRA = 268,
-     T_RBRA = 269,
-     T_LSQB = 270,
-     T_RSQB = 271,
-     T_COMMA = 272,
-     T_PERIOD = 273,
-     T_COLON = 274,
-     T_LOR = 275,
-     T_LAND = 276,
-     T_LNOT = 277,
-     T_LT = 278,
-     T_LE = 279,
-     T_GT = 280,
-     T_GE = 281,
-     T_EQ = 282,
-     T_NE = 283,
-     T_QUEST = 284,
-     T_CROSS = 285,
-     T_DOT = 286,
-     T_PLUS = 287,
-     T_MINUS = 288,
-     T_EXP = 289,
-     T_TIMES = 290,
-     T_DIV = 291,
-     T_MOD = 292,
-     T_ASSIGN = 293,
-     T_SEMI = 294,
-     U_PLUS = 295,
-     U_MINUS = 296,
-     U_LNOT = 297
-   };
+#define YYTOKENTYPE
+/* Put the tokens into the symbol table, so that GDB and other debuggers
+   know about them.  */
+enum yytokentype
+{
+  T_NAME = 258,
+  T_FLOAT = 259,
+  T_DOUBLE = 260,
+  T_INT = 261,
+  T_INPUT = 262,
+  T_ID = 263,
+  T_STRING = 264,
+  T_EOF = 265,
+  T_LPAR = 266,
+  T_RPAR = 267,
+  T_LBRA = 268,
+  T_RBRA = 269,
+  T_LSQB = 270,
+  T_RSQB = 271,
+  T_COMMA = 272,
+  T_PERIOD = 273,
+  T_COLON = 274,
+  T_LOR = 275,
+  T_LAND = 276,
+  T_LNOT = 277,
+  T_LT = 278,
+  T_LE = 279,
+  T_GT = 280,
+  T_GE = 281,
+  T_EQ = 282,
+  T_NE = 283,
+  T_QUEST = 284,
+  T_CROSS = 285,
+  T_DOT = 286,
+  T_PLUS = 287,
+  T_MINUS = 288,
+  T_EXP = 289,
+  T_TIMES = 290,
+  T_DIV = 291,
+  T_MOD = 292,
+  T_ASSIGN = 293,
+  T_SEMI = 294,
+  U_PLUS = 295,
+  U_MINUS = 296,
+  U_LNOT = 297
+};
 #endif
 #define T_NAME 258
 #define T_FLOAT 259
@@ -112,27 +114,20 @@
 #define U_MINUS 296
 #define U_LNOT 297
 
-
-
-
-#if ! defined (YYSTYPE) && ! defined (YYSTYPE_IS_DECLARED)
+#if !defined( YYSTYPE ) && !defined( YYSTYPE_IS_DECLARED )
 #line 27 "./_compparse.y"
-typedef union YYSTYPE {
+typedef union YYSTYPE
+{
 #define MAX_PARSE_STRING_SIZE 512
-    char s[MAX_PARSE_STRING_SIZE];
-    int i;
-    float f;
-    double d;
-    PTreeNode *a;
+  char s[MAX_PARSE_STRING_SIZE];
+  int i;
+  float f;
+  double d;
+  PTreeNode *a;
 } YYSTYPE;
 /* Line 1248 of yacc.c.  */
 #line 129 "y.tab.h"
-# define yystype YYSTYPE /* obsolescent; will be withdrawn */
-# define YYSTYPE_IS_DECLARED 1
-# define YYSTYPE_IS_TRIVIAL 1
+#define yystype YYSTYPE /* obsolescent; will be withdrawn */
+#define YYSTYPE_IS_DECLARED 1
+#define YYSTYPE_IS_TRIVIAL 1
 #endif
-
-
-
-
-

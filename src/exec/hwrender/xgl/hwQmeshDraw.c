@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/xgl/hwQmeshDraw.c,v $
 
@@ -45,22 +44,22 @@
  *
  * Revision 7.1  94/01/18  19:00:10  svs
  * changes since release 2.0.1
- * 
+ *
  * Revision 6.1  93/11/16  10:26:14  svs
  * ship level code, release 2.0
- * 
+ *
  * Revision 1.2  93/07/21  21:37:43  mjh
  * #include "hwXfield.h"
- * 
+ *
  * Revision 1.1  93/06/29  10:01:41  tjm
  * Initial revision
- * 
+ *
  * Revision 5.2  93/04/30  23:44:33  mjh
  * use same code as hwTmeshDraw.c
- * 
+ *
  *
 \*---------------------------------------------------------------------------*/
-  
+
 #include "hwDeclarations.h"
 #include "hwPortXGL.h"
 #include "hwPortLayer.h"
@@ -69,20 +68,19 @@
 #include "hwQmesh.h"
 #include "hwCacheUtilXGL.h"
 
-#define tdmMeshDraw      _dxfQmeshDraw
-#define tdmPolygonDraw   _dxfQuadDraw
-#define tdm_get_mesh     _dxf_get_qmesh
-#define Mesh             Qmesh
-#define mesh             qmesh
-#define CpfMsh          "CpfQmsh"
-#define CpcMsh          "CpcQmsh"
-#define CpvMsh          "CpvQmsh"
-#define Strip            Qstrip
-#define strip            qstrip
-#define strips           qstrips
+#define tdmMeshDraw _dxfQmeshDraw
+#define tdmPolygonDraw _dxfQuadDraw
+#define tdm_get_mesh _dxf_get_qmesh
+#define Mesh Qmesh
+#define mesh qmesh
+#define CpfMsh "CpfQmsh"
+#define CpcMsh "CpcQmsh"
+#define CpvMsh "CpvQmsh"
+#define Strip Qstrip
+#define strip qstrip
+#define strips qstrips
 
-Qmesh *
-_dxf_get_qmesh (Field f, int ntriangles, int *triangles,
-		int npoints, float *points) ;
+Qmesh *_dxf_get_qmesh( Field f, int ntriangles, int *triangles, int npoints,
+                       float *points );
 
 #include "hwMeshDraw.c.h"

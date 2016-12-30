@@ -9,16 +9,12 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "SelectorNode.h"
 #include "SelectorInstance.h"
 
-
-SelectorNode::SelectorNode(NodeDefinition *nd, Network *net, int instnc) :
-                SelectionNode(nd, net, instnc) 
-{ 
+SelectorNode::SelectorNode( NodeDefinition *nd, Network *net, int instnc )
+    : SelectionNode( nd, net, instnc )
+{
 }
 SelectorNode::~SelectorNode()
 {
@@ -28,42 +24,42 @@ SelectorNode::~SelectorNode()
 //
 InteractorInstance *SelectorNode::newInteractorInstance()
 {
-    SelectorInstance *si = new SelectorInstance(this);
-    return (SelectorInstance*)si;
+  SelectorInstance *si = new SelectorInstance( this );
+  return (SelectorInstance *)si;
 }
 
 //
 // Determine if this node is of the given class.
 //
-boolean SelectorNode::isA(Symbol classname)
+boolean SelectorNode::isA( Symbol classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(ClassSelectorNode);
-    if (s == classname)
-	return TRUE;
-    else
-	return this->InteractorNode::isA(classname);
+  Symbol s = theSymbolManager->registerSymbol( ClassSelectorNode );
+  if ( s == classname )
+    return TRUE;
+  else
+    return this->InteractorNode::isA( classname );
 }
 //
 // Deselect all current selections and make the given index
 // the current selection.
 //
-void SelectorNode::setSelectedOptionIndex(int index, boolean send)
+void SelectorNode::setSelectedOptionIndex( int index, boolean send )
 {
-    if (this->getSelectedOptionIndex() == index)
-	return;
+  if ( this->getSelectedOptionIndex() == index )
+    return;
 
-    this->setSelectedOptions(&index,1,send,send);
+  this->setSelectedOptions( &index, 1, send, send );
 }
 //
 // If there is only one item selectegd, then return its index.
-// otherwise return 0. 
+// otherwise return 0.
 //
 int SelectorNode::getSelectedOptionIndex()
 {
-    if (this->getSelectedOptionCount() != 1)
-	return 0;
+  if ( this->getSelectedOptionCount() != 1 )
+    return 0;
 
-    return (int)(long)this->selectedOptions.getElement(1);
+  return (int)(long)this->selectedOptions.getElement( 1 );
 }
 
 //
@@ -71,10 +67,9 @@ int SelectorNode::getSelectedOptionIndex()
 //
 const char *SelectorNode::getInitialValueList()
 {
-    return "{ 1 0 }";
+  return "{ 1 0 }";
 }
 const char *SelectorNode::getInitialStringList()
 {
-    return "{ \"on\" \"off\" }";
+  return "{ \"on\" \"off\" }";
 }
-

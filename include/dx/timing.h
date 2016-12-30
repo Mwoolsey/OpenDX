@@ -8,7 +8,7 @@
 
 /* TeX starts here. Do not remove this comment. */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -27,8 +27,8 @@ For modules linked into the Data Explorer, the Trace module should
 be used to enable recording of times and to print the recorded times.
 */
 
-void DXMarkTime(char *s);
-void DXMarkTimeLocal(char *s);
+void DXMarkTime( char *s );
+void DXMarkTimeLocal( char *s );
 /**
 \index{DXMarkTime}\index{DXMarkTimeLocal}
 {\tt DXMarkTime()}) records a ``global'' time mark relevant to the
@@ -37,7 +37,7 @@ relevant just to one processor, as for example during a parallel
 section.
 **/
 
-void DXPrintTimes(void);
+void DXPrintTimes( void );
 /**
 \index{DXPrintTimes}
 Prints information about the ``global'' time events recorded by {\tt
@@ -65,7 +65,7 @@ via the Trace module just before execution of the module to be timed,
 and to disable them immediately afterwards.
 **/
 
-void DXTraceTime(int t);
+void DXTraceTime( int t );
 /**
 \index{DXTraceTime}
 Enables ({\tt t=1}) or disables ({\tt t=0}) the accumulation of time
@@ -73,7 +73,7 @@ marks by {\tt DXMarkTime()} and {\tt DXMarkTimeLocal()} and the printing of
 timing messages by {\tt DXPrintTimes()}.
 **/
 
-double DXGetTime(void);
+double DXGetTime( void );
 /**
 \index{DXGetTime}
 Returns the elapsed time in seconds since some unspecified reference
@@ -81,7 +81,7 @@ point.  The reference point may differ between invocations of the
 system, but within one invocation the reference point remains fixed.
 **/
 
-void DXWaitTime(double seconds);
+void DXWaitTime( double seconds );
 /**
 \index{DXWaitTime}
 Returns after the requested number of seconds has elapsed.
@@ -89,6 +89,6 @@ Returns after the requested number of seconds has elapsed.
 
 #endif /* _DXI_TIMING_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

@@ -9,8 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #include "ReceiverDefinition.h"
 #include "ReceiverNode.h"
 #include "ItalicLabeledStandIn.h"
@@ -20,25 +18,22 @@
 
 NodeDefinition *ReceiverDefinition::AllocateDefinition()
 {
-    return new ReceiverDefinition;
+  return new ReceiverDefinition;
 }
 
-
-ReceiverDefinition::ReceiverDefinition() : 
-    NodeDefinition()
+ReceiverDefinition::ReceiverDefinition() : NodeDefinition()
 {
 }
 
-
-Node *ReceiverDefinition::newNode(Network *net, int instance)
+Node *ReceiverDefinition::newNode( Network *net, int instance )
 {
-    ReceiverNode *d = new ReceiverNode(this, net, instance);
-    return d;
+  ReceiverNode *d = new ReceiverNode( this, net, instance );
+  return d;
 }
 
 SIAllocator ReceiverDefinition::getSIAllocator()
 {
-   return ItalicLabeledStandIn::AllocateStandIn;
+  return ItalicLabeledStandIn::AllocateStandIn;
 }
 
 //
@@ -58,17 +53,18 @@ SIAllocator ReceiverDefinition::getSIAllocator()
 //
 // Note:  Transmitter has this problem, also.  (It appears not to have an
 // output but it really does.  You just can't see the tab for it.)  Transmitter
-// gets a special setting in ui.mdf which sets it cache value to OutputNotCached.
+// gets a special setting in ui.mdf which sets it cache value to
+// OutputNotCached.
 //
 void ReceiverDefinition::finishDefinition()
 {
-    this->NodeDefinition::finishDefinition();
-    ParameterDefinition *pd;
+  this->NodeDefinition::finishDefinition();
+  ParameterDefinition *pd;
 
-    ListIterator iterator(this->outputDefs);
-    while ( (pd = (ParameterDefinition*)iterator.getNext()) ) {
-	pd->setWriteableCacheability(FALSE);
-	pd->setDefaultCacheability(OutputNotCached);
-    }
+  ListIterator iterator( this->outputDefs );
+  while ( ( pd = (ParameterDefinition *)iterator.getNext() ) )
+  {
+    pd->setWriteableCacheability( FALSE );
+    pd->setDefaultCacheability( OutputNotCached );
+  }
 }
-

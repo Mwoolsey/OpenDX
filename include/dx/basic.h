@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -30,14 +29,15 @@ but are defined as a separate type for preciseness in interface
 definitions.
 */
 
-typedef struct point {
-    float x, y, z;
+typedef struct point
+{
+  float x, y, z;
 } Point, Vector;
 
 typedef int PointId;
 
-Point DXPt(double x, double y, double z);
-Point DXVec(double x, double y, double z);
+Point DXPt( double x, double y, double z );
+Point DXVec( double x, double y, double z );
 /**
 \index{Point}\index{Vector}\index{DXPt}\index{DXVec}
 Constructs a point or a vector with the given coordinates.
@@ -50,30 +50,35 @@ object.  They refer to points by point identifiers.
 \index{Line}\index{Triangle}\index{Tetrahedra}
 */
 
-typedef struct line {
-    PointId p, q;
+typedef struct line
+{
+  PointId p, q;
 } Line;
 
-typedef struct triangle {
-    PointId p, q, r;
+typedef struct triangle
+{
+  PointId p, q, r;
 } Triangle;
 
-typedef struct quadrilateral {
-    PointId p, q, r, s;
+typedef struct quadrilateral
+{
+  PointId p, q, r, s;
 } Quadrilateral;
 
-typedef struct tetrahedron {
-    PointId p, q, r, s;
+typedef struct tetrahedron
+{
+  PointId p, q, r, s;
 } Tetrahedron;
 
-typedef struct cube {
-    PointId p, q, r, s, t, u, v, w;
+typedef struct cube
+{
+  PointId p, q, r, s, t, u, v, w;
 } Cube;
 
-Line DXLn(PointId p, PointId q);
-Triangle DXTri(PointId p, PointId q, PointId r);
-Quadrilateral DXQuad(PointId p, PointId q, PointId r, PointId s);
-Tetrahedron DXTetra(PointId p, PointId q, PointId r, PointId s);
+Line DXLn( PointId p, PointId q );
+Triangle DXTri( PointId p, PointId q, PointId r );
+Quadrilateral DXQuad( PointId p, PointId q, PointId r, PointId s );
+Tetrahedron DXTetra( PointId p, PointId q, PointId r, PointId s );
 /**
 \index{DXLn}\index{DXTri}\index{DXQuad}\index{DXTetra}
 Constructs a line, triangle, quadrilateral, or tetrahedron given the
@@ -94,15 +99,17 @@ convenience, Data Explorer provides a routine that constructs an DXRGB
 color structure.
 */
 
-typedef struct rgbcolor {
-    float r, g, b;
+typedef struct rgbcolor
+{
+  float r, g, b;
 } RGBColor;
 
-typedef struct rgbbytecolor {
-    ubyte r, g, b;
+typedef struct rgbbytecolor
+{
+  ubyte r, g, b;
 } RGBByteColor;
 
-RGBColor DXRGB(double r, double g, double b);
+RGBColor DXRGB( double r, double g, double b );
 /**
 \index{RGBColor}\index{DXRGB}
 Constructs an DXRGB color structure with the given components.
@@ -117,8 +124,8 @@ For example, {\tt 5*DEG} is 5 degrees in radians.
 */
 
 typedef double Angle;
-#define DEG (6.283185307179586476925287/360)
-#define RAD (1)
+#define DEG ( 6.283185307179586476925287 / 360 )
+#define RAD ( 1 )
 
 /*
 \paragraph{Transformation matrices.}
@@ -133,44 +140,41 @@ component is used for perspective, which is specified by a camera and
 is not needed here.  \index{Matrix}\index{Identity}
 */
 
-typedef struct matrix {
-    /* xA + b */
-    float A[3][3];
-    float b[3];
+typedef struct matrix
+{
+  /* xA + b */
+  float A[3][3];
+  float b[3];
 } Matrix;
 
 /*
 Transformation matrices may be specified in a number of ways:
 */
 
-Matrix DXRotateX(Angle angle);
-Matrix DXRotateY(Angle angle);
-Matrix DXRotateZ(Angle angle);
+Matrix DXRotateX( Angle angle );
+Matrix DXRotateY( Angle angle );
+Matrix DXRotateZ( Angle angle );
 /**
 \index{DXRotateX}\index{DXRotateY}\index{DXRotateZ}
 Returns a matrix that specifies a rotation about the $x$, $y$
 or $z$ axis.
 **/
 
-Matrix DXScale(double x, double y, double z);
+Matrix DXScale( double x, double y, double z );
 /**
 \index{DXScale}
 Returns a matrix that specifies a scaling along the $x$, $y$ and/or
 $z$ axes.
 **/
 
-Matrix DXTranslate(Vector v);
+Matrix DXTranslate( Vector v );
 /**
 \index{DXTranslate}
 Returns a matrix that specifies a translation by {\tt v}.
 **/
 
-Matrix DXMat(
-    double a, double b, double c,
-    double d, double e, double f,
-    double g, double h, double i,
-    double j, double k, double l
-);
+Matrix DXMat( double a, double b, double c, double d, double e, double f,
+              double g, double h, double i, double j, double k, double l );
 /**
 \index{DXMat}
 Returns a matrix with the specified components.
@@ -186,55 +190,55 @@ structure.  These operations all take their arguments by value and return
 the result.
 */
 
-Vector DXNeg(Vector v);
-Vector DXNormalize(Vector v);
-double DXLength(Vector v);
+Vector DXNeg( Vector v );
+Vector DXNormalize( Vector v );
+double DXLength( Vector v );
 /**
 \index{DXNeg}\index{DXNormalize}\index{DXLength}
 Performs unary vector operations of negation, normalization and length.
 **/
 
-Vector DXAdd(Vector v, Vector w);
-Vector DXSub(Vector v, Vector w);
-Vector DXMin(Vector v, Vector w);
-Vector DXMax(Vector v, Vector w);
+Vector DXAdd( Vector v, Vector w );
+Vector DXSub( Vector v, Vector w );
+Vector DXMin( Vector v, Vector w );
+Vector DXMax( Vector v, Vector w );
 /**
 \index{DXAdd}\index{DXSub}\index{DXMin}\index{DXMax}
 Performs binary vector operations of addition, subtraction, min and max.
 **/
 
-Vector DXMul(Vector v, double f);
-Vector DXDiv(Vector v, double f);
+Vector DXMul( Vector v, double f );
+Vector DXDiv( Vector v, double f );
 /**
 \index{DXMul}\index{DXDiv}
 Multiplies or divides a vector by a float.
 **/
 
-float DXDot(Vector v, Vector w);
-Vector DXCross(Vector v, Vector w);
+float DXDot( Vector v, Vector w );
+Vector DXCross( Vector v, Vector w );
 /**
 \index{DXDot}\index{DXCross}
 Forms the dot product or cross product of two vectors.
 **/
 
-Matrix DXConcatenate(Matrix s, Matrix t);
+Matrix DXConcatenate( Matrix s, Matrix t );
 /**
 \index{DXConcatenate}
 Returns a matrix that is equivalent to transformation matrix {\tt s}
 followed by transformation matrix {\tt t}.
 **/
 
-Matrix DXInvert(Matrix t);
-Matrix DXTranspose(Matrix t);
-Matrix DXAdjointTranspose(Matrix t);
-float DXDeterminant(Matrix t);
+Matrix DXInvert( Matrix t );
+Matrix DXTranspose( Matrix t );
+Matrix DXAdjointTranspose( Matrix t );
+float DXDeterminant( Matrix t );
 /**
 \index{DXInvert}\index{DXTranspose}\index{Adjoint}\index{DXDeterminant}
 Computes the matrix inverse, transpose, and adjoint transpose, and
 determinant, respectively.
 **/
 
-Vector DXApply(Vector v, Matrix t);
+Vector DXApply( Vector v, Matrix t );
 /**
 \index{DXApply}
 Forms the product of vector {\tt v} (interpreted as a row vector) with
@@ -243,6 +247,6 @@ the matrix~{\tt t}.
 
 #endif /* _DXI_BASIC_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

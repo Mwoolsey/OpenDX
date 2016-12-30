@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 /******************************************************************************
  * These functions were provided by HP with /usr/lib/starbase/demos/SBUTILS
  *
@@ -23,7 +22,8 @@
  *
  ******************************************************************************/
 /*
- $Header: /src/master/dx/src/exec/hwrender/starbase/wsutils.c,v 1.3 1999/05/10 15:45:39 gda Exp $
+ $Header: /src/master/dx/src/exec/hwrender/starbase/wsutils.c,v 1.3 1999/05/10
+ 15:45:39 gda Exp $
 */
 
 #include <X11/X.h>
@@ -43,11 +43,11 @@
 
 #include "hwDebug.h"
 
-#define STATIC_GRAY	0x01
-#define GRAY_SCALE	0x02
-#define PSEUDO_COLOR	0x04
-#define TRUE_COLOR	0x10
-#define DIRECT_COLOR	0x11
+#define STATIC_GRAY 0x01
+#define GRAY_SCALE 0x02
+#define PSEUDO_COLOR 0x04
+#define TRUE_COLOR 0x10
+#define DIRECT_COLOR 0x11
 
 /******************************************************************************
  *
@@ -71,117 +71,113 @@
  *
  ******************************************************************************/
 
-int GetXVisualInfo(Display *display, int screen, 
-	int *transparentOverlays, int *numVisuals, XVisualInfo **pVisuals,
-	int *numOverlayVisuals, OverlayInfo **pOverlayVisuals,
-	int *numImageVisuals, XVisualInfo ***pImageVisuals)
+int GetXVisualInfo( Display *display, int screen, int *transparentOverlays,
+                    int *numVisuals, XVisualInfo **pVisuals,
+                    int *numOverlayVisuals, OverlayInfo **pOverlayVisuals,
+                    int *numImageVisuals, XVisualInfo ***pImageVisuals )
 
 {
-    XVisualInfo	getVisInfo;		/* Paramters of XGetVisualInfo */
-    int		mask;
-    XVisualInfo	*pVis, **pIVis;		/* Faster, local copies */
-    OverlayInfo	*pOVis;
-    OverlayVisualPropertyRec	*pOOldVis;
-    int		nVisuals, nOVisuals, nIVisuals;
-    Atom	overlayVisualsAtom;	/* Parameters for XGetWindowProperty */
-    Atom	actualType;
-    unsigned long numLongs, bytesAfter;
-    int		actualFormat;
-    int		nImageVisualsAlloced;	/* Values to process the XVisualInfo */
-    int		imageVisual;		/* array */
+  XVisualInfo getVisInfo; /* Paramters of XGetVisualInfo */
+  int mask;
+  XVisualInfo *pVis, **pIVis; /* Faster, local copies */
+  OverlayInfo *pOVis;
+  OverlayVisualPropertyRec *pOOldVis;
+  int nVisuals, nOVisuals, nIVisuals;
+  Atom overlayVisualsAtom; /* Parameters for XGetWindowProperty */
+  Atom actualType;
+  unsigned long numLongs, bytesAfter;
+  int actualFormat;
+  int nImageVisualsAlloced; /* Values to process the XVisualInfo */
+  int imageVisual;          /* array */
 
+  ENTRY( ( "GetXVisualInfo(0x%x, %d, 0x%x, 0x%x, 0x%x, 0x%x, 0x%x, 0x%x, 0x%x)",
+           display, screen, transparentOverlays, numVisuals, pVisuals,
+           numOverlayVisuals, pOverlayVisuals, numImageVisuals,
+           pImageVisuals ) );
 
-    ENTRY(("GetXVisualInfo(0x%x, %d, 0x%x, 0x%x, 0x%x, 0x%x, 0x%x, 0x%x, 0x%x)",
-	   display, screen, transparentOverlays, numVisuals, pVisuals,
-	   numOverlayVisuals, pOverlayVisuals, numImageVisuals, pImageVisuals));
+  /* First, get the list of visuals for this screen. */
+  getVisInfo.screen = screen;
+  mask = VisualScreenMask;
 
-    /* First, get the list of visuals for this screen. */
-    getVisInfo.screen = screen;
-    mask = VisualScreenMask; 
+  *pVisuals = XGetVisualInfo( display, mask, &getVisInfo, numVisuals );
+  if ( ( nVisuals = *numVisuals ) <= 0 )
+  {
+    /* Return that the information wasn't sucessfully obtained: */
+    EXIT( ( "1" ) );
+    return ( 1 );
+  }
+  pVis = *pVisuals;
 
-    *pVisuals = XGetVisualInfo(display, mask, &getVisInfo, numVisuals);
-    if ((nVisuals = *numVisuals) <= 0)
-    {
-      /* Return that the information wasn't sucessfully obtained: */
-      EXIT(("1"));
-      return(1);
-    }
-    pVis = *pVisuals;
-
-
-    /* Now, get the overlay visual information for this screen.  To obtain
-     * this information, get the SERVER_OVERLAY_VISUALS property.
+  /* Now, get the overlay visual information for this screen.  To obtain
+   * this information, get the SERVER_OVERLAY_VISUALS property.
+   */
+  overlayVisualsAtom = XInternAtom( display, "SERVER_OVERLAY_VISUALS", True );
+  if ( overlayVisualsAtom != None )
+  {
+    /* Since the Atom exists, we can request the property's contents.  The
+     * do-while loop makes sure we get the entire list from the X server.
      */
-    overlayVisualsAtom = XInternAtom(display, "SERVER_OVERLAY_VISUALS", True);
-    if (overlayVisualsAtom != None)
+    bytesAfter = 0;
+    numLongs = sizeof( OverlayVisualPropertyRec ) / 4;
+    do
     {
-	/* Since the Atom exists, we can request the property's contents.  The
-	 * do-while loop makes sure we get the entire list from the X server.
-	 */
-	bytesAfter = 0;
-	numLongs = sizeof(OverlayVisualPropertyRec) / 4;
-	do
-	{
-	    numLongs += bytesAfter * 4;
-	    XGetWindowProperty(display, RootWindow(display, screen),
-		overlayVisualsAtom, 0, numLongs, False,
-		overlayVisualsAtom, &actualType, &actualFormat,
-		&numLongs, &bytesAfter, (unsigned char **)pOverlayVisuals);
-	} while (bytesAfter > 0);
+      numLongs += bytesAfter * 4;
+      XGetWindowProperty(
+          display, RootWindow( display, screen ), overlayVisualsAtom, 0,
+          numLongs, False, overlayVisualsAtom, &actualType, &actualFormat,
+          &numLongs, &bytesAfter, (unsigned char **)pOverlayVisuals );
+    } while ( bytesAfter > 0 );
 
+    /* Calculate the number of overlay visuals in the list. */
+    *numOverlayVisuals = numLongs / ( sizeof( OverlayVisualPropertyRec ) / 4 );
+  }
+  else
+  {
+    /* This screen doesn't have overlay planes. */
+    *numOverlayVisuals = 0;
+    *pOverlayVisuals = NULL;
+    *transparentOverlays = 0;
+  }
 
-	/* Calculate the number of overlay visuals in the list. */
-	*numOverlayVisuals = numLongs / (sizeof(OverlayVisualPropertyRec) / 4);
-    }
-    else
+  /* Process the pVisuals array. */
+  *numImageVisuals = 0;
+  nImageVisualsAlloced = 1;
+  pIVis = *pImageVisuals = (XVisualInfo **)tdmAllocateLocal( 4 );
+
+  while ( --nVisuals >= 0 )
+  {
+    nOVisuals = *numOverlayVisuals;
+    pOVis = *pOverlayVisuals;
+    imageVisual = True;
+    while ( --nOVisuals >= 0 )
     {
-	/* This screen doesn't have overlay planes. */
-	*numOverlayVisuals = 0;
-	*pOverlayVisuals = NULL;
-	*transparentOverlays = 0;
+      pOOldVis = (OverlayVisualPropertyRec *)pOVis;
+      if ( pVis->visualid == pOOldVis->visualID )
+      {
+        imageVisual = False;
+        pOVis->pOverlayVisualInfo = pVis;
+        if ( pOVis->transparentType == TransparentPixel )
+          *transparentOverlays = 1;
+      }
+      pOVis++;
     }
-
-
-    /* Process the pVisuals array. */
-    *numImageVisuals = 0;
-    nImageVisualsAlloced = 1;
-    pIVis = *pImageVisuals = (XVisualInfo **) tdmAllocateLocal(4);
-
-    while (--nVisuals >= 0)
+    if ( imageVisual )
     {
-	nOVisuals = *numOverlayVisuals;
-	pOVis = *pOverlayVisuals;
-	imageVisual = True;
-	while (--nOVisuals >= 0)
-	{
-	    pOOldVis = (OverlayVisualPropertyRec *) pOVis;
-	    if (pVis->visualid == pOOldVis->visualID)
-	    {
-		imageVisual = False;
-		pOVis->pOverlayVisualInfo = pVis;
-		if (pOVis->transparentType == TransparentPixel)
-		    *transparentOverlays = 1;
-	    }
-	    pOVis++;
-	}
-	if (imageVisual)
-	{
-	    if ((*numImageVisuals += 1) > nImageVisualsAlloced)
-	    {
-	      nImageVisualsAlloced++ ;
-	      *pImageVisuals = (XVisualInfo **)
-		tdmReAllocate(*pImageVisuals, nImageVisualsAlloced * 4) ;
-	      pIVis = *pImageVisuals + (*numImageVisuals - 1) ;
-	    }
-	    *pIVis++ = pVis;
-	}
-	pVis++;
+      if ( ( *numImageVisuals += 1 ) > nImageVisualsAlloced )
+      {
+        nImageVisualsAlloced++;
+        *pImageVisuals = (XVisualInfo **)tdmReAllocate(
+            *pImageVisuals, nImageVisualsAlloced * 4 );
+        pIVis = *pImageVisuals + ( *numImageVisuals - 1 );
+      }
+      *pIVis++ = pVis;
     }
+    pVis++;
+  }
 
-
-    /* Return that the information was sucessfully obtained: */
-    EXIT(("0"));
-    return(0);
+  /* Return that the information was sucessfully obtained: */
+  EXIT( ( "0" ) );
+  return ( 0 );
 } /* GetXVisualInfo() */
 
 /******************************************************************************
@@ -204,331 +200,325 @@ int GetXVisualInfo(Display *display, int screen,
  *
  ******************************************************************************/
 
-int FindImagePlanesVisual(Display *display, int screen, int numImageVisuals, 
-	XVisualInfo **pImageVisuals, int sbCmapHint, int depthHint,
-	int depthFlexibility, Visual **pImageVisualToUse, int *depthObtained)
+int FindImagePlanesVisual( Display *display, int screen, int numImageVisuals,
+                           XVisualInfo **pImageVisuals, int sbCmapHint,
+                           int depthHint, int depthFlexibility,
+                           Visual **pImageVisualToUse, int *depthObtained )
 {
-    XVisualInfo	*pVisualInfoToUse;	/* The current best visual to use. */
-    int		i;
-    int		visMask;
-    int		curDelta, newDelta;
+  XVisualInfo *pVisualInfoToUse; /* The current best visual to use. */
+  int i;
+  int visMask;
+  int curDelta, newDelta;
 
-    ENTRY(("FindImagePlanesVisual(0x%x, %d, %d, 0x%x, %d, %d, %d, 0x%x, 0x%x)",
-	   display, screen, numImageVisuals, pImageVisuals, sbCmapHint,
-	   depthHint, depthFlexibility, pImageVisualToUse, depthObtained));
+  ENTRY( ( "FindImagePlanesVisual(0x%x, %d, %d, 0x%x, %d, %d, %d, 0x%x, 0x%x)",
+           display, screen, numImageVisuals, pImageVisuals, sbCmapHint,
+           depthHint, depthFlexibility, pImageVisualToUse, depthObtained ) );
 
-    switch (sbCmapHint)
+  switch ( sbCmapHint )
+  {
+    case SB_CMAP_TYPE_NORMAL:
+    case SB_CMAP_TYPE_NORMAL | SB_CMAP_TYPE_MONOTONIC:
+    case SB_CMAP_TYPE_NORMAL | SB_CMAP_TYPE_MONOTONIC | SB_CMAP_TYPE_FULL:
+    case SB_CMAP_TYPE_NORMAL | SB_CMAP_TYPE_FULL:
+      visMask = GRAY_SCALE | PSEUDO_COLOR;
+      break;
+    case SB_CMAP_TYPE_MONOTONIC:
+      visMask = STATIC_GRAY | GRAY_SCALE | PSEUDO_COLOR;
+      break;
+    case SB_CMAP_TYPE_MONOTONIC | SB_CMAP_TYPE_FULL:
+      visMask = GRAY_SCALE | PSEUDO_COLOR;
+      break;
+    case SB_CMAP_TYPE_FULL:
+      visMask = GRAY_SCALE | PSEUDO_COLOR | TRUE_COLOR | DIRECT_COLOR;
+      break;
+    default:
+      /* The caller didn't specify a valid combination of CMAP_ type: */
+      EXIT( ( "1" ) );
+      return ( 1 );
+  } /* switch (sbCmapHint) */
+
+  pVisualInfoToUse = NULL;
+
+  for ( i = 0; i < numImageVisuals; i++ )
+  {
+    switch ( pImageVisuals[i]->class )
     {
-	case SB_CMAP_TYPE_NORMAL:
-	case SB_CMAP_TYPE_NORMAL | SB_CMAP_TYPE_MONOTONIC:
-	case SB_CMAP_TYPE_NORMAL | SB_CMAP_TYPE_MONOTONIC | SB_CMAP_TYPE_FULL:
-	case SB_CMAP_TYPE_NORMAL | SB_CMAP_TYPE_FULL:
-	    visMask = GRAY_SCALE | PSEUDO_COLOR;
-	    break;
-	case SB_CMAP_TYPE_MONOTONIC:
-	    visMask = STATIC_GRAY | GRAY_SCALE | PSEUDO_COLOR;
-	    break;
-	case SB_CMAP_TYPE_MONOTONIC | SB_CMAP_TYPE_FULL:
-	    visMask = GRAY_SCALE | PSEUDO_COLOR;
-	    break;
-	case SB_CMAP_TYPE_FULL:
-	    visMask = GRAY_SCALE | PSEUDO_COLOR | TRUE_COLOR | DIRECT_COLOR;
-	    break;
-	default:
-	    /* The caller didn't specify a valid combination of CMAP_ type: */
-	    EXIT(("1"));
-	    return(1);
-    } /* switch (sbCmapHint) */
+      case StaticGray:
+        if ( visMask & STATIC_GRAY )
+        {
+          if ( pVisualInfoToUse == NULL )
+          {
+            if ( ( pImageVisuals[i]->depth == depthHint ) || depthFlexibility )
+            {
+              pVisualInfoToUse = pImageVisuals[i];
+            }
+          }
+          else
+          {
+            if ( pImageVisuals[i]->depth == depthHint )
+              pVisualInfoToUse = pImageVisuals[i];
+            else if ( depthFlexibility )
+            {
+              /* The basic hueristic used is to find the closest
+               * depth to "depthHint" that's also greater than
+               * "depthHint", or just the closest depth:
+               */
+              if ( ( curDelta = pVisualInfoToUse->depth - depthHint ) > 0 )
+              {
+                /* Only choose this new visual if it's also
+                 * deeper than "depthHint" and closer to
+                 * "depthHint" than the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) &&
+                     ( newDelta < curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+              else
+              {
+                /* Choose this new visual if it's deeper than
+                 * "depthHint" or closer to "depthHint" than
+                 * the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) ||
+                     ( -newDelta < -curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+            }
+          }
+        }
+        break;
+      case GrayScale:
+        if ( visMask & GRAY_SCALE )
+        {
+          if ( pVisualInfoToUse == NULL )
+          {
+            if ( ( pImageVisuals[i]->depth == depthHint ) || depthFlexibility )
+            {
+              pVisualInfoToUse = pImageVisuals[i];
+            }
+          }
+          else if ( !( ( sbCmapHint & SB_CMAP_TYPE_FULL ) &&
+                       ( pVisualInfoToUse->class == DirectColor ) ) )
+          {
+            if ( pImageVisuals[i]->depth == depthHint )
+              pVisualInfoToUse = pImageVisuals[i];
+            else if ( depthFlexibility )
+            {
+              /* The basic hueristic used is to find the closest
+               * depth to "depthHint" that's also greater than
+               * "depthHint", or just the closest depth:
+               */
+              if ( ( curDelta = pVisualInfoToUse->depth - depthHint ) > 0 )
+              {
+                /* Only choose this new visual if it's also
+                 * deeper than "depthHint" and closer to
+                 * "depthHint" than the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) &&
+                     ( newDelta < curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+              else
+              {
+                /* Choose this new visual if it's deeper than
+                 * "depthHint" or closer to "depthHint" than
+                 * the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) ||
+                     ( -newDelta < -curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+            }
+          }
+        }
+        break;
+      case PseudoColor:
+        if ( visMask & PSEUDO_COLOR )
+        {
+          if ( pVisualInfoToUse == NULL )
+          {
+            if ( ( pImageVisuals[i]->depth == depthHint ) || depthFlexibility )
+            {
+              pVisualInfoToUse = pImageVisuals[i];
+            }
+          }
+          else if ( !( ( sbCmapHint & SB_CMAP_TYPE_FULL ) &&
+                       ( pVisualInfoToUse->class == DirectColor ) ) )
+          {
+            if ( pImageVisuals[i]->depth == depthHint )
+              pVisualInfoToUse = pImageVisuals[i];
+            else if ( depthFlexibility )
+            {
+              /* The basic hueristic used is to find the closest
+               * depth to "depthHint" that's also greater than
+               * "depthHint", or just the closest depth:
+               */
+              if ( ( curDelta = pVisualInfoToUse->depth - depthHint ) > 0 )
+              {
+                /* Only choose this new visual if it's also
+                 * deeper than "depthHint" and closer to
+                 * "depthHint" than the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) &&
+                     ( newDelta < curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+              else
+              {
+                /* Choose this new visual if it's deeper than
+                 * "depthHint" or closer to "depthHint" than
+                 * the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) ||
+                     ( -newDelta < -curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+            }
+          }
+        }
+        break;
+      case StaticColor:
+        /* Starbase doesn't work well with StaticColor visuals: */
+        break;
+      case TrueColor:
+        if ( visMask & TRUE_COLOR )
+        {
+          /* The only Starbase cmap type that TrueColor works with
+           * is SB_CMAP_TYPE_FULL, so we know that SB_CMAP_TYPE_FULL
+           * is what the program wants:
+           */
+          if ( pVisualInfoToUse == NULL )
+          {
+            if ( ( pImageVisuals[i]->depth == depthHint ) || depthFlexibility )
+            {
+              pVisualInfoToUse = pImageVisuals[i];
+            }
+          }
+          /* This example code prefers DirectColor to TrueColor: */
+          else if ( pVisualInfoToUse->class != DirectColor )
+          {
+            if ( pImageVisuals[i]->depth == depthHint )
+              pVisualInfoToUse = pImageVisuals[i];
+            else if ( depthFlexibility )
+            {
+              /* The basic hueristic used is to find the closest
+               * depth to "depthHint" that's also greater than
+               * "depthHint", or just the closest depth:
+               */
+              if ( ( curDelta = pVisualInfoToUse->depth - depthHint ) > 0 )
+              {
+                /* Only choose this new visual if it's also
+                 * deeper than "depthHint" and closer to
+                 * "depthHint" than the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) &&
+                     ( newDelta < curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+              else
+              {
+                /* Choose this new visual if it's deeper than
+                 * "depthHint" or closer to "depthHint" than
+                 * the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) ||
+                     ( -newDelta < -curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+            }
+          }
+        }
+        break;
+      case DirectColor:
+        if ( visMask & DIRECT_COLOR )
+        {
+          if ( pVisualInfoToUse == NULL )
+          {
+            if ( ( pImageVisuals[i]->depth == depthHint ) || depthFlexibility )
+            {
+              pVisualInfoToUse = pImageVisuals[i];
+            }
+          }
+          else
+          {
+            if ( pImageVisuals[i]->depth == depthHint )
+              pVisualInfoToUse = pImageVisuals[i];
+            else if ( depthFlexibility )
+            {
+              /* The basic hueristic used is to find the closest
+               * depth to "depthHint" that's also greater than
+               * "depthHint", or just the closest depth:
+               */
+              if ( ( curDelta = pVisualInfoToUse->depth - depthHint ) > 0 )
+              {
+                /* Only choose this new visual if it's also
+                 * deeper than "depthHint" and closer to
+                 * "depthHint" than the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) &&
+                     ( newDelta < curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+              else
+              {
+                /* Choose this new visual if it's deeper than
+                 * "depthHint" or closer to "depthHint" than
+                 * the currently chosen visual:
+                 */
+                if ( ( ( newDelta = pImageVisuals[i]->depth - depthHint ) >
+                       0 ) ||
+                     ( -newDelta < -curDelta ) )
+                {
+                  pVisualInfoToUse = pImageVisuals[i];
+                }
+              }
+            }
+          }
+        }
+        break;
+    } /* switch (pImageVisuals[i]->class) */
+  }   /* for (i = 0 ; i < numImageVisuals ; i++) */
 
-
-    pVisualInfoToUse = NULL;
-
-    for (i = 0 ; i < numImageVisuals ; i++)
-    {
-	switch (pImageVisuals[i]->class)
-	{
-	    case StaticGray:
-		if (visMask & STATIC_GRAY)
-		{
-		    if (pVisualInfoToUse == NULL)
-		    {
-			if ((pImageVisuals[i]->depth == depthHint) ||
-			    depthFlexibility)
-			{
-			    pVisualInfoToUse = pImageVisuals[i];
-			}
-		    }
-		    else
-		    {
-			if (pImageVisuals[i]->depth == depthHint)
-			    pVisualInfoToUse = pImageVisuals[i];
-			else if (depthFlexibility)
-			{
-			    /* The basic hueristic used is to find the closest
-			     * depth to "depthHint" that's also greater than
-			     * "depthHint", or just the closest depth:
-			     */
-			    if ((curDelta = pVisualInfoToUse->depth -
-				 depthHint) > 0)
-			    {
-				/* Only choose this new visual if it's also
-				 * deeper than "depthHint" and closer to
-				 * "depthHint" than the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) && (newDelta < curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			    else
-			    {
-				/* Choose this new visual if it's deeper than
-				 * "depthHint" or closer to "depthHint" than
-				 * the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) ||
-				    (-newDelta < -curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			}
-		    }
-		}
-		break;
-	    case GrayScale:
-		if (visMask & GRAY_SCALE)
-		{
-		    if (pVisualInfoToUse == NULL)
-		    {
-			if ((pImageVisuals[i]->depth == depthHint) ||
-			    depthFlexibility)
-			{
-			    pVisualInfoToUse = pImageVisuals[i];
-			}
-		    }
-		    else if (!((sbCmapHint & SB_CMAP_TYPE_FULL) &&
-			       (pVisualInfoToUse->class == DirectColor)))
-		    {
-			if (pImageVisuals[i]->depth == depthHint)
-			    pVisualInfoToUse = pImageVisuals[i];
-			else if (depthFlexibility)
-			{
-			    /* The basic hueristic used is to find the closest
-			     * depth to "depthHint" that's also greater than
-			     * "depthHint", or just the closest depth:
-			     */
-			    if ((curDelta = pVisualInfoToUse->depth -
-				 depthHint) > 0)
-			    {
-				/* Only choose this new visual if it's also
-				 * deeper than "depthHint" and closer to
-				 * "depthHint" than the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) && (newDelta < curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			    else
-			    {
-				/* Choose this new visual if it's deeper than
-				 * "depthHint" or closer to "depthHint" than
-				 * the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) ||
-				    (-newDelta < -curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			}
-		    }
-		}
-		break;
-	    case PseudoColor:
-		if (visMask & PSEUDO_COLOR)
-		{
-		    if (pVisualInfoToUse == NULL)
-		    {
-			if ((pImageVisuals[i]->depth == depthHint) ||
-			    depthFlexibility)
-			{
-			    pVisualInfoToUse = pImageVisuals[i];
-			}
-		    }
-		    else if (!((sbCmapHint & SB_CMAP_TYPE_FULL) &&
-			       (pVisualInfoToUse->class == DirectColor)))
-		    {
-			if (pImageVisuals[i]->depth == depthHint)
-			    pVisualInfoToUse = pImageVisuals[i];
-			else if (depthFlexibility)
-			{
-			    /* The basic hueristic used is to find the closest
-			     * depth to "depthHint" that's also greater than
-			     * "depthHint", or just the closest depth:
-			     */
-			    if ((curDelta = pVisualInfoToUse->depth -
-				 depthHint) > 0)
-			    {
-				/* Only choose this new visual if it's also
-				 * deeper than "depthHint" and closer to
-				 * "depthHint" than the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) && (newDelta < curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			    else
-			    {
-				/* Choose this new visual if it's deeper than
-				 * "depthHint" or closer to "depthHint" than
-				 * the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) ||
-				    (-newDelta < -curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			}
-		    }
-		}
-		break;
-	    case StaticColor:
-		/* Starbase doesn't work well with StaticColor visuals: */
-		break;
-	    case TrueColor:
-		if (visMask & TRUE_COLOR)
-		{
-		    /* The only Starbase cmap type that TrueColor works with
-		     * is SB_CMAP_TYPE_FULL, so we know that SB_CMAP_TYPE_FULL
-		     * is what the program wants:
-		     */
-		    if (pVisualInfoToUse == NULL)
-		    {
-			if ((pImageVisuals[i]->depth == depthHint) ||
-			    depthFlexibility)
-			{
-			    pVisualInfoToUse = pImageVisuals[i];
-			}
-		    }
-		    /* This example code prefers DirectColor to TrueColor: */
-		    else if (pVisualInfoToUse->class != DirectColor)
-		    {
-			if (pImageVisuals[i]->depth == depthHint)
-			    pVisualInfoToUse = pImageVisuals[i];
-			else if (depthFlexibility)
-			{
-			    /* The basic hueristic used is to find the closest
-			     * depth to "depthHint" that's also greater than
-			     * "depthHint", or just the closest depth:
-			     */
-			    if ((curDelta = pVisualInfoToUse->depth -
-				 depthHint) > 0)
-			    {
-				/* Only choose this new visual if it's also
-				 * deeper than "depthHint" and closer to
-				 * "depthHint" than the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) && (newDelta < curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			    else
-			    {
-				/* Choose this new visual if it's deeper than
-				 * "depthHint" or closer to "depthHint" than
-				 * the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) ||
-				    (-newDelta < -curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			}
-		    }
-		}
-		break;
-	    case DirectColor:
-		if (visMask & DIRECT_COLOR)
-		{
-		    if (pVisualInfoToUse == NULL)
-		    {
-			if ((pImageVisuals[i]->depth == depthHint) ||
-			    depthFlexibility)
-			{
-			    pVisualInfoToUse = pImageVisuals[i];
-			}
-		    }
-		    else
-		    {
-			if (pImageVisuals[i]->depth == depthHint)
-			    pVisualInfoToUse = pImageVisuals[i];
-			else if (depthFlexibility)
-			{
-			    /* The basic hueristic used is to find the closest
-			     * depth to "depthHint" that's also greater than
-			     * "depthHint", or just the closest depth:
-			     */
-			    if ((curDelta = pVisualInfoToUse->depth -
-				 depthHint) > 0)
-			    {
-				/* Only choose this new visual if it's also
-				 * deeper than "depthHint" and closer to
-				 * "depthHint" than the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) && (newDelta < curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			    else
-			    {
-				/* Choose this new visual if it's deeper than
-				 * "depthHint" or closer to "depthHint" than
-				 * the currently chosen visual:
-				 */
-				if (((newDelta = pImageVisuals[i]->depth -
-				      depthHint) > 0) ||
-				    (-newDelta < -curDelta))
-				{
-				    pVisualInfoToUse = pImageVisuals[i];
-				}
-			    }
-			}
-		    }
-		}
-		break;
-	} /* switch (pImageVisuals[i]->class) */
-    } /* for (i = 0 ; i < numImageVisuals ; i++) */
-
-
-    if (pVisualInfoToUse != NULL)
-    {
-	*pImageVisualToUse = pVisualInfoToUse->visual;
-	*depthObtained = pVisualInfoToUse->depth;
-	EXIT(("0"));
-	return(0);
-    }
-    else
-    {
-	/* Couldn't find an appropriate visual class: */
-      EXIT(("1"));
-      return(1);
-    }
+  if ( pVisualInfoToUse != NULL )
+  {
+    *pImageVisualToUse = pVisualInfoToUse->visual;
+    *depthObtained = pVisualInfoToUse->depth;
+    EXIT( ( "0" ) );
+    return ( 0 );
+  }
+  else
+  {
+    /* Couldn't find an appropriate visual class: */
+    EXIT( ( "1" ) );
+    return ( 1 );
+  }
 } /* FindImagePlanesVisual() */
 
 /******************************************************************************
@@ -550,66 +540,66 @@ int FindImagePlanesVisual(Display *display, int screen, int numImageVisuals,
  *
  ******************************************************************************/
 
-int CreateImagePlanesWindow(Display *display, int screen, Window parentWindow,
-	int windowX, int windowY, int windowWidth, int windowHeight,
-	int windowDepth, Visual *pImageVisualToUse,
-	int argc, char *argv[], char *windowName, char *iconName,
-	Window *imageWindow, Colormap *imageColormap, 
-	int *mustFreeImageColormap)
+int CreateImagePlanesWindow( Display *display, int screen, Window parentWindow,
+                             int windowX, int windowY, int windowWidth,
+                             int windowHeight, int windowDepth,
+                             Visual *pImageVisualToUse, int argc, char *argv[],
+                             char *windowName, char *iconName,
+                             Window *imageWindow, Colormap *imageColormap,
+                             int *mustFreeImageColormap )
 {
-    XSetWindowAttributes winAttributes;	/* Attributes for window creation */
-    XSizeHints	hints;
+  XSetWindowAttributes winAttributes; /* Attributes for window creation */
+  XSizeHints hints;
 
-    ENTRY(("CreateImagePlanesWindow(0x%x, %d, 0x%x, %d, %d, %d, %d, %d,
-0x%x, %d, 0x%x, \"%s\", \"%s\", 0x%x, 0x%x, 0x%x)",
-	   display, screen, parentWindow,
-	   windowX, windowY, windowWidth, windowHeight, windowDepth,
-	   pImageVisualToUse, argc, argv, windowName, iconName,
-	   imageWindow, imageColormap,  mustFreeImageColormap));
+  ENTRY( ( "CreateImagePlanesWindow(0x%x, %d, 0x%x, %d, %d, %d, %d, %d,
+               0x %
+               x,
+           % d, 0x % x, \"%s\", \"%s\", 0x%x, 0x%x, 0x%x)", display, screen,
+           parentWindow, windowX, windowY, windowWidth, windowHeight,
+           windowDepth, pImageVisualToUse, argc, argv, windowName, iconName,
+           imageWindow, imageColormap, mustFreeImageColormap ) );
 
-    if (pImageVisualToUse == DefaultVisual(display, screen))
-    {
-	*mustFreeImageColormap = False;
-	*imageColormap = winAttributes.colormap = DefaultColormap(display,
-								  screen);
-	winAttributes.background_pixel = BlackPixel(display, screen);
-	winAttributes.border_pixel = WhitePixel(display, screen);
-    }
-    else
-    {
-	XColor		actualColor, databaseColor;
+  if ( pImageVisualToUse == DefaultVisual( display, screen ) )
+  {
+    *mustFreeImageColormap = False;
+    *imageColormap = winAttributes.colormap =
+        DefaultColormap( display, screen );
+    winAttributes.background_pixel = BlackPixel( display, screen );
+    winAttributes.border_pixel = WhitePixel( display, screen );
+  }
+  else
+  {
+    XColor actualColor, databaseColor;
 
-	*mustFreeImageColormap = True;
-	*imageColormap = winAttributes.colormap =
-	    XCreateColormap(display, RootWindow(display, screen),
-			    pImageVisualToUse, AllocNone);
-	XAllocNamedColor(display, winAttributes.colormap, "Black",
-			 &actualColor, &databaseColor);
-	winAttributes.background_pixel = actualColor.pixel;
-	XAllocNamedColor(display, winAttributes.colormap, "White",
-			 &actualColor, &databaseColor);
-	winAttributes.border_pixel = actualColor.pixel;
-    }
-    winAttributes.event_mask = ExposureMask;
-    winAttributes.backing_store = WhenMapped ;
+    *mustFreeImageColormap = True;
+    *imageColormap = winAttributes.colormap = XCreateColormap(
+        display, RootWindow( display, screen ), pImageVisualToUse, AllocNone );
+    XAllocNamedColor( display, winAttributes.colormap, "Black", &actualColor,
+                      &databaseColor );
+    winAttributes.background_pixel = actualColor.pixel;
+    XAllocNamedColor( display, winAttributes.colormap, "White", &actualColor,
+                      &databaseColor );
+    winAttributes.border_pixel = actualColor.pixel;
+  }
+  winAttributes.event_mask = ExposureMask;
+  winAttributes.backing_store = WhenMapped;
 
-    *imageWindow = XCreateWindow(display, parentWindow,
-				 0, 0, windowWidth, windowHeight, 2,
-				 windowDepth, InputOutput, pImageVisualToUse,
-				 (CWBackPixel | CWColormap |
-				  CWBorderPixel | CWEventMask | CWBackingStore),
-				 &winAttributes);
+  *imageWindow =
+      XCreateWindow( display, parentWindow, 0, 0, windowWidth, windowHeight, 2,
+                     windowDepth, InputOutput, pImageVisualToUse,
+                     ( CWBackPixel | CWColormap | CWBorderPixel | CWEventMask |
+                       CWBackingStore ),
+                     &winAttributes );
 
-    hints.flags = (USSize | USPosition);
-    hints.x = windowX;
-    hints.y = windowY;
-    hints.width  = windowWidth;
-    hints.height = windowHeight;
+  hints.flags = ( USSize | USPosition );
+  hints.x = windowX;
+  hints.y = windowY;
+  hints.width = windowWidth;
+  hints.height = windowHeight;
 
-    XSetStandardProperties(display, *imageWindow, (char *)windowName, iconName,
-			   None, argv, argc, &hints);
+  XSetStandardProperties( display, *imageWindow, (char *)windowName, iconName,
+                          None, argv, argc, &hints );
 
-    EXIT((""));
-    return(0);
+  EXIT( ( "" ) );
+  return ( 0 );
 } /* CreateImagePlanesWindow() */
-

@@ -15,7 +15,6 @@ class VPEAnnotator;
 class Node;
 class EditorWindow;
 
-
 //
 // In order to track movements in the canvas we'll store
 // things in this object and keep them in a list.  It would be
@@ -25,70 +24,87 @@ class EditorWindow;
 #define UndoMoveClassName "UndoMove"
 class UndoMove : public UndoableAction
 {
-    private:
-    protected:
-	int x,y;
-	UndoMove (EditorWindow* editor, UIComponent* uic);
-	static char OperationName[];
-    public:
-	virtual const char* getLabel() { return UndoMove::OperationName; }
-	virtual ~UndoMove(){}
-	virtual const char* getClassName() { return UndoMoveClassName; }
+ private:
+ protected:
+  int x, y;
+  UndoMove( EditorWindow* editor, UIComponent* uic );
+  static char OperationName[];
+
+ public:
+  virtual const char* getLabel()
+  {
+    return UndoMove::OperationName;
+  }
+  virtual ~UndoMove()
+  {
+  }
+  virtual const char* getClassName()
+  {
+    return UndoMoveClassName;
+  }
 };
 
 #define UndoStandInMoveClassName "UndoStandInMove"
 class UndoStandInMove : public UndoMove
 {
-    private:
-    protected:
-	const char* className;
-	int instance_number;
-	//Node* lookupNode();
+ private:
+ protected:
+  const char* className;
+  int instance_number;
+  // Node* lookupNode();
 
-    public:
-	//
-	// Some undo operations need to set up in order for canUndo()
-	// to be successful.
-	//
-	virtual void prepare();
+ public:
+  //
+  // Some undo operations need to set up in order for canUndo()
+  // to be successful.
+  //
+  virtual void prepare();
 
-	//
-	// Some undo operations perform unmanage() in prepare().  Here
-	// they can can manage()
-	//
-	virtual void postpare();
+  //
+  // Some undo operations perform unmanage() in prepare().  Here
+  // they can can manage()
+  //
+  virtual void postpare();
 
-	virtual boolean canUndo();
-	UndoStandInMove (EditorWindow* editor, StandIn* si, 
-		const char* className, int instance);
-	virtual void undo(boolean first_in_list=TRUE);
-	virtual const char* getClassName() { return UndoStandInMoveClassName; }
+  virtual boolean canUndo();
+  UndoStandInMove( EditorWindow* editor, StandIn* si, const char* className,
+                   int instance );
+  virtual void undo( boolean first_in_list = TRUE );
+  virtual const char* getClassName()
+  {
+    return UndoStandInMoveClassName;
+  }
 };
 
 #define UndoDecoratorMoveClassName "UndoDecoratorMove"
 class UndoDecoratorMove : public UndoMove
 {
-    private:
-	int instance;
-    protected:
-	VPEAnnotator* lookupDecorator();
-    public:
-	//
-	// Some undo operations need to set up in order for canUndo()
-	// to be successful.
-	//
-	virtual void prepare();
+ private:
+  int instance;
 
-	//
-	// Some undo operations perform unmanage() in prepare().  Here
-	// they can can manage()
-	//
-	virtual void postpare();
+ protected:
+  VPEAnnotator* lookupDecorator();
 
-	virtual boolean canUndo();
-	virtual ~UndoDecoratorMove();
-	UndoDecoratorMove (EditorWindow* editor, VPEAnnotator* dec);
-	virtual void undo(boolean first_in_list=TRUE);
-	virtual const char* getClassName() { return UndoDecoratorMoveClassName; }
+ public:
+  //
+  // Some undo operations need to set up in order for canUndo()
+  // to be successful.
+  //
+  virtual void prepare();
+
+  //
+  // Some undo operations perform unmanage() in prepare().  Here
+  // they can can manage()
+  //
+  virtual void postpare();
+
+  virtual boolean canUndo();
+  virtual ~UndoDecoratorMove();
+  UndoDecoratorMove( EditorWindow* editor, VPEAnnotator* dec );
+  virtual void undo( boolean first_in_list = TRUE );
+  virtual const char* getClassName()
+  {
+    return UndoDecoratorMoveClassName;
+  }
 };
-#endif // _UndoMove_h
+#endif  // _UndoMove_h

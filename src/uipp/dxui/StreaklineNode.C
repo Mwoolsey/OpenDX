@@ -9,16 +9,15 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "StreaklineNode.h"
 
 #define NAME_NUM 1
 
-StreaklineNode::StreaklineNode(NodeDefinition *nd, Network *net, int instnc) :
-    Node(nd, net, instnc)
+StreaklineNode::StreaklineNode( NodeDefinition *nd, Network *net, int instnc )
+    : Node( nd, net, instnc )
 {
-    this->setInputValue(NAME_NUM,this->getModuleMessageIdString(),
-				DXType::StringType,FALSE);
+  this->setInputValue( NAME_NUM, this->getModuleMessageIdString(),
+                       DXType::StringType, FALSE );
 }
 
 StreaklineNode::~StreaklineNode()
@@ -28,24 +27,23 @@ StreaklineNode::~StreaklineNode()
 //
 // Determine if this node is of the given class.
 //
-boolean StreaklineNode::isA(Symbol classname)
+boolean StreaklineNode::isA( Symbol classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(ClassStreaklineNode);
-    if (s == classname)
-        return TRUE;
-    else
-        return this->Node::isA(classname);
+  Symbol s = theSymbolManager->registerSymbol( ClassStreaklineNode );
+  if ( s == classname )
+    return TRUE;
+  else
+    return this->Node::isA( classname );
 }
 
 int StreaklineNode::assignNewInstanceNumber()
 {
-    boolean isConnected = this->isInputConnected(NAME_NUM);
-    int instance_number = this->Node::assignNewInstanceNumber();
+  boolean isConnected = this->isInputConnected( NAME_NUM );
+  int instance_number = this->Node::assignNewInstanceNumber();
 
-    if (!isConnected)
-	this->setInputValue(NAME_NUM,this->getModuleMessageIdString(), 
-	    DXType::StringType,FALSE);
+  if ( !isConnected )
+    this->setInputValue( NAME_NUM, this->getModuleMessageIdString(),
+                         DXType::StringType, FALSE );
 
-    return instance_number;
+  return instance_number;
 }
-

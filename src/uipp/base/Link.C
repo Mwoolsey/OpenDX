@@ -9,21 +9,14 @@
 #include <dxconfig.h>
 #include <defines.h>
 
-
-
-
 #include "Link.h"
 
-
-inline void Link::setElement(const void* element)
+inline void Link::setElement( const void* element )
 {
-    this->element = element;
+  this->element = element;
 }
 
-
-inline void Link::setNext(Link* next)
+inline void Link::setNext( Link* next )
 {
-    this->next = next;
+  this->next = next;
 }
-
-

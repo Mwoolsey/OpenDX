@@ -9,65 +9,67 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _ValueDefinition_h
 #define _ValueDefinition_h
 
 #include "InteractorDefinition.h"
 
-
 //
 // Class name definition:
 //
-#define ClassValueDefinition	"ValueDefinition"
+#define ClassValueDefinition "ValueDefinition"
 
 //
-// Forward definitions 
+// Forward definitions
 //
 class ParameterDefinition;
 class Interactor;
 
 //
 // ValueDefinition class definition:
-//				
-class ValueDefinition : public InteractorDefinition 
+//
+class ValueDefinition : public InteractorDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
+ public:
+  //
+  // Constructor:
+  //
+  ValueDefinition()
+  {
+  }
 
-  public:
-    //
-    // Constructor:
-    //
-    ValueDefinition() { }
+  //
+  // Destructor:
+  //
+  ~ValueDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~ValueDefinition() { }
-	
-    //
-    // Allocate a new ValueDefinition.  
-    // This function is intended to be used as an allocator in
-    // theNDAllocatorDictionary.
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Allocate a new ValueDefinition.
+  // This function is intended to be used as an allocator in
+  // theNDAllocatorDictionary.
+  //
+  static NodeDefinition *AllocateDefinition();
 
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() { return ClassValueDefinition; }
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char *getClassName()
+  {
+    return ClassValueDefinition;
+  }
 };
 
-
-#endif // _ValueDefinition_h
+#endif  // _ValueDefinition_h

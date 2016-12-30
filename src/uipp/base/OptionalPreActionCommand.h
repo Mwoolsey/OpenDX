@@ -9,66 +9,56 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _OptionalPreActionCommand_h
 #define _OptionalPreActionCommand_h
-
-
 
 #include <Xm/Xm.h>
 
 #include "PreActionCommand.h"
 
-
 //
 // Class name definition:
 //
-#define ClassOptionalPreActionCommand	"OptionalPreActionCommand"
-
+#define ClassOptionalPreActionCommand "OptionalPreActionCommand"
 
 //
 // OptionalPreActionCommand class definition:
-//				
+//
 class OptionalPreActionCommand : public PreActionCommand
 {
-  private:
+ private:
+ protected:
+  //
+  // Constructor:
+  //
+  OptionalPreActionCommand( const char* name, CommandScope* scope,
+                            boolean active, char* dialogTitle,
+                            char* dialogQuestion, Widget dialogParent = NULL );
 
-  protected:
-    //
-    // Constructor:
-    //
-    OptionalPreActionCommand(const char*   name,
-		     CommandScope* scope,
-		     boolean       active,
-		     char*         dialogTitle,
-		     char*         dialogQuestion,
-		     Widget	   dialogParent = NULL);
+  virtual boolean needsConfirmation() = 0;
 
-    virtual boolean needsConfirmation() = 0;
+ public:
+  //
+  // Destructor:
+  //
+  ~OptionalPreActionCommand()
+  {
+  }
 
-  public:
-    //
-    // Destructor:
-    //
-    ~OptionalPreActionCommand(){}
+  //
+  // Overrides the supperclass execute() function:
+  //   First posts a dialog to ask for user confirmation before
+  //   actually executing the command.
+  //
+  virtual boolean execute( CommandInterface* ci = NULL );
 
-    //
-    // Overrides the supperclass execute() function:
-    //   First posts a dialog to ask for user confirmation before
-    //   actually executing the command.
-    //
-    virtual boolean execute(CommandInterface *ci = NULL);
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassOptionalPreActionCommand;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassOptionalPreActionCommand;
+  }
 };
 
-
-#endif // _OptionalPreActionCommand_h
+#endif  // _OptionalPreActionCommand_h

@@ -9,12 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _OpenFileDialog_h
 #define _OpenFileDialog_h
-
 
 #include "FileDialog.h"
 #include "MBMainWindow.h"
@@ -24,51 +20,52 @@
 //
 // Class name definition:
 //
-#define ClassOpenFileDialog	"OpenFileDialog"
+#define ClassOpenFileDialog "OpenFileDialog"
 
 class Dialog;
 class MBMainWindow;
 
 //
 // OpenFileDialog class definition:
-//				
+//
 class OpenFileDialog : public FileDialog
 {
-    static boolean ClassInitialized;
+  static boolean ClassInitialized;
 
-    MBMainWindow *mbmw;
+  MBMainWindow *mbmw;
 
-  protected:
-    static String  DefaultResources[];
+ protected:
+  static String DefaultResources[];
 
-    virtual void okFileWork(const char *string); 
+  virtual void okFileWork( const char *string );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-  public:
-    //
-    // Constructor:
-    //
-    OpenFileDialog(MBMainWindow *mbmw);
+ public:
+  //
+  // Constructor:
+  //
+  OpenFileDialog( MBMainWindow *mbmw );
 
-    //
-    // Destructor:
-    //
-    ~OpenFileDialog(){}
+  //
+  // Destructor:
+  //
+  ~OpenFileDialog()
+  {
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassOpenFileDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassOpenFileDialog;
+  }
 };
 
-
-#endif // _OpenFileDialog_h
+#endif  // _OpenFileDialog_h

@@ -6,17 +6,17 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dxmods/_connectvor.h,v 1.1 2000/08/24 20:04:10 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dxmods/_connectvor.h,v 1.1 2000/08/24
+ * 20:04:10 davidt Exp $
  */
 
 #include <dxconfig.h>
 
-#ifndef  __CONNECTVOR_H_
-#define  __CONNECTVOR_H_
+#ifndef __CONNECTVOR_H_
+#define __CONNECTVOR_H_
 
 #include <dx/dx.h>
 
-Error _dxfConnectVoronoiObject(Object, Vector);
+Error _dxfConnectVoronoiObject( Object, Vector );
 
 #endif /* __CONNECTVOR_H_ */
-

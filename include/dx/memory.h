@@ -6,10 +6,9 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
 /* TeX starts here. Do not remove this comment. */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -23,8 +22,8 @@ hooks for debugging and distinguish between local and global storage
 allocation.
 */
 
-Pointer DXAllocate(unsigned int n);
-Pointer DXAllocateZero(unsigned int n);
+Pointer DXAllocate( unsigned int n );
+Pointer DXAllocateZero( unsigned int n );
 /**
 \index{Pointer}\index{DXAllocate}\index{DXAllocateZero}
 {\tt DXAllocate()} allocates {\tt n} bytes of storage in global memory.
@@ -34,8 +33,8 @@ the error code to indicate an error (such as out of memory or a
 corrupted arena).
 **/
 
-Pointer DXAllocateLocal(unsigned int n);
-Pointer DXAllocateLocalZero(unsigned int n);
+Pointer DXAllocateLocal( unsigned int n );
+Pointer DXAllocateLocalZero( unsigned int n );
 /**
 \index{DXAllocateLocal}\index{DXAllocateLocalZero}
 On machines which do not have pre-processor local memory (this includes
@@ -52,8 +51,8 @@ the error code to indicate an error (such as out of all memory or a
 corrupted arena).
 **/
 
-Pointer DXAllocateLocalOnly(unsigned int n);
-Pointer DXAllocateLocalOnlyZero(unsigned int n);
+Pointer DXAllocateLocalOnly( unsigned int n );
+Pointer DXAllocateLocalOnlyZero( unsigned int n );
 /**
 \index{DXAllocateLocalOnly}\index{DXAllocateLocalOnlyZero}
 {\tt DXAllocateLocalOnly()} allocates {\tt n} bytes of storage in the local
@@ -66,7 +65,7 @@ try to allocate out of global memory, so the caller can tell whether
 local memory was actually obtained.
 **/
 
-Pointer DXReAllocate(Pointer x, unsigned int n);
+Pointer DXReAllocate( Pointer x, unsigned int n );
 /**
 \index{DXReAllocate}
 Increases the size of the previously allocated block of storage
@@ -77,7 +76,7 @@ a pointer to the new block, or returns null and sets the error code to
 indicate an error (such as out of memory or a corrupted arena).
 **/
 
-Error DXFree(Pointer x);
+Error DXFree( Pointer x );
 /**
 \index{DXFree}
 Frees the previously allocated block of storage pointed to by {\tt x}.
@@ -86,8 +85,8 @@ Returns {\tt OK}, or returns {\tt ERROR} and sets the error code to
 indicate an error such as a corrupted arena.
 **/
 
-typedef Error (*Scavenger)(ulong);
-Scavenger DXRegisterScavenger(Scavenger scavenger);
+typedef Error ( *Scavenger )( ulong );
+Scavenger DXRegisterScavenger( Scavenger scavenger );
 /**
 \index{Scavenger}\index{DXRegisterScavenger}
 Declares to the memory allocation system a routine that it can call
@@ -97,7 +96,7 @@ OK} if it believes it has freed memory or null if it cannot free
 any memory.
 **/
 
-Scavenger DXRegisterScavengerLocal(Scavenger scavenger);
+Scavenger DXRegisterScavengerLocal( Scavenger scavenger );
 /**
 \index{DXRegisterScavengerLocal}
 Declares to the memory allocation system a routine that can be called
@@ -107,11 +106,11 @@ and is expected to return {\tt OK} if it believes it has freed memory
 or null if it cannot free any memory.
 **/
 
-#define MEMORY_SMALL  0x10
-#define MEMORY_LARGE  0x20
-#define MEMORY_LOCAL  0x40
+#define MEMORY_SMALL 0x10
+#define MEMORY_LARGE 0x20
+#define MEMORY_LOCAL 0x40
 
-void DXPrintAlloc(int t);
+void DXPrintAlloc( int t );
 /**
 \index{DXPrintAlloc}
 If {\tt t} is 0, this routine prints out a summary of total memory
@@ -123,8 +122,8 @@ corruption of the arena.  This routine can be exercised from the Data
 Explorer in script or user-interface mode by using the Usage module.
 **/
 
-void DXFindAlloc(Pointer find);
-void DXFoundAlloc(void);
+void DXFindAlloc( Pointer find );
+void DXFoundAlloc( void );
 /**
 \index{DXFindAlloc}\index{DXFoundAlloc}
 {\tt DXFindAlloc} allows you to set an address to look for allocations and frees
@@ -134,60 +133,57 @@ address is then allocated or freed, the memory management system calls
 breakpoints on.
 **/
 
-
 #define MEMORY_ALLOCATED 0x1
-#define MEMORY_FREE      0x2
-#define MEMORY_PRIVATE   0x4
+#define MEMORY_FREE 0x2
+#define MEMORY_PRIVATE 0x4
 
-typedef Error (*MemDebug)(int blocktype, Pointer start, ulong size, Pointer p);
+typedef Error ( *MemDebug )( int blocktype, Pointer start, ulong size,
+                             Pointer p );
 
-
-Error DXDebugAlloc(int arena, int blocktype, MemDebug m, Pointer p);
-Error DXDebugLocalAlloc(int procnum, int blocktype, MemDebug m, Pointer p);
+Error DXDebugAlloc( int arena, int blocktype, MemDebug m, Pointer p );
+Error DXDebugLocalAlloc( int procnum, int blocktype, MemDebug m, Pointer p );
 /**
 \index{DebugAlloc}\index{DebugLocalAlloc}
 {\t DebugAlloc} and {\t DebugLocalAlloc} allows you to specify a routine
 to be called on any or all types of memory blocks.  The routine is called
-with the type of block, the starting address of the block, the size in bytes, 
+with the type of block, the starting address of the block, the size in bytes,
 and a pointer to whatever private information the debug routine was called
 with.  For {\t DebugLocalAlloc()}, the pointer must be to global memory
 since the routine must be executed from the requested processor.  If
 {\t procnum} is -1, it is called in sequence from all processors.
 **/
 
-
-Error DXSetMemorySize(ulong size, int ratio);
-Error DXGetMemorySize(ulong *sm, ulong *lg, ulong *lo);
-Error DXGetMemoryBase(Pointer *sm, Pointer *lg, Pointer *lo);
+Error DXSetMemorySize( ulong size, int ratio );
+Error DXGetMemorySize( ulong *sm, ulong *lg, ulong *lo );
+Error DXGetMemoryBase( Pointer *sm, Pointer *lg, Pointer *lo );
 /**
 \index{SetMemorySize}\index{GetMemorySize}\index{GetMemoryBase}
 {\t SetMemorySize} must be called before any other library routine.
 The maximum shared memory size in bytes is set with {\t size}, and the
-ratio between shared memory allocated for large blocks compared to 
+ratio between shared memory allocated for large blocks compared to
 small blocks is set with {\t ratio}.  {\t GetMemorySize} returns the
 size in bytes of the small, large and local arenas.  If any of the
-arena types are is not supported on this architecture 0 is returned.  
-{\t GetMemoryBase} returns the starting memory address of each arena.  
+arena types are is not supported on this architecture 0 is returned.
+{\t GetMemoryBase} returns the starting memory address of each arena.
 If any of the arena types are not supported on this architecture
 0 is returned.
 **/
 
-
 /* new routine */
-Error DXTraceAlloc(int n);
+Error DXTraceAlloc( int n );
 /**
-Returns OK if all memory arenas are consistent, and ERROR if any appear 
+Returns OK if all memory arenas are consistent, and ERROR if any appear
 to have been corrupted.  If n > 0, each Nth subsequent call to the memory
 manager code will verify the memory arenas before doing any work.
 This enables memory corruption problems to be detected sooner, however it
 can severely impact performance if N is a low number.  This feature is only
-available in the debuggable version of the library.  
+available in the debuggable version of the library.
 If n == 0, the arenas are checked for consistency, but subsequent tracing
 is not enabled, or if it was previously enabled it is now disabled.
 **/
 
 #endif /* _DXI_MEMORY_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

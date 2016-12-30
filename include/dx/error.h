@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -42,21 +41,22 @@ returns null.
 The error codes are defined as follows: \index{errorcodes}
 */
 
-typedef enum errorcode {
-    ERROR_NONE,
-    ERROR_INTERNAL,
-    ERROR_UNEXPECTED,
-    ERROR_ASSERTION,
-    ERROR_NOT_IMPLEMENTED,
-    ERROR_NO_MEMORY,
-    ERROR_BAD_CLASS,
-    ERROR_BAD_TYPE,
-    ERROR_NO_CAMERA,
-    ERROR_MISSING_DATA,
-    ERROR_DATA_INVALID,
-    ERROR_BAD_PARAMETER,
-    ERROR_NO_HARDWARE_RENDERING,
-    ERROR_MAX
+typedef enum errorcode
+{
+  ERROR_NONE,
+  ERROR_INTERNAL,
+  ERROR_UNEXPECTED,
+  ERROR_ASSERTION,
+  ERROR_NOT_IMPLEMENTED,
+  ERROR_NO_MEMORY,
+  ERROR_BAD_CLASS,
+  ERROR_BAD_TYPE,
+  ERROR_NO_CAMERA,
+  ERROR_MISSING_DATA,
+  ERROR_DATA_INVALID,
+  ERROR_BAD_PARAMETER,
+  ERROR_NO_HARDWARE_RENDERING,
+  ERROR_MAX
 } ErrorCode;
 
 typedef int Error;
@@ -73,25 +73,42 @@ typedef void *Pointer;
 #define NULL 0
 #endif
 
-Error DXSetError(ErrorCode e, char *message, ...);
-#define DXErrorReturn(e,s) {DXSetError(e,s); return ERROR;}
-#define DXErrorGoto(e,s) {DXSetError(e,s); goto error;}
-#define DXErrorGoto2(e,s1,s2) {DXSetError(e,s1,s2); goto error;}
-#define DXErrorGoto3(e,s1,s2,s3) {DXSetError(e,s1,s2,s3); goto error;}
+Error DXSetError( ErrorCode e, char *message, ... );
+#define DXErrorReturn( e, s ) \
+  {                           \
+    DXSetError( e, s );       \
+    return ERROR;             \
+  }
+#define DXErrorGoto( e, s ) \
+  {                         \
+    DXSetError( e, s );     \
+    goto error;             \
+  }
+#define DXErrorGoto2( e, s1, s2 ) \
+  {                               \
+    DXSetError( e, s1, s2 );      \
+    goto error;                   \
+  }
+#define DXErrorGoto3( e, s1, s2, s3 ) \
+  {                                   \
+    DXSetError( e, s1, s2, s3 );      \
+    goto error;                       \
+  }
 
-
-#define ASSERT           _dxdAssert
-#define DXASSERT         _dxdAssert
-#define DXASSERTGOTO     _dxdAssert
+#define ASSERT _dxdAssert
+#define DXASSERT _dxdAssert
+#define DXASSERTGOTO _dxdAssert
 #define DXDATAASSERTGOTO _dxdAssert
 
-#define _dxdAssert(expression)						\
-{ if (!(expression)) { 							\
-	DXMessage("Internal error detected at \"%s\":%d.\n",		\
-        __FILE__, __LINE__);						\
-        abort(); } }
-
-
+#define _dxdAssert( expression )                                      \
+  {                                                                   \
+    if ( !( expression ) )                                            \
+    {                                                                 \
+      DXMessage( "Internal error detected at \"%s\":%d.\n", __FILE__, \
+                 __LINE__ );                                          \
+      abort();                                                        \
+    }                                                                 \
+  }
 
 /**
 \index{DXSetError}\index{DXErrorReturn}\index{DXErrorGoto}\index{ASSERT}
@@ -104,9 +121,17 @@ the cause of the error.  Always returns {\tt ERROR}.  See the Usage
 Notes below.
 **/
 
-Error DXAddMessage(char *message, ...);
-#define DXMessageReturn(s) {DXAddMessage(s); return ERROR;}
-#define DXMessageGoto(s) {DXAddMessage(s); goto error;}
+Error DXAddMessage( char *message, ... );
+#define DXMessageReturn( s ) \
+  {                          \
+    DXAddMessage( s );       \
+    return ERROR;            \
+  }
+#define DXMessageGoto( s ) \
+  {                        \
+    DXAddMessage( s );     \
+    goto error;            \
+  }
 /**
 \index{DXAddMessage}\index{DXMessageReturn}\index{DXMessageGoto}
 Concatenates {\tt message} onto the error message already recorded.
@@ -117,14 +142,14 @@ string must be specified.  Always returns {\tt ERROR}.  See the Usage
 Notes below.
 **/
 
-ErrorCode DXGetError(void);
+ErrorCode DXGetError( void );
 /**
 \index{DXGetError}
 Returns the error code for the last error that occurred, or {\tt ERROR\_NONE}
 if no error code has been set.
 **/
 
-char *DXGetErrorMessage(void);
+char *DXGetErrorMessage( void );
 /**
 \index{DXGetErrorMessage}
 Returns the current error message.  This is a pointer to a static buffer
@@ -132,7 +157,7 @@ in local memory, so it must be copied if it is to be used outside the
 scope of the calling routine.
 **/
 
-void DXResetError(void);
+void DXResetError( void );
 /**
 \index{DXResetError}
 Resets the error state.  This should be used after correcting an error so
@@ -140,31 +165,31 @@ that subsequent queries of the error state do not return an incorrect
 indication.
 **/
 
-void DXWarning(char *message, ...);
+void DXWarning( char *message, ... );
 /**
 \index{DXWarning}
 Presents a warning message to the user.  The message string should not
 contain newline characters, because the {\tt DXWarning()} routine formats
 the message in a manner appropriate to the output medium.  For terminal
-output, this includes prefixing the message with the processor identifier 
+output, this includes prefixing the message with the processor identifier
 and appending a newline.  The {\tt message} may be a {\tt printf()} format
 string, in which case additional arguments may be needed.
 **/
 
-void DXMessage(char *message, ...);
-void DXUIMessage(char *who, char *message, ...);
+void DXMessage( char *message, ... );
+void DXUIMessage( char *who, char *message, ... );
 /**
 \index{DXMessage}\index{DXUIMessage}
 Presents an informative message to the user.  The message string should not
 contain newline characters, because the {\tt DXMessage()} routine formats
 the message in a manner appropriate to the output medium.  For terminal
-output, this includes prefixing the message with the processor identifier 
+output, this includes prefixing the message with the processor identifier
 and appending a newline.  The {\tt message} may be a {\tt printf()} format
 string, in which case additional arguments may need to be specified.
 **/
 
-void DXBeginLongMessage(void);
-void DXEndLongMessage(void);
+void DXBeginLongMessage( void );
+void DXEndLongMessage( void );
 /**
 \index{DXBeginLongMessage}\index{DXEndLongMessage}
 The {\tt DXMessage()} routine as documented above is suitable for
@@ -178,7 +203,7 @@ multiple calls to {\tt DXMessage()} may be printed on the same line, or
 one call to {\tt DXMessage()} may contain multiple lines.
 **/
 
-void DXExpandMessage(int enable);
+void DXExpandMessage( int enable );
 /**
 The DXExpandMessage routine enables and disables the substitution of
 messages by number from the messages file.  if the text of a message
@@ -187,14 +212,14 @@ file is substituted for the number.  setting enable to 0 disables this
 feature.  it is on by default.
 **/
 
-void DXDebug(char *classes, char *message, ...);
-void DXEnableDebug(char *classes, int enable);
-int DXQueryDebug(char *classes);
+void DXDebug( char *classes, char *message, ... );
+void DXEnableDebug( char *classes, int enable );
+int DXQueryDebug( char *classes );
 /**
 \index{DXDebug}\index{DXEnableDebug}\index{DXQueryDebug}
 The {\tt DXDebug()} routine generates a debugging message.  The {\tt message}
 may be a {\tt printf()} format string, in which case additional arguments
-may need to be specified.  The {\tt classes} argument is a pointer to 
+may need to be specified.  The {\tt classes} argument is a pointer to
 a string of characters; each character identifies a debugging class to
 which this message belongs.  Each message may belong to more than one
 debugging class.  The {\tt DXEnableDebug()} routine enables ({\tt enable=1})
@@ -228,7 +253,7 @@ useful to add to the message.
 
 Alternatively, if cleanup is required before returning, you may use
 {\tt DXErrorGoto} or {\tt DXMessageGoto} instead of {\tt DXErrorReturn} or
-{\tt DXMessageReturn}. When using {\tt DXErrorGoto} or {\tt DXMessageGoto}, 
+{\tt DXMessageReturn}. When using {\tt DXErrorGoto} or {\tt DXMessageGoto},
 you must have an {\tt error:} label, which does cleanup and then returns null.
 \begin{program}
     error:
@@ -237,8 +262,7 @@ you must have an {\tt error:} label, which does cleanup and then returns null.
 \end{program}
 */
 
-
-void DXSetErrorExit(int t);
+void DXSetErrorExit( int t );
 /**
 \index{DXSetErrorExit}
 Controls the behavior of the program when an error occurs.  If {\tt
@@ -250,7 +274,7 @@ programs, not by modules that are included as part of the Data
 Explorer application.
 **/
 
-void DXErrorExit(char *s);
+void DXErrorExit( char *s );
 /**
 \index{DXErrorExit}
 Prints an error message describing the last error(s) that occurred,
@@ -259,7 +283,7 @@ used by standalone programs, not by modules that are included as part
 of the Data Explorer application.
 **/
 
-void DXPrintError(char *s);
+void DXPrintError( char *s );
 /**
 \index{NULL}\index{OK}\index{DXPrintError}
 Prints an error message describing the last error(s) that occurred.
@@ -269,6 +293,6 @@ are included as part of the Data Explorer application.
 
 #endif /* _DXI_ERROR_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

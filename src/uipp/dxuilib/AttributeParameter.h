@@ -9,8 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 // AttributeParameter.h -						    //
 //                                                                          //
 // Definition for the AttributeParameter class.				    //
@@ -23,51 +21,46 @@
 // presidence over the secondary value.
 //                                                                          //
 
-
 #ifndef _AttributeParameter_h
 #define _AttributeParameter_h
 
-
 #include "BinaryParameter.h"
-
 
 //
 // Class name definition:
 //
-#define ClassAttributeParameter	"AttributeParameter"
+#define ClassAttributeParameter "AttributeParameter"
 
 class Node;
 
 //
 // AttributeParameter class definition:
-//				
-class AttributeParameter : public BinaryParameter 
+//
+class AttributeParameter : public BinaryParameter
 {
-  private:
-    //
-    // Private member data:
-    //
-  protected:
+ private:
+  //
+  // Private member data:
+  //
+ protected:
+  Node *node;
+  int index;
+  boolean syncOnTypeMatch;
 
-     Node 	*node;
-     int	index;
-     boolean	syncOnTypeMatch;
+ public:
+  //
+  // Constructor:
+  //
+  AttributeParameter( ParameterDefinition *pd, Node *n, int index );
 
-  public:
+  //
+  // Destructor:
+  //
+  ~AttributeParameter()
+  {
+  }
 
-
-    //
-    // Constructor:
-    //
-    AttributeParameter(ParameterDefinition *pd, Node *n, int index) ; 
-
-    //
-    // Destructor:
-    //
-    ~AttributeParameter() { }
-
-
-#if 0	// 6/10/93
+#if 0  // 6/10/93
 // If we use this then DrivenNode::ioParameterValueChanged() needs to
 // notifyVisualsOfStateChange() so that the displayed attribute is in 
 // sync with the internal value.
@@ -86,75 +79,82 @@ class AttributeParameter : public BinaryParameter
 		   return r;
 		}
 #endif
-		
-    //
-    // Copy the parameter value into the Attribute value.
-    //
-    boolean  syncAttributeValue();
 
-    //
-    // Make sure that the primary parameter has the same value as the
-    // attribute when appropriate.  Appropriate is defined as the primary
-    // parameter having a value and a type which is the same as the attribute's.
-    //
-    boolean	syncPrimaryValue(boolean force = FALSE); 
+  //
+  // Copy the parameter value into the Attribute value.
+  //
+  boolean syncAttributeValue();
 
-    void setSyncOnTypeMatch(boolean v = TRUE) 
-			{ this->syncOnTypeMatch = v; }
+  //
+  // Make sure that the primary parameter has the same value as the
+  // attribute when appropriate.  Appropriate is defined as the primary
+  // parameter having a value and a type which is the same as the attribute's.
+  //
+  boolean syncPrimaryValue( boolean force = FALSE );
 
-    //
-    // Determine if the attribute that shadows this parameter is writeable.
-    // Attributes are writeable if the primary parameter is not connected
-    // and (the primary parameter is defaulting or the value has the same 
-    // type as the attribute value.
-    //
-    boolean  isAttributeVisuallyWriteable();
+  void setSyncOnTypeMatch( boolean v = TRUE )
+  {
+    this->syncOnTypeMatch = v;
+  }
 
-    boolean 	setAttributeValue(const char *val, boolean force = FALSE)
-		{ return this->set2ndValue(val) && 
-				this->syncPrimaryValue(force); }
+  //
+  // Determine if the attribute that shadows this parameter is writeable.
+  // Attributes are writeable if the primary parameter is not connected
+  // and (the primary parameter is defaulting or the value has the same
+  // type as the attribute value.
+  //
+  boolean isAttributeVisuallyWriteable();
 
-    boolean 	initAttributeValue(const char *val)
-		{ return this->set2ndValue(val) && 
-			 this->syncPrimaryValue(TRUE); }
+  boolean setAttributeValue( const char *val, boolean force = FALSE )
+  {
+    return this->set2ndValue( val ) && this->syncPrimaryValue( force );
+  }
 
+  boolean initAttributeValue( const char *val )
+  {
+    return this->set2ndValue( val ) && this->syncPrimaryValue( TRUE );
+  }
 
+  const char *getAttributeValueString()
+  {
+    ASSERT( this->has2ndValue() );
+    return this->get2ndValueString();
+  }
+  Type getAttributeValueType()
+  {
+    ASSERT( this->has2ndValue() );
+    return this->get2ndValueType();
+  }
 
-    const char	*getAttributeValueString()
-		{  ASSERT(this->has2ndValue()); 
-		   return this->get2ndValueString(); 
-		}
-    Type	getAttributeValueType()
-		{  ASSERT(this->has2ndValue()); 
-		   return this->get2ndValueType(); 
-		}
+  //
+  // S/Get the i'th component of a vector attribute.
+  //
+  boolean setAttributeComponentValue( int index, double value )
+  {
+    return this->set2ndComponentValue( index, value ) &&
+           this->syncPrimaryValue();
+  }
 
-    //
-    // S/Get the i'th component of a vector attribute.  
-    //
-    boolean setAttributeComponentValue(int index, double value) 
-		{ return this->set2ndComponentValue(index, value) && 
-					this->syncPrimaryValue(); }
+  double getAttributeComponentValue( int index )
+  {
+    ASSERT( this->has2ndValue() );
+    return this->get2ndComponentValue( index );
+  }
 
-    double getAttributeComponentValue(int index) 
-		{ ASSERT(this->has2ndValue()); 
-		  return this->get2ndComponentValue(index);
-		}
+  int getAttributeComponentCount()
+  {
+    return ( this->has2ndValue() ? this->get2ndComponentCount() : 0 );
+  }
 
-    int	getAttributeComponentCount()  
-		{ return (this->has2ndValue() ? 
-				this->get2ndComponentCount() : 0); }
+  virtual boolean isA( Symbol classname );
 
-    virtual boolean isA(Symbol classname);
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassAttributeParameter;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassAttributeParameter;
+  }
 };
 
-
-#endif // _AttributeParameter_h
+#endif  // _AttributeParameter_h

@@ -9,72 +9,71 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _DXLOutputDefinition_h
 #define _DXLOutputDefinition_h
 
-
 #include "DrivenDefinition.h"
-
 
 //
 // Class name definition:
 //
-#define ClassDXLOutputDefinition	"DXLOutputDefinition"
+#define ClassDXLOutputDefinition "DXLOutputDefinition"
 
 //
 // Referenced classes
 
 //
 // DXLOutputDefinition class definition:
-//				
+//
 class DXLOutputDefinition : public DrivenDefinition
 {
-  private:
-    //
-    // Private member data:
-    //
+ private:
+  //
+  // Private member data:
+  //
 
-  protected:
-    //
-    // Protected member data:
-    //
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
-    virtual SIAllocator getSIAllocator();
+  virtual SIAllocator getSIAllocator();
 
-  public:
-    //
-    // Constructor:
-    //
-    DXLOutputDefinition();
+ public:
+  //
+  // Constructor:
+  //
+  DXLOutputDefinition();
 
-    //
-    // Destructor:
-    //
-    ~DXLOutputDefinition(){}
+  //
+  // Destructor:
+  //
+  ~DXLOutputDefinition()
+  {
+  }
 
-    //
-    // Create a new Module and NodeDefinition of 'this' type. 
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Create a new Module and NodeDefinition of 'this' type.
+  //
+  static NodeDefinition *AllocateDefinition();
 
+  virtual boolean isAllowedInMacro()
+  {
+    return FALSE;
+  }
 
-    virtual boolean isAllowedInMacro() { return FALSE; }
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassDXLOutputDefinition;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassDXLOutputDefinition;
+  }
 };
 
-
-#endif // _DXLOutputDefinition_h
+#endif  // _DXLOutputDefinition_h

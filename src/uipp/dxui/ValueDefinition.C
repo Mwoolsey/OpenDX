@@ -9,18 +9,16 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "ValueDefinition.h"
 #include "ValueNode.h"
 
-Node *ValueDefinition::newNode(Network *net, int inst)
+Node *ValueDefinition::newNode( Network *net, int inst )
 {
-    InteractorNode *n = new ValueNode(this, net, inst);
-    return n;
+  InteractorNode *n = new ValueNode( this, net, inst );
+  return n;
 }
 
 NodeDefinition *ValueDefinition::AllocateDefinition()
 {
-    return (NodeDefinition*) new ValueDefinition();
+  return (NodeDefinition *)new ValueDefinition();
 }
-

@@ -9,20 +9,18 @@
 #ifndef _EWDefaultResources_h
 #define _EWDefaultResources_h
 
-#if !defined(DX_NEW_KEYLAYOUT)
+#if !defined( DX_NEW_KEYLAYOUT )
 
-String EditorWindow::DefaultResources[] =
-{
+String EditorWindow::DefaultResources[] = {
     ".title:                                      Visual Program Editor",
     ".iconName:                                   VPE",
     ".minWidth:                                   480",
     ".minHeight:                                  400",
     "*workArea.width:                             850",
-    "*workArea.height:                            650",				
+    "*workArea.height:                            650",
     "*notebook.width:				  180",
     "*scrolledWindow*XmScrollBar.initialDelay:    2000",
     "*scrolledWindow*XmScrollBar.repeatDelay:     2000",
-
     "*fileMenu.labelString:                       File",
     "*fileMenu.mnemonic:                          F",
     "*vpeNewOption.labelString:                   New",
@@ -55,12 +53,11 @@ String EditorWindow::DefaultResources[] =
 #ifdef DXUI_DEVKIT
     "*vpeSaveAsCCodeOption.labelString:           Save As C Code...",
     "*vpeSaveAsCCodeOption.mnemonic:              v",
-#endif /* DXUI_DEVKIT */ 
+#endif /* DXUI_DEVKIT */
     "*vpeCloseOption.labelString:                 Close",
     "*vpeCloseOption.mnemonic:                    C",
     "*vpeCloseOption.accelerator:                 Ctrl<Key>Q",
     "*vpeCloseOption.acceleratorText:             Ctrl+Q",
-
     "*editMenu.labelString:                       Edit",
     "*editMenu.mnemonic:                          E",
     "*vpeUndoOption.labelString:                  Undo",
@@ -97,17 +94,17 @@ String EditorWindow::DefaultResources[] =
     "*vpeEditSelectCascade.labelString:		  Select/Deselect Tools",
     "*vpeEditSelectCascade.mnemonic:		  S",
 
-#ifndef FORGET_GETSET 
+#ifndef FORGET_GETSET
     "*programVerifyCascade.labelString:		  Assign Get/Set Scope",
     "*programVerifyCascade.mnemonic:		  V",
     "*getSetConversion.labelString:		  Convert All Modules...",
     "*getSetConversion.mnemonic:		  C",
-    "*setToGlobal.labelString:		     	  Set Selected Gets/Sets Global",
+    "*setToGlobal.labelString:		     	  Set Selected Gets/Sets "
+    "Global",
     "*setToGlobal.mnemonic:		     	  G",
     "*setToLocal.labelString:		          Set Selected Gets/Sets Local",
     "*setToLocal.mnemonic:		       	  L",
 #endif
-
     "*vpeSelectAllOption.labelString:                Select All",
     "*vpeSelectAllOption.mnemonic:                   S",
     "*vpeSelectConnectedOption.labelString:          Select Connected",
@@ -122,7 +119,6 @@ String EditorWindow::DefaultResources[] =
     "*vpeDeselectAllOption.mnemonic:                 e",
     "*vpeSelectUnselectedOption.labelString:         Select Unselected",
     "*vpeSelectUnselectedOption.mnemonic:            n",
-
     "*vpeOutputCacheabilityCascade.labelString:      Output Cacheability",
     "*vpeOutputCacheabilityCascade.mnemonic:         u",
     "*vpeOptimizeCacheability.labelString:           Optimize Cacheability",
@@ -136,29 +132,25 @@ String EditorWindow::DefaultResources[] =
     "*vpeCacheNoOutputsOption.labelString:           Cache No Results",
     "*vpeCacheNoOutputsOption.mnemonic:              N",
     "*vpeShowOutputCacheabilityCascade.labelString:  Show Output Cacheability",
-    "*vpeShowOutputCacheabilityCascade.mnemonic:     h", 
+    "*vpeShowOutputCacheabilityCascade.mnemonic:     h",
     "*vpeShowCacheAllOutputsOption.labelString:      All Results",
     "*vpeShowCacheAllOutputsOption.mnemonic:         A",
     "*vpeShowCacheLastOutputsOption.labelString:     Last Result",
     "*vpeShowCacheLastOutputsOption.mnemonic:        L",
     "*vpeShowCacheNoOutputsOption.labelString:       No Results",
     "*vpeShowCacheNoOutputsOption.mnemonic:          N",
-
     "*vpeCutOption.labelString:                      Cut",
     "*vpeCutOption.mnemonic:                         t",
     "*vpeCutOption.acceleratorText:                  Delete",
     "*vpeCutOption.accelerator:                      <Key>osfDelete",
-
     "*vpeCopyOption.labelString:                     Copy",
     "*vpeCopyOption.mnemonic:                        p",
     "*vpeCopyOption.acceleratorText:                 Shift+Delete",
     "*vpeCopyOption.accelerator:                     Shift<Key>osfDelete",
-
     "*vpePasteOption.labelString:                    Paste",
     "*vpePasteOption.mnemonic:                       e",
     "*vpePasteOption.acceleratorText:                Shift+Ins",
     "*vpePasteOption.accelerator:                    Shift<Key>osfInsert",
-
     "*vpeDeleteOption.labelString:                   Delete",
     "*vpeDeleteOption.mnemonic:                      D",
     "*vpeDeleteOption.acceleratorText:               Ctrl+Delete",
@@ -170,10 +162,8 @@ String EditorWindow::DefaultResources[] =
     "*vpePasteOption.accelerator:                    Shift<Key>Insert",
     "*vpeDeleteOption.accelerator:                   Ctrl<Key>Delete",
 #endif
-
     "*vpeAddDecorator.labelString:                Add Annotation",
     "*vpeAddDecorator.mnemonic:                   T",
-
     "*vpeInsertNetOption.labelString:             Insert Visual Program...",
     "*vpeInsertNetOption.mnemonic:                I",
     "*vpeCreateMacroOption.labelString:           Create Macro...",
@@ -211,7 +201,6 @@ String EditorWindow::DefaultResources[] =
     "*vpeCreateProcessGroupOption.mnemonic:       G",
     "*vpeCommentOption.labelString:               Comment...",
     "*vpeCommentOption.mnemonic:                  o",
-
     "*windowsMenu.labelString:                    Windows",
     "*windowsMenu.mnemonic:                       W",
     "*vpeNewControlPanelOption.labelString:        New Control Panel",
@@ -228,7 +217,8 @@ String EditorWindow::DefaultResources[] =
     "*vpePanelGroupCascade.mnemonic:               G",
     "*vpeOpenMacroOption.labelString:              Open Selected Macro(s)",
     "*vpeOpenMacroOption.mnemonic:                 M",
-    "*vpeOpenImageOption.labelString:             Open Selected Image Window(s)",
+    "*vpeOpenImageOption.labelString:             Open Selected Image "
+    "Window(s)",
     "*vpeOpenImageOption.mnemonic:                 I",
     "*vpeOpenColormapEditorOption.labelString:Open Selected Colormap Editor(s)",
     "*vpeOpenColormapEditorOption.mnemonic:        C",
@@ -236,7 +226,6 @@ String EditorWindow::DefaultResources[] =
     "*vpeOpenColormapEditorOption.acceleratorText: Ctrl+E",
     "*vpeMessageWindowOption.labelString:          Open Message Window",
     "*vpeMessageWindowOption.mnemonic:             e",
-
     "*optionsMenu.labelString:                    Options",
     "*optionsMenu.mnemonic:                       O",
     "*vpeToolPalettesOption.labelString:          Tool Palettes",
@@ -255,26 +244,21 @@ String EditorWindow::DefaultResources[] =
     "*vpeShowExecutedOption.mnemonic:		  S",
     "*vpeGridOption.labelString:                  Grid...",
     "*vpeGridOption.mnemonic:                     G",
-
     "*fileMenuPulldown.tearOffModel:		  XmTEAR_OFF_DISABLED",
     "*editMenuPulldown.tearOffModel:		  XmTEAR_OFF_DISABLED",
     "*windowsMenuPulldown.tearOffModel:		  XmTEAR_OFF_DISABLED",
-
     "*vpeOnVisualProgramOption.labelString:       Application Comment...",
     "*vpeOnVisualProgramOption.mnemonic:          A",
-#if (XmVersion > 1001)
+#if ( XmVersion > 1001 )
     "*workAreaFrame*traversalOn:                  false",
     "*workAreaFrame*XmWorkspace*traversalOn:      true",
 #endif
     ".mainWindow.commandWindowLocation: XmCOMMAND_ABOVE_WORKSPACE",
-    ".mainWindow.packing: 		XmPACK_NONE",
-    NULL
-};
+    ".mainWindow.packing: 		XmPACK_NONE", NULL};
 
 #else /* defined(DX_NEW_KEYLAYOUT) */
 
-String EditorWindow::DefaultResources[] =
-{
+String EditorWindow::DefaultResources[] = {
     ".title:                                      	Visual Program Editor",
     ".iconName:                                   	VPE",
     ".minWidth:                                   	480",
@@ -284,7 +268,6 @@ String EditorWindow::DefaultResources[] =
     "*notebook.width:				  	180",
     "*scrolledWindow*XmScrollBar.initialDelay:    	2000",
     "*scrolledWindow*XmScrollBar.repeatDelay:     	2000",
-
     "*fileMenu.labelString:                       	File",
     "*fileMenu.mnemonic:                          	F",
     "*vpeNewOption.labelString:                   	New",
@@ -321,19 +304,19 @@ String EditorWindow::DefaultResources[] =
     "*vpePrintProgramOption.mnemonic:             	P",
     "*vpePrintProgramOption.accelerator:		Ctrl <Key>P",
     "*vpePrintProgramOption.acceleratorText:		Ctrl+P",
-    "*vpeLoadMDFOption.labelString:              	Load Module Description(s)...",
+    "*vpeLoadMDFOption.labelString:              	Load Module "
+    "Description(s)...",
     "*vpeLoadMDFOption.mnemonic:                  	M",
     "*vpeLoadMacroOption.labelString:             	Load Macro...",
     "*vpeLoadMacroOption.mnemonic:                	L",
 #ifdef DXUI_DEVKIT
     "*vpeSaveAsCCodeOption.labelString:           Save As C Code...",
     "*vpeSaveAsCCodeOption.mnemonic:              v",
-#endif // DXUI_DEVKIT
+#endif  // DXUI_DEVKIT
     "*vpeCloseOption.labelString:                 	Close",
     "*vpeCloseOption.mnemonic:                    	C",
     "*vpeCloseOption.accelerator:                 	Ctrl <Key>W",
     "*vpeCloseOption.acceleratorText:             	Ctrl+W",
-
     "*editMenu.labelString:                       	Edit",
     "*editMenu.mnemonic:                          	E",
     "*vpeUndoOption.labelString:                  	Undo",
@@ -375,12 +358,12 @@ String EditorWindow::DefaultResources[] =
     "*programVerifyCascade.mnemonic:		  V",
     "*getSetConversion.labelString:		  Convert All Modules...",
     "*getSetConversion.mnemonic:		  C",
-    "*setToGlobal.labelString:		     	  Set Selected Gets/Sets Global",
+    "*setToGlobal.labelString:		     	  Set Selected Gets/Sets "
+    "Global",
     "*setToGlobal.mnemonic:		     	  G",
     "*setToLocal.labelString:		          Set Selected Gets/Sets Local",
     "*setToLocal.mnemonic:		       	  L",
 #endif
-
     "*vpeSelectAllOption.labelString:                	Select All",
     "*vpeSelectAllOption.mnemonic:                   	S",
     "*vpeSelectAllOption.accelerator:			Ctrl Shift <Key>A",
@@ -401,12 +384,12 @@ String EditorWindow::DefaultResources[] =
     "*vpeSelectUnselectedOption.mnemonic:            	N",
     "*vpeShowExecutedOption.labelString:	  	Select Executed",
     "*vpeShowExecutedOption.mnemonic:		  	X",
-
     "*vpeOutputCacheabilityCascade.labelString:      	Output Cacheability",
     "*vpeOutputCacheabilityCascade.mnemonic:         	y",
     "*vpeOptimizeCacheability.labelString:           	Optimize Cacheability",
     "*vpeOptimizeCacheability.mnemonic:              	O",
-    "*vpeEditOutputCacheabilityCascade.labelString:  	Set Output Cacheability",
+    "*vpeEditOutputCacheabilityCascade.labelString:  	Set Output "
+    "Cacheability",
     "*vpeEditOutputCacheabilityCascade.mnemonic:     	S",
     "*vpeCacheAllOutputsOption.labelString:          	Cache All Results",
     "*vpeCacheAllOutputsOption.mnemonic:             	A",
@@ -414,49 +397,45 @@ String EditorWindow::DefaultResources[] =
     "*vpeCacheLastOutputsOption.mnemonic:            	L",
     "*vpeCacheNoOutputsOption.labelString:           	Cache No Results",
     "*vpeCacheNoOutputsOption.mnemonic:              	N",
-    "*vpeShowOutputCacheabilityCascade.labelString:  	Show Output Cacheability",
-    "*vpeShowOutputCacheabilityCascade.mnemonic:     	h", 
+    "*vpeShowOutputCacheabilityCascade.labelString:  	Show Output "
+    "Cacheability",
+    "*vpeShowOutputCacheabilityCascade.mnemonic:     	h",
     "*vpeShowCacheAllOutputsOption.labelString:      	All Results",
     "*vpeShowCacheAllOutputsOption.mnemonic:         	A",
     "*vpeShowCacheLastOutputsOption.labelString:     	Last Result",
     "*vpeShowCacheLastOutputsOption.mnemonic:        	L",
     "*vpeShowCacheNoOutputsOption.labelString:       	No Results",
     "*vpeShowCacheNoOutputsOption.mnemonic:          	N",
-
     "*vpeCutOption.labelString:                      	Cut",
     "*vpeCutOption.mnemonic:                         	T",
     "*vpeCutOption.acceleratorText:                  	Ctrl+X",
     "*vpeCutOption.accelerator:                      	Ctrl <Key>X",
-
     "*vpeCopyOption.labelString:                     	Copy",
     "*vpeCopyOption.mnemonic:                        	C",
     "*vpeCopyOption.acceleratorText:                 	Ctrl+C",
     "*vpeCopyOption.accelerator:                     	Ctrl <Key>C",
-
     "*vpePasteOption.labelString:                    	Paste",
     "*vpePasteOption.mnemonic:                       	P",
     "*vpePasteOption.acceleratorText:                	Ctrl+V",
     "*vpePasteOption.accelerator:                    	Ctrl <Key>V",
-
     "*vpeDeleteOption.labelString:                   	Delete",
     "*vpeDeleteOption.mnemonic:                      	D",
-#if defined(intelnt)
+#if defined( intelnt )
     "*vpeDeleteOption.acceleratorText:			Ctrl+Backspace",
 #else
     "*vpeDeleteOption.acceleratorText:               	Ctrl+Delete",
 #endif
-#if defined(macos) || defined(intelnt)
+#if defined( macos ) || defined( intelnt )
     "*vpeDeleteOption.accelerator:                   	Ctrl<Key>BackSpace",
-#elif defined(aviion)
+#elif defined( aviion )
     "*vpeDeleteOption.accelerator:			Ctrl<Key>Delete",
 #else
     "*vpeDeleteOption.accelerator:                   	Ctrl<Key>osfDelete",
 #endif
-
     "*vpeAddDecorator.labelString:                	Add Annotation",
     "*vpeAddDecorator.mnemonic:                   	A",
-
-    "*vpeInsertNetOption.labelString:             	Insert Visual Program...",
+    "*vpeInsertNetOption.labelString:             	Insert Visual "
+    "Program...",
     "*vpeInsertNetOption.mnemonic:                	I",
     "*vpeCreateMacroOption.labelString:           	Create Macro...",
     "*vpeCreateMacroOption.mnemonic:              	M",
@@ -464,19 +443,21 @@ String EditorWindow::DefaultResources[] =
     "*vpePageCascade.mnemonic:				P",
     "*vpeCreatePageOption.labelString:            	Create Empty Page",
     "*vpeCreatePageOption.mnemonic:               	E",
-    "*vpeSelectedPageOption.labelString:          	Create with Selected Tools",
+    "*vpeSelectedPageOption.labelString:          	Create with Selected "
+    "Tools",
     "*vpeSelectedPageOption.mnemonic:             	C",
     "*vpeMoveToPageOption.labelString:            	Move Selected Tools...",
     "*vpeMoveToPageOption.mnemonic:               	M",
-    "*vpeChopPageOption.labelString:          	  	Separate Selected Tools",
+    "*vpeChopPageOption.labelString:          	  	Separate Selected "
+    "Tools",
     "*vpeChopPageOption.mnemonic:          	  	S",
-    "*vpeFusePageOption.labelString:          	  	Reconnect Selected Tools",
+    "*vpeFusePageOption.labelString:          	  	Reconnect Selected "
+    "Tools",
     "*vpeFusePageOption.mnemonic:          	  	R",
     "*vpeDeletePageOption.labelString:            	Delete Page",
     "*vpeDeletePageOption.mnemonic:               	D",
     "*vpeConfigurePageOption.labelString:         	Configure Page...",
     "*vpeConfigurePageOption.mnemonic:            	F",
-
     "*vpeJavaCascade.labelString:                 	Java",
     "*vpeJavaCascade.mnemonic:				J",
     "*vpeJavifyNetOption.labelString:             	Add Tools",
@@ -484,40 +465,43 @@ String EditorWindow::DefaultResources[] =
     "*vpeSaveWebPageOption.labelString:           	Save As Web Page",
     "*vpeSaveAppletOption.labelString:            	Net to Applet",
     "*vpeSaveBeanOption.labelString:              	Net to Bean",
-    
     "*vpeReflowGraphOption.labelString:           	Layout Graph",
     "*vpeReflowGraphOption.mnemonic:              	u",
     "*vpeReflowGraphOption.accelerator:           	Ctrl<Key>K",
     "*vpeReflowGraphOption.acceleratorText:       	Ctrl+K",
     "*vpeStraightenArcsOption.labelString:        	Tidy Up the Arcs",
     "*vpeStraightenArcsOption.mnemonic:          	 y",
-
     "*vpeMacroNameOption.labelString:             	Macro Name...",
     "*vpeMacroNameOption.mnemonic:                	N",
     "*vpeCreateProcessGroupOption.labelString:    	Execution Groups...",
     "*vpeCreateProcessGroupOption.mnemonic:       	G",
     "*vpeCommentOption.labelString:               	Comment...",
     "*vpeCommentOption.mnemonic:                  	O",
-
     "*windowsMenu.labelString:                    	Windows",
     "*windowsMenu.mnemonic:                       	W",
     "*vpeNewControlPanelOption.labelString:        	New Control Panel",
     "*vpeNewControlPanelOption.mnemonic:           	P",
-    "*vpeOpenControlPanelOption.labelString:  		Open Selected Control Panel(s)",
+    "*vpeOpenControlPanelOption.labelString:  		Open Selected Control "
+    "Panel(s)",
     "*vpeOpenControlPanelOption.mnemonic:          	S",
-    "*vpeOpenAllControlPanelsOption.labelString:   	Open All Control Panels",
+    "*vpeOpenAllControlPanelsOption.labelString:   	Open All Control "
+    "Panels",
     "*vpeOpenAllControlPanelsOption.mnemonic:      	A",
     "*vpeOpenAllControlPanelsOption.accelerator:   	Ctrl Shift <Key>P",
     "*vpeOpenAllControlPanelsOption.acceleratorText: 	Ctrl+Shift+P",
-    "*vpePanelCascade.labelString:                 	Open Control Panel by Name",
+    "*vpePanelCascade.labelString:                 	Open Control Panel by "
+    "Name",
     "*vpePanelCascade.mnemonic:                    	N",
-    "*vpePanelGroupCascade.labelString:            	Open Control Panel by Group",
+    "*vpePanelGroupCascade.labelString:            	Open Control Panel by "
+    "Group",
     "*vpePanelGroupCascade.mnemonic:               	G",
     "*vpeOpenMacroOption.labelString:              	Open Selected Macro(s)",
     "*vpeOpenMacroOption.mnemonic:                 	R",
-    "*vpeOpenImageOption.labelString:             	Open Selected Image Window(s)",
+    "*vpeOpenImageOption.labelString:             	Open Selected Image "
+    "Window(s)",
     "*vpeOpenImageOption.mnemonic:                 	I",
-    "*vpeOpenColormapEditorOption.labelString:		Open Selected Colormap Editor(s)",
+    "*vpeOpenColormapEditorOption.labelString:		Open Selected Colormap "
+    "Editor(s)",
     "*vpeOpenColormapEditorOption.mnemonic:        	C",
     "*vpeOpenColormapEditorOption.accelerator:     	Ctrl Shift <Key>E",
     "*vpeOpenColormapEditorOption.acceleratorText: 	Ctrl+Shift+E",
@@ -525,7 +509,6 @@ String EditorWindow::DefaultResources[] =
     "*vpeMessageWindowOption.mnemonic:             	M",
     "*vpeMessageWindowOption.accelerator:		Ctrl <Key>M",
     "*vpeMessageWindowOption.acceleratorText:		Ctrl+M",
-
     "*optionsMenu.labelString:                    	Options",
     "*optionsMenu.mnemonic:                       	O",
     "*vpeToolPalettesOption.labelString:          	Tool Palettes",
@@ -534,29 +517,26 @@ String EditorWindow::DefaultResources[] =
     "*vpeToolPalettesOption.acceleratorText:      	Ctrl+T",
     "*vpeHitDetectionOption.labelString:          	Prevent Overlap",
     "*vpeHitDetectionOption.mnemonic:             	v",
-    "*vpePanelAccessOption.labelString:           	Control Panel Access...",
+    "*vpePanelAccessOption.labelString:           	Control Panel "
+    "Access...",
     "*vpePanelAccessOption.mnemonic:              	A",
-    "*vpePanelGroupOption.labelString:            	Control Panel Groups...",
+    "*vpePanelGroupOption.labelString:            	Control Panel "
+    "Groups...",
     "*vpePanelGroupOption.mnemonic:               	P",
     "*vpeGridOption.labelString:                  	Grid...",
     "*vpeGridOption.mnemonic:                     	G",
-
     "*fileMenuPulldown.tearOffModel:		  	XmTEAR_OFF_DISABLED",
     "*editMenuPulldown.tearOffModel:		  	XmTEAR_OFF_DISABLED",
     "*windowsMenuPulldown.tearOffModel:		  	XmTEAR_OFF_DISABLED",
-
     "*vpeOnVisualProgramOption.labelString:       	Application Comment...",
     "*vpeOnVisualProgramOption.mnemonic:          	A",
-#if (XmVersion > 1001)
+#if ( XmVersion > 1001 )
     "*workAreaFrame*traversalOn:                  false",
     "*workAreaFrame*XmWorkspace*traversalOn:      true",
 #endif
     ".mainWindow.commandWindowLocation:	XmCOMMAND_ABOVE_WORKSPACE",
-    ".mainWindow.packing: 		XmPACK_NONE",
-    NULL
-};
+    ".mainWindow.packing: 		XmPACK_NONE", NULL};
 
 #endif
 
-#endif // _EWDefaultResources_h
-
+#endif  // _EWDefaultResources_h

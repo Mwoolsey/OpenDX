@@ -9,10 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
-
 #include "DXStrings.h"
 #include "Application.h"
 #include "Network.h"
@@ -20,60 +16,54 @@
 //#include "QuestionDialogManager.h"
 #include "OpenCommand.h"
 
-
 #include <sys/stat.h>
 
 boolean SaveAsDialog::ClassInitialized = FALSE;
 
-String SaveAsDialog::DefaultResources[] =
+String SaveAsDialog::DefaultResources[] = {"*dialogTitle:     Save As...",
+                                           "*dirMask:         *.net", NULL};
+
+void SaveAsDialog::saveFile( const char *filename )
 {
-        "*dialogTitle:     Save As...",
-        "*dirMask:         *.net",
-        NULL
-};
+  boolean success;
+  success = this->network->saveNetwork( filename );
 
-
-void SaveAsDialog::saveFile(const char *filename)
-{
-    boolean success;
-    success = this->network->saveNetwork(filename);
-
-    if(success AND this->postCmd)
-	((OpenCommand*)this->postCmd)->execute();
+  if ( success AND this->postCmd )
+    ( (OpenCommand *)this->postCmd )->execute();
 }
 
-SaveAsDialog::SaveAsDialog(Widget parent, Network *network) : 
-                       SaveFileDialog("saveAsDialog", parent,".net")
+SaveAsDialog::SaveAsDialog( Widget parent, Network *network )
+    : SaveFileDialog( "saveAsDialog", parent, ".net" )
 {
-    this->network = network;
-    this->postCmd = NULL;
+  this->network = network;
+  this->postCmd = NULL;
 
-    if (NOT SaveAsDialog::ClassInitialized)
-    {
-        SaveAsDialog::ClassInitialized = TRUE;
-	this->installDefaultResources(theApplication->getRootWidget());
-    }
+  if ( NOT SaveAsDialog::ClassInitialized )
+  {
+    SaveAsDialog::ClassInitialized = TRUE;
+    this->installDefaultResources( theApplication->getRootWidget() );
+  }
 }
 
 //
 // Install the default resources for this class.
 //
-void SaveAsDialog::installDefaultResources(Widget  baseWidget)
+void SaveAsDialog::installDefaultResources( Widget baseWidget )
 {
-    this->setDefaultResources(baseWidget, SaveAsDialog::DefaultResources);
-    this->SaveFileDialog::installDefaultResources( baseWidget);
+  this->setDefaultResources( baseWidget, SaveAsDialog::DefaultResources );
+  this->SaveFileDialog::installDefaultResources( baseWidget );
 }
 
 char *SaveAsDialog::getDefaultFileName()
 {
-   const char *netname = this->network->getFileName();
-   if (netname)
-	return DuplicateString(netname);
-   else
-	return NULL;
+  const char *netname = this->network->getFileName();
+  if ( netname )
+    return DuplicateString( netname );
+  else
+    return NULL;
 }
 
-#if 0	// Moved to FileDialog 7/18/94
+#if 0  // Moved to FileDialog 7/18/94
 //
 // Install the current file name in the file selection box.
 void SaveAsDialog::manage()

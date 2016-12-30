@@ -9,24 +9,19 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
- 
 #include "ValueNode.h"
 #include "ValueInstance.h"
 
 //
-// The Constructor... 
+// The Constructor...
 //
-ValueNode::ValueNode(NodeDefinition *nd, Network *net, int instnc) :
-                        NondrivenInteractorNode(nd, net, instnc)
-{ 
-
+ValueNode::ValueNode( NodeDefinition *nd, Network *net, int instnc )
+    : NondrivenInteractorNode( nd, net, instnc )
+{
 }
 
 //
-// Destructure: needs to delete all its instances. 
+// Destructure: needs to delete all its instances.
 //
 ValueNode::~ValueNode()
 {
@@ -34,26 +29,26 @@ ValueNode::~ValueNode()
 
 boolean ValueNode::initialize()
 {
-    Type t = this->setOutputValue(1,"NULL", DXType::UndefinedType, FALSE);
-    return t == DXType::UndefinedType ? FALSE : TRUE;
+  Type t = this->setOutputValue( 1, "NULL", DXType::UndefinedType, FALSE );
+  return t == DXType::UndefinedType ? FALSE : TRUE;
 }
 
-InteractorInstance* ValueNode::newInteractorInstance()
+InteractorInstance *ValueNode::newInteractorInstance()
 {
-    ValueInstance *ii;
+  ValueInstance *ii;
 
-    ii = new ValueInstance(this);
+  ii = new ValueInstance( this );
 
-    return ii;
+  return ii;
 }
 //
 // Determine if this node is of the given class.
 //
-boolean ValueNode::isA(Symbol classname)
+boolean ValueNode::isA( Symbol classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(ClassValueNode);
-    if (s == classname)
-	return TRUE;
-    else
-	return this->NondrivenInteractorNode::isA(classname);
+  Symbol s = theSymbolManager->registerSymbol( ClassValueNode );
+  if ( s == classname )
+    return TRUE;
+  else
+    return this->NondrivenInteractorNode::isA( classname );
 }

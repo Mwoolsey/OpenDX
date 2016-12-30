@@ -8,9 +8,8 @@
 
 #include <dxconfig.h>
 
-
-#ifndef	hwFlags_h
-#define	hwFlags_h
+#ifndef hwFlags_h
+#define hwFlags_h
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/hwFlags.h,v $
   Author: Tim Murphy
@@ -38,15 +37,12 @@ typedef hwFlagsT *hwFlags;
 
 hwFlags _dxf_SERVICES_FLAGS();
 
-#define _dxf_isFlagsSet(dstFlags,srcFlags) \
-  ((srcFlags) & *(dstFlags))
+#define _dxf_isFlagsSet( dstFlags, srcFlags ) ( ( srcFlags ) & *( dstFlags ) )
 
-#define _dxf_setFlags(dstFlags,srcFlags) \
-  *(dstFlags) = (*(dstFlags) | (srcFlags))
+#define _dxf_setFlags( dstFlags, srcFlags ) \
+  *( dstFlags ) = ( *( dstFlags ) | ( srcFlags ) )
 
-#define _dxf_clearFlags(dstFlags,srcFlags) \
-  *(dstFlags) = (*(dstFlags) & ~(srcFlags))
+#define _dxf_clearFlags( dstFlags, srcFlags ) \
+  *( dstFlags ) = ( *( dstFlags ) & ~( srcFlags ) )
 
 #endif /* hwFlags_h */
-
-

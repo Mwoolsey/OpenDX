@@ -6,59 +6,61 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-#if defined(DXD_LICENSED_VERSION)
+#if defined( DXD_LICENSED_VERSION )
 fjdasjfasjhsjasf
 #endif
 
 #include <dxconfig.h>
-
 
 #include <DXStrings.h>
 
 // This nonsense surrounds sys/types.h because its typedef for boolean conflicts
 // with one from defines.h.  Many includes are ifdef on ARCH because of the
 // need for select().
-#if defined(solaris) 
+#if defined( solaris )
 #define boolean bool
 #endif
 
 #include <sys/types.h>
 
-#if defined(solaris)
+#if defined( solaris )
 #undef boolean
 #endif
 
 #include <stdio.h>
 #include <time.h>
 
-#if defined(HAVE_UNISTD_H)
+#if defined( HAVE_UNISTD_H )
 #include <unistd.h>
 #endif
 
-#if defined(sgi)
+#if defined( sgi )
 #include <bstring.h>
 #endif
 
-#if defined(ibm6000)
+#if defined( ibm6000 )
 #include <sys/select.h>
 #endif
 
-#if defined(HAVE_SYS_UTSNAME_H)
+#if defined( HAVE_SYS_UTSNAME_H )
 #include <sys/utsname.h>
 #endif
 
-#if defined(HAVE_SYS_TIMEB_H)
+#if defined( HAVE_SYS_TIMEB_H )
 #include <sys/timeb.h>
-#elif defined(HAVE_SYS_TIME_H)
+#elif defined( HAVE_SYS_TIME_H )
 #include <sys/time.h>
 #endif
 
-#if defined(_AIX41)
+#if defined( _AIX41 )
 #include <strings.h>
 #endif
 
-#if defined(aviion)
-extern "C" { void bzero(char *, int); }
+#if defined( aviion )
+    extern "C"
+{
+  void bzero( char *, int );
+}
 #endif
 
 #include <X11/Intrinsic.h>
@@ -67,603 +69,629 @@ extern "C" { void bzero(char *, int); }
 
 #include "License.h"
 
-#if defined(DXD_LICENSED_VERSION) && DXD_LICENSED_VERSION!=0 
-# define NEEDS_LICENSE_ROUTINES 1
+#if defined( DXD_LICENSED_VERSION ) && DXD_LICENSED_VERSION != 0
+#define NEEDS_LICENSE_ROUTINES 1
 #else
-# define NEEDS_LICENSE_ROUTINES 0
+#define NEEDS_LICENSE_ROUTINES 0
 #endif
 
-#if NEEDS_LICENSE_ROUTINES 
+#if NEEDS_LICENSE_ROUTINES
 
 extern "C" {
 
-
-#if (defined(sgi) && !( __mips > 1)) || defined(aviion)
-const char *crypt(const char*, const char*);
+#if ( defined( sgi ) && !( __mips > 1 ) ) || defined( aviion )
+const char *crypt( const char *, const char * );
 #endif
 
-#if defined(solaris)
+#if defined( solaris )
 #include <crypt.h>
 #endif
 
-#ifdef sun4 
+#ifdef sun4
 int gethostid();
 int getdtablesize();
 #endif
-
 
 #ifdef sgi
-unsigned sysid(unsigned char id[]);
-int getdtablesize(void);
+unsigned sysid( unsigned char id[] );
+int getdtablesize( void );
 #endif
 
-
-#if defined(aviion) 
+#if defined( aviion )
 int gethostid();
 int getdtablesize();
-int gettimeofday(struct timeval*, struct timezone*);
+int gettimeofday( struct timeval *, struct timezone * );
 #endif
 
-#ifdef alphax 
+#ifdef alphax
 #include <crypt.h>
 int getdtablesize();
-#include <stdio.h>              /* standard I/O */
-#include <errno.h>              /* error numbers */
+#include <stdio.h> /* standard I/O */
+#include <errno.h> /* error numbers */
 
-#if defined(windows) && defined(HAVE_WINSOCK_H)
+#if defined( windows ) && defined( HAVE_WINSOCK_H )
 #include <winsock.h>
-#elif defined(HAVE_CYGWIN_SOCKET_H)
+#elif defined( HAVE_CYGWIN_SOCKET_H )
 #include <cygwin/socket.h>
-#elif defined(HAVE_SYS_SOCKET_H)
+#elif defined( HAVE_SYS_SOCKET_H )
 #include <sys/socket.h>
 #endif
 
-#include <sys/ioctl.h>          /* ioctls */
-#include <net/if.h>             /* generic interface structures */
-#include <sys/systeminfo.h>  /* maybe someday this will be implemented...arg! */
-extern "C"   int select(
-          int nfds,
-          fd_set *readfds,
-          fd_set *writefds,
-          fd_set *exceptfds,
-          struct timeval *timeout) ;
+#include <sys/ioctl.h>      /* ioctls */
+#include <net/if.h>         /* generic interface structures */
+#include <sys/systeminfo.h> /* maybe someday this will be implemented...arg! \
+                               */
+extern "C" int select( int nfds, fd_set *readfds, fd_set *writefds,
+                       fd_set *exceptfds, struct timeval *timeout );
 #endif
-
 }
-#define CRYPT(A,B) crypt((const char*)A, (const char*)B) 
+#define CRYPT( A, B ) crypt( (const char *)A, (const char *)B )
 
 #define ANYWHERE_HOSTID "00000000"
 
-#if defined(DXD_LICENSED_VERSION) && !defined(HAVE_CRYPT)
-  error:  Can not  run licensing routines without crypt()
+#if defined( DXD_LICENSED_VERSION ) && !defined( HAVE_CRYPT )
+error:
+Can not run licensing routines without crypt()
 #endif
+    static int checkexp( const char *root );
 
-static int  checkexp(const char *root);
-
-#endif // NEEDS_LICENSE_ROUTINES 
+#endif  // NEEDS_LICENSE_ROUTINES
 
 #ifndef DXD_WIN
 
-void UIGetLicense(const char *root, 
-			XtInputCallbackProc lostLicense,
-			LicenseTypeEnum *appLic,
-			LicenseTypeEnum *funcLic)
+void UIGetLicense( const char *root, XtInputCallbackProc lostLicense,
+                   LicenseTypeEnum *appLic, LicenseTypeEnum *funcLic )
 {
-#if !NEEDS_LICENSE_ROUTINES 
-    *appLic = FullyLicensed;
+#if !NEEDS_LICENSE_ROUTINES
+  *appLic = FullyLicensed;
+  *funcLic = FullFunctionLicense;
+  return;
+#else
+
+  LicenseTypeEnum forcedFuncLic;
+  int i;
+  int child;
+  int child_in[2], child_out[2];
+  char remname[1024];
+  char auth_msg[AUTH_MSG_LEN];
+  char ckey[128];
+  char c_buf[128], p_buf[128]; /* hold crypted msgs for comaparison */
+  char envbuf[128];
+  char salt[32];
+  time_t ctime;
+
+  if ( checkexp( root ) )
+  {/* check for an old syle trial license */
+    *appLic = NodeLockedLicense;
     *funcLic = FullFunctionLicense;
     return;
-#else
+  }
 
-    LicenseTypeEnum forcedFuncLic;
-    int i;
-    int child;
-    int child_in[2],child_out[2];
-    char remname[1024];
-    char auth_msg[AUTH_MSG_LEN];
-    char ckey[128];
-    char c_buf[128],p_buf[128];	/* hold crypted msgs for comaparison */
-    char envbuf[128];
-    char salt[32];
-    time_t ctime;
-  
-	
-    if (checkexp (root)) { /* check for an old syle trial license */
-	*appLic = NodeLockedLicense;
-        *funcLic = FullFunctionLicense;
-	return; 
-    }
+  /* didn't find a trial license so spawn the NetLS licensing process */
+  *appLic = Unlicensed;
+  forcedFuncLic = *funcLic;
+  *funcLic = Unlicensed;
 
+  /* Set up two pipes */
+  if ( pipe( child_in ) < 0 )
+  {
+    perror( "pipe(child_in)" );
+    return;
+  }
 
-    /* didn't find a trial license so spawn the NetLS licensing process */
-    *appLic = Unlicensed;
-    forcedFuncLic = *funcLic;
-    *funcLic = Unlicensed;
-    
-    /* Set up two pipes */
-    if (pipe(child_in) < 0) {
-        perror("pipe(child_in)");
-	return;
-    }
+  if ( pipe( child_out ) < 0 )
+  {
+    perror( "pipe(child_out)" );
+    return;
+  }
 
-    if (pipe(child_out) < 0) {
-        perror("pipe(child_out)");
-	return ;
-    }
-    
-    ctime=time(NULL);
+  ctime = time( NULL );
 
-    sprintf(envbuf,"_DX_%d=",getpid());
-    sprintf(c_buf,"%x",ctime);
-    strcat(envbuf,c_buf+4);
-    putenv(DuplicateString(envbuf));
+  sprintf( envbuf, "_DX_%d=", getpid() );
+  sprintf( c_buf, "%x", ctime );
+  strcat( envbuf, c_buf + 4 );
+  putenv( DuplicateString( envbuf ) );
 
+  child = 0xffff & fork();
 
-    child = 0xffff&fork();
+  if ( child == 0 )
+  {/* Child */
 
-
-    if (child == 0) {	/* Child */
-
-      char arg1[512];
-      char arg2[512];
-      char arg3[512];
+    char arg1[512];
+    char arg2[512];
+    char arg3[512];
 #ifdef hp700
-    int  width = MAXFUPLIM;
+    int width = MAXFUPLIM;
 #else
 #ifdef solaris
-    int  width = FD_SETSIZE;
+    int width = FD_SETSIZE;
 #else
-    int  width = getdtablesize();
+    int width = getdtablesize();
 #endif
 #endif
 
-      close(child_in[1]);
-      close(child_out[0]);
+    close( child_in[1] );
+    close( child_out[0] );
 
-      if (dup2(child_in[0], 0) < 0) 
-	exit(1);
-      
-      if (dup2(child_out[1], 1) < 0) 
-	exit(1);
+    if ( dup2( child_in[0], 0 ) < 0 )
+      exit( 1 );
 
-      /* close other file descriptors here  */
-#if !defined(__PURIFY__)
-      // purify uses some file descriptors
-      for (i=3 ; i<=width ; i++)
-	   close(i);
+    if ( dup2( child_out[1], 1 ) < 0 )
+      exit( 1 );
+
+/* close other file descriptors here  */
+#if !defined( __PURIFY__ )
+    // purify uses some file descriptors
+    for ( i = 3; i <= width; i++ )
+      close( i );
 #endif
-    
-      char *s;
-      if (s = getenv("DXSHADOW"))
-	strcpy(remname,s);
-      else 
-	sprintf(remname,"%s/bin_%s/dxshadow",root,DXD_ARCHNAME);
 
-      switch (forcedFuncLic) {
-            case RunTimeLicense: strcpy(arg1,"-rtonly");      break;
-            case DeveloperLicense: strcpy(arg1,"-devonly");     break;
-            default:    strcpy(arg1,"-dev"); break;
-      }
-      int maj, min,mic;
-      theIBMApplication->getVersionNumbers(&maj,&min,&mic);
-      sprintf(arg3,"%d.%d.%d",maj,min,mic);
-	
-      execlp(remname, "dxshadow", arg1, "-version", arg3, NULL);
+    char *s;
+    if ( s = getenv( "DXSHADOW" ) )
+      strcpy( remname, s );
+    else
+      sprintf( remname, "%s/bin_%s/dxshadow", root, DXD_ARCHNAME );
 
-      //
-      // If we get here, we failed. 
-      //
-      fprintf(stderr,"License Error: could not exec license process\n");
-      exit(1);	
+    switch ( forcedFuncLic )
+    {
+      case RunTimeLicense:
+        strcpy( arg1, "-rtonly" );
+        break;
+      case DeveloperLicense:
+        strcpy( arg1, "-devonly" );
+        break;
+      default:
+        strcpy( arg1, "-dev" );
+        break;
     }
+    int maj, min, mic;
+    theIBMApplication->getVersionNumbers( &maj, &min, &mic );
+    sprintf( arg3, "%d.%d.%d", maj, min, mic );
+
+    execlp( remname, "dxshadow", arg1, "-version", arg3, NULL );
 
     //
-    // Only the parent gets here
+    // If we get here, we failed.
     //
-    close (child_in[0]);
-    close (child_out[1]);
-      
-    /* wait for response from the child */
-      
+    fprintf( stderr, "License Error: could not exec license process\n" );
+    exit( 1 );
+  }
+
+  //
+  // Only the parent gets here
+  //
+  close( child_in[0] );
+  close( child_out[1] );
+
+/* wait for response from the child */
+
 #define USE_SUB_EVENT_LOOP 1
 #if USE_SUB_EVENT_LOOP
-    // Instead of doing a blocking read... and instead of writing a communication
-    // subsystem, monitor all sockets of interest.  When something arrives, service
-    // it.  As a result, X Events still get processed and we achieve a little extra
-    // concurrency which should decrease startup time.  According to Quantify,
-    // we were spending lots of time inside the call to read().
-    // The loop waits approximately 5 seconds.  If dxshadow takes longer than that,
-    // then execution continues by sitting in the read() command as it used to.
-    fd_set rdfds;
-    XEvent event;
-    FD_ZERO(&rdfds);
-    Display *d = theApplication->getDisplay();
-    XtAppContext app = theApplication->getApplicationContext();
-    timeval tval, starttime;
-    gettimeofday (&starttime, NULL);
-    while (!FD_ISSET(child_out[0], &rdfds)) {
-	FD_SET (child_out[0], &rdfds);
-	FD_SET (ConnectionNumber(d), &rdfds);
-	tval.tv_sec = 1; tval.tv_usec = 0;
-	if (select (32, (SELECT_ARG_TYPE *)&rdfds, NULL, NULL, &tval) == -1) break;
-	XtInputMask mask;
-	while ((mask = XtAppPending (app)) & (XtIMXEvent|XtIMTimer)) {
-	    if (XtIMXEvent & mask) {
-		XtAppNextEvent (app, &event);
-		theIBMApplication->passEventToHandler (&event);
-	    } 
-	    if (XtIMTimer & mask) {
-		XtAppProcessEvent (app, XtIMTimer);
-	    }
-	}
-	if (gettimeofday (&tval, NULL) == -1) break;
-	if ((tval.tv_sec - starttime.tv_sec) >= 10) break;
+  // Instead of doing a blocking read... and instead of writing a communication
+  // subsystem, monitor all sockets of interest.  When something arrives,
+  // service
+  // it.  As a result, X Events still get processed and we achieve a little
+  // extra
+  // concurrency which should decrease startup time.  According to Quantify,
+  // we were spending lots of time inside the call to read().
+  // The loop waits approximately 5 seconds.  If dxshadow takes longer than
+  // that,
+  // then execution continues by sitting in the read() command as it used to.
+  fd_set rdfds;
+  XEvent event;
+  FD_ZERO( &rdfds );
+  Display *d = theApplication->getDisplay();
+  XtAppContext app = theApplication->getApplicationContext();
+  timeval tval, starttime;
+  gettimeofday( &starttime, NULL );
+  while ( !FD_ISSET( child_out[0], &rdfds ) )
+  {
+    FD_SET( child_out[0], &rdfds );
+    FD_SET( ConnectionNumber( d ), &rdfds );
+    tval.tv_sec = 1;
+    tval.tv_usec = 0;
+    if ( select( 32, (SELECT_ARG_TYPE *)&rdfds, NULL, NULL, &tval ) == -1 )
+      break;
+    XtInputMask mask;
+    while ( ( mask = XtAppPending( app ) ) & ( XtIMXEvent | XtIMTimer ) )
+    {
+      if ( XtIMXEvent & mask )
+      {
+        XtAppNextEvent( app, &event );
+        theIBMApplication->passEventToHandler( &event );
+      }
+      if ( XtIMTimer & mask )
+      {
+        XtAppProcessEvent( app, XtIMTimer );
+      }
     }
+    if ( gettimeofday( &tval, NULL ) == -1 )
+      break;
+    if ( ( tval.tv_sec - starttime.tv_sec ) >= 10 )
+      break;
+  }
 #endif
-    i = read(child_out[0],auth_msg,AUTH_MSG_LEN);
+  i = read( child_out[0], auth_msg, AUTH_MSG_LEN );
 
-    if (!i) {
-	fprintf(stderr,"License Error\n");
-	goto unlicensed;
-    }
+  if ( !i )
+  {
+    fprintf( stderr, "License Error\n" );
+    goto unlicensed;
+  }
 
-    /* decipher license message here */
-            
-    child = (child<4096)?(child+4096):(child); /* forces to be 4 0x chars */
-	
-    strcpy(ckey,c_buf+4);
-    sprintf(ckey+4,"%x",child);
-      
-    salt[0] = '7';
-    salt[1] = 'q';
-    salt[2] = '\0';
-      	
-    strcpy(p_buf,CRYPT(ckey,salt));;
-	
-    for(i=0;i<13;i++)
-	c_buf[i] = auth_msg[(i*29)+5];
-    c_buf[13] = '\0';
+  /* decipher license message here */
 
-    if (strcmp(c_buf,p_buf)) {
-	
-	/* Bad message from child */
+  child = ( child < 4096 ) ? ( child + 4096 )
+                           : ( child ); /* forces to be 4 0x chars */
 
-	fprintf(stderr,"License error\n");
-	goto unlicensed;
-    }
+  strcpy( ckey, c_buf + 4 );
+  sprintf( ckey + 4, "%x", child );
 
-    /* valid message so we extract license type */
+  salt[0] = '7';
+  salt[1] = 'q';
+  salt[2] = '\0';
 
-    for(i=0;i<8;i++)
-	  c_buf[i] = auth_msg[(i*3)+37];
+  strcpy( p_buf, CRYPT( ckey, salt ) );
+  ;
 
-    c_buf[8] = '\0';
+  for ( i = 0; i < 13; i++ )
+    c_buf[i] = auth_msg[( i * 29 ) + 5];
+  c_buf[13] = '\0';
 
-    sscanf(c_buf,"%x",&i);
-    *appLic = (LicenseTypeEnum)(0xffff & (i^child));
-    i = i >> 16;
-    *funcLic = (LicenseTypeEnum)(0xffff & (i^child));
-#if 000 
-    fprintf(stderr,"c_buf = '%s', funcLic = 0x%x, appLic = 0x%x\n",
-			    c_buf,*funcLic,*appLic);
+  if ( strcmp( c_buf, p_buf ) )
+  {
+
+    /* Bad message from child */
+
+    fprintf( stderr, "License error\n" );
+    goto unlicensed;
+  }
+
+  /* valid message so we extract license type */
+
+  for ( i = 0; i < 8; i++ )
+    c_buf[i] = auth_msg[( i * 3 ) + 37];
+
+  c_buf[8] = '\0';
+
+  sscanf( c_buf, "%x", &i );
+  *appLic = ( LicenseTypeEnum )( 0xffff & ( i ^ child ) );
+  i = i >> 16;
+  *funcLic = ( LicenseTypeEnum )( 0xffff & ( i ^ child ) );
+#if 000
+  fprintf( stderr, "c_buf = '%s', funcLic = 0x%x, appLic = 0x%x\n", c_buf,
+           *funcLic, *appLic );
 #endif
 
-    const char* lic_name;
-    switch (*funcLic) {
-	case DeveloperLicense: lic_name = "DX development"; break;
-	case RunTimeLicense:   lic_name = "DX run-time"; break;
-	default: 
-	        fprintf(stderr,"Unrecognized license\n");
-	        goto unlicensed;
-		break;
-    }
+  const char *lic_name;
+  switch ( *funcLic )
+  {
+    case DeveloperLicense:
+      lic_name = "DX development";
+      break;
+    case RunTimeLicense:
+      lic_name = "DX run-time";
+      break;
+    default:
+      fprintf( stderr, "Unrecognized license\n" );
+      goto unlicensed;
+      break;
+  }
 
-    switch (*appLic) {
+  switch ( *appLic )
+  {
 
-	case NodeLockedLicense:
-	  
+    case NodeLockedLicense:
+
 #ifdef DEBUG
-	      fprintf(stderr,"Got nodelocked %s license\n",lic_name);
-#endif 
-	      return; 
-
-	case ConcurrentLicense:
-
-#ifdef DEBUG
-	      fprintf(stderr,"Got concurrent %s license\n",lic_name);
+      fprintf( stderr, "Got nodelocked %s license\n", lic_name );
 #endif
-	  
-	      XtAppAddInput(theIBMApplication->getApplicationContext(),
-			child_out[0],
-			(XtPointer)(XtInputReadMask),
-			lostLicense,
-			(XtPointer)NULL);
+      return;
 
-	      return ;
-
-	  
-	case Unlicensed:
+    case ConcurrentLicense:
 
 #ifdef DEBUG
-	      fprintf(stderr,"Could not get a license\n");
-#endif 
-	      break;
-
-
-	default: 	/* invalid license type */
-#ifdef DEBUG
-	    
-	      fprintf(stderr,"License Error: Invalid License Type\n");
+      fprintf( stderr, "Got concurrent %s license\n", lic_name );
 #endif
-	      goto unlicensed;
-    }
 
+      XtAppAddInput( theIBMApplication->getApplicationContext(), child_out[0],
+                     ( XtPointer )( XtInputReadMask ), lostLicense,
+                     (XtPointer)NULL );
+
+      return;
+
+    case Unlicensed:
+
+#ifdef DEBUG
+      fprintf( stderr, "Could not get a license\n" );
+#endif
+      break;
+
+    default: /* invalid license type */
+#ifdef DEBUG
+
+      fprintf( stderr, "License Error: Invalid License Type\n" );
+#endif
+      goto unlicensed;
+  }
 
 unlicensed:
-    *appLic = Unlicensed;
-    *funcLic = Unlicensed;
-    return;	
+  *appLic = Unlicensed;
+  *funcLic = Unlicensed;
+  return;
 
-#endif // NEEDS_LICENSE_ROUTINES 
-}  
-
-
-
-
-
+#endif  // NEEDS_LICENSE_ROUTINES
+}
 
 /* This function creates the message which will tell the exec if it
  * is OK to run without a license. inkey must be at least char[14]
  * and should contain the key returned from the $getkey.  type
  * should be either ConcurrentLicense or NodeLockedLicense. On return
- * inkey holds the string to send to the exec with $license.    
+ * inkey holds the string to send to the exec with $license.
  * The returned string must be freed by the caller.
- */	 
+ */
 
-char *GenerateExecKey(const char *inkey, LicenseTypeEnum licenseType)
+char *GenerateExecKey( const char *inkey, LicenseTypeEnum licenseType )
 {
 
-#if NEEDS_LICENSE_ROUTINES 
+#if NEEDS_LICENSE_ROUTINES
 
-    int i;
-    char keybuf[64];
-    char cryptbuf[64];
-    char salt[8];
+  int i;
+  char keybuf[64];
+  char cryptbuf[64];
+  char salt[8];
 
-    for(i=0;i<4;i++)
-      keybuf[i*2]=inkey[i];
+  for ( i = 0; i < 4; i++ )
+    keybuf[i * 2] = inkey[i];
 
-    keybuf[1] = 'g';
-    keybuf[3] = '3';
-    keybuf[5] = '$';
-    keybuf[7] = 'Q';
-    keybuf[8] = '\0';
-	    
-    salt[0] = '4';
-    salt[1] = '.';
-    salt[2] = '\0';
+  keybuf[1] = 'g';
+  keybuf[3] = '3';
+  keybuf[5] = '$';
+  keybuf[7] = 'Q';
+  keybuf[8] = '\0';
 
-    strcpy(cryptbuf,CRYPT(keybuf,salt));
+  salt[0] = '4';
+  salt[1] = '.';
+  salt[2] = '\0';
 
-    char *outkey = new char[64]; 
-    sprintf(outkey,"%s%hx",cryptbuf,
-			(unsigned short)licenseType ^
-			(*((unsigned char *)&cryptbuf[4])<<8)+(*((unsigned char *)&cryptbuf[5])));
+  strcpy( cryptbuf, CRYPT( keybuf, salt ) );
 
-    return outkey;
+  char *outkey = new char[64];
+  sprintf( outkey, "%s%hx", cryptbuf,
+           (unsigned short)licenseType ^
+               ( *( (unsigned char *)&cryptbuf[4] ) << 8 ) +
+                   ( *( (unsigned char *)&cryptbuf[5] ) ) );
+
+  return outkey;
 #else
-    return NULL;
-#endif // NEEDS_LICENSE_ROUTINES 
-
+  return NULL;
+#endif  // NEEDS_LICENSE_ROUTINES
 }
 
-
-
-
-#if NEEDS_LICENSE_ROUTINES 
+#if NEEDS_LICENSE_ROUTINES
 
 #define KEY1 "a9"
 #define KEY2 "Pp"
 
-#if defined(aviion) || defined(solaris) 
+#if defined( aviion ) || defined( solaris )
 #include <sys/systeminfo.h>
-#if defined(aviion) 
+#if defined( aviion )
 extern "C" {
- long sysinfo (int command, char *buf, long count);
+long sysinfo( int command, char *buf, long count );
 }
 #endif
 #endif
 
 #ifdef alphax
-extern "C" int gethostid(void);
+extern "C" int gethostid( void );
 #endif
 
-static int  checkexp(const char *root)
+static int checkexp( const char *root )
 {
 #if !DXD_HAS_CRYPT
-  return (1);
+  return ( 1 );
 #else
-  int	host_match;
-  char   key[32];
-  char   cryptHost[1024];
-  char   cryptTime[1024];
-  char   host[512];
+  int host_match;
+  char key[32];
+  char cryptHost[1024];
+  char cryptTime[1024];
+  char host[512];
   time_t timeOut;
-  int    i;
-  char  *myCryptHost;
+  int i;
+  char *myCryptHost;
   struct timeval sysTime;
-#if defined(ibm6000) || defined(hp700)
+#if defined( ibm6000 ) || defined( hp700 )
   struct utsname name;
 #endif
-#if defined(sgi) || defined(sun4)   || defined (alphax)
-  long   name;
+#if defined( sgi ) || defined( sun4 ) || defined( alphax )
+  long name;
 #endif
   time_t time;
-  char   fileName[1024];
-  FILE   *f;
-  
-  for (i = 0; i < sizeof(key); ++i)
+  char fileName[1024];
+  FILE *f;
+
+  for ( i = 0; i < sizeof( key ); ++i )
     key[i] = '\0';
-  
+
 #ifdef ibm6000
 #define FOUND_ID 1
-  uname(&name);
+  uname( &name );
   name.machine[10] = '\0';
-  strcpy(host, name.machine+2);
+  strcpy( host, name.machine + 2 );
 #endif
 #if hp700
 #define FOUND_ID 1
-  uname(&name);
+  uname( &name );
   name.idnumber[10] = '\0';
-  strcpy(host, name.idnumber+2);
+  strcpy( host, name.idnumber + 2 );
 #endif
-#if sgi              /* sgi does not like #if...#elif..#endif construct */
+#if sgi /* sgi does not like #if...#elif..#endif construct */
 #define FOUND_ID 1
-  name = sysid(NULL);
-  sprintf(host, "%d", name);
-  strcpy(host, host+2);
+  name = sysid( NULL );
+  sprintf( host, "%d", name );
+  strcpy( host, host + 2 );
 #endif
-#if sun4 
+#if sun4
 #define FOUND_ID 1
   name = gethostid();
-  sprintf(host, "%x", name);
+  sprintf( host, "%x", name );
 #endif
 #if aviion
 #define FOUND_ID 1
-  sysinfo(SI_HW_SERIAL,host,301);
+  sysinfo( SI_HW_SERIAL, host, 301 );
 #endif
 #if solaris
 #define FOUND_ID 1
-    sysinfo(SI_HW_SERIAL,host,301);
-    sprintf(host, "%x", atol(host));
+  sysinfo( SI_HW_SERIAL, host, 301 );
+  sprintf( host, "%x", atol( host ) );
 #endif
-#if defined(alphax)
-#ifdef SYSINFO_WORKS 
-// The man page for OSF/1 V2 says that SI_HW_SERIAL does not work.  We'll use it
-// for now even though it doesn't work.  So far it looks like the only mechanism
-// to get unique ids.
-    sysinfo(SI_HW_SERIAL,host,301);
-    sprintf(host, "%x", atol(host));
+#if defined( alphax )
+#ifdef SYSINFO_WORKS
+  // The man page for OSF/1 V2 says that SI_HW_SERIAL does not work.  We'll use
+  // it
+  // for now even though it doesn't work.  So far it looks like the only
+  // mechanism
+  // to get unique ids.
+  sysinfo( SI_HW_SERIAL, host, 301 );
+  sprintf( host, "%x", atol( host ) );
 #else
-{
+  {
     char *device;
-    char *dflt_devices[] = {"tu0","ln0", NULL };
-    int s,i;                             /* On Alpha OSF/1 we use ethernet */;
+    char *dflt_devices[] = {"tu0", "ln0", NULL};
+    int s, i; /* On Alpha OSF/1 we use ethernet */
+    ;
 
     /* Get a socket */
-    strcpy(host,"");
-    s = socket(AF_INET,SOCK_DGRAM,0);
-    if (s < 0) {
-        perror("socket");
-    } else {
-	for (i=0, device=(char*)getenv("DXKEYDEVICE"); dflt_devices[i]; i++) {
-	    static   struct  ifdevea  devea; /* MAC address from and ioctl() */
-	    char *dev, buf[32];
-	    if (!device) 
-		dev = dflt_devices[i];
-	    else
-		dev = device;
-	    strcpy(devea.ifr_name,dev);
-	    if (ioctl(s,SIOCRPHYSADDR,&devea) >= 0)  {
-		strcpy(host,"");
-		for (i = 2; i < 6; i++){
-		    sprintf(buf,"%x", devea.default_pa[i] );
-		    strcat(host,buf);
-		}
-		break;
-	    } 
-	    if (device) break;
-	}
-	close(s);
+    strcpy( host, "" );
+    s = socket( AF_INET, SOCK_DGRAM, 0 );
+    if ( s < 0 )
+    {
+      perror( "socket" );
     }
-}
+    else
+    {
+      for ( i = 0, device = (char *)getenv( "DXKEYDEVICE" ); dflt_devices[i];
+            i++ )
+      {
+        static struct ifdevea devea; /* MAC address from and ioctl() */
+        char *dev, buf[32];
+        if ( !device )
+          dev = dflt_devices[i];
+        else
+          dev = device;
+        strcpy( devea.ifr_name, dev );
+        if ( ioctl( s, SIOCRPHYSADDR, &devea ) >= 0 )
+        {
+          strcpy( host, "" );
+          for ( i = 2; i < 6; i++ )
+          {
+            sprintf( buf, "%x", devea.default_pa[i] );
+            strcat( host, buf );
+          }
+          break;
+        }
+        if ( device )
+          break;
+      }
+      close( s );
+    }
+  }
 
 #endif
 #define FOUND_ID 1
 #endif
-#if !defined(FOUND_ID)
+#if !defined( FOUND_ID )
   Trial version not supported on this architecture.
 #else
-# undef FOUND_ID
+#undef FOUND_ID
 #endif
-    
-  gettimeofday(&sysTime, NULL);
+      gettimeofday( &sysTime, NULL );
   time = sysTime.tv_sec;
-  
-  if (getenv("DXTRIALKEY")) {
-	char *k = getenv("DXTRIALKEY");
-	fprintf(stderr, "Data Explorer trial password found in"
-		    " DXTRIALKEY environment variable\n");
-	strncpy(key,k,27);
-        key[27] = '\0';	// Make sure it is terminated
-  } else {
-      char *fname;
-      fname = getenv("DXTRIALKEYFILE");
-      if (!fname) {
-	  sprintf(fileName, "%s/expiration", root);
-	  fname = fileName;
-      }
-      f = fopen(fname, "r");
-      if (f)  {
-	fprintf(stderr, "Data Explorer trial password found in file %s\n",
-							fname);
-	fgets(key, 27, f);
-	fclose(f);
-      } else {
-	return 0;
-      }
-  } 
-  
-  
-  if (strlen(key) != 26) {
-    fprintf(stderr, "You are running an expired Trial version of Data Explorer\n");
-    return(0);
+
+  if ( getenv( "DXTRIALKEY" ) )
+  {
+    char *k = getenv( "DXTRIALKEY" );
+    fprintf( stderr, "Data Explorer trial password found in"
+                     " DXTRIALKEY environment variable\n" );
+    strncpy( key, k, 27 );
+    key[27] = '\0';  // Make sure it is terminated
   }
-  
-  for (i = 0; i < 13; ++i) {
+  else
+  {
+    char *fname;
+    fname = getenv( "DXTRIALKEYFILE" );
+    if ( !fname )
+    {
+      sprintf( fileName, "%s/expiration", root );
+      fname = fileName;
+    }
+    f = fopen( fname, "r" );
+    if ( f )
+    {
+      fprintf( stderr, "Data Explorer trial password found in file %s\n",
+               fname );
+      fgets( key, 27, f );
+      fclose( f );
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  if ( strlen( key ) != 26 )
+  {
+    fprintf( stderr,
+             "You are running an expired Trial version of Data Explorer\n" );
+    return ( 0 );
+  }
+
+  for ( i = 0; i < 13; ++i )
+  {
     cryptHost[i] = key[2 * i];
     cryptTime[i] = key[2 * i + 1];
   }
   cryptHost[i] = key[2 * i] = '\0';
   cryptTime[i] = key[2 * i + 1] = '\0';
-  
-  if (cryptTime[0] != 'A' || 
-      cryptTime[10] != '9' || 
-      cryptTime[12] != 'D') {
-    fprintf(stderr, "You are running an Expired trial version of Data Explorer\n");
-    return(0);
-  }
-  
 
-  myCryptHost = (char*)CRYPT(host,KEY1); 
-  host_match = strcmp(cryptHost, myCryptHost) == 0;
-  if (!host_match) {
-	myCryptHost = (char*)CRYPT(ANYWHERE_HOSTID,KEY1);
-        host_match = strcmp(cryptHost, myCryptHost) == 0;
-  } 
-  if (!host_match) {
-    fprintf(stderr, 
-	"You are running a trial version of Data Explorer on an"
-	" unlicensed host\n");
-    return (0);
+  if ( cryptTime[0] != 'A' || cryptTime[10] != '9' || cryptTime[12] != 'D' )
+  {
+    fprintf( stderr,
+             "You are running an Expired trial version of Data Explorer\n" );
+    return ( 0 );
   }
-  
-  if(cryptTime[1]=='s')
-     sscanf(cryptTime, "As%08x95D", &timeOut);
-  else if (cryptTime[1]=='m')
-     sscanf(cryptTime, "Am%08x9lD", &timeOut);
-  
 
-timeOut ^= 0x12345678;
-  
-  if (time > timeOut) {
-    fprintf(stderr, "You are running an expired trial version of Data Explorer\n");
-    fprintf(stderr,"This trial key expired on %s", ctime(&timeOut));  
-    return (0);
+  myCryptHost = (char *)CRYPT( host, KEY1 );
+  host_match = strcmp( cryptHost, myCryptHost ) == 0;
+  if ( !host_match )
+  {
+    myCryptHost = (char *)CRYPT( ANYWHERE_HOSTID, KEY1 );
+    host_match = strcmp( cryptHost, myCryptHost ) == 0;
   }
-  fprintf(stderr,"This Data Explorer trial key will expire on %s",
-				ctime(&timeOut));  
-  return (1);
+  if ( !host_match )
+  {
+    fprintf( stderr, "You are running a trial version of Data Explorer on an"
+                     " unlicensed host\n" );
+    return ( 0 );
+  }
+
+  if ( cryptTime[1] == 's' )
+    sscanf( cryptTime, "As%08x95D", &timeOut );
+  else if ( cryptTime[1] == 'm' )
+    sscanf( cryptTime, "Am%08x9lD", &timeOut );
+
+  timeOut ^= 0x12345678;
+
+  if ( time > timeOut )
+  {
+    fprintf( stderr,
+             "You are running an expired trial version of Data Explorer\n" );
+    fprintf( stderr, "This trial key expired on %s", ctime( &timeOut ) );
+    return ( 0 );
+  }
+  fprintf( stderr, "This Data Explorer trial key will expire on %s",
+           ctime( &timeOut ) );
+  return ( 1 );
 #endif /* DXD_HAS_CRYPT */
 }
 
@@ -680,7 +708,7 @@ char __crypt[1024];
 char __encrypt[1024];
 #endif
 
-#endif // NEEDS_LICENSE_ROUTINES 
+#endif  // NEEDS_LICENSE_ROUTINES
 
 #else  // DXD_WIN
 #if 0
@@ -699,11 +727,12 @@ static int getregval(char *name, char *value)
     long rc;
     int i, k=0;
 
-#define iferror(s)	\
-    if (rc != ERROR_SUCCESS) {	\
-	strcpy(errstr, s);	\
-	goto error;		\
-    }
+#define iferror( s )         \
+  if ( rc != ERROR_SUCCESS ) \
+  {                          \
+    strcpy( errstr, s );     \
+    goto error;              \
+  }
 
     strcpy(value, "");
     word = 0;

@@ -9,39 +9,36 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "NoUndoTutorAppCommand.h"
 #include "TutorApplication.h"
 #include "TutorWindow.h"
 #include "CommandInterface.h"
 
-NoUndoTutorAppCommand::NoUndoTutorAppCommand(const char*   name,
-				       CommandScope* scope,
-				       boolean       active,
-				       TutorApplication *app,
-				       TutorAppCommandType comType ) :
-	NoUndoCommand(name, scope, active)
+NoUndoTutorAppCommand::NoUndoTutorAppCommand( const char *name,
+                                              CommandScope *scope,
+                                              boolean active,
+                                              TutorApplication *app,
+                                              TutorAppCommandType comType )
+    : NoUndoCommand( name, scope, active )
 {
-	this->commandType = comType;
-	this->application = app;
+  this->commandType = comType;
+  this->application = app;
 }
 
-
-boolean NoUndoTutorAppCommand::doIt(CommandInterface *ci)
+boolean NoUndoTutorAppCommand::doIt( CommandInterface *ci )
 {
-    TutorApplication *app = this->application;
-    boolean ret;
+  TutorApplication *app = this->application;
+  boolean ret;
 
-    ASSERT(app);
+  ASSERT( app );
 
-    ret = TRUE;
-    switch (this->commandType) {
+  ret = TRUE;
+  switch ( this->commandType )
+  {
 
     case NoUndoTutorAppCommand::Quit:
-	exit(0);
-	break;
+      exit( 0 );
+      break;
 
 #if 0
     case NoUndoTutorAppCommand::GotoHelpText:
@@ -55,9 +52,8 @@ boolean NoUndoTutorAppCommand::doIt(CommandInterface *ci)
 #endif
 
     default:
-	ASSERT(0);
-    }
+      ASSERT( 0 );
+  }
 
-    return ret;
+  return ret;
 }
-

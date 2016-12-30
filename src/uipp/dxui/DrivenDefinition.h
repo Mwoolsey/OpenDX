@@ -9,8 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _DrivenDefinition_h
 #define _DrivenDefinition_h
 
@@ -19,14 +17,13 @@
 #include "NodeDefinition.h"
 #include "SIAllocatorDictionary.h"
 
-
 //
 // Class name definition:
 //
-#define ClassDrivenDefinition	"DrivenDefinition"
+#define ClassDrivenDefinition "DrivenDefinition"
 
 //
-// Forward definitions 
+// Forward definitions
 //
 class Parameter;
 class ParameterDefinition;
@@ -34,48 +31,55 @@ class Node;
 
 //
 // DrivenDefinition class definition:
-//				
-class DrivenDefinition : public NodeDefinition 
+//
+class DrivenDefinition : public NodeDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Driven nodes use AttributeParameters as input parameteters.
-    //
-    virtual Parameter *newParameter(ParameterDefinition *pd, 
-							Node *n, int index);
-    //
-    // Mark all outputs as cache once with read-only cache attributes
-    // (as per the semantics of data-driven interactors).
-    // This helps to force an execution when inputs change that must have
-    // their values communicated back to the User Interface.
-    //
-    void finishDefinition();
+  //
+  // Driven nodes use AttributeParameters as input parameteters.
+  //
+  virtual Parameter *newParameter( ParameterDefinition *pd, Node *n,
+                                   int index );
+  //
+  // Mark all outputs as cache once with read-only cache attributes
+  // (as per the semantics of data-driven interactors).
+  // This helps to force an execution when inputs change that must have
+  // their values communicated back to the User Interface.
+  //
+  void finishDefinition();
 
-  public:
-    //
-    // Constructor:
-    //
-    DrivenDefinition() { }
+ public:
+  //
+  // Constructor:
+  //
+  DrivenDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~DrivenDefinition() { }
-	
-    virtual boolean isAllowedInMacro() { return FALSE; }
+  //
+  // Destructor:
+  //
+  ~DrivenDefinition()
+  {
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() 
-	{ return ClassDrivenDefinition; }
+  virtual boolean isAllowedInMacro()
+  {
+    return FALSE;
+  }
+
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char *getClassName()
+  {
+    return ClassDrivenDefinition;
+  }
 };
 
-
-#endif // _DrivenDefinition_h
+#endif  // _DrivenDefinition_h

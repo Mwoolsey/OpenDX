@@ -9,10 +9,9 @@
 #ifndef _IWDefaultResources_h
 #define _IWDefaultResources_h
 
-#if !defined(DX_NEW_KEYLAYOUT)
+#if !defined( DX_NEW_KEYLAYOUT )
 
-String ImageWindow::DefaultResources[] =
-{
+String ImageWindow::DefaultResources[] = {
     ".title:                                       Image",
     ".iconName:                                    Image",
     ".width:                                        654",
@@ -21,7 +20,6 @@ String ImageWindow::DefaultResources[] =
 
     // This blackens panelAccessDialog's scrolled window
     //"*XmDrawingArea.background:                     Black",
-
     "*fileMenu.labelString:                         File",
     "*fileMenu.mnemonic:                            F",
     "*imageOpenOption.labelString:                       Open...",
@@ -38,8 +36,6 @@ String ImageWindow::DefaultResources[] =
     "*imageSaveCfgOption.mnemonic:               	S",
     "*imageOpenCfgOption.labelString:               	Load...",
     "*imageOpenCfgOption.mnemonic:               	L",
-
-
     "*fileMenuPulldown.tearOffModel:                 	 XmTEAR_OFF_DISABLED",
     "*windowsMenuPulldown.tearOffModel:                	 XmTEAR_OFF_DISABLED",
 
@@ -51,30 +47,34 @@ String ImageWindow::DefaultResources[] =
 #endif
     "*imageLoadMacroOption.labelString:                  Load Macro...",
     "*imageLoadMacroOption.mnemonic:                     L",
-    "*imageLoadMDFOption.labelString:                    Load Module Description(s)...",
+    "*imageLoadMDFOption.labelString:                    Load Module "
+    "Description(s)...",
     "*imageLoadMDFOption.mnemonic:                       M",
     "*imageSaveImageOption.labelString:               Save Image...",
-    "*imageSaveImageOption.mnemonic:                  v", 
+    "*imageSaveImageOption.mnemonic:                  v",
     "*imagePrintImageOption.labelString:              Print Image...",
     "*imagePrintImageOption.mnemonic:                 P",
-
     "*windowsMenu.labelString:                      Windows",
     "*windowsMenu.mnemonic:                         W",
-    "*imageOpenVisualProgramEditorOption.labelString:    Open Visual Program Editor",
+    "*imageOpenVisualProgramEditorOption.labelString:    Open Visual Program "
+    "Editor",
     "*imageOpenVisualProgramEditorOption.mnemonic:       V",
-    "*imageOpenAllControlPanelsOption.labelString:       Open All Control Panels",
+    "*imageOpenAllControlPanelsOption.labelString:       Open All Control "
+    "Panels",
     "*imageOpenAllControlPanelsOption.mnemonic:          A",
     "*imageOpenAllControlPanelsOption.accelerator:       Ctrl<Key>P",
     "*imageOpenAllControlPanelsOption.acceleratorText:   Ctrl+P",
-    "*imageOpenControlPanelByNameOption.labelString:     Open Control Panel by Name",
+    "*imageOpenControlPanelByNameOption.labelString:     Open Control Panel by "
+    "Name",
     "*imageOpenControlPanelByNameOption.mnemonic:        N",
-    "*imageOpenAllColormapEditorsOption.labelString:     Open All Colormap Editors",
+    "*imageOpenAllColormapEditorsOption.labelString:     Open All Colormap "
+    "Editors",
     "*imageOpenAllColormapEditorsOption.mnemonic:        E",
     "*imageOpenAllColormapEditorsOption.accelerator:     Ctrl<Key>E",
     "*imageOpenAllColormapEditorsOption.acceleratorText: Ctrl+E",
-    "*imageMessageWindowOption.labelString:     	    Open Message Window",
+    "*imageMessageWindowOption.labelString:     	    Open Message "
+    "Window",
     "*imageMessageWindowOption.mnemonic:        	    M",
-
     "*optionsMenu.labelString:                      Options",
     "*optionsMenu.mnemonic:                         O",
     "*imageRenderingOptionsOption.labelString:           Rendering Options...",
@@ -89,7 +89,6 @@ String ImageWindow::DefaultResources[] =
     "*imageViewControlOption.mnemonic:                   V",
     "*imageViewControlOption.accelerator:                Ctrl<Key>V",
     "*imageViewControlOption.acceleratorText:            Ctrl+V",
-
     "*imageModeOption.labelString:			Mode",
     "*imageModeOption.mnemonic:				M",
     "*imageNoneOption.labelString:			None",
@@ -126,8 +125,6 @@ String ImageWindow::DefaultResources[] =
     "*imageZoomOption.accelerator:			Ctrl<Key>Z",
     "*imageZoomOption.acceleratorText:			Ctrl+Z",
     "*imageModeOptionSubmenu*XmToggleButton.indicatorType:ONE_OF_MANY",
-
-
     "*imageUndoOption.labelString:                       Undo",
     "*imageUndoOption.mnemonic:                          U",
     "*imageUndoOption.accelerator:                       Ctrl<Key>U",
@@ -142,17 +139,20 @@ String ImageWindow::DefaultResources[] =
     "*imageResetOption.acceleratorText:                  Ctrl+F",
     "*imageChangeImageNameOption.labelString:            Change Image Name...",
     "*imageChangeImageNameOption.mnemonic:               N",
-    "*imageBackgroundColorOption.labelString:            Set Background Color...",
+    "*imageBackgroundColorOption.labelString:            Set Background "
+    "Color...",
     "*imageBackgroundColorOption.mnemonic:               B",
-    "*imageDisplayRotationGlobeOption.labelString:       Display Rotation Globe",
+    "*imageDisplayRotationGlobeOption.labelString:       Display Rotation "
+    "Globe",
     "*imageDisplayRotationGlobeOption.mnemonic:          G",
-    "*imageSetPanelAccessOption.labelString:       	 Control Panel Access...",
+    "*imageSetPanelAccessOption.labelString:       	 Control Panel "
+    "Access...",
     "*imageSetPanelAccessOption.mnemonic:          	 P",
 
     // FIXME: this should be in DXWindow.C
-    "*imageOnVisualProgramOption.labelString:            Application Comment...",
+    "*imageOnVisualProgramOption.labelString:            Application "
+    "Comment...",
     "*imageOnVisualProgramOption.mnemonic:               A",
-
     "*imageCanvas.background:			    Black",
     "*imageCanvas.boxGrey:			    #7e7e7e7e7e7e",
     "*imageCanvas.translateSpeed:            	    11",
@@ -162,7 +162,6 @@ String ImageWindow::DefaultResources[] =
     "*imageCanvas.selectedInCursorColor:     	    Black",
     "*imageCanvas.selectedOutCursorColor:    	    #0000ffff7e7e",
     "*imageCanvas.traversalOn:			    False",
-
     "*imageSetImageDepthOptionSubmenu*8.labelString: 8",
     "*imageSetImageDepthOptionSubmenu*12.labelString: 12",
     "*imageSetImageDepthOptionSubmenu*15.labelString: 15",
@@ -170,15 +169,11 @@ String ImageWindow::DefaultResources[] =
     "*imageSetImageDepthOptionSubmenu*24.labelString: 24",
     "*imageSetImageDepthOptionSubmenu*32.labelString: 32",
     "*imageSetImageDepthOptionSubmenu*XmToggleButton.indicatorType:ONE_OF_MANY",
-
-    NULL
-};
-
+    NULL};
 
 #else /* defined(DX_NEW_KEYLAYOUT) */
 
-String ImageWindow::DefaultResources[] =
-{
+String ImageWindow::DefaultResources[] = {
     ".title:                                       	Image",
     ".iconName:                                    	Image",
     ".width:                                        	654",
@@ -187,7 +182,6 @@ String ImageWindow::DefaultResources[] =
 
     // This blackens panelAccessDialog's scrolled window
     //"*XmDrawingArea.background:                     Black",
-
     "*fileMenu.labelString:                         	File",
     "*fileMenu.mnemonic:                            	F",
     "*imageOpenOption.labelString:                      Open...",
@@ -204,12 +198,11 @@ String ImageWindow::DefaultResources[] =
     "*imageSettingsCascade.labelString:             	Program Settings",
     "*imageSettingsCascade.mnemonic:                	r",
 
-/* Are the following 4 used? */
+    /* Are the following 4 used? */
     "*imageSaveCfgOption.labelString:               	Save As...",
     "*imageSaveCfgOption.mnemonic:               	S",
     "*imageOpenCfgOption.labelString:               	Load...",
     "*imageOpenCfgOption.mnemonic:               	L",
-
     "*fileMenuPulldown.tearOffModel:                 	XmTEAR_OFF_DISABLED",
     "*windowsMenuPulldown.tearOffModel:                	XmTEAR_OFF_DISABLED",
 
@@ -219,12 +212,11 @@ String ImageWindow::DefaultResources[] =
     "*imageCloseOption.accelerator:                     Ctrl<Key>Q",
     "*imageCloseOption.acceleratorText:                 Ctrl+Q",
 #endif
-
     "*imageLoadMacroOption.labelString:                 Load Macro...",
     "*imageLoadMacroOption.mnemonic:                    L",
-    "*imageLoadMDFOption.labelString:                   Load Module Description(s)...",
+    "*imageLoadMDFOption.labelString:                   Load Module "
+    "Description(s)...",
     "*imageLoadMDFOption.mnemonic:                      M",
-    
     "*imageSaveImageOption.labelString:               	Save Image...",
     "*imageSaveImageOption.mnemonic:                  	v",
     "*imageSaveImageOption.accelerator:			Ctrl<Key>A",
@@ -233,18 +225,21 @@ String ImageWindow::DefaultResources[] =
     "*imagePrintImageOption.mnemonic:                 	P",
     "*imagePrintImageOption.accelerator:		Ctrl <Key>P",
     "*imagePrintImageOption.acceleratorText:		Ctrl+P",
-
     "*windowsMenu.labelString:                      	Windows",
     "*windowsMenu.mnemonic:                         	W",
-    "*imageOpenVisualProgramEditorOption.labelString:   Open Visual Program Editor",
+    "*imageOpenVisualProgramEditorOption.labelString:   Open Visual Program "
+    "Editor",
     "*imageOpenVisualProgramEditorOption.mnemonic:      V",
-    "*imageOpenAllControlPanelsOption.labelString:      Open All Control Panels",
+    "*imageOpenAllControlPanelsOption.labelString:      Open All Control "
+    "Panels",
     "*imageOpenAllControlPanelsOption.mnemonic:         A",
     "*imageOpenAllControlPanelsOption.accelerator:      Ctrl Shift <Key>P",
     "*imageOpenAllControlPanelsOption.acceleratorText:  Ctrl+Shift+P",
-    "*imageOpenControlPanelByNameOption.labelString:    Open Control Panel by Name",
+    "*imageOpenControlPanelByNameOption.labelString:    Open Control Panel by "
+    "Name",
     "*imageOpenControlPanelByNameOption.mnemonic:       N",
-    "*imageOpenAllColormapEditorsOption.labelString:    Open All Colormap Editors",
+    "*imageOpenAllColormapEditorsOption.labelString:    Open All Colormap "
+    "Editors",
     "*imageOpenAllColormapEditorsOption.mnemonic:       C",
     "*imageOpenAllColormapEditorsOption.accelerator:    Ctrl Shift <Key>E",
     "*imageOpenAllColormapEditorsOption.acceleratorText: Ctrl+Shift+E",
@@ -252,10 +247,8 @@ String ImageWindow::DefaultResources[] =
     "*imageMessageWindowOption.mnemonic:        	E",
     "*imageMessageWindowOption.accelerator:		Ctrl <Key>M",
     "*imageMessageWindowOption.acceleratorText:		Ctrl+M",
-
     "*optionsMenu.labelString:                      	Options",
     "*optionsMenu.mnemonic:                         	O",
-
     "*imageRenderingOptionsOption.labelString:		Rendering Options...",
     "*imageRenderingOptionsOption.mnemonic:		R",
     "*imageAutoAxesOption.labelString:			AutoAxes...",
@@ -268,7 +261,6 @@ String ImageWindow::DefaultResources[] =
     "*imageViewControlOption.mnemonic:			V",
     "*imageViewControlOption.accelerator:		Ctrl<Key>V",
     "*imageViewControlOption.acceleratorText:		Ctrl+V",
-
     "*imageModeOption.labelString:			Mode",
     "*imageModeOption.mnemonic:				M",
     "*imageNoneOption.labelString:			None",
@@ -305,8 +297,6 @@ String ImageWindow::DefaultResources[] =
     "*imageZoomOption.accelerator:			Ctrl Shift <Key>space",
     "*imageZoomOption.acceleratorText:			Ctrl+Shift+Spc",
     "*imageModeOptionSubmenu*XmToggleButton.indicatorType:ONE_OF_MANY",
-
-
     "*imageUndoOption.labelString:			Undo",
     "*imageUndoOption.mnemonic:				U",
     "*imageUndoOption.accelerator:			Ctrl<Key>Z",
@@ -321,17 +311,18 @@ String ImageWindow::DefaultResources[] =
     "*imageResetOption.acceleratorText:			Ctrl+F",
     "*imageChangeImageNameOption.labelString:		Change Image Name...",
     "*imageChangeImageNameOption.mnemonic:		N",
-    "*imageBackgroundColorOption.labelString:		Set Background Color...",
+    "*imageBackgroundColorOption.labelString:		Set Background "
+    "Color...",
     "*imageBackgroundColorOption.mnemonic:		B",
     "*imageDisplayRotationGlobeOption.labelString:	Display Rotation Globe",
     "*imageDisplayRotationGlobeOption.mnemonic:		G",
-    "*imageSetPanelAccessOption.labelString:		Control Panel Access...",
+    "*imageSetPanelAccessOption.labelString:		Control Panel "
+    "Access...",
     "*imageSetPanelAccessOption.mnemonic:		P",
 
     // FIXME: this should be in DXWindow.C
     "*imageOnVisualProgramOption.labelString:           Application Comment...",
     "*imageOnVisualProgramOption.mnemonic:              A",
-
     "*imageCanvas.background:			    	Black",
     "*imageCanvas.boxGrey:			    	#7e7e7e7e7e7e",
     "*imageCanvas.translateSpeed:            	    	11",
@@ -341,7 +332,6 @@ String ImageWindow::DefaultResources[] =
     "*imageCanvas.selectedInCursorColor:     	    	Black",
     "*imageCanvas.selectedOutCursorColor:    	    	#0000ffff7e7e",
     "*imageCanvas.traversalOn:			    	False",
-
     "*imageSetImageDepthOptionSubmenu*8.labelString: 	8",
     "*imageSetImageDepthOptionSubmenu*12.labelString: 	12",
     "*imageSetImageDepthOptionSubmenu*15.labelString: 	15",
@@ -349,11 +339,8 @@ String ImageWindow::DefaultResources[] =
     "*imageSetImageDepthOptionSubmenu*24.labelString: 	24",
     "*imageSetImageDepthOptionSubmenu*32.labelString: 	32",
     "*imageSetImageDepthOptionSubmenu*XmToggleButton.indicatorType:ONE_OF_MANY",
-
-    NULL
-};
+    NULL};
 
 #endif
 
-#endif // _IWDefaultResources_h
-
+#endif  // _IWDefaultResources_h

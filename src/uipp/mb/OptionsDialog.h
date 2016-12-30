@@ -9,92 +9,87 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _OptionsDialog_h
 #define _OptionsDialog_h
-
 
 #include "Dialog.h"
 
 //
 // Class name definition:
 //
-#define ClassOptionsDialog	"OptionsDialog"
+#define ClassOptionsDialog "OptionsDialog"
 
 class MBMainWindow;
 
 //
 // OptionsDialog class definition:
-//				
+//
 
 class OptionsDialog : public Dialog
 {
 
-  private:
-    //
-    // Private member data:
-    //
-    static boolean ClassInitialized;
-    static String  DefaultResources[];
+ private:
+  //
+  // Private member data:
+  //
+  static boolean ClassInitialized;
+  static String DefaultResources[];
 
-    MBMainWindow *mbmw;
+  MBMainWindow *mbmw;
 
-    Widget 	mainform;
-    Widget	pin_tb;
-    Widget	side_effect_tb;
-    Widget	asynch_tb;
-    Widget	persistent_tb;
-    Widget	outboard_label;
-    Widget	host_label;
-    Widget	host_text;
+  Widget mainform;
+  Widget pin_tb;
+  Widget side_effect_tb;
+  Widget asynch_tb;
+  Widget persistent_tb;
+  Widget outboard_label;
+  Widget host_label;
+  Widget host_text;
 
-    boolean	pin;
-    boolean	side_effect;
-    boolean	asynchronous;
-    boolean	persistent;
-    char        *host;
+  boolean pin;
+  boolean side_effect;
+  boolean asynchronous;
+  boolean persistent;
+  char *host;
 
-  protected:
-    //
-    // Protected member data:
-    //
-    virtual boolean okCallback(Dialog *d);
-    virtual void cancelCallback(Dialog *d);
-    Widget createDialog(Widget);
+ protected:
+  //
+  // Protected member data:
+  //
+  virtual boolean okCallback( Dialog *d );
+  virtual void cancelCallback( Dialog *d );
+  Widget createDialog( Widget );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-  public:
+ public:
+  //
+  // Constructor:
+  //
+  OptionsDialog( Widget parent, MBMainWindow * );
 
-    //
-    // Constructor:
-    //
-    OptionsDialog(Widget parent, MBMainWindow*);
+  //
+  // Destructor:
+  //
+  ~OptionsDialog();
 
+  void getValues( boolean &pin, boolean &side_effect );
+  void setPin( boolean pin );
+  void setSideEffect( boolean side_effect );
+  void notifyOutboardStateChange( boolean outboard );
 
-    //
-    // Destructor:
-    //
-    ~OptionsDialog();
-
-    void getValues(boolean &pin, boolean &side_effect);
-    void setPin(boolean pin);
-    void setSideEffect(boolean side_effect);
-    void notifyOutboardStateChange(boolean outboard);
-
-    virtual void post();
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassOptionsDialog;
-    }
+  virtual void post();
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassOptionsDialog;
+  }
 };
-#endif // _OptionsDialog_h
+#endif  // _OptionsDialog_h

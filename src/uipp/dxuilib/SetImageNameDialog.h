@@ -9,71 +9,65 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _SetImageNameDialog_h
 #define _SetImageNameDialog_h
 
-
 #include "SetNameDialog.h"
-
 
 //
 // Class name definition:
 //
-#define ClassSetImageNameDialog	"SetImageNameDialog"
+#define ClassSetImageNameDialog "SetImageNameDialog"
 
 class ImageWindow;
 
 //
 // SetImageNameDialog class definition:
-//				
+//
 class SetImageNameDialog : public SetNameDialog
 {
-  private:
-    //
-    // Private member data:
-    //
-    ImageWindow		*imageWindow;
-    static boolean 	ClassInitialized;
+ private:
+  //
+  // Private member data:
+  //
+  ImageWindow *imageWindow;
+  static boolean ClassInitialized;
 
-  protected:
-    //
-    // Protected member data:
-    //
+ protected:
+  //
+  // Protected member data:
+  //
 
-    static String DefaultResources[];
+  static String DefaultResources[];
 
-    virtual const char *getText();
-    virtual boolean saveText(const char *s);
+  virtual const char *getText();
+  virtual boolean saveText( const char *s );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-  public:
-    //
-    // Constructor:
-    //
-    SetImageNameDialog(ImageWindow *iw);
+ public:
+  //
+  // Constructor:
+  //
+  SetImageNameDialog( ImageWindow *iw );
 
-    //
-    // Destructor:
-    //
-    ~SetImageNameDialog();
+  //
+  // Destructor:
+  //
+  ~SetImageNameDialog();
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassSetImageNameDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassSetImageNameDialog;
+  }
 };
 
-
-#endif // _SetImageNameDialog_h
+#endif  // _SetImageNameDialog_h

@@ -9,75 +9,67 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _UIComponentHelpCommand_h
 #define _UIComponentHelpCommand_h
 
-
 #include "NoUndoCommand.h"
-
 
 //
 // Class name definition:
 //
-#define ClassUIComponentHelpCommand	"UIComponentHelpCommand"
-
+#define ClassUIComponentHelpCommand "UIComponentHelpCommand"
 
 //
 // Referenced classes:
 //
 class UIComponent;
 
-
 //
 // UIComponentHelpCommand class definition:
-//				
+//
 class UIComponentHelpCommand : public NoUndoCommand
 {
-  private:
-    //
-    // Private class data:
-    //
+ private:
+  //
+  // Private class data:
+  //
 
-  protected:
-    //
-    // Protected class data:
-    //
+ protected:
+  //
+  // Protected class data:
+  //
 
-    //
-    // Protected member data:
-    //
-    UIComponent*		component;		
+  //
+  // Protected member data:
+  //
+  UIComponent* component;
 
-    //
-    // Does nothing;
-    //
-    virtual boolean doIt(CommandInterface *ci);
+  //
+  // Does nothing;
+  //
+  virtual boolean doIt( CommandInterface* ci );
 
-  public:
-    //
-    // Constructor:
-    //
-    UIComponentHelpCommand(const char*   name,
-			 CommandScope* scope,
-			 boolean       active,
-			 UIComponent*   component);
+ public:
+  //
+  // Constructor:
+  //
+  UIComponentHelpCommand( const char* name, CommandScope* scope, boolean active,
+                          UIComponent* component );
 
-    //
-    // Destructor:
-    //
-    ~UIComponentHelpCommand(){}
+  //
+  // Destructor:
+  //
+  ~UIComponentHelpCommand()
+  {
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassUIComponentHelpCommand;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassUIComponentHelpCommand;
+  }
 };
 
-
-#endif // _UIComponentHelpCommand_h
+#endif  // _UIComponentHelpCommand_h

@@ -8,15 +8,12 @@
 
 #include <dxconfig.h>
 
-
 #include <dx/dx.h>
 #include "vectors.h"
 
-
-int m_VectorList(Object *in, Object *out)
+int m_VectorList( Object *in, Object *out )
 {
-   if (!_dxfvector_base(in, out,1))
-      return ERROR;
-   return OK;
+  if ( !_dxfvector_base( in, out, 1 ) )
+    return ERROR;
+  return OK;
 }
-

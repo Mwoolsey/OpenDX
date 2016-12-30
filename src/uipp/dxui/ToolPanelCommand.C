@@ -9,9 +9,6 @@
 #include <dxconfig.h>
 #include <defines.h>
 
-
-
-
 #include "ToolPanelCommand.h"
 #include "ListIterator.h"
 #include "DXApplication.h"
@@ -19,37 +16,30 @@
 #include "ToggleButtonInterface.h"
 #include "DXStrings.h"
 
-
-ToolPanelCommand::ToolPanelCommand(const char*     name,
-				   CommandScope*   scope,
-				   boolean         active,
-				   EditorWindow* editor) :
-	Command(name, scope, active)
+ToolPanelCommand::ToolPanelCommand( const char* name, CommandScope* scope,
+                                    boolean active, EditorWindow* editor )
+    : Command( name, scope, active )
 {
-    ASSERT(editor);
+  ASSERT( editor );
 
-    //
-    // Save the associated editor.
-    //
-    this->editor = editor;
+  //
+  // Save the associated editor.
+  //
+  this->editor = editor;
 }
 
-
-boolean ToolPanelCommand::doIt(CommandInterface *ci)
+boolean ToolPanelCommand::doIt( CommandInterface* ci )
 {
-    //
-    // Toggle the tool panel and toggle button interface states.
-    //
-    this->editor->toggleToolPanel();
-    this->notifyClients(ToggleButtonInterface::MsgToggleState);
-    return TRUE;
+  //
+  // Toggle the tool panel and toggle button interface states.
+  //
+  this->editor->toggleToolPanel();
+  this->notifyClients( ToggleButtonInterface::MsgToggleState );
+  return TRUE;
 }
-
-
 
 boolean ToolPanelCommand::undoIt()
 {
-    this->doIt(NULL);
-    return TRUE;
+  this->doIt( NULL );
+  return TRUE;
 }
-

@@ -9,25 +9,23 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #include "DrivenDefinition.h"
-#include "AttributeParameter.h" 
+#include "AttributeParameter.h"
 #include "List.h"
 #include "ListIterator.h"
 
-// 
+//
 // Driven nodes use two valued parameters with the second value
 // maintaing the attribute as set from the 'Set Attributes' dialog.
 // The first value maintains the values set in the CDB.
 //
-Parameter *DrivenDefinition::newParameter(
-		ParameterDefinition *pd, Node *n, int index)
+Parameter *DrivenDefinition::newParameter( ParameterDefinition *pd, Node *n,
+                                           int index )
 {
-    if (pd->isInput())
-        return new AttributeParameter(pd, n, index);
-    else
-        return new Parameter(pd);
+  if ( pd->isInput() )
+    return new AttributeParameter( pd, n, index );
+  else
+    return new Parameter( pd );
 }
 
 //
@@ -38,13 +36,13 @@ Parameter *DrivenDefinition::newParameter(
 //
 void DrivenDefinition::finishDefinition()
 {
-    NodeDefinition::finishDefinition();
-    ParameterDefinition *pd;
+  NodeDefinition::finishDefinition();
+  ParameterDefinition *pd;
 
-    ListIterator iterator(this->outputDefs);
-    while ( (pd = (ParameterDefinition*)iterator.getNext()) ) {
-        pd->setWriteableCacheability(FALSE);
-        pd->setDefaultCacheability(OutputCacheOnce);
-    }
+  ListIterator iterator( this->outputDefs );
+  while ( ( pd = (ParameterDefinition *)iterator.getNext() ) )
+  {
+    pd->setWriteableCacheability( FALSE );
+    pd->setDefaultCacheability( OutputCacheOnce );
+  }
 }
-

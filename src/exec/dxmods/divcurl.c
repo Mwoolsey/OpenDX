@@ -6,14 +6,14 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dxmods/divcurl.c,v 1.4 2000/08/24 20:04:28 davidt Exp $:
+ * $Header: /src/master/dx/src/exec/dxmods/divcurl.c,v 1.4 2000/08/24 20:04:28
+ * davidt Exp $:
  */
 
 #include <dxconfig.h>
 
-
 /***
-MODULE:		
+MODULE:
     _dxfDivCurl
 SHORTDESCRIPTION:
     Computes divergence and curl
@@ -38,41 +38,40 @@ END:
 #include <dx/dx.h>
 #include "_divcurl.h"
 
-int m_DivCurl (in, out)
-    Object		*in;
-    Object		*out;
+int m_DivCurl( in, out ) Object *in;
+Object *out;
 {
-    Object		ino0;
+  Object ino0;
 
-    out[0] = NULL;
-    out[1] = NULL;
+  out[0] = NULL;
+  out[1] = NULL;
 
-    ino0 = in[0];
+  ino0 = in[0];
 
-    if (ino0 == NULL)
+  if ( ino0 == NULL )
+  {
+    DXSetError( ERROR_BAD_PARAMETER, "#10000", "data" );
+    return ERROR;
+  }
+
+  if ( in[1] )
+  {
+    char *str;
+
+    if ( !DXExtractString( in[1], &str ) )
     {
-	DXSetError(ERROR_BAD_PARAMETER, "#10000", "data");
-	return ERROR;
+      DXSetError( ERROR_BAD_PARAMETER, "#10200", "method" );
+      return ERROR;
     }
-
-    if (in[1])
+    if ( strcmp( str, "manhattan" ) )
     {
-	char *str;
-
-	if (! DXExtractString(in[1], &str))
-	{
-	    DXSetError(ERROR_BAD_PARAMETER, "#10200", "method");
-	    return ERROR;
-	}
-	if (strcmp(str, "manhattan"))
-	{
-	    DXSetError(ERROR_BAD_PARAMETER, "#10211", "method", "manhattan");
-	    return ERROR;
-	}
+      DXSetError( ERROR_BAD_PARAMETER, "#10211", "method", "manhattan" );
+      return ERROR;
     }
+  }
 
-    if (! _dxfDivCurl (ino0, &out[0], &out[1]))
-	return ERROR;
+  if ( !_dxfDivCurl( ino0, &out[0], &out[1] ) )
+    return ERROR;
 
-    return (OK);
+  return ( OK );
 }

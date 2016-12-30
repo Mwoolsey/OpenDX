@@ -9,66 +9,65 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _SelectorListDefinition_h
 #define _SelectorListDefinition_h
 
 #include "SelectionDefinition.h"
 
-
 //
 // Class name definition:
 //
-#define ClassSelectorListDefinition	"SelectorListDefinition"
+#define ClassSelectorListDefinition "SelectorListDefinition"
 
 //
-// Forward definitions 
+// Forward definitions
 //
-
 
 //
 // SelectorListDefinition class definition:
-//				
-class SelectorListDefinition : public SelectionDefinition 
+//
+class SelectorListDefinition : public SelectionDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
+ public:
+  //
+  // Constructor:
+  //
+  SelectorListDefinition()
+  {
+  }
 
-  public:
-    //
-    // Constructor:
-    //
-    SelectorListDefinition() { }
+  //
+  // Destructor:
+  //
+  ~SelectorListDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~SelectorListDefinition() { }
-	
-    //
-    // Allocate a new SelectorListDefinition.  
-    // This function is intended to be used as an allocator in
-    // theNDAllocatorDictionary.
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Allocate a new SelectorListDefinition.
+  // This function is intended to be used as an allocator in
+  // theNDAllocatorDictionary.
+  //
+  static NodeDefinition *AllocateDefinition();
 
-
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() 
-		{ return ClassSelectorListDefinition; }
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char *getClassName()
+  {
+    return ClassSelectorListDefinition;
+  }
 };
 
-
-#endif // _SelectorListDefinition_h
+#endif  // _SelectorListDefinition_h

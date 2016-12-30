@@ -22,117 +22,111 @@
 #include <ctype.h>
 #include <stdarg.h>
 
-
-ApplicIF::ApplicIF(const char *server, int port, int local)
-                        : PacketIF(server, port, local, FALSE) 
+ApplicIF::ApplicIF( const char *server, int port, int local )
+    : PacketIF( server, port, local, FALSE )
 {
-    DXPacketIF *pif = theDXApplication->getPacketIF();
-    if (pif)
-        this->handleServerConnection();
+  DXPacketIF *pif = theDXApplication->getPacketIF();
+  if ( pif )
+    this->handleServerConnection();
 }
 
 void ApplicIF::initializePacketIO()
 {
-    this->setHandler(DXPacketIF::MESSAGE,
-		  ApplicIF::ApplicationMessage,
-		  (void*)this);
-    this->setHandler(DXPacketIF::INFORMATION,
-		  ApplicIF::ApplicationInformation,
-		  (void*)this);
-    this->setHandler(DXPacketIF::PKTERROR,
-		  ApplicIF::ApplicationError,
-		  (void*)this);
-    this->setHandler(DXPacketIF::COMPLETE,
-		  ApplicIF::ApplicationCompletion,
-		  (void*)this);
-    this->setHandler(DXPacketIF::FOREGROUND,
-		  ApplicIF::ApplicationForeground,
-		  (void*)this);
-    this->setHandler(DXPacketIF::LINQUIRY,
-		  ApplicIF::ApplicationQuery,
-		  (void*)this);
-    this->setHandler(DXPacketIF::LINK,
-		  ApplicationLink,
-		  (void*)this);
-    this->setErrorCallback(ApplicIF::HandleApplicationError,
-			   (void*)theDXApplication);
+  this->setHandler( DXPacketIF::MESSAGE, ApplicIF::ApplicationMessage,
+                    (void *)this );
+  this->setHandler( DXPacketIF::INFORMATION, ApplicIF::ApplicationInformation,
+                    (void *)this );
+  this->setHandler( DXPacketIF::PKTERROR, ApplicIF::ApplicationError,
+                    (void *)this );
+  this->setHandler( DXPacketIF::COMPLETE, ApplicIF::ApplicationCompletion,
+                    (void *)this );
+  this->setHandler( DXPacketIF::FOREGROUND, ApplicIF::ApplicationForeground,
+                    (void *)this );
+  this->setHandler( DXPacketIF::LINQUIRY, ApplicIF::ApplicationQuery,
+                    (void *)this );
+  this->setHandler( DXPacketIF::LINK, ApplicationLink, (void *)this );
+  this->setErrorCallback( ApplicIF::HandleApplicationError,
+                          (void *)theDXApplication );
 }
 
-void ApplicIF::ApplicationMessage(void *clientData, int id, void *line)
+void ApplicIF::ApplicationMessage( void *clientData, int id, void *line )
 {
-    //char *l = (char *)line;
+  // char *l = (char *)line;
 }
-void ApplicIF::ApplicationInformation(void *clientData, int id, void *line)
+void ApplicIF::ApplicationInformation( void *clientData, int id, void *line )
 {
-    //char *l = (char *)line;
+  // char *l = (char *)line;
 }
-void ApplicIF::ApplicationError(void *clientData, int id, void *line)
+void ApplicIF::ApplicationError( void *clientData, int id, void *line )
 {
-    //char *l = (char *)line;
+  // char *l = (char *)line;
 }
-void ApplicIF::ApplicationCompletion(void *clientData, int id, void *line)
+void ApplicIF::ApplicationCompletion( void *clientData, int id, void *line )
 {
-    //char *l = (char *)line;
+  // char *l = (char *)line;
 }
-void ApplicIF::ApplicationQuery(void *clientData, int id, void *line)
+void ApplicIF::ApplicationQuery( void *clientData, int id, void *line )
 {
-    //char *l = (char *)line;
-}
-
-void ApplicIF::PassThruDXL(void *clientData, int id, void *line)
-{
-    ApplicIF *ai = (ApplicIF*)clientData;
-    char *msg = (char*)line;
-
-    ai->sendPacket(PacketIF::LINK, 0, msg);
+  // char *l = (char *)line;
 }
 
-void ApplicIF::HandleApplicationError(void *clientData, char *message)
+void ApplicIF::PassThruDXL( void *clientData, int id, void *line )
 {
-    DXApplication *app = (DXApplication*)clientData;
+  ApplicIF *ai = (ApplicIF *)clientData;
+  char *msg = (char *)line;
 
-    if (app)
-    {
-	ErrorMessage(message);
-	app->disconnectFromApplication(TRUE);
-    }
+  ai->sendPacket( PacketIF::LINK, 0, msg );
 }
 
-void ApplicIF::ApplicationForeground(void *clientData, int id, void *line)
+void ApplicIF::HandleApplicationError( void *clientData, char *message )
 {
-    //char *l = (char *)line;
+  DXApplication *app = (DXApplication *)clientData;
+
+  if ( app )
+  {
+    ErrorMessage( message );
+    app->disconnectFromApplication( TRUE );
+  }
 }
 
-void ApplicIF::ApplicationLink(void *clientData, int id, void *p)
+void ApplicIF::ApplicationForeground( void *clientData, int id, void *line )
 {
-    ApplicIF *app_if = (ApplicIF *)clientData;
+  // char *l = (char *)line;
+}
 
-    app_if->executeLinkCommand((const char *)p, id);
+void ApplicIF::ApplicationLink( void *clientData, int id, void *p )
+{
+  ApplicIF *app_if = (ApplicIF *)clientData;
+
+  app_if->executeLinkCommand( (const char *)p, id );
 }
 
 void ApplicIF::installLinkHandler()
 {
-    this->linkHandler = new DXLinkHandler(this);
+  this->linkHandler = new DXLinkHandler( this );
 }
-
 
 void ApplicIF::parsePacket()
 {
-    int i;
+  int i;
 
-    for (i = 0; this->line[i] && isspace(this->line[i]); i++);
-    if (this->line[i] == '$') {
-	void *data;
-	PacketIFCallback cb = this->getEchoCallback(&data);
-	if (cb) {
-	    char *s = new char[STRLEN(line) + 50];
-	    sprintf(s, "Received %s\n",&this->line[i]);
-	    (*cb)(data, s);
-	    delete s;
-	}
-        this->executeLinkCommand(this->line+i, 0);
-    } else
-        this->PacketIF::parsePacket();
+  for ( i = 0; this->line[i] && isspace( this->line[i] ); i++ )
+    ;
+  if ( this->line[i] == '$' )
+  {
+    void *data;
+    PacketIFCallback cb = this->getEchoCallback( &data );
+    if ( cb )
+    {
+      char *s = new char[STRLEN( line ) + 50];
+      sprintf( s, "Received %s\n", &this->line[i] );
+      ( *cb )( data, s );
+      delete s;
+    }
+    this->executeLinkCommand( this->line + i, 0 );
+  }
+  else
+    this->PacketIF::parsePacket();
 }
 
 //
@@ -142,19 +136,15 @@ void ApplicIF::parsePacket()
 void ApplicIF::handleServerConnection()
 {
 
-    DXPacketIF *pif = theDXApplication->getPacketIF();
-    if (pif)  {
-        pif->setHandler(PacketIF::LINK,
-                        ApplicIF::PassThruDXL,
-                        (void*)this,
-                        "LINK:  DXLOutput ");
-    }
-
+  DXPacketIF *pif = theDXApplication->getPacketIF();
+  if ( pif )
+  {
+    pif->setHandler( PacketIF::LINK, ApplicIF::PassThruDXL, (void *)this,
+                     "LINK:  DXLOutput " );
+  }
 }
 
-void ApplicIF::send(int type, const char *data)
+void ApplicIF::send( int type, const char *data )
 {
-    this->sendPacket(type, 0, data, strlen(data));
+  this->sendPacket( type, 0, data, strlen( data ) );
 }
-
-

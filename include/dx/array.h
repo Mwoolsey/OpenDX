@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -34,8 +33,8 @@ specified when the array is created.  The constants used to specify
 the types are defined in section \ref{objectsec}.
 */
 
-Array DXNewArrayV(Type t, Category c, int rank, int *shape);
-Array DXNewArray(Type t, Category c, int rank, ...);
+Array DXNewArrayV( Type t, Category c, int rank, int *shape );
+Array DXNewArray( Type t, Category c, int rank, ... );
 /**
 \index{DXNewArrayV}\index{DXNewArray}
 Creates an irregular {\tt Array} object.  Each item is a scalar,
@@ -51,7 +50,7 @@ contains no items.  Returns the array, or returns null and sets the
 error code to indicate an error.
 **/
 
-Class DXGetArrayClass(Array a);
+Class DXGetArrayClass( Array a );
 /**
 \index{DXGetArrayClass}
 Returns the subclass of an array object.  This return value will be
@@ -61,8 +60,8 @@ CLASS\_REGULARARRAY}, {\tt CLASS\_PRODUCTARRAY}, {\tt
 CLASS\_PATHARRAY}, or {\tt CLASS\_MESHARRAY}.
 **/
 
-Array DXGetArrayInfo(Array a, int *items, Type *type, Category *category,
-		   int *rank, int *shape);
+Array DXGetArrayInfo( Array a, int *items, Type *type, Category *category,
+                      int *rank, int *shape );
 /**
 \index{DXGetArrayInfo}
 If {\tt items} is not null, this routine returns in {\tt *items} the
@@ -76,8 +75,9 @@ Returns {\tt a}, or returns null and sets the error code to indicate
 an error.
 **/
 
-Array DXTypeCheckV(Array a, Type type, Category category, int rank, int *shape);
-Array DXTypeCheck(Array a, Type type, Category category, int rank, ...);
+Array DXTypeCheckV( Array a, Type type, Category category, int rank,
+                    int *shape );
+Array DXTypeCheck( Array a, Type type, Category category, int rank, ... );
 /**
 \index{DXTypeCheckV}\index{DXTypeCheck}
 Returns {\tt a} if the type, category, rank, and shape of {\tt a} are
@@ -89,7 +89,7 @@ Returns {\tt a}, or returns null and sets the error code to indicate
 an error (if for example the type does not match).
 **/
 
-Pointer DXGetArrayData(Array a);
+Pointer DXGetArrayData( Array a );
 /**
 \index{DXGetArrayData}
 Returns a pointer to a C array in global memory of items constituting
@@ -106,14 +106,14 @@ a pointer to the data, or returns null and sets the error code to
 indicate an error.
 **/
 
-int DXGetItemSize(Array a);
+int DXGetItemSize( Array a );
 /**
 \index{DXGetItemSize}
 Returns the size in bytes of each individual item of {\tt a}, or returns
 0 to indicate an error.
 **/
 
-Pointer DXGetArrayDataLocal(Array a);
+Pointer DXGetArrayDataLocal( Array a );
 /**
 \index{DXGetArrayDataLocal}
 Returns a pointer to a C array of items constituting a local copy of
@@ -130,7 +130,7 @@ must not be modified directly.  Returns a pointer to the data, or
 returns null and sets the error code to indicate an error.
 **/
 
-Array DXFreeArrayDataLocal(Array a, Pointer data);
+Array DXFreeArrayDataLocal( Array a, Pointer data );
 /**
 \index{DXFreeArrayDataLocal}
 Indicates that a reference to the local copy {\tt data} of the data for
@@ -157,7 +157,7 @@ arrays.  The routines described in this section apply only to
 irregular arrays.
 */
 
-Array DXAddArrayData(Array a, int start, int n, Pointer data);
+Array DXAddArrayData( Array a, int start, int n, Pointer data );
 /**
 \index{DXAddArrayData}
 Adds {\tt n} more items to {\tt a}, numbered starting at {\tt start}.
@@ -171,7 +171,7 @@ number of items actually in the array.  Returns {\tt a}, or returns
 null and sets the error code ato indicate an error.
 **/
 
-Array DXAllocateArray(Array a, int n);
+Array DXAllocateArray( Array a, int n );
 /**
 \index{DXAllocateArray}
 This routine allocates room for at least {\tt n} items in array {\tt
@@ -183,7 +183,7 @@ Returns {\tt a}, or returns null and sets the error code to indicate
 an error.
 **/
 
-Array DXTrim(Array a);
+Array DXTrim( Array a );
 /**
 \index{DXTrim}
 Under some circumstances, more space than is necessary to hold the
@@ -220,7 +220,7 @@ encode respectively one-dimensional and multi-dimensional regular
 positions and connections:
 \begin{center}
 \begin{tabular}{l|ll}
-		& positions & connections \\
+                & positions & connections \\
 \hline
 one-dimensional	& {\tt RegularArray} & {\tt PathArray} \\
 $n$-dimensional	& {\tt ProductArray} & {\tt MeshArray} \\
@@ -241,18 +241,17 @@ general it is preferable to use these routines where possible, because
 more Data Explorer functions support these cases efficiently.
 */
 
-Array DXTrimItems(Array a, int nitems);
+Array DXTrimItems( Array a, int nitems );
 /**
 \index{DXTrimItems}
-It may desirable to remove elements at the end of an array to shrink 
+It may desirable to remove elements at the end of an array to shrink
 the array without having to copy it. {\tt DXTrimItems()} will make the
-array nitems long removing items from the end of the array and 
+array nitems long removing items from the end of the array and
 automatically calling {\tt DXTrim()} to free the extra array memory.
 **/
 
-
-Array DXMakeGridPositionsV(int n, int *counts, float *origin, float *deltas);
-Array DXMakeGridPositions(int n, ...);
+Array DXMakeGridPositionsV( int n, int *counts, float *origin, float *deltas );
+Array DXMakeGridPositions( int n, ... );
 /**
 \index{DXMakeGridPositionsV}\index{DXMakeGridPositions}
 Constructs an {\tt n}-dimensional regular grid.  A regular grid is
@@ -275,8 +274,8 @@ Returns the array, or returns null and sets the error code to indicate
 an error.
 **/
 
-Array DXQueryGridPositions(Array a, int *n, int *counts,
-		       float *origin, float *deltas);
+Array DXQueryGridPositions( Array a, int *n, int *counts, float *origin,
+                            float *deltas );
 /**
 \index{DXQueryGridPositions}
 This routine returns null if {\tt a} is not a regular grid of the sort
@@ -291,8 +290,8 @@ by {\tt deltas}.  Returns {\tt a} if it is a regular grid, or returns
 null but does not set the error code if it is not.
 **/
 
-Array DXMakeGridConnectionsV(int n, int *counts);
-Array DXMakeGridConnections(int n, ...);
+Array DXMakeGridConnectionsV( int n, int *counts );
+Array DXMakeGridConnections( int n, ... );
 /**
 \index{DXMakeGridConnectionsV}\index{DXMakeGridConnections} Constructs an
 array of {\tt n}-dimensional regular grid connections, that is a set
@@ -307,7 +306,7 @@ Returns the array, or returns null and sets the error code to indicate
 an error.
 **/
 
-Array DXQueryGridConnections(Array a, int *n, int *counts);
+Array DXQueryGridConnections( Array a, int *n, int *counts );
 /**
 \index{DXQueryGridConnections}
 Returns null if {\tt a} is not an array of regular grid connections of
@@ -331,8 +330,8 @@ the shape is then the dimensionality of the space in which the points
 are imbedded.
 */
 
-RegularArray DXNewRegularArray(Type t, int dim, int n,
-			     Pointer origin, Pointer delta);
+RegularArray DXNewRegularArray( Type t, int dim, int n, Pointer origin,
+                                Pointer delta );
 /**
 \index{DXNewRegularArray}
 Creates a new {\tt Array} object representing a regular array of {\tt
@@ -344,8 +343,8 @@ of the same type as the items in {\tt a}.  Returns the regular array,
 or returns null and sets the error code to indicate an error.
 **/
 
-RegularArray DXGetRegularArrayInfo(RegularArray a, int *count,
-				 Pointer origin, Pointer delta);
+RegularArray DXGetRegularArrayInfo( RegularArray a, int *count, Pointer origin,
+                                    Pointer delta );
 /**
 \index{DXGetRegularArrayInfo}
 If {\tt count} is not null, this routine returns in {\tt *count} the
@@ -366,7 +365,7 @@ joins points $i$ and $i+1$.  All path arrays have type integer,
 category real, rank 1, and shape 2.
 */
 
-PathArray DXNewPathArray(int count);
+PathArray DXNewPathArray( int count );
 /**
 \index{DXNewPathArray}
 Specifies that {\tt a} represents a ``connections'' array consisting
@@ -376,7 +375,7 @@ shape to 2.  Returns the path array, or returns null and sets the
 error code to indicate an error.
 **/
 
-PathArray DXGetPathArrayInfo(PathArray a, int *count);
+PathArray DXGetPathArrayInfo( PathArray a, int *count );
 /**
 \index{DXGetPathArrayInfo}
 If {\tt count} is not null, this routine returns in {\tt *count} the
@@ -385,8 +384,8 @@ more than the number of line segments in {\tt a}.  Returns {\tt a}, or
 returns null and sets the error code to indicate an error.
 **/
 
-PathArray DXSetPathOffset(PathArray a, int offset);
-PathArray DXGetPathOffset(PathArray a, int *offset);
+PathArray DXSetPathOffset( PathArray a, int offset );
+PathArray DXGetPathOffset( PathArray a, int *offset );
 /**
 \index{DXSetPathOffset}\index{DXGetPathOffset}
 In the case where the path array is used to define a regular grid of
@@ -407,8 +406,8 @@ either regular or not, resulting in either completely or partially
 regular multi-dimensional positions.
 */
 
-ProductArray DXNewProductArrayV(int n, Array *terms);
-ProductArray DXNewProductArray(int n, ...);
+ProductArray DXNewProductArrayV( int n, Array *terms );
+ProductArray DXNewProductArray( int n, ... );
 /**
 \index{DXNewProductArrayV}\index{DXNewProductArray}
 Creates an array that is the product of a set of regular or irregular
@@ -419,7 +418,7 @@ n} arguments (for {\tt DXNewProductArray()}).  Returns the product
 array, or returns null and sets the error code to indicate an error.
 **/
 
-ProductArray DXGetProductArrayInfo(ProductArray a, int *n, Array *terms);
+ProductArray DXGetProductArrayInfo( ProductArray a, int *n, Array *terms );
 /**
 \index{DXGetProductArrayInfo}
 If {\tt n} is not null, this routine returns in {\tt *n} the number of
@@ -427,7 +426,6 @@ terms in the product {\tt a}.  If {\tt terms} is not null, it returns
 in {\tt *terms} the terms of the product. Returns {\tt a}, or returns
 null and sets the error code to indicate an error.
 **/
-
 
 /*
 \paragraph{Mesh arrays.}
@@ -443,8 +441,8 @@ regular or not, resulting in either completely regular (e.g. cubes) or
 partially regular (e.g. prisms) multi-dimensional connections.
 */
 
-MeshArray DXNewMeshArrayV(int n, Array *terms);
-MeshArray DXNewMeshArray(int n, ...);
+MeshArray DXNewMeshArrayV( int n, Array *terms );
+MeshArray DXNewMeshArray( int n, ... );
 /**
 \index{DXNewMeshArrayV}\index{DXNewMeshArray}
 Creates an array that is the product of a set of regular or irregular
@@ -455,7 +453,7 @@ n} arguments (for {\tt DXNewMeshArray()}).  This returns the mesh array,
 or returns null and sets the error code to indicate an error.
 **/
 
-MeshArray DXGetMeshArrayInfo(MeshArray a, int *n, Array *terms);
+MeshArray DXGetMeshArrayInfo( MeshArray a, int *n, Array *terms );
 /**
 \index{DXGetMeshArrayInfo}
 If {\tt n} is not null, this routine returns in {\tt *n} the number of
@@ -464,8 +462,8 @@ in {\tt *terms} the terms of the product.  Returns {\tt a}, or returns
 null and sets the error code to indicate an error.
 **/
 
-MeshArray DXSetMeshOffsets(MeshArray a, int *offsets);
-MeshArray DXGetMeshOffsets(MeshArray a, int *offsets);
+MeshArray DXSetMeshOffsets( MeshArray a, int *offsets );
+MeshArray DXGetMeshOffsets( MeshArray a, int *offsets );
 /**
 \index{DXSetMeshOffsets}\index{DXGetMeshOffsets}
 In the case where the mesh array is used to define a regular grid of
@@ -480,33 +478,37 @@ Returns {\tt a}, or returns null and sets the error code to indicate
 an error.
 **/
 
-ConstantArray DXNewConstantArray(int n, Pointer d, Type t,
-					Category c, int r, ...);
-ConstantArray DXNewConstantArrayV(int n, Pointer d, Type t,
-					Category c, int r, int *s);
-Array         DXQueryConstantArray(Array a, int *num,  Pointer d);
-Pointer	      DXGetConstantArrayData(Array array);
+ConstantArray DXNewConstantArray( int n, Pointer d, Type t, Category c, int r,
+                                  ... );
+ConstantArray DXNewConstantArrayV( int n, Pointer d, Type t, Category c, int r,
+                                   int *s );
+Array DXQueryConstantArray( Array a, int *num, Pointer d );
+Pointer DXGetConstantArrayData( Array array );
 
-Error 	    DXRegisterSharedSegment(int id,
-			    void (*sor)(int, Pointer, Pointer), Pointer d);
+Error DXRegisterSharedSegment( int id, void ( *sor )( int, Pointer, Pointer ),
+                               Pointer d );
 
-SharedArray DXNewSharedArray(int id, Pointer d, int knt, Type t, Category c, int r, ...);
-SharedArray DXNewSharedArrayV(int id, Pointer d, int knt, Type t, Category c, int r, int *s);
-SharedArray DXNewSharedArrayFromOffset(int id, long offset, int knt, Type t, Category c, int r, ...);
-SharedArray DXNewSharedArrayFromOffsetV(int id, long offset, int knt, Type t, Category c, int r, int *s);
+SharedArray DXNewSharedArray( int id, Pointer d, int knt, Type t, Category c,
+                              int r, ... );
+SharedArray DXNewSharedArrayV( int id, Pointer d, int knt, Type t, Category c,
+                               int r, int *s );
+SharedArray DXNewSharedArrayFromOffset( int id, long offset, int knt, Type t,
+                                        Category c, int r, ... );
+SharedArray DXNewSharedArrayFromOffsetV( int id, long offset, int knt, Type t,
+                                         Category c, int r, int *s );
 
 /* make string list arrays */
-Array DXMakeStringList(int n, char *s, ...);
-Array DXMakeStringListV(int n, char **s);
+Array DXMakeStringList( int n, char *s, ... );
+Array DXMakeStringListV( int n, char **s );
 
 /** given a pointer to a list of n char pointers, make
 an array with TYPE_STRING, rank 1, shape length_of_longest_string. **/
 
-Array DXMakeInteger(int n);
-Array DXMakeFloat(float f);
+Array DXMakeInteger( int n );
+Array DXMakeFloat( float f );
 
 #endif /* _DXI_ARRAY_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

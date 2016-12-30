@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -29,8 +28,8 @@ spacing, and a regular grid of quadrilateral connections.  These
 routines simplify the task of creating and accessing such a field.
 */
 
-Field DXMakeImageFormat(int, int, char *);
-Field DXMakeImage(int width, int height);
+Field DXMakeImageFormat( int, int, char * );
+Field DXMakeImage( int width, int height );
 /**
 \index{DXMakeImage}
 Creates a new field object that represents an image of the specified
@@ -38,7 +37,7 @@ size.  Returns the image, or returns null and sets the error code to
 indicate an error.
 **/
 
-RGBColor *DXGetPixels(Field i);
+RGBColor *DXGetPixels( Field i );
 /**
 \index{DXGetPixels}
 Returns a pointer to the array of pixels associated with the image
@@ -47,8 +46,8 @@ be modified.  Returns the pointer, or returns null and sets the error
 code to indicate an error.
 **/
 
-Field DXGetImageSize(Field i, int *width, int *height);
-Object DXGetImageBounds(Object o, int *x, int *y, int *width, int *height);
+Field DXGetImageSize( Field i, int *width, int *height );
+Object DXGetImageBounds( Object o, int *x, int *y, int *width, int *height );
 /**
 \index{DXGetImageSize}\index{DXGetImageBounds}
 {\tt DXGetImageSize} returns the width and height of a simple image
@@ -58,7 +57,7 @@ module).  Returns the image, or returns null and sets the error code
 to indicate an error.
 **/
 
-Field DXOutputRGB(Field i, int fd);
+Field DXOutputRGB( Field i, int fd );
 /**
 \index{DXOutputRGB}
 Writes the specified image field to the specified file descriptor as
@@ -66,7 +65,7 @@ three bytes (red, green and blue) per pixel.  Returns {\tt i}, or
 returns null and sets the error code to indicate an error.
 **/
 
-Object DXDisplayFB(Object i, char *name, int x, int y);
+Object DXDisplayFB( Object i, char *name, int x, int y );
 /**
 \index{OutputFB}
 Outputs an image {\tt i} to the frame buffer named by {\tt name} at the
@@ -74,7 +73,7 @@ position specified by {\tt x} and {\tt y}.  Returns {\tt i}, or
 returns null and sets the error code to indicate an error.
 **/
 
-Object DXDisplayX(Object i, char *host, char *window);
+Object DXDisplayX( Object i, char *host, char *window );
 /**
 \index{DXDisplayX}
 Creates an X window on the specified {\tt host} with the title
@@ -85,6 +84,6 @@ and sets the error code to indicate an error.
 
 #endif /* _DXI_IMAGE_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

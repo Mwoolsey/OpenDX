@@ -9,10 +9,7 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
-#include <string.h> 
+#include <string.h>
 #include "FindStack.h"
 
 //
@@ -22,55 +19,51 @@ class FindStackElement
 {
   friend class FindStack;
 
-  private:
+ private:
+  char name[64];   // FIXME: these should be duplicated
+  char label[64];  // FIXME: these should be duplicated
+  int instance;
 
-    char   name[64];		// FIXME: these should be duplicated
-    char   label[64];		// FIXME: these should be duplicated
-    int    instance;
+ public:
+  FindStackElement( char* name, int instance, char* label )
+  {
+    strcpy( this->name, name );
+    strcpy( this->label, label );
+    this->instance = instance;
+  };
 
-  public:
-
-    FindStackElement(char* name, int instance, char *label)
-    {
-        strcpy(this->name, name);
-        strcpy(this->label, label);
-        this->instance = instance;
-    };
-
-    ~FindStackElement() { };
+  ~FindStackElement() {};
 };
 
-
-
-void FindStack::push(char* name, int instance, char* label)
+void FindStack::push( char* name, int instance, char* label )
 {
-    FindStackElement* element = new FindStackElement(name, instance, label);
-    this->Stack::push((const void*)element);
+  FindStackElement* element = new FindStackElement( name, instance, label );
+  this->Stack::push( (const void*)element );
 }
 
-boolean FindStack::pop(char* name, int* instance, char* label)
+boolean FindStack::pop( char* name, int* instance, char* label )
 {
-    FindStackElement* element;
+  FindStackElement* element;
 
-    element = (FindStackElement*)this->Stack::pop();
-    if (element) {
-       strcpy(name, element->name);
-       strcpy(label, element->label);
-       *instance = element->instance;
-       delete element;
-       return (TRUE); 
-    }  
+  element = (FindStackElement*)this->Stack::pop();
+  if ( element )
+  {
+    strcpy( name, element->name );
+    strcpy( label, element->label );
+    *instance = element->instance;
+    delete element;
+    return ( TRUE );
+  }
 
-    return (FALSE);
+  return ( FALSE );
 }
-    
+
 void FindStack::clear()
 {
-    FindStackElement *element;
+  FindStackElement* element;
 
-    while ( (element = (FindStackElement *)this->Stack::pop()) )
-       delete element;
+  while ( ( element = (FindStackElement*)this->Stack::pop() ) )
+    delete element;
 
-    this->Stack::clear();
+  this->Stack::clear();
 }
-

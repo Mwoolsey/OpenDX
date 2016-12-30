@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 #include <dx/dx.h>
 #include "utils.h"
 
@@ -42,19 +41,19 @@ char *lstrsaven (char *old, int n)
 }
 #endif
 
-char *_dxf_ExStrSave (char *old)
+char *_dxf_ExStrSave( char *old )
 {
-    char	*new;
-    int		n;
+  char *new;
+  int n;
 
-    n   = strlen (old);
-    new = DXAllocate (n + 1);
-    if (new)
-    {
-	memcpy (new, old, n);
-	new[n] = '\0';
-    }
-    return (new);
+  n = strlen( old );
+  new = DXAllocate( n + 1 );
+  if ( new )
+  {
+    memcpy( new, old, n );
+    new[n] = '\0';
+  }
+  return ( new );
 }
 
 #if 0
@@ -80,99 +79,92 @@ char *lstrsave (char *old)
  * WARNING:	Only works if n is a power of 2.
  */
 
-Pointer _dxf_ExAlignBoundary	(long n, Pointer p)
+Pointer _dxf_ExAlignBoundary( long n, Pointer p )
 {
-    long	mask;
+  long mask;
 
-    if (n == 0 || n == 1)
-	return (p);
-    
-    mask = n - 1;
+  if ( n == 0 || n == 1 )
+    return ( p );
 
-    return ((mask & (long) p)
-		? (Pointer) (((long) p + n) & ~mask)
-		: p);
+  mask = n - 1;
+
+  return ( ( mask & (long)p ) ? ( Pointer )( ( (long)p + n ) & ~mask ) : p );
 }
 
-
-char *_dxf_ExCopyStringN (char *old, int len)
+char *_dxf_ExCopyStringN( char *old, int len )
 {
-    char        *new;
+  char *new;
 
-    if (old == NULL)
-	return (NULL);
+  if ( old == NULL )
+    return ( NULL );
 
-    new = (char *) DXAllocate (len + 1);
+  new = (char *)DXAllocate( len + 1 );
 
-    if (! new)
-    {
-        DXResetError ();
-        return (NULL);
-    }
+  if ( !new )
+  {
+    DXResetError();
+    return ( NULL );
+  }
 
-    strncpy (new, old, len);
-    new[len] = '\0';
+  strncpy( new, old, len );
+  new[len] = '\0';
 
-    return (new);
+  return ( new );
 }
 
-
-
-char *_dxf_ExCopyString (char *old)
+char *_dxf_ExCopyString( char *old )
 {
-    char	*new;
+  char *new;
 
-    if (old == NULL)
-	return (NULL);
+  if ( old == NULL )
+    return ( NULL );
 
-    new = (char *) DXAllocate (strlen (old) + 1);
+  new = (char *)DXAllocate( strlen( old ) + 1 );
 
-    if (! new)
-    {
-	DXResetError ();
-	return (NULL);
-    }
-    
-    strcpy (new, old);
+  if ( !new )
+  {
+    DXResetError();
+    return ( NULL );
+  }
 
-    return (new);
+  strcpy( new, old );
+
+  return ( new );
 }
 
-
-char *_dxf_ExCopyStringLocal (char *old)
+char *_dxf_ExCopyStringLocal( char *old )
 {
-    char		*new;
-    int			size;
+  char *new;
+  int size;
 
-    size = strlen (old) + 1;
+  size = strlen( old ) + 1;
 
-    new = (char *) DXAllocateLocal (size);
-    
-    if (! new)
-    {
-	DXResetError ();
-	return (NULL);
-    }
+  new = (char *)DXAllocateLocal( size );
 
-    strcpy (new, old);
+  if ( !new )
+  {
+    DXResetError();
+    return ( NULL );
+  }
 
-    return (new);
+  strcpy( new, old );
+
+  return ( new );
 }
 
-int _dxf_ExNextPowerOf2 (int n)
+int _dxf_ExNextPowerOf2( int n )
 {
-    int		i;
-    int		v;
+  int i;
+  int v;
 
-    for (i = 0, v = 1; i < 31; i++, v <<= 1)
-	if (v >= n)
-	    return (v);
-    return 0; 
+  for ( i = 0, v = 1; i < 31; i++, v <<= 1 )
+    if ( v >= n )
+      return ( v );
+  return 0;
 }
 
-Array _dxfExNewInteger (int n)
+Array _dxfExNewInteger( int n )
 {
-    return DXAddArrayData (DXNewArray (TYPE_INT, CATEGORY_REAL, 0), 
-			0, 1, (Pointer) &n);
+  return DXAddArrayData( DXNewArray( TYPE_INT, CATEGORY_REAL, 0 ), 0, 1,
+                         ( Pointer ) & n );
 }
-

@@ -9,12 +9,9 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
- 
- 
 #ifndef _TickLabel_h
 #define _TickLabel_h
- 
- 
+
 #include "UIComponent.h"
 
 //
@@ -22,15 +19,15 @@
 //
 #define ClassTickLabel "TickLabel"
 
-extern "C" void TickLabel_SelectEH(Widget, XtPointer, XEvent*, Boolean*);
-extern "C" void TickLabel_DeleteOneCB(Widget, XtPointer, XtPointer);
-extern "C" void TickLabel_AppendOneCB(Widget, XtPointer, XtPointer);
-extern "C" void TickLabel_NumberCB(Widget, XtPointer, XtPointer);
-extern "C" void TickLabel_NumberArmCB(Widget, XtPointer, XtPointer);
-extern "C" void TickLabel_TextModifyCB(Widget, XtPointer, XtPointer);
+extern "C" void TickLabel_SelectEH( Widget, XtPointer, XEvent *, Boolean * );
+extern "C" void TickLabel_DeleteOneCB( Widget, XtPointer, XtPointer );
+extern "C" void TickLabel_AppendOneCB( Widget, XtPointer, XtPointer );
+extern "C" void TickLabel_NumberCB( Widget, XtPointer, XtPointer );
+extern "C" void TickLabel_NumberArmCB( Widget, XtPointer, XtPointer );
+extern "C" void TickLabel_TextModifyCB( Widget, XtPointer, XtPointer );
 
 class TickLabel;
-typedef void (*TickSelectCB)(TickLabel*, void*);
+typedef void ( *TickSelectCB )( TickLabel *, void * );
 
 #define DIRTY_TICK_NUMBER 1
 #define DIRTY_TICK_TEXT 2
@@ -38,69 +35,86 @@ typedef void (*TickSelectCB)(TickLabel*, void*);
 // Only used in TickLabelList.
 class TickLabel : public UIComponent
 {
-  private:
+ private:
+  static boolean ClassInitialized;
+  static String DefaultResources[];
 
-    static boolean ClassInitialized;
-    static String DefaultResources[];
+  Widget number;
+  Widget text;
+  Widget form;
 
-    Widget 	number;
-    Widget 	text;
-    Widget 	form;
+  String str;
+  int dirty;
+  double dval;
+  int pos;
+  boolean selected;
+  boolean ignoreVerifyCallback;
 
-    String 	str;
-    int 	dirty;
-    double 	dval;
-    int 	pos;
-    boolean 	selected;
-    boolean	ignoreVerifyCallback;
+  TickSelectCB tscb;
+  void *clientData;
 
-    TickSelectCB tscb;
-    void*	clientData;
+ protected:
+  friend void TickLabel_SelectEH( Widget, XtPointer, XEvent *, Boolean * );
+  friend void TickLabel_DeleteOneCB( Widget, XtPointer, XtPointer );
+  friend void TickLabel_AppendOneCB( Widget, XtPointer, XtPointer );
+  friend void TickLabel_NumberCB( Widget, XtPointer, XtPointer );
+  friend void TickLabel_NumberArmCB( Widget, XtPointer, XtPointer );
+  friend void TickLabel_TextModifyCB( Widget, XtPointer, XtPointer );
 
-  protected:
-    friend void TickLabel_SelectEH(Widget, XtPointer, XEvent*, Boolean*);
-    friend void TickLabel_DeleteOneCB(Widget, XtPointer, XtPointer);
-    friend void TickLabel_AppendOneCB(Widget, XtPointer, XtPointer);
-    friend void TickLabel_NumberCB(Widget, XtPointer, XtPointer);
-    friend void TickLabel_NumberArmCB(Widget, XtPointer, XtPointer);
-    friend void TickLabel_TextModifyCB(Widget, XtPointer, XtPointer);
+ public:
+  void setNumber()
+  {
+    this->dirty &= ~DIRTY_TICK_NUMBER;
+  };
+  void setNumber( double dval );
+  double getNumber()
+  {
+    return this->dval;
+  };
+  void setSelected( boolean set = TRUE, boolean callCallback = TRUE );
+  boolean isSelected()
+  {
+    return this->selected;
+  };
 
-  public:
+  void setText()
+  {
+    this->dirty &= ~DIRTY_TICK_TEXT;
+  };
+  void setText( const char *str );
+  const char *getText();
 
-    void setNumber() { this->dirty&= ~DIRTY_TICK_NUMBER; };
-    void setNumber (double dval);
-    double getNumber() { return this->dval; };
-    void setSelected (boolean set = TRUE, boolean callCallback = TRUE);
-    boolean isSelected () { return this->selected; };
+  boolean isModified()
+  {
+    return ( boolean ) this->dirty;
+  };
+  boolean isNumberModified()
+  {
+    return this->dirty & DIRTY_TICK_NUMBER;
+  };
+  boolean isTextModified()
+  {
+    return this->dirty & DIRTY_TICK_TEXT;
+  };
 
-    void setText () { this->dirty&= ~DIRTY_TICK_TEXT; };
-    void setText (const char *str);
-    const char *getText();
+  virtual void initialize();
+  void createLine( Widget parent );
+  void destroyLine();
+  void setPosition( int pos )
+  {
+    ASSERT( this->form == NUL( Widget ) );
+    this->pos = pos;
+  }
 
-    boolean isModified() { return (boolean)this->dirty; };
-    boolean isNumberModified() { return this->dirty & DIRTY_TICK_NUMBER; };
-    boolean isTextModified() { return this->dirty & DIRTY_TICK_TEXT; };
+  TickLabel( double dval, const char *str, int pos, TickSelectCB tscb,
+             void *clientData );
 
-    virtual void initialize();
-    void createLine(Widget parent);
-    void destroyLine();
-    void setPosition (int pos) { 
-	ASSERT (this->form == NUL(Widget));
-	this->pos = pos;
-    }
+  ~TickLabel();
 
-    TickLabel (
-	double dval, 
-	const char *str, 
-	int pos, 
-	TickSelectCB tscb,
-	void *clientData
-    );
-
-    ~TickLabel ();
-
-    const char* getClassName() { return ClassTickLabel; };
+  const char *getClassName()
+  {
+    return ClassTickLabel;
+  };
 };
 
-
-#endif // _TickLabel_h
+#endif  // _TickLabel_h

@@ -9,17 +9,11 @@
 #include <dxconfig.h>
 #include <defines.h>
 
-
-
-
 #include "NoUndoCommand.h"
 
-
-NoUndoCommand::NoUndoCommand(const char*   name,
-			     CommandScope* scope,
-			     boolean       active): Command(name, scope, active)
+NoUndoCommand::NoUndoCommand( const char* name, CommandScope* scope,
+                              boolean active )
+    : Command( name, scope, active )
 {
-    this->hasUndo = FALSE;
+  this->hasUndo = FALSE;
 }
-
-

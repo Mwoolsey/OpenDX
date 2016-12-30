@@ -9,7 +9,6 @@
 #include <dxconfig.h>
 #include <defines.h>
 
-
 #include <Xm/Xm.h>
 #include <Xm/Text.h>
 #include <Xm/SelectioB.h>
@@ -23,204 +22,203 @@
 
 #include "../widgets/ColorMapEditor.h"
 
-String ColormapEditCommand::DefaultResources[] =
-{
-        NULL
-};
+String ColormapEditCommand::DefaultResources[] = {NULL};
 
-ColormapEditCommand::ColormapEditCommand(const char*   name,
-                         CommandScope* scope,
-                         boolean       active,
-                         ColormapEditor* editor,
-			 int option):NoUndoCommand(name,scope,active)
+ColormapEditCommand::ColormapEditCommand( const char *name, CommandScope *scope,
+                                          boolean active,
+                                          ColormapEditor *editor, int option )
+    : NoUndoCommand( name, scope, active )
 {
-	this->editor = editor;	
-	this->option = option;	
+  this->editor = editor;
+  this->option = option;
 }
 
-boolean ColormapEditCommand::doIt(CommandInterface *ci)
+boolean ColormapEditCommand::doIt( CommandInterface *ci )
 {
-    Arg      	   wargs[8];
-    ColormapEditor *editor = this->editor;
-    ColormapNode   *cmnode = editor->colormapNode;
-    Widget         colormap = this->editor->workArea;
-    ToggleButtonInterface *tbi;
-    Boolean	   set;
+  Arg wargs[8];
+  ColormapEditor *editor = this->editor;
+  ColormapNode *cmnode = editor->colormapNode;
+  Widget colormap = this->editor->workArea;
+  ToggleButtonInterface *tbi;
+  Boolean set;
 
-    switch (this->option)
-    {
-	case ColormapEditCommand::New:
+  switch ( this->option )
+  {
+    case ColormapEditCommand::New:
 
-	     XmColorMapReset(colormap);
+      XmColorMapReset( colormap );
 
-	     break;
+      break;
 
-	case ColormapEditCommand::AddControl:
+    case ColormapEditCommand::AddControl:
 
-	     editor->openAddCtlDialog();
+      editor->openAddCtlDialog();
 
-	     break;
+      break;
 
-	case ColormapEditCommand::NBins:
+    case ColormapEditCommand::NBins:
 
-	     editor->openNBinsDialog();
+      editor->openNBinsDialog();
 
-	     break;
+      break;
 
-	case ColormapEditCommand::Waveform:
+    case ColormapEditCommand::Waveform:
 
-	     editor->openWaveformDialog();
+      editor->openWaveformDialog();
 
-	     break;
+      break;
 
-	case ColormapEditCommand::Undo:
+    case ColormapEditCommand::Undo:
 
-	     XmColorMapUndo(colormap);
+      XmColorMapUndo( colormap );
 
-	     break;
+      break;
 
-	case ColormapEditCommand::Copy:
+    case ColormapEditCommand::Copy:
 
-	     XmColorMapCopy(colormap);
+      XmColorMapCopy( colormap );
 
-	     break;
+      break;
 
-	case ColormapEditCommand::Paste:
+    case ColormapEditCommand::Paste:
 
-	     XmColorMapPaste(colormap);
+      XmColorMapPaste( colormap );
 
-	     break;
+      break;
 
-	case ColormapEditCommand::DeleteSelected:
+    case ColormapEditCommand::DeleteSelected:
 
-	     XmColorMapEditorDeleteCP(colormap);
+      XmColorMapEditorDeleteCP( colormap );
 
-	     break;
+      break;
 
-	case ColormapEditCommand::SelectAll:
+    case ColormapEditCommand::SelectAll:
 
-	     XmColorMapSelectAllCP(colormap);
+      XmColorMapSelectAllCP( colormap );
 
-	     break;
+      break;
 
-	case ColormapEditCommand::SetBackground:
+    case ColormapEditCommand::SetBackground:
 
-             editor->background_style = 1 - editor->background_style;
-             XtSetArg(wargs[0],XmNbackgroundStyle, editor->background_style);
-             XtSetValues(colormap, wargs, 1);
+      editor->background_style = 1 - editor->background_style;
+      XtSetArg( wargs[0], XmNbackgroundStyle, editor->background_style );
+      XtSetValues( colormap, wargs, 1 );
 
-	     if(editor->background_style)
-             	((ButtonInterface*)this->editor->setBackgroundOption)->setLabel(
-					"Set Background Style to Stripes");
-	     else
-             	((ButtonInterface*)this->editor->setBackgroundOption)->setLabel(
-					"Set Background Style to Checkboard");
+      if ( editor->background_style )
+        ( (ButtonInterface *)this->editor->setBackgroundOption )
+            ->setLabel( "Set Background Style to Stripes" );
+      else
+        ( (ButtonInterface *)this->editor->setBackgroundOption )
+            ->setLabel( "Set Background Style to Checkboard" );
 
-	     break;
+      break;
 
-	case ColormapEditCommand::Ticks:
+    case ColormapEditCommand::Ticks:
 
-             editor->draw_mode = CME_GRID;
-	     editor->setDrawMode();
-	     break;
+      editor->draw_mode = CME_GRID;
+      editor->setDrawMode();
+      break;
 
-	case ColormapEditCommand::Histogram:
+    case ColormapEditCommand::Histogram:
 
-             editor->draw_mode = CME_HISTOGRAM;
-	     editor->setDrawMode();
-	     break;
+      editor->draw_mode = CME_HISTOGRAM;
+      editor->setDrawMode();
+      break;
 
-	case ColormapEditCommand::LogHistogram:
+    case ColormapEditCommand::LogHistogram:
 
-             editor->draw_mode = CME_LOGHISTOGRAM;
-	     editor->setDrawMode();
-	     break;
+      editor->draw_mode = CME_LOGHISTOGRAM;
+      editor->setDrawMode();
+      break;
 
-	case ColormapEditCommand::ConstrainH:
+    case ColormapEditCommand::ConstrainH:
 
-             editor->constrain_hor = !editor->constrain_hor;
-             XtSetArg(wargs[0],XmNconstrainHorizontal, editor->constrain_hor);
-             XtSetValues(colormap, wargs, 1);
+      editor->constrain_hor = !editor->constrain_hor;
+      XtSetArg( wargs[0], XmNconstrainHorizontal, editor->constrain_hor );
+      XtSetValues( colormap, wargs, 1 );
 
-             if (editor->constrain_hor && editor->constrain_vert)
-             {
-            	editor->constrain_vert = False;
-            	XtSetArg(wargs[0], XmNconstrainVertical, False);
-            	XtSetValues(colormap, wargs, 1);
-            	((ToggleButtonInterface*)this->editor->verticalOption)->setState(False);
-             }
-	     break;
+      if ( editor->constrain_hor && editor->constrain_vert )
+      {
+        editor->constrain_vert = False;
+        XtSetArg( wargs[0], XmNconstrainVertical, False );
+        XtSetValues( colormap, wargs, 1 );
+        ( (ToggleButtonInterface *)this->editor->verticalOption )
+            ->setState( False );
+      }
+      break;
 
-	case ColormapEditCommand::ConstrainV:
+    case ColormapEditCommand::ConstrainV:
 
-             editor->constrain_vert = !editor->constrain_vert;
-             XtSetArg(wargs[0],XmNconstrainVertical, editor->constrain_vert);
-             XtSetValues(colormap, wargs, 1);
+      editor->constrain_vert = !editor->constrain_vert;
+      XtSetArg( wargs[0], XmNconstrainVertical, editor->constrain_vert );
+      XtSetValues( colormap, wargs, 1 );
 
-             if (editor->constrain_hor && editor->constrain_vert)
-             {
-            	editor->constrain_hor = False;
-            	XtSetArg(wargs[0], XmNconstrainHorizontal, False);
-            	XtSetValues(colormap, wargs, 1);
-            	((ToggleButtonInterface*)this->editor->horizontalOption)->setState(False);
-             }
-	     break;
+      if ( editor->constrain_hor && editor->constrain_vert )
+      {
+        editor->constrain_hor = False;
+        XtSetArg( wargs[0], XmNconstrainHorizontal, False );
+        XtSetValues( colormap, wargs, 1 );
+        ( (ToggleButtonInterface *)this->editor->horizontalOption )
+            ->setState( False );
+      }
+      break;
 
-	case ColormapEditCommand::DisplayCPOff:
-	    tbi = (ToggleButtonInterface *)this->editor->displayCPOffOption;
-	    XtVaGetValues(tbi->getRootWidget(), XmNset, &set, NULL);
-	    if (set) XtVaSetValues(colormap, XmNprintCP, XmPRINT_NONE, NULL);
-	    break;
+    case ColormapEditCommand::DisplayCPOff:
+      tbi = (ToggleButtonInterface *)this->editor->displayCPOffOption;
+      XtVaGetValues( tbi->getRootWidget(), XmNset, &set, NULL );
+      if ( set )
+        XtVaSetValues( colormap, XmNprintCP, XmPRINT_NONE, NULL );
+      break;
 
-	case ColormapEditCommand::DisplayCPAll:
-	    tbi = (ToggleButtonInterface *)this->editor->displayCPAllOption;
-	    XtVaGetValues(tbi->getRootWidget(), XmNset, &set, NULL);
-	    if (set) XtVaSetValues(colormap, XmNprintCP, XmPRINT_ALL, NULL);
-	    break;
+    case ColormapEditCommand::DisplayCPAll:
+      tbi = (ToggleButtonInterface *)this->editor->displayCPAllOption;
+      XtVaGetValues( tbi->getRootWidget(), XmNset, &set, NULL );
+      if ( set )
+        XtVaSetValues( colormap, XmNprintCP, XmPRINT_ALL, NULL );
+      break;
 
-	case ColormapEditCommand::DisplayCPSelected:
-	    tbi = (ToggleButtonInterface*)this->editor->displayCPSelectedOption;
-	    XtVaGetValues(tbi->getRootWidget(), XmNset, &set, NULL);
-	    if (set) XtVaSetValues(colormap, XmNprintCP, XmPRINT_SELECTED, NULL);
-	    break;
+    case ColormapEditCommand::DisplayCPSelected:
+      tbi = (ToggleButtonInterface *)this->editor->displayCPSelectedOption;
+      XtVaGetValues( tbi->getRootWidget(), XmNset, &set, NULL );
+      if ( set )
+        XtVaSetValues( colormap, XmNprintCP, XmPRINT_SELECTED, NULL );
+      break;
 
-	case ColormapEditCommand::SetColormapName:
-	    editor->editColormapName();
-	    break;
+    case ColormapEditCommand::SetColormapName:
+      editor->editColormapName();
+      break;
 
-	case ColormapEditCommand::ResetAll:
-	    if (cmnode->hasDefaultHSVMap())
-		cmnode->installCurrentDefaultHSVMap(FALSE);
-	    if (cmnode->hasDefaultOpacityMap())
-		cmnode->installCurrentDefaultOpacityMap(FALSE);
-	    if (cmnode->hasDefaultMin())
-		cmnode->installCurrentDefaultMin(FALSE);
-	    if (cmnode->hasDefaultMax())
-		cmnode->installCurrentDefaultMax(FALSE);
-	    cmnode->sendValues(FALSE);
-	    break;
-	case ColormapEditCommand::ResetMinMax:
-	    cmnode->installCurrentDefaultMinAndMax(TRUE);
-	    break;
-	case ColormapEditCommand::ResetMin:
-	    cmnode->installCurrentDefaultMin(TRUE);
-	    break;
-	case ColormapEditCommand::ResetMax:
-	    cmnode->installCurrentDefaultMax(TRUE);
-	    break;
-	case ColormapEditCommand::ResetHSV:
-	    cmnode->installCurrentDefaultHSVMap(TRUE);
-	    break;
-	case ColormapEditCommand::ResetOpacity:
-	    cmnode->installCurrentDefaultOpacityMap(TRUE);
-	    break;
+    case ColormapEditCommand::ResetAll:
+      if ( cmnode->hasDefaultHSVMap() )
+        cmnode->installCurrentDefaultHSVMap( FALSE );
+      if ( cmnode->hasDefaultOpacityMap() )
+        cmnode->installCurrentDefaultOpacityMap( FALSE );
+      if ( cmnode->hasDefaultMin() )
+        cmnode->installCurrentDefaultMin( FALSE );
+      if ( cmnode->hasDefaultMax() )
+        cmnode->installCurrentDefaultMax( FALSE );
+      cmnode->sendValues( FALSE );
+      break;
+    case ColormapEditCommand::ResetMinMax:
+      cmnode->installCurrentDefaultMinAndMax( TRUE );
+      break;
+    case ColormapEditCommand::ResetMin:
+      cmnode->installCurrentDefaultMin( TRUE );
+      break;
+    case ColormapEditCommand::ResetMax:
+      cmnode->installCurrentDefaultMax( TRUE );
+      break;
+    case ColormapEditCommand::ResetHSV:
+      cmnode->installCurrentDefaultHSVMap( TRUE );
+      break;
+    case ColormapEditCommand::ResetOpacity:
+      cmnode->installCurrentDefaultOpacityMap( TRUE );
+      break;
 
-	default:
+    default:
 
-	     ASSERT(FALSE);
-    }
+      ASSERT( FALSE );
+  }
 
-    return TRUE;
+  return TRUE;
 }
-
-

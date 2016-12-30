@@ -9,20 +9,15 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _ImageSoftwareCommand_h
 #define _ImageSoftwareCommand_h
 
-
 #include "NoUndoCommand.h"
-
 
 //
 // Class name definition:
 //
-#define ClassImageSoftwareCommand	"ImageSoftwareCommand"
+#define ClassImageSoftwareCommand "ImageSoftwareCommand"
 
 //
 // Referenced classes.
@@ -31,45 +26,43 @@ class ImageWindow;
 
 //
 // ImageSoftwareCommand class definition:
-//				
+//
 class ImageSoftwareCommand : public NoUndoCommand
 {
-  private:
-    //
-    // Private member data:
-    //
-    ImageWindow *imageWindow;
+ private:
+  //
+  // Private member data:
+  //
+  ImageWindow *imageWindow;
 
-  protected:
-    //
-    // Protected member data:
-    //
+ protected:
+  //
+  // Protected member data:
+  //
 
-    virtual boolean doIt(CommandInterface *ci);
+  virtual boolean doIt( CommandInterface *ci );
 
+ public:
+  //
+  // Constructor:
+  //
+  ImageSoftwareCommand( const char *name, CommandScope *scope, boolean active,
+                        ImageWindow *w );
 
-  public:
-    //
-    // Constructor:
-    //
-    ImageSoftwareCommand(const char   *name,
-		   CommandScope *scope,
-		   boolean       active,
-		   ImageWindow  *w);
+  //
+  // Destructor:
+  //
+  ~ImageSoftwareCommand()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~ImageSoftwareCommand(){}
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassImageSoftwareCommand;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassImageSoftwareCommand;
+  }
 };
 
-
-#endif // _ImageSoftwareCommand_h
+#endif  // _ImageSoftwareCommand_h

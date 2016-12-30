@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/starbase/hwQuadDrawSB.c,v $
   Author: Mark Hood
@@ -28,11 +27,11 @@
 
 #include "hwDebug.h"
 
-#define Polygon                 Quad
-#define PolygonSize             4
-#define CpfPolygon             "CpfQuad"
-#define CpcPolygon             "CpcQuad"
-#define CpvPolygon             "CpvQuad"
-#define tdmPolygonDraw          _dxfQuadDraw
+#define Polygon Quad
+#define PolygonSize 4
+#define CpfPolygon "CpfQuad"
+#define CpcPolygon "CpcQuad"
+#define CpvPolygon "CpvQuad"
+#define tdmPolygonDraw _dxfQuadDraw
 
 #include "hwPolygonDrawSB.c.h"

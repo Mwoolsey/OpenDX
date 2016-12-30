@@ -9,29 +9,26 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "DXLInputDefinition.h"
 #include "DXLInputNode.h"
 #include "ItalicLabeledStandIn.h"
 
 NodeDefinition *DXLInputDefinition::AllocateDefinition()
 {
-    return new DXLInputDefinition;
+  return new DXLInputDefinition;
 }
 
-
-DXLInputDefinition::DXLInputDefinition() : 
-    NodeDefinition()
+DXLInputDefinition::DXLInputDefinition() : NodeDefinition()
 {
 }
 
-Node *DXLInputDefinition::newNode(Network *net, int instance)
+Node *DXLInputDefinition::newNode( Network *net, int instance )
 {
-    DXLInputNode *d = new DXLInputNode(this, net, instance);
-    return d;
+  DXLInputNode *d = new DXLInputNode( this, net, instance );
+  return d;
 }
 
 SIAllocator DXLInputDefinition::getSIAllocator()
 {
-   return ItalicLabeledStandIn::AllocateStandIn;
+  return ItalicLabeledStandIn::AllocateStandIn;
 }

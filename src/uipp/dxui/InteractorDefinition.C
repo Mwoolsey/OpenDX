@@ -9,7 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "InteractorDefinition.h"
 //#include "InteractorNode.h"
 #include "SIAllocatorDictionary.h"
@@ -18,11 +17,10 @@
 //#include "List.h"
 //#include "ListIterator.h"
 
-
 //
 // Define the stand-in that is used for InteractorNode and derived classes.
 //
 SIAllocator InteractorDefinition::getSIAllocator()
 {
-    return InteractorStandIn::AllocateStandIn;
+  return InteractorStandIn::AllocateStandIn;
 }

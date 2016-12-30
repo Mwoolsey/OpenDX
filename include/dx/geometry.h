@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -27,7 +26,7 @@ geometric text primitive described in this section and the screen
 object described Chapter \ref{rendchap}.
 */
 
-Object DXGetFont(char *name, float *ascent, float *descent);
+Object DXGetFont( char *name, float *ascent, float *descent );
 /**
 \index{DXGetFont}
 Returns a group representing the named font.  The group has as many
@@ -42,7 +41,7 @@ the overall height 1.  Returns the font, or returns null and sets the
 error code to indicate an error.
 **/
 
-Object DXGeometricText(char *s, Object font, float *width);
+Object DXGeometricText( char *s, Object font, float *width );
 /**
 \index{DXGeometricText}
 Produces an object consisting of the given string.  The font is
@@ -66,7 +65,7 @@ construct an object (clipped object) that describes to the renderer
 what clipping is to be done at render time.
 */
 
-Object DXClipPlane(Object o, Point p, Vector n);
+Object DXClipPlane( Object o, Point p, Vector n );
 /**
 \index{DXClipPlane}
 Clips object {\tt o} by the plane that contains {\tt p} and is
@@ -76,7 +75,7 @@ renderer how to do the clipping at render time, or returns null and
 sets the error code to indicate an error.
 **/
 
-Object DXClipBox(Object o, Point p1, Point p2);
+Object DXClipBox( Object o, Point p1, Point p2 );
 /**
 \index{DXClipBox}
 Clips object {\tt o} by the box defined by points {\tt p1} and {\tt
@@ -111,7 +110,7 @@ the path.  In each case, appropriate normals are associated with the
 result for shading.
 */
 
-Object DXRibbon(Object o, double width);
+Object DXRibbon( Object o, double width );
 /**
 \index{DXRibbon}
 Produces a ribbon of the given width from a path or group of paths.
@@ -124,7 +123,7 @@ for shading.  Returns the ribbon, or returns null and sets the error
 code to indicate an error.
 **/
 
-Object DXTube(Object o, double diameter, int n);
+Object DXTube( Object o, double diameter, int n );
 /**
 \index{DXTube}
 Produces a tube of the given diameter from a path or group of paths.
@@ -143,7 +142,7 @@ Glyphs are small geometric objects such as vectors glyphs that can be
 used to convey local information.\marginpar{More to come.}
 */
 
-Object DXVectorGlyph(Point p, Vector v, double d, RGBColor c);
+Object DXVectorGlyph( Point p, Vector v, double d, RGBColor c );
 /**
 \index{DXVectorGlyph}
 Creates a vector glyph at {\tt p} with direction and length specified by
@@ -153,6 +152,6 @@ by {\tt c}.  Returns an object or null to indicate an error.
 
 #endif /* _DXI_GEOMETRY_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

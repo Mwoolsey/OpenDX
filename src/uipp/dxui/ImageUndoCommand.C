@@ -9,23 +9,18 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "ImageUndoCommand.h"
 #include "ImageWindow.h"
 
-ImageUndoCommand::ImageUndoCommand(const char   *name,
-						 CommandScope *scope,
-						 boolean       active,
-						 ImageWindow  *w):
-    NoUndoCommand(name, scope, active)
+ImageUndoCommand::ImageUndoCommand( const char *name, CommandScope *scope,
+                                    boolean active, ImageWindow *w )
+    : NoUndoCommand( name, scope, active )
 {
-    this->imageWindow = w;
+  this->imageWindow = w;
 }
 
-boolean ImageUndoCommand::doIt(CommandInterface *ci)
+boolean ImageUndoCommand::doIt( CommandInterface *ci )
 {
-    this->imageWindow->undoCamera();
-    return TRUE;
+  this->imageWindow->undoCamera();
+  return TRUE;
 }

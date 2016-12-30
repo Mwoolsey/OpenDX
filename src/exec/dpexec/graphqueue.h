@@ -6,7 +6,8 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dpexec/graphqueue.h,v 1.6 2004/06/09 16:14:28 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dpexec/graphqueue.h,v 1.6 2004/06/09
+ * 16:14:28 davidt Exp $
  */
 
 #include <dxconfig.h>
@@ -16,21 +17,21 @@
 
 #include "graph.h"
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
-int _dxf_ExGQInit (int ngraphs);
-int _dxf_ExGQAllDone (void);
-void _dxf_ExGQEnqueue (Program *func);
-Program *_dxf_ExGQDequeue (void);
+int _dxf_ExGQInit( int ngraphs );
+int _dxf_ExGQAllDone( void );
+void _dxf_ExGQEnqueue( Program *func );
+Program *_dxf_ExGQDequeue( void );
 
 #if 0
 extern int *gq_sort;
 extern int ngraphs;
 #endif
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif
 

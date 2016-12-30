@@ -8,61 +8,74 @@
 
 #include <dxconfig.h>
 
-
 #ifndef _ImageFormatMIF_h
 #define _ImageFormatMIF_h
-
 
 #include "PixelImageFormat.h"
 
 //
 // Class name definition:
 //
-#define ClassImageFormatMIF	"ImageFormatMIF"
+#define ClassImageFormatMIF "ImageFormatMIF"
 
 //
 // SaveImageDialog class definition:
-//				
+//
 class ImageFormatMIF : public PixelImageFormat
 {
-  private:
+ private:
+  static String DefaultResources[];
+  static boolean ClassInitialized;
 
-    static String  DefaultResources[];
-    static boolean ClassInitialized;
+ protected:
+  virtual void initialize();
 
-  protected:
+  virtual boolean supportsPrinting()
+  {
+    return TRUE;
+  }
 
-    virtual void	initialize();
+ public:
+  //
+  // Constructor:
+  //
+  ImageFormatMIF( ImageFormatDialog* dialog );
 
-    virtual boolean		supportsPrinting() { return TRUE; }
+  static ImageFormat* Allocator( ImageFormatDialog* dialog )
+  {
+    return new ImageFormatMIF( dialog );
+  }
 
-  public:
+  //
+  // Destructor:
+  //
+  ~ImageFormatMIF();
 
-    //
-    // Constructor:
-    //
-    ImageFormatMIF(ImageFormatDialog *dialog);
+  virtual const char* paramString()
+  {
+    return "miff";
+  }
+  virtual const char* menuString()
+  {
+    return "MIFF";
+  }
+  virtual const char* fileExtension()
+  {
+    return ".miff";
+  }
+  virtual boolean supportsAppend()
+  {
+    return TRUE;
+  }
 
-    static ImageFormat* Allocator (ImageFormatDialog* dialog) 
-	{ return  new ImageFormatMIF(dialog); }
-
-
-    //
-    // Destructor:
-    //
-    ~ImageFormatMIF();
-
-    virtual const char*		paramString() { return "miff"; }
-    virtual const char*		menuString() { return "MIFF"; }
-    virtual const char*		fileExtension() { return ".miff"; }
-    virtual boolean             supportsAppend() { return TRUE; }
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName() { return ClassImageFormatMIF; }
-    virtual boolean isA(Symbol classname);
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassImageFormatMIF;
+  }
+  virtual boolean isA( Symbol classname );
 };
 
-
-#endif // _ImageFormatMIF_h
+#endif  // _ImageFormatMIF_h

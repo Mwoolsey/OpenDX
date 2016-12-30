@@ -9,8 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #include <Xm/Xm.h>
 #include <Xm/FileSB.h>
 #include <Xm/SelectioB.h>
@@ -20,47 +18,42 @@
 #include "DXWindow.h"
 #include "Network.h"
 
-OpenCommand::OpenCommand(const char*   name,
-                         CommandScope* scope,
-                         boolean       active,
-			 DXApplication *app,
-			 Widget	dialogParent) :
-    OptionalPreActionCommand(name, scope, active,
-                             "Save Confirmation",
-                             "Do you want to save the program?",
-			     dialogParent)
+OpenCommand::OpenCommand( const char *name, CommandScope *scope, boolean active,
+                          DXApplication *app, Widget dialogParent )
+    : OptionalPreActionCommand( name, scope, active, "Save Confirmation",
+                                "Do you want to save the program?",
+                                dialogParent )
 {
-    this->application = app;
+  this->application = app;
 }
 
-void   OpenCommand::doPreAction()
+void OpenCommand::doPreAction()
 {
-    DXApplication *app = this->application;
-    Network *net = app->network;
-    const char    *fname = net->getFileName();
+  DXApplication *app = this->application;
+  Network *net = app->network;
+  const char *fname = net->getFileName();
 
-    if(fname)
-    {
-	if(net->saveNetwork(fname))
-	     this->doIt(NULL);
-    }
-    else {
-	Widget parent = this->dialogParent;
-	if (!parent)
-	    parent = app->getAnchor()->getRootWidget();
-    	net->postSaveAsDialog(parent, this);
-    }
-
+  if ( fname )
+  {
+    if ( net->saveNetwork( fname ) )
+      this->doIt( NULL );
+  }
+  else
+  {
+    Widget parent = this->dialogParent;
+    if ( !parent )
+      parent = app->getAnchor()->getRootWidget();
+    net->postSaveAsDialog( parent, this );
+  }
 }
 
-boolean OpenCommand::doIt(CommandInterface *ci)
+boolean OpenCommand::doIt( CommandInterface *ci )
 {
-   this->application->postOpenNetworkDialog();
-   return TRUE;
+  this->application->postOpenNetworkDialog();
+  return TRUE;
 }
 
 boolean OpenCommand::needsConfirmation()
 {
-    return this->application->network->saveToFileRequired();
+  return this->application->network->saveToFileRequired();
 }
-

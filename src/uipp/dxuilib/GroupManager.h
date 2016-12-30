@@ -9,12 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _GroupManager_h
 #define _GroupManager_h
-
 
 #include "Base.h"
 #include "Dictionary.h"
@@ -23,192 +19,227 @@
 //
 // Class name definition:
 //
-#define ClassGroupManager	"GroupManager"
+#define ClassGroupManager "GroupManager"
 
 class List;
 class DXApplication;
 class Network;
 class GroupedObject;
 
-
 //
 // The class to hold the group info
 //
-class GroupRecord 
+class GroupRecord
 {
   friend class GroupManager;
   friend class GroupedObject;
-  private:
-    
-    Network *network;
-    boolean dirty;
-    char *name;
 
-  protected:
+ private:
+  Network *network;
+  boolean dirty;
+  char *name;
 
-    GroupRecord(Network *network, const char *name) {
-	this->network = network;
-        this->dirty   = FALSE;
-	this->name    = DuplicateString(name);
-    };
+ protected:
+  GroupRecord( Network *network, const char *name )
+  {
+    this->network = network;
+    this->dirty = FALSE;
+    this->name = DuplicateString( name );
+  };
 
-  public:
-    	    boolean  isDirty () { return this->dirty; }
-    	    void     setDirty (boolean dirty = TRUE) { this->dirty = dirty; }
-    	    Network *getNetwork () { return this->network; }
-    virtual boolean  changesWhere () { return FALSE; }
+ public:
+  boolean isDirty()
+  {
+    return this->dirty;
+  }
+  void setDirty( boolean dirty = TRUE )
+  {
+    this->dirty = dirty;
+  }
+  Network *getNetwork()
+  {
+    return this->network;
+  }
+  virtual boolean changesWhere()
+  {
+    return FALSE;
+  }
 
-    const   char    *getName() { return this->name; }
+  const char *getName()
+  {
+    return this->name;
+  }
 
-    virtual ~GroupRecord() { 
-	if (this->name) delete this->name;
-    }
+  virtual ~GroupRecord()
+  {
+    if ( this->name )
+      delete this->name;
+  }
 };
-
 
 //
 // GroupManager class definition:
-//				
+//
 class GroupManager : public Base
 {
-  private:
-    //
-    // Private member data:
-    //
+ private:
+  //
+  // Private member data:
+  //
 
-  protected:
-    //
-    // Protected member data:
-    //
-    boolean  dirty;
-    //
-    // The host-argument dictionary 
-    //
-    Dictionary	arguments;
-    //
-    // A dictionary of lists of GroupRecord. 
-    //
-    Dictionary	groups;
+ protected:
+  //
+  // Protected member data:
+  //
+  boolean dirty;
+  //
+  // The host-argument dictionary
+  //
+  Dictionary arguments;
+  //
+  // A dictionary of lists of GroupRecord.
+  //
+  Dictionary groups;
 
-    DXApplication *app;
+  DXApplication *app;
 
-    Network* network;
+  Network *network;
 
-    //
-    // Constructor:
-    //
-    GroupManager(Network*, Symbol groupID);
+  //
+  // Constructor:
+  //
+  GroupManager( Network *, Symbol groupID );
 
-    virtual GroupRecord *recordAllocator(Network *net, const char *name) = 0;
+  virtual GroupRecord *recordAllocator( Network *net, const char *name ) = 0;
 
-    Symbol groupID;
+  Symbol groupID;
 
-  public:
-    //
-    // Destructor:
-    //
-    ~GroupManager();
+ public:
+  //
+  // Destructor:
+  //
+  ~GroupManager();
 
-    //
-    // Remove all nodes from all groups and all groups from this manager.
-    //
-    virtual void clear();    
+  //
+  // Remove all nodes from all groups and all groups from this manager.
+  //
+  virtual void clear();
 
-    //
-    // Return the number of groups.
-    //
-    int getGroupCount() { return this->groups.getSize(); }
+  //
+  // Return the number of groups.
+  //
+  int getGroupCount()
+  {
+    return this->groups.getSize();
+  }
 
-    //
-    // Check if the given group exists.
-    //
-    boolean hasGroup(const char *name)
-    {
-	return (boolean)
-	    ((GroupRecord*)this->groups.findDefinition(name) != NUL(GroupRecord*));
-    }
-   
-    //
-    // Return the group record
-    //
-    GroupRecord *getGroup(const char *name)
-    {
-	return (GroupRecord*)this->groups.findDefinition(name);
-    }
+  //
+  // Check if the given group exists.
+  //
+  boolean hasGroup( const char *name )
+  {
+    return ( boolean )( (GroupRecord *)this->groups.findDefinition( name ) !=
+                        NUL(GroupRecord *));
+  }
 
-    //
-    // Return the Nth group's name (1 based).
-    //
-    const char* getGroupName(int n)
-    {
-	return this->groups.getStringKey(n);
-    }
+  //
+  // Return the group record
+  //
+  GroupRecord *getGroup( const char *name )
+  {
+    return (GroupRecord *)this->groups.findDefinition( name );
+  }
 
-    //
-    // Create a new group of nodes with the given name.
-    // If name is already active, then return FALSE.
-    //
-    boolean 	createGroup(const char *name, Network *net);
+  //
+  // Return the Nth group's name (1 based).
+  //
+  const char *getGroupName( int n )
+  {
+    return this->groups.getStringKey( n );
+  }
 
-    //
-    // Add more modules to the existing group.
-    //
-    boolean 	addGroupMember(const char *name, Network *net);
+  //
+  // Create a new group of nodes with the given name.
+  // If name is already active, then return FALSE.
+  //
+  boolean createGroup( const char *name, Network *net );
 
-    //
-    // Remove modules from the existing group.
-    //
-    virtual boolean 	removeGroupMember(const char *name, Network *net);
+  //
+  // Add more modules to the existing group.
+  //
+  boolean addGroupMember( const char *name, Network *net );
 
-    //
-    // Called when reading a network.
-    //
-    boolean 	registerGroup(const char *name, Network *net);
-    //
-    // Removes the nodes from the named group.
-    // Return FALSE if the group does not exist. 
-    //
-    boolean 	removeGroup(const char *name,Network *net); 
+  //
+  // Remove modules from the existing group.
+  //
+  virtual boolean removeGroupMember( const char *name, Network *net );
 
-    // 
-    // return the network a group resides.
-    //
-    Network *getGroupNetwork(const char* name);
+  //
+  // Called when reading a network.
+  //
+  boolean registerGroup( const char *name, Network *net );
+  //
+  // Removes the nodes from the named group.
+  // Return FALSE if the group does not exist.
+  //
+  boolean removeGroup( const char *name, Network *net );
 
-    //
-    // Select nodes in the group.
-    //
-    boolean selectGroupNodes(const char *name);
+  //
+  // return the network a group resides.
+  //
+  Network *getGroupNetwork( const char *name );
 
-    //
-    //
-    //
-    boolean isDirty() { return this->dirty; }
-    void setDirty(boolean set = TRUE) { this->dirty = set; }
+  //
+  // Select nodes in the group.
+  //
+  boolean selectGroupNodes( const char *name );
 
-    //
-    // Parse/Print the  group assignment comment.
-    //
-    virtual boolean parseComment(const char *, 
-			const char *, 
-			int ,
-			Network *){ return TRUE; }
-    virtual boolean printComment(FILE *){ return TRUE; }
-    virtual boolean printAssignment(FILE *){ return TRUE; }
+  //
+  //
+  //
+  boolean isDirty()
+  {
+    return this->dirty;
+  }
+  void setDirty( boolean set = TRUE )
+  {
+    this->dirty = set;
+  }
 
-    const char *getManagerName();
-    Symbol getManagerSymbol() { return this->groupID; }
+  //
+  // Parse/Print the  group assignment comment.
+  //
+  virtual boolean parseComment( const char *, const char *, int, Network * )
+  {
+    return TRUE;
+  }
+  virtual boolean printComment( FILE * )
+  {
+    return TRUE;
+  }
+  virtual boolean printAssignment( FILE * )
+  {
+    return TRUE;
+  }
 
-    virtual boolean survivesMerging() { return FALSE; }
+  const char *getManagerName();
+  Symbol getManagerSymbol()
+  {
+    return this->groupID;
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassGroupManager;
-    }
+  virtual boolean survivesMerging()
+  {
+    return FALSE;
+  }
+
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassGroupManager;
+  }
 };
 
-
-#endif // _GroupManager_h
+#endif  // _GroupManager_h

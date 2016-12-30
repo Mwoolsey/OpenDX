@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -15,7 +14,6 @@ extern "C" {
 #define _DXI_RESAMPLING_H_
 
 /* TeX starts here. Do not remove this comment. */
-
 
 /*
 \section{Interpolation and Mapping}
@@ -70,24 +68,25 @@ dimensionality as the space in which they are embedded: thus we can
 interpolate triangles embedded in the plane, but not in 3-space.
 */
 
-enum interp_init {
-    INTERP_INIT_DELAY,
-    INTERP_INIT_IMMEDIATE,
-    INTERP_INIT_PARALLEL
+enum interp_init
+{
+  INTERP_INIT_DELAY,
+  INTERP_INIT_IMMEDIATE,
+  INTERP_INIT_PARALLEL
 };
 
-Interpolator DXNewInterpolator(Object o, enum interp_init init, float fuzz);
+Interpolator DXNewInterpolator( Object o, enum interp_init init, float fuzz );
 /**
 \index{DXNewInterpolator}
 Creates an {\tt Interpolator} object for interpolating {\tt o}.
 The initialization type is specified by setting the {\tt init}
-argument to {\tt INTERP\_INIT\_DELAY}, {\tt INTERP\_INIT\_IMMEDIATE}, or 
+argument to {\tt INTERP\_INIT\_DELAY}, {\tt INTERP\_INIT\_IMMEDIATE}, or
 {\tt INTERP\_INIT\_PARALLEL}.
 
 The {\tt fuzz} value assigns a fuzz factor to the interpolation process:
-any sample falling within this distance of a valid primitive of the 
+any sample falling within this distance of a valid primitive of the
 object {\tt o} is assumed to be inside that primitive.  When this point
-lies geometrically outside the primitive, an appropriate result is 
+lies geometrically outside the primitive, an appropriate result is
 extrapolated.  Any positive or zero value is used as the fuzz factor;
 a negative value indicates that the interpolator should determine its own
 fuzz factor.
@@ -96,8 +95,8 @@ Returns the interpolator, or returns null and sets the error code to
 indicate an error.
 **/
 
-Interpolator DXInterpolate(Interpolator interpolator, int *n,
-			 float *points, Pointer result);
+Interpolator DXInterpolate( Interpolator interpolator, int *n, float *points,
+                            Pointer result );
 /**
 \index{DXInterpolate}
 Interpolates up to {\tt *n} points in the data object associated with
@@ -120,7 +119,7 @@ This routine returns {\tt interpolator} on success, or returns null
 and sets the error code to indicate on error.
 **/
 
-Interpolator DXLocalizeInterpolator(Interpolator interp);
+Interpolator DXLocalizeInterpolator( Interpolator interp );
 /**
 \index{DXLocalizeInterpolator}
 Interpolators require access to various data structures that, by default,
@@ -131,13 +130,13 @@ interpolator, or returns null and sets the error code to indicate an
 error.
 **/
 
-Object DXMap(Object object, Object map, char *src, char *dst);
+Object DXMap( Object object, Object map, char *src, char *dst );
 /**
 \index{DXMap}
 Interpolates samples selected by {\tt object} from {\tt map}.  This
 procedure provides a simple generic tool for interpolation.  The {\tt object}
 may be either a field, a composite field, or an array.  In the first
-two cases, the component specified by {\tt src} is used to 
+two cases, the component specified by {\tt src} is used to
 sample {\tt map}; the results of the interpolation is placed in the
 component specified by {\tt dst}, and {\tt object} is returned.
 If {\tt object} is an array, it is used directly to interpolate {\tt map},
@@ -159,7 +158,7 @@ Returns an object as described above, or returns null and sets the
 error code to indicate an error.
 **/
 
-Array DXMapArray(Array index, Interpolator map, Array *invalid);
+Array DXMapArray( Array index, Interpolator map, Array *invalid );
 /**
 \index{DXMapArray}
 Provides a lower-level mapping function.  {\tt index} is an array
@@ -173,8 +172,8 @@ DXMapArray}, it should be passed in through {\tt *invalid}.  Returns
 error.
 **/
 
-Object DXMapCheck(Object input, Object map, char *index, 
-		Type *type, Category *category, int *rank, int *shape);
+Object DXMapCheck( Object input, Object map, char *index, Type *type,
+                   Category *category, int *rank, int *shape );
 /**
 \index{DXMapCheck}
 Verifies that the types of {\tt input} and {\tt map} are valid.  If the
@@ -191,6 +190,6 @@ code.\marginpar{Is this true?}
 
 #endif /* _DXI_RESAMPLING_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

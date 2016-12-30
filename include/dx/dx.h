@@ -6,31 +6,29 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
 #ifndef _LIBDX_H
 #define _LIBDX_H
 
 #include <dxconfig.h>
 
-
 #ifdef HAVE_SYS_TYPES_H
 #include <sys/types.h>
 #endif
 
-#if defined(HAVE_WINDOWS_H) && (defined(intelnt) || defined(WIN32))
+#if defined( HAVE_WINDOWS_H ) && ( defined( intelnt ) || defined( WIN32 ) )
 #include <windows.h>
 #include <winsock.h>
 #define S_IXUSR S_IEXEC
 #define S_IXGRP S_IEXEC
 #define S_IXOTH S_IEXEC
-#define EADDRINUSE      WSAEADDRINUSE
+#define EADDRINUSE WSAEADDRINUSE
 #endif
 
-#if defined(HAVE_CYGWIN_SOCKET_H)
+#if defined( HAVE_CYGWIN_SOCKET_H )
 #include <cygwin/socket.h>
-#elif defined(HAVE_SYS_SOCKET_H)
+#elif defined( HAVE_SYS_SOCKET_H )
 #include <sys/socket.h>
-#elif defined(HAVE_SOCKET_H)
+#elif defined( HAVE_SOCKET_H )
 #include <socket.h>
 #endif
 
@@ -38,7 +36,7 @@
 #include <sys/un.h>
 #endif
 
-#if defined(HAVE__ERRNO) && !defined(errno)
+#if defined( HAVE__ERRNO ) && !defined( errno )
 #define errno _Errno()
 #endif
 
@@ -99,4 +97,3 @@
 #endif
 
 #endif
-

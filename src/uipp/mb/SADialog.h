@@ -9,12 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _SADialog_h
 #define _SADialog_h
-
 
 #include "SaveFileDialog.h"
 //#include "MBMainWindow.h"
@@ -24,7 +20,7 @@
 //
 // Class name definition:
 //
-#define ClassSADialog	"SADialog"
+#define ClassSADialog "SADialog"
 
 class Dialog;
 class Command;
@@ -32,40 +28,41 @@ class MBMainWindow;
 
 //
 // SADialog class definition:
-//				
+//
 class SADialog : public SaveFileDialog
 {
-    static boolean ClassInitialized;
+  static boolean ClassInitialized;
 
-    MBMainWindow *mbmw;
-    Command     *cmd;
+  MBMainWindow *mbmw;
+  Command *cmd;
 
-  protected:
-    static String  DefaultResources[];
+ protected:
+  static String DefaultResources[];
 
-    virtual void saveFile(const char *string); 
+  virtual void saveFile( const char *string );
 
-  public:
-    //
-    // Constructor:
-    //
-    SADialog(MBMainWindow *mbmw);
+ public:
+  //
+  // Constructor:
+  //
+  SADialog( MBMainWindow *mbmw );
 
-    //
-    // Destructor:
-    //
-    ~SADialog(){}
+  //
+  // Destructor:
+  //
+  ~SADialog()
+  {
+  }
 
-    void setPostCommand(Command *cmd);
+  void setPostCommand( Command *cmd );
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassSADialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassSADialog;
+  }
 };
 
-
-#endif // _SADialog_h
+#endif  // _SADialog_h

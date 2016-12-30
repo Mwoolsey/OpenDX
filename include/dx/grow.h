@@ -5,15 +5,14 @@
 /* This code licensed under the                                        */
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
- 
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
 #ifndef _DXI_GROW_H_
 #define _DXI_GROW_H_
- 
+
 /* TeX starts here. Do not remove this comment. */
 
 /*
@@ -26,7 +25,7 @@ neighborhoods can be divided among different partitions: for example,
 a filter kernel may overlap the boundary between two partitions.  In such
 cases, processing any one partition requires that information resident
 in neighboring partitions be available.
- 
+
 In order to simplify this information sharing, routines have been
 included to support temporarily overlapping partitions.  {\tt DXGrow()}
 modifies its input field and adds to each partition boundary
@@ -97,18 +96,19 @@ after operating on a grown field in order to remove references to the
 original components that were placed in the field by {\tt DXGrow()} for
 later use by {\tt DXShrink()}.
 
-Both {\tt DXGrow()} and {\tt DXShrink()} operate in parallel on composite fields.
+Both {\tt DXGrow()} and {\tt DXShrink()} operate in parallel on composite
+fields.
 For this reason, {\tt DXGrow()} must be called prior to any subtasking invoked
 explicitly by the calling application, and similarly, {\tt DXShrink()} must be
 called after any such subtasking has been completed.
 */
- 
-#define GROW_NONE      NULL
-#define GROW_REPLICATE ((Pointer)1)
-#define GROW_NOFILL    ((Pointer)2)
 
-Object DXGrow(Object object, int n, Pointer fill, ...);
-Object DXGrowV(Object object, int n, Pointer fill, char **components);
+#define GROW_NONE NULL
+#define GROW_REPLICATE ( (Pointer)1 )
+#define GROW_NOFILL ( (Pointer)2 )
+
+Object DXGrow( Object object, int n, Pointer fill, ... );
+Object DXGrowV( Object object, int n, Pointer fill, char **components );
 /**
 \index{DXGrow}\index{DXGrowV}
 If {\tt object} is a composite field, add information to each
@@ -130,9 +130,9 @@ the components to be grown.  Returns the input object with
 the overlapping data accrued, or returns null and sets the error
 code to indicate an error.
 **/
- 
-Field DXQueryOriginalSizes(Field f, int *positions, int *connections);
-Field DXQueryOriginalMeshExtents(Field f, int *offsets, int *sizes);
+
+Field DXQueryOriginalSizes( Field f, int *positions, int *connections );
+Field DXQueryOriginalMeshExtents( Field f, int *offsets, int *sizes );
 /**
 \index{DXQueryOriginalSizes}\index{QueryOriginalGridExtents}
 These routines provide the module writer with information about the
@@ -155,7 +155,7 @@ offsets}.  Returns {\tt f}, or returns null and sets the error code to
 indicate an error.
 **/
 
-Object DXShrink(Object object);
+Object DXShrink( Object object );
 /**
 \index{DXShrink}
 DXRemove information added onto each partition of {\tt object} by {\tt
@@ -163,8 +163,8 @@ DXGrow}.  Returns the object with accrued data removed, or returns null
 and sets the error code to indicate and error.
 **/
 
-Object DXInvalidateDupBoundary(Object o);
-Object DXRestoreDupBoundary(Object o);
+Object DXInvalidateDupBoundary( Object o );
+Object DXRestoreDupBoundary( Object o );
 /** return the object with any duplicate boundary points marked invalid.
 if there was a previous invalid positions component, it is saved by
 the invalidate call and restored by the restore call.
@@ -175,6 +175,6 @@ times (like when computing statistics).
 
 #endif /* _DXI_GROW_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

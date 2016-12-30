@@ -8,13 +8,9 @@
 
 #include <dxconfig.h>
 
-
-
-
-
 #ifndef _GroupStyle_h_
 #define _GroupStyle_h_
 
-extern Dictionary* BuildTheGroupManagerDictionary(Network*);
+extern Dictionary* BuildTheGroupManagerDictionary( Network* );
 
 #endif

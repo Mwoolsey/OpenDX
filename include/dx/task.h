@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -31,7 +30,7 @@ model, and allows more optimal scheduling of the tasks based on their
 estimated completion time.
 */
 
-Error DXCreateTaskGroup(void);
+Error DXCreateTaskGroup( void );
 /**
 \index{DXCreateTaskGroup}
 Starts a new task group. All tasks subsequently created using {\tt
@@ -40,7 +39,8 @@ will be members of this task group.  Returns {\tt OK} on success, or
 returns {\tt ERROR} and sets the error code to indicate an error.
 **/
 
-Error DXAddTask(Error(*proc)(Pointer), Pointer arg, int size, double work);
+Error DXAddTask( Error ( *proc )( Pointer ), Pointer arg, int size,
+                 double work );
 /**
 \index{DXAddTask}
 Adds a task to the current task group started by {\tt
@@ -55,7 +55,7 @@ consists of calling {\tt (*proc)(arg)}.  Returns {\tt OK} on success,
 or returns {\tt ERROR} and sets the error code to indicate an error.
 **/
 
-Error DXAbortTaskGroup(void);
+Error DXAbortTaskGroup( void );
 /**
 \index{DXAbortTaskGroup}
 If, in the middle of creating a task group with a {\tt
@@ -67,7 +67,7 @@ subsequently be called.  Returns {\tt OK} on success, or returns {\tt
 ERROR} and sets the error code to indicate an error.
 **/
 
-Error DXExecuteTaskGroup(void);
+Error DXExecuteTaskGroup( void );
 /**
 \index{DXExecuteTaskGroup}
 Ends the group of tasks started by the matching {\tt DXCreateTaskGroup()}.
@@ -79,7 +79,7 @@ task group completed without error, or returns {\tt ERROR} and sets
 the error code to task error code if any task returns an error.
 **/
 
-int DXProcessors(int n);
+int DXProcessors( int n );
 /**
 \index{DXProcessors}
 If {\tt n>0}, this routine sets the number of processors to be used to
@@ -93,7 +93,7 @@ one processor). These routines can help in partitioning or planning
 tasks.
 **/
 
-int DXProcessorId(void);
+int DXProcessorId( void );
 /**
 \index{DXProcessorId}
 Returns a processor identifier indicating which processor the current task
@@ -102,57 +102,71 @@ $n-1$, where $n$ is the number of processors in use.
 **/
 
 /* These routines are used for calling modules from other modules */
-typedef struct ModuleInput {
-    char *name;
-    Object value;
+typedef struct ModuleInput
+{
+  char *name;
+  Object value;
 } ModuleInput;
-typedef struct ModuleOutput {
-    char *name;
-    Object *value;
+typedef struct ModuleOutput
+{
+  char *name;
+  Object *value;
 } ModuleOutput;
 
-#define DXSetModuleInput(p,n,v) \
-    do { ModuleInput *_p = &p; _p->name=n; _p->value = v; } while(0)
-#define DXSetModuleOutput(p,n,v) \
-    do { ModuleOutput *_p = &p; _p->name=n; _p->value = v; } while(0)
+#define DXSetModuleInput( p, n, v ) \
+  do                                \
+  {                                 \
+    ModuleInput *_p = &p;           \
+    _p->name = n;                   \
+    _p->value = v;                  \
+  } while ( 0 )
+#define DXSetModuleOutput( p, n, v ) \
+  do                                 \
+  {                                  \
+    ModuleOutput *_p = &p;           \
+    _p->name = n;                    \
+    _p->value = v;                   \
+  } while ( 0 )
 
 /* These are the new routines for setting module inputs and outputs */
 /* they should replace the above defines. */
-Object DXModSetFloatInput(ModuleInput *in, char *name, float f);
-Object DXModSetIntegerInput(ModuleInput *in, char *name, int n);
-Object DXModSetStringInput(ModuleInput *in, char *name, char *s);
-void   DXModSetObjectInput(ModuleInput *in, char *name, Object obj);
-void   DXModSetObjectOutput(ModuleOutput *out, char *name, Object *obj);
+Object DXModSetFloatInput( ModuleInput *in, char *name, float f );
+Object DXModSetIntegerInput( ModuleInput *in, char *name, int n );
+Object DXModSetStringInput( ModuleInput *in, char *name, char *s );
+void DXModSetObjectInput( ModuleInput *in, char *name, Object obj );
+void DXModSetObjectOutput( ModuleOutput *out, char *name, Object *obj );
 
 /* initialization routine for using DXCallModule in a standalone program */
-void DXInitModules(void);
+void DXInitModules( void );
 
 /* call a module from another module, by name, with named args */
-Error DXCallModule(char*, int, ModuleInput*, int, ModuleOutput*);
+Error DXCallModule( char *, int, ModuleInput *, int, ModuleOutput * );
 
 /* these routines are used for async modules and for modules which
  * need unique cache tags on a per-instance basis.
  */
 
-Error DXReadyToRun(Pointer id);
-Error DXReadyToRunNoExecute(Pointer id);
-Pointer DXGetModuleId(void);
-Pointer DXCopyModuleId(Pointer id);
-Error DXCompareModuleId(Pointer id1, Pointer id2);
-Error DXFreeModuleId(Pointer id);
+Error DXReadyToRun( Pointer id );
+Error DXReadyToRunNoExecute( Pointer id );
+Pointer DXGetModuleId( void );
+Pointer DXCopyModuleId( Pointer id );
+Error DXCompareModuleId( Pointer id1, Pointer id2 );
+Error DXFreeModuleId( Pointer id );
 
 /* arrange a callback routine if input is detected on a socket */
-Error DXRegisterInputHandler (Error (*proc) (int, Pointer), int fd, Pointer arg);
+Error DXRegisterInputHandler( Error ( *proc )( int, Pointer ), int fd,
+                              Pointer arg );
 /* similar, but also add a user-definable check routine to see if there is
  * (for example) any already-buffered input
  */
-Error DXRegisterInputHandlerWithCheckProc (Error (*proc) (int, Pointer),
-	int (*check)(int, Pointer), int fd, Pointer arg);
+Error DXRegisterInputHandlerWithCheckProc( Error ( *proc )( int, Pointer ),
+                                           int ( *check )( int, Pointer ),
+                                           int fd, Pointer arg );
 
-int DXCheckRIH(int block);
+int DXCheckRIH( int block );
 
 #endif /* _DXI_TASK_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

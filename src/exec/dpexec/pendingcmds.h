@@ -6,10 +6,11 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dpexec/pendingcmds.h,v 1.4 2006/01/04 22:00:49 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dpexec/pendingcmds.h,v 1.4 2006/01/04
+ * 22:00:49 davidt Exp $
  */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -17,22 +18,22 @@ extern "C" {
 #define _PENDINGCMDS_H
 
 #define PJL_KEY "__PendingObjectList"
-typedef int (*PFI_P)(Private);
+typedef int ( *PFI_P )( Private );
 
 typedef struct
 {
-    char    *major;
-    char    *minor;
-    PFI_P   job;
-    Private data;
+  char *major;
+  char *minor;
+  PFI_P job;
+  Private data;
 } PendingCmd;
 
 typedef struct
 {
-    Object       exprivate;
-    PendingCmd  *pendingCmdList;
-    int          pendingCmdListMax;
-    int          pendingCmdListSize;
+  Object exprivate;
+  PendingCmd *pendingCmdList;
+  int pendingCmdListMax;
+  int pendingCmdListSize;
 } PendingCmdList;
 
 Error _dxf_RunPendingCmds();
@@ -40,6 +41,6 @@ Error _dxf_CleanupPendingCmdList();
 
 #endif /* _PENDINGCMDS_H */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

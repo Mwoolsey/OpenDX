@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 #ifndef _NET_FILE_DIALOG_H
 #define _NET_FILE_DIALOG_H
 
@@ -18,31 +17,32 @@
 
 class StartupWindow;
 
-class NetFileDialog: public FileDialog 
+class NetFileDialog : public FileDialog
 {
-  private:
-    StartupWindow* suw;
+ private:
+  StartupWindow *suw;
 
-  protected:
+ protected:
+  static String DefaultResources[];
+  static boolean ClassInitialized;
 
-    static String DefaultResources[];
-    static boolean ClassInitialized;
+  virtual void okFileWork( const char *string );
+  virtual void helpCallback( Dialog * );
 
-    virtual void okFileWork(const char *string);
-    virtual void helpCallback (Dialog*);
+  virtual void installDefaultResources( Widget );
 
-    virtual void installDefaultResources (Widget );
+  virtual Widget createDialog( Widget parent );
 
-    virtual Widget createDialog(Widget parent);
+ public:
+  NetFileDialog( Widget parent, StartupWindow *suw );
+  ~NetFileDialog();
 
-  public:
+  void showNewOption( boolean = TRUE );
 
-    NetFileDialog (Widget parent, StartupWindow *suw);
-    ~NetFileDialog();
-
-    void showNewOption(boolean=TRUE);
-
-    const char *getClassName() { return ClassNetFileDialog; }
+  const char *getClassName()
+  {
+    return ClassNetFileDialog;
+  }
 };
 
-#endif //_NET_FILE_DIALOG_H
+#endif  //_NET_FILE_DIALOG_H

@@ -8,12 +8,11 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/hwRotateInteractor.c,v $
   Author: Mark Hood
 
-  This file contains the implementation of the TDM rotation interactor.  
+  This file contains the implementation of the TDM rotation interactor.
 
 \*---------------------------------------------------------------------------*/
 
@@ -23,7 +22,7 @@
 #include "hwRotateInteractor.h"
 #include "hwInteractorEcho.h"
 #include "hwMatrix.h"
- 
+
 #ifndef STANDALONE
 #include "hwMemory.h"
 #endif
@@ -36,33 +35,31 @@
  *  Forward references
  */
 
-//static void DoubleClick (tdmInteractor, int, int, tdmInteractorReturn *) ;
-static void StartStroke (tdmInteractor, int, int, int, int) ;
-static void StartViewStroke (tdmInteractor, int, int, int, int) ;
-static void StartRotateStroke (tdmInteractor, int, int, int, int) ;
-static void EndStroke (tdmInteractor, tdmInteractorReturnP) ;
-static void ResumeEcho (tdmInteractor, tdmInteractorRedrawMode) ;
-static void Destroy (tdmInteractor) ;
+// static void DoubleClick (tdmInteractor, int, int, tdmInteractorReturn *) ;
+static void StartStroke( tdmInteractor, int, int, int, int );
+static void StartViewStroke( tdmInteractor, int, int, int, int );
+static void StartRotateStroke( tdmInteractor, int, int, int, int );
+static void EndStroke( tdmInteractor, tdmInteractorReturnP );
+static void ResumeEcho( tdmInteractor, tdmInteractorRedrawMode );
+static void Destroy( tdmInteractor );
 
-static void InitTwirlStroke (tdmInteractor, float, float) ;
-static void Twirl (tdmInteractor, int, int, int, int) ;
-static void InitRollStroke (tdmInteractor, int, int) ;
-static void ViewRoll (tdmInteractor, int, int, int, int) ;
-static void PlaneRollWithEcho (tdmInteractor, int, int, int, int) ;
-static int PlaneRoll (tdmInteractor I, int x, int y, float rot[4][4]) ;
+static void InitTwirlStroke( tdmInteractor, float, float );
+static void Twirl( tdmInteractor, int, int, int, int );
+static void InitRollStroke( tdmInteractor, int, int );
+static void ViewRoll( tdmInteractor, int, int, int, int );
+static void PlaneRollWithEcho( tdmInteractor, int, int, int, int );
+static int PlaneRoll( tdmInteractor I, int x, int y, float rot[4][4] );
 
-static void globeConfig (tdmInteractor,
-			 int *, int *, tdmInteractorRedrawMode) ;
-static void gnomonConfig (tdmInteractor,
-			  int *, int *, tdmInteractorRedrawMode) ;
-static void viewerConfig (tdmInteractor,
-			  int *, int *, tdmInteractorRedrawMode) ;
-static void RestoreConfig (tdmInteractor,
-			   int, int, tdmInteractorRedrawMode) ;
+static void globeConfig( tdmInteractor, int *, int *, tdmInteractorRedrawMode );
+static void gnomonConfig( tdmInteractor, int *, int *,
+                          tdmInteractorRedrawMode );
+static void viewerConfig( tdmInteractor, int *, int *,
+                          tdmInteractorRedrawMode );
+static void RestoreConfig( tdmInteractor, int, int, tdmInteractorRedrawMode );
 
-static void extractViewRot (float M[4][4]) ;
-static void orbitFrom (float R[4][4], float current[4][4],
-		       float to[3], float vdist) ;
+static void extractViewRot( float M[4][4] );
+static void orbitFrom( float R[4][4], float current[4][4], float to[3],
+                       float vdist );
 
 /*
  *  Null functions
@@ -79,10 +76,10 @@ NullStartStroke (tdmInteractor I, int x, int y, int btn, int s)
 }
 */
 
-static void
-NullDoubleClick (tdmInteractor I, int x, int y, tdmInteractorReturn *R)
+static void NullDoubleClick( tdmInteractor I, int x, int y,
+                             tdmInteractorReturn *R )
 {
-  R->change = 0 ;
+  R->change = 0;
 }
 
 /*
@@ -93,13 +90,12 @@ NullEndStroke (tdmInteractor I, tdmInteractorReturn *R)
 }
 */
 
-static void
-NullResumeEcho (tdmInteractor I, tdmInteractorRedrawMode redrawmode)
+static void NullResumeEcho( tdmInteractor I,
+                            tdmInteractorRedrawMode redrawmode )
 {
 }
 
-static void
-NullEchoFunc (tdmInteractor I, void *u, float m[4][4], int f)
+static void NullEchoFunc( tdmInteractor I, void *u, float m[4][4], int f )
 {
 }
 
@@ -107,421 +103,399 @@ NullEchoFunc (tdmInteractor I, void *u, float m[4][4], int f)
  *  Creation functions
  */
 
-tdmInteractor
-_dxfCreateRotationInteractor(tdmInteractorWin W,
-			     tdmEchoType E, tdmRotateModel M)
+tdmInteractor _dxfCreateRotationInteractor( tdmInteractorWin W, tdmEchoType E,
+                                            tdmRotateModel M )
 {
-  register tdmInteractor I ;
+  register tdmInteractor I;
 
-  ENTRY(("_dxfCreateRotationInteractor(0x%x, 0x%x, 0x%x)",
-	 W, E, M));
+  ENTRY( ( "_dxfCreateRotationInteractor(0x%x, 0x%x, 0x%x)", W, E, M ) );
 
-  if (W && (I = _dxfAllocateInteractor (W, sizeof(tdmRotateData)))) {
-    DEFDATA(I,tdmRotateData) ;
-    DEFPORT(I_PORT_HANDLE) ;
-    int echoRadius ;
-    
+  if ( W && ( I = _dxfAllocateInteractor( W, sizeof( tdmRotateData ) ) ) )
+  {
+    DEFDATA( I, tdmRotateData );
+    DEFPORT( I_PORT_HANDLE );
+    int echoRadius;
+
     /* instance initial interactor methods */
-    FUNC(I, DoubleClick) = NullDoubleClick ;
-    FUNC(I, StartStroke) = StartRotateStroke ;
-    FUNC(I, EndStroke) = EndStroke ;
-    FUNC(I, ResumeEcho) = ResumeEcho ;
-    FUNC(I, Destroy) = Destroy ;
-    FUNC(I, restoreConfig) = RestoreConfig ;
-    
-    switch (M)
-      {
+    FUNC( I, DoubleClick ) = NullDoubleClick;
+    FUNC( I, StartStroke ) = StartRotateStroke;
+    FUNC( I, EndStroke ) = EndStroke;
+    FUNC( I, ResumeEcho ) = ResumeEcho;
+    FUNC( I, Destroy ) = Destroy;
+    FUNC( I, restoreConfig ) = RestoreConfig;
+
+    switch ( M )
+    {
       case tdmZTwirl:
-	FUNC(I, StrokePoint) = Twirl ;
-	break ;
+        FUNC( I, StrokePoint ) = Twirl;
+        break;
       case tdmXYPlaneRoll:
       default:
-	FUNC(I, StrokePoint) = PlaneRollWithEcho ;
-	break ;
-      }
-    
-    switch (E)
-      {
+        FUNC( I, StrokePoint ) = PlaneRollWithEcho;
+        break;
+    }
+
+    switch ( E )
+    {
       case tdmGlobeEcho:
-	FUNC(I, EchoFunc) = EFUNCS(DrawGlobe) ;
-	FUNC(I, Config) = globeConfig ;
-	echoRadius = GLOBERADIUS ;
-	
-	/* globe is LL corner: window has no effect on size or placement */
-	PDATA(vllx) = PDATA(vlly) = GLOBEOFFSET ;
-	PDATA(vurx) = PDATA(vury) = GLOBEOFFSET + 2*GLOBERADIUS ;
-	
-	PDATA(foreground) = (void *) 1 ;
-	PDATA(background) = (void *) 1 ;
-	break ;
-	
+        FUNC( I, EchoFunc ) = EFUNCS( DrawGlobe );
+        FUNC( I, Config ) = globeConfig;
+        echoRadius = GLOBERADIUS;
+
+        /* globe is LL corner: window has no effect on size or placement */
+        PDATA( vllx ) = PDATA( vlly ) = GLOBEOFFSET;
+        PDATA( vurx ) = PDATA( vury ) = GLOBEOFFSET + 2 * GLOBERADIUS;
+
+        PDATA( foreground ) = (void *)1;
+        PDATA( background ) = (void *)1;
+        break;
+
       case tdmGnomonEcho:
-	FUNC(I, EchoFunc) = EFUNCS(DrawGnomon) ;
-	FUNC(I, Config) = gnomonConfig ;
-	echoRadius = GNOMONRADIUS ;
-	
-	PDATA(foreground) = (void *) 1 ;
-	PDATA(background) = (void *) 1 ;
-	break ;
-	
+        FUNC( I, EchoFunc ) = EFUNCS( DrawGnomon );
+        FUNC( I, Config ) = gnomonConfig;
+        echoRadius = GNOMONRADIUS;
+
+        PDATA( foreground ) = (void *)1;
+        PDATA( background ) = (void *)1;
+        break;
+
       default:
       case tdmNullEcho:
-	FUNC(I, EchoFunc) = NullEchoFunc ;
-	FUNC(I, Config) = gnomonConfig ;
-	echoRadius = 0 ;
-	
-	PDATA(foreground) = (void *) 0 ;
-	PDATA(background) = (void *) 0 ;
-      }
+        FUNC( I, EchoFunc ) = NullEchoFunc;
+        FUNC( I, Config ) = gnomonConfig;
+        echoRadius = 0;
 
-    FUNC(I, KeyStruck) = _dxfNullKeyStruck;
+        PDATA( foreground ) = (void *)0;
+        PDATA( background ) = (void *)0;
+    }
 
-    
+    FUNC( I, KeyStruck ) = _dxfNullKeyStruck;
+
     /* allocate background save-under */
-    if (PDATA(background))
-      PDATA(background) =
-	_dxf_ALLOCATE_PIXEL_ARRAY
-	  (PORT_CTX, (2*echoRadius +1), (2*echoRadius +1)) ;
+    if ( PDATA( background ) )
+      PDATA( background ) = _dxf_ALLOCATE_PIXEL_ARRAY(
+          PORT_CTX, ( 2 * echoRadius + 1 ), ( 2 * echoRadius + 1 ) );
 
     /* allocate foreground + background image for quick restoration */
-    if (PDATA(foreground))
-      PDATA(foreground) =
-	_dxf_ALLOCATE_PIXEL_ARRAY
-	  (PORT_CTX, (2*echoRadius +1), (2*echoRadius +1)) ;
+    if ( PDATA( foreground ) )
+      PDATA( foreground ) = _dxf_ALLOCATE_PIXEL_ARRAY(
+          PORT_CTX, ( 2 * echoRadius + 1 ), ( 2 * echoRadius + 1 ) );
 
     /* initial draw is into both buffers */
-    PDATA(redrawmode) = tdmBothBufferDraw ;
-    
+    PDATA( redrawmode ) = tdmBothBufferDraw;
+
     /* initially invisible, no font defined */
-    PDATA(visible) = 0 ;
-    PDATA(font) = -1 ;
-    
-    EXIT(("I = 0x%x",I));
-    return I ;
+    PDATA( visible ) = 0;
+    PDATA( font ) = -1;
+
+    EXIT( ( "I = 0x%x", I ) );
+    return I;
   }
 
-  EXIT(("ERROR"));
-  return 0 ;
+  EXIT( ( "ERROR" ) );
+  return 0;
 }
 
-
-tdmInteractor
-_dxfCreateViewRotationInteractor (tdmInteractorWin W,
-				  tdmViewEchoFunc E, tdmRotateModel M,
-				  void *udata)
+tdmInteractor _dxfCreateViewRotationInteractor( tdmInteractorWin W,
+                                                tdmViewEchoFunc E,
+                                                tdmRotateModel M, void *udata )
 {
   /*
    *  Initialize and return a handle to a view rotation interactor.
    *  The echo function is supplied by the application.
    */
 
-  register tdmInteractor I ;
+  register tdmInteractor I;
 
-  ENTRY(("_dxfCreateViewRotationInteractor(0x%x, 0x%x, 0x%x, 0x%x)",
-	 W, E, M, udata));
+  ENTRY( ( "_dxfCreateViewRotationInteractor(0x%x, 0x%x, 0x%x, 0x%x)", W, E, M,
+           udata ) );
 
-  if (W && (I = _dxfAllocateInteractor (W, sizeof(tdmRotateData))))
+  if ( W && ( I = _dxfAllocateInteractor( W, sizeof( tdmRotateData ) ) ) )
+  {
+    DEFDATA( I, tdmRotateData );
+
+    /* instance initial interactor methods */
+    FUNC( I, StartStroke ) = StartViewStroke;
+    FUNC( I, DoubleClick ) = NullDoubleClick;
+    FUNC( I, EndStroke ) = EndStroke;
+    FUNC( I, ResumeEcho ) = NullResumeEcho;
+    FUNC( I, EchoFunc ) = E;
+    FUNC( I, Destroy ) = _dxfDeallocateInteractor;
+    FUNC( I, Config ) = viewerConfig;
+    FUNC( I, restoreConfig ) = NullFunction;
+
+    switch ( M )
     {
-      DEFDATA(I,tdmRotateData) ;
-
-      /* instance initial interactor methods */
-      FUNC(I, StartStroke) = StartViewStroke ;
-      FUNC(I, DoubleClick) = NullDoubleClick ;
-      FUNC(I, EndStroke) = EndStroke ;
-      FUNC(I, ResumeEcho) = NullResumeEcho ;
-      FUNC(I, EchoFunc) = E ;
-      FUNC(I, Destroy) = _dxfDeallocateInteractor ;
-      FUNC(I, Config) = viewerConfig ;
-      FUNC(I, restoreConfig) = NullFunction ;
-      
-      switch (M)
-	{
-	case tdmXYPlaneRoll:
-	  FUNC(I, StrokePoint) = ViewRoll ;
-	  break ;
-	case tdmZTwirl:
-	default:
-	  FUNC(I, StrokePoint) = Twirl ;
-	  break ;
-	}
-
-      /* copy pointer to user data */
-      UDATA(I) = udata ;
-
-      EXIT((""));
-      return I ;
+      case tdmXYPlaneRoll:
+        FUNC( I, StrokePoint ) = ViewRoll;
+        break;
+      case tdmZTwirl:
+      default:
+        FUNC( I, StrokePoint ) = Twirl;
+        break;
     }
+
+    /* copy pointer to user data */
+    UDATA( I ) = udata;
+
+    EXIT( ( "" ) );
+    return I;
+  }
   else
-      EXIT(("ERROR"));
-      return 0 ;
+    EXIT( ( "ERROR" ) );
+  return 0;
 }
 
-void
-_dxfRotateInteractorVisible (tdmInteractor I)
+void _dxfRotateInteractorVisible( tdmInteractor I )
 {
-  ENTRY(("_dxfRotateInteractorVisible(0x%x)", I));
+  ENTRY( ( "_dxfRotateInteractorVisible(0x%x)", I ) );
 
-  if (I)
-    {
-      DEFDATA(I,tdmRotateData) ;
-      PDATA(visible) = 1 ;
-    }
+  if ( I )
+  {
+    DEFDATA( I, tdmRotateData );
+    PDATA( visible ) = 1;
+  }
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-void 
-_dxfRotateInteractorInvisible (tdmInteractor I)
+void _dxfRotateInteractorInvisible( tdmInteractor I )
 {
-  ENTRY(("_dxfRotateInteractorInvisible(0x%x)", I));
+  ENTRY( ( "_dxfRotateInteractorInvisible(0x%x)", I ) );
 
-  if (I)
-    {
-      DEFDATA(I,tdmRotateData) ;
-      PDATA(visible) = 0 ;
-    }
+  if ( I )
+  {
+    DEFDATA( I, tdmRotateData );
+    PDATA( visible ) = 0;
+  }
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
 /*
  *  Method implementations
  */
 
-static void 
-StartRotateStroke (tdmInteractor I, int x, int y, int btn, int s)
+static void StartRotateStroke( tdmInteractor I, int x, int y, int btn, int s )
 {
-  DEFDATA(I,tdmRotateData) ;
+  DEFDATA( I, tdmRotateData );
 
-  ENTRY(("StartRotateStroke(0x%x, %d, %d, %d)", I, x, y, btn));
+  ENTRY( ( "StartRotateStroke(0x%x, %d, %d, %d)", I, x, y, btn ) );
 
   /* set up hardware, stay in that configuration until EndStroke */
-  CALLFUNC(I,Config) (I, &PDATA(displaymode), &PDATA(buffermode),
-		      tdmBackBufferDraw) ;
+  CALLFUNC( I, Config )( I, &PDATA( displaymode ), &PDATA( buffermode ),
+                         tdmBackBufferDraw );
 
   /* initialize start matrix to current view rotation */
-  COPYMATRIX (PDATA(strXfm), CDATA(viewXfm)) ;
-  extractViewRot(PDATA(strXfm)) ;
-  StartStroke (I, x, y, btn, s) ;
+  COPYMATRIX( PDATA( strXfm ), CDATA( viewXfm ) );
+  extractViewRot( PDATA( strXfm ) );
+  StartStroke( I, x, y, btn, s );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void 
-StartViewStroke (tdmInteractor I, int x, int y, int btn, int s)
+static void StartViewStroke( tdmInteractor I, int x, int y, int btn, int s )
 {
-  DEFDATA(I,tdmRotateData) ;
+  DEFDATA( I, tdmRotateData );
 
-  ENTRY(("StartViewStroke(0x%x, %d, %d, %d)", I, x, y, btn));
+  ENTRY( ( "StartViewStroke(0x%x, %d, %d, %d)", I, x, y, btn ) );
 
   /* set up hardware, stay in that configuration until EndStroke */
-  CALLFUNC(I,Config) (I, &PDATA(displaymode), &PDATA(buffermode),
-		      tdmBackBufferDraw) ;
+  CALLFUNC( I, Config )( I, &PDATA( displaymode ), &PDATA( buffermode ),
+                         tdmBackBufferDraw );
 
   /* initialize start matrix to current view matrix */
-  COPYMATRIX (PDATA(strXfm), CDATA(viewXfm)) ;
-  StartStroke (I, x, y, btn, s) ;
+  COPYMATRIX( PDATA( strXfm ), CDATA( viewXfm ) );
+  StartStroke( I, x, y, btn, s );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void 
-StartStroke (tdmInteractor I, int x, int y, int btn, int s)
+static void StartStroke( tdmInteractor I, int x, int y, int btn, int s )
 {
-  DEFDATA(I,tdmRotateData) ;
-  register float dx, dy ;
+  DEFDATA( I, tdmRotateData );
+  register float dx, dy;
 
-  ENTRY(("StartStroke(0x%x, %d, %d, %d)", I, x, y, btn));
+  ENTRY( ( "StartStroke(0x%x, %d, %d, %d)", I, x, y, btn ) );
 
   /* transform (x,y) to echo coordinate system */
-  y = YFLIP(y) ;
+  y = YFLIP( y );
 
-  CDATA(xlast) = x ;
-  CDATA(ylast) = y ;
+  CDATA( xlast ) = x;
+  CDATA( ylast ) = y;
 
-  dx = x - PDATA(gx) ;
-  dy = y - PDATA(gy) ;
+  dx = x - PDATA( gx );
+  dy = y - PDATA( gy );
 
   /* initialize incremental matrix */
-  COPYMATRIX (PDATA(incXfm), identity) ;
+  COPYMATRIX( PDATA( incXfm ), identity );
 
   /* initialize appropriate stroke processor */
-  if (FUNC(I, StrokePoint) == Twirl)
-      InitTwirlStroke (I, dx, dy) ;
+  if ( FUNC( I, StrokePoint ) == Twirl )
+    InitTwirlStroke( I, dx, dy );
   else
-      InitRollStroke (I, x, y) ;
+    InitRollStroke( I, x, y );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void 
-InitTwirlStroke (tdmInteractor I, float dx, float dy)
+static void InitTwirlStroke( tdmInteractor I, float dx, float dy )
 {
   /*
    *  Initialize twirling (rotation about Z axis).
    */
-  double a ;
-  DEFDATA(I,tdmRotateData) ;
+  double a;
+  DEFDATA( I, tdmRotateData );
 
-  ENTRY(("InitTwirlStroke(0x%x, %f, %f)", I, dx, dy));
+  ENTRY( ( "InitTwirlStroke(0x%x, %f, %f)", I, dx, dy ) );
 
   /* compute basis vectors of rotated coordinate system */
-  a = sqrt ((double)dx * (double)dx + (double)dy * (double)dy) ;
-  dx /= a ;
-  dy /= a ;
-  
-  PDATA(xbasis)[0] =  dx ;
-  PDATA(xbasis)[1] =  dy ;
-  PDATA(ybasis)[0] = -dy ;
-  PDATA(ybasis)[1] =  dx ;
+  a = sqrt( (double)dx * (double)dx + (double)dy * (double)dy );
+  dx /= a;
+  dy /= a;
+
+  PDATA( xbasis )[0] = dx;
+  PDATA( xbasis )[1] = dy;
+  PDATA( ybasis )[0] = -dy;
+  PDATA( ybasis )[1] = dx;
 
   /* initialize current matrix */
-  COPYMATRIX (PDATA(newXfm), identity) ;
+  COPYMATRIX( PDATA( newXfm ), identity );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void 
-InitRollStroke (tdmInteractor I, int x, int y)
+static void InitRollStroke( tdmInteractor I, int x, int y )
 {
   /*
    *  Initialize rolling (XY rotation) mode.
    */
-  DEFDATA(I,tdmRotateData) ;
+  DEFDATA( I, tdmRotateData );
 
-  ENTRY(("InitRollStroke(0x%x, %d, %d)", I, x, y));
+  ENTRY( ( "InitRollStroke(0x%x, %d, %d)", I, x, y ) );
 
   /* initialize current matrix */
-  COPYMATRIX (PDATA(newXfm), identity) ;
+  COPYMATRIX( PDATA( newXfm ), identity );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void 
-EndStroke (tdmInteractor I, tdmInteractorReturnP R)
+static void EndStroke( tdmInteractor I, tdmInteractorReturnP R )
 {
   /*
    *  End stroke and return appropriate info.
    */
-  DEFDATA(I,tdmRotateData) ;
+  DEFDATA( I, tdmRotateData );
 
-  ENTRY(("EndStroke(0x%x, 0x%x)", I, R));
+  ENTRY( ( "EndStroke(0x%x, 0x%x)", I, R ) );
 
-  if (PDATA(rotation_update))
+  if ( PDATA( rotation_update ) )
+  {
+    /* return relative rotation transform */
+    MULTMATRIX( R->matrix, PDATA( incXfm ), PDATA( newXfm ) );
+
+    if ( CDATA( view_coords_set ) )
     {
-      /* return relative rotation transform */
-      MULTMATRIX (R->matrix, PDATA(incXfm), PDATA(newXfm)) ;
+      /* return `to', `from', `up', and view matrix expressing them */
+      PRINT( ( "RotEndStroke: current viewXfm:" ) );
+      MPRINT( CDATA( viewXfm ) );
 
-      if (CDATA(view_coords_set))
-	{
-	  /* return `to', `from', `up', and view matrix expressing them */
-	  PRINT(("RotEndStroke: current viewXfm:"));
-	  MPRINT(CDATA(viewXfm)) ;
-	  
-	  _dxfRenormalizeView(CDATA(viewXfm)) ;
-	  PRINT(("RotEndStroke: renormalized viewXfm:"));
-	  MPRINT(CDATA(viewXfm)) ;
-	  
-	  R->from[0] = CDATA(to[0]) + CDATA(vdist)*CDATA(viewXfm[0][2]) ;
-	  R->from[1] = CDATA(to[1]) + CDATA(vdist)*CDATA(viewXfm[1][2]) ;
-	  R->from[2] = CDATA(to[2]) + CDATA(vdist)*CDATA(viewXfm[2][2]) ;
+      _dxfRenormalizeView( CDATA( viewXfm ) );
+      PRINT( ( "RotEndStroke: renormalized viewXfm:" ) );
+      MPRINT( CDATA( viewXfm ) );
 
-	  R->to[0] = CDATA(to[0]) ;
-	  R->to[1] = CDATA(to[1]) ;
-	  R->to[2] = CDATA(to[2]) ;
-	  
-	  R->up[0] = CDATA(viewXfm[0][1]) ;
-	  R->up[1] = CDATA(viewXfm[1][1]) ;
-	  R->up[2] = CDATA(viewXfm[2][1]) ;
+      R->from[0] = CDATA( to[0] ) + CDATA( vdist ) * CDATA( viewXfm[0][2] );
+      R->from[1] = CDATA( to[1] ) + CDATA( vdist ) * CDATA( viewXfm[1][2] );
+      R->from[2] = CDATA( to[2] ) + CDATA( vdist ) * CDATA( viewXfm[2][2] );
 
-	  R->dist = CDATA(vdist) ;
+      R->to[0] = CDATA( to[0] );
+      R->to[1] = CDATA( to[1] );
+      R->to[2] = CDATA( to[2] );
 
-	  if (FUNC(I, StrokePoint) == ViewRoll)
-	    {
-	      /* return view matrix directly */
-	      COPYMATRIX(R->view, CDATA(viewXfm)) ;
-	    }
-	  else
-	    {
-	      /* compute matrix that orbits `from' point about `to' point */
-	      orbitFrom (R->matrix, PDATA(strXfm), CDATA(to), CDATA(vdist)) ;
-	      MULTMATRIX(R->view, PDATA(strXfm), R->matrix) ;
-	    }
-	}
-      R->reason = tdmROTATION_UPDATE ;
-      R->change = 1 ;
+      R->up[0] = CDATA( viewXfm[0][1] );
+      R->up[1] = CDATA( viewXfm[1][1] );
+      R->up[2] = CDATA( viewXfm[2][1] );
+
+      R->dist = CDATA( vdist );
+
+      if ( FUNC( I, StrokePoint ) == ViewRoll )
+      {
+        /* return view matrix directly */
+        COPYMATRIX( R->view, CDATA( viewXfm ) );
+      }
+      else
+      {
+        /* compute matrix that orbits `from' point about `to' point */
+        orbitFrom( R->matrix, PDATA( strXfm ), CDATA( to ), CDATA( vdist ) );
+        MULTMATRIX( R->view, PDATA( strXfm ), R->matrix );
+      }
     }
+    R->reason = tdmROTATION_UPDATE;
+    R->change = 1;
+  }
   else
-      /* no change */
-      R->change = 0 ;
+    /* no change */
+    R->change = 0;
 
-  PDATA(rotation_update) = 0 ;
-  CALLFUNC(I,restoreConfig) (I, PDATA(displaymode), PDATA(buffermode),
-			     tdmBackBufferDraw) ;
+  PDATA( rotation_update ) = 0;
+  CALLFUNC( I, restoreConfig )( I, PDATA( displaymode ), PDATA( buffermode ),
+                                tdmBackBufferDraw );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void 
-Destroy (tdmInteractor I)
+static void Destroy( tdmInteractor I )
 {
-  DEFDATA(I,tdmRotateData) ;
-  DEFPORT(I_PORT_HANDLE) ;
+  DEFDATA( I, tdmRotateData );
+  DEFPORT( I_PORT_HANDLE );
 
-  ENTRY(("Destroy(0x%x)", I));
+  ENTRY( ( "Destroy(0x%x)", I ) );
 
-  if (PDATA(background))
-      _dxf_FREE_PIXEL_ARRAY (PORT_CTX, PDATA(background)) ;
+  if ( PDATA( background ) )
+    _dxf_FREE_PIXEL_ARRAY( PORT_CTX, PDATA( background ) );
 
-  if (PDATA(foreground))
-      _dxf_FREE_PIXEL_ARRAY (PORT_CTX, PDATA(foreground)) ;
+  if ( PDATA( foreground ) )
+    _dxf_FREE_PIXEL_ARRAY( PORT_CTX, PDATA( foreground ) );
 
-  _dxfDeallocateInteractor(I) ;
+  _dxfDeallocateInteractor( I );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
-
 
 /*
  *  Z rotation model
  */
 
-static void
-Twirl (tdmInteractor I, int x, int y, int flag, int state)
+static void Twirl( tdmInteractor I, int x, int y, int flag, int state )
 {
-  DEFDATA(I,tdmRotateData) ;
-  DEFPORT(I_PORT_HANDLE) ;
-  double a ;
-  float c, s, dx, dy, tmp[4][4] ;
+  DEFDATA( I, tdmRotateData );
+  DEFPORT( I_PORT_HANDLE );
+  double a;
+  float c, s, dx, dy, tmp[4][4];
 
-  ENTRY(("Twirl(0x%x, %d, %d)", I, x, y));
+  ENTRY( ( "Twirl(0x%x, %d, %d)", I, x, y ) );
 
-  y = YFLIP(y) ;
+  y = YFLIP( y );
 
-  if (CDATA(xlast) == x && CDATA(ylast) == y)
-    {
-      EXIT(("xlast and ylast the same"));
-      return ;
-    }
+  if ( CDATA( xlast ) == x && CDATA( ylast ) == y )
+  {
+    EXIT( ( "xlast and ylast the same" ) );
+    return;
+  }
   else
-    {
-      CDATA(xlast) = x ;
-      CDATA(ylast) = y ;
-    }
+  {
+    CDATA( xlast ) = x;
+    CDATA( ylast ) = y;
+  }
 
-  dx = x - PDATA(gx) ;
-  dy = y - PDATA(gy) ;
+  dx = x - PDATA( gx );
+  dy = y - PDATA( gy );
 
-  a = sqrt ((double)dx * (double)dx + (double)dy * (double)dy) ;
-  if (a < 1.0) {
-    EXIT(("a < 1.0"));
-    return ;
+  a = sqrt( (double)dx * (double)dx + (double)dy * (double)dy );
+  if ( a < 1.0 )
+  {
+    EXIT( ( "a < 1.0" ) );
+    return;
   }
 
   /*
@@ -529,217 +503,211 @@ Twirl (tdmInteractor I, int x, int y, int flag, int state)
    *  of this stroke.
    */
 
-  s = (PDATA(ybasis)[0]*dx + PDATA(ybasis)[1]*dy) / a ;
-  c = (PDATA(xbasis)[0]*dx + PDATA(xbasis)[1]*dy) / a ;
+  s = ( PDATA( ybasis )[0] * dx + PDATA( ybasis )[1] * dy ) / a;
+  c = ( PDATA( xbasis )[0] * dx + PDATA( xbasis )[1] * dy ) / a;
 
-  PDATA(newXfm)[0][0] =  c ;
-  PDATA(newXfm)[0][1] =  s ;
-  PDATA(newXfm)[0][2] =  0 ;
-  PDATA(newXfm)[0][3] =  0 ;
+  PDATA( newXfm )[0][0] = c;
+  PDATA( newXfm )[0][1] = s;
+  PDATA( newXfm )[0][2] = 0;
+  PDATA( newXfm )[0][3] = 0;
 
-  PDATA(newXfm)[1][0] = -s ;
-  PDATA(newXfm)[1][1] =  c ;
-  PDATA(newXfm)[1][2] =  0 ;
-  PDATA(newXfm)[1][3] =  0 ;
+  PDATA( newXfm )[1][0] = -s;
+  PDATA( newXfm )[1][1] = c;
+  PDATA( newXfm )[1][2] = 0;
+  PDATA( newXfm )[1][3] = 0;
 
-  PDATA(newXfm)[2][0] =  0 ;
-  PDATA(newXfm)[2][1] =  0 ;
-  PDATA(newXfm)[2][2] =  1 ;
-  PDATA(newXfm)[2][3] =  0 ;
+  PDATA( newXfm )[2][0] = 0;
+  PDATA( newXfm )[2][1] = 0;
+  PDATA( newXfm )[2][2] = 1;
+  PDATA( newXfm )[2][3] = 0;
 
-  PDATA(newXfm)[3][0] =  0 ;
-  PDATA(newXfm)[3][1] =  0 ;
-  PDATA(newXfm)[3][2] =  0 ;
-  PDATA(newXfm)[3][3] =  1 ;
-  
-  MULTMATRIX (tmp, PDATA(incXfm), PDATA(newXfm)) ;
-  MULTMATRIX (CDATA(viewXfm), PDATA(strXfm), tmp) ;
-  _dxf_LOAD_MATRIX (PORT_CTX, CDATA(viewXfm)) ;
-  CDATA(view_state)++ ;
+  PDATA( newXfm )[3][0] = 0;
+  PDATA( newXfm )[3][1] = 0;
+  PDATA( newXfm )[3][2] = 0;
+  PDATA( newXfm )[3][3] = 1;
+
+  MULTMATRIX( tmp, PDATA( incXfm ), PDATA( newXfm ) );
+  MULTMATRIX( CDATA( viewXfm ), PDATA( strXfm ), tmp );
+  _dxf_LOAD_MATRIX( PORT_CTX, CDATA( viewXfm ) );
+  CDATA( view_state )++;
 
   /* update software matrix stack shadow */
-  _dxfLoadViewMatrix (CDATA(stack), CDATA(viewXfm)) ;
-  
+  _dxfLoadViewMatrix( CDATA( stack ), CDATA( viewXfm ) );
+
   /* call echo function */
-  CALLFUNC(I,EchoFunc) (I, UDATA(I), CDATA(viewXfm), 0) ;
-  CALLFUNC(I,EchoFunc) (I, UDATA(I), CDATA(viewXfm), 1) ;
+  CALLFUNC( I, EchoFunc )( I, UDATA( I ), CDATA( viewXfm ), 0 );
+  CALLFUNC( I, EchoFunc )( I, UDATA( I ), CDATA( viewXfm ), 1 );
 
   /* redraw any auxiliary echos */
-  tdmResumeEcho (AUX(I), tdmAuxEchoMode) ;
+  tdmResumeEcho( AUX( I ), tdmAuxEchoMode );
 
-  PDATA(rotation_update) = 1 ;
+  PDATA( rotation_update ) = 1;
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
-
 
 /*
  *  XY rotation models
  */
 
-static int
-PlaneRoll (tdmInteractor I, int x, int y, float rot[4][4])
+static int PlaneRoll( tdmInteractor I, int x, int y, float rot[4][4] )
 {
   /*
    *  Pointer is attached to an infinite plane parallel to XY, which rolls
    *  over a virtual sphere.  If we bail out, return 0.
    */
 
-  DEFDATA(I,tdmRotateData) ;
-  register float dx, dy, t, s, c ;
-  float tmp[4][4] ;
-  double a ;
+  DEFDATA( I, tdmRotateData );
+  register float dx, dy, t, s, c;
+  float tmp[4][4];
+  double a;
 
-  ENTRY(("PlaneRoll(0x%x, %d, %d, 0x%x)", I, x, y, rot));
+  ENTRY( ( "PlaneRoll(0x%x, %d, %d, 0x%x)", I, x, y, rot ) );
 
-  y = YFLIP(y) ;
+  y = YFLIP( y );
 
-  dx = CDATA(xlast) - x ;
-  dy = CDATA(ylast) - y ;
+  dx = CDATA( xlast ) - x;
+  dy = CDATA( ylast ) - y;
 
-  if (dx == 0 && dy == 0)
-    {
-      EXIT(("no change"));
-      return 0 ;
-    }
+  if ( dx == 0 && dy == 0 )
+  {
+    EXIT( ( "no change" ) );
+    return 0;
+  }
   else
-    {
-      CDATA(xlast) = x ;
-      CDATA(ylast) = y ;
-    }
-
-  /* rotate delta vector by pi/2, use as axis of rotation */
-  t = dy ;
-  dy = -dx ;
-  dx = t ;
-
-  /* normalize */
-  if ((a = sqrt ((double)dx * (double)dx + (double)dy * (double)dy)) < 1.0) {
-    EXIT(("a < 1.0"));
-    return 0 ;
+  {
+    CDATA( xlast ) = x;
+    CDATA( ylast ) = y;
   }
 
-  dx /= a ;
-  dy /= a ;
+  /* rotate delta vector by pi/2, use as axis of rotation */
+  t = dy;
+  dy = -dx;
+  dx = t;
+
+  /* normalize */
+  if ( ( a = sqrt( (double)dx * (double)dx + (double)dy * (double)dy ) ) < 1.0 )
+  {
+    EXIT( ( "a < 1.0" ) );
+    return 0;
+  }
+
+  dx /= a;
+  dy /= a;
 
   /* convert pixels to radians */
-  a *= 1.0/(float)PDATA(gradius) ;
+  a *= 1.0 / (float)PDATA( gradius );
 
   /* compute the matrix which rotates about the vector [dx dy 0] */
-  s = (float) sin(a) ;
-  c = (float) cos(a) ;
-  t = 1.0 - c ;
-  ROTXY (rot, dx, dy, s, c, t) ;
+  s = (float)sin( a );
+  c = (float)cos( a );
+  t = 1.0 - c;
+  ROTXY( rot, dx, dy, s, c, t );
 
   /* accumulate new relative and incremental rotation matrices */
-  MULTMATRIX (tmp, PDATA(newXfm), rot) ;
-  COPYMATRIX (PDATA(newXfm), tmp) ;
-  MULTMATRIX (rot, PDATA(incXfm), PDATA(newXfm)) ;
+  MULTMATRIX( tmp, PDATA( newXfm ), rot );
+  COPYMATRIX( PDATA( newXfm ), tmp );
+  MULTMATRIX( rot, PDATA( incXfm ), PDATA( newXfm ) );
 
-  EXIT(("1"));
-  return 1 ;
+  EXIT( ( "1" ) );
+  return 1;
 }
 
-
-static void
-PlaneRollWithEcho (tdmInteractor I, int x, int y, int flag, int s)
+static void PlaneRollWithEcho( tdmInteractor I, int x, int y, int flag, int s )
 {
-  float rot[4][4] ;
-  DEFDATA(I,tdmRotateData) ;
-  DEFPORT(I_PORT_HANDLE) ;
+  float rot[4][4];
+  DEFDATA( I, tdmRotateData );
+  DEFPORT( I_PORT_HANDLE );
 
-  ENTRY(("PlaneRollWithEcho(0x%x, %d, %d)", I, x, y));
-  
+  ENTRY( ( "PlaneRollWithEcho(0x%x, %d, %d)", I, x, y ) );
+
   /* apply plane rolling model */
-  if (!PlaneRoll (I, x, y, rot))
-    {
-      EXIT(("PlaneRoll returns 0"));
-      return ;
-    }
+  if ( !PlaneRoll( I, x, y, rot ) )
+  {
+    EXIT( ( "PlaneRoll returns 0" ) );
+    return;
+  }
 
   /* accumulate start transform */
-  MULTMATRIX (CDATA(viewXfm), PDATA(strXfm), rot) ;
+  MULTMATRIX( CDATA( viewXfm ), PDATA( strXfm ), rot );
 
   /* load new view matrix, erase old echo, draw new echo */
-  _dxf_LOAD_MATRIX (PORT_CTX, CDATA(viewXfm)) ;
-  _dxfLoadViewMatrix (CDATA(stack), CDATA(viewXfm)) ;
-  CDATA(view_state)++ ;
-  
-  CALLFUNC(I,EchoFunc) (I, UDATA(I), CDATA(viewXfm), 0) ;
-  CALLFUNC(I,EchoFunc) (I, UDATA(I), CDATA(viewXfm), 1) ;
+  _dxf_LOAD_MATRIX( PORT_CTX, CDATA( viewXfm ) );
+  _dxfLoadViewMatrix( CDATA( stack ), CDATA( viewXfm ) );
+  CDATA( view_state )++;
+
+  CALLFUNC( I, EchoFunc )( I, UDATA( I ), CDATA( viewXfm ), 0 );
+  CALLFUNC( I, EchoFunc )( I, UDATA( I ), CDATA( viewXfm ), 1 );
 
   /* redraw any auxiliary echo */
-  tdmResumeEcho (AUX(I), tdmAuxEchoMode) ;
+  tdmResumeEcho( AUX( I ), tdmAuxEchoMode );
 
-  PDATA(rotation_update) = 1 ;
+  PDATA( rotation_update ) = 1;
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void
-ViewRoll (tdmInteractor I, int x, int y, int flag, int s)
+static void ViewRoll( tdmInteractor I, int x, int y, int flag, int s )
 {
-  float rot[4][4], from[3], zaxis[3], Near, Far ;
-  DEFDATA(I,tdmRotateData) ;
-  DEFPORT(I_PORT_HANDLE) ;
+  float rot[4][4], from[3], zaxis[3], Near, Far;
+  DEFDATA( I, tdmRotateData );
+  DEFPORT( I_PORT_HANDLE );
 
-  ENTRY(("ViewRoll(0x%x, %d, %d)", I, x, y));
+  ENTRY( ( "ViewRoll(0x%x, %d, %d)", I, x, y ) );
 
   /* apply plane rotation model */
-  if (!PlaneRoll (I, x, y, rot))
-    {
-      EXIT(("PlaneRoll returns 0"));
-      return ;
-    }
+  if ( !PlaneRoll( I, x, y, rot ) )
+  {
+    EXIT( ( "PlaneRoll returns 0" ) );
+    return;
+  }
 
-  if (CDATA(view_coords_set))
-      /* orbit the `from' point about the `to' point */
-      orbitFrom(rot, PDATA(strXfm), CDATA(to), CDATA(vdist)) ;
+  if ( CDATA( view_coords_set ) )
+    /* orbit the `from' point about the `to' point */
+    orbitFrom( rot, PDATA( strXfm ), CDATA( to ), CDATA( vdist ) );
 
   /* rotate the view */
-  MULTMATRIX (CDATA(viewXfm), PDATA(strXfm), rot) ;
+  MULTMATRIX( CDATA( viewXfm ), PDATA( strXfm ), rot );
 
   /* get the new clip planes */
-  GET_VC_ORIGIN(CDATA(viewXfm), from) ;
-  GET_VIEW_DIRECTION(CDATA(viewXfm), zaxis) ;
-  _dxfGetNearFar(CDATA(projection), CDATA(w),
-		CDATA(projection)? CDATA(fov): CDATA(width),
-		from, zaxis, CDATA(box), &Near, &Far);
+  GET_VC_ORIGIN( CDATA( viewXfm ), from );
+  GET_VIEW_DIRECTION( CDATA( viewXfm ), zaxis );
+  _dxfGetNearFar( CDATA( projection ), CDATA( w ),
+                  CDATA( projection ) ? CDATA( fov ) : CDATA( width ), from,
+                  zaxis, CDATA( box ), &Near, &Far );
 
   /* setting new clip planes requires creating a new projection matrix */
-  if (CDATA(projection))
-    {
-      _dxfSetProjectionInfo(CDATA(stack), 1, CDATA(fov), CDATA(aspect),
-			   Near, Far);
-      _dxf_SET_PERSPECTIVE_PROJECTION(PORT_CTX, CDATA(fov), CDATA(aspect),
-				     Near, Far);
-    }
+  if ( CDATA( projection ) )
+  {
+    _dxfSetProjectionInfo( CDATA( stack ), 1, CDATA( fov ), CDATA( aspect ),
+                           Near, Far );
+    _dxf_SET_PERSPECTIVE_PROJECTION( PORT_CTX, CDATA( fov ), CDATA( aspect ),
+                                     Near, Far );
+  }
   else
-    {
-      _dxfSetProjectionInfo(CDATA(stack), 0, CDATA(width), CDATA(aspect),
-			   Near, Far);
-      _dxf_SET_ORTHO_PROJECTION(PORT_CTX, CDATA(width), CDATA(aspect),
-			       Near, Far); 
-    }
+  {
+    _dxfSetProjectionInfo( CDATA( stack ), 0, CDATA( width ), CDATA( aspect ),
+                           Near, Far );
+    _dxf_SET_ORTHO_PROJECTION( PORT_CTX, CDATA( width ), CDATA( aspect ), Near,
+                               Far );
+  }
 
   /* load the new view matrix */
-  _dxf_LOAD_MATRIX (PORT_CTX, CDATA(viewXfm)) ;
-  _dxfLoadViewMatrix (CDATA(stack), CDATA(viewXfm)) ;
-  CDATA(view_state)++ ;
+  _dxf_LOAD_MATRIX( PORT_CTX, CDATA( viewXfm ) );
+  _dxfLoadViewMatrix( CDATA( stack ), CDATA( viewXfm ) );
+  CDATA( view_state )++;
 
   /* erase and draw the echo */
-  CALLFUNC(I,EchoFunc) (I, UDATA(I), CDATA(viewXfm), 0) ;
-  CALLFUNC(I,EchoFunc) (I, UDATA(I), CDATA(viewXfm), 1) ;
+  CALLFUNC( I, EchoFunc )( I, UDATA( I ), CDATA( viewXfm ), 0 );
+  CALLFUNC( I, EchoFunc )( I, UDATA( I ), CDATA( viewXfm ), 1 );
 
-  PDATA(rotation_update) = 1 ;
+  PDATA( rotation_update ) = 1;
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void
-orbitFrom (float R[4][4], float current[4][4], float to[3], float vdist)
+static void orbitFrom( float R[4][4], float current[4][4], float to[3],
+                       float vdist )
 {
   /*
    *  To rotate the view about the `to' point, we in effect rotate the
@@ -762,353 +730,335 @@ orbitFrom (float R[4][4], float current[4][4], float to[3], float vdist)
    *  pre-concatenating it with current view rotation.
    */
 
-  float fromVectVC[3], toVC[3] ;
-  
-  ENTRY(("orbitFrom(0x%x, 0x%x, 0x%x, %f)",
-	 R, current, to, vdist));
-  
-  fromVectVC[0] = R[0][2] * vdist ;
-  fromVectVC[1] = R[1][2] * vdist ;
-  fromVectVC[2] = R[2][2] * vdist ;
-  
-  toVC[0] = to[0] * current[0][0] +
-            to[1] * current[1][0] +
-	    to[2] * current[2][0] ;
-  toVC[1] = to[0] * current[0][1] +
-            to[1] * current[1][1] +
-	    to[2] * current[2][1] ;
-  toVC[2] = to[0] * current[0][2] +
-            to[1] * current[1][2] +
-	    to[2] * current[2][2] ;
-  
-  current[3][0] = -(fromVectVC[0] + toVC[0]) ;
-  current[3][1] = -(fromVectVC[1] + toVC[1]) ;
-  current[3][2] = -(fromVectVC[2] + toVC[2]) ;
+  float fromVectVC[3], toVC[3];
 
-  EXIT((""));
+  ENTRY( ( "orbitFrom(0x%x, 0x%x, 0x%x, %f)", R, current, to, vdist ) );
+
+  fromVectVC[0] = R[0][2] * vdist;
+  fromVectVC[1] = R[1][2] * vdist;
+  fromVectVC[2] = R[2][2] * vdist;
+
+  toVC[0] =
+      to[0] * current[0][0] + to[1] * current[1][0] + to[2] * current[2][0];
+  toVC[1] =
+      to[0] * current[0][1] + to[1] * current[1][1] + to[2] * current[2][1];
+  toVC[2] =
+      to[0] * current[0][2] + to[1] * current[1][2] + to[2] * current[2][2];
+
+  current[3][0] = -( fromVectVC[0] + toVC[0] );
+  current[3][1] = -( fromVectVC[1] + toVC[1] );
+  current[3][2] = -( fromVectVC[2] + toVC[2] );
+
+  EXIT( ( "" ) );
 }
 
-  
 /*
- *  Configuration and drawing routines 
+ *  Configuration and drawing routines
  */
 
-static void
-extractViewRot (float M[4][4])
+static void extractViewRot( float M[4][4] )
 {
   /*
    *  DXExtract view rotation from M.
    */
-  ENTRY(("extractViewRot(0x%x)", M));
-  
-  M[0][3] =  0 ; M[1][3] =  0 ; M[2][3] =  0 ; 
-  M[3][0] =  0 ; M[3][1] =  0 ; M[3][2] =  0 ; M[3][3] =  1 ;
+  ENTRY( ( "extractViewRot(0x%x)", M ) );
 
-  EXIT((""));
+  M[0][3] = 0;
+  M[1][3] = 0;
+  M[2][3] = 0;
+  M[3][0] = 0;
+  M[3][1] = 0;
+  M[3][2] = 0;
+  M[3][3] = 1;
+
+  EXIT( ( "" ) );
 }
 
-
-static void
-ResumeEcho (tdmInteractor I, tdmInteractorRedrawMode redrawmode)
+static void ResumeEcho( tdmInteractor I, tdmInteractorRedrawMode redrawmode )
 {
   /*
    *  Redraw interactor I
    */
-  
-  DEFDATA(I,tdmRotateData) ;
-  DEFPORT(I_PORT_HANDLE) ;
 
-  ENTRY(("ResumeEcho(0x%x, 0x%x)", I, redrawmode));
+  DEFDATA( I, tdmRotateData );
+  DEFPORT( I_PORT_HANDLE );
 
-  if (!PDATA(visible))
-    {
-      /* invisible: draw nothing */
-      EXIT(("invisible"));
-      return ;
-    }
+  ENTRY( ( "ResumeEcho(0x%x, 0x%x)", I, redrawmode ) );
 
-  if (FUNC(I, EchoFunc) == NullEchoFunc)
-    {
-      PRINT(("null echo function, drawing aux echos"));
-      tdmResumeEcho (AUX(I), redrawmode) ;
-      EXIT((""));
-      return ;
-    }
-  
-  if (PDATA(foreground) &&
-      redrawmode == tdmAuxEchoMode &&
-      PDATA(foregroundView) == CDATA(view_state))
-    {
-      /*
-       *  Quick restoration.  This isn't just an optimization: the cursor
-       *  interactor uses the gnomon as an auxiliary echo, and the GL
-       *  context must not be altered during cursor interaction mode.
-       */
-      _dxf_WRITE_BUFFER (PORT_CTX,
-			PDATA(illx), PDATA(illy), PDATA(iurx), PDATA(iury),
-			PDATA(foreground)) ;
-      PRINT(("restoration via blit, drawing aux echos"));
-      tdmResumeEcho (AUX(I), tdmAuxEchoMode) ;
-      EXIT((""));
-      return ;
-    }
-      
+  if ( !PDATA( visible ) )
+  {
+    /* invisible: draw nothing */
+    EXIT( ( "invisible" ) );
+    return;
+  }
+
+  if ( FUNC( I, EchoFunc ) == NullEchoFunc )
+  {
+    PRINT( ( "null echo function, drawing aux echos" ) );
+    tdmResumeEcho( AUX( I ), redrawmode );
+    EXIT( ( "" ) );
+    return;
+  }
+
+  if ( PDATA( foreground ) && redrawmode == tdmAuxEchoMode &&
+       PDATA( foregroundView ) == CDATA( view_state ) )
+  {
+    /*
+     *  Quick restoration.  This isn't just an optimization: the cursor
+     *  interactor uses the gnomon as an auxiliary echo, and the GL
+     *  context must not be altered during cursor interaction mode.
+     */
+    _dxf_WRITE_BUFFER( PORT_CTX, PDATA( illx ), PDATA( illy ), PDATA( iurx ),
+                       PDATA( iury ), PDATA( foreground ) );
+    PRINT( ( "restoration via blit, drawing aux echos" ) );
+    tdmResumeEcho( AUX( I ), tdmAuxEchoMode );
+    EXIT( ( "" ) );
+    return;
+  }
+
   /* configure */
-  CALLFUNC(I,Config) (I, &PDATA(displaymode), &PDATA(buffermode), redrawmode) ;
+  CALLFUNC( I, Config )( I, &PDATA( displaymode ), &PDATA( buffermode ),
+                         redrawmode );
 
   /* get view rotation */
-  COPYMATRIX (PDATA(strXfm), CDATA(viewXfm)) ;
-  extractViewRot(PDATA(strXfm)) ;
+  COPYMATRIX( PDATA( strXfm ), CDATA( viewXfm ) );
+  extractViewRot( PDATA( strXfm ) );
 
-  if (PDATA(background) &&
-      (redrawmode == tdmBothBufferDraw || redrawmode == tdmFrontBufferDraw))
-      /* get new image background */
-      _dxf_READ_BUFFER (PORT_CTX,
-			PDATA(illx), PDATA(illy), PDATA(iurx), PDATA(iury),
-			PDATA(background)) ;
+  if ( PDATA( background ) &&
+       ( redrawmode == tdmBothBufferDraw || redrawmode == tdmFrontBufferDraw ) )
+    /* get new image background */
+    _dxf_READ_BUFFER( PORT_CTX, PDATA( illx ), PDATA( illy ), PDATA( iurx ),
+                      PDATA( iury ), PDATA( background ) );
 
   /* draw echo on top of background image */
-  _dxf_LOAD_MATRIX (PORT_CTX, PDATA(strXfm)) ;
-  CALLFUNC(I,EchoFunc) (I, UDATA(I), PDATA(strXfm), 0) ;
-  CALLFUNC(I,EchoFunc) (I, UDATA(I), PDATA(strXfm), 1) ;
+  _dxf_LOAD_MATRIX( PORT_CTX, PDATA( strXfm ) );
+  CALLFUNC( I, EchoFunc )( I, UDATA( I ), PDATA( strXfm ), 0 );
+  CALLFUNC( I, EchoFunc )( I, UDATA( I ), PDATA( strXfm ), 1 );
 
-  if (PDATA(foreground) && 
-      (redrawmode == tdmBothBufferDraw || redrawmode == tdmFrontBufferDraw))
-    {
-      /* get new image background + foreground for quick restoration */
-      _dxf_READ_BUFFER (PORT_CTX,
-		       PDATA(illx), PDATA(illy), PDATA(iurx), PDATA(iury),
-		       PDATA(foreground)) ;
-      PDATA(foregroundView) = CDATA(view_state) ;
-    }
-  
+  if ( PDATA( foreground ) &&
+       ( redrawmode == tdmBothBufferDraw || redrawmode == tdmFrontBufferDraw ) )
+  {
+    /* get new image background + foreground for quick restoration */
+    _dxf_READ_BUFFER( PORT_CTX, PDATA( illx ), PDATA( illy ), PDATA( iurx ),
+                      PDATA( iury ), PDATA( foreground ) );
+    PDATA( foregroundView ) = CDATA( view_state );
+  }
+
   /* restore configuration */
-  CALLFUNC(I,restoreConfig) (I, PDATA(displaymode), PDATA(buffermode),
-			     redrawmode) ;
+  CALLFUNC( I, restoreConfig )( I, PDATA( displaymode ), PDATA( buffermode ),
+                                redrawmode );
 
-  PRINT(("echo redrawn, drawing aux echos"));
-  if (redrawmode == tdmBothBufferDraw)
-    {
-      PRINT(("tdmBothBufferDraw -> tdmFrontBufferDraw"));
-      tdmResumeEcho (AUX(I), tdmFrontBufferDraw) ;
-    }
+  PRINT( ( "echo redrawn, drawing aux echos" ) );
+  if ( redrawmode == tdmBothBufferDraw )
+  {
+    PRINT( ( "tdmBothBufferDraw -> tdmFrontBufferDraw" ) );
+    tdmResumeEcho( AUX( I ), tdmFrontBufferDraw );
+  }
   else
-      tdmResumeEcho (AUX(I), redrawmode) ;
+    tdmResumeEcho( AUX( I ), redrawmode );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void 
-globeConfig (tdmInteractor I,
-	     int *CurrentDisplayMode, int *CurrentBufferMode,
-	     tdmInteractorRedrawMode redrawMode) 
+static void globeConfig( tdmInteractor I, int *CurrentDisplayMode,
+                         int *CurrentBufferMode,
+                         tdmInteractorRedrawMode redrawMode )
 {
-  DEFDATA(I,tdmRotateData) ;
-  DEFPORT(I_PORT_HANDLE) ;
+  DEFDATA( I, tdmRotateData );
+  DEFPORT( I_PORT_HANDLE );
 
-  ENTRY(("globeConfig(0x%x, 0x%x, 0x%x, 0x%x)",
-	 I, CurrentDisplayMode, CurrentBufferMode, redrawMode));
+  ENTRY( ( "globeConfig(0x%x, 0x%x, 0x%x, 0x%x)", I, CurrentDisplayMode,
+           CurrentBufferMode, redrawMode ) );
 
-  PDATA(redrawmode) = redrawMode ;
+  PDATA( redrawmode ) = redrawMode;
 
-  if (redrawMode == tdmAuxEchoMode)
-    {
-      /* frame buffer configuration tasks already done */
-      PRINT(("redraw mode tdmAuxEchoMode, skipping buffer configuration"));
-      _dxfPushViewport (CDATA(stack)) ;
-      _dxfSetViewport (CDATA(stack), (int) PDATA(vllx), (int) PDATA(vurx),
-		      (int) PDATA(vlly), (int) PDATA(vury)) ;
-      _dxf_SET_VIEWPORT (PORT_CTX, (int) PDATA(vllx), (int) PDATA(vurx),
-			(int) PDATA(vlly), (int) PDATA(vury)) ;
+  if ( redrawMode == tdmAuxEchoMode )
+  {
+    /* frame buffer configuration tasks already done */
+    PRINT( ( "redraw mode tdmAuxEchoMode, skipping buffer configuration" ) );
+    _dxfPushViewport( CDATA( stack ) );
+    _dxfSetViewport( CDATA( stack ), (int)PDATA( vllx ), (int)PDATA( vurx ),
+                     (int)PDATA( vlly ), (int)PDATA( vury ) );
+    _dxf_SET_VIEWPORT( PORT_CTX, (int)PDATA( vllx ), (int)PDATA( vurx ),
+                       (int)PDATA( vlly ), (int)PDATA( vury ) );
 
-      _dxfPushViewMatrix(CDATA(stack)) ;
-      _dxf_SET_ORTHO_PROJECTION (PORT_CTX, 2, 1, 1, -1) ;
+    _dxfPushViewMatrix( CDATA( stack ) );
+    _dxf_SET_ORTHO_PROJECTION( PORT_CTX, 2, 1, 1, -1 );
 
-      EXIT((""));
-      return ;
-    }
+    EXIT( ( "" ) );
+    return;
+  }
 
   /* turn off Z buffer */
-  CDATA(zbuffer) = _dxf_GET_ZBUFFER_STATUS(PORT_CTX) ;
-  if (CDATA(zbuffer))
-      _dxf_SET_ZBUFFER_STATUS (PORT_CTX, 0) ;
+  CDATA( zbuffer ) = _dxf_GET_ZBUFFER_STATUS( PORT_CTX );
+  if ( CDATA( zbuffer ) )
+    _dxf_SET_ZBUFFER_STATUS( PORT_CTX, 0 );
 
   /* configure the frame buffer */
-  _dxf_BUFFER_CONFIG (PORT_CTX, CDATA(image),
-		     0, CDATA(h)-CDATA(ih), CDATA(iw)-1, CDATA(h)-1, 
-		     CurrentDisplayMode, CurrentBufferMode, redrawMode) ;
+  _dxf_BUFFER_CONFIG( PORT_CTX, CDATA( image ), 0, CDATA( h ) - CDATA( ih ),
+                      CDATA( iw ) - 1, CDATA( h ) - 1, CurrentDisplayMode,
+                      CurrentBufferMode, redrawMode );
 
   /* get origin of window and dimensions of screen */
-  _dxf_GET_WINDOW_ORIGIN (PORT_CTX, &CDATA(ox), &CDATA(oy)) ;
-  _dxf_GET_MAXSCREEN (PORT_CTX, &CDATA(xmaxscreen), &CDATA(ymaxscreen)) ;
+  _dxf_GET_WINDOW_ORIGIN( PORT_CTX, &CDATA( ox ), &CDATA( oy ) );
+  _dxf_GET_MAXSCREEN( PORT_CTX, &CDATA( xmaxscreen ), &CDATA( ymaxscreen ) );
 
   /* virtual sphere radius is half of smallest window dimension */
-  if (CDATA(h) > CDATA(w))
-    {
-      PDATA(gradius) = CDATA(w)/2 ;
-      PDATA(gx) = PDATA(gradius) ;
-      PDATA(gy) = PDATA(gradius) + (CDATA(h) - CDATA(w))/2 ;
-    }
+  if ( CDATA( h ) > CDATA( w ) )
+  {
+    PDATA( gradius ) = CDATA( w ) / 2;
+    PDATA( gx ) = PDATA( gradius );
+    PDATA( gy ) = PDATA( gradius ) + ( CDATA( h ) - CDATA( w ) ) / 2;
+  }
   else
-    {
-      PDATA(gradius) = CDATA(h)/2 ;
-      PDATA(gy) = PDATA(gradius) ;
-      PDATA(gx) = PDATA(gradius) + (CDATA(w) - CDATA(h))/2 ;
-    }
+  {
+    PDATA( gradius ) = CDATA( h ) / 2;
+    PDATA( gy ) = PDATA( gradius );
+    PDATA( gx ) = PDATA( gradius ) + ( CDATA( w ) - CDATA( h ) ) / 2;
+  }
 
-  PDATA(g2) = PDATA(gradius)*PDATA(gradius) ;
+  PDATA( g2 ) = PDATA( gradius ) * PDATA( gradius );
 
   /* push and load new viewport */
-  _dxfPushViewport (CDATA(stack)) ;
-  _dxfSetViewport (CDATA(stack), (int) PDATA(vllx), (int) PDATA(vurx),
-		  (int) PDATA(vlly), (int) PDATA(vury)) ;
-  _dxf_SET_VIEWPORT (PORT_CTX, (int) PDATA(vllx), (int) PDATA(vurx),
-		    (int) PDATA(vlly), (int) PDATA(vury)) ;
+  _dxfPushViewport( CDATA( stack ) );
+  _dxfSetViewport( CDATA( stack ), (int)PDATA( vllx ), (int)PDATA( vurx ),
+                   (int)PDATA( vlly ), (int)PDATA( vury ) );
+  _dxf_SET_VIEWPORT( PORT_CTX, (int)PDATA( vllx ), (int)PDATA( vurx ),
+                     (int)PDATA( vlly ), (int)PDATA( vury ) );
 
   /* get current viewing matrix and push it */
-  _dxfGetViewMatrix (CDATA(stack), CDATA(viewXfm)) ;
-  _dxfPushViewMatrix(CDATA(stack)) ;
+  _dxfGetViewMatrix( CDATA( stack ), CDATA( viewXfm ) );
+  _dxfPushViewMatrix( CDATA( stack ) );
 
   /* load new projection */
-  _dxf_SET_ORTHO_PROJECTION (PORT_CTX, 2, 1, 1, -1) ;
+  _dxf_SET_ORTHO_PROJECTION( PORT_CTX, 2, 1, 1, -1 );
 
   /* globe image background coordinates for lrectread() and lrectwrite() */
-  PDATA(illx) = XSCREENCLIP(PDATA(vllx)) ;
-  PDATA(illy) = YSCREENCLIP(PDATA(vlly)) ;
-  PDATA(iurx) = XSCREENCLIP(PDATA(vurx)) ;
-  PDATA(iury) = YSCREENCLIP(PDATA(vury)) ;
+  PDATA( illx ) = XSCREENCLIP( PDATA( vllx ) );
+  PDATA( illy ) = YSCREENCLIP( PDATA( vlly ) );
+  PDATA( iurx ) = XSCREENCLIP( PDATA( vurx ) );
+  PDATA( iury ) = YSCREENCLIP( PDATA( vury ) );
 
   /* set solid area pattern */
-  _dxf_SET_SOLID_FILL_PATTERN (PORT_CTX) ;
+  _dxf_SET_SOLID_FILL_PATTERN( PORT_CTX );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void
-gnomonConfig (tdmInteractor I, int *c, int *d,
-	      tdmInteractorRedrawMode redrawMode)
+static void gnomonConfig( tdmInteractor I, int *c, int *d,
+                          tdmInteractorRedrawMode redrawMode )
 {
-  DEFDATA(I,tdmRotateData) ;
-  DEFPORT(I_PORT_HANDLE) ;
+  DEFDATA( I, tdmRotateData );
+  DEFPORT( I_PORT_HANDLE );
 
-  ENTRY(("gnomonConfig(0x%x, 0x%x, 0x%x, 0x%x)",
-	 I, c, d, redrawMode));
+  ENTRY( ( "gnomonConfig(0x%x, 0x%x, 0x%x, 0x%x)", I, c, d, redrawMode ) );
 
   /* gnomon position depends upon window size */
-  PDATA(gradius) = GNOMONRADIUS ;
-  PDATA(gx) = CDATA(w) - (GNOMONOFFSET+GNOMONRADIUS) ;
-  PDATA(gy) = GNOMONOFFSET+GNOMONRADIUS ;
-  PDATA(g2) = GNOMONRADIUS*GNOMONRADIUS ;
-  PDATA(vllx) = CDATA(w) - (GNOMONOFFSET + 2*GNOMONRADIUS) ;
-  PDATA(vlly) = GNOMONOFFSET ;
-  PDATA(vurx) = CDATA(w) - GNOMONOFFSET ;
-  PDATA(vury) = GNOMONOFFSET + 2*GNOMONRADIUS ;
-      
+  PDATA( gradius ) = GNOMONRADIUS;
+  PDATA( gx ) = CDATA( w ) - ( GNOMONOFFSET + GNOMONRADIUS );
+  PDATA( gy ) = GNOMONOFFSET + GNOMONRADIUS;
+  PDATA( g2 ) = GNOMONRADIUS * GNOMONRADIUS;
+  PDATA( vllx ) = CDATA( w ) - ( GNOMONOFFSET + 2 * GNOMONRADIUS );
+  PDATA( vlly ) = GNOMONOFFSET;
+  PDATA( vurx ) = CDATA( w ) - GNOMONOFFSET;
+  PDATA( vury ) = GNOMONOFFSET + 2 * GNOMONRADIUS;
+
   /* gnomon image background coordinates for lrectread() and lrectwrite() */
-  PDATA(illx) = XSCREENCLIP(PDATA(vllx)) ;
-  PDATA(illy) = YSCREENCLIP(PDATA(vlly)) ;
-  PDATA(iurx) = XSCREENCLIP(PDATA(vurx)) ;
-  PDATA(iury) = YSCREENCLIP(PDATA(vury)) ;
+  PDATA( illx ) = XSCREENCLIP( PDATA( vllx ) );
+  PDATA( illy ) = YSCREENCLIP( PDATA( vlly ) );
+  PDATA( iurx ) = XSCREENCLIP( PDATA( vurx ) );
+  PDATA( iury ) = YSCREENCLIP( PDATA( vury ) );
 
-  PDATA(redrawmode) = redrawMode ;
+  PDATA( redrawmode ) = redrawMode;
 
-  if (redrawMode == tdmAuxEchoMode)
-    {
-      PRINT(("redraw mode is tdmAuxEchoMode, skipping configuration"));
-      _dxfPushViewport (CDATA(stack)) ;
-      _dxfSetViewport (CDATA(stack), (int) PDATA(vllx), (int) PDATA(vurx),
-		      (int) PDATA(vlly), (int) PDATA(vury)) ;
-      _dxf_SET_VIEWPORT (PORT_CTX, (int) PDATA(vllx), (int) PDATA(vurx),
-			(int) PDATA(vlly), (int) PDATA(vury)) ;
+  if ( redrawMode == tdmAuxEchoMode )
+  {
+    PRINT( ( "redraw mode is tdmAuxEchoMode, skipping configuration" ) );
+    _dxfPushViewport( CDATA( stack ) );
+    _dxfSetViewport( CDATA( stack ), (int)PDATA( vllx ), (int)PDATA( vurx ),
+                     (int)PDATA( vlly ), (int)PDATA( vury ) );
+    _dxf_SET_VIEWPORT( PORT_CTX, (int)PDATA( vllx ), (int)PDATA( vurx ),
+                       (int)PDATA( vlly ), (int)PDATA( vury ) );
 
-      _dxfPushViewMatrix(CDATA(stack)) ;
-      _dxf_SET_ORTHO_PROJECTION (PORT_CTX, 2, 1, 1, -1) ;
-    }
+    _dxfPushViewMatrix( CDATA( stack ) );
+    _dxf_SET_ORTHO_PROJECTION( PORT_CTX, 2, 1, 1, -1 );
+  }
   else
-      globeConfig (I, c, d, redrawMode) ;
+    globeConfig( I, c, d, redrawMode );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void
-viewerConfig (tdmInteractor I, int *c, int *d,
-	      tdmInteractorRedrawMode redrawMode)
+static void viewerConfig( tdmInteractor I, int *c, int *d,
+                          tdmInteractorRedrawMode redrawMode )
 {
-  DEFDATA(I,tdmRotateData) ;
+  DEFDATA( I, tdmRotateData );
 
-  ENTRY(("viewerConfig(0x%x, 0x%x, 0x%x, 0x%x)",
-	 I, c, d, redrawMode));
+  ENTRY( ( "viewerConfig(0x%x, 0x%x, 0x%x, 0x%x)", I, c, d, redrawMode ) );
 
   /* get current view matrix */
-  _dxfGetViewMatrix (CDATA(stack), CDATA(viewXfm)) ;
+  _dxfGetViewMatrix( CDATA( stack ), CDATA( viewXfm ) );
 
   /* virtual sphere radius is half of smallest window dimension */
-  if (CDATA(h) > CDATA(w))
-    {
-      PDATA(gradius) = CDATA(w)/2 ;
-      PDATA(gx) = PDATA(gradius) ;
-      PDATA(gy) = PDATA(gradius) + (CDATA(h) - CDATA(w))/2 ;
-    }
+  if ( CDATA( h ) > CDATA( w ) )
+  {
+    PDATA( gradius ) = CDATA( w ) / 2;
+    PDATA( gx ) = PDATA( gradius );
+    PDATA( gy ) = PDATA( gradius ) + ( CDATA( h ) - CDATA( w ) ) / 2;
+  }
   else
-    {
-      PDATA(gradius) = CDATA(h)/2 ;
-      PDATA(gy) = PDATA(gradius) ;
-      PDATA(gx) = PDATA(gradius) + (CDATA(w) - CDATA(h))/2 ;
-    }
+  {
+    PDATA( gradius ) = CDATA( h ) / 2;
+    PDATA( gy ) = PDATA( gradius );
+    PDATA( gx ) = PDATA( gradius ) + ( CDATA( w ) - CDATA( h ) ) / 2;
+  }
 
-  PDATA(g2) = PDATA(gradius)*PDATA(gradius) ;
+  PDATA( g2 ) = PDATA( gradius ) * PDATA( gradius );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
-
-static void
-RestoreConfig (tdmInteractor I,
-	       int OrigDisplayMode, int OrigBufferMode,
-	       tdmInteractorRedrawMode redrawMode)
+static void RestoreConfig( tdmInteractor I, int OrigDisplayMode,
+                           int OrigBufferMode,
+                           tdmInteractorRedrawMode redrawMode )
 {
-  float M[4][4] ;
-  int llx, lly, urx, ury ;
-  DEFDATA(I,tdmRotateData) ;
-  DEFPORT(I_PORT_HANDLE) ;
+  float M[4][4];
+  int llx, lly, urx, ury;
+  DEFDATA( I, tdmRotateData );
+  DEFPORT( I_PORT_HANDLE );
 
-  ENTRY(("RestoreConfig(0x%x, %d, %d, 0x%x)",
-	 I, OrigDisplayMode, OrigBufferMode, redrawMode));
+  ENTRY( ( "RestoreConfig(0x%x, %d, %d, 0x%x)", I, OrigDisplayMode,
+           OrigBufferMode, redrawMode ) );
 
   /* restore viewport */
-  _dxfPopViewport (CDATA(stack)) ;
-  _dxfGetViewport (CDATA(stack), &llx, &urx, &lly, &ury) ;
-  _dxf_SET_VIEWPORT (PORT_CTX, llx, urx, lly, ury) ;
+  _dxfPopViewport( CDATA( stack ) );
+  _dxfGetViewport( CDATA( stack ), &llx, &urx, &lly, &ury );
+  _dxf_SET_VIEWPORT( PORT_CTX, llx, urx, lly, ury );
 
-  if (PDATA(redrawmode) != tdmAuxEchoMode)
-    {
-      /* restore hardware projection matrix */
-      if (CDATA(projection))
-	  _dxf_SET_PERSPECTIVE_PROJECTION
-	      (PORT_CTX, CDATA(fov), CDATA(aspect),
-	       CDATA(Near), CDATA(Far)) ;
-      else
-	  _dxf_SET_ORTHO_PROJECTION
-	      (PORT_CTX, CDATA(width), CDATA(aspect),
-	       CDATA(Near), CDATA(Far)) ;
+  if ( PDATA( redrawmode ) != tdmAuxEchoMode )
+  {
+    /* restore hardware projection matrix */
+    if ( CDATA( projection ) )
+      _dxf_SET_PERSPECTIVE_PROJECTION( PORT_CTX, CDATA( fov ), CDATA( aspect ),
+                                       CDATA( Near ), CDATA( Far ) );
+    else
+      _dxf_SET_ORTHO_PROJECTION( PORT_CTX, CDATA( width ), CDATA( aspect ),
+                                 CDATA( Near ), CDATA( Far ) );
 
-      /* restore frame buffer configuration */
-      _dxf_BUFFER_RESTORE_CONFIG
-	  (PORT_CTX, OrigDisplayMode, OrigBufferMode, redrawMode) ;
+    /* restore frame buffer configuration */
+    _dxf_BUFFER_RESTORE_CONFIG( PORT_CTX, OrigDisplayMode, OrigBufferMode,
+                                redrawMode );
 
-      /* restore zbuffer usage */
-      _dxf_SET_ZBUFFER_STATUS (PORT_CTX, CDATA(zbuffer)) ;
-    }
+    /* restore zbuffer usage */
+    _dxf_SET_ZBUFFER_STATUS( PORT_CTX, CDATA( zbuffer ) );
+  }
 
   /* restore viewing/modeling hardware matrix */
-  _dxfPopViewMatrix(CDATA(stack)) ;
-  _dxfGetViewMatrix (CDATA(stack), M) ;
-  _dxf_LOAD_MATRIX (PORT_CTX, M) ;
+  _dxfPopViewMatrix( CDATA( stack ) );
+  _dxfGetViewMatrix( CDATA( stack ), M );
+  _dxf_LOAD_MATRIX( PORT_CTX, M );
 
-  EXIT((""));
+  EXIT( ( "" ) );
 }
 
 #if 0

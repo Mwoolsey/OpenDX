@@ -9,7 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _ResetDefinition_h
 #define _ResetDefinition_h
 
@@ -17,59 +16,62 @@
 
 #include "ToggleDefinition.h"
 
-
 //
 // Class name definition:
 //
-#define ClassResetDefinition	"ResetDefinition"
+#define ClassResetDefinition "ResetDefinition"
 
 //
-// Forward definitions 
+// Forward definitions
 //
-//class ParameterDefinition;
-//class Interactor;
+// class ParameterDefinition;
+// class Interactor;
 
 //
 // ResetDefinition class definition:
-//				
-class ResetDefinition : public ToggleDefinition 
+//
+class ResetDefinition : public ToggleDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
-  public:
-    //
-    // Constructor:
-    //
-    ResetDefinition() { }
+ public:
+  //
+  // Constructor:
+  //
+  ResetDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~ResetDefinition() { }
-	
-    //
-    // Allocate a new ResetDefinition.  
-    // This function is intended to be used as an allocator in
-    // theNDAllocatorDictionary.
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Destructor:
+  //
+  ~ResetDefinition()
+  {
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() 
-		{ return ClassResetDefinition; }
+  //
+  // Allocate a new ResetDefinition.
+  // This function is intended to be used as an allocator in
+  // theNDAllocatorDictionary.
+  //
+  static NodeDefinition *AllocateDefinition();
+
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char *getClassName()
+  {
+    return ClassResetDefinition;
+  }
 };
 
-
-#endif // _ResetDefinition_h
+#endif  // _ResetDefinition_h

@@ -10,18 +10,16 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "FileSelectorDefinition.h"
 #include "FileSelectorNode.h"
 
-Node *FileSelectorDefinition::newNode(Network *net, int inst)
+Node *FileSelectorDefinition::newNode( Network *net, int inst )
 {
-    InteractorNode *n = new FileSelectorNode(this, net, inst);
-    return n;
+  InteractorNode *n = new FileSelectorNode( this, net, inst );
+  return n;
 }
 
 NodeDefinition *FileSelectorDefinition::AllocateDefinition()
 {
-    return (NodeDefinition*) new FileSelectorDefinition();
+  return (NodeDefinition *)new FileSelectorDefinition();
 }
-

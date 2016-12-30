@@ -20,7 +20,9 @@
 #define DXD_ARCHNAME "linux"
 
 /* Copyright string placed on splash screen startup. */
-#define DXD_COPYRIGHT_STRING "Open Visualization Data Explorer\nMore Info at www.research.ibm.com/dx\nand www.opendx.org\nVersion - 4.4.4"
+#define DXD_COPYRIGHT_STRING                        \
+  "Open Visualization Data Explorer\nMore Info at " \
+  "www.research.ibm.com/dx\nand www.opendx.org\nVersion - 4.4.4"
 
 /* Modification Number */
 #define DXD_MODIFICATION 4
@@ -35,7 +37,7 @@
 #define DXD_VERSION_STRING "04.4.4000"
 
 /* Architecture exports */
-#define DXEXEC_EXP -Wl,-export-dynamic
+#define DXEXEC_EXP -Wl, -export - dynamic
 
 /* Architecture imports */
 /* #undef DXEXEC_IMP */

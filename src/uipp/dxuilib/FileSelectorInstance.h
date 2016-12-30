@@ -9,12 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _FileSelectorInstance_h
 #define _FileSelectorInstance_h
-
 
 #include "ValueInstance.h"
 
@@ -24,34 +20,38 @@ class FileSelectorDialog;
 //
 // Class name definition:
 //
-#define ClassFileSelectorInstance	"FileSelectorInstance"
-
+#define ClassFileSelectorInstance "FileSelectorInstance"
 
 //
 // Describes an instance of an interactor in a control Panel.
 //
-class FileSelectorInstance : public ValueInstance {
+class FileSelectorInstance : public ValueInstance
+{
 
-      friend class FileSelectorNode;
-      friend class FileSelectorDialog;
+  friend class FileSelectorNode;
+  friend class FileSelectorDialog;
 
-  private:
-    char 	*fileFilter;
+ private:
+  char *fileFilter;
 
-  protected:
-    void	setFileFilter(const char *filter);
+ protected:
+  void setFileFilter( const char *filter );
 
-  public:
-    FileSelectorInstance(FileSelectorNode *n);
-	
-    ~FileSelectorInstance(); 
-    boolean printAsJava (FILE* jf);
+ public:
+  FileSelectorInstance( FileSelectorNode *n );
 
-    const char *getFileFilter() { return this->fileFilter; }
+  ~FileSelectorInstance();
+  boolean printAsJava( FILE *jf );
 
-    const char *getClassName() 
-	{ return ClassFileSelectorInstance; }
+  const char *getFileFilter()
+  {
+    return this->fileFilter;
+  }
+
+  const char *getClassName()
+  {
+    return ClassFileSelectorInstance;
+  }
 };
 
-#endif // _FileSelectorInstance_h
-
+#endif  // _FileSelectorInstance_h

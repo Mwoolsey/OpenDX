@@ -9,59 +9,52 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _NoOpCommand_h
 #define _NoOpCommand_h
 
-
 #include "Command.h"
-
 
 //
 // Class name definition:
 //
-#define ClassNoOpCommand	"NoOpCommand"
-
+#define ClassNoOpCommand "NoOpCommand"
 
 //
 // NoOpCommand class definition:
-//				
+//
 class NoOpCommand : public Command
 {
-  protected:
-    //
-    // Does nothing;
-    //
-    virtual boolean doIt(CommandInterface *ci);
+ protected:
+  //
+  // Does nothing;
+  //
+  virtual boolean doIt( CommandInterface* ci );
 
-    //
-    // Undoes nothing;
-    //
-    virtual boolean undoIt();
+  //
+  // Undoes nothing;
+  //
+  virtual boolean undoIt();
 
-  public:
-    //
-    // Constructor:
-    //
-    NoOpCommand(const char*   name,
-		CommandScope* scope,
-		boolean       active);
+ public:
+  //
+  // Constructor:
+  //
+  NoOpCommand( const char* name, CommandScope* scope, boolean active );
 
-    //
-    // Destructor:
-    //
-    ~NoOpCommand(){}
+  //
+  // Destructor:
+  //
+  ~NoOpCommand()
+  {
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassNoOpCommand;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassNoOpCommand;
+  }
 };
 
-
-#endif // _NoOpCommand_h
+#endif  // _NoOpCommand_h

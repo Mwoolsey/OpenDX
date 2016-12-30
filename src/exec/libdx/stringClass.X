@@ -22,7 +22,7 @@ IMPLEMENTS Delete Copy
     					/* must be changed to match */
 struct string {
     struct object object;		/* object preamble */
-    char *string;			/* pointer to the string itself */
+    const char *string;			/* pointer to the string itself */
     char shortstr[IMBEDDED];		/* short strings are stored here */
 };
 

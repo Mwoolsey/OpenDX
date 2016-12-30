@@ -8,57 +8,65 @@
 
 #include <dxconfig.h>
 
-
 #ifndef _ImageFormatPSGreyEnc_h
 #define _ImageFormatPSGreyEnc_h
-
 
 #include "PostScriptImageFormat.h"
 
 //
 // Class name definition:
 //
-#define ClassImageFormatPSGreyEnc	"ImageFormatPSGreyEnc"
+#define ClassImageFormatPSGreyEnc "ImageFormatPSGreyEnc"
 
 //
 // SaveImageDialog class definition:
-//				
+//
 class ImageFormatPSGreyEnc : public PostScriptImageFormat
 {
-  private:
+ private:
+  static String DefaultResources[];
+  static boolean ClassInitialized;
 
-    static String  DefaultResources[];
-    static boolean ClassInitialized;
+ protected:
+  virtual void initialize();
 
-  protected:
+ public:
+  //
+  // Constructor:
+  //
+  ImageFormatPSGreyEnc( ImageFormatDialog* dialog );
 
-    virtual void	initialize();
+  static ImageFormat* Allocator( ImageFormatDialog* dialog )
+  {
+    return new ImageFormatPSGreyEnc( dialog );
+  }
 
-  public:
+  //
+  // Destructor:
+  //
+  ~ImageFormatPSGreyEnc();
 
-    //
-    // Constructor:
-    //
-    ImageFormatPSGreyEnc(ImageFormatDialog *dialog);
+  virtual const char* paramString()
+  {
+    return "eps gray";
+  }
+  virtual const char* menuString()
+  {
+    return "Grey PostScript (enc)";
+  }
+  virtual const char* fileExtension()
+  {
+    return ".epsf";
+  }
 
-    static ImageFormat* Allocator (ImageFormatDialog* dialog) 
-	{ return  new ImageFormatPSGreyEnc(dialog); }
-
-    //
-    // Destructor:
-    //
-    ~ImageFormatPSGreyEnc();
-
-    virtual const char*		paramString() { return "eps gray"; }
-    virtual const char*		menuString() { return "Grey PostScript (enc)"; }
-    virtual const char*		fileExtension() { return ".epsf"; }
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName() { return ClassImageFormatPSGreyEnc; }
-    virtual boolean isA(Symbol classname);
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassImageFormatPSGreyEnc;
+  }
+  virtual boolean isA( Symbol classname );
 };
 
-
-#endif // _ImageFormatPSGreyEnc_h
+#endif  // _ImageFormatPSGreyEnc_h

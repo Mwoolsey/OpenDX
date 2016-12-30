@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 #ifndef wsutils_c_h
 #define wsutils_c_h
 /******************************************************************************
@@ -21,7 +20,8 @@
  *
  ******************************************************************************/
 /*
- $Header: /src/master/dx/src/exec/hwrender/starbase/wsutils.h,v 1.3 1999/05/10 15:45:39 gda Exp $
+ $Header: /src/master/dx/src/exec/hwrender/starbase/wsutils.h,v 1.3 1999/05/10
+ 15:45:39 gda Exp $
 */
 
 /* This is the actual structure returned by the X server describing the
@@ -29,14 +29,13 @@
  */
 typedef struct
 {
-  VisualID	visualID;		/* The VisualID of the overlay visual */
-  int		transparentType;	/* Can be None, TransparentPixel or
-					 * TransparentMask */
-  int		value;			/* Pixel value */
-  int		layer;			/* Overlay planes will always be in
-					 * layer 1 */
+  VisualID visualID;   /* The VisualID of the overlay visual */
+  int transparentType; /* Can be None, TransparentPixel or
+                        * TransparentMask */
+  int value; /* Pixel value */
+  int layer; /* Overlay planes will always be in
+              * layer 1 */
 } OverlayVisualPropertyRec;
-
 
 /* This is structure also describes the SERVER_OVERLAY_VISUAL property, but
  * should be more useful than the one actually returned by the X server
@@ -45,49 +44,45 @@ typedef struct
  */
 typedef struct
 {
-  XVisualInfo	*pOverlayVisualInfo;	/* Pointer to the XVisualInfo struct */
-  int		transparentType;	/* Can be None, TransparentPixel or
-					 * TransparentMask */
-  int		value;			/* Pixel value */
-  int		layer;			/* Overlay planes will always be in
-					 * layer 1 */
+  XVisualInfo *pOverlayVisualInfo; /* Pointer to the XVisualInfo struct */
+  int transparentType;             /* Can be None, TransparentPixel or
+            * TransparentMask */
+  int value; /* Pixel value */
+  int layer; /* Overlay planes will always be in
+              * layer 1 */
 } OverlayInfo;
-
 
 /* These macros are the values of the "transparentType" above: */
 #ifndef None
 #define None 0
 #endif
 #ifndef TransparentPixel
-#define TransparentPixel	1
+#define TransparentPixel 1
 #endif
-
 
 /* These macros define how flexible a program is when it requests a window's
  * creation with either the CreateImagePlanesWindow() or
  * CreateOverlayPlanesWindow():
  */
 #ifndef NOT_FLEXIBLE
-#define NOT_FLEXIBLE		0
-#define FLEXIBLE		1
+#define NOT_FLEXIBLE 0
+#define FLEXIBLE 1
 #endif
-
 
 /* These macros define the values of the "sbCmapHint" parameter of the
  * CreateImagePlanesWindow():
  */
 #ifndef SB_CMAP_TYPE_NORMAL
-#define SB_CMAP_TYPE_NORMAL	1
+#define SB_CMAP_TYPE_NORMAL 1
 #endif
 
 #ifndef SB_CMAP_TYPE_MONOTONIC
-#define SB_CMAP_TYPE_MONOTONIC	2
+#define SB_CMAP_TYPE_MONOTONIC 2
 #endif
 
 #ifndef SB_CMAP_TYPE_FULL
-#define SB_CMAP_TYPE_FULL	4
+#define SB_CMAP_TYPE_FULL 4
 #endif
-
 
 /******************************************************************************
  *
@@ -113,27 +108,26 @@ typedef struct
 
 extern int GetXVisualInfo(
 #if NeedFunctionPrototypes
-    Display	*display,		/* Which X server (aka "display"). */
-    int		screen,			/* Which screen of the "display". */
-    int		*transparentOverlays,	/* Non-zero if there's at least one
-					 * overlay visual and if at least one
-					 * of those supports a transparent
-					 * pixel. */
-    int		*numVisuals,		/* Number of XVisualInfo struct's
-					 * pointed to to by pVisuals. */
-    XVisualInfo	**pVisuals,		/* All of the device's visuals. */
-    int		*numOverlayVisuals,	/* Number of OverlayInfo's pointed
-					 * to by pOverlayVisuals.  If this
-					 * number is zero, the device does
-					 * not have overlay planes. */
-    OverlayInfo	**pOverlayVisuals,	/* The device's overlay plane visual
-					 * information. */
-    int		*numImageVisuals,	/* Number of XVisualInfo's pointed
-					 * to by pImageVisuals. */
-    XVisualInfo	***pImageVisuals	/* The device's image visuals. */
+    Display *display,         /* Which X server (aka "display"). */
+    int screen,               /* Which screen of the "display". */
+    int *transparentOverlays, /* Non-zero if there's at least one
+                               * overlay visual and if at least one
+                               * of those supports a transparent
+                               * pixel. */
+    int *numVisuals, /* Number of XVisualInfo struct's
+                      * pointed to to by pVisuals. */
+    XVisualInfo **pVisuals, /* All of the device's visuals. */
+    int *numOverlayVisuals, /* Number of OverlayInfo's pointed
+                             * to by pOverlayVisuals.  If this
+                             * number is zero, the device does
+                             * not have overlay planes. */
+    OverlayInfo **pOverlayVisuals, /* The device's overlay plane visual
+                                    * information. */
+    int *numImageVisuals, /* Number of XVisualInfo's pointed
+                           * to by pImageVisuals. */
+    XVisualInfo ***pImageVisuals /* The device's image visuals. */
 #endif
-		    );
-
+    );
 
 /******************************************************************************
  *
@@ -145,12 +139,10 @@ extern int GetXVisualInfo(
 
 extern void FreeXVisualInfo(
 #if NeedFunctionPrototypes
-    XVisualInfo	*pVisuals,
-    OverlayInfo	*pOverlayVisuals,
-    XVisualInfo	**pImageVisuals
+    XVisualInfo *pVisuals, OverlayInfo *pOverlayVisuals,
+    XVisualInfo **pImageVisuals
 #endif
-		     );
-
+    );
 
 /******************************************************************************
  *
@@ -174,22 +166,21 @@ extern void FreeXVisualInfo(
 
 extern int FindImagePlanesVisual(
 #if NeedFunctionPrototypes
-    Display	*display,		/* Which X server (aka "display"). */
-    int		screen,			/* Which screen of the "display". */
-    int		numImageVisuals,	/* Number of XVisualInfo's pointed
-					 * to by pImageVisuals. */
-    XVisualInfo	**pImageVisuals,	/* The device's image visuals. */
-    int		sbCmapHint,		/* What Starbase cmap modes will be
-					 * used with the visual.  NOTE: This
-					 * is a mask of the possible values. */
-    int		depthHint,		/* Desired depth. */
-    int		depthFlexibility,	/* How much the actual value in
-					 * "depthHint" is desired. */
-    Visual	**pImageVisualToUse,	/* The screen's image visual to use. */
-    int		*depthObtained		/* Actual depth of the visual. */
+    Display *display,    /* Which X server (aka "display"). */
+    int screen,          /* Which screen of the "display". */
+    int numImageVisuals, /* Number of XVisualInfo's pointed
+                          * to by pImageVisuals. */
+    XVisualInfo **pImageVisuals, /* The device's image visuals. */
+    int sbCmapHint,              /* What Starbase cmap modes will be
+        * used with the visual.  NOTE: This
+        * is a mask of the possible values. */
+    int depthHint,        /* Desired depth. */
+    int depthFlexibility, /* How much the actual value in
+                           * "depthHint" is desired. */
+    Visual **pImageVisualToUse, /* The screen's image visual to use. */
+    int *depthObtained          /* Actual depth of the visual. */
 #endif
-				     );
-
+    );
 
 /******************************************************************************
  *
@@ -222,25 +213,24 @@ extern int FindImagePlanesVisual(
 
 extern int FindOverlayPlanesVisual(
 #if NeedFunctionPrototypes
-    Display	*display,		/* Which X server (aka "display"). */
-    int		screen,			/* Which screen of the "display". */
-    int		numOverlayVisuals,	/* Number of OverlayInfo's pointed
-					 * to by pOverlayVisuals. */
-    OverlayInfo	*pOverlayVisuals,	/* The device's overlay plane visual
-					 * information. */
-    int		depthHint,		/* Desired depth. */
-    int		depthFlexibility,	/* How much the actual value in
-					 * "depthHint" is desired. */
-    int		transparentBackground,	/* Non-zero if the visual must have
-					 * a transparent color. */
-    Visual	**pOverlayVisualToUse,	/* The screen's overlay visual to
-					 * use. */
-    int		*depthObtained,		/* Actual depth of the visual. */
-    int		*transparentColor	/* The transparent color the program
-					 * can use with the visual. */
+    Display *display,      /* Which X server (aka "display"). */
+    int screen,            /* Which screen of the "display". */
+    int numOverlayVisuals, /* Number of OverlayInfo's pointed
+                            * to by pOverlayVisuals. */
+    OverlayInfo *pOverlayVisuals, /* The device's overlay plane visual
+                                   * information. */
+    int depthHint,        /* Desired depth. */
+    int depthFlexibility, /* How much the actual value in
+                           * "depthHint" is desired. */
+    int transparentBackground, /* Non-zero if the visual must have
+                                * a transparent color. */
+    Visual **pOverlayVisualToUse, /* The screen's overlay visual to
+                                   * use. */
+    int *depthObtained,   /* Actual depth of the visual. */
+    int *transparentColor /* The transparent color the program
+                           * can use with the visual. */
 #endif
-				);
-
+    );
 
 /******************************************************************************
  *
@@ -263,27 +253,26 @@ extern int FindOverlayPlanesVisual(
 
 extern int CreateImagePlanesWindow(
 #if NeedFunctionPrototypes
-    Display	*display,		/* Which X server (aka "display"). */
-    int		screen,			/* Which screen of the "display". */
-    Window	parentWindow,		/* Window ID of the parent window for
-					 * the created window. */
-    int		windowX,		/* Desired X coord. of the window. */
-    int		windowY,		/* Desired Y coord of the window. */
-    int		windowWidth,		/* Desired width of the window. */
-    int		windowHeight,		/* Desired height of the window. */
-    int		windowDepth,		/* Desired depth of the window. */
-    Visual	*pImageVisualToUse,	/* The window's image planes visual. */
-    int		argc,			/* Program's argc parameter. */
-    char	*argv[],		/* Program's argv parameter. */
-    char	*windowName,		/* Name to put on window's border. */
-    char	*iconName,		/* Name to put on window's icon. */
-    Window	*imageWindow,		/* Window ID of the created window. */
-    Colormap	*imageColormap,		/* The window's colormap. */
-    int		*mustFreeImageColormap	/* Non-zero if the program must call
-					 * XFreeColormap() for imageColormap. */
+    Display *display,    /* Which X server (aka "display"). */
+    int screen,          /* Which screen of the "display". */
+    Window parentWindow, /* Window ID of the parent window for
+                          * the created window. */
+    int windowX,               /* Desired X coord. of the window. */
+    int windowY,               /* Desired Y coord of the window. */
+    int windowWidth,           /* Desired width of the window. */
+    int windowHeight,          /* Desired height of the window. */
+    int windowDepth,           /* Desired depth of the window. */
+    Visual *pImageVisualToUse, /* The window's image planes visual. */
+    int argc,                  /* Program's argc parameter. */
+    char *argv[],              /* Program's argv parameter. */
+    char *windowName,          /* Name to put on window's border. */
+    char *iconName,            /* Name to put on window's icon. */
+    Window *imageWindow,       /* Window ID of the created window. */
+    Colormap *imageColormap,   /* The window's colormap. */
+    int *mustFreeImageColormap /* Non-zero if the program must call
+                                * XFreeColormap() for imageColormap. */
 #endif
-				);
-
+    );
 
 /******************************************************************************
  *
@@ -306,29 +295,29 @@ extern int CreateImagePlanesWindow(
 
 int CreateOverlayPlanesWindow(
 #if NeedFunctionPrototypes
-    Display	*display,		/* Which X server (aka "display"). */
-    int		screen,			/* Which screen of the "display". */
-    Window	parentWindow,		/* Window ID of the parent window for
-					 * the created window. */
-    int		windowX,		/* Desired X coord. of the window. */
-    int		windowY,		/* Desired Y coord of the window. */
-    int		windowWidth,		/* Desired width of the window. */
-    int		windowHeight,		/* Desired height of the window. */
-    int		windowDepth,		/* Desired depth of the window. */
-    Visual	*pOverlayVisualToUse,	/* The window's overlay planes visual.*/
-    int		argc,			/* Program's argc parameter. */
-    char	*argv[],		/* Program's argv parameter. */
-    char	*windowName,		/* Name to put on window's border. */
-    char	*iconName,		/* Name to put on window's icon. */
-    int		transparentBackground,	/* Non-zero if the window's background
-					 * should be a transparent color. */
-    int		*transparentColor,	/* The transparent color to use as the
-					 * window's background. */
-    Window	*overlayWindow,		/* Window ID of the created window. */
-    Colormap	*overlayColormap,	/* The window's colormap. */
-    int		*mustFreeOverlayColormap/* Non-zero if the program must call
-					  * XFreeColormap() for
-					  * overlayColormap. */
+    Display *display,    /* Which X server (aka "display"). */
+    int screen,          /* Which screen of the "display". */
+    Window parentWindow, /* Window ID of the parent window for
+                          * the created window. */
+    int windowX,                 /* Desired X coord. of the window. */
+    int windowY,                 /* Desired Y coord of the window. */
+    int windowWidth,             /* Desired width of the window. */
+    int windowHeight,            /* Desired height of the window. */
+    int windowDepth,             /* Desired depth of the window. */
+    Visual *pOverlayVisualToUse, /* The window's overlay planes visual.*/
+    int argc,                    /* Program's argc parameter. */
+    char *argv[],                /* Program's argv parameter. */
+    char *windowName,            /* Name to put on window's border. */
+    char *iconName,              /* Name to put on window's icon. */
+    int transparentBackground,   /* Non-zero if the window's background
+                              * should be a transparent color. */
+    int *transparentColor, /* The transparent color to use as the
+                            * window's background. */
+    Window *overlayWindow,       /* Window ID of the created window. */
+    Colormap *overlayColormap,   /* The window's colormap. */
+    int *mustFreeOverlayColormap /* Non-zero if the program must call
+                                   * XFreeColormap() for
+                                   * overlayColormap. */
 #endif
-				);
+    );
 #endif /*  wsutils_c_h */

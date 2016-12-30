@@ -9,8 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _DXDragSource_h
 #define _DXDragSource_h
 
@@ -40,48 +38,53 @@ class Network;
 class DXDragSource : public DragSource
 {
 
-  private:
-	PrintType printType;
-	static boolean DXDragSourceClassInitialized;
+ private:
+  PrintType printType;
+  static boolean DXDragSourceClassInitialized;
 
-  protected:
-	//
-	// invoke createNetFiles(), and then grab the bytes and ship
-	// them.  This operation would have to be duplicated by
-	// any WorkSpace which wanted to ship .net,.cfg across.
-	//
-	boolean convert (Network *, char *, XtPointer*, unsigned long*, long);
+ protected:
+  //
+  // invoke createNetFiles(), and then grab the bytes and ship
+  // them.  This operation would have to be duplicated by
+  // any WorkSpace which wanted to ship .net,.cfg across.
+  //
+  boolean convert( Network *, char *, XtPointer *, unsigned long *, long );
 
-	//
-	// Create the .net and .cfg files and the header string.
-	// return the names of the files.
-	//
-	virtual boolean createNetFiles (Network *net, FILE *netf, char *cfgFile);
+  //
+  // Create the .net and .cfg files and the header string.
+  // return the names of the files.
+  //
+  virtual boolean createNetFiles( Network *net, FILE *netf, char *cfgFile );
 
-  public:
-	// The initialize method grabs a chunk of memory for the
-	// transfers.  Always reuse the same peice of memory.  This
-	// avoids leaks.
-	virtual void initialize();
+ public:
+  // The initialize method grabs a chunk of memory for the
+  // transfers.  Always reuse the same peice of memory.  This
+  // avoids leaks.
+  virtual void initialize();
 
-	void setPrintType (PrintType printType) { this->printType = printType; }
+  void setPrintType( PrintType printType )
+  {
+    this->printType = printType;
+  }
 
-	//
-	// Constructor
-	// PrintCut means a dnd operation in the vpe.  As of 2/95, this class
-	// was used by EditorWorkSpace and ControlPanelWorkSpace. The later
-	// wants to set PrintType to PrinCPBuffer - an enum recognized by
-	// various members of Network.
-	//
-	DXDragSource (PrintType = PrintCut);
+  //
+  // Constructor
+  // PrintCut means a dnd operation in the vpe.  As of 2/95, this class
+  // was used by EditorWorkSpace and ControlPanelWorkSpace. The later
+  // wants to set PrintType to PrinCPBuffer - an enum recognized by
+  // various members of Network.
+  //
+  DXDragSource( PrintType = PrintCut );
 
-	//
-	// Destructor
-	//
-	~DXDragSource ();
+  //
+  // Destructor
+  //
+  ~DXDragSource();
 
-	const char* getClassName() { return ClassDXDragSource; }
+  const char *getClassName()
+  {
+    return ClassDXDragSource;
+  }
 };
 
-
-#endif // _DXDragSource_h
+#endif  // _DXDragSource_h

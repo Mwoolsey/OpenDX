@@ -9,80 +9,74 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _ColormapNBinsDialog_h
 #define _ColormapNBinsDialog_h
-
 
 #include "Dialog.h"
 
 //
 // Class name definition:
 //
-#define ClassColormapNBinsDialog	"ColormapNBinsDialog"
+#define ClassColormapNBinsDialog "ColormapNBinsDialog"
 
 class ColormapEditor;
 
 //
 // ColormapNBinsDialog class definition:
-//				
+//
 
 class ColormapNBinsDialog : public Dialog
 {
-  private:
-    //
-    // Private member data:
-    //
-    static Boolean ClassInitialized;
+ private:
+  //
+  // Private member data:
+  //
+  static Boolean ClassInitialized;
 
-    boolean okCallback(Dialog *dialog);
+  boolean okCallback( Dialog* dialog );
 
-  protected:
-    //
-    // Protected member data:
-    //
-    static String  DefaultResources[];
+ protected:
+  //
+  // Protected member data:
+  //
+  static String DefaultResources[];
 
-    ColormapEditor* editor;
+  ColormapEditor* editor;
 
-    Widget label;
-    Widget nbinsstepper;
+  Widget label;
+  Widget nbinsstepper;
 
-    Widget createDialog(Widget);
+  Widget createDialog( Widget );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-  public:
+ public:
+  virtual void post();
 
-    virtual void post();
+  //
+  // Constructor:
+  //
+  ColormapNBinsDialog( Widget parent, ColormapEditor* editor );
 
-    //
-    // Constructor:
-    //
-    ColormapNBinsDialog(Widget parent,ColormapEditor* editor);
+  //
+  // Destructor:
+  //
+  ~ColormapNBinsDialog();
 
-    //
-    // Destructor:
-    //
-    ~ColormapNBinsDialog();
+  void setStepper();
 
-    void        setStepper();
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassColormapNBinsDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassColormapNBinsDialog;
+  }
 };
 
-
-#endif // _ColormapNBinsDialog_h
+#endif  // _ColormapNBinsDialog_h

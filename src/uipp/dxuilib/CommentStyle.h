@@ -8,9 +8,6 @@
 
 #include <dxconfig.h>
 
-
-
-
 #ifndef _CommentStyle_h
 #define _CommentStyle_h
 
@@ -20,37 +17,39 @@
 
 class LabelDecorator;
 
-class CommentStyle: public Base {
-  private:
+class CommentStyle : public Base
+{
+ private:
+ protected:
+  CommentStyle() {};
+  ~CommentStyle() {};
 
-  protected:
+  //
+  // improve the performance of parsing
+  //
+  static char* ParseBuffer;
+  static int ParseBufferNext;
+  static int ParseBufferSize;
 
-    CommentStyle(){};
-    ~CommentStyle(){};
+  static void InitParseBuffer( int );
+  static void AppendParseBuffer( const char* );
 
-    //
-    // improve the performance of parsing
-    //
-    static char* ParseBuffer;
-    static int   ParseBufferNext;
-    static int   ParseBufferSize;
+  boolean parseComment( const char*, const char*, int );
+  boolean printComment( FILE* );
 
-    static void InitParseBuffer(int);
-    static void AppendParseBuffer(const char*);
+  virtual const char* getPrintableText() = 0;
+  virtual void setPrintableText( const char* ) = 0;
 
-    boolean parseComment (const char*, const char*, int);
-    boolean printComment (FILE*);
+ public:
+  virtual boolean parseComment( LabelDecorator*, const char*, const char*,
+                                int ) = 0;
+  virtual boolean printComment( LabelDecorator*, FILE* ) = 0;
+  virtual const char* getKeyword() = 0;
 
-    virtual const char* getPrintableText()=0;
-    virtual void        setPrintableText(const char*)=0;
-
-  public:
-    virtual boolean parseComment (LabelDecorator*, const char*, const char*, int)=0;
-    virtual boolean printComment (LabelDecorator*, FILE*)=0;
-    virtual const char* getKeyword()=0;
-
-    const char* getClassName() { return ClassCommentStyle; }
+  const char* getClassName()
+  {
+    return ClassCommentStyle;
+  }
 };
 
 #endif  // _CommentStyle_h
-

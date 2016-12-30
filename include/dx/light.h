@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -24,8 +23,8 @@ scene and transformed along with other objects in the scene, changing
 for example their position.
 */
 
-Light DXNewDistantLight(Vector direction, RGBColor color);
-Light DXNewCameraDistantLight(Vector direction, RGBColor color);
+Light DXNewDistantLight( Vector direction, RGBColor color );
+Light DXNewCameraDistantLight( Vector direction, RGBColor color );
 /**
 \index{DXNewDistantLight}
 Creates a light object representing a point light source at infinity
@@ -33,8 +32,8 @@ in the specified direction.  Returns the light, or returns null and
 sets the error code to indicate an error.
 **/
 
-Light DXQueryDistantLight(Light l, Vector *direction, RGBColor *color);
-Light DXQueryCameraDistantLight(Light l, Vector *direction, RGBColor *color);
+Light DXQueryDistantLight( Light l, Vector *direction, RGBColor *color );
+Light DXQueryCameraDistantLight( Light l, Vector *direction, RGBColor *color );
 /**
 \index{DXQueryDistantLight}
 Determines whether {\tt l} is a distant light and returns the
@@ -43,7 +42,7 @@ and {\tt *color}.  Returns {\tt l}, or returns null but does not set
 the error code if {\tt l} is not a distant light.
 **/
 
-Light DXNewAmbientLight(RGBColor color);
+Light DXNewAmbientLight( RGBColor color );
 /**
 \index{DXNewAmbientLight}
 Creates a light object representing an ambient light source.  Returns
@@ -51,7 +50,7 @@ the light, or returns null and sets the error code to indicate an
 error.
 **/
 
-Light DXQueryAmbientLight(Light l, RGBColor *color);
+Light DXQueryAmbientLight( Light l, RGBColor *color );
 /**
 \index{DXQueryAmbientLight}
 Determines whether {\tt l} is an ambient light and returns the
@@ -62,6 +61,6 @@ Returns {\tt l}, or returns null but does not set the error code if
 
 #endif /* _DXI_LIGHT_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

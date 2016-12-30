@@ -9,135 +9,123 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _PrintProgramDialog_h
 #define _PrintProgramDialog_h
-
 
 #include "Dialog.h"
 //#include "Application.h"
 
-
 //
 // Class name definition:
 //
-#define ClassPrintProgramDialog	"PrintProgramDialog"
+#define ClassPrintProgramDialog "PrintProgramDialog"
 
 class EditorWindow;
 class Dialog;
 
-extern "C" void PrintProgramDialog_ButtonCB(Widget w,
-				    XtPointer clientData,
-				    XtPointer callData);
-extern "C" void PrintProgramDialog_ToFileToggleCB(Widget w,
-				    XtPointer clientData,
-				    XtPointer callData);
+extern "C" void PrintProgramDialog_ButtonCB( Widget w, XtPointer clientData,
+                                             XtPointer callData );
+extern "C" void PrintProgramDialog_ToFileToggleCB( Widget w,
+                                                   XtPointer clientData,
+                                                   XtPointer callData );
 //
 // PrintProgramDialog class definition:
-//				
+//
 class PrintProgramDialog : public Dialog
 {
-   private:
+ private:
+  static boolean ClassInitialized;
+  static void ConfirmationCancel( void *data );
+  static void ConfirmationOk( void *data );
 
-    static boolean ClassInitialized;
-    static void ConfirmationCancel(void *data);
-    static void ConfirmationOk(void *data);
+  //
+  // Handle this->toFileToggle value changes.
+  //
+  friend void PrintProgramDialog_ToFileToggleCB( Widget w, XtPointer clientData,
+                                                 XtPointer callData );
+  //
+  // Handles the fileSelectButton callbacks and causes the
+  // printProgramFileDialog  to be created if necessary and then posted.
+  //
+  friend void PrintProgramDialog_ButtonCB( Widget w, XtPointer clientData,
+                                           XtPointer callData );
 
+ protected:
+  static String DefaultResources[];
 
-    //
-    // Handle this->toFileToggle value changes.
-    //
-    friend void PrintProgramDialog_ToFileToggleCB(Widget w,
-				    XtPointer clientData,
-				    XtPointer callData);
-    //
-    // Handles the fileSelectButton callbacks and causes the 
-    // printProgramFileDialog  to be created if necessary and then posted.
-    //
-    friend void PrintProgramDialog_ButtonCB(Widget w,
-				    XtPointer clientData,
-				    XtPointer callData);
+  EditorWindow *editor;
+  Dialog *printProgramFileDialog;
+  Widget printerName;
+  Widget labelParamsToggle;
+  Widget toFileToggle;
+  Widget fileName;
+  Widget fileSelectButton;
 
-  protected:
-    static String  DefaultResources[];
+  virtual Widget createDialog( Widget parent );
+  virtual boolean okCallback( Dialog *d );
 
-    EditorWindow *editor;
-    Dialog	*printProgramFileDialog; 
-    Widget	printerName;
-    Widget	labelParamsToggle;
-    Widget	toFileToggle;
-    Widget	fileName;
-    Widget	fileSelectButton;
+  //
+  // Set the sensitivity of the widgets based on the toFileToggle
+  // state.
+  //
+  void setSensitivity();
 
-    virtual Widget createDialog(Widget parent);
-    virtual boolean okCallback(Dialog *d);
+  //
+  // Opens the PostScript file selection dialog.
+  //
+  void postFileSelector();
 
-    //
-    // Set the sensitivity of the widgets based on the toFileToggle
-    // state.
-    //
-    void setSensitivity();
+  boolean printProgram();
 
-    //
-    // Opens the PostScript file selection dialog.
-    //
-    void postFileSelector();
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-    boolean printProgram(); 
+ public:
+  //
+  // Constructor:
+  //
+  PrintProgramDialog( EditorWindow *e );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Destructor:
+  //
+  ~PrintProgramDialog();
 
-  public:
-    //
-    // Constructor:
-    //
-    PrintProgramDialog( EditorWindow *e);
+  //
+  // Call the superclass method and then install a default file name
+  // based on the name of the network associated with our editor.
+  //
+  virtual void manage();
 
+  //
+  // Set the name of the file as displayed in the fileName text widget.
+  // Text is always right justified.
+  //
+  void setFileName( const char *filename );
 
-    //
-    // Destructor:
-    //
-    ~PrintProgramDialog();
+  //
+  // Return TRUE if the toFileToggle is set indicating that we
+  // should print to a file instead of the printer.
+  //
+  boolean isPrintingToFile();
 
-    //
-    // Call the superclass method and then install a default file name
-    // based on the name of the network associated with our editor.
-    //
-    virtual void manage();
+  //
+  // Return TRUE if the labelParamsToggle is set indicating that we
+  // should include parameter labels.
+  //
+  boolean isLabelingParams();
 
-    //
-    // Set the name of the file as displayed in the fileName text widget.
-    // Text is always right justified.
-    //
-    void setFileName(const char *filename);
-
-    //
-    // Return TRUE if the toFileToggle is set indicating that we
-    // should print to a file instead of the printer.
-    //
-    boolean isPrintingToFile();
-
-    //
-    // Return TRUE if the labelParamsToggle is set indicating that we
-    // should include parameter labels.
-    //
-    boolean isLabelingParams();
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassPrintProgramDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassPrintProgramDialog;
+  }
 };
 
-
-#endif // _PrintProgramDialog_h
+#endif  // _PrintProgramDialog_h

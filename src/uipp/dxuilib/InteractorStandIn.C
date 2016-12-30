@@ -9,9 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "InteractorNode.h"
 #include "InteractorStandIn.h"
 #include "Interactor.h"
@@ -21,34 +18,33 @@
 //
 // Static allocator found in theSIAllocatorDictionary
 //
-StandIn *InteractorStandIn::AllocateStandIn(WorkSpace *w, Node *node)
+StandIn *InteractorStandIn::AllocateStandIn( WorkSpace *w, Node *node )
 {
-    StandIn *si = new InteractorStandIn(w,node);
-    si->createStandIn();
-    return si;
+  StandIn *si = new InteractorStandIn( w, node );
+  si->createStandIn();
+  return si;
 }
 //
 // Called when the StandIn has been selected by the Editor.
 //
-void InteractorStandIn::handleSelectionChange(boolean selected)
+void InteractorStandIn::handleSelectionChange( boolean selected )
 {
-    int i;
-    Node *n = this->node;
-    Network *net = n->getNetwork();
-    ControlPanel *cp;
+  int i;
+  Node *n = this->node;
+  Network *net = n->getNetwork();
+  ControlPanel *cp;
 
-    //
-    // Tell all the network's control panel's that the selection
-    // has changed.
-    //
-    for (i=1 ; (cp = net->getPanelByIndex(i)) ; i++) {
-	cp->handleNodeStatusChange(node, selected ? 
-				Interactor::InteractorSelected : 
-				Interactor::InteractorDeselected);
-    }
+  //
+  // Tell all the network's control panel's that the selection
+  // has changed.
+  //
+  for ( i = 1; ( cp = net->getPanelByIndex( i ) ); i++ )
+  {
+    cp->handleNodeStatusChange( node, selected
+                                          ? Interactor::InteractorSelected
+                                          : Interactor::InteractorDeselected );
+  }
 
-    // And finally, call the super class's method. 
-    this->StandIn::handleSelectionChange(selected);
+  // And finally, call the super class's method.
+  this->StandIn::handleSelectionChange( selected );
 }
-
-

@@ -9,8 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #include "ImageDefinition.h"
 #include "ImageNode.h"
 #include "ImageCDB.h"
@@ -18,25 +16,22 @@
 
 NodeDefinition *ImageDefinition::AllocateDefinition()
 {
-    return new ImageDefinition;
+  return new ImageDefinition;
 }
 
-
-ImageDefinition::ImageDefinition() : 
-    NodeDefinition()
+ImageDefinition::ImageDefinition() : NodeDefinition()
 {
-    this->defaultInternalCacheability = InternalsFullyCached;
+  this->defaultInternalCacheability = InternalsFullyCached;
 }
 
 void ImageDefinition::finishDefinition()
 {
 }
 
-
-Node *ImageDefinition::newNode(Network *net, int instance)
+Node *ImageDefinition::newNode( Network *net, int instance )
 {
-    ImageNode *d = new ImageNode(this, net, instance);
-    return d;
+  ImageNode *d = new ImageNode( this, net, instance );
+  return d;
 }
 
 //
@@ -44,6 +39,5 @@ Node *ImageDefinition::newNode(Network *net, int instance)
 //
 CDBAllocator ImageDefinition::getCDBAllocator()
 {
-   return ImageCDB::AllocateConfigurationDialog;
+  return ImageCDB::AllocateConfigurationDialog;
 }
-

@@ -6,18 +6,18 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dxmods/macroutil.h,v 1.1 2000/08/24 20:04:40 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dxmods/macroutil.h,v 1.1 2000/08/24 20:04:40
+ * davidt Exp $
  */
 
 #include <dxconfig.h>
 
-#ifndef  _MACROUTIL_H_
-#define  _MACROUTIL_H_
+#ifndef _MACROUTIL_H_
+#define _MACROUTIL_H_
 
 #include <dx/dx.h>
 
-Error m_MacroStart(Object *, Object *);
-Error m_MacroEnd(Object *, Object *);
+Error m_MacroStart( Object *, Object * );
+Error m_MacroEnd( Object *, Object * );
 
 #endif /* _MACROUTIL_H_ */
-

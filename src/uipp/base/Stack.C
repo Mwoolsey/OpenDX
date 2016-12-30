@@ -9,35 +9,29 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-#include <string.h> 
+#include <string.h>
 #include "Stack.h"
 
-
-void Stack::push(const void *datum)
+void Stack::push( const void *datum )
 {
-    this->insertElement(datum,1);  
+  this->insertElement( datum, 1 );
 }
 
 const void *Stack::peek()
 {
-    return this->getElement(1);
+  return this->getElement( 1 );
 }
 const void *Stack::pop()
 {
-    const void *datum = this->peek();
+  const void *datum = this->peek();
 
-    if (this->deleteElement(1))
-	return datum;
-    else
-	return NULL;
+  if ( this->deleteElement( 1 ) )
+    return datum;
+  else
+    return NULL;
 }
-    
+
 void Stack::clear()
 {
-    this->List::clear();
+  this->List::clear();
 }
-
-
-
-

@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/xgl/hwTetraDraw.c,v $
  $Log: hwTetraDraw.c,v $
@@ -44,16 +43,16 @@
  *
  * Revision 7.1  94/01/18  19:00:14  svs
  * changes since release 2.0.1
- * 
+ *
  * Revision 6.1  93/11/16  10:26:19  svs
  * ship level code, release 2.0
- * 
+ *
  * Revision 1.1  93/06/29  10:01:45  tjm
  * Initial revision
- * 
+ *
  * Revision 5.4  93/05/13  22:51:39  mjh
  * reimplement to fix wireframe and merge cube and tetra
- * 
+ *
 \*---------------------------------------------------------------------------*/
 
 #include <stdio.h>
@@ -65,37 +64,49 @@
 #include "hwMemory.h"
 #include "hwCacheUtilXGL.h"
 
-#define Polyhedra                 Tetra
-#define CpfPolyhedra             "CpfTetra"
-#define CpcPolyhedra             "CpcTetra"
-#define CpvPolyhedra             "CpvTetra"
-#define _dxfPolyhedraDraw        _dxfTetraDraw
+#define Polyhedra Tetra
+#define CpfPolyhedra "CpfTetra"
+#define CpcPolyhedra "CpcTetra"
+#define CpvPolyhedra "CpvTetra"
+#define _dxfPolyhedraDraw _dxfTetraDraw
 
-#define VerticesPerPolyhedron     4
-#define FacetsPerPolyhedron       4
-#define VerticesPerFacet          3
+#define VerticesPerPolyhedron 4
+#define FacetsPerPolyhedron 4
+#define VerticesPerFacet 3
 
 #define IGNORE 0
 #define FacetFlags XGL_FACET_FLAG_SIDES_ARE_3 | XGL_FACET_FLAG_SHAPE_CONVEX
-    
-#define LoadPolyhedronPoints()         \
-{                                      \
-  LoadFacetPoints(IGNORE,0,1,2); ds++; \
-  LoadFacetPoints(IGNORE,0,2,3); ds++; \
-  LoadFacetPoints(IGNORE,0,3,1); ds++; \
-  LoadFacetPoints(IGNORE,1,3,2); ds++; \
-}
 
-#define LoadPolyhedronPointsAndCmapColors()    	     \
-  LoadFacetPointsAndCmapColors(IGNORE,0,1,2);  ds++; \
-  LoadFacetPointsAndCmapColors(IGNORE,0,2,3);  ds++; \
-  LoadFacetPointsAndCmapColors(IGNORE,0,3,1);  ds++; \
-  LoadFacetPointsAndCmapColors(IGNORE,1,3,2);  ds++;
+#define LoadPolyhedronPoints()          \
+  {                                     \
+    LoadFacetPoints( IGNORE, 0, 1, 2 ); \
+    ds++;                               \
+    LoadFacetPoints( IGNORE, 0, 2, 3 ); \
+    ds++;                               \
+    LoadFacetPoints( IGNORE, 0, 3, 1 ); \
+    ds++;                               \
+    LoadFacetPoints( IGNORE, 1, 3, 2 ); \
+    ds++;                               \
+  }
 
-#define LoadPolyhedronPointsAndCdirColors()          \
-  LoadFacetPointsAndCdirColors(IGNORE,0,1,2);  ds++; \
-  LoadFacetPointsAndCdirColors(IGNORE,0,2,3);  ds++; \
-  LoadFacetPointsAndCdirColors(IGNORE,0,3,1);  ds++; \
-  LoadFacetPointsAndCdirColors(IGNORE,1,3,2);  ds++;
+#define LoadPolyhedronPointsAndCmapColors()        \
+  LoadFacetPointsAndCmapColors( IGNORE, 0, 1, 2 ); \
+  ds++;                                            \
+  LoadFacetPointsAndCmapColors( IGNORE, 0, 2, 3 ); \
+  ds++;                                            \
+  LoadFacetPointsAndCmapColors( IGNORE, 0, 3, 1 ); \
+  ds++;                                            \
+  LoadFacetPointsAndCmapColors( IGNORE, 1, 3, 2 ); \
+  ds++;
+
+#define LoadPolyhedronPointsAndCdirColors()        \
+  LoadFacetPointsAndCdirColors( IGNORE, 0, 1, 2 ); \
+  ds++;                                            \
+  LoadFacetPointsAndCdirColors( IGNORE, 0, 2, 3 ); \
+  ds++;                                            \
+  LoadFacetPointsAndCdirColors( IGNORE, 0, 3, 1 ); \
+  ds++;                                            \
+  LoadFacetPointsAndCdirColors( IGNORE, 1, 3, 2 ); \
+  ds++;
 
 #include "hwPolyhedraDrawXGL.c.h"

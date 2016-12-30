@@ -9,21 +9,18 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 //////////////////////////////////////////////////////////////////////////////
 
 #include "StreaklineDefinition.h"
 #include "StreaklineNode.h"
 
-Node *StreaklineDefinition::newNode(Network *net, int inst)
+Node *StreaklineDefinition::newNode( Network *net, int inst )
 {
-    StreaklineNode *n = new StreaklineNode(this, net, inst);
-    return n;
+  StreaklineNode *n = new StreaklineNode( this, net, inst );
+  return n;
 }
 
 NodeDefinition *StreaklineDefinition::AllocateDefinition()
 {
-    return (NodeDefinition*) new StreaklineDefinition();
+  return (NodeDefinition *)new StreaklineDefinition();
 }
-

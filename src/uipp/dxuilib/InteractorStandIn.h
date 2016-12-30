@@ -9,67 +9,63 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _InteractorStandIn_h
 #define _InteractorStandIn_h
 
-
 #include "StandIn.h"
-
 
 //
 // Class name definition:
 //
-#define ClassInteractorStandIn	"InteractorStandIn"
-
+#define ClassInteractorStandIn "InteractorStandIn"
 
 //
 // InteractorStandIn class definition:
-//				
+//
 class InteractorStandIn : public StandIn
 {
-  private:
-    //
-    // Private member data:
-    //
+ private:
+  //
+  // Private member data:
+  //
 
-  protected:
-    //
-    // Protected member data:
-    //
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Constructor:
-    //
-    InteractorStandIn(WorkSpace *w, Node *n) : StandIn(w,n) {}
+  //
+  // Constructor:
+  //
+  InteractorStandIn( WorkSpace *w, Node *n ) : StandIn( w, n )
+  {
+  }
 
-  public:
+ public:
+  //
+  // Allocate a instance of this class. Used by the SIAllocatorDictionary.
+  //
+  static StandIn *AllocateStandIn( WorkSpace *w, Node *n );
 
-    //
-    // Allocate a instance of this class. Used by the SIAllocatorDictionary. 
-    //
-    static StandIn *AllocateStandIn(WorkSpace *w, Node *n);
+  //
+  // Destructor:
+  //
+  ~InteractorStandIn()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~InteractorStandIn(){}
+  //
+  // Called when the StandIn has been selected by the Editor.
+  //
+  virtual void handleSelectionChange( boolean select );
 
-    //
-    // Called when the StandIn has been selected by the Editor. 
-    //
-    virtual void handleSelectionChange(boolean select);
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassInteractorStandIn;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassInteractorStandIn;
+  }
 };
 
-
-#endif // _InteractorStandIn_h
+#endif  // _InteractorStandIn_h

@@ -9,31 +9,23 @@
 #include <dxconfig.h>
 #include <defines.h>
 
-
-
-
 #include "DeleteNodeCommand.h"
 #include "Application.h"
 #include "EditorWindow.h"
 
-
-DeleteNodeCommand::DeleteNodeCommand(const char*   name,
-			             CommandScope* scope, 
-				     boolean active,
-                                     EditorWindow *editor) 
-                      : NoUndoCommand(name, scope, active)
+DeleteNodeCommand::DeleteNodeCommand( const char *name, CommandScope *scope,
+                                      boolean active, EditorWindow *editor )
+    : NoUndoCommand( name, scope, active )
 {
-    ASSERT(editor);
-    this->editor = editor;
+  ASSERT( editor );
+  this->editor = editor;
 }
 
-
-boolean DeleteNodeCommand::doIt(CommandInterface *ci)
+boolean DeleteNodeCommand::doIt( CommandInterface *ci )
 {
-    EditorWindow *editor = this->editor;
+  EditorWindow *editor = this->editor;
 
-    editor->removeSelectedNodes();
+  editor->removeSelectedNodes();
 
-    return TRUE;
+  return TRUE;
 }
-

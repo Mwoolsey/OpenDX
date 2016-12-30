@@ -9,12 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _CommentDialog_h
 #define _CommentDialog_h
-
 
 #include "GARMainWindow.h"
 #include "../base/TextEditDialog.h"
@@ -22,72 +18,69 @@
 //
 // Class name definition:
 //
-#define ClassCommentDialog	"CommentDialog"
+#define ClassCommentDialog "CommentDialog"
 
 class GARMainWindow;
 
 //
 // CommentDialog class definition:
-//				
+//
 
 class CommentDialog : public TextEditDialog
 {
-  private:
-    //
-    // Private member data:
-    //
-    static boolean ClassInitialized;
+ private:
+  //
+  // Private member data:
+  //
+  static boolean ClassInitialized;
 
-  protected:
-    //
-    // Protected member data:
-    //
-    static String  DefaultResources[];
+ protected:
+  //
+  // Protected member data:
+  //
+  static String DefaultResources[];
 
-    GARMainWindow		*gmw;
-    //
-    // Get the the text that is to be installed in the text window.
-    //
-    virtual const char *getText();
+  GARMainWindow *gmw;
+  //
+  // Get the the text that is to be installed in the text window.
+  //
+  virtual const char *getText();
 
-    //
-    // Save the text in the text window 
-    //
-    virtual boolean saveText(const char *);
+  //
+  // Save the text in the text window
+  //
+  virtual boolean saveText( const char * );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-  public:
+ public:
+  //
+  // Constructor:
+  //
+  CommentDialog( Widget parent, boolean readonly, GARMainWindow *gmw );
 
-    //
-    // Constructor:
-    //
-    CommentDialog(Widget parent, boolean readonly, GARMainWindow *gmw);
+  //
+  // Destructor:
+  //
+  ~CommentDialog();
 
-    //
-    // Destructor:
-    //
-    ~CommentDialog();
+  //
+  // Clear the Text widget
+  //
+  virtual void clearText();
 
-
-    //
-    // Clear the Text widget
-    //
-    virtual void clearText();
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassCommentDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassCommentDialog;
+  }
 };
 
-
-#endif // _CommentDialog_h
+#endif  // _CommentDialog_h

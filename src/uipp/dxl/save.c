@@ -9,32 +9,30 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-#if defined(HAVE_MALLOC_H)
+#if defined( HAVE_MALLOC_H )
 #include <malloc.h>
 #endif
 #include <string.h>
 
 #include "dxlP.h"
 
-DXLError
-uiDXLSaveVisualProgram(DXLConnection *conn, const char *file)
+DXLError uiDXLSaveVisualProgram( DXLConnection *conn, const char *file )
 {
-    int l = strlen(file);
-    int sts;
-    char *buffer = MALLOC(l + 32);
+  int l = strlen( file );
+  int sts;
+  char *buffer = MALLOC( l + 32 );
 
-    if (conn->dxuiConnected)
-    {
-	sprintf(buffer, "save network %s", file);
-	sts = DXLSend(conn, buffer);
-    }
-    else
-    {
-	_DXLError(conn, "saving visual programs  requires a UI connection");
-	sts = ERROR;
-    }
-	
-    FREE(buffer);
-    return sts;
+  if ( conn->dxuiConnected )
+  {
+    sprintf( buffer, "save network %s", file );
+    sts = DXLSend( conn, buffer );
+  }
+  else
+  {
+    _DXLError( conn, "saving visual programs  requires a UI connection" );
+    sts = ERROR;
+  }
+
+  FREE( buffer );
+  return sts;
 }

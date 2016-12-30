@@ -9,7 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _ScalarDefinition_h
 #define _ScalarDefinition_h
 
@@ -17,59 +16,62 @@
 
 #include "InteractorDefinition.h"
 
-
 //
 // Class name definition:
 //
-#define ClassScalarDefinition	"ScalarDefinition"
+#define ClassScalarDefinition "ScalarDefinition"
 
 //
-// Forward definitions 
+// Forward definitions
 //
 class ParameterDefinition;
 class Interactor;
 
 //
 // ScalarDefinition class definition:
-//				
-class ScalarDefinition : public InteractorDefinition 
+//
+class ScalarDefinition : public InteractorDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
-  public:
-    //
-    // Constructor:
-    //
-    ScalarDefinition() { }
+ public:
+  //
+  // Constructor:
+  //
+  ScalarDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~ScalarDefinition() { }
-	
-    //
-    // Allocate a new ScalarDefinition.  
-    // This function is intended to be used as an allocator in
-    // theNDAllocatorDictionary.
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Destructor:
+  //
+  ~ScalarDefinition()
+  {
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() 
-		{ return ClassScalarDefinition; }
+  //
+  // Allocate a new ScalarDefinition.
+  // This function is intended to be used as an allocator in
+  // theNDAllocatorDictionary.
+  //
+  static NodeDefinition *AllocateDefinition();
+
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char *getClassName()
+  {
+    return ClassScalarDefinition;
+  }
 };
 
-
-#endif // _ScalarDefinition_h
+#endif  // _ScalarDefinition_h

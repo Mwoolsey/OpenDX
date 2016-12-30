@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/xgl/hwTmeshDraw.c,v $
 
@@ -45,20 +44,20 @@
  *
  * Revision 7.1  94/01/18  19:00:16  svs
  * changes since release 2.0.1
- * 
+ *
  * Revision 6.1  93/11/16  10:26:20  svs
  * ship level code, release 2.0
- * 
+ *
  * Revision 1.2  93/07/21  21:37:34  mjh
  * #include "hwXfield.h"
- * 
+ *
  * Revision 1.1  93/06/29  10:01:47  tjm
  * Initial revision
- * 
+ *
  * Revision 5.2  93/04/30  23:43:38  mjh
  * Implement wireframe and dot approximation styles.  The HOLLOW fill style
  * seems to have lots of problems in xgl.
- * 
+ *
  * Revision 5.1  93/03/30  14:41:34  ellen
  * Moved these files from the 5.0.2 Branch
  *
@@ -90,16 +89,16 @@
 #include "hwTmesh.h"
 #include "hwCacheUtilXGL.h"
 
-#define tdmMeshDraw      _dxfTmeshDraw
-#define tdmPolygonDraw   _dxfTriDraw
-#define tdm_get_mesh     _dxf_get_tmesh
-#define Mesh             Tmesh
-#define mesh             tmesh
-#define CpfMsh          "CpfTmsh"
-#define CpcMsh          "CpcTmsh"
-#define CpvMsh          "CpvTmsh"
-#define Strip            Tstrip
-#define strip            tstrip
-#define strips           tstrips
+#define tdmMeshDraw _dxfTmeshDraw
+#define tdmPolygonDraw _dxfTriDraw
+#define tdm_get_mesh _dxf_get_tmesh
+#define Mesh Tmesh
+#define mesh tmesh
+#define CpfMsh "CpfTmsh"
+#define CpcMsh "CpcTmsh"
+#define CpvMsh "CpvTmsh"
+#define Strip Tstrip
+#define strip tstrip
+#define strips tstrips
 
 #include "hwMeshDraw.c.h"

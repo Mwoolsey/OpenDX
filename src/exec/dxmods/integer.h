@@ -6,17 +6,17 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dxmods/integer.h,v 1.1 2000/08/24 20:04:39 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dxmods/integer.h,v 1.1 2000/08/24 20:04:39
+ * davidt Exp $
  */
 
 #include <dxconfig.h>
 
-#ifndef  _INTEGER_H_
-#define  _INTEGER_H_
+#ifndef _INTEGER_H_
+#define _INTEGER_H_
 
 #include <dx/dx.h>
 
-Error _dxfinteger_base(Object *, Object *, int);
+Error _dxfinteger_base( Object *, Object *, int );
 
 #endif /* _INTEGER_H_ */
-

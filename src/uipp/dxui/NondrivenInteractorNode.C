@@ -9,22 +9,19 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "NondrivenInteractorNode.h"
 
 //
-// Constructor 
+// Constructor
 //
-NondrivenInteractorNode::NondrivenInteractorNode(NodeDefinition *nd,
-			Network *net, int instance) :
-                        InteractorNode(nd, net, instance)
+NondrivenInteractorNode::NondrivenInteractorNode( NodeDefinition *nd,
+                                                  Network *net, int instance )
+    : InteractorNode( nd, net, instance )
 {
-    // This is only relevant if the interactor is being data driven, but
-    // turns caching off for those interactors that are.
-    // FIXME: this should be in the mdf
-    // this->setNodeCacheability(NotCached);
+  // This is only relevant if the interactor is being data driven, but
+  // turns caching off for those interactors that are.
+  // FIXME: this should be in the mdf
+  // this->setNodeCacheability(NotCached);
 }
 
 //
@@ -32,38 +29,35 @@ NondrivenInteractorNode::NondrivenInteractorNode(NodeDefinition *nd,
 //
 boolean NondrivenInteractorNode::isDataDriven()
 {
-    return FALSE;
+  return FALSE;
 }
 //
 // Define the mapping of inputs that shadow outputs.
-// non-data-driven interactors do not have inputs. 
+// non-data-driven interactors do not have inputs.
 //
-int NondrivenInteractorNode::getShadowingInput(int output_index)
+int NondrivenInteractorNode::getShadowingInput( int output_index )
 {
-    return 0;
+  return 0;
 }
-int NondrivenInteractorNode::handleNodeMsgInfo(const char *line)
+int NondrivenInteractorNode::handleNodeMsgInfo( const char *line )
 {
-    ASSERT(0);
-    return 0;
+  ASSERT( 0 );
+  return 0;
 }
-int  NondrivenInteractorNode::handleInteractorMsgInfo(const char *line)
+int NondrivenInteractorNode::handleInteractorMsgInfo( const char *line )
 {
-    ASSERT(0);
-    return 0;
+  ASSERT( 0 );
+  return 0;
 }
-
-
-
 
 //
 // Determine if this node is of the given class.
 //
-boolean NondrivenInteractorNode::isA(Symbol classname)
+boolean NondrivenInteractorNode::isA( Symbol classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(ClassNondrivenInteractorNode);
-    if (s == classname)
-	return TRUE;
-    else
-	return this->InteractorNode::isA(classname);
+  Symbol s = theSymbolManager->registerSymbol( ClassNondrivenInteractorNode );
+  if ( s == classname )
+    return TRUE;
+  else
+    return this->InteractorNode::isA( classname );
 }

@@ -9,12 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _AnnotationGroupManager_h
 #define _AnnotationGroupManager_h
-
 
 #include "GroupManager.h"
 #include "Dictionary.h"
@@ -23,11 +19,10 @@
 //
 // Class name definition:
 //
-#define ClassAnnotationGroupManager	"AnnotationGroupManager"
+#define ClassAnnotationGroupManager "AnnotationGroupManager"
 #define ANNOTATION_GROUP "annotation"
 
 class Network;
-
 
 //
 // The class to hold the group info
@@ -35,60 +30,69 @@ class Network;
 class AnnotationGroupRecord : public GroupRecord
 {
   friend class AnnotationGroupManager;
-  private:
-    
-  protected:
-     AnnotationGroupRecord(Network *net, const char *name): GroupRecord(net, name) {}
 
-    ~AnnotationGroupRecord() { }
+ private:
+ protected:
+  AnnotationGroupRecord( Network *net, const char *name )
+      : GroupRecord( net, name )
+  {
+  }
 
-  public:
+  ~AnnotationGroupRecord()
+  {
+  }
+
+ public:
 };
-
 
 //
 // AnnotationGroupManager class definition:
-//				
+//
 class AnnotationGroupManager : public GroupManager
 {
-  private:
-    //
-    // Private member data:
-    //
+ private:
+  //
+  // Private member data:
+  //
 
-  protected:
-    //
-    // Protected member data:
-    //
+ protected:
+  //
+  // Protected member data:
+  //
 
-    virtual GroupRecord *recordAllocator(Network *net, const char *name) { 
-	return new AnnotationGroupRecord(net, name);
-    }
+  virtual GroupRecord *recordAllocator( Network *net, const char *name )
+  {
+    return new AnnotationGroupRecord( net, name );
+  }
 
-  public:
-    //
-    // Destructor:
-    //
-    ~AnnotationGroupManager(){}
+ public:
+  //
+  // Destructor:
+  //
+  ~AnnotationGroupManager()
+  {
+  }
 
-    static boolean SupportsMacros() { return TRUE; }
+  static boolean SupportsMacros()
+  {
+    return TRUE;
+  }
 
-    //
-    // Constructor:
-    //
-    AnnotationGroupManager(Network *net);
+  //
+  // Constructor:
+  //
+  AnnotationGroupManager( Network *net );
 
-    virtual boolean printComment (FILE*);
-    virtual boolean parseComment (const char*, const char*, int, Network*);
+  virtual boolean printComment( FILE * );
+  virtual boolean parseComment( const char *, const char *, int, Network * );
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassAnnotationGroupManager;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassAnnotationGroupManager;
+  }
 };
 
-
-#endif // _AnnotationGroupManager_h
+#endif  // _AnnotationGroupManager_h

@@ -9,53 +9,44 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "NewCommand.h"
 #include "DXApplication.h"
 #include "DXWindow.h"
 #include "EditorWindow.h"
 
-NewCommand::NewCommand(const char      *name,
-		       CommandScope    *scope,
-		       boolean		active,
-		       Network	       *net,
-		       Widget		dialogParent) :
-    OptionalPreActionCommand(name, scope, active,
-			     "Save Confirmation",
-			     "Do you want to save the program?",
-				dialogParent)
+NewCommand::NewCommand( const char *name, CommandScope *scope, boolean active,
+                        Network *net, Widget dialogParent )
+    : OptionalPreActionCommand( name, scope, active, "Save Confirmation",
+                                "Do you want to save the program?",
+                                dialogParent )
 {
-    this->network = net;
+  this->network = net;
 }
 
-void   NewCommand::doPreAction()
+void NewCommand::doPreAction()
 {
-    Network *net = theDXApplication->network;
-    const char    *fname = net->getFileName();
+  Network *net = theDXApplication->network;
+  const char *fname = net->getFileName();
 
-
-    if(fname)
-    {
-        if(net->saveNetwork(fname))
-            this->doIt(NULL);
-    }
-    else {
-	Widget parent = this->dialogParent;
-        if (!parent)
-            parent = theApplication->getRootWidget();
-        net->postSaveAsDialog(parent, this);
-    }
-
+  if ( fname )
+  {
+    if ( net->saveNetwork( fname ) )
+      this->doIt( NULL );
+  }
+  else
+  {
+    Widget parent = this->dialogParent;
+    if ( !parent )
+      parent = theApplication->getRootWidget();
+    net->postSaveAsDialog( parent, this );
+  }
 }
 
-boolean NewCommand::doIt(CommandInterface *ci)
+boolean NewCommand::doIt( CommandInterface *ci )
 {
-    theDXApplication->resetServer();
-    return this->network->clear();
+  theDXApplication->resetServer();
+  return this->network->clear();
 }
-
 
 boolean NewCommand::needsConfirmation()
 {
@@ -76,5 +67,5 @@ boolean NewCommand::needsConfirmation()
     }
 #endif
 
-    return this->network->saveToFileRequired();
+  return this->network->saveToFileRequired();
 }

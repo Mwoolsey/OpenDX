@@ -9,73 +9,67 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _HelpOnPanelDialog_h
 #define _HelpOnPanelDialog_h
-
 
 #include "SetPanelCommentDialog.h"
 
 //
 // Class name definition:
 //
-#define ClassHelpOnPanelDialog	"HelpOnPanelDialog"
+#define ClassHelpOnPanelDialog "HelpOnPanelDialog"
 
 class ControlPanel;
 
 //
 // HelpOnPanelDialog class definition:
-//				
+//
 
 class HelpOnPanelDialog : public SetPanelCommentDialog
 {
-  private:
-    //
-    // Private member data:
-    //
-    static boolean ClassInitialized;
+ private:
+  //
+  // Private member data:
+  //
+  static boolean ClassInitialized;
 
-  protected:
-    //
-    // Protected member data:
-    //
-    static String  DefaultResources[];
+ protected:
+  //
+  // Protected member data:
+  //
+  static String DefaultResources[];
 
-    //
-    // The title to be applied the newly managed dialog.
-    // The returned string is freed by the caller (TextEditDialog::manage()).
-    //
-    virtual char *getDialogTitle();
+  //
+  // The title to be applied the newly managed dialog.
+  // The returned string is freed by the caller (TextEditDialog::manage()).
+  //
+  virtual char *getDialogTitle();
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-  public:
+ public:
+  //
+  // Constructor:
+  //
+  HelpOnPanelDialog( Widget parent, ControlPanel *cp );
 
-    //
-    // Constructor:
-    //
-    HelpOnPanelDialog(Widget parent, ControlPanel *cp);
+  //
+  // Destructor:
+  //
+  ~HelpOnPanelDialog();
 
-    //
-    // Destructor:
-    //
-    ~HelpOnPanelDialog();
-
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassHelpOnPanelDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassHelpOnPanelDialog;
+  }
 };
 
-
-#endif // _HelpOnPanelDialog_h
+#endif  // _HelpOnPanelDialog_h

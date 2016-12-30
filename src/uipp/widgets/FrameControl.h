@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 /*	Construct and manage the "frame sequencer guide" to be used as a
  *	popup of the "equence controller" (alias VCR control)
  *
@@ -42,38 +41,38 @@
  *
  * Revision 6.1  93/11/16  10:50:38  svs
  * ship level code, release 2.0
- * 
+ *
  * Revision 1.1  93/02/26  15:46:40  danz
  * Initial revision
- * 
- * 
+ *
+ *
  */
 
 #ifndef FrameControl_H
 #define FrameControl_H
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
 #include "XmDX.h"
 
 /*  Declare types for convenience routine to create the widget  */
-extern Widget XmCreateFrameControl
-  (Widget parent, String name, ArgList args, Cardinal num_args);
+extern Widget XmCreateFrameControl( Widget parent, String name, ArgList args,
+                                    Cardinal num_args );
 
 extern WidgetClass xmFrameControlWidgetClass;
 
-typedef struct _XmFrameControlClassRec * XmFrameControlWidgetClass;
-typedef struct _XmFrameControlRec      * XmFrameControlWidget;
+typedef struct _XmFrameControlClassRec* XmFrameControlWidgetClass;
+typedef struct _XmFrameControlRec* XmFrameControlWidget;
 
-
-typedef struct {
-    unsigned char reason;
-    short value;
+typedef struct
+{
+  unsigned char reason;
+  short value;
 } FrameControlCallbackStruct;
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif
 

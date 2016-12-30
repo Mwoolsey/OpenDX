@@ -9,57 +9,51 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _MBCommand_h
 #define _MBCommand_h
-
 
 #include "NoUndoCommand.h"
 #include <Xm/Xm.h>
 
-class  MBMainWindow;
+class MBMainWindow;
 
 //
 // MBCommand class definition:
-//				
+//
 
-#define ClassMBCommand  "MBCommand"
+#define ClassMBCommand "MBCommand"
 
-class MBCommand : public NoUndoCommand 
+class MBCommand : public NoUndoCommand
 {
-  private:
+ private:
+  static String DefaultResources[];
+  MBMainWindow* mdmw;
+  int option;
 
-    static  String	DefaultResources[];
-    MBMainWindow* 	mdmw;
-    int			option;
+ protected:
+  virtual boolean doIt( CommandInterface* ci );
 
-  protected:
-    virtual boolean doIt(CommandInterface *ci);
+ public:
+  //
+  // Constructor:
+  //
+  MBCommand( const char*, CommandScope*, boolean active, MBMainWindow*,
+             int option );
 
-  public:
-    //
-    // Constructor:
-    //
-    MBCommand(const char*,
-		CommandScope*,
-		boolean active,
-                MBMainWindow*,
-		int option);
+  //
+  // Destructor:
+  //
+  ~MBCommand()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~MBCommand(){}
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassMBCommand;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassMBCommand;
+  }
 };
 
-
-#endif // _MBCommand_h
+#endif  // _MBCommand_h

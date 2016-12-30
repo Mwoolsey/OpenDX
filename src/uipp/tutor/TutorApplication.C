@@ -17,7 +17,7 @@
 #include <Xm/Label.h>
 #include <X11/cursorfont.h>
 #if 0
-#if defined(HAVE_STREAM_H)
+#if defined( HAVE_STREAM_H )
 #include <stream.h>
 #endif
 
@@ -33,74 +33,38 @@
 #include "TutorWindow.h"
 #include "CommandScope.h"
 
-#if (XmVersion > 1001)
-# include "../widgets/Number.h"
-# define XK_MISCELLANY
-# include <X11/keysym.h>
+#if ( XmVersion > 1001 )
+#include "../widgets/Number.h"
+#define XK_MISCELLANY
+#include <X11/keysym.h>
 #endif
 
 #ifdef APP_HAS_TUTOR_DBASE
 #include "Dictionary.h"
 #endif
 
-TutorApplication* theTutorApplication= NUL(TutorApplication*);
+TutorApplication *theTutorApplication = NUL( TutorApplication * );
 
-boolean    TutorApplication::TutorApplicationClassInitialized = FALSE;
+boolean TutorApplication::TutorApplicationClassInitialized = FALSE;
 TutorResource TutorApplication::resource;
 
-static
-XrmOptionDescRec _TutorOptionList[] =
-{
-    {
-	"-tutorFile",
-	"*tutorFile",
-	XrmoptionSepArg,
-	NULL
-    },
-    {
-        "-uiroot",
-        "*UIRoot",
-        XrmoptionSepArg,
-        NULL
-    }
-};
+static XrmOptionDescRec _TutorOptionList[] = {
+    {"-tutorFile", "*tutorFile", XrmoptionSepArg, NULL},
+    {"-uiroot", "*UIRoot", XrmoptionSepArg, NULL}};
 
+static XtResource _TutorResourceList[] = {
+    {"tutorFile",             "Pathname",                             XmRString,
+     sizeof( String ),        XtOffset( TutorResource *, tutorFile ), XmRString,
+     ( XtPointer ) "Tutorial"},
+    {"TutorInsensitiveColor",                       "Color",
+     XmRPixel,                                      sizeof( Pixel ),
+     XtOffset( TutorResource *, insensitiveColor ), XmRString,
+     ( XtPointer ) "#888"},
+    {"root",           "Pathname",                          XmRString,
+     sizeof( String ), XtOffset( TutorResource *, UIRoot ), XmRString,
+     (XtPointer)NULL}};
 
-static
-XtResource _TutorResourceList[] =
-{
-    {
-        "tutorFile",
-        "Pathname",
-        XmRString,
-        sizeof(String),
-        XtOffset(TutorResource*, tutorFile),
-        XmRString,
-        (XtPointer)"Tutorial"
-    },
-    {
-	"TutorInsensitiveColor",
-	"Color",
-	XmRPixel,
-	sizeof(Pixel),
-	XtOffset(TutorResource*, insensitiveColor),
-	XmRString,
-	(XtPointer)"#888"
-    },
-    {
-        "root",
-        "Pathname",
-        XmRString,
-        sizeof(String),
-        XtOffset(TutorResource*, UIRoot),
-        XmRString,
-        (XtPointer) NULL
-    }
-};
-
-static
-const String _defaultTutorResources[] =
-{
+static const String _defaultTutorResources[] = {
     "*background:              #b4b4b4b4b4b4",
     "*foreground:              black",
 #ifdef sgi
@@ -112,19 +76,14 @@ const String _defaultTutorResources[] =
                                 -adobe-helvetica*medium-r*14*=normal\
                                 -adobe-helvetica*medium-o*14*=oblique",
 #endif
-
     "*keyboardFocusPolicy:     explicit",
     "*highlightOnEnter:	       false",
     "*highlightThickness:      0",
-
     "*XmNumber.navigationType:     XmTAB_GROUP",
-
     "*XmScrollBar*foreground:      #b4b4b4b4b4b4",
     "*XmScrollBar.initialDelay:    2000",
     "*XmScrollBar.repeatDelay:     2000",
-
     "*XmToggleButton.selectColor:  CadetBlue",
-
     "*XmArrowButton.shadowThickness:         1",
     "*XmCascadeButton.shadowThickness:       1",
     "*XmCascadeButtonGadget.shadowThickness: 1",
@@ -141,281 +100,266 @@ const String _defaultTutorResources[] =
     "*XmScrolledWindow.shadowThickness:      1",
     "*XmText.shadowThickness:                1",
     "*XmToggleButton.shadowThickness:        1",
+    NULL};
 
-    NULL
-};
-
-
-TutorApplication::TutorApplication(char* className): IBMApplication(className)
+TutorApplication::TutorApplication( char *className )
+    : IBMApplication( className )
 {
-    //
-    // Set the global Tutor application pointer.
-    //
-    theTutorApplication = this;
-    this->commandScope = new CommandScope();
+  //
+  // Set the global Tutor application pointer.
+  //
+  theTutorApplication = this;
+  this->commandScope = new CommandScope();
 
-    this->quitCmd = new NoUndoTutorAppCommand("quitCmd",
-			this->commandScope,
-			 TRUE, this, NoUndoTutorAppCommand::Quit);
-
+  this->quitCmd = new NoUndoTutorAppCommand(
+      "quitCmd", this->commandScope, TRUE, this, NoUndoTutorAppCommand::Quit );
 }
-
 
 TutorApplication::~TutorApplication()
 {
-    //
-    // Set the flag to terminate the event processing loop.
-    //
-    theTutorApplication= NULL;
+  //
+  // Set the flag to terminate the event processing loop.
+  //
+  theTutorApplication = NULL;
 }
 
-
-#if defined (SIGDANGER)
+#if defined( SIGDANGER )
 extern "C" {
-static void
-SigDangerHandler(int dummy)
+static void SigDangerHandler( int dummy )
 {
-    char *msg = 
-#if defined(ibm6000)
-    "AIX has notified Data Explorer that the User Interface\nis in"
-    " danger of being killed due to insufficient page space.\n";
-#else        
-    "The operating system has issued a SIGDANGER to the User Interface\n";
-#endif       
-    write(2, msg, strlen(msg));
-    signal(SIGDANGER, SigDangerHandler);
-}            
+  char *msg =
+#if defined( ibm6000 )
+      "AIX has notified Data Explorer that the User Interface\nis in"
+      " danger of being killed due to insufficient page space.\n";
+#else
+      "The operating system has issued a SIGDANGER to the User Interface\n";
+#endif
+  write( 2, msg, strlen( msg ) );
+  signal( SIGDANGER, SigDangerHandler );
+}
 }
 #endif
- 
-static void 
-InitializeSignals(void)
-{            
-#if defined(SIGDANGER)
-    signal(SIGDANGER, SigDangerHandler);
-#endif       
-}            
 
-boolean TutorApplication::initialize(unsigned int* argcp,
-			       char**        argv)
+static void InitializeSignals( void )
 {
-    ASSERT(argcp);
-    ASSERT(argv);
+#if defined( SIGDANGER )
+  signal( SIGDANGER, SigDangerHandler );
+#endif
+}
 
-    //
-    // Initialize Xt Intrinsics; create the initial shell widget.
-    //
-    if (!this->IBMApplication::initializeWindowSystem (argcp, argv))
-	return FALSE;
-    if (!this->IBMApplication::initialize (argcp, argv))
-	return FALSE;
+boolean TutorApplication::initialize( unsigned int *argcp, char **argv )
+{
+  ASSERT( argcp );
+  ASSERT( argv );
 
-    InitializeSignals();
-    this->parseCommand(argcp, argv, _TutorOptionList, XtNumber(_TutorOptionList));
+  //
+  // Initialize Xt Intrinsics; create the initial shell widget.
+  //
+  if ( !this->IBMApplication::initializeWindowSystem( argcp, argv ) )
+    return FALSE;
+  if ( !this->IBMApplication::initialize( argcp, argv ) )
+    return FALSE;
 
+  InitializeSignals();
+  this->parseCommand( argcp, argv, _TutorOptionList,
+                      XtNumber( _TutorOptionList ) );
 
-    //
-    // Get and save the X display structure pointer.
-    //
-    this->display = XtDisplay(this->getRootWidget());
+  //
+  // Get and save the X display structure pointer.
+  //
+  this->display = XtDisplay( this->getRootWidget() );
 
-    //
-    // Center the shell and make sure it is not visible.
-    //
-    XtVaSetValues
-	(this->getRootWidget(),
-	 XmNmappedWhenManaged, FALSE,
-	 XmNx,                 DisplayWidth(this->display, 0) / 2,
-	 XmNy,                 DisplayHeight(this->display, 0) / 2,
-	 XmNwidth,             1,
-	 XmNheight,            1,
-	 NULL);
+  //
+  // Center the shell and make sure it is not visible.
+  //
+  XtVaSetValues( this->getRootWidget(), XmNmappedWhenManaged, FALSE, XmNx,
+                 DisplayWidth( this->display, 0 ) / 2, XmNy,
+                 DisplayHeight( this->display, 0 ) / 2, XmNwidth, 1, XmNheight,
+                 1, NULL );
 
-    //
-    // Since the instance name of this object was set in the UIComponent
-    // constructor before the name of the program was visible, delete the
-    // old name and set it to argv[0].
-    //
-    delete this->name;
-    this->name = DuplicateString(argv[0]);
+  //
+  // Since the instance name of this object was set in the UIComponent
+  // constructor before the name of the program was visible, delete the
+  // old name and set it to argv[0].
+  //
+  delete this->name;
+  this->name = DuplicateString( argv[0] );
 
-    //
-    //
-    // Force the initial shell window to exist so dialogs popped up
-    // from this shell behave correctly.
-    //
-    XtRealizeWidget(this->getRootWidget());
+  //
+  //
+  // Force the initial shell window to exist so dialogs popped up
+  // from this shell behave correctly.
+  //
+  XtRealizeWidget( this->getRootWidget() );
 
-    this->setDefaultResources(this->getRootWidget(), _defaultTutorResources);	
+  this->setDefaultResources( this->getRootWidget(), _defaultTutorResources );
 
-    //
-    // Get application resources.
-    //
-    if (NOT TutorApplication::TutorApplicationClassInitialized)
-    {
-	this->getResources((XtPointer)&TutorApplication::resource,
-			   _TutorResourceList,
-			   XtNumber(_TutorResourceList));
-	TutorApplication::TutorApplicationClassInitialized = TRUE;
-    }
+  //
+  // Get application resources.
+  //
+  if ( NOT TutorApplication::TutorApplicationClassInitialized )
+  {
+    this->getResources( ( XtPointer ) & TutorApplication::resource,
+                        _TutorResourceList, XtNumber( _TutorResourceList ) );
+    TutorApplication::TutorApplicationClassInitialized = TRUE;
+  }
 
-    //
-    // setup resources that can be environment varialbles.
-    //
-    if (TutorApplication::resource.UIRoot == NULL) {
-        char *s = getenv("DXROOT");
-        if (s)
-            // POSIX says we better copy the result of getenv(), so...
-            // This will show up as a memory leak, not worth worrying about
-            TutorApplication::resource.UIRoot = DuplicateString(s);
-        else
-            TutorApplication::resource.UIRoot =  "/usr/local/dx";
-    }
+  //
+  // setup resources that can be environment varialbles.
+  //
+  if ( TutorApplication::resource.UIRoot == NULL )
+  {
+    char *s = getenv( "DXROOT" );
+    if ( s )
+      // POSIX says we better copy the result of getenv(), so...
+      // This will show up as a memory leak, not worth worrying about
+      TutorApplication::resource.UIRoot = DuplicateString( s );
+    else
+      TutorApplication::resource.UIRoot = "/usr/local/dx";
+  }
 
-    this->mainWindow = new TutorWindow();
-    this->mainWindow->manage();
+  this->mainWindow = new TutorWindow();
+  this->mainWindow->manage();
 
-    this->setBusyCursor(TRUE);
+  this->setBusyCursor( TRUE );
 
-    //
-    // Load the initial tutorial page. 
-    //
-    this->helpOn(TutorApplication::resource.tutorFile);
+  //
+  // Load the initial tutorial page.
+  //
+  this->helpOn( TutorApplication::resource.tutorFile );
 
-    //
-    // Refresh the screen.
-    //
-    XmUpdateDisplay(this->getRootWidget());
+  //
+  // Refresh the screen.
+  //
+  XmUpdateDisplay( this->getRootWidget() );
 
+  this->setBusyCursor( FALSE );
 
-    this->setBusyCursor(FALSE);
-
-    return TRUE;
+  return TRUE;
 }
 const char *TutorApplication::getFormalName()
 {
-    return "Open Visualization Data Explorer Tutorial";
+  return "Open Visualization Data Explorer Tutorial";
 }
 
 const char *TutorApplication::getInformalName()
 {
-    return "DX Tutorial";
+  return "DX Tutorial";
 }
 
 const char *TutorApplication::getCopyrightNotice()
 {
 #if 1
-    return NULL;	// Kills copyright message.
+  return NULL;  // Kills copyright message.
 #else
 
-    return "";
+  return "";
 #endif
-
 }
-
-
 
 void TutorApplication::handleEvents()
 {
-    XEvent event;
+  XEvent event;
 
-
-    //
-    // Process events while the application is running.
-    //
-    while (TRUE)
-    {
-	XtAppNextEvent(this->applicationContext, &event);
-	this->handleEvent(&event);
-    }
+  //
+  // Process events while the application is running.
+  //
+  while ( TRUE )
+  {
+    XtAppNextEvent( this->applicationContext, &event );
+    this->handleEvent( &event );
+  }
 }
 
-
-extern "C" void TutorApplication_XtWarningHandler(char *message)
+extern "C" void TutorApplication_XtWarningHandler( char *message )
 {
-    if(theTutorApplication)
-    	theTutorApplication->handleXtWarning(message);
+  if ( theTutorApplication )
+    theTutorApplication->handleXtWarning( message );
 }
-void TutorApplication::handleXtWarning(char *message)
+void TutorApplication::handleXtWarning( char *message )
 {
-   if(strstr(message, "non-existant accelerators"))
-	return;
+  if ( strstr( message, "non-existant accelerators" ) )
+    return;
 
-   fprintf(stderr, "XtWarning: %s\n", message);
-
+  fprintf( stderr, "XtWarning: %s\n", message );
 }
 
-extern "C" int TutorApplication_XErrorHandler(Display *display, XErrorEvent *event)
+extern "C" int TutorApplication_XErrorHandler( Display *display,
+                                               XErrorEvent *event )
 {
-    return theTutorApplication->handleXError(display, event);
+  return theTutorApplication->handleXError( display, event );
 }
 
-int TutorApplication::handleXError(Display *display, XErrorEvent *event)
+int TutorApplication::handleXError( Display *display, XErrorEvent *event )
 {
-    char buffer[BUFSIZ];
-    char mesg[BUFSIZ];
-    char number[32];
-    XGetErrorText(display, event->error_code, buffer, BUFSIZ);
-    XGetErrorDatabaseText(display, "XlibMessage", "XError",
-	"X Error", mesg, BUFSIZ);
-    fprintf(stderr, "%s:  %s\n", mesg, buffer);
-    XGetErrorDatabaseText(display, "XlibMessage", "MajorCode",
-	"Request Major code %d", mesg, BUFSIZ);
-    fprintf(stderr, mesg, event->request_code);
-    if (event->request_code < 128) {
-        sprintf(number, "%d", event->request_code);
-        XGetErrorDatabaseText(display, "XRequest", number, "", buffer, BUFSIZ);
-    } else {
-	sprintf(buffer, "Extension %d", event->request_code);
-    }
-    fprintf(stderr, " (%s)\n  ", buffer);
-    XGetErrorDatabaseText(display, "XlibMessage", "MinorCode",
-	"Request Minor code %d", mesg, BUFSIZ);
-    fprintf(stderr, mesg, event->minor_code);
-    if (event->request_code >= 128) {
-        sprintf(mesg, "Extension %d.%d",
-	    event->request_code, event->minor_code);
-        XGetErrorDatabaseText(display, "XRequest", mesg, "", buffer, BUFSIZ);
-        fprintf(stderr, " (%s)", buffer);
-    }
-    fputs("\n  ", stderr);
-    XGetErrorDatabaseText(display, "XlibMessage", "ResourceID",
-	"ResourceID 0x%x", mesg, BUFSIZ);
-    fprintf(stderr, mesg, event->resourceid);
-    fputs("\n  ", stderr);
-    XGetErrorDatabaseText(display, "XlibMessage", "ErrorSerial",
-	"Error Serial #%d", mesg, BUFSIZ);
-    fprintf(stderr, mesg, event->serial);
-    fputs("\n  ", stderr);
+  char buffer[BUFSIZ];
+  char mesg[BUFSIZ];
+  char number[32];
+  XGetErrorText( display, event->error_code, buffer, BUFSIZ );
+  XGetErrorDatabaseText( display, "XlibMessage", "XError", "X Error", mesg,
+                         BUFSIZ );
+  fprintf( stderr, "%s:  %s\n", mesg, buffer );
+  XGetErrorDatabaseText( display, "XlibMessage", "MajorCode",
+                         "Request Major code %d", mesg, BUFSIZ );
+  fprintf( stderr, mesg, event->request_code );
+  if ( event->request_code < 128 )
+  {
+    sprintf( number, "%d", event->request_code );
+    XGetErrorDatabaseText( display, "XRequest", number, "", buffer, BUFSIZ );
+  }
+  else
+  {
+    sprintf( buffer, "Extension %d", event->request_code );
+  }
+  fprintf( stderr, " (%s)\n  ", buffer );
+  XGetErrorDatabaseText( display, "XlibMessage", "MinorCode",
+                         "Request Minor code %d", mesg, BUFSIZ );
+  fprintf( stderr, mesg, event->minor_code );
+  if ( event->request_code >= 128 )
+  {
+    sprintf( mesg, "Extension %d.%d", event->request_code, event->minor_code );
+    XGetErrorDatabaseText( display, "XRequest", mesg, "", buffer, BUFSIZ );
+    fprintf( stderr, " (%s)", buffer );
+  }
+  fputs( "\n  ", stderr );
+  XGetErrorDatabaseText( display, "XlibMessage", "ResourceID",
+                         "ResourceID 0x%x", mesg, BUFSIZ );
+  fprintf( stderr, mesg, event->resourceid );
+  fputs( "\n  ", stderr );
+  XGetErrorDatabaseText( display, "XlibMessage", "ErrorSerial",
+                         "Error Serial #%d", mesg, BUFSIZ );
+  fprintf( stderr, mesg, event->serial );
+  fputs( "\n  ", stderr );
 
-#if defined(XlibSpecificationRelease) && XlibSpecificationRelease <= 4
-    // R5 does not allow one to get at display->request.
-    XGetErrorDatabaseText(display, "XlibMessage", "CurrentSerial",
-        "Current Serial #%d", mesg, BUFSIZ);
-    fprintf(stderr, mesg, display->request);
-    fputs("\n", stderr);
+#if defined( XlibSpecificationRelease ) && XlibSpecificationRelease <= 4
+  // R5 does not allow one to get at display->request.
+  XGetErrorDatabaseText( display, "XlibMessage", "CurrentSerial",
+                         "Current Serial #%d", mesg, BUFSIZ );
+  fprintf( stderr, mesg, display->request );
+  fputs( "\n", stderr );
 #endif
 
-    if (event->error_code == BadImplementation) return 0;
+  if ( event->error_code == BadImplementation )
+    return 0;
 
-    return 1;
+  return 1;
 }
 
 const char *TutorApplication::getHelpDirectory()
 {
-    static char *buf = NULL;
-    if (!buf) {
-        const char *root = theTutorApplication->resource.UIRoot;
-	int len = STRLEN(root);	
-	buf = new char[len + 8];
-	sprintf(buf,"%s/help",root);
-    }
-   return buf;
+  static char *buf = NULL;
+  if ( !buf )
+  {
+    const char *root = theTutorApplication->resource.UIRoot;
+    int len = STRLEN( root );
+    buf = new char[len + 8];
+    sprintf( buf, "%s/help", root );
+  }
+  return buf;
 }
 
-void TutorApplication::helpOn(const char *topic)
+void TutorApplication::helpOn( const char *topic )
 {
-    ASSERT(this->mainWindow);
-    this->mainWindow->helpOn(topic);
+  ASSERT( this->mainWindow );
+  this->mainWindow->helpOn( topic );
 }
-

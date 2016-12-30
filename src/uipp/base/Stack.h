@@ -9,47 +9,43 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _Stack_h
 #define _Stack_h
 
-
 #include "List.h"
-
 
 //
 // Class name definition:
 //
-#define ClassStack	"Stack"
+#define ClassStack "Stack"
 
 //
 // Stack class definition:
-//				
+//
 class Stack : protected List
 {
 
-  public:
+ public:
+  Stack() {};
 
-    Stack() { };
+  ~Stack() {};
 
-    ~Stack() { };
+  void push( const void *datum );
 
-    void push(const void *datum);
+  const void *peek();
+  const void *pop();
 
-    const void *peek();
-    const void *pop();
-    
-    void clear();
+  void clear();
 
-    int getSize() { return this->List::getSize(); }
+  int getSize()
+  {
+    return this->List::getSize();
+  }
 
-    const char* getClassName()
-    {
-        return ClassStack;
-    }
-}; 
+  const char *getClassName()
+  {
+    return ClassStack;
+  }
+};
 
-
-
-#endif // _Stack_h
+#endif  // _Stack_h

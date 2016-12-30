@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -28,8 +27,8 @@ Files in the Data Explorer format, as described in ---Data Model chapter,
 User's manual--- can be imported by the {\tt DXImportDX()} routine.
 */
 
-Object DXImportDX(char *filename, char **variable,
-		int *start, int *end, int *delta);
+Object DXImportDX( char *filename, char **variable, int *start, int *end,
+                   int *delta );
 /**
 \index{DXImportDX}
 Imports data from a Data Explorer file specified by the {\tt filename}
@@ -48,7 +47,7 @@ Returns a pointer to the object, or returns null and sets the error
 code to indicate on error.
 **/
 
-Object DXExportDX(Object o, char *filename, char *format);
+Object DXExportDX( Object o, char *filename, char *format );
 /**
 \incde{DXExportDX}
 Exports data in Data Explorer file format.
@@ -63,8 +62,8 @@ regular data.  This routine is provided for compatibility with other
 systems that use netCDF.
 */
 
-Object DXImportNetCDF(char *filename, char **variable,
-		    int *start, int *end, int *delta);
+Object DXImportNetCDF( char *filename, char **variable, int *start, int *end,
+                       int *delta );
 /**
 \index{DXImportNetCDF}
 Creates a new group or field object.  The {\tt filename} parameter is
@@ -82,17 +81,16 @@ Returns a pointer to the object, or returns null and sets the error
 code to indicate on error.
 **/
 
-
 /* DO NOT INCLUDE IN DOCUMENTATION */
-Field DXImportHDF(char *filename, char *variable);
+Field DXImportHDF( char *filename, char *variable );
 
-Object DXImportCDF(char *filename, char **fieldlist, int *start,
-		int *end, int *delta);
+Object DXImportCDF( char *filename, char **fieldlist, int *start, int *end,
+                    int *delta );
 
-Object DXImportCM(char *filename,char **fieldlist);
+Object DXImportCM( char *filename, char **fieldlist );
 
 #endif /* _DXI_IMPORT_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

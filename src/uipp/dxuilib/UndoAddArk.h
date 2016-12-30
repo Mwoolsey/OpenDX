@@ -18,26 +18,34 @@ class EditorWindow;
 #define UndoAddArkClassName "UndoAddArk"
 class UndoAddArk : public UndoableAction
 {
-    private:
-    protected:
-	static char OperationName[];
-	const char* source_name;
-	const char* destination_name;
-	int source_instance;
-	int destination_instance;
-	int input;
-	int output;
-	boolean adding;
+ private:
+ protected:
+  static char OperationName[];
+  const char* source_name;
+  const char* destination_name;
+  int source_instance;
+  int destination_instance;
+  int input;
+  int output;
+  boolean adding;
 
-	Ark* lookupArk(Node* src, Node* dst);
+  Ark* lookupArk( Node* src, Node* dst );
 
-    public:
-	virtual const char* getLabel() { return UndoAddArk::OperationName; }
-	virtual ~UndoAddArk(){}
-	virtual boolean canUndo();
-	UndoAddArk (EditorWindow* editor, Ark* arc, boolean adding);
-	virtual void undo(boolean first_in_list=TRUE);
-	virtual const char* getClassName() { return UndoAddArkClassName; }
+ public:
+  virtual const char* getLabel()
+  {
+    return UndoAddArk::OperationName;
+  }
+  virtual ~UndoAddArk()
+  {
+  }
+  virtual boolean canUndo();
+  UndoAddArk( EditorWindow* editor, Ark* arc, boolean adding );
+  virtual void undo( boolean first_in_list = TRUE );
+  virtual const char* getClassName()
+  {
+    return UndoAddArkClassName;
+  }
 };
 
-#endif // _UndoAddArk_h
+#endif  // _UndoAddArk_h

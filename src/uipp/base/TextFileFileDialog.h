@@ -9,10 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _TextFileFileDialog_h
 #define _TextFileFileDialog_h
-
 
 #include <Xm/Xm.h>
 
@@ -22,7 +20,7 @@
 //
 // Class name definition:
 //
-#define ClassTextFileFileDialog	"TextFileFileDialog"
+#define ClassTextFileFileDialog "TextFileFileDialog"
 
 class Dialog;
 class Network;
@@ -32,51 +30,50 @@ class TextFile;
 
 //
 // TextFileFileDialog class definition:
-//				
+//
 class TextFileFileDialog : public FileDialog
 {
-    static boolean ClassInitialized;
-    static String  DefaultResources[];
+  static boolean ClassInitialized;
+  static String DefaultResources[];
 
+ protected:
+  Network *network;
+  TextFile *textFile;
 
-  protected:
-    Network *network;
-    TextFile *textFile;
+  virtual void okFileWork( const char *filename );
 
-    virtual void okFileWork(const char *filename);
+  //
+  // Constructor for derived classes only:
+  //
+  TextFileFileDialog( const char *name, TextFile *tf );
 
-    //
-    // Constructor for derived classes only:
-    //
-    TextFileFileDialog(const char *name, TextFile *tf);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+ public:
+  //
+  // Constructor for instances of THIS class only:
+  //
+  TextFileFileDialog( TextFile *tf );
 
-  public:
-    //
-    // Constructor for instances of THIS class only:
-    //
-    TextFileFileDialog(TextFile *tf);
+  //
+  // Destructor:
+  //
+  ~TextFileFileDialog()
+  {
+  }
 
-
-    //
-    // Destructor:
-    //
-    ~TextFileFileDialog(){}
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassTextFileFileDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassTextFileFileDialog;
+  }
 };
 
-
-#endif // _TextFileFileDialog_h
+#endif  // _TextFileFileDialog_h

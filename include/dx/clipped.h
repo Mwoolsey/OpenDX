@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -29,7 +28,7 @@ is provided as a data structure for representing the clipped object to
 the renderer, rather than as an explicit operation.
 */
 
-Clipped DXNewClipped(Object render, Object clipping);
+Clipped DXNewClipped( Object render, Object clipping );
 /**
 \index{DXNewClipped}
 Constructs a clipped object that instructs the renderer to render the
@@ -43,7 +42,7 @@ object.  Returns the clipped object, or returns null and sets the
 error code to indicate an error.
 **/
 
-Clipped DXGetClippedInfo(Clipped c, Object *render, Object *clipping);
+Clipped DXGetClippedInfo( Clipped c, Object *render, Object *clipping );
 /**
 \index{DXGetClippedInfo}
 If {\tt render} is not null, this routine returns the object to be
@@ -52,7 +51,7 @@ the clipping object in {\tt *clipping}.  Returns {\tt c}, or returns
 null and sets the error code to indicate an error.
 **/
 
-Clipped DXSetClippedObjects(Clipped c, Object render, Object clipping);
+Clipped DXSetClippedObjects( Clipped c, Object render, Object clipping );
 /**
 \index{SetClippedObject}
 If {\tt render} is not null, his routine sets the object to be
@@ -63,6 +62,6 @@ returns null and sets the error code to indicate an error.
 
 #endif /* _DXI_CLIPPED_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

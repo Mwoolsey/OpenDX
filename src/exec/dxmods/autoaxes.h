@@ -6,17 +6,17 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dxmods/autoaxes.h,v 1.1 2000/08/24 20:04:23 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dxmods/autoaxes.h,v 1.1 2000/08/24 20:04:23
+ * davidt Exp $
  */
 
 #include <dxconfig.h>
 
-#ifndef  _AUTOAXES_H_
-#define  _AUTOAXES_H_
+#ifndef _AUTOAXES_H_
+#define _AUTOAXES_H_
 
 #include <dx/dx.h>
 
-Error _dxfLowerCase(char *, char **);
+Error _dxfLowerCase( char *, char ** );
 
 #endif /* _AUTOAXES_H_ */
-

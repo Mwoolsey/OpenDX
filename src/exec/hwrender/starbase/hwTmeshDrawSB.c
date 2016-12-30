@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/starbase/hwTmeshDrawSB.c,v $
   Author: Mark Hood
@@ -30,16 +29,16 @@
 
 #include "hwDebug.h"
 
-#define tdmMeshDraw      _dxfTmeshDraw
-#define tdmPolygonDraw   _dxfTriDraw
-#define tdm_get_mesh     _dxf_get_tmesh
-#define Mesh             Tmesh
-#define mesh             tmesh
-#define CpfMsh          "CpfTmsh"
-#define CpcMsh          "CpcTmsh"
-#define CpvMsh          "CpvTmsh"
-#define Strip            Tstrip
-#define strip            tstrip
-#define strips           tstrips
+#define tdmMeshDraw _dxfTmeshDraw
+#define tdmPolygonDraw _dxfTriDraw
+#define tdm_get_mesh _dxf_get_tmesh
+#define Mesh Tmesh
+#define mesh tmesh
+#define CpfMsh "CpfTmsh"
+#define CpcMsh "CpcTmsh"
+#define CpvMsh "CpvTmsh"
+#define Strip Tstrip
+#define strip tstrip
+#define strips tstrips
 
 #include "hwMeshDrawSB.c.h"

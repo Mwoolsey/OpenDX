@@ -22,14 +22,14 @@
 
 #define DX 2
 #define DY 2
-#define D (DX*DY)
+#define D ( DX *DY )
 
 /*
  * MIX(r,g,b,) calculates the color table index for r,g,b;
  * 0 <= r < R, 0 <= g < G; 0 <= b < B.
  */
 
-#define MIX(r,g,b) (((r)*G+(g))*B+(b))
+#define MIX( r, g, b ) ( ( ( r ) * G + ( g ) ) * B + ( b ) )
 
 /* DITH(C,c,d) dithers one color component of one pixel;
  *
@@ -40,54 +40,46 @@
  * Hint: dithering produces D*(C-1)+1 shades of color C
  */
 
-#define DITH(C,c,d) (((unsigned)((D*(C-1)+1)*c+d))/(D*256))
+#define DITH( C, c, d ) \
+  ( ( ( unsigned )( ( D *( C - 1 ) + 1 ) * c + d ) ) / ( D * 256 ) )
 
 /*
  * The dither matrix
  */
 
 /* Normal matrix for 2x2 dither */
-static short matrix[DX][DY] = 
-    { 	{ 0*256, 2*256 },
-	{ 3*256, 1*256 },
-    };
+static short matrix[DX][DY] = {{0 * 256, 2 * 256}, {3 * 256, 1 * 256}, };
 #ifdef Comment
 /* Normal matrix for 4x4 dither */
-static short matrix[DX][DY] = 
-    { 	0*256,	8*256,	2*256,	10*256,
-	12*256,	4*256,	14*256,	6*256,	
-	3*256,	11*256,	1*256,	9*256,	
-	15*256,	7*256,	13*256,	5*256
-    };
+static short matrix[DX][DY] = {
+    0 * 256, 8 * 256,  2 * 256, 10 * 256, 12 * 256, 4 * 256, 14 * 256, 6 * 256,
+    3 * 256, 11 * 256, 1 * 256, 9 * 256,  15 * 256, 7 * 256, 13 * 256, 5 * 256};
 
-static short matrix[DX][DY] = 
-    { 	0*256,	2*256,	3*256,	1*256,
-	3*256,	1*256,	0*256,	2*256,	
-	1*256,	0*256,	2*256,	3*256,	
-	2*256,	3*256,	1*256,	0*256
-    };
+static short matrix[DX][DY] = {
+    0 * 256, 2 * 256, 3 * 256, 1 * 256, 3 * 256, 1 * 256, 0 * 256, 2 * 256,
+    1 * 256, 0 * 256, 2 * 256, 3 * 256, 2 * 256, 3 * 256, 1 * 256, 0 * 256};
 #endif
-
 
 /*
  * Dither an image
- */	
+ */
 
-void Dither(XColor *in, int width, int height, XColor *out, ControlColor *color)
+void Dither( XColor *in, int width, int height, XColor *out,
+             ControlColor *color )
 {
-int y;
-register int x, d;
-register short *m;
+  int y;
+  register int x, d;
+  register short *m;
 
-    for(y = 0; y < height; y++)
-	{
-	m = &(matrix[y&(DY-1)][0]);
-	for(x = width; --x >= 0; in++)
-	    {
-	    d = m[x&(DX-1)];
-	    (out++)->pixel = color->rgb[DITH(R, in->red, d)]
-				       [DITH(G, in->green, d)]
-				       [DITH(B, in->blue, d)].pixel;
-	    }
-	}
+  for ( y = 0; y < height; y++ )
+  {
+    m = &( matrix[y & ( DY - 1 )][0] );
+    for ( x = width; --x >= 0; in++ )
+    {
+      d = m[x & ( DX - 1 )];
+      ( out++ )->pixel =
+          color->rgb[DITH( R, in->red, d )][DITH( G, in->green, d )]
+                    [DITH( B, in->blue, d )].pixel;
+    }
+  }
 }

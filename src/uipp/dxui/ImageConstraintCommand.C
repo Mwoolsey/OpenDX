@@ -9,24 +9,20 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "ImageConstraintCommand.h"
 #include "ImageWindow.h"
 
-ImageConstraintCommand::ImageConstraintCommand(const char   *name,
-						 CommandScope *scope,
-						 boolean       active,
-						 ImageWindow  *w,
-						 ConstraintDirection dir):
-    NoUndoCommand(name, scope, active)
+ImageConstraintCommand::ImageConstraintCommand( const char *name,
+                                                CommandScope *scope,
+                                                boolean active, ImageWindow *w,
+                                                ConstraintDirection dir )
+    : NoUndoCommand( name, scope, active )
 {
-    this->imageWindow = w;
-    this->direction = dir;
+  this->imageWindow = w;
+  this->direction = dir;
 }
 
-boolean ImageConstraintCommand::doIt(CommandInterface *ci)
+boolean ImageConstraintCommand::doIt( CommandInterface *ci )
 {
-    return this->imageWindow->setConstraint(this->direction);
+  return this->imageWindow->setConstraint( this->direction );
 }

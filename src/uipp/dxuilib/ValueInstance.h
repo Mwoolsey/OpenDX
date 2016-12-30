@@ -9,15 +9,10 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _ValueInstance_h
 #define _ValueInstance_h
 
-
 #include "InteractorInstance.h"
-
 
 class List;
 class ValueNode;
@@ -29,26 +24,25 @@ class InteractorStyle;
 //
 // Class name definition:
 //
-#define ClassValueInstance	"ValueInstance"
-
+#define ClassValueInstance "ValueInstance"
 
 //
 // Describes an instance of an interactor in a control Panel.
 //
-class ValueInstance : public InteractorInstance {
+class ValueInstance : public InteractorInstance
+{
 
-  private:
+ private:
+ protected:
+ public:
+  ValueInstance( ValueNode *n );
 
-  protected:
+  ~ValueInstance();
 
-  public:
-    ValueInstance(ValueNode *n);
-	
-    ~ValueInstance(); 
-
-    const char *getClassName() 
-	{ return ClassValueInstance; }
+  const char *getClassName()
+  {
+    return ClassValueInstance;
+  }
 };
 
-#endif // _ValueInstance_h
-
+#endif  // _ValueInstance_h

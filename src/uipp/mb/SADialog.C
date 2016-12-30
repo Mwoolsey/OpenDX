@@ -9,9 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "DXStrings.h"
 #include "SADialog.h"
 #include "Application.h"
@@ -20,48 +17,40 @@
 #include <Xm/Text.h>
 #include <Xm/SelectioB.h>
 
-
 boolean SADialog::ClassInitialized = FALSE;
 
-String SADialog::DefaultResources[] =
-{
-        "*dirMask:      *.mb",
-        "*textColumns:  30",
-        "*dialogTitle:	Save a Module Builder file...",
-        NULL
-};
+String SADialog::DefaultResources[] = {
+    "*dirMask:      *.mb",                          "*textColumns:  30",
+    "*dialogTitle:	Save a Module Builder file...", NULL};
 
-SADialog::SADialog(MBMainWindow *mbmw ) : 
-                       SaveFileDialog("saveAsFileDialog", 
-					mbmw->getRootWidget(),
-					".mb")
+SADialog::SADialog( MBMainWindow *mbmw )
+    : SaveFileDialog( "saveAsFileDialog", mbmw->getRootWidget(), ".mb" )
 {
-    if (!SADialog::ClassInitialized)
-    {
-        this->setDefaultResources(theApplication->getRootWidget(),
-                                  SADialog::DefaultResources);
-        this->setDefaultResources(theApplication->getRootWidget(),
-                                  SaveFileDialog::DefaultResources);
-        this->setDefaultResources(theApplication->getRootWidget(),
-                                  FileDialog::DefaultResources);
-        SADialog::ClassInitialized = TRUE;
-    }
+  if ( !SADialog::ClassInitialized )
+  {
+    this->setDefaultResources( theApplication->getRootWidget(),
+                               SADialog::DefaultResources );
+    this->setDefaultResources( theApplication->getRootWidget(),
+                               SaveFileDialog::DefaultResources );
+    this->setDefaultResources( theApplication->getRootWidget(),
+                               FileDialog::DefaultResources );
+    SADialog::ClassInitialized = TRUE;
+  }
 
-    this->mbmw = mbmw;
-    this->hasCommentButton = False;
-    this->cmd = NULL;
+  this->mbmw = mbmw;
+  this->hasCommentButton = False;
+  this->cmd = NULL;
 }
 
-void SADialog::saveFile(const char *string)
+void SADialog::saveFile( const char *string )
 {
-    if(this->mbmw->saveMB((char *)string))
-	if(this->cmd)
-	    ((MBNewCommand *)(this->cmd))->execute();
-    this->cmd = NULL;
+  if ( this->mbmw->saveMB( (char *)string ) )
+    if ( this->cmd )
+      ( (MBNewCommand *)( this->cmd ) )->execute();
+  this->cmd = NULL;
 }
 
-void SADialog::setPostCommand(Command *cmd)
+void SADialog::setPostCommand( Command *cmd )
 {
-    this->cmd = cmd;
+  this->cmd = cmd;
 }
-

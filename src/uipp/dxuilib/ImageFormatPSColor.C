@@ -8,46 +8,41 @@
 
 #include <dxconfig.h>
 
-
 #include "ImageFormatPSColor.h"
 #include "Application.h"
 
 boolean ImageFormatPSColor::ClassInitialized = FALSE;
 
-String ImageFormatPSColor::DefaultResources[] = {
-    NUL(char*)
-};
+String ImageFormatPSColor::DefaultResources[] = {NUL(char*)};
 
-
-ImageFormatPSColor::ImageFormatPSColor (ImageFormatDialog* dialog) : 
-    PostScriptImageFormat("PSColorformat", dialog)
+ImageFormatPSColor::ImageFormatPSColor( ImageFormatDialog* dialog )
+    : PostScriptImageFormat( "PSColorformat", dialog )
 {
-
 }
 
 ImageFormatPSColor::~ImageFormatPSColor()
 {
 }
 
-
 void ImageFormatPSColor::initialize()
 {
-    if (!ImageFormatPSColor::ClassInitialized) {
-	this->setDefaultResources (theApplication->getRootWidget(),
-	    ImageFormat::DefaultResources);
-	this->setDefaultResources (theApplication->getRootWidget(),
-	    PostScriptImageFormat::DefaultResources);
-	this->setDefaultResources (theApplication->getRootWidget(),
-	    ImageFormatPSColor::DefaultResources);
-	ImageFormatPSColor::ClassInitialized = TRUE;
-    }
+  if ( !ImageFormatPSColor::ClassInitialized )
+  {
+    this->setDefaultResources( theApplication->getRootWidget(),
+                               ImageFormat::DefaultResources );
+    this->setDefaultResources( theApplication->getRootWidget(),
+                               PostScriptImageFormat::DefaultResources );
+    this->setDefaultResources( theApplication->getRootWidget(),
+                               ImageFormatPSColor::DefaultResources );
+    ImageFormatPSColor::ClassInitialized = TRUE;
+  }
 }
 
-boolean ImageFormatPSColor::isA (Symbol classname)
+boolean ImageFormatPSColor::isA( Symbol classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(ClassImageFormatPSColor);
-    if (s == classname)
-	return TRUE;
-    else
-	return PostScriptImageFormat::isA(classname);
+  Symbol s = theSymbolManager->registerSymbol( ClassImageFormatPSColor );
+  if ( s == classname )
+    return TRUE;
+  else
+    return PostScriptImageFormat::isA( classname );
 }

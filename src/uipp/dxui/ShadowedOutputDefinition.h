@@ -9,8 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _ShadowedOutputDefinition_h
 #define _ShadowedOutputDefinition_h
 
@@ -21,40 +19,45 @@
 //
 // Class name definition:
 //
-#define ClassShadowedOutputDefinition	"ShadowedOutputDefinition"
+#define ClassShadowedOutputDefinition "ShadowedOutputDefinition"
 
 //
-// Forward definitions 
+// Forward definitions
 //
 
 //
 // ShadowedOutputDefinition class definition:
-//				
-class ShadowedOutputDefinition : public DrivenDefinition 
+//
+class ShadowedOutputDefinition : public DrivenDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-  public:
-    //
-    // Constructor:
-    //
-    ShadowedOutputDefinition() { }
+ public:
+  //
+  // Constructor:
+  //
+  ShadowedOutputDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~ShadowedOutputDefinition() { }
-	
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() { return ClassShadowedOutputDefinition; }
+  //
+  // Destructor:
+  //
+  ~ShadowedOutputDefinition()
+  {
+  }
+
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char* getClassName()
+  {
+    return ClassShadowedOutputDefinition;
+  }
 };
 
-
-#endif // _ShadowedOutputDefinition_h
+#endif  // _ShadowedOutputDefinition_h

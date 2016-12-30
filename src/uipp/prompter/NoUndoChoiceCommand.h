@@ -9,12 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _NoUndoChoiceCommand_h
 #define _NoUndoChoiceCommand_h
-
 
 #include "NoUndoCommand.h"
 
@@ -25,64 +21,63 @@ class TypeChoice;
 //
 // Class name definition:
 //
-#define ClassNoUndoChoiceCommand	"NoUndoChoiceCommand"
+#define ClassNoUndoChoiceCommand "NoUndoChoiceCommand"
 
 //
 // NoUndoChoiceCommand class definition:
-//				
+//
 class NoUndoChoiceCommand : public NoUndoCommand
 {
-    
-  protected:
-    //
-    // Protected member data:
-    //
-    TypeChoice     *choice;
-    ChoiceCommandType commandType;
- 
-    virtual boolean doIt(CommandInterface *ci);
 
-  public:
-    //
-    // Constructor:
-    //
-    NoUndoChoiceCommand(const char*   name,
-                   CommandScope  *scope,
-                   boolean       active,
-		   TypeChoice *chooser,
-		   ChoiceCommandType comType);
+ protected:
+  //
+  // Protected member data:
+  //
+  TypeChoice *choice;
+  ChoiceCommandType commandType;
 
-    //
-    // Destructor:
-    //
-    ~NoUndoChoiceCommand(){}
+  virtual boolean doIt( CommandInterface *ci );
 
-    // 
-    // These are the various operations 
-    // 
-    enum {
-	Browse		= 1,
-	SetChoice	= 2,
-	Visualize	= 4,
-	SetGridType	= 5,
-	Positions	= 6,
-	NoOp		= 7,
-	Prompter	= 8,
-	RestrictNames	= 9,
-	SpecifyRows	= 10,
-	UseDelimiter	= 11,
-	SimplePrompter	= 12,
-	VerifyData	= 99
-    };
+ public:
+  //
+  // Constructor:
+  //
+  NoUndoChoiceCommand( const char *name, CommandScope *scope, boolean active,
+                       TypeChoice *chooser, ChoiceCommandType comType );
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassNoUndoChoiceCommand;
-    }
+  //
+  // Destructor:
+  //
+  ~NoUndoChoiceCommand()
+  {
+  }
+
+  //
+  // These are the various operations
+  //
+  enum
+  {
+    Browse = 1,
+    SetChoice = 2,
+    Visualize = 4,
+    SetGridType = 5,
+    Positions = 6,
+    NoOp = 7,
+    Prompter = 8,
+    RestrictNames = 9,
+    SpecifyRows = 10,
+    UseDelimiter = 11,
+    SimplePrompter = 12,
+    VerifyData = 99
+  };
+
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassNoUndoChoiceCommand;
+  }
 };
 
-
-#endif // _NoUndoChoiceCommand_h
+#endif  // _NoUndoChoiceCommand_h

@@ -6,11 +6,11 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dpexec/graphIntr.h,v 1.5 2000/08/11 15:28:11 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dpexec/graphIntr.h,v 1.5 2000/08/11 15:28:11
+ * davidt Exp $
  */
 
 #include <dxconfig.h>
-
 
 #ifndef __GRAPHINT_H__
 #define __GRAPHINT_H__
@@ -28,7 +28,7 @@ Error init_dict_stack (int perGraph);
 
 #endif
 
-void		_dxf_ExMacroRecursionInit	(void);
-void		_dxf_ExComputeRecipes(Program *p, int funcInd);
+void _dxf_ExMacroRecursionInit( void );
+void _dxf_ExComputeRecipes( Program *p, int funcInd );
 
 #endif /* __GRAPHINT_H__ */

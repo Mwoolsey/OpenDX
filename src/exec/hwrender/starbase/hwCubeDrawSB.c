@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/starbase/hwCubeDrawSB.c,v $
   Author: Mark Hood
@@ -24,14 +23,14 @@
 
 #include "hwDebug.h"
 
-#define Polyhedra                 Cube
-#define CpfPolyhedra             "CpfCube"
-#define CpcPolyhedra             "CpcCube"
-#define CpvPolyhedra             "CpvCube"
-#define tdmPolyhedraDraw          _dxfCubeDraw
+#define Polyhedra Cube
+#define CpfPolyhedra "CpfCube"
+#define CpcPolyhedra "CpcCube"
+#define CpvPolyhedra "CpvCube"
+#define tdmPolyhedraDraw _dxfCubeDraw
 
-#define PolyhedraSize             8
-#define FacetsPerPolyhedron       6
-#define VerticesPerFacet          4
+#define PolyhedraSize 8
+#define FacetsPerPolyhedron 6
+#define VerticesPerFacet 4
 
 #include "hwPolyhedraDrawSB.c.h"

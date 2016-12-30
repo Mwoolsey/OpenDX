@@ -9,16 +9,15 @@
 #ifndef _VCDefaultResources_h
 #define _VCDefaultResources_h
 
-#if !defined(DX_NEW_KEYLAYOUT)
+#if !defined( DX_NEW_KEYLAYOUT )
 
-String  ViewControlDialog::DefaultResources[] =
-{
+String ViewControlDialog::DefaultResources[] = {
     ".XmForm.accelerators:		#augment\n"
 #if 1
-	"<Key>Return:			BulletinBoardReturn()",
+    "<Key>Return:			BulletinBoardReturn()",
 #else
-	"<Key>Return:			BulletinBoardReturn()\n"
-	"<Btn2Down>,<Btn2Up>:		HELP!",
+    "<Key>Return:			BulletinBoardReturn()\n"
+    "<Btn2Down>,<Btn2Up>:		HELP!",
 #endif
     "*mainForm.width:				292",
     "*mainForm.undoButton.labelString:		Undo  Ctrl+U",
@@ -29,9 +28,8 @@ String  ViewControlDialog::DefaultResources[] =
     "*mainForm.setViewLabel.labelString:	Set View:",
     "*mainForm.projectionLabel.labelString:	Projection:",
     "*mainForm.viewAngleLabel.labelString:	View Angle:",
-
     "*mainForm*modePulldownMenu.modeNone.labelString:         None",
-#ifdef sgi 
+#ifdef sgi
     "*mainForm*modePulldownMenu.modeNone.width:               85",
     "*mainForm*modePulldownMenu.modeNone.recomputeSize:       False",
 #endif
@@ -59,7 +57,6 @@ String  ViewControlDialog::DefaultResources[] =
     "*mainForm*modePulldownMenu.modeZoom.labelString:         Zoom",
     "*mainForm*modePulldownMenu.modeZoom.accelerator:         Ctrl<Key>Z",
     "*mainForm*modePulldownMenu.modeZoom.acceleratorText:     Ctrl+Z",
-
     "*mainForm*setViewPulldownMenu.setViewNone.labelString:       None",
     "*mainForm*setViewPulldownMenu.setViewNone.width:             140",
     "*mainForm*setViewPulldownMenu.setViewNone.recomputeSize:     False",
@@ -83,7 +80,6 @@ String  ViewControlDialog::DefaultResources[] =
     "*mainForm*projectionPulldownMenu.perspective.labelString:    Perspective",
     "*mainForm*projectionPulldownMenu.perspective.width:         140",
     "*mainForm*projectionPulldownMenu.perspective.recomputeSize: False",
-
     "*cursorForm.probeLabel.labelString:                    Probe(s):",
     "*cursorForm.probeLabel.width:                          95",
     "*cursorForm*probePulldownMenu.noProbes.labelString:    (None)",
@@ -97,13 +93,11 @@ String  ViewControlDialog::DefaultResources[] =
     "*cursorForm*constraintPulldownMenu.X.labelString:      X",
     "*cursorForm*constraintPulldownMenu.Y.labelString:      Y",
     "*cursorForm*constraintPulldownMenu.Z.labelString:      Z",
-
     "*pickForm.pickLabel.labelString:                       Pick(s):",
     "*pickForm.pickLabel.width:                             95",
     "*pickForm*pickPulldownMenu.noPicks.labelString:        (None)",
     "*pickForm*pickPulldownMenu*width:                      110",
     "*pickForm*pickPulldownMenu*recomputeSize:              False",
-
     "*cameraForm*cameraWhichPulldownMenu.to.labelString:    To",
     "*cameraForm*cameraWhichPulldownMenu.from.labelString:  From",
     "*cameraForm*cameraWhichPulldownMenu.up.labelString:    Up",
@@ -113,54 +107,53 @@ String  ViewControlDialog::DefaultResources[] =
     "*cameraForm.cameraWindowWidthLabel.labelString:    Window Width:",
     "*cameraForm.cameraWindowHeightLabel.labelString:   Window Height:",
     "*cameraForm.cameraWidthLabel.labelString:    Camera Width:",
-
     "*navigateForm*navigateLookPulldownMenu.forward.labelString: Forward",
     "*navigateForm*navigateLookPulldownMenu.forward.width: 110",
     "*navigateForm*navigateLookPulldownMenu.forward.recomputeSize: False",
-    "*navigateForm*navigateLookPulldownMenu.left45.labelString:  45\\260\\ Left",
-    "*navigateForm*navigateLookPulldownMenu.right45.labelString: 45\\260\\ Right",
+    "*navigateForm*navigateLookPulldownMenu.left45.labelString:  45\\260\\ "
+    "Left",
+    "*navigateForm*navigateLookPulldownMenu.right45.labelString: 45\\260\\ "
+    "Right",
     "*navigateForm*navigateLookPulldownMenu.up45.labelString:    45\\260\\ Up",
-    "*navigateForm*navigateLookPulldownMenu.down45.labelString:  45\\260\\ Down",
-    "*navigateForm*navigateLookPulldownMenu.left90.labelString:  90\\260\\ Left",
-    "*navigateForm*navigateLookPulldownMenu.right90.labelString: 90\\260\\ Right",
+    "*navigateForm*navigateLookPulldownMenu.down45.labelString:  45\\260\\ "
+    "Down",
+    "*navigateForm*navigateLookPulldownMenu.left90.labelString:  90\\260\\ "
+    "Left",
+    "*navigateForm*navigateLookPulldownMenu.right90.labelString: 90\\260\\ "
+    "Right",
     "*navigateForm*navigateLookPulldownMenu.up90.labelString:    90\\260\\ Up",
-    "*navigateForm*navigateLookPulldownMenu.down90.labelString:  90\\260\\ Down",
+    "*navigateForm*navigateLookPulldownMenu.down90.labelString:  90\\260\\ "
+    "Down",
     "*navigateForm*navigateLookPulldownMenu.backward.labelString:Backward",
     "*navigateForm*navigateLookPulldownMenu.align.labelString:   Align",
     "*navigateForm.navigationLabel.labelString:   Navigation",
     "*navigateForm.lookLabel.labelString:         Look:",
     "*navigateForm.motionLabel.labelString:       Motion:",
     "*navigateForm.pivotLabel.labelString:        Pivot:",
-
     "*buttonForm.closeButton.labelString:	Close",
     "*buttonForm.closeButton.width:		100",
     "*buttonForm.resetButton.labelString:	Reset  Ctrl+F",
     "*buttonForm.resetButton.width:		100",
 
-#if defined(aviion)
-    "*modeOptionMenu.labelString:",
-    "*setViewOptionMenu.labelString:",
-    "*projectionMenu.labelString:",
-    "*probeMenu.labelString:",
-    "*pickMenu.labelString:",
-    "*constraintMenu.labelString:",
-    "*cameraWhichMenu.labelString:",
-    "*navigateLookMenu.labelString:",
+#if defined( aviion )
+    "*modeOptionMenu.labelString:", "*setViewOptionMenu.labelString:",
+    "*projectionMenu.labelString:", "*probeMenu.labelString:",
+    "*pickMenu.labelString:", "*constraintMenu.labelString:",
+    "*cameraWhichMenu.labelString:", "*navigateLookMenu.labelString:",
 #endif
-    NULL
-};
-
+    NULL};
 
 #else /* defined(DX_NEW_KEYLAYOUT) */
 
-String  ViewControlDialog::DefaultResources[] =
-{
+String ViewControlDialog::DefaultResources[] = {
     ".XmForm.accelerators:					#augment\n"
 #if 1
-	"<Key>Return:						BulletinBoardReturn()",
+    "<Key>Return:						"
+    "BulletinBoardReturn()",
 #else
-	"<Key>Return:						BulletinBoardReturn()\n"
-	"<Btn2Down>,<Btn2Up>:					HELP!",
+    "<Key>Return:						"
+    "BulletinBoardReturn()\n"
+    "<Btn2Down>,<Btn2Up>:					HELP!",
 #endif
     "*mainForm.width:						292",
     "*mainForm.undoButton.labelString:				Undo  Ctrl+Z",
@@ -171,9 +164,8 @@ String  ViewControlDialog::DefaultResources[] =
     "*mainForm.setViewLabel.labelString:			Set View:",
     "*mainForm.projectionLabel.labelString:			Projection:",
     "*mainForm.viewAngleLabel.labelString:			View Angle:",
-
     "*mainForm*modePulldownMenu.modeNone.labelString:         	None",
-#ifdef sgi 
+#ifdef sgi
     "*mainForm*modePulldownMenu.modeNone.width:               	85",
     "*mainForm*modePulldownMenu.modeNone.recomputeSize:       	False",
 #endif
@@ -199,9 +191,9 @@ String  ViewControlDialog::DefaultResources[] =
     "*mainForm*modePulldownMenu.modeRotate.accelerator:       	Ctrl<Key>R",
     "*mainForm*modePulldownMenu.modeRotate.acceleratorText:   	Ctrl+R",
     "*mainForm*modePulldownMenu.modeZoom.labelString:         	Zoom",
-    "*mainForm*modePulldownMenu.modeZoom.accelerator:         	Ctrl Shift <Key>space",
+    "*mainForm*modePulldownMenu.modeZoom.accelerator:         	Ctrl Shift "
+    "<Key>space",
     "*mainForm*modePulldownMenu.modeZoom.acceleratorText:     	Ctrl+Shift+Spc",
-
     "*mainForm*setViewPulldownMenu.setViewNone.labelString:       None",
     "*mainForm*setViewPulldownMenu.setViewNone.width:             140",
     "*mainForm*setViewPulldownMenu.setViewNone.recomputeSize:     False",
@@ -225,7 +217,6 @@ String  ViewControlDialog::DefaultResources[] =
     "*mainForm*projectionPulldownMenu.perspective.labelString:    Perspective",
     "*mainForm*projectionPulldownMenu.perspective.width:         140",
     "*mainForm*projectionPulldownMenu.perspective.recomputeSize: False",
-
     "*cursorForm.probeLabel.labelString:                    	Probe(s):",
     "*cursorForm.probeLabel.width:                          	95",
     "*cursorForm*probePulldownMenu.noProbes.labelString:    	(None)",
@@ -239,13 +230,11 @@ String  ViewControlDialog::DefaultResources[] =
     "*cursorForm*constraintPulldownMenu.X.labelString:      	X",
     "*cursorForm*constraintPulldownMenu.Y.labelString:      	Y",
     "*cursorForm*constraintPulldownMenu.Z.labelString:      	Z",
-
     "*pickForm.pickLabel.labelString:                       	Pick(s):",
     "*pickForm.pickLabel.width:                             	95",
     "*pickForm*pickPulldownMenu.noPicks.labelString:        	(None)",
     "*pickForm*pickPulldownMenu*width:                      	110",
     "*pickForm*pickPulldownMenu*recomputeSize:              	False",
-
     "*cameraForm*cameraWhichPulldownMenu.to.labelString:    	To",
     "*cameraForm*cameraWhichPulldownMenu.from.labelString:  	From",
     "*cameraForm*cameraWhichPulldownMenu.up.labelString:    	Up",
@@ -255,45 +244,42 @@ String  ViewControlDialog::DefaultResources[] =
     "*cameraForm.cameraWindowWidthLabel.labelString:    	Window Width:",
     "*cameraForm.cameraWindowHeightLabel.labelString:   	Window Height:",
     "*cameraForm.cameraWidthLabel.labelString:    		Camera Width:",
-
     "*navigateForm*navigateLookPulldownMenu.forward.labelString: Forward",
     "*navigateForm*navigateLookPulldownMenu.forward.width: 	110",
     "*navigateForm*navigateLookPulldownMenu.forward.recomputeSize: False",
-    "*navigateForm*navigateLookPulldownMenu.left45.labelString:  45\\260\\ Left",
-    "*navigateForm*navigateLookPulldownMenu.right45.labelString: 45\\260\\ Right",
+    "*navigateForm*navigateLookPulldownMenu.left45.labelString:  45\\260\\ "
+    "Left",
+    "*navigateForm*navigateLookPulldownMenu.right45.labelString: 45\\260\\ "
+    "Right",
     "*navigateForm*navigateLookPulldownMenu.up45.labelString:    45\\260\\ Up",
-    "*navigateForm*navigateLookPulldownMenu.down45.labelString:  45\\260\\ Down",
-    "*navigateForm*navigateLookPulldownMenu.left90.labelString:  90\\260\\ Left",
-    "*navigateForm*navigateLookPulldownMenu.right90.labelString: 90\\260\\ Right",
+    "*navigateForm*navigateLookPulldownMenu.down45.labelString:  45\\260\\ "
+    "Down",
+    "*navigateForm*navigateLookPulldownMenu.left90.labelString:  90\\260\\ "
+    "Left",
+    "*navigateForm*navigateLookPulldownMenu.right90.labelString: 90\\260\\ "
+    "Right",
     "*navigateForm*navigateLookPulldownMenu.up90.labelString:    90\\260\\ Up",
-    "*navigateForm*navigateLookPulldownMenu.down90.labelString:  90\\260\\ Down",
+    "*navigateForm*navigateLookPulldownMenu.down90.labelString:  90\\260\\ "
+    "Down",
     "*navigateForm*navigateLookPulldownMenu.backward.labelString:Backward",
     "*navigateForm*navigateLookPulldownMenu.align.labelString:   Align",
     "*navigateForm.navigationLabel.labelString:   		Navigation",
     "*navigateForm.lookLabel.labelString:         		Look:",
     "*navigateForm.motionLabel.labelString:       		Motion:",
     "*navigateForm.pivotLabel.labelString:        		Pivot:",
-
     "*buttonForm.closeButton.labelString:			Close",
     "*buttonForm.closeButton.width:				100",
     "*buttonForm.resetButton.labelString:			Reset  Ctrl+F",
     "*buttonForm.resetButton.width:				100",
 
-#if defined(aviion)
-    "*modeOptionMenu.labelString:",
-    "*setViewOptionMenu.labelString:",
-    "*projectionMenu.labelString:",
-    "*probeMenu.labelString:",
-    "*pickMenu.labelString:",
-    "*constraintMenu.labelString:",
-    "*cameraWhichMenu.labelString:",
-    "*navigateLookMenu.labelString:",
+#if defined( aviion )
+    "*modeOptionMenu.labelString:", "*setViewOptionMenu.labelString:",
+    "*projectionMenu.labelString:", "*probeMenu.labelString:",
+    "*pickMenu.labelString:", "*constraintMenu.labelString:",
+    "*cameraWhichMenu.labelString:", "*navigateLookMenu.labelString:",
 #endif
-    NULL
-};
-
+    NULL};
 
 #endif
 
-#endif // _VCDefaultResources_h
-
+#endif  // _VCDefaultResources_h

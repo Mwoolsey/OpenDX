@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #define class __class__
 #endif
@@ -31,7 +30,7 @@ Creates a new generic group object.  Returns the group, or returns
 null and sets the error code to indicate an error.
 **/
 
-Group DXSetMember(Group g, char *name, Object value);
+Group DXSetMember( Group g, char *name, Object value );
 /**
 \index{DXSetMember}
 Sets the value of a member of a group to {\tt val}, which should be a
@@ -43,7 +42,7 @@ field as the old member.  Returns {\tt g}, or returns null and sets
 the error code to indicate an error.
 **/
 
-Object DXGetMember(Group g, char *name);
+Object DXGetMember( Group g, char *name );
 /**
 \index{DXGetMember}
 Gets the value of the named member of a group.  Returns the member, or
@@ -51,18 +50,18 @@ returns null but does not set the error code if the member does not
 exist.
 **/
 
-Object DXGetEnumeratedMember(Group g, int n, char **name);
+Object DXGetEnumeratedMember( Group g, int n, char **name );
 /**
 \index{DXGetEnumeratedMember}
-The members of a group may be enumerated by calling this routine with 
-successive values of {\tt n} starting with 0 until null is returned. Note 
-that the numbering changes as members are added and deleted. This routine 
-returns the name of the {\tt n}th member in {\tt *name} if {\tt name} is not 
+The members of a group may be enumerated by calling this routine with
+successive values of {\tt n} starting with 0 until null is returned. Note
+that the numbering changes as members are added and deleted. This routine
+returns the name of the {\tt n}th member in {\tt *name} if {\tt name} is not
 null.  Returns the {\tt n}th member, or returns null but does not set the
 error code if {\tt n} is out of range.
 **/
 
-Group DXSetEnumeratedMember(Group g, int n, Object value);
+Group DXSetEnumeratedMember( Group g, int n, Object value );
 /**
 \index{DXSetEnumeratedMember}
 Sets the value of the {\tt n}th member of {\tt g} to {\tt value}; {\tt
@@ -72,14 +71,14 @@ always be contiguous starting at 0.  Returns {\tt g}, or returns null
 and sets the error code to indicate an error.
 **/
 
-Group DXGetMemberCount(Group g, int *n);
+Group DXGetMemberCount( Group g, int *n );
 /**
 \index{DXGetMemberCount}
 Returns the number of members in a group in {\tt n}.
 **/
 
-Group DXSetGroupType(Group g, Type t, Category c, int rank, ...);
-Group DXSetGroupTypeV(Group g, Type t, Category c, int rank, int *shape);
+Group DXSetGroupType( Group g, Type t, Category c, int rank, ... );
+Group DXSetGroupTypeV( Group g, Type t, Category c, int rank, int *shape );
 /**
 \index{DXSetGroupType}\index{DXSetGroupTypeV}
 Associates a type with {\tt g}.  (See Section \ref{arraysec} for a
@@ -91,14 +90,14 @@ error code to indicate an error (for instance, if one of the parts has
 a mismatching type).
 **/
 
-Group DXUnsetGroupType(Group g);
+Group DXUnsetGroupType( Group g );
 /**
 \index{DXUnsetGroupType}
 Removes any association of a type with {\tt g}.  This routine might
 be needed if the data component of a group was replaced or removed.
 **/
 
-Class DXGetGroupClass(Group g);
+Class DXGetGroupClass( Group g );
 /**
 \index{DXGetGroupClass}
 Returns the subclass of a group object. This will be {\tt CLASS\_GROUP} if
@@ -128,7 +127,7 @@ series group is intended to be interpreted sequentially.  Returns the
 series, or returns null and sets the error code to indicate an error.
 **/
 
-Series DXSetSeriesMember(Series s, int n, double position, Object o);
+Series DXSetSeriesMember( Series s, int n, double position, Object o );
 /**
 \index{DXSetSeriesMember}
 Puts {\tt o} into series {\tt s} as the {\tt n}th member, and records
@@ -140,7 +139,7 @@ starting with 0.  Returns {\tt s}, or returns null and sets the error
 code to indicate an error.
 **/
 
-Object DXGetSeriesMember(Series s, int n, float *position);
+Object DXGetSeriesMember( Series s, int n, float *position );
 /**
 \index{DXGetSeriesMember}
 Returns the {\tt n}th member of series {\tt s}.  If {\tt position} is
@@ -189,7 +188,7 @@ The dimensionality and type are set by the first field added to the
 group; all subsequent fields must have the same dimensionality and
 type.  Like composite fields, multigrid is intended to be interpreted
 as a collection of fields that together define a single field.  Unlike
-composite fields, however, the data represented by a multigrid is 
+composite fields, however, the data represented by a multigrid is
 not continuous at the boundary.  Returns the group, or
 returns null and sets the error code to indicate an error.
 **/
@@ -208,7 +207,7 @@ groups, but we also say they are
 \end{center}
 */
 
-Field DXGetPart(Object o, int n);
+Field DXGetPart( Object o, int n );
 /**
 \index{DXGetPart}
 The parts of a group may be enumerated by calling {\tt DXGetPart()} with
@@ -218,7 +217,7 @@ parameter set to {\tt CLASS\_FIELD}.  Returns the {\tt n}th part, or
 returns null to indicate an error.
 **/
 
-Object DXGetPartClass(Object o, int n, Class class);
+Object DXGetPartClass( Object o, int n, Class class );
 /**
 \index{DXGetPartClass}
 The parts of a group may be enumerated by calling {\tt DXGetPart()} with
@@ -227,7 +226,7 @@ This call returns the successive parts that are of the specified class.
 Returns the {\tt n}th part, or returns null to indicate an error.
 **/
 
-Object DXSetPart(Object o, int n, Field field);
+Object DXSetPart( Object o, int n, Field field );
 /**
 \index{DXSetPart}
 Sets the {\tt n}th part of {\tt g} to {\tt field}.  The field must
@@ -235,8 +234,8 @@ already have a defined structure that has at least {\tt n} parts.
 Returns {\tt g}, or returns null to indicate an error.
 **/
 
-Object DXProcessParts(Object object, Field (*process)(Field, char*, int),
-		    Pointer args, int size, int copyit, int preserve);
+Object DXProcessParts( Object object, Field ( *process )( Field, char *, int ),
+                       Pointer args, int size, int copyit, int preserve );
 /**
 \index{DXProcessParts}
 Applies the {\tt process} function to every constituent field (part)
@@ -284,7 +283,7 @@ often be used for the same purposes with better efficiency.
 
 #endif /* _DXI_GROUP_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 #undef class
 }
 #endif

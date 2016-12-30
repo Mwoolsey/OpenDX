@@ -8,8 +8,6 @@
 
 #include <dxconfig.h>
 
-
-
 #include "arrayClass.h"
 
 /*
@@ -18,81 +16,71 @@
  * is one less than the number of points.
  */
 
-static PathArray
-_NewPathArray(int count, struct patharray_class *class)
+static PathArray _NewPathArray( int count, struct patharray_class *class )
 {
-    static int two[] = {2};
-    PathArray a = (PathArray) _dxf_NewArrayV(TYPE_INT, CATEGORY_REAL, 1, two,
-        (struct array_class *)class);
-    if (!a)
-	return NULL;
-    if (count<=0)
-	DXErrorReturn(ERROR_BAD_PARAMETER,
-		    "path array must have at least one point");
-    a->array.items = count - 1;
-    a->offset = 0;
-    return a;
+  static int two[] = {2};
+  PathArray a = (PathArray)_dxf_NewArrayV( TYPE_INT, CATEGORY_REAL, 1, two,
+                                           (struct array_class *)class );
+  if ( !a )
+    return NULL;
+  if ( count <= 0 )
+    DXErrorReturn( ERROR_BAD_PARAMETER,
+                   "path array must have at least one point" );
+  a->array.items = count - 1;
+  a->offset = 0;
+  return a;
 }
 
-
-PathArray
-DXNewPathArray(int count)
+PathArray DXNewPathArray( int count )
 {
-    return _NewPathArray(count, &_dxdpatharray_class);
+  return _NewPathArray( count, &_dxdpatharray_class );
 }
 
-
-PathArray
-DXGetPathArrayInfo(PathArray a, int *count)
+PathArray DXGetPathArrayInfo( PathArray a, int *count )
 {
-    CHECKARRAY(a, CLASS_PATHARRAY);
-    if (count)
-	*count = a->array.items + 1;
-    return a;
+  CHECKARRAY( a, CLASS_PATHARRAY );
+  if ( count )
+    *count = a->array.items + 1;
+  return a;
 }
 
-
-PathArray
-DXSetPathOffset(PathArray a, int offset)
+PathArray DXSetPathOffset( PathArray a, int offset )
 {
-    CHECKARRAY(a, CLASS_PATHARRAY);
-    a->offset = offset;
-    return a;
+  CHECKARRAY( a, CLASS_PATHARRAY );
+  a->offset = offset;
+  return a;
 }
 
-PathArray
-DXGetPathOffset(PathArray a, int *offset)
+PathArray DXGetPathOffset( PathArray a, int *offset )
 {
-    CHECKARRAY(a, CLASS_PATHARRAY); 
-    if (offset)
-	*offset = a->offset;
-    return a;
+  CHECKARRAY( a, CLASS_PATHARRAY );
+  if ( offset )
+    *offset = a->offset;
+  return a;
 }
 
-Pointer
-_dxfPathArray_GetArrayData(PathArray a)
+Pointer _dxfPathArray_GetArrayData( PathArray a )
 {
-    int i, *data, *d, n;
+  int i, *data, *d, n;
 
-    /* DXlock array */
-    EXPAND_LOCK(a);
+  /* DXlock array */
+  EXPAND_LOCK( a );
 
-    /* allocate result */
-    data = (int *) DXAllocate(a->array.size * a->array.items);
-    if (!data)
-	goto error;
-    
-    /* fill it in */
-    for (i=0, d=data, n=a->array.items; i<n; i++) {
-	*d++ = i;
-        *d++ = i+1;
-    }	    
-    
-    /* DXunlock and return */
-    EXPAND_RETURN(a, data);
+  /* allocate result */
+  data = (int *)DXAllocate( a->array.size * a->array.items );
+  if ( !data )
+    goto error;
+
+  /* fill it in */
+  for ( i = 0, d = data, n = a->array.items; i < n; i++ )
+  {
+    *d++ = i;
+    *d++ = i + 1;
+  }
+
+  /* DXunlock and return */
+  EXPAND_RETURN( a, data );
 
 error:
-    EXPAND_ERROR(a);
+  EXPAND_ERROR( a );
 }
-
-

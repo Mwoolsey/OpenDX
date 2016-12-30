@@ -9,20 +9,15 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _ViewControlWhichCameraCommand_h
 #define _ViewControlWhichCameraCommand_h
 
-
 #include "NoUndoCommand.h"
-
 
 //
 // Class name definition:
 //
-#define ClassViewControlWhichCameraCommand	"ViewControlWhichCameraCommand"
+#define ClassViewControlWhichCameraCommand "ViewControlWhichCameraCommand"
 
 //
 // Referenced classes.
@@ -31,45 +26,43 @@ class ViewControlDialog;
 
 //
 // ViewControlWhichCameraCommand class definition:
-//				
+//
 class ViewControlWhichCameraCommand : public NoUndoCommand
 {
-  private:
-    //
-    // Private member data:
-    //
-    ViewControlDialog *viewControlDialog;
+ private:
+  //
+  // Private member data:
+  //
+  ViewControlDialog *viewControlDialog;
 
-  protected:
-    //
-    // Protected member data:
-    //
+ protected:
+  //
+  // Protected member data:
+  //
 
-    virtual boolean doIt(CommandInterface *ci);
+  virtual boolean doIt( CommandInterface *ci );
 
+ public:
+  //
+  // Constructor:
+  //
+  ViewControlWhichCameraCommand( const char *name, CommandScope *scope,
+                                 boolean active, ViewControlDialog *w );
 
-  public:
-    //
-    // Constructor:
-    //
-    ViewControlWhichCameraCommand(const char   *name,
-		   CommandScope      *scope,
-		   boolean            active,
-		   ViewControlDialog *w);
+  //
+  // Destructor:
+  //
+  ~ViewControlWhichCameraCommand()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~ViewControlWhichCameraCommand(){}
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassViewControlWhichCameraCommand;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassViewControlWhichCameraCommand;
+  }
 };
 
-
-#endif // _ViewControlWhichCameraCommand_h
+#endif  // _ViewControlWhichCameraCommand_h

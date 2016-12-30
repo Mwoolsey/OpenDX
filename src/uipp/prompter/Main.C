@@ -9,35 +9,32 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "GARApplication.h"
 
-#if defined(HAVE_HCLXMINIT)
+#if defined( HAVE_HCLXMINIT )
 extern "C" void HCLXmInit();
 #endif
 
-
-int main(unsigned int argc,
-	  char**       argv)
+int main( unsigned int argc, char** argv )
 {
-#if defined(HAVE_HCLXMINIT)
-     HCLXmInit();
+#if defined( HAVE_HCLXMINIT )
+  HCLXmInit();
 #endif
 
-    //
-    // Initialize Xt Intrinsics, build all the windows, and enter event loop.
-    // Note that all the windows are created elsewhere (<Application>App.C),
-    // and managed in the application initialization routine.
-    //
-    if (NOT theApplication)
-    {
-	theApplication = new GARApplication("GAR");
-    }
+  //
+  // Initialize Xt Intrinsics, build all the windows, and enter event loop.
+  // Note that all the windows are created elsewhere (<Application>App.C),
+  // and managed in the application initialization routine.
+  //
+  if ( NOT theApplication )
+  {
+    theApplication = new GARApplication( "GAR" );
+  }
 
-    theApplication->initialize(&argc, argv);
-    theApplication->handleEvents();
+  theApplication->initialize( &argc, argv );
+  theApplication->handleEvents();
 
-    delete theApplication;
+  delete theApplication;
 
-    return 0;
+  return 0;
 }

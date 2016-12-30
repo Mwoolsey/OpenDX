@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #define private __private__
 #endif
@@ -49,45 +48,46 @@ typedef struct multigrid *MultiGrid;
 /*
 An {\tt enum} provides a number for each class and subclass:
 */
-typedef enum {
-    CLASS_MIN,
-    CLASS_OBJECT,
-    CLASS_PRIVATE,
-    CLASS_STRING,
-    CLASS_FIELD,
-    CLASS_GROUP,
-    CLASS_SERIES,
-    CLASS_COMPOSITEFIELD,
-    CLASS_ARRAY,
-    CLASS_REGULARARRAY,
-    CLASS_PATHARRAY,
-    CLASS_PRODUCTARRAY,
-    CLASS_MESHARRAY,
-    CLASS_INTERPOLATOR,
-    CLASS_FIELDINTERPOLATOR,
-    CLASS_GROUPINTERPOLATOR,
-    CLASS_LINESRR1DINTERPOLATOR,
-    CLASS_LINESII1DINTERPOLATOR,
-    CLASS_LINESRI1DINTERPOLATOR,
-    CLASS_QUADSRR2DINTERPOLATOR,
-    CLASS_QUADSII2DINTERPOLATOR,
-    CLASS_TRISRI2DINTERPOLATOR,
-    CLASS_CUBESRRINTERPOLATOR,
-    CLASS_CUBESIIINTERPOLATOR,
-    CLASS_TETRASINTERPOLATOR,
-    CLASS_FLE2DINTERPOLATOR,
-    CLASS_GROUPITERATOR,
-    CLASS_ITEMITERATOR,
-    CLASS_XFORM,
-    CLASS_SCREEN,
-    CLASS_CLIPPED,
-    CLASS_CAMERA,
-    CLASS_LIGHT,
-    CLASS_CONSTANTARRAY,
-    CLASS_MULTIGRID,
-    CLASS_SHAREDARRAY,
-    CLASS_MAX,
-    CLASS_DELETED
+typedef enum
+{
+  CLASS_MIN,
+  CLASS_OBJECT,
+  CLASS_PRIVATE,
+  CLASS_STRING,
+  CLASS_FIELD,
+  CLASS_GROUP,
+  CLASS_SERIES,
+  CLASS_COMPOSITEFIELD,
+  CLASS_ARRAY,
+  CLASS_REGULARARRAY,
+  CLASS_PATHARRAY,
+  CLASS_PRODUCTARRAY,
+  CLASS_MESHARRAY,
+  CLASS_INTERPOLATOR,
+  CLASS_FIELDINTERPOLATOR,
+  CLASS_GROUPINTERPOLATOR,
+  CLASS_LINESRR1DINTERPOLATOR,
+  CLASS_LINESII1DINTERPOLATOR,
+  CLASS_LINESRI1DINTERPOLATOR,
+  CLASS_QUADSRR2DINTERPOLATOR,
+  CLASS_QUADSII2DINTERPOLATOR,
+  CLASS_TRISRI2DINTERPOLATOR,
+  CLASS_CUBESRRINTERPOLATOR,
+  CLASS_CUBESIIINTERPOLATOR,
+  CLASS_TETRASINTERPOLATOR,
+  CLASS_FLE2DINTERPOLATOR,
+  CLASS_GROUPITERATOR,
+  CLASS_ITEMITERATOR,
+  CLASS_XFORM,
+  CLASS_SCREEN,
+  CLASS_CLIPPED,
+  CLASS_CAMERA,
+  CLASS_LIGHT,
+  CLASS_CONSTANTARRAY,
+  CLASS_MULTIGRID,
+  CLASS_SHAREDARRAY,
+  CLASS_MAX,
+  CLASS_DELETED
 } Class;
 
 /*
@@ -114,24 +114,24 @@ routines for reserving a reference to an object, for deleting an
 object, and for saving an object to and restoring it from a file.
 */
 
-Class DXGetObjectClass(Object o);
+Class DXGetObjectClass( Object o );
 /**
 \index{DXGetObjectClass}
 Returns the class of an object, to be interpreted according to the
 definitions given above.
 **/
 
-Object DXReference(Object o);
+Object DXReference( Object o );
 /**
 \index{DXReference}
 Indicates that there is a reference to object {\tt o}.  The object is
 guaranteed to not be deleted until this reference is released, via the
 {\tt DXDelete} routine.  When an object is first created, it has zero
 references.  Returns {\tt o}, or returns null and sets the
-error code to indicate an error. 
+error code to indicate an error.
 **/
 
-Error DXDelete(Object o);
+Error DXDelete( Object o );
 /**
 \index{DXDelete}
 Indicates that a previous reference to object {\tt o} (signified by
@@ -141,7 +141,7 @@ Returns {\tt OK} to indicate success, or returns {\tt ERROR} and sets
 the error code to indicate an error.
 **/
 
-Error DXUnreference(Object o);
+Error DXUnreference( Object o );
 /**
 \index{DXUnreference}
 Special routine -- DXDelete is the normal way to remove a reference to
@@ -150,8 +150,8 @@ the object should NOT be deleted, this routine can be used instead of
 DXDelete.
 **/
 
-int DXGetObjectTag(Object o);
-Object DXSetObjectTag(Object o, int tag);
+int DXGetObjectTag( Object o );
+Object DXSetObjectTag( Object o, int tag );
 /**
 \index{DXGetObjectTag}\index{DXSetObjectTag}
 Every object is assigned a unique non-zero integer tag when it is
@@ -162,7 +162,7 @@ returns the object identifier, or returns 0 and sets the error code
 to indicate an error.
 **/
 
-Object DXSetAttribute(Object o, char *name, Object value);
+Object DXSetAttribute( Object o, char *name, Object value );
 /**
 \index{DXSetAttribute}
 Every object may have associated with it a set of {\em attributes}, in
@@ -171,7 +171,7 @@ for object {\tt o} to {\tt value}.  Returns {\tt o} on success, or returns null
 and sets the error code to indicate an error.
 **/
 
-Object DXDeleteAttribute(Object o, char *name);
+Object DXDeleteAttribute( Object o, char *name );
 /**
 \index{DXDeleteAttribute}
 This routine removes the attribute {\tt name}
@@ -180,8 +180,8 @@ attribute does not exist, or returns null
 and sets the error code to indicate an error.
 **/
 
-Object DXGetAttribute(Object o, char *name);
-Object DXGetEnumeratedAttribute(Object o, int n, char **name);
+Object DXGetAttribute( Object o, char *name );
+Object DXGetEnumeratedAttribute( Object o, int n, char **name );
 /**
 \index{DXGetAttribute}\index{DXGetEnumeratedAttribute}
 {\tt DXGetAttribute} retrieves the attribute specified by {\tt name}
@@ -191,9 +191,9 @@ n}th attribute of object {\tt o}, and returns a pointer its name in
 set the error code if the attribute does not exist.
 **/
 
-Object DXSetFloatAttribute(Object o, char *name, double x);
-Object DXSetIntegerAttribute(Object o, char *name, int x);
-Object DXSetStringAttribute(Object o, char *name, char *x);
+Object DXSetFloatAttribute( Object o, char *name, double x );
+Object DXSetIntegerAttribute( Object o, char *name, int x );
+Object DXSetStringAttribute( Object o, char *name, char *x );
 /**
 \index{DXSetFloatAttribute}\index{DXSetIntegerAttribute}\index{DXSetStringAttribute}
 These routines provide an easy way to associate a floating point, integer,
@@ -203,18 +203,18 @@ is represented by a string object.  Returns {\tt o} on success, or returns
 null and sets the error code to indicate an error.
 **/
 
-Object DXGetFloatAttribute(Object o, char *name, float *x);
-Object DXGetIntegerAttribute(Object o, char *name, int *x);
-Object DXGetStringAttribute(Object o, char *name, char **x);
+Object DXGetFloatAttribute( Object o, char *name, float *x );
+Object DXGetIntegerAttribute( Object o, char *name, int *x );
+Object DXGetStringAttribute( Object o, char *name, char **x );
 /**
 \index{DXGetFloatAttribute}\index{DXGetIntegerAttribute}\index{DXGetStringAttribute}
 These routines provide an easy way to retrieve a floating point, integer,
-or string attribute {\tt x} named {\tt name} from object {\tt o}.  
+or string attribute {\tt x} named {\tt name} from object {\tt o}.
 If the attribute exists, these routines set pointer {\tt x} to the value.
 Returns {\tt o} on success, or returns null but does not set the error code.
 **/
 
-Object DXCopyAttributes(Object dst, Object src);
+Object DXCopyAttributes( Object dst, Object src );
 /**
 \index{DXCopyAttributes}
 For each attribute in {\tt src}, that attribute in {\tt dst} is set to
@@ -224,14 +224,15 @@ dst}.  Attributes that are present in {\tt dst} but not present in
 null and sets the error code to indicate an error.
 **/
 
-enum _dxd_copy {
-    COPY_ATTRIBUTES,
-    COPY_HEADER,
-    COPY_STRUCTURE,
-    COPY_DATA
+enum _dxd_copy
+{
+  COPY_ATTRIBUTES,
+  COPY_HEADER,
+  COPY_STRUCTURE,
+  COPY_DATA
 };
 
-Object DXCopy(Object o, enum _dxd_copy copy);
+Object DXCopy( Object o, enum _dxd_copy copy );
 /**
 \index{DXCopy}
 A variety of object copying operations are provided, differing in the
@@ -246,12 +247,12 @@ Note: this is not implemented in the current version of the Data Explorer.
 
 {\tt COPY\_STRUCTURE}: For {\tt Group}s, this copies the group header and
 recursively copies all group members.  For {\tt Field}s, it copies the field
-header but {\em does not} copy the components (which are generally arrays); 
+header but {\em does not} copy the components (which are generally arrays);
 rather if puts references to the components of the given
 object into the resulting field.
 
-{\tt COPY\_HEADER}: Copies only the header of the immediate object; {\em does 
-not} recursively copy the attributes, members, components, and so on; rather 
+{\tt COPY\_HEADER}: Copies only the header of the immediate object; {\em does
+not} recursively copy the attributes, members, components, and so on; rather
 it puts references to them into the new object.
 
 {\tt COPY\_ATTRIBUTES}: Creates a new object of the same type as the
@@ -262,8 +263,7 @@ Returns the copy, or returns null and sets the error code to indicate an
 error.
 **/
 
-
-Object DXEndObject(Object o);
+Object DXEndObject( Object o );
 /**
 \index{DXEndObject}
 This routine does any standard processing needed after an object is
@@ -272,51 +272,52 @@ but preserves shared components if the object is a group of fields
 which share components like positions or connections.
 **/
 
-
 /*
 \paragraph{Types.}
 Several object classes implement a notion of type.  For {\tt Array}s,
 this is the same as the type set when the array was created, and is
 the same as the information returned by {\tt DXGetArrayInfo}.  (See
 section \ref{arraysec}.)  For {\tt Field}s, this is the same as the
-type of the ``data'' component, if there is a data component.  For 
-{\tt Group}s, this is the type set explicitly by {\tt DXSetGroupType()} or 
+type of the ``data'' component, if there is a data component.  For
+{\tt Group}s, this is the type set explicitly by {\tt DXSetGroupType()} or
 implicitly for series groups or composite groups,
 */
 
-typedef enum {
-    TYPE_BYTE,
-    TYPE_UBYTE,
-    TYPE_USHORT,
-    TYPE_UINT,
-    TYPE_SHORT,
-    TYPE_INT,
-    TYPE_HYPER,
-    TYPE_FLOAT,
-    TYPE_DOUBLE,
-    TYPE_STRING
+typedef enum
+{
+  TYPE_BYTE,
+  TYPE_UBYTE,
+  TYPE_USHORT,
+  TYPE_UINT,
+  TYPE_SHORT,
+  TYPE_INT,
+  TYPE_HYPER,
+  TYPE_FLOAT,
+  TYPE_DOUBLE,
+  TYPE_STRING
 } Type;
 
-typedef enum {
-    CATEGORY_REAL,
-    CATEGORY_COMPLEX,
-    CATEGORY_QUATERNION
+typedef enum
+{
+  CATEGORY_REAL,
+  CATEGORY_COMPLEX,
+  CATEGORY_QUATERNION
 } Category;
 
-Object DXGetType(Object o, Type *t, Category *c, int *rank, int *shape);
+Object DXGetType( Object o, Type *t, Category *c, int *rank, int *shape );
 /**
 \index{DXGetType}
-If {\tt t} is not null, this routine returns the type of {\tt g} in {\tt *t}.  
-If {\tt c} is not null, it returns the type of {\tt g} in {\tt *c}.  
-If {\tt rank} is not null, it returns the rank of {\tt g} in {\tt *rank}.  
-If {\tt shape} is not null, it returns the shape array of {\tt g} in 
+If {\tt t} is not null, this routine returns the type of {\tt g} in {\tt *t}.
+If {\tt c} is not null, it returns the type of {\tt g} in {\tt *c}.
+If {\tt rank} is not null, it returns the rank of {\tt g} in {\tt *rank}.
+If {\tt shape} is not null, it returns the shape array of {\tt g} in
 {\tt *shape}.  Returns {\tt o} on if there is a type associated with
 {\tt o}, or returns null but does not set the error code if there is
 no type associated with {\tt o}.
 **/
 
-int DXTypeSize(Type t);
-int DXCategorySize(Category c);
+int DXTypeSize( Type t );
+int DXCategorySize( Category c );
 /**
 \index{DXTypeSize}\index{DXCategorySize}
 {\tt DXTypeSize()} returns the size in bytes of a variable of type {\tt t}.
@@ -325,8 +326,8 @@ For a variable of type {\tt t} and category {\tt c}, the size in bytes is
 {\tt DXTypeSize(t) * DXCategorySize(c)}.
 **/
 
-Error DXPrint(Object o, char *options, ...);
-Error DXPrintV(Object o, char *options, char **components);
+Error DXPrint( Object o, char *options, ... );
+Error DXPrintV( Object o, char *options, char **components );
 /**
 \index{DXPrint}\index{DXPrintV}
 Prints {\tt o} according to the specified {\tt options}; see the DXPrint
@@ -341,8 +342,7 @@ returns null and sets the error code to indicate an error.
 
 #endif /* _DXI_OBJECT_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 #undef private
 }
 #endif
-

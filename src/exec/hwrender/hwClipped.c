@@ -8,115 +8,112 @@
 
 #include <dxconfig.h>
 
-
-
 #include "hwDeclarations.h"
 #include "hwClipped.h"
 #include "hwDebug.h"
 
-static Error _deleteHwClipped(Pointer arg);
+static Error _deleteHwClipped( Pointer arg );
 
-typedef struct clippedS {
-    Point         *points;
-    Vector        *normals;
-    int           count;
-    dxObject      object;
+typedef struct clippedS
+{
+  Point *points;
+  Vector *normals;
+  int count;
+  dxObject object;
 } clippedT, *clippedP;
 
-
-clippedO
-_dxf_newHwClipped(int cnt, dxObject obj)
+clippedO _dxf_newHwClipped( int cnt, dxObject obj )
 {
-  clippedP      ret;
-  clippedO      reto;
+  clippedP ret;
+  clippedO reto;
 
-  ENTRY(("_newClipped(%d)", cnt));
+  ENTRY( ( "_newClipped(%d)", cnt ) );
 
-  ret = (clippedP)DXAllocateZero(sizeof(clippedT));
-  if (! ret)
+  ret = (clippedP)DXAllocateZero( sizeof( clippedT ) );
+  if ( !ret )
     goto error;
 
-  if (obj)
-      ret->object = (dxObject)DXReference(obj);
+  if ( obj )
+    ret->object = (dxObject)DXReference( obj );
   else
-      ret->object = NULL;
+    ret->object = NULL;
 
   ret->count = cnt;
 
-  ret->points = (Point *)DXAllocateZero(sizeof(Point) * cnt);
-  if (! ret->points)
+  ret->points = (Point *)DXAllocateZero( sizeof( Point ) * cnt );
+  if ( !ret->points )
     goto error;
 
-  ret->normals = (Point *)DXAllocateZero(sizeof(Vector) * cnt);
-  if (! ret->normals)
+  ret->normals = (Point *)DXAllocateZero( sizeof( Vector ) * cnt );
+  if ( !ret->normals )
     goto error;
 
-  reto = (clippedO)_dxf_newHwObject(HW_CLASS_CLIPPED, 
-			(Pointer)ret, _deleteHwClipped);
-  if (! reto)
+  reto = (clippedO)_dxf_newHwObject( HW_CLASS_CLIPPED, (Pointer)ret,
+                                     _deleteHwClipped );
+  if ( !reto )
     goto error;
 
-  EXIT(("reto = 0x%x", reto));
+  EXIT( ( "reto = 0x%x", reto ) );
   return reto;
 
- error:
-  if(ret) {
-    if(ret->points) DXFree(ret->points);
-    if(ret->normals) DXFree(ret->normals);
-    DXFree(ret);
+error:
+  if ( ret )
+  {
+    if ( ret->points )
+      DXFree( ret->points );
+    if ( ret->normals )
+      DXFree( ret->normals );
+    DXFree( ret );
   }
 
-  EXIT(("ERROR"));
-  DXErrorReturn (ERROR_NO_MEMORY,"");
+  EXIT( ( "ERROR" ) );
+  DXErrorReturn( ERROR_NO_MEMORY, "" );
 }
 
-clippedO
-_dxf_getHwClippedInfo(clippedO co,
-    Point **points, Vector **normals, int *count, dxObject *object)
+clippedO _dxf_getHwClippedInfo( clippedO co, Point **points, Vector **normals,
+                                int *count, dxObject *object )
 {
   clippedP cp;
 
-  if (! co)
+  if ( !co )
     return NULL;
-  
-  cp = (clippedP)_dxf_getHwObjectData((dxObject)co);
-  if (! cp)
+
+  cp = (clippedP)_dxf_getHwObjectData( (dxObject)co );
+  if ( !cp )
     return NULL;
-  
-  if (points)
+
+  if ( points )
     *points = cp->points;
-  
-  if (normals)
+
+  if ( normals )
     *normals = cp->normals;
-  
-  if (count)
+
+  if ( count )
     *count = cp->count;
-  
-  if (object)
+
+  if ( object )
     *object = cp->object;
-  
+
   return co;
 }
 
-static Error
-_deleteHwClipped(Pointer arg)
+static Error _deleteHwClipped( Pointer arg )
 {
-  clippedP      cp = (clippedP) arg;
+  clippedP cp = (clippedP)arg;
 
-  ENTRY(("_dxf_deleteClipped(0x%x)", arg));
+  ENTRY( ( "_dxf_deleteClipped(0x%x)", arg ) );
 
-  if (!cp) {
-    EXIT(("ERROR: cp == NULL"));
+  if ( !cp )
+  {
+    EXIT( ( "ERROR: cp == NULL" ) );
     return ERROR;
   }
 
-  DXDelete(cp->object);
-  DXFree(cp->points);
-  DXFree(cp->normals);
-  DXFree(cp);
+  DXDelete( cp->object );
+  DXFree( cp->points );
+  DXFree( cp->normals );
+  DXFree( cp );
 
-  EXIT(("OK"));
+  EXIT( ( "OK" ) );
   return OK;
 }
-
-

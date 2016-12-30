@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -33,7 +32,7 @@ expected, an integer vector can be promoted.  If a string is expected,
 either a string object or a array of characters is accepted.
 */
 
-Object DXExtractInteger(Object o, int *ip);
+Object DXExtractInteger( Object o, int *ip );
 /**
 \index{DXExtractInteger}
 Checks that {\tt o} is an array with a type that can be converted to
@@ -41,7 +40,7 @@ an integer and returns the integer value in {\tt *ip}.  Returns {\tt o}
 on success, otherwise returns null but does not set the error code.
 **/
 
-Object DXExtractFloat(Object o, float *fp);
+Object DXExtractFloat( Object o, float *fp );
 /**
 \index{DXExtractFloat}
 Checks that {\tt o} is an array with a type that can be converted to
@@ -49,7 +48,7 @@ an float and returns the float value in {\tt *fp}.  Retruns {\tt o}
 on success, otherwise returns null but does not set the error code.
 **/
 
-Object DXExtractString(Object o, char **cp);
+Object DXExtractString( Object o, char **cp );
 /**
 \index{DXExtractString}
 Checks that {\tt o} is an array of characters or a string object, and
@@ -57,7 +56,7 @@ returns in {\tt **cp} a pointer to the string.  Returns {\tt o} on
 success, otherwise returns null but does not set the error code.
 **/
 
-Object DXExtractNthString(Object o, int n, char **cp);
+Object DXExtractNthString( Object o, int n, char **cp );
 /**
 \index{DXExtractNthString}
 Checks that {\tt o} is an array of null separated and terminated
@@ -67,7 +66,7 @@ character that begins the {\tt n}th string.  Strings are indexed from
 set the error code.
 **/
 
-Object DXQueryParameter(Object o, Type t, int dim, int *count);
+Object DXQueryParameter( Object o, Type t, int dim, int *count );
 /**
 \index{DXQueryParameter}
 Checks that {\tt o} is an array with a type that can be converted to
@@ -80,7 +79,7 @@ Returns {\tt o} on success, otherwise returns null but does not set
 the error code.
 **/
 
-Object DXExtractParameter(Object o, Type t, int dim, int count, Pointer p);
+Object DXExtractParameter( Object o, Type t, int dim, int count, Pointer p );
 /**
 \index{DXExtractParameter}
 Checks the type and dimensionality of {\tt o} as for {\tt
@@ -89,7 +88,7 @@ Returns the items converted to type {\tt t} in the buffer pointed to
 by {\tt p}, which must be large enough to contain them.  Returns {\tt
 o} on success, otherwise returns null but does not set the error code.
 **/
- 
+
 /*
 \paragraph{Example.}
 If a routine expects either a character string or an integer, the
@@ -108,31 +107,27 @@ following code would determine the case and return the value.
 \end{program}
 */
 
+Error DXQueryArrayConvert( Array a, Type t, Category c, int rank, ... );
 
-
-
-Error DXQueryArrayConvert(Array a, Type t, Category c, int rank, ...);
-
-Error DXQueryArrayConvertV(Array a, Type t, Category c, int rank, int *shape);
+Error DXQueryArrayConvertV( Array a, Type t, Category c, int rank, int *shape );
 
 /** can the data in Array a be converted into the requested type, category,
-rank and shape?  returns OK if yes, sets an error code and returns 
+rank and shape?  returns OK if yes, sets an error code and returns
 ERROR if not **/
 
-Error DXQueryArrayCommon(Type *t, Category *c, int *rank, int *shape, 
-	                 int n, Array a, ...);
+Error DXQueryArrayCommon( Type *t, Category *c, int *rank, int *shape, int n,
+                          Array a, ... );
 
-Error DXQueryArrayCommonV(Type *t, Category *c, int *rank, int *shape, 
-	  	         int n, Array *alist);
+Error DXQueryArrayCommonV( Type *t, Category *c, int *rank, int *shape, int n,
+                           Array *alist );
 
 /** do a list of arrays have a common data format which is legal for all types,
 categories, ranks and shapes to be converted into?  if so, returns the common
 format.  if not, sets an error code and returns ERROR **/
 
+Array DXArrayConvert( Array a, Type t, Category c, int rank, ... );
 
-Array DXArrayConvert(Array a, Type t, Category c, int rank, ... );
-
-Array DXArrayConvertV(Array a, Type t, Category c, int rank, int *shape);
+Array DXArrayConvertV( Array a, Type t, Category c, int rank, int *shape );
 
 /** if the data from Array A can be converted into the requested type,
 category, rank and shape, returns a new array of that form containing the
@@ -141,6 +136,6 @@ converted **/
 
 #endif /* _DXI_EXTRACT_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

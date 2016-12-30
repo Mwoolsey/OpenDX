@@ -5,7 +5,7 @@
 /* This code licensed under the                                        */
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
-#if !defined(_QUUED_PACKETS_H_)
+#if !defined( _QUUED_PACKETS_H_ )
 #define _QUUED_PACKETS_H_
 
 #include <dxconfig.h>
@@ -33,37 +33,46 @@ class PacketIF;
 //
 // Store raw data.  These bytes will be sent unformatted.
 //
-class QueuedBytes {
-    protected:
-	char* data;
-	int length;
-    public:
-	QueuedBytes(const char* data, int length=0);
-	virtual ~QueuedBytes();
-	virtual void send(PacketIF*);
+class QueuedBytes
+{
+ protected:
+  char* data;
+  int length;
+
+ public:
+  QueuedBytes( const char* data, int length = 0 );
+  virtual ~QueuedBytes();
+  virtual void send( PacketIF* );
 };
 
 //
 // Store one packet.  These bytes will be packetized in PacketIF::_sendPacket()
 //
-class QueuedPacket : public QueuedBytes {
-    protected:
-	int type;
-	int packetId;
-    public:
-	QueuedPacket(int type, int packetId, const char* data, int length);
-	virtual ~QueuedPacket(){}
-	virtual void send(PacketIF*);
+class QueuedPacket : public QueuedBytes
+{
+ protected:
+  int type;
+  int packetId;
+
+ public:
+  QueuedPacket( int type, int packetId, const char* data, int length );
+  virtual ~QueuedPacket()
+  {
+  }
+  virtual void send( PacketIF* );
 };
 
 //
 // Store raw bytes.  These bytes will be formatted with a $
 //
-class QueuedImmediate : public QueuedBytes {
-    public:
-	QueuedImmediate(const char* data, int length=0);
-	virtual ~QueuedImmediate(){}
-	virtual void send(PacketIF*);
+class QueuedImmediate : public QueuedBytes
+{
+ public:
+  QueuedImmediate( const char* data, int length = 0 );
+  virtual ~QueuedImmediate()
+  {
+  }
+  virtual void send( PacketIF* );
 };
 
-#endif // _QUUED_PACKETS_H_
+#endif  // _QUUED_PACKETS_H_

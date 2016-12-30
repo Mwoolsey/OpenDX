@@ -32,69 +32,92 @@
 #ifndef _USERINTERACTORS_H_
 #define _USERINTERACTORS_H_
 
-#define ROTXY(m, x, y, s, c, t) {\
-m[0][0]= t*x*x + c;   m[0][1]=  t*x*y;       m[0][2]= -s*y;         m[0][3] =0;\
-m[1][0]= t*x*y;       m[1][1]=  t*y*y + c;   m[1][2]=  s*x;         m[1][3] =0;\
-m[2][0]= s*y;         m[2][1]= -s*x;         m[2][2]=  c;           m[2][3] =0;\
-m[3][0]= 0;           m[3][1]=  0;           m[3][2]=  0;           m[3][3] =1;}
+#define ROTXY( m, x, y, s, c, t ) \
+  {                               \
+    m[0][0] = t * x * x + c;      \
+    m[0][1] = t * x * y;          \
+    m[0][2] = -s * y;             \
+    m[0][3] = 0;                  \
+    m[1][0] = t * x * y;          \
+    m[1][1] = t * y * y + c;      \
+    m[1][2] = s * x;              \
+    m[1][3] = 0;                  \
+    m[2][0] = s * y;              \
+    m[2][1] = -s * x;             \
+    m[2][2] = c;                  \
+    m[2][3] = 0;                  \
+    m[3][0] = 0;                  \
+    m[3][1] = 0;                  \
+    m[3][2] = 0;                  \
+    m[3][3] = 1;                  \
+  }
 
 /*
  *  ROTXYZ is derived in a fashion analogous to ROTXY, extended for the Z
  *  component of a unit rotation axis [x y z].
  */
 
-#define ROTXYZ(m, x, y, z, s, c, t) {\
-m[0][0]= t*x*x + c;   m[0][1]= t*x*y + s*z; m[0][2]= t*x*z - s*y; m[0][3]= 0;\
-m[1][0]= t*x*y - s*z; m[1][1]= t*y*y + c;   m[1][2]= t*y*z + s*x; m[1][3]= 0;\
-m[2][0]= t*x*z + s*y; m[2][1]= t*y*z - s*x; m[2][2]= t*z*z + c;   m[2][3]= 0;\
-m[3][0]= 0;           m[3][1]= 0;           m[3][2]= 0;           m[3][3]= 1;}
+#define ROTXYZ( m, x, y, z, s, c, t ) \
+  {                                   \
+    m[0][0] = t * x * x + c;          \
+    m[0][1] = t * x * y + s * z;      \
+    m[0][2] = t * x * z - s * y;      \
+    m[0][3] = 0;                      \
+    m[1][0] = t * x * y - s * z;      \
+    m[1][1] = t * y * y + c;          \
+    m[1][2] = t * y * z + s * x;      \
+    m[1][3] = 0;                      \
+    m[2][0] = t * x * z + s * y;      \
+    m[2][1] = t * y * z - s * x;      \
+    m[2][2] = t * z * z + c;          \
+    m[2][3] = 0;                      \
+    m[3][0] = 0;                      \
+    m[3][1] = 0;                      \
+    m[3][2] = 0;                      \
+    m[3][3] = 1;                      \
+  }
 
-typedef void *(*CameraInitModeP)();
+typedef void *( *CameraInitModeP )();
 
-typedef void  (*CameraStartStrokeP)(void *, int, int, int,
-                              float *, float *, float *,
-                              float, int, float, float,
-                              int, int);
+typedef void ( *CameraStartStrokeP )( void *, int, int, int, float *, float *,
+                                      float *, float, int, float, float, int,
+                                      int );
 
-typedef void  (*CameraStrokePointP)(void *, int, int,
-                              float *, float *, float *,
-                              float *, int *, float *, float *);
+typedef void ( *CameraStrokePointP )( void *, int, int, float *, float *,
+                                      float *, float *, int *, float *,
+                                      float * );
 
-typedef void  (*CameraEndStrokeP)(void *,
-                              float *, float *, float *,
-                              float *, int *, float *, float *);
+typedef void ( *CameraEndStrokeP )( void *, float *, float *, float *, float *,
+                                    int *, float *, float * );
 
-typedef void (*CameraEndModeP)(void *);
-
+typedef void ( *CameraEndModeP )( void * );
 
 struct _cameraInteractor
 {
-    CameraInitModeP    InitMode;
-    CameraStartStrokeP StartStroke;
-    CameraStrokePointP StrokePoint;
-    CameraEndStrokeP   EndStroke;
-    CameraEndModeP     EndMode;
+  CameraInitModeP InitMode;
+  CameraStartStrokeP StartStroke;
+  CameraStrokePointP StrokePoint;
+  CameraEndStrokeP EndStroke;
+  CameraEndModeP EndMode;
 };
 
 typedef struct _cameraInteractor CameraInteractor;
 
-typedef void *(*ObjectInitModeP)(Object);
-typedef void  (*ObjectStartStrokeP)(void *, int, int, int,
-                              float *, float *, float *,
-                              int, float, float,
-                              int, int, Object, Object *);
-typedef void  (*ObjectStrokePointP)(void *, int, int, Object, Object *);
-typedef void  (*ObjectEndStrokeP)(void *, Object, Object *);
-typedef void (*ObjectEndModeP)(void *);
-
+typedef void *( *ObjectInitModeP )( Object );
+typedef void ( *ObjectStartStrokeP )( void *, int, int, int, float *, float *,
+                                      float *, int, float, float, int, int,
+                                      Object, Object * );
+typedef void ( *ObjectStrokePointP )( void *, int, int, Object, Object * );
+typedef void ( *ObjectEndStrokeP )( void *, Object, Object * );
+typedef void ( *ObjectEndModeP )( void * );
 
 struct _objectInteractor
 {
-    ObjectInitModeP    InitMode;
-    ObjectStartStrokeP StartStroke;
-    ObjectStrokePointP StrokePoint;
-    ObjectEndStrokeP   EndStroke;
-    ObjectEndModeP     EndMode;
+  ObjectInitModeP InitMode;
+  ObjectStartStrokeP StartStroke;
+  ObjectStrokePointP StrokePoint;
+  ObjectEndStrokeP EndStroke;
+  ObjectEndModeP EndMode;
 };
 
 typedef struct _objectInteractor ObjectInteractor;

@@ -6,7 +6,8 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dpexec/ccm.h,v 1.2 2000/08/11 15:28:10 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dpexec/ccm.h,v 1.2 2000/08/11 15:28:10
+ * davidt Exp $
  */
 
 #include <dxconfig.h>
@@ -14,24 +15,21 @@
 #ifndef _CCM_H
 #define _CCM_H
 
-int _dxfSetupServer(int pport, int *psock,
-            struct sockaddr_in *pserver
+int _dxfSetupServer( int pport, int *psock, struct sockaddr_in *pserver
 #if DXD_SOCKET_UNIXDOMAIN_OK
-            , int *pusock,
-            struct sockaddr_un *puserver
+                     ,
+                     int *pusock, struct sockaddr_un *puserver
 #endif
-);
+                     );
 
-int
-_dxfCompleteServer(int sock,
-    struct sockaddr_in server
+int _dxfCompleteServer( int sock, struct sockaddr_in server
 #if DXD_SOCKET_UNIXDOMAIN_OK
-    , int usock,
-    struct sockaddr_un userver
+                        ,
+                        int usock, struct sockaddr_un userver
 #endif
-    , int timeout
-);
+                        ,
+                        int timeout );
 
-void _dxfPrintConnectTimeOut(char *execname, char *hostname);
+void _dxfPrintConnectTimeOut( char *execname, char *hostname );
 
 #endif /* _CCM_H */

@@ -9,19 +9,16 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #include "PrintDefinition.h"
 #include "PrintNode.h"
 
-Node *PrintDefinition::newNode(Network *net, int inst)
+Node *PrintDefinition::newNode( Network *net, int inst )
 {
-    PrintNode *n = new PrintNode(this, net, inst);
-    return n;
+  PrintNode *n = new PrintNode( this, net, inst );
+  return n;
 }
 
 NodeDefinition *PrintDefinition::AllocateDefinition()
 {
-    return (NodeDefinition*) new PrintDefinition();
+  return (NodeDefinition *)new PrintDefinition();
 }
-

@@ -9,88 +9,77 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _SetNameDialog_h
 #define _SetNameDialog_h
 
-
 #include "TextEditDialog.h"
-
 
 //
 // Class name definition:
 //
-#define ClassSetNameDialog	"SetNameDialog"
+#define ClassSetNameDialog "SetNameDialog"
 
 //
 // XtCallbackProc (*CB), XtEventHandler (*EH) and XtActionProc (*AP)
 // DialogCallback (*DCB) functions for this and derived classes
 //
-extern "C" void SetNameDialog_FocusEH(Widget, XtPointer, XEvent*, Boolean*);
-extern "C" void SetNameDialog_TextCB(Widget, XtPointer, XtPointer);
-
+extern "C" void SetNameDialog_FocusEH( Widget, XtPointer, XEvent*, Boolean* );
+extern "C" void SetNameDialog_TextCB( Widget, XtPointer, XtPointer );
 
 //
 // SetNameDialog class definition:
-//				
+//
 class SetNameDialog : public TextEditDialog
 {
-  private:
-    //
-    // Private member data:
-    //
-    friend void SetNameDialog_TextCB(Widget widget,
-                                XtPointer clientData,
-                                XtPointer);
+ private:
+  //
+  // Private member data:
+  //
+  friend void SetNameDialog_TextCB( Widget widget, XtPointer clientData,
+                                    XtPointer );
 
-    friend void SetNameDialog_FocusEH(Widget widget,
-                             XtPointer clientData,
-                             XEvent* event,
-			     Boolean *cont);
+  friend void SetNameDialog_FocusEH( Widget widget, XtPointer clientData,
+                                     XEvent* event, Boolean* cont );
 
-    friend void TextEditDialog_ApplyCB(Widget, XtPointer , XtPointer);
+  friend void TextEditDialog_ApplyCB( Widget, XtPointer, XtPointer );
 
-    boolean 	hasApply;
+  boolean hasApply;
 
-  protected:
-    //
-    // Protected member data:
-    //
-    static String DefaultResources[];
+ protected:
+  //
+  // Protected member data:
+  //
+  static String DefaultResources[];
 
-    virtual Widget createDialog(Widget parent);
+  virtual Widget createDialog( Widget parent );
 
-    //
-    // Constructor: make it protected so we can't directly instantiate it
-    //
-    SetNameDialog(const char *name, Widget parent, boolean has_apply = FALSE);
+  //
+  // Constructor: make it protected so we can't directly instantiate it
+  //
+  SetNameDialog( const char* name, Widget parent, boolean has_apply = FALSE );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-  public:
+ public:
+  //
+  // Destructor:
+  //
+  ~SetNameDialog();
 
-    //
-    // Destructor:
-    //
-    ~SetNameDialog();
+  virtual void manage();
 
-    virtual void manage();
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassSetNameDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassSetNameDialog;
+  }
 };
 
-
-#endif // _SetNameDialog_h
+#endif  // _SetNameDialog_h

@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/starbase/hwQmeshDrawSB.c,v $
   Author: Mark Hood
@@ -27,21 +26,19 @@
 
 #include "hwDebug.h"
 
-#define tdmMeshDraw      _dxfQmeshDraw
-#define tdmPolygonDraw   _dxfQuadDraw
-#define tdm_get_mesh     _dxf_get_qmesh
-#define Mesh             Qmesh
-#define mesh             qmesh
-#define CpfMsh          "CpfQmsh"
-#define CpcMsh          "CpcQmsh"
-#define CpvMsh          "CpvQmsh"
-#define Strip            Qstrip
-#define strip            qstrip
-#define strips           qstrips
+#define tdmMeshDraw _dxfQmeshDraw
+#define tdmPolygonDraw _dxfQuadDraw
+#define tdm_get_mesh _dxf_get_qmesh
+#define Mesh Qmesh
+#define mesh qmesh
+#define CpfMsh "CpfQmsh"
+#define CpcMsh "CpcQmsh"
+#define CpvMsh "CpvQmsh"
+#define Strip Qstrip
+#define strip qstrip
+#define strips qstrips
 
-Qmesh *
-_dxf_get_qmesh (Field f, 
-		int ntriangles, int *triangles,
-		int npoints, float *points) ;
+Qmesh *_dxf_get_qmesh( Field f, int ntriangles, int *triangles, int npoints,
+                       float *points );
 
 #include "hwMeshDrawSB.c.h"

@@ -9,19 +9,16 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "ToggleDefinition.h"
 #include "ToggleNode.h"
 
-Node *ToggleDefinition::newNode(Network *net, int inst)
+Node *ToggleDefinition::newNode( Network *net, int inst )
 {
-    ToggleNode *n = new ToggleNode(this, net, inst);
-    return n;
+  ToggleNode *n = new ToggleNode( this, net, inst );
+  return n;
 }
 
-NodeDefinition *
-ToggleDefinition::AllocateDefinition()
+NodeDefinition *ToggleDefinition::AllocateDefinition()
 {
-    return (NodeDefinition*) new ToggleDefinition;
+  return (NodeDefinition *)new ToggleDefinition;
 }
-

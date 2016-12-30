@@ -11,7 +11,7 @@
 
 /*
  * system dependent code:  dynamically load or unload an executable file.
- *   this is used for adding modules or functions to an already 
+ *   this is used for adding modules or functions to an already
  *   running executive.  the new code is compiled into a separate executable
  *   with a single entry point.
  *
@@ -38,17 +38,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#if defined(HAVE_SYS_ERRNO_H)
+#if defined( HAVE_SYS_ERRNO_H )
 #include <sys/errno.h>
 #endif
 
-#if defined(HAVE_ERRNO_H)
+#if defined( HAVE_ERRNO_H )
 #include <errno.h>
 #endif
 
-#include <sys/stat.h> 
+#include <sys/stat.h>
 
-#if  defined(DXD_NON_UNIX_DIR_SEPARATOR)
+#if defined( DXD_NON_UNIX_DIR_SEPARATOR )
 #define DX_DIR_SEPARATOR ';'
 #else
 #define DX_DIR_SEPARATOR ':'
@@ -58,15 +58,15 @@
  * the loaded segment.
  */
 
-#if defined(hp700)
+#if defined( hp700 )
 
-# include <dl.h>
-  typedef shl_t Handle;
-# define __HANDLE_DEF
+#include <dl.h>
+typedef shl_t Handle;
+#define __HANDLE_DEF
 
 #endif /* hp700 */
 
-#if !defined(hp700) && !defined(intelnt) && !defined(WIN32)
+#if !defined( hp700 ) && !defined( intelnt ) && !defined( WIN32 )
 
 #include <dlfcn.h>
 typedef void *Handle;
@@ -75,16 +75,14 @@ typedef void *Handle;
 /* for some reason, the prototypes in the header file are for _dlXXX and not
  * dlXXX when __STDC__ is defined.  i don't understand, but i'll play along.
  */
-#if defined(aviion)
-#define dlopen  _dlopen
-#define dlsym   _dlsym
+#if defined( aviion )
+#define dlopen _dlopen
+#define dlsym _dlsym
 #define dlclose _dlclose
 #define dlerror _dlerror
 #endif
 
-
 #endif /* sun4 or solaris or sgi or alpha or aviion of linux */
-
 
 /* default for unsupported platforms */
 #ifndef __HANDLE_DEF
@@ -93,54 +91,55 @@ typedef int Handle;
 
 #endif
 
-
 #ifdef DXD_WIN
-#define EntryPt	FARPROC
+#define EntryPt FARPROC
 #else
-typedef int (*EntryPt)();
+typedef int ( *EntryPt )();
 #endif
 
 /* current load state */
-typedef enum ls {
-    L_UNKNOWN,
-    L_LOADED,
-    L_UNLOADED,
-    L_RELOADED,
-    L_ERROR
+typedef enum ls
+{
+  L_UNKNOWN,
+  L_LOADED,
+  L_UNLOADED,
+  L_RELOADED,
+  L_ERROR
 } Ls;
 
-struct loadtable {
-    Ls loadstate;
-    char *filename;
-    Handle h;
-    EntryPt func;
-    struct loadtable *next;
+struct loadtable
+{
+  Ls loadstate;
+  char *filename;
+  Handle h;
+  EntryPt func;
+  struct loadtable *next;
 };
 
-#define ALREADY_LOADED ((EntryPt)(-1))
+#define ALREADY_LOADED ( ( EntryPt )( -1 ) )
 
 static struct loadtable **ltp = NULL;
 static lock_type *ltl;
 
 Error _dxf_initloader()
 {
-    if (!ltp) {
-	ltp = (struct loadtable **)DXAllocateZero(DXProcessors(0) * 
-						  sizeof(struct loadtable *));
-	if (!ltp)
-	    return ERROR;
+  if ( !ltp )
+  {
+    ltp = (struct loadtable **)DXAllocateZero( DXProcessors( 0 ) *
+                                               sizeof( struct loadtable * ) );
+    if ( !ltp )
+      return ERROR;
 
-        ltl = (lock_type *)DXAllocate(sizeof(lock_type));
-	if (!ltl)
-	    return ERROR;
+    ltl = (lock_type *)DXAllocate( sizeof( lock_type ) );
+    if ( !ltl )
+      return ERROR;
 
-	if (DXcreate_lock(ltl, "loader") != OK)
-	    return ERROR;
-
-    }
-    return OK;
+    if ( DXcreate_lock( ltl, "loader" ) != OK )
+      return ERROR;
+  }
+  return OK;
 }
-    
+
 /* put these in a header file - should they be public DXxxx() functions
  *  (then the prototypes go in <dx/dx.h>), or should they be semiprivate
  *  _dxfEx() function (then the prototypes go in one of the exec headers)?
@@ -159,11 +158,10 @@ Error _dxf_initloader()
  * would also be a parm set and returned.
  */
 
-static struct loadtable *get_tp_entry(char *filename);
-static struct loadtable *set_tp_entry(Ls loadstate, 
-					char *filename, Handle h, EntryPt func);
-static Error findfile(char *inname, char **outname, char *envvar);
-
+static struct loadtable *get_tp_entry( char *filename );
+static struct loadtable *set_tp_entry( Ls loadstate, char *filename, Handle h,
+                                       EntryPt func );
+static Error findfile( char *inname, char **outname, char *envvar );
 
 #if 0 /* ibm6000 */
 
@@ -203,10 +201,9 @@ is needed. The notes on compilation below need updated.
  *  contained a list of symbol names to be made public.
  */
 
-#endif  /* ibm6000 */
+#endif /* ibm6000 */
 
-
-#if 0   /* comment */
+#if 0 /* comment */
 
 ok the other other plan:
 we expand the filename with DXMODULES as a search path and use
@@ -244,8 +241,7 @@ apparently on the sgi you are going to have to load it into each
 executable, at least after the fork.  i got errors running MP but
 it worked fine UP.
 
-#endif  /* comment */
-
+#endif /* comment */
 
 #if hp700
 
@@ -268,7 +264,7 @@ it worked fine UP.
  *                 architecture, because it doesn't look like there is a
  *                 way to ask for the entry point by address, only by
  *                 symbol name.
- * 
+ *
  * -q      mark the file demand loadable
  *
  * generally useful option - should we add this to the default cflags
@@ -277,7 +273,7 @@ it worked fine UP.
  *
  * generates extra overhead because the new text is loaded into
  * a read/write segment instead of the initial read-only text segement.
- * -A name  incremental loading (incompatible with -b?) 
+ * -A name  incremental loading (incompatible with -b?)
  *
  * -B type  set the binding - load dynamic libs at startup time or at
  *          time of first reference
@@ -299,134 +295,136 @@ it worked fine UP.
  *
  * +I symbol  set the initializer function ??
  *
- *  
+ *
  */
 
-
-
-
-PFI DXLoadObjFile(char *fname, char *envvar)
+PFI DXLoadObjFile( char *fname, char *envvar )
 {
-    Handle handle;
-    int (*func)();
-    char *foundname = NULL;
-    struct loadtable *lp = NULL;
+  Handle handle;
+  int ( *func )();
+  char *foundname = NULL;
+  struct loadtable *lp = NULL;
 
-    /* look at DXMODULES here and if you can't find the file and it
-     * doesn't start with '/', start prepending dirnames until you find it
-     * or you get to the end of the path.
-     */
-    DXDebug("L", "trying to load `%s'", fname);
-    if (!findfile(fname, &foundname, envvar))
-        return NULL;
+  /* look at DXMODULES here and if you can't find the file and it
+   * doesn't start with '/', start prepending dirnames until you find it
+   * or you get to the end of the path.
+   */
+  DXDebug( "L", "trying to load `%s'", fname );
+  if ( !findfile( fname, &foundname, envvar ) )
+    return NULL;
 
-    DXDebug("L", "found at `%s'", foundname);
-    if (((lp = get_tp_entry(foundname)) != NULL) && 
-	 (lp->loadstate == L_LOADED)) {
-	DXDebug("L", "`%s' was already loaded", foundname);
-	DXFree((Pointer)foundname);
-	return ALREADY_LOADED;
-    }
+  DXDebug( "L", "found at `%s'", foundname );
+  if ( ( ( lp = get_tp_entry( foundname ) ) != NULL ) &&
+       ( lp->loadstate == L_LOADED ) )
+  {
+    DXDebug( "L", "`%s' was already loaded", foundname );
+    DXFree( (Pointer)foundname );
+    return ALREADY_LOADED;
+  }
 
-    /* args are:
-     *  filename, options, address.   they recommend 0 for the address
-     *  (tells the system gets to pick a load address), and the flags 
-     *  have to have one of BIND_IMMEDIATE or BIND_DEFERRED (what to do
-     *  with symbols - resolve them all now, or resolve them when they
-     *  are referenced).
-     */
-    handle = shl_load(foundname, BIND_IMMEDIATE, 0L);
-    if (handle == NULL) {
-	DXSetError(ERROR_DATA_INVALID, "cannot load file '%s'", foundname);
-	DXFree((Pointer)foundname);
-	return NULL;
-    }
+  /* args are:
+   *  filename, options, address.   they recommend 0 for the address
+   *  (tells the system gets to pick a load address), and the flags
+   *  have to have one of BIND_IMMEDIATE or BIND_DEFERRED (what to do
+   *  with symbols - resolve them all now, or resolve them when they
+   *  are referenced).
+   */
+  handle = shl_load( foundname, BIND_IMMEDIATE, 0L );
+  if ( handle == NULL )
+  {
+    DXSetError( ERROR_DATA_INVALID, "cannot load file '%s'", foundname );
+    DXFree( (Pointer)foundname );
+    return NULL;
+  }
 
-    if (shl_findsym(&handle, "DXEntry", TYPE_PROCEDURE, (long *)&func) < 0) {
-	DXSetError(ERROR_DATA_INVALID, 
-		   "cannot find entry point 'DXEntry' in file '%s'", foundname);
-	DXFree((Pointer)foundname);
-	return NULL;
-    }
+  if ( shl_findsym( &handle, "DXEntry", TYPE_PROCEDURE, (long *)&func ) < 0 )
+  {
+    DXSetError( ERROR_DATA_INVALID,
+                "cannot find entry point 'DXEntry' in file '%s'", foundname );
+    DXFree( (Pointer)foundname );
+    return NULL;
+  }
 
-    if (!set_tp_entry(L_LOADED, foundname, handle, func)) {
-	DXFree((Pointer)foundname);
-	return NULL;
-    }
+  if ( !set_tp_entry( L_LOADED, foundname, handle, func ) )
+  {
+    DXFree( (Pointer)foundname );
+    return NULL;
+  }
 
-    DXFree((Pointer)foundname);
-    return func;
+  DXFree( (Pointer)foundname );
+  return func;
 }
 
-Error DXLoadAndRunObjFile(char *fname, char *envvar)
+Error DXLoadAndRunObjFile( char *fname, char *envvar )
 {
-    int (*func)();
-    
-    func = DXLoadObjFile(fname, envvar);
-    if (func == NULL)
-	return ERROR;
-    if (func == ALREADY_LOADED)
-	return OK;
+  int ( *func )();
 
-    if (DXQueryDebug("L"))
-        DXEnableDebug("F", 1);
-	
-    (*func)();
-    
-    if (DXQueryDebug("L"))
-        DXEnableDebug("F", 1);
-	
-    if (DXGetError() != ERROR_NONE)
-	return ERROR;
-
+  func = DXLoadObjFile( fname, envvar );
+  if ( func == NULL )
+    return ERROR;
+  if ( func == ALREADY_LOADED )
     return OK;
+
+  if ( DXQueryDebug( "L" ) )
+    DXEnableDebug( "F", 1 );
+
+  ( *func )();
+
+  if ( DXQueryDebug( "L" ) )
+    DXEnableDebug( "F", 1 );
+
+  if ( DXGetError() != ERROR_NONE )
+    return ERROR;
+
+  return OK;
 }
 
-
-Error DXUnloadObjFile(char *fname, char *envvar)
+Error DXUnloadObjFile( char *fname, char *envvar )
 {
-    char *foundname = NULL;
-    struct loadtable *lp = NULL;
+  char *foundname = NULL;
+  struct loadtable *lp = NULL;
 
-    if (!findfile(fname, &foundname, envvar))
-	return ERROR;
-    
-    if (((lp = get_tp_entry(foundname)) != NULL) && 
-	(lp->loadstate == L_UNLOADED)) {
-	DXDebug("L", "`%s' found but already unloaded", foundname);
-	DXFree((Pointer)foundname);
-	return OK;
-    }
-    
-    if (!lp) {
-	DXDebug("L", "`%s' not found in load list", foundname);
-	DXSetError(ERROR_BAD_PARAMETER, 
-		   "cannot unload `%s'; not found in load list", foundname);
-	DXFree((Pointer)foundname);
-	return OK;
-    }
+  if ( !findfile( fname, &foundname, envvar ) )
+    return ERROR;
 
-    if (shl_unload(lp->h) < 0) {
-	DXSetError(ERROR_DATA_INVALID, "cannot unload file '%s', %s", 
-		   foundname, strerror(errno));
-	DXFree((Pointer)foundname);
-	return ERROR;
-    }
-    
-    if (!set_tp_entry(L_UNLOADED, foundname, (Handle)0, (EntryPt)0)) {
-	DXFree((Pointer)foundname);
-	return ERROR;
-    }
-    
-    DXFree((Pointer)foundname);
+  if ( ( ( lp = get_tp_entry( foundname ) ) != NULL ) &&
+       ( lp->loadstate == L_UNLOADED ) )
+  {
+    DXDebug( "L", "`%s' found but already unloaded", foundname );
+    DXFree( (Pointer)foundname );
     return OK;
+  }
+
+  if ( !lp )
+  {
+    DXDebug( "L", "`%s' not found in load list", foundname );
+    DXSetError( ERROR_BAD_PARAMETER,
+                "cannot unload `%s'; not found in load list", foundname );
+    DXFree( (Pointer)foundname );
+    return OK;
+  }
+
+  if ( shl_unload( lp->h ) < 0 )
+  {
+    DXSetError( ERROR_DATA_INVALID, "cannot unload file '%s', %s", foundname,
+                strerror( errno ) );
+    DXFree( (Pointer)foundname );
+    return ERROR;
+  }
+
+  if ( !set_tp_entry( L_UNLOADED, foundname, (Handle)0, (EntryPt)0 ) )
+  {
+    DXFree( (Pointer)foundname );
+    return ERROR;
+  }
+
+  DXFree( (Pointer)foundname );
+  return OK;
 }
 
+#endif /* hp700 */
 
-#endif  /* hp700 */
-
-
-#if !defined(hp700) && !defined(intelnt) && !defined(WIN32)
+#if !defined( hp700 ) && !defined( intelnt ) && !defined( WIN32 )
 
 #define __ROUTINES_DEF
 
@@ -438,287 +436,290 @@ Error DXUnloadObjFile(char *fname, char *envvar)
  * -Bdynamic
  *
  * -e DXEntry ??
- *  
+ *
  */
 
-
-
-PFI DXLoadObjFile(char *fname, char *envvar)
+PFI DXLoadObjFile( char *fname, char *envvar )
 {
-    Handle handle;
-    int (*func)();
-    char *foundname = NULL;
-    struct loadtable *lp = NULL;
+  Handle handle;
+  int ( *func )();
+  char *foundname = NULL;
+  struct loadtable *lp = NULL;
 
-    /* look at DXMODULES here and if you can't find the file and it
-     * doesn't start with '/', start prepending dirnames until you find it
-     * or you get to the end of the path.
-     */
-    DXDebug("L", "trying to load `%s'", fname);
-    if (!findfile(fname, &foundname, envvar))
-        return NULL;
+  /* look at DXMODULES here and if you can't find the file and it
+   * doesn't start with '/', start prepending dirnames until you find it
+   * or you get to the end of the path.
+   */
+  DXDebug( "L", "trying to load `%s'", fname );
+  if ( !findfile( fname, &foundname, envvar ) )
+    return NULL;
 
-    DXDebug("L", "found at `%s'", foundname);
-    if (((lp = get_tp_entry(foundname)) != NULL) && 
-	 (lp->loadstate == L_LOADED)) {
-	DXDebug("L", "`%s' was already loaded", foundname);
-	DXFree((Pointer)foundname);
-	return ALREADY_LOADED;
-    }
+  DXDebug( "L", "found at `%s'", foundname );
+  if ( ( ( lp = get_tp_entry( foundname ) ) != NULL ) &&
+       ( lp->loadstate == L_LOADED ) )
+  {
+    DXDebug( "L", "`%s' was already loaded", foundname );
+    DXFree( (Pointer)foundname );
+    return ALREADY_LOADED;
+  }
 
-    /* args are:
-     *  filename, mode.  the mode is: RTLD_LAZY (defer binding of procs)
-     *  other vals are reserved for future expansion.
-     */
-    handle = dlopen(foundname, RTLD_LAZY|RTLD_GLOBAL);
-    if (handle == NULL) {
-	char *cp = dlerror();
-	if (cp)
-	    DXSetError(ERROR_DATA_INVALID, "cannot load file '%s', %s", 
-		       fname, cp);
-	else
-	    DXSetError(ERROR_DATA_INVALID, "cannot load file '%s'", fname);
-	DXFree((Pointer)foundname);
-	return NULL;
-    }
+  /* args are:
+   *  filename, mode.  the mode is: RTLD_LAZY (defer binding of procs)
+   *  other vals are reserved for future expansion.
+   */
+  handle = dlopen( foundname, RTLD_LAZY | RTLD_GLOBAL );
+  if ( handle == NULL )
+  {
+    char *cp = dlerror();
+    if ( cp )
+      DXSetError( ERROR_DATA_INVALID, "cannot load file '%s', %s", fname, cp );
+    else
+      DXSetError( ERROR_DATA_INVALID, "cannot load file '%s'", fname );
+    DXFree( (Pointer)foundname );
+    return NULL;
+  }
 
-    if ((func = (PFI)dlsym(handle, "DXEntry")) == NULL) {
-	DXSetError(ERROR_DATA_INVALID, 
-		   "cannot find entry point 'DXEntry' in file '%s'", foundname);
-	DXFree((Pointer)foundname);
-	return NULL;
-    }
+  if ( ( func = (PFI)dlsym( handle, "DXEntry" ) ) == NULL )
+  {
+    DXSetError( ERROR_DATA_INVALID,
+                "cannot find entry point 'DXEntry' in file '%s'", foundname );
+    DXFree( (Pointer)foundname );
+    return NULL;
+  }
 
-    if (!set_tp_entry(L_LOADED, foundname, handle, func)) {
-	DXFree((Pointer)foundname);
-	return NULL;
-    }
+  if ( !set_tp_entry( L_LOADED, foundname, handle, func ) )
+  {
+    DXFree( (Pointer)foundname );
+    return NULL;
+  }
 
-    DXFree((Pointer)foundname);
-    return func;
+  DXFree( (Pointer)foundname );
+  return func;
 }
 
-Error DXLoadAndRunObjFile(char *fname, char *envvar)
+Error DXLoadAndRunObjFile( char *fname, char *envvar )
 {
-    int (*func)();
-    
-    func = DXLoadObjFile(fname, envvar);
-    if (func == NULL)
-	return ERROR;
-    if (func == ALREADY_LOADED)
-	return OK;
+  int ( *func )();
 
-    if (DXQueryDebug("L"))
-        DXEnableDebug("F", 1);
-	
-    (*func)();
-    
-    if (DXQueryDebug("L"))
-        DXEnableDebug("F", 0);
-    
-    if (DXGetError() != ERROR_NONE)
-	return ERROR;
-
+  func = DXLoadObjFile( fname, envvar );
+  if ( func == NULL )
+    return ERROR;
+  if ( func == ALREADY_LOADED )
     return OK;
+
+  if ( DXQueryDebug( "L" ) )
+    DXEnableDebug( "F", 1 );
+
+  ( *func )();
+
+  if ( DXQueryDebug( "L" ) )
+    DXEnableDebug( "F", 0 );
+
+  if ( DXGetError() != ERROR_NONE )
+    return ERROR;
+
+  return OK;
 }
 
-
-Error DXUnloadObjFile(char *fname, char *envvar)
+Error DXUnloadObjFile( char *fname, char *envvar )
 {
-    char *foundname = NULL;
-    struct loadtable *lp = NULL;
+  char *foundname = NULL;
+  struct loadtable *lp = NULL;
 
-    if (!findfile(fname, &foundname, envvar))
-	return ERROR;
-    
-    if (((lp = get_tp_entry(foundname)) != NULL) && 
-	(lp->loadstate == L_UNLOADED)) {
-	DXDebug("L", "`%s' found but already unloaded", foundname);
-	DXFree((Pointer)foundname);
-	return OK;
-    }
-    
-    if (!lp) {
-	DXDebug("L", "`%s' not found in load list", foundname);
-	DXSetError(ERROR_BAD_PARAMETER, 
-		   "cannot unload `%s'; not found in load list", foundname);
-	DXFree((Pointer)foundname);
-	return OK;
-    }
+  if ( !findfile( fname, &foundname, envvar ) )
+    return ERROR;
 
-    if (dlclose(lp->h) < 0) {
-	DXSetError(ERROR_DATA_INVALID, "cannot unload file '%s', %s", 
-		   foundname, strerror(errno));
-	DXFree((Pointer)foundname);
-	return ERROR;
-    }
-    
-    if (!set_tp_entry(L_UNLOADED, foundname, (Handle)0, (EntryPt)0)) {
-	DXFree((Pointer)foundname);
-	return ERROR;
-    }
-    
-    DXFree((Pointer)foundname);
+  if ( ( ( lp = get_tp_entry( foundname ) ) != NULL ) &&
+       ( lp->loadstate == L_UNLOADED ) )
+  {
+    DXDebug( "L", "`%s' found but already unloaded", foundname );
+    DXFree( (Pointer)foundname );
     return OK;
-}
+  }
 
-
-#endif  /* sun4, etc */
-
-#if defined(intelnt) || defined(WIN32)
-
-#define __ROUTINES_DEF	1
-
-
-PFI DXLoadObjFile(char *fname, char *envvar)
-{
-    char  szName[128], szStr[128];
-    HINSTANCE hinst;
-    FARPROC	func;
-    char *foundname = NULL;
-    struct loadtable *lp = NULL;
-
-    /* look at DXMODULES here and if you can't find the file and it
-     * doesn't start with '/', start prepending dirnames until you find it
-     * or you get to the end of the path.
-     */
-    strcpy(szName, fname);
-
-    sprintf(szStr, "%s.dll", szName);
-
-    DXDebug("L", "trying to load `%s'", fname);
-    if (!findfile(szStr, &foundname, envvar))
-        return NULL;
-
-    DXDebug("L", "found at `%s'", foundname);
-    if (((lp = get_tp_entry(foundname)) != NULL) && 
-	 (lp->loadstate == L_LOADED)) {
-	DXDebug("L", "`%s' was already loaded", foundname);
-	DXFree((Pointer)foundname);
-	return (PFI)ALREADY_LOADED;
-    }
-
-    /* args are:
-     *  filename, options, address.   they recommend 0 for the address
-     *  (tells the system gets to pick a load address), and the flags 
-     *  have to have one of BIND_IMMEDIATE or BIND_DEFERRED (what to do
-     *  with symbols - resolve them all now, or resolve them when they
-     *  are referenced).
-     */
-    hinst = LoadLibrary(foundname);
-    if (hinst == NULL) {
-	DXSetError(ERROR_DATA_INVALID, "cannot load file '%s'", foundname);
-	DXFree((Pointer)foundname);
-	return NULL;
-    }
-
-    strcpy(szStr, "DXEntry");
-
-    func = GetProcAddress(hinst, szStr);
-    if (func == NULL) {
-	DXSetError(ERROR_DATA_INVALID, 
-		   "cannot load file `%s', %s", foundname, szStr);
-	DXFree((Pointer)foundname);
-	return NULL;
-    }
-
-    if (!set_tp_entry(L_LOADED, foundname, hinst, func)) {
-	DXFree((Pointer)foundname);
-	return NULL;
-    }
-
-    DXFree((Pointer)foundname);
-    return (PFI) func;
-}
-
-
-Error DXLoadAndRunObjFile(char *fname, char *envvar)
-{
-    /*   int (*func)();   */
-    FARPROC  func;
-
-
-    func = (FARPROC) DXLoadObjFile(fname, envvar);
-    if (func == NULL)
-	return ERROR;
-    if (func == ALREADY_LOADED)
-	return OK;
-
-    if (DXQueryDebug("L"))
-        DXEnableDebug("F", 1);
-	
-    (*func)();
-    
-    if (DXQueryDebug("L"))
-        DXEnableDebug("F", 0);
-    
-    if (DXGetError() != ERROR_NONE)
-	return ERROR;
-
+  if ( !lp )
+  {
+    DXDebug( "L", "`%s' not found in load list", foundname );
+    DXSetError( ERROR_BAD_PARAMETER,
+                "cannot unload `%s'; not found in load list", foundname );
+    DXFree( (Pointer)foundname );
     return OK;
+  }
+
+  if ( dlclose( lp->h ) < 0 )
+  {
+    DXSetError( ERROR_DATA_INVALID, "cannot unload file '%s', %s", foundname,
+                strerror( errno ) );
+    DXFree( (Pointer)foundname );
+    return ERROR;
+  }
+
+  if ( !set_tp_entry( L_UNLOADED, foundname, (Handle)0, (EntryPt)0 ) )
+  {
+    DXFree( (Pointer)foundname );
+    return ERROR;
+  }
+
+  DXFree( (Pointer)foundname );
+  return OK;
 }
 
-Error DXUnloadObjFile(char *fname, char *envvar)
+#endif /* sun4, etc */
+
+#if defined( intelnt ) || defined( WIN32 )
+
+#define __ROUTINES_DEF 1
+
+PFI DXLoadObjFile( char *fname, char *envvar )
 {
-    char *foundname = NULL;
-    struct loadtable *lp = NULL;
+  char szName[128], szStr[128];
+  HINSTANCE hinst;
+  FARPROC func;
+  char *foundname = NULL;
+  struct loadtable *lp = NULL;
 
-    if (!findfile(fname, &foundname, envvar))
-        return ERROR;
+  /* look at DXMODULES here and if you can't find the file and it
+   * doesn't start with '/', start prepending dirnames until you find it
+   * or you get to the end of the path.
+   */
+  strcpy( szName, fname );
 
-    if (((lp = get_tp_entry(foundname)) != NULL) && 
-        (lp->loadstate == L_UNLOADED)) {
-            DXDebug("L", "`%s' found but already unloaded", foundname);
-            DXFree((Pointer)foundname);
-            return OK;
-    }
+  sprintf( szStr, "%s.dll", szName );
 
-    if (!lp) {
-        DXDebug("L", "`%s' not found in load list", foundname);
-        DXSetError(ERROR_BAD_PARAMETER, 
-            "cannot unload `%s'; not found in load list", foundname);
-        DXFree((Pointer)foundname);
-        return OK;
-    }
-    
-    if (! FreeLibrary((HMODULE)lp->h)) {
-        DXSetError(ERROR_INVALID_DATA, "cannot unload file '%s', %s", 
-            foundname, strerror(errno));
-        DXFree((Pointer)foundname);
-        return ERROR;
-    }
-    
-    if (!set_tp_entry(L_UNLOADED, foundname, (Handle)0, (EntryPt)0)) {
-        DXFree((Pointer)foundname);
-        return ERROR;
-    }
+  DXDebug( "L", "trying to load `%s'", fname );
+  if ( !findfile( szStr, &foundname, envvar ) )
+    return NULL;
 
-    DXFree((Pointer)foundname);
+  DXDebug( "L", "found at `%s'", foundname );
+  if ( ( ( lp = get_tp_entry( foundname ) ) != NULL ) &&
+       ( lp->loadstate == L_LOADED ) )
+  {
+    DXDebug( "L", "`%s' was already loaded", foundname );
+    DXFree( (Pointer)foundname );
+    return (PFI)ALREADY_LOADED;
+  }
+
+  /* args are:
+   *  filename, options, address.   they recommend 0 for the address
+   *  (tells the system gets to pick a load address), and the flags
+   *  have to have one of BIND_IMMEDIATE or BIND_DEFERRED (what to do
+   *  with symbols - resolve them all now, or resolve them when they
+   *  are referenced).
+   */
+  hinst = LoadLibrary( foundname );
+  if ( hinst == NULL )
+  {
+    DXSetError( ERROR_DATA_INVALID, "cannot load file '%s'", foundname );
+    DXFree( (Pointer)foundname );
+    return NULL;
+  }
+
+  strcpy( szStr, "DXEntry" );
+
+  func = GetProcAddress( hinst, szStr );
+  if ( func == NULL )
+  {
+    DXSetError( ERROR_DATA_INVALID, "cannot load file `%s', %s", foundname,
+                szStr );
+    DXFree( (Pointer)foundname );
+    return NULL;
+  }
+
+  if ( !set_tp_entry( L_LOADED, foundname, hinst, func ) )
+  {
+    DXFree( (Pointer)foundname );
+    return NULL;
+  }
+
+  DXFree( (Pointer)foundname );
+  return (PFI)func;
+}
+
+Error DXLoadAndRunObjFile( char *fname, char *envvar )
+{
+  /*   int (*func)();   */
+  FARPROC func;
+
+  func = (FARPROC)DXLoadObjFile( fname, envvar );
+  if ( func == NULL )
+    return ERROR;
+  if ( func == ALREADY_LOADED )
     return OK;
+
+  if ( DXQueryDebug( "L" ) )
+    DXEnableDebug( "F", 1 );
+
+  ( *func )();
+
+  if ( DXQueryDebug( "L" ) )
+    DXEnableDebug( "F", 0 );
+
+  if ( DXGetError() != ERROR_NONE )
+    return ERROR;
+
+  return OK;
 }
 
-
-#if defined(DX_NATIVE_WINDOWS)
-
-void
-DXFreeLoadedObjectFiles()
+Error DXUnloadObjFile( char *fname, char *envvar )
 {
-    struct loadtable *np;
+  char *foundname = NULL;
+  struct loadtable *lp = NULL;
 
-	while ((np = ltp[DXProcessorId()]) != NULL)
-	{
-		FreeLibrary((HMODULE)np->h);
-		ltp[DXProcessorId()] = np->next;
-		DXFree((Pointer)np);
-	}
+  if ( !findfile( fname, &foundname, envvar ) )
+    return ERROR;
+
+  if ( ( ( lp = get_tp_entry( foundname ) ) != NULL ) &&
+       ( lp->loadstate == L_UNLOADED ) )
+  {
+    DXDebug( "L", "`%s' found but already unloaded", foundname );
+    DXFree( (Pointer)foundname );
+    return OK;
+  }
+
+  if ( !lp )
+  {
+    DXDebug( "L", "`%s' not found in load list", foundname );
+    DXSetError( ERROR_BAD_PARAMETER,
+                "cannot unload `%s'; not found in load list", foundname );
+    DXFree( (Pointer)foundname );
+    return OK;
+  }
+
+  if ( !FreeLibrary( (HMODULE)lp->h ) )
+  {
+    DXSetError( ERROR_INVALID_DATA, "cannot unload file '%s', %s", foundname,
+                strerror( errno ) );
+    DXFree( (Pointer)foundname );
+    return ERROR;
+  }
+
+  if ( !set_tp_entry( L_UNLOADED, foundname, (Handle)0, (EntryPt)0 ) )
+  {
+    DXFree( (Pointer)foundname );
+    return ERROR;
+  }
+
+  DXFree( (Pointer)foundname );
+  return OK;
 }
 
-#endif   /* DX_NATIVE_WINDOWS */
+#if defined( DX_NATIVE_WINDOWS )
 
+void DXFreeLoadedObjectFiles()
+{
+  struct loadtable *np;
 
-#endif   /*   DXD_WIN         */
+  while ( ( np = ltp[DXProcessorId()] ) != NULL )
+  {
+    FreeLibrary( (HMODULE)np->h );
+    ltp[DXProcessorId()] = np->next;
+    DXFree( (Pointer)np );
+  }
+}
 
+#endif /* DX_NATIVE_WINDOWS */
 
+#endif /*   DXD_WIN         */
 
 /* this is the default case - if one of the previous sections
  *  doesn't get used, this one does.  it just sets error messages.
@@ -726,105 +727,98 @@ DXFreeLoadedObjectFiles()
 
 #ifndef __ROUTINES_DEF
 
-
-
-PFI DXLoadObjFile(char *fname, char *envvar)
+PFI DXLoadObjFile( char *fname, char *envvar )
 {
-    DXSetError(ERROR_NOT_IMPLEMENTED,
-	       "dynamic loading of modules not supported on the %s platform",
-	       DXD_ARCHNAME);
-    return NULL;
+  DXSetError( ERROR_NOT_IMPLEMENTED,
+              "dynamic loading of modules not supported on the %s platform",
+              DXD_ARCHNAME );
+  return NULL;
 }
 
-
-Error DXLoadAndRunObjFile(char *fname, char *envvar)
+Error DXLoadAndRunObjFile( char *fname, char *envvar )
 {
-    DXSetError(ERROR_NOT_IMPLEMENTED,
-	       "dynamic loading of modules not supported on the %s platform",
-	       DXD_ARCHNAME);
-    return ERROR;
+  DXSetError( ERROR_NOT_IMPLEMENTED,
+              "dynamic loading of modules not supported on the %s platform",
+              DXD_ARCHNAME );
+  return ERROR;
 }
 
-Error DXUnloadObjFile(char *fname, char *envvar)
+Error DXUnloadObjFile( char *fname, char *envvar )
 {
-    /* the unload routine needs the entry point address, which we
-     * wouldn't need to save unless this is an important function.
-     */
-    DXSetError(ERROR_NOT_IMPLEMENTED, 
-	       "cannot unload a dynamically loaded file on the %s platform",
-	       DXD_ARCHNAME);
-    return ERROR;
+  /* the unload routine needs the entry point address, which we
+   * wouldn't need to save unless this is an important function.
+   */
+  DXSetError( ERROR_NOT_IMPLEMENTED,
+              "cannot unload a dynamically loaded file on the %s platform",
+              DXD_ARCHNAME );
+  return ERROR;
 }
 
-#endif  /* !SUPPORTED */
-
-
+#endif /* !SUPPORTED */
 
 /* worker routine section */
-static struct loadtable *get_tp_entry(char *filename) 
+static struct loadtable *get_tp_entry( char *filename )
 {
-    struct loadtable *np;
-    int id = DXProcessorId();
+  struct loadtable *np;
+  int id = DXProcessorId();
 
-    if (!ltp[id])
-	return NULL;
-
-    for (np = ltp[id]; np; np=np->next)
-	if (!strcmp(np->filename, filename))
-	    return np;
-
+  if ( !ltp[id] )
     return NULL;
+
+  for ( np = ltp[id]; np; np = np->next )
+    if ( !strcmp( np->filename, filename ) )
+      return np;
+
+  return NULL;
 }
 
-static struct loadtable *set_tp_entry(Ls loadstate, char *filename, Handle h,
-					EntryPt func)
+static struct loadtable *set_tp_entry( Ls loadstate, char *filename, Handle h,
+                                       EntryPt func )
 {
-    struct loadtable *np;
-    int id = DXProcessorId();
+  struct loadtable *np;
+  int id = DXProcessorId();
 
-    if (!filename)
-	return NULL;
+  if ( !filename )
+    return NULL;
 
-    np = (struct loadtable *)DXAllocate(sizeof(struct loadtable));
-    if (!np)
-	return NULL;
+  np = (struct loadtable *)DXAllocate( sizeof( struct loadtable ) );
+  if ( !np )
+    return NULL;
 
-    np->loadstate = loadstate;
-    np->filename = (char *)DXAllocate(strlen(filename) + 1);
-    if (!np->filename) {
-	DXFree((Pointer)np);
-	return NULL;
-    }
-    
-    strcpy(np->filename, filename);
-    np->h = h;
-    np->func = func;
-    np->next = NULL;
+  np->loadstate = loadstate;
+  np->filename = (char *)DXAllocate( strlen( filename ) + 1 );
+  if ( !np->filename )
+  {
+    DXFree( (Pointer)np );
+    return NULL;
+  }
 
-    if (ltp[id]) {
-	np->next = ltp[id]->next;
-	ltp[id]->next = np;
-    } else
-	ltp[id] = np;
+  strcpy( np->filename, filename );
+  np->h = h;
+  np->func = func;
+  np->next = NULL;
 
-    return np;
+  if ( ltp[id] )
+  {
+    np->next = ltp[id]->next;
+    ltp[id]->next = np;
+  }
+  else
+    ltp[id] = np;
+
+  return np;
 }
-	
-	
 
-
- 
-/* 
+/*
  * locate a file using each part of the DXMODULES path
- *  if that environment variable is defined.  
+ *  if that environment variable is defined.
  *  return the actual pathname if successful in 'outname'
  */
-static Error findfile(char *inname, char **outname, char *envvar)
+static Error findfile( char *inname, char **outname, char *envvar )
 {
-    return _dxf_fileSearch(inname, outname, NULL, envvar ? envvar : "DXMODULES");
+  return _dxf_fileSearch( inname, outname, NULL,
+                          envvar ? envvar : "DXMODULES" );
 }
-
- 
 
 /* func for searching for a filename.   this routine belongs in libdx.
  * there are several duplicate routines like this in the importers.
@@ -834,8 +828,8 @@ static Error findfile(char *inname, char **outname, char *envvar)
  *  if inname starts with / then it is an absolute pathname and no further
  *   searching is done (besides trying an extension if given).
  *  environment can be null; otherwise it is expected to be the name of
- *   an environment variable whose value is a (string) directory list 
- *   (e.g. dir1:dir2:dir3).   inname and inname.extension will be tried 
+ *   an environment variable whose value is a (string) directory list
+ *   (e.g. dir1:dir2:dir3).   inname and inname.extension will be tried
  *   in each dir until the file is found or we run out of dirs.
  *
  *  the complete filename (suitable for passing to open()) will be returned
@@ -844,223 +838,251 @@ static Error findfile(char *inname, char **outname, char *envvar)
  *  if this routine returns error, outname will be NULL and no space needs
  *   to be freed.
  */
-Error _dxf_fileSearch(char *inname, char **outname, char *extension, 
-		      char *environment)
+Error _dxf_fileSearch( char *inname, char **outname, char *extension,
+                       char *environment )
 {
-    struct stat sb;
-    char *datadir = NULL, *cp;
-    int bytes = 0;
+  struct stat sb;
+  char *datadir = NULL, *cp;
+  int bytes = 0;
 
-    *outname = NULL;
+  *outname = NULL;
 
-    if (!inname) {
-	DXSetError(ERROR_INTERNAL, "filename must be specified to fileSearch");
-	return ERROR;
-    }
-
-    /* simple check for mode bits - it has to match the given mode and it
-     * can't be a directory.  i had originally planned to check for the
-     * execute bits, but on alpha shared obj files don't have to be marked 
-     * executable to be loaded, so i changed it to just check to be sure
-     * the file can be read by someone.
-     */
-#ifdef DXD_WIN
-#define MODE_OK(m) !S_ISDIR(m) 
-#else
-#define MODE_OK(m) (!S_ISDIR(m) && (m & (S_IRUSR|S_IRGRP|S_IROTH)))
-#endif
-#define MODE_ERR   "'%s' is not a plain file or cannot be opened for reading"
-    
-    /* try to open the filename as given, and save the name 
-     *  for error messages later.
-     */
-    DXDebug("L", "trying at (A) to stat `%s'", inname);
-    if (stat(inname, &sb) == 0) {
-	if (!MODE_OK(sb.st_mode)) {
-	    DXSetError(ERROR_BAD_PARAMETER, MODE_ERR, inname);
-	    return ERROR;
-	}
-	
-	/* if not absolute pathname, some loaders don't seem to
-	 * want to search the current dir w/o ./ in front of the
-	 * filename.
-	 */
-	*outname = (char *)DXAllocateLocalZero(strlen(inname)+3);
-	if (!*outname) 
-	    goto error;
-
-#ifdef DXD_NON_UNIX_DIR_SEPARATOR
-	if (inname[0] != '/' && inname[0] != '\\' && inname[1] != ':') {
-	    strcpy(*outname, "./");
-	    strcat(*outname, inname);
-	} else
-	    strcpy(*outname, inname);
-#else
-	if (inname[0] != '/') {
-	    strcpy(*outname, "./");
-	    strcat(*outname, inname);
-	} else
-	    strcpy(*outname, inname);
-#endif
-	return OK;
-    }
-    
-    
-    /* if absolute pathname and no optional extension, it's not found.
-     */
-#ifdef DXD_NON_UNIX_DIR_SEPARATOR
-    if ((inname[0] == '/' || inname[0] == '\\' || inname[1] == ':') && extension == NULL) {
-#else
-    if (inname[0] == '/' && extension == NULL) {
-#endif
-	DXSetError(ERROR_BAD_PARAMETER, "#10903", "file", inname);
-	return ERROR;
-    }
-    
-    /* try the name as given with extension
-     */
-    if (extension) {
-	/* space for basename, extension and ./ in front if found.
-	 */
-	*outname = (char *)DXAllocateLocalZero(strlen(inname) +
-					       strlen(extension) + 4);
-	if (!*outname) 
-	    goto error;
-	
-	/* if not absolute pathname, start it with ./ (see comment above) */
-#ifdef DXD_NON_UNIX_DIR_SEPARATOR
-	if (inname[0] != '/' && inname[0] != '\\' && inname[1] != ':') {
-	    strcpy(*outname, "./");
-	    strcat(*outname, inname);
-	} else
-	    strcpy(*outname, inname);
-#else
-	if (inname[0] != '/') {
-	    strcpy(*outname, "./");
-	    strcat(*outname, inname);
-	} else
-	    strcpy(*outname, inname);
-#endif
-
-	/* now add .extension */
-	strcat(*outname, ".");
-	strcat(*outname, extension);
-
-	DXDebug("L", "trying at (A1) to stat `%s'", *outname);
-	if (stat(*outname, &sb) == 0) {
-	    if (!MODE_OK(sb.st_mode)) {
-		DXSetError(ERROR_BAD_PARAMETER, MODE_ERR, *outname);
-		goto error;
-	    }
-	    
-	    return OK;
-	}
-    }
-    
-    /* ok, now start on the environment variable pathlist.
-     * if there's no pathlist or this is an absolute pathname
-     * it won't be found.
-     */
-    datadir = (char *)getenv(environment);
-#ifdef DXD_NON_UNIX_DIR_SEPARATOR
-    if (!datadir || ((inname[1] == ':') || (inname[0] == '/') || (inname[0] == '\\'))) {
-#else
-    if (!datadir || (inname[0] == '/')) {
-#endif
-	DXSetError(ERROR_BAD_PARAMETER, "#12247", inname, environment);
-	return ERROR;
-    }
-    
-    /* bytes is the full length of the datadir var, so it has to be
-     * long enough for any individual dir in the list.
-     */
-    DXDebug("L", "%s is `%s'", environment, datadir);
-    bytes = strlen(inname) + 5 + strlen(datadir) + 
-	(extension ? strlen(extension) : 0);
-    
-    *outname = (char *)DXAllocateZero(bytes);
-    if (!*outname)
-	return ERROR;
-
-    /* use each part of the pathname with the filename, and each without
-     * and with the extension if it's given.
-     */
-    while (datadir) {
-	
-	/* if not absolute pathname, start it with ./ (see comment above) */
-#ifdef DXD_NON_UNIX_DIR_SEPARATOR
-	if (datadir[0] != '/' && datadir[0] != '\\' && datadir[1] != ':') {
-	    strcpy(*outname, "./");
-	    strcat(*outname, datadir);
-	} else
-	    strcpy(*outname, datadir);
-#else
-	if (datadir[0] != '/') {
-	    strcpy(*outname, "./");
-	    strcat(*outname, datadir);
-	} else
-	    strcpy(*outname, datadir);
-#endif
-	if ((cp = strchr(*outname, DX_DIR_SEPARATOR)) != NULL)
-	    *cp = '\0';
-	strcat(*outname, "/");
-	strcat(*outname, inname);
-
-	DXDebug("L", "trying at (B) to stat `%s'", *outname);
-
-#ifdef DXD_NON_UNIX_DIR_SEPARATOR
-	
-	{
-		int i;
-		for (i = 0; i < strlen(*outname); i++)
-			if ((*outname)[i] == '\\')
-			    (*outname)[i] = '/';
-	}
-
-#endif
-
-	if (stat(*outname, &sb) == 0) {
-	    if (!MODE_OK(sb.st_mode)) {
-		DXSetError(ERROR_BAD_PARAMETER, MODE_ERR, *outname);
-		goto error;
-	    }
-	    
-	    return OK;
-	}
-
-	if (extension) {
-	    strcat(*outname, ".");
-	    strcat(*outname, extension);
-	    DXDebug("L", "trying at (B1) to stat `%s'", *outname);
-	    
-	    if (stat(*outname, &sb) == 0) {
-		if (!MODE_OK(sb.st_mode)) {
-		    DXSetError(ERROR_BAD_PARAMETER, MODE_ERR, *outname);
-		    goto error;
-		}
-	    
-		return OK;
-	    }
-	}
-	
-	datadir = strchr(datadir, DX_DIR_SEPARATOR);
-	if (datadir)
-	    datadir++;
-    }
-    
-    /* if you get here, you didn't find the file.  fall thru
-     *  into error section.
-     */
-    DXSetError(ERROR_BAD_PARAMETER, "#12247", inname, environment);
-    
-  error:
-    if (*outname) {
-	DXFree((Pointer)*outname);
-	*outname = NULL;
-    }
-
+  if ( !inname )
+  {
+    DXSetError( ERROR_INTERNAL, "filename must be specified to fileSearch" );
     return ERROR;
+  }
+
+/* simple check for mode bits - it has to match the given mode and it
+ * can't be a directory.  i had originally planned to check for the
+ * execute bits, but on alpha shared obj files don't have to be marked
+ * executable to be loaded, so i changed it to just check to be sure
+ * the file can be read by someone.
+ */
+#ifdef DXD_WIN
+#define MODE_OK( m ) !S_ISDIR( m )
+#else
+#define MODE_OK( m ) \
+  ( !S_ISDIR( m ) && ( m & ( S_IRUSR | S_IRGRP | S_IROTH ) ) )
+#endif
+#define MODE_ERR "'%s' is not a plain file or cannot be opened for reading"
+
+  /* try to open the filename as given, and save the name
+   *  for error messages later.
+   */
+  DXDebug( "L", "trying at (A) to stat `%s'", inname );
+  if ( stat( inname, &sb ) == 0 )
+  {
+    if ( !MODE_OK( sb.st_mode ) )
+    {
+      DXSetError( ERROR_BAD_PARAMETER, MODE_ERR, inname );
+      return ERROR;
+    }
+
+    /* if not absolute pathname, some loaders don't seem to
+     * want to search the current dir w/o ./ in front of the
+     * filename.
+     */
+    *outname = (char *)DXAllocateLocalZero( strlen( inname ) + 3 );
+    if ( !*outname )
+      goto error;
+
+#ifdef DXD_NON_UNIX_DIR_SEPARATOR
+    if ( inname[0] != '/' && inname[0] != '\\' && inname[1] != ':' )
+    {
+      strcpy( *outname, "./" );
+      strcat( *outname, inname );
+    }
+    else
+      strcpy( *outname, inname );
+#else
+    if ( inname[0] != '/' )
+    {
+      strcpy( *outname, "./" );
+      strcat( *outname, inname );
+    }
+    else
+      strcpy( *outname, inname );
+#endif
+    return OK;
+  }
+
+/* if absolute pathname and no optional extension, it's not found.
+ */
+#ifdef DXD_NON_UNIX_DIR_SEPARATOR
+  if ( ( inname[0] == '/' || inname[0] == '\\' || inname[1] == ':' ) &&
+       extension == NULL )
+  {
+#else
+  if ( inname[0] == '/' && extension == NULL )
+  {
+#endif
+    DXSetError( ERROR_BAD_PARAMETER, "#10903", "file", inname );
+    return ERROR;
+  }
+
+  /* try the name as given with extension
+   */
+  if ( extension )
+  {
+    /* space for basename, extension and ./ in front if found.
+     */
+    *outname = (char *)DXAllocateLocalZero( strlen( inname ) +
+                                            strlen( extension ) + 4 );
+    if ( !*outname )
+      goto error;
+
+/* if not absolute pathname, start it with ./ (see comment above) */
+#ifdef DXD_NON_UNIX_DIR_SEPARATOR
+    if ( inname[0] != '/' && inname[0] != '\\' && inname[1] != ':' )
+    {
+      strcpy( *outname, "./" );
+      strcat( *outname, inname );
+    }
+    else
+      strcpy( *outname, inname );
+#else
+    if ( inname[0] != '/' )
+    {
+      strcpy( *outname, "./" );
+      strcat( *outname, inname );
+    }
+    else
+      strcpy( *outname, inname );
+#endif
+
+    /* now add .extension */
+    strcat( *outname, "." );
+    strcat( *outname, extension );
+
+    DXDebug( "L", "trying at (A1) to stat `%s'", *outname );
+    if ( stat( *outname, &sb ) == 0 )
+    {
+      if ( !MODE_OK( sb.st_mode ) )
+      {
+        DXSetError( ERROR_BAD_PARAMETER, MODE_ERR, *outname );
+        goto error;
+      }
+
+      return OK;
+    }
+  }
+
+  /* ok, now start on the environment variable pathlist.
+   * if there's no pathlist or this is an absolute pathname
+   * it won't be found.
+   */
+  datadir = (char *)getenv( environment );
+#ifdef DXD_NON_UNIX_DIR_SEPARATOR
+  if ( !datadir || ( ( inname[1] == ':' ) || ( inname[0] == '/' ) ||
+                     ( inname[0] == '\\' ) ) )
+  {
+#else
+  if ( !datadir || ( inname[0] == '/' ) )
+  {
+#endif
+    DXSetError( ERROR_BAD_PARAMETER, "#12247", inname, environment );
+    return ERROR;
+  }
+
+  /* bytes is the full length of the datadir var, so it has to be
+   * long enough for any individual dir in the list.
+   */
+  DXDebug( "L", "%s is `%s'", environment, datadir );
+  bytes = strlen( inname ) + 5 + strlen( datadir ) +
+          ( extension ? strlen( extension ) : 0 );
+
+  *outname = (char *)DXAllocateZero( bytes );
+  if ( !*outname )
+    return ERROR;
+
+  /* use each part of the pathname with the filename, and each without
+   * and with the extension if it's given.
+   */
+  while ( datadir )
+  {
+
+/* if not absolute pathname, start it with ./ (see comment above) */
+#ifdef DXD_NON_UNIX_DIR_SEPARATOR
+    if ( datadir[0] != '/' && datadir[0] != '\\' && datadir[1] != ':' )
+    {
+      strcpy( *outname, "./" );
+      strcat( *outname, datadir );
+    }
+    else
+      strcpy( *outname, datadir );
+#else
+    if ( datadir[0] != '/' )
+    {
+      strcpy( *outname, "./" );
+      strcat( *outname, datadir );
+    }
+    else
+      strcpy( *outname, datadir );
+#endif
+    if ( ( cp = strchr( *outname, DX_DIR_SEPARATOR ) ) != NULL )
+      *cp = '\0';
+    strcat( *outname, "/" );
+    strcat( *outname, inname );
+
+    DXDebug( "L", "trying at (B) to stat `%s'", *outname );
+
+#ifdef DXD_NON_UNIX_DIR_SEPARATOR
+
+    {
+      int i;
+      for ( i = 0; i < strlen( *outname ); i++ )
+        if ( ( *outname )[i] == '\\' )
+          ( *outname )[i] = '/';
+    }
+
+#endif
+
+    if ( stat( *outname, &sb ) == 0 )
+    {
+      if ( !MODE_OK( sb.st_mode ) )
+      {
+        DXSetError( ERROR_BAD_PARAMETER, MODE_ERR, *outname );
+        goto error;
+      }
+
+      return OK;
+    }
+
+    if ( extension )
+    {
+      strcat( *outname, "." );
+      strcat( *outname, extension );
+      DXDebug( "L", "trying at (B1) to stat `%s'", *outname );
+
+      if ( stat( *outname, &sb ) == 0 )
+      {
+        if ( !MODE_OK( sb.st_mode ) )
+        {
+          DXSetError( ERROR_BAD_PARAMETER, MODE_ERR, *outname );
+          goto error;
+        }
+
+        return OK;
+      }
+    }
+
+    datadir = strchr( datadir, DX_DIR_SEPARATOR );
+    if ( datadir )
+      datadir++;
+  }
+
+  /* if you get here, you didn't find the file.  fall thru
+   *  into error section.
+   */
+  DXSetError( ERROR_BAD_PARAMETER, "#12247", inname, environment );
+
+error:
+  if ( *outname )
+  {
+    DXFree( ( Pointer ) * outname );
+    *outname = NULL;
+  }
+
+  return ERROR;
 }
-
-
-	

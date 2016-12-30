@@ -8,9 +8,6 @@
 
 #include <dxconfig.h>
 
-
-
-
 #ifndef _JavaNet_h
 #define _JavaNet_h
 
@@ -19,7 +16,7 @@
 //
 // Class name definition:
 //
-#define ClassJavaNet	"JavaNet"
+#define ClassJavaNet "JavaNet"
 
 class Node;
 class ImageNode;
@@ -28,84 +25,87 @@ class Command;
 
 //
 // Network class definition:
-//				
+//
 class JavaNet : public Network
 {
 
-  private:
+ private:
+  friend class DXApplication;  // For the constructor
 
-    friend class DXApplication; // For the constructor
+  const char* getHtmlHeader();
 
-    const char*	getHtmlHeader();
+ protected:
+  //
+  // Called only by DXApplication
+  //
+  JavaNet();
 
+  static String UnsupportedTools[];
 
-  protected:
+  static List* MakeUnsupportedToolList( JavaNet* );
 
-    //
-    // Called only by DXApplication
-    //
-    JavaNet();
+  char* base_name;
 
-    static String UnsupportedTools[];
+  char* html_file;
+  char* make_file;
+  char* applet_file;
+  char* bean_file;
 
-    static List*  MakeUnsupportedToolList(JavaNet*);
+  FILE* html_f;
+  FILE* make_f;
+  FILE* applet_f;
+  FILE* bean_f;
 
-    char*	base_name;
+  boolean setOutputName( const char* );
+  boolean netToApplet();
 
-    char*	html_file;
-    char*	make_file;
-    char*	applet_file;
-    char*	bean_file;
+  Command* saveWebPageCmd;
+  Command* saveAppletCmd;
+  Command* saveBeanCmd;
 
-    FILE*	html_f;
-    FILE*	make_f;
-    FILE*	applet_f;
-    FILE*	bean_f;
+  //
+  // In addition to the work done in Network, we need to print references to
+  // special macros used in exporting gifs and wrls
+  //
+  virtual boolean printMacroReferences( FILE* f, boolean inline_define,
+                                        PacketIFCallback echoCallback,
+                                        void* echoClientData );
 
-    boolean	setOutputName (const char*);
-    boolean	netToApplet();
+  boolean requires( const char* format );
 
-    Command*	saveWebPageCmd;
-    Command*	saveAppletCmd;
-    Command*	saveBeanCmd;
+ public:
+  //
+  // Destructor:
+  //
+  ~JavaNet();
 
-    //
-    // In addition to the work done in Network, we need to print references to
-    // special macros used in exporting gifs and wrls
-    //
-    virtual boolean printMacroReferences(FILE *f, boolean inline_define,
-	    PacketIFCallback echoCallback, void *echoClientData);
+  virtual boolean saveWebPage();
+  virtual boolean saveApplet();
+  virtual boolean saveBean();
 
-    boolean requires(const char* format);
+  virtual Command* getSaveWebPageCommand()
+  {
+    return this->saveWebPageCmd;
+  }
+  virtual Command* getSaveAppletCommand()
+  {
+    return this->saveAppletCmd;
+  }
+  virtual Command* getSaveBeanCommand();
 
+  virtual boolean isJavified();
 
-  public:
-    
-    //
-    // Destructor:
-    //
-    ~JavaNet();
+  virtual boolean saveNetwork( const char* name, boolean force = FALSE );
 
-    virtual boolean saveWebPage();
-    virtual boolean saveApplet();
-    virtual boolean saveBean();
+  virtual void changeExistanceWork( Node* n, boolean adding );
 
-    virtual Command* getSaveWebPageCommand() { return this->saveWebPageCmd; }
-    virtual Command* getSaveAppletCommand() { return this->saveAppletCmd; }
-    virtual Command* getSaveBeanCommand();
-
-    virtual boolean isJavified();
-
-    virtual boolean saveNetwork(const char *name, boolean force = FALSE);
-
-    virtual void changeExistanceWork(Node *n, boolean adding);
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName() { return ClassJavaNet; }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassJavaNet;
+  }
 };
 
-
-#endif // _JavaNet_h
-
+#endif  // _JavaNet_h

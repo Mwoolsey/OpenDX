@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -27,14 +26,14 @@ The defined components and attributes are listed in Chapter ??? of the
 User's Manual.
 */
 
-Field DXNewField(void);
+Field DXNewField( void );
 /**
 \index{DXNewField}
 Creates a new field object.  Returns the field, or returns null and
 sets the error code to indicate an error.
 **/
 
-Field DXSetComponentValue(Field f, char *name, Object value);
+Field DXSetComponentValue( Field f, char *name, Object value );
 /**
 \index{DXSetComponentValue}
 Sets the value of the component of the field {\tt f} specified by {\tt
@@ -50,7 +49,8 @@ the component value.  Returns {\tt f} on success, or
 returns null and sets the error code to indicate an error.
 **/
 
-Field DXSetComponentAttribute(Field f, char *name, char *attribute, Object value);
+Field DXSetComponentAttribute( Field f, char *name, char *attribute,
+                               Object value );
 /**
 \index{DXSetComponentAttribute}
 Sets the value of the specified {\tt attribute} of component {\tt
@@ -58,14 +58,14 @@ name} to {\tt value}.  Returns {\tt f} on success, or returns null and
 sets the error code to indicate an error.
 **/
 
-Object DXGetComponentValue(Field f, char *name);
+Object DXGetComponentValue( Field f, char *name );
 /**
 \index{DXGetComponentValue}
 Returns the value of component {\tt name} of field {\tt f}, or returns
 null but does not set the error code if no such component exists.
 **/
 
-Object DXGetComponentAttribute(Field f, char *name, char *attribute);
+Object DXGetComponentAttribute( Field f, char *name, char *attribute );
 /**
 \index{DXGetComponentAttribute}
 Returns the value of the specified {\tt attribute} of component {\tt
@@ -73,8 +73,9 @@ name}, or returns null but does not set the error code if no such
 component exists.
 **/
 
-Object DXGetEnumeratedComponentValue(Field f, int n, char **name);
-Object DXGetEnumeratedComponentAttribute(Field f, int n, char **name, char *attribute);
+Object DXGetEnumeratedComponentValue( Field f, int n, char **name );
+Object DXGetEnumeratedComponentAttribute( Field f, int n, char **name,
+                                          char *attribute );
 /**
 \index{DXGetEnumeratedComponentValue}\index{DXGetEnumeratedComponentAttribute}
 Enumerates a field's components. Call {\tt GetEnumeratedComponent()}
@@ -89,17 +90,21 @@ of the component, or returns null but does not set the error code
 if {\tt n} is out of range.
 **/
 
-Field DXDeleteComponent(Field f, char *component);
+Field DXDeleteComponent( Field f, char *component );
 /**
 \index{DXDeleteComponent}
 Deletes the named component from a field.  Returns {\tt f}, or returns
 null but does not set the error code if the component does not exist.
 **/
 
-Error DXComponentReq(Array a, Pointer *data, int *n, int nreq, Type t, int dim);
-Error DXComponentOpt(Array a, Pointer *data, int *n, int nreq, Type t, int dim);
-Error DXComponentReqLoc(Array a, Pointer *data, int *n, int nreq, Type t, int dim);
-Error DXComponentOptLoc(Array a, Pointer *data, int *n, int nreq, Type t, int dim);
+Error DXComponentReq( Array a, Pointer *data, int *n, int nreq, Type t,
+                      int dim );
+Error DXComponentOpt( Array a, Pointer *data, int *n, int nreq, Type t,
+                      int dim );
+Error DXComponentReqLoc( Array a, Pointer *data, int *n, int nreq, Type t,
+                         int dim );
+Error DXComponentOptLoc( Array a, Pointer *data, int *n, int nreq, Type t,
+                         int dim );
 /**
 \index{DXComponentOpt}\index{DXComponentReq}
 \index{DXComponentOptLoc}\index{DXComponentReqLoc}
@@ -135,19 +140,19 @@ as follows:
 
     a = DXGetComponentValue(f, "colors");
     if (!DXComponentOpt(a, &colors, NULL, npoints, TYPE_FLOAT, 3))
-	return NULL;
+        return NULL;
     if (colors) ...
 \end{program}
 The first two statements check and retrieve a required ``positions''
 component,  while the next two statements check and retrieve an optional
 ``colors'' component that must have the same number of elements as the
 ``positions'' component.  Since the second call uses {\tt DXComponentOpt()},
-the program must then subsequently check if {\tt colors} is null to 
+the program must then subsequently check if {\tt colors} is null to
 determine whether the colors were present.
 */
 
 #endif /* _DXI_FIELD_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

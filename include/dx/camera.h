@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -26,7 +25,7 @@ from world coordinates to image coordinates.  See the description of
 the {\tt DXTransform()} routine in Section \ref{transformsec}.
 */
 
-Camera DXNewCamera(void);
+Camera DXNewCamera( void );
 /**
 \index{DXNewCamera}
 Creates a new camera.  The camera is initialized with an orthographic
@@ -36,7 +35,7 @@ the origin at the center of the viewport.  Returns the camera, or
 returns null and sets the error code to indicate an error.
 **/
 
-Camera DXSetView(Camera c, Point from, Point to, Vector up);
+Camera DXSetView( Camera c, Point from, Point to, Vector up );
 /**
 \index{DXSetView}
 Specifies the camera position ({\tt from}), a point on the line of
@@ -45,7 +44,7 @@ Returns {\tt c}, or returns null and sets the error code to indicate
 an error.
 **/
 
-Camera DXSetOrthographic(Camera c, double width, double aspect);
+Camera DXSetOrthographic( Camera c, double width, double aspect );
 /**
 \index{DXSetOrthographic}
 Specifies an orthographic view.  The width of the viewport in world
@@ -54,9 +53,9 @@ aspect} times the width.  Returns {\tt c}, or returns null and sets
 the error code to indicate an error.
 **/
 
-Camera DXSetPerspective(Camera c, double width, double aspect);
+Camera DXSetPerspective( Camera c, double width, double aspect );
 
-Camera DXSetResolution(Camera c, int hres, double pix_aspect);
+Camera DXSetResolution( Camera c, int hres, double pix_aspect );
 /**
 \index{DXSetResolution}
 Specifies the resolution of the camera.  The horizontal resolution in
@@ -68,9 +67,9 @@ Returns {\tt c}, or returns null and sets the error code to indicate
 an error.
 **/
 
-Matrix DXGetCameraMatrix(Camera c);
-Matrix DXGetCameraRotation(Camera c);
-Matrix DXGetCameraMatrixWithFuzz(Camera c, float fuzz);
+Matrix DXGetCameraMatrix( Camera c );
+Matrix DXGetCameraRotation( Camera c );
+Matrix DXGetCameraMatrixWithFuzz( Camera c, float fuzz );
 /**
 \index{DXGetCameraMatrix}\index{DXGetCameraRotation}
 The {\tt DXGetCameraMatrix()} returns the transformation matrix defined
@@ -78,7 +77,7 @@ by camera {\tt c}.  The {\tt DXGetCameraRotation()} routine returns only
 the rotation part of the camera transformation.
 **/
 
-Camera DXGetView(Camera c, Point *from, Point *to, Vector *up);
+Camera DXGetView( Camera c, Point *from, Point *to, Vector *up );
 /**
 \index{DXGetView}
 If {\tt from} is not null, this routine returns the camera from
@@ -88,14 +87,14 @@ the camera up vector in {\tt *up}.  Returns {\tt c}, or returns null
 and sets the error code to indicate an error.
 **/
 
-Camera DXGetCameraResolution(Camera c, int *width, int *height);
+Camera DXGetCameraResolution( Camera c, int *width, int *height );
 /**
 \index{DXGetCameraResolution}
 Gets the resolution associated with camera {\tt c}.  Returns {\tt c},
 or returns null and sets the error code to indicate an error.
 **/
 
-Camera DXGetOrthographic(Camera c, float *width, float *aspect);
+Camera DXGetOrthographic( Camera c, float *width, float *aspect );
 /**
 \index{DXGetOrthographic}
 If {\tt width} is not null, returns the width of view in {\tt
@@ -104,13 +103,13 @@ If {\tt width} is not null, returns the width of view in {\tt
 otherwise returns null but does not set the error code.
 **/
 
-Camera DXGetPerspective(Camera c, float *fov, float *aspect);
+Camera DXGetPerspective( Camera c, float *fov, float *aspect );
 
-Camera DXGetBackgroundColor(Camera camera, RGBColor *background);
-Camera DXSetBackgroundColor(Camera camera, RGBColor background);
+Camera DXGetBackgroundColor( Camera camera, RGBColor *background );
+Camera DXSetBackgroundColor( Camera camera, RGBColor background );
 
 #endif /* _DXI_CAMERA_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

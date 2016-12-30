@@ -9,64 +9,56 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _QuitCommand_h
 #define _QuitCommand_h
 
-
 #include "ConfirmedCommand.h"
-
 
 //
 // Class name definition:
 //
-#define ClassQuitCommand	"QuitCommand"
-
+#define ClassQuitCommand "QuitCommand"
 
 class Application;
 
-
 //
 // QuitCommand class definition:
-//				
+//
 class QuitCommand : public ConfirmedCommand
 {
-  private:
-    Application *application;
-  protected:
-    //
-    // Implements the command:
-    //   Queries the user for confirmation of the command.
-    //   If affirmatively confirmed, the command terminates
-    //   the application program.
-    //
-    virtual boolean doIt(CommandInterface *ci);
+ private:
+  Application* application;
 
-  public:
-    //
-    // Constructor:
-    //
-    QuitCommand(Application*  app,
-		const char*   name,
-		CommandScope* scope,
-		boolean       active,
-		char*         dialogTitle,
-		char*         dialogQuestion);
+ protected:
+  //
+  // Implements the command:
+  //   Queries the user for confirmation of the command.
+  //   If affirmatively confirmed, the command terminates
+  //   the application program.
+  //
+  virtual boolean doIt( CommandInterface* ci );
 
-    //
-    // Destructor:
-    //
-    ~QuitCommand(){}
+ public:
+  //
+  // Constructor:
+  //
+  QuitCommand( Application* app, const char* name, CommandScope* scope,
+               boolean active, char* dialogTitle, char* dialogQuestion );
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassQuitCommand;
-    }
+  //
+  // Destructor:
+  //
+  ~QuitCommand()
+  {
+  }
+
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassQuitCommand;
+  }
 };
 
-
-#endif // _QuitCommand_h
+#endif  // _QuitCommand_h

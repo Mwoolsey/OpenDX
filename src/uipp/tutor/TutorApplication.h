@@ -8,8 +8,6 @@
 
 #include <dxconfig.h>
 
-
-
 #ifndef _TutorApplication_h
 #define _TutorApplication_h
 
@@ -26,102 +24,97 @@ class Dictionary;
 //
 // Class name definition:
 //
-#define ClassTutorApplication	"TutorApplication"
+#define ClassTutorApplication "TutorApplication"
 
 //
 // XtCallbackProc (*CB), XtEventHandler (*EH) and XtActionProc (*AP)
 // DialogCallback (*DCB), XtInputCallbackProc (*ICP), XtWorkProc (*WP)
 // functions for this and derived classes
 //
-extern "C" void TutorApplication_XtWarningHandler(char*);
-extern "C" int	TutorApplication_XErrorHandler(Display *display, XErrorEvent *event);
-
+extern "C" void TutorApplication_XtWarningHandler( char * );
+extern "C" int TutorApplication_XErrorHandler( Display *display,
+                                               XErrorEvent *event );
 
 typedef struct
 {
-    Pixel	insensitiveColor;
-    String 	UIRoot;	
-    String 	tutorFile;	
+  Pixel insensitiveColor;
+  String UIRoot;
+  String tutorFile;
 } TutorResource;
 
 class TutorApplication : public IBMApplication
 {
-    friend class TutorWindow;
+  friend class TutorWindow;
 
-  private:
-    //
-    // Private class data:
-    //
-    static boolean    TutorApplicationClassInitialized; // class initialized?
-    friend void TutorApplication_XtWarningHandler(char *message);
-    friend int	      TutorApplication_XErrorHandler(Display *display, XErrorEvent *event);
+ private:
+  //
+  // Private class data:
+  //
+  static boolean TutorApplicationClassInitialized;  // class initialized?
+  friend void TutorApplication_XtWarningHandler( char *message );
+  friend int TutorApplication_XErrorHandler( Display *display,
+                                             XErrorEvent *event );
 
-    void shutdownApplication() {};
+  void shutdownApplication() {};
 
+ protected:
+  CommandScope *commandScope;
+  Command *quitCmd;
+  Command *gotoHelpTextCmd;
 
-  protected:
+  //
+  // Overrides the Application class version:
+  //   Initializes Xt Intrinsics with option list (switches).
+  //
+  virtual boolean initialize( unsigned int *argcp, char **argv );
 
-    CommandScope *commandScope;
-    Command	*quitCmd;
-    Command	*gotoHelpTextCmd;
- 
-    //
-    // Overrides the Application class version:
-    //   Initializes Xt Intrinsics with option list (switches).
-    //
-    virtual boolean initialize(unsigned int* argcp,
-			    char**        argv);
+  //
+  // Handle Xt Warnings (called by TutorApplication_XtWarningHandler, static,
+  // above)
+  // Handle X Errors (called by XErrorHandler, static, above)
+  virtual void handleXtWarning( char *message );
+  virtual int handleXError( Display *display, XErrorEvent *event );
 
-    //
-    // Handle Xt Warnings (called by TutorApplication_XtWarningHandler, static, above)
-    // Handle X Errors (called by XErrorHandler, static, above)
-    virtual void handleXtWarning(char *message);
-    virtual int  handleXError(Display *display, XErrorEvent *event);
+  //
+  // Override of superclass handleEvents() function:
+  //   Handles application events.
+  //   This routine should be called by main() only.
+  //
+  virtual void handleEvents();
 
-    //
-    // Override of superclass handleEvents() function:
-    //   Handles application events.
-    //   This routine should be called by main() only.
-    //
-    virtual void handleEvents();
+  static TutorResource resource;
 
-    static TutorResource	resource;
+  void loadTutorDbase();
 
-    void loadTutorDbase();
+ public:
+  //
+  // Constructor:
+  //
+  TutorApplication( char *className );
 
-  public:
+  //
+  // Destructor:
+  //
+  ~TutorApplication();
 
+  TutorWindow *mainWindow;
 
-    //
-    // Constructor:
-    //
-    TutorApplication(char* className);
+  virtual const char *getFormalName();
+  virtual const char *getInformalName();
+  virtual const char *getCopyrightNotice();
 
-    //
-    // Destructor:
-    //
-    ~TutorApplication();
+  virtual const char *getHelpDirectory();
+  virtual void helpOn( const char *topic );
 
-    TutorWindow	*mainWindow;
-
-    virtual const char *getFormalName();
-    virtual const char *getInformalName();
-    virtual const char *getCopyrightNotice();
-
-    virtual const char *getHelpDirectory();
-    virtual void helpOn(const char *topic);
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-        return ClassTutorApplication;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassTutorApplication;
+  }
 };
 
-
-extern TutorApplication* theTutorApplication;
+extern TutorApplication *theTutorApplication;
 
 #endif /*  _TutorApplication_h */
-

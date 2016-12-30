@@ -9,19 +9,16 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "ResetDefinition.h"
 #include "ResetNode.h"
 
-Node *ResetDefinition::newNode(Network *net, int inst)
+Node *ResetDefinition::newNode( Network *net, int inst )
 {
-    ResetNode *n = new ResetNode(this, net, inst);
-    return n;
+  ResetNode *n = new ResetNode( this, net, inst );
+  return n;
 }
 
-NodeDefinition *
-ResetDefinition::AllocateDefinition()
+NodeDefinition *ResetDefinition::AllocateDefinition()
 {
-    return (NodeDefinition*) new ResetDefinition;
+  return (NodeDefinition *)new ResetDefinition;
 }
-

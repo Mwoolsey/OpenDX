@@ -9,10 +9,6 @@
 #include <dxconfig.h>
 #include <defines.h>
 
-
-
-
-
 #include <stdarg.h>
 #include <Xm/Xm.h>
 #include <Xm/MessageB.h>
@@ -21,108 +17,92 @@
 #include "Application.h"
 #include "DXStrings.h"
 
+InfoDialogManager *theInfoDialogManager =
+    new InfoDialogManager( "informationDialog" );
 
-InfoDialogManager* theInfoDialogManager =
-    new InfoDialogManager("informationDialog");
-
-
-InfoDialogManager::InfoDialogManager(char* name): DialogManager(name)
+InfoDialogManager::InfoDialogManager( char *name ) : DialogManager( name )
 {
-    //
-    // No op.
-    //
+  //
+  // No op.
+  //
 }
 
-
-Widget InfoDialogManager::createDialog(Widget parent)
+Widget InfoDialogManager::createDialog( Widget parent )
 {
-    Widget dialog;
-    Widget button;
+  Widget dialog;
+  Widget button;
 
-    //
-    // Create the information dialog.  Realize it because of a bug on SGI and
-    // perhaps elsewhere.
-    //
-    dialog = XmCreateInformationDialog(parent, this->name, NUL(ArgList), 0);
-    XtRealizeWidget(dialog);
+  //
+  // Create the information dialog.  Realize it because of a bug on SGI and
+  // perhaps elsewhere.
+  //
+  dialog = XmCreateInformationDialog( parent, this->name, NUL( ArgList ), 0 );
+  XtRealizeWidget( dialog );
 
-    //
-    // Remove the cancel and help buttons.
-    //
-    XtUnmanageChild(XmMessageBoxGetChild(dialog, XmDIALOG_CANCEL_BUTTON));
-    XtUnmanageChild(XmMessageBoxGetChild(dialog, XmDIALOG_HELP_BUTTON));
+  //
+  // Remove the cancel and help buttons.
+  //
+  XtUnmanageChild( XmMessageBoxGetChild( dialog, XmDIALOG_CANCEL_BUTTON ) );
+  XtUnmanageChild( XmMessageBoxGetChild( dialog, XmDIALOG_HELP_BUTTON ) );
 
-    //
-    // Set the ok button to be the default button.
-    //
-    button = XmMessageBoxGetChild(dialog, XmDIALOG_OK_BUTTON);
-    XtVaSetValues(button, XmNshowAsDefault, True, NULL);
+  //
+  // Set the ok button to be the default button.
+  //
+  button = XmMessageBoxGetChild( dialog, XmDIALOG_OK_BUTTON );
+  XtVaSetValues( button, XmNshowAsDefault, True, NULL );
 
-    XtVaSetValues(dialog, XmNdefaultButton, button, NULL);
+  XtVaSetValues( dialog, XmNdefaultButton, button, NULL );
 
-    //
-    // Return the created dialog.
-    //
+  //
+  // Return the created dialog.
+  //
 
-    return dialog;
+  return dialog;
 }
 
-void InfoDialogManager::post(
-		      Widget parent,
-                      char *message,
-                      char *title,
-                      void *,
-                      DialogCallback ,
-                      DialogCallback ,
-                      DialogCallback ,
-                      char*          ,
-                      char*          ,
-                      char*          ,
-                      int            )
+void InfoDialogManager::post( Widget parent, char *message, char *title, void *,
+                              DialogCallback, DialogCallback, DialogCallback,
+                              char *, char *, char *, int )
 {
-    this->DialogManager::post(parent, message, title);
+  this->DialogManager::post( parent, message, title );
 }
 
-void
-ModalInfoMessage(Widget parent, const char *fmt, ...)
+void ModalInfoMessage( Widget parent, const char *fmt, ... )
 {
-        va_list ap;
-        char buffer[1024];      // FIXME: how to allocate this
+  va_list ap;
+  char buffer[1024];  // FIXME: how to allocate this
 
-        va_start(ap, fmt);
+  va_start( ap, fmt );
 
-        vsprintf(buffer,(char*)fmt,ap);
+  vsprintf( buffer, (char *)fmt, ap );
 
-        theInfoDialogManager->modalPost(parent, buffer);
+  theInfoDialogManager->modalPost( parent, buffer );
 
-        va_end(ap);
+  va_end( ap );
 }
-
 
 //
 // Display an info message.
 //
-void
-InfoMessage(const char *fmt, ...)
+void InfoMessage( const char *fmt, ... )
 {
-        va_list ap;
-        char *p, buffer[1024];      
-	int len = STRLEN(fmt);
+  va_list ap;
+  char *p, buffer[1024];
+  int len = STRLEN( fmt );
 
-  	if (len > 512) 
-	    p = new char[len * 2];
-	else
-	    p = buffer;
-	
-        va_start(ap, fmt);
+  if ( len > 512 )
+    p = new char[len * 2];
+  else
+    p = buffer;
 
-        vsprintf(p,(char*)fmt,ap);
+  va_start( ap, fmt );
 
-        theInfoDialogManager->post(NULL,p);
+  vsprintf( p, (char *)fmt, ap );
 
-	if (p != buffer)
-	    delete p;
+  theInfoDialogManager->post( NULL, p );
 
-        va_end(ap);
+  if ( p != buffer )
+    delete p;
+
+  va_end( ap );
 }
-

@@ -9,66 +9,61 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _HelpOnNetworkDialog_h
 #define _HelpOnNetworkDialog_h
-
 
 #include "SetNetworkCommentDialog.h"
 
 //
 // Class name definition:
 //
-#define ClassHelpOnNetworkDialog	"HelpOnNetworkDialog"
+#define ClassHelpOnNetworkDialog "HelpOnNetworkDialog"
 
 class Network;
 
 //
 // HelpOnNetworkDialog class definition:
-//				
+//
 
-class HelpOnNetworkDialog : public SetNetworkCommentDialog 
+class HelpOnNetworkDialog : public SetNetworkCommentDialog
 {
-  private:
-    //
-    // Private member data:
-    //
-    static boolean ClassInitialized;
+ private:
+  //
+  // Private member data:
+  //
+  static boolean ClassInitialized;
 
-  protected:
-    //
-    // Protected member data:
-    //
-    static String  DefaultResources[];
+ protected:
+  //
+  // Protected member data:
+  //
+  static String DefaultResources[];
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-  public:
+ public:
+  //
+  // Constructor:
+  //
+  HelpOnNetworkDialog( Widget parent, Network* n );
 
-    //
-    // Constructor:
-    //
-    HelpOnNetworkDialog(Widget parent, Network *n);
+  //
+  // Destructor:
+  //
+  ~HelpOnNetworkDialog();
 
-    //
-    // Destructor:
-    //
-    ~HelpOnNetworkDialog();
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassHelpOnNetworkDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassHelpOnNetworkDialog;
+  }
 };
 
-
-#endif // _HelpOnNetworkDialog_h
+#endif  // _HelpOnNetworkDialog_h

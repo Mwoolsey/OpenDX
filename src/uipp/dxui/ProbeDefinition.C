@@ -9,29 +9,25 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "ProbeDefinition.h"
 #include "ProbeNode.h"
 #include "LabeledStandIn.h"
 
 NodeDefinition *ProbeDefinition::AllocateDefinition()
 {
-    return new ProbeDefinition;
+  return new ProbeDefinition;
 }
 
-
-ProbeDefinition::ProbeDefinition() : 
-    NodeDefinition()
+ProbeDefinition::ProbeDefinition() : NodeDefinition()
 {
 }
 
 SIAllocator ProbeDefinition::getSIAllocator()
 {
-   return LabeledStandIn::AllocateStandIn;
+  return LabeledStandIn::AllocateStandIn;
 }
 
-
-Node *ProbeDefinition::newNode(Network *net, int instance)
+Node *ProbeDefinition::newNode( Network *net, int instance )
 {
-    return new ProbeNode(this, net, instance);
+  return new ProbeNode( this, net, instance );
 }

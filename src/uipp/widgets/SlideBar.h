@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 /*	Construct and manage the "frame sequencer guide" to be used as a
  *	popup of the "sequence controller" (alias VCR control)
  *
@@ -42,17 +41,17 @@
  *
  * Revision 6.1  93/11/16  10:51:08  svs
  * ship level code, release 2.0
- * 
+ *
  * Revision 1.1  93/02/26  15:47:33  danz
  * Initial revision
- * 
- * 
+ *
+ *
  */
 
 #ifndef SlideBar_H
 #define SlideBar_H
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -60,21 +59,21 @@ extern "C" {
 
 extern WidgetClass xmSlideBarWidgetClass;
 
-typedef struct _XmSlideBarClassRec * XmSlideBarWidgetClass;
-typedef struct _XmSlideBarRec      * XmSlideBarWidget;
+typedef struct _XmSlideBarClassRec* XmSlideBarWidgetClass;
+typedef struct _XmSlideBarRec* XmSlideBarWidget;
 
-typedef struct {
-    unsigned char reason;
-    unsigned char indicator;
-    short value;
+typedef struct
+{
+  unsigned char reason;
+  unsigned char indicator;
+  short value;
 } SlideBarCallbackStruct;
 
-
 /*  Declare types for convenience routine to create the widget  */
-extern Widget XmCreateSlideBar
-  (Widget parent, String name, ArgList args, Cardinal num_args);
+extern Widget XmCreateSlideBar( Widget parent, String name, ArgList args,
+                                Cardinal num_args );
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif
 

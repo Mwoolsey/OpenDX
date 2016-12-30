@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 #ifndef hwCacheUtilSB_h
 #define hwCacheUtilSB_h
 /*---------------------------------------------------------------------------*\
@@ -24,53 +23,45 @@
 
 typedef struct
 {
-  float *clist ;
-  int numverts ;
-  float *gnormals ;
-  int numcoords ;
-  int vertex_flags ;
-  int facet_flags ;
-} tdmTmeshCacheSB ;
+  float *clist;
+  int numverts;
+  float *gnormals;
+  int numcoords;
+  int vertex_flags;
+  int facet_flags;
+} tdmTmeshCacheSB;
 
 typedef struct
 {
-  int num_strips ;
-  tdmTmeshCacheSB *stripArray ;
-} tdmStripArraySB ;
+  int num_strips;
+  tdmTmeshCacheSB *stripArray;
+} tdmStripArraySB;
 
 typedef struct
 {
-  float *clist ;
-  int numverts ;
-  int numcoords ;
-  int vertex_flags ;
-  int *ilist ;
-  float *flist ;
-  int numfacetsets ;
-  int facet_flags ;
-} tdmPolyhedraCacheSB ;
+  float *clist;
+  int numverts;
+  int numcoords;
+  int vertex_flags;
+  int *ilist;
+  float *flist;
+  int numfacetsets;
+  int facet_flags;
+} tdmPolyhedraCacheSB;
 
-tdmStripArraySB *
-tdmGetTmeshCacheSB (char *fun, xfieldT *xf) ;
+tdmStripArraySB *tdmGetTmeshCacheSB( char *fun, xfieldT *xf );
 
-tdmPolyhedraCacheSB *
-tdmGetPolyhedraCacheSB (char *fun, int pMod, xfieldT *xf) ;
+tdmPolyhedraCacheSB *tdmGetPolyhedraCacheSB( char *fun, int pMod, xfieldT *xf );
 
-void
-tdmPutTmeshCacheSB (char *fun, xfieldT *xf, tdmStripArraySB *stripsSB) ;
+void tdmPutTmeshCacheSB( char *fun, xfieldT *xf, tdmStripArraySB *stripsSB );
 
-void
-tdmPutPolyhedraCacheSB (char *fun, int pMod, xfieldT *xf,
-			float clist[], int numverts, int numcoords,
-			int vertex_flags, int ilist[], float flist[],
-			int numfacetsets, int facet_flags) ;
+void tdmPutPolyhedraCacheSB( char *fun, int pMod, xfieldT *xf, float clist[],
+                             int numverts, int numcoords, int vertex_flags,
+                             int ilist[], float flist[], int numfacetsets,
+                             int facet_flags );
 
-Error
-tdmFreeTmeshCacheSB (Pointer cache) ;
+Error tdmFreeTmeshCacheSB( Pointer cache );
 
-Error
-tdmFreePolyhedraCacheSB (Pointer cache) ;
-
-
+Error tdmFreePolyhedraCacheSB( Pointer cache );
 
 #endif /* hwCacheUtilSB_h */

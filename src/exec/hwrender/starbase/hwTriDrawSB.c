@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/starbase/hwTriDrawSB.c,v $
   Author: Mark Hood
@@ -27,11 +26,11 @@
 
 #include "hwDebug.h"
 
-#define Polygon                 Tri
-#define PolygonSize             3
-#define CpfPolygon             "CpfTri"
-#define CpcPolygon             "CpcTri"
-#define CpvPolygon             "CpvTri"
-#define tdmPolygonDraw          _dxfTriDraw
+#define Polygon Tri
+#define PolygonSize 3
+#define CpfPolygon "CpfTri"
+#define CpcPolygon "CpcTri"
+#define CpvPolygon "CpvTri"
+#define tdmPolygonDraw _dxfTriDraw
 
 #include "hwPolygonDrawSB.c.h"

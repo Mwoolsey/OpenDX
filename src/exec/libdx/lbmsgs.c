@@ -8,106 +8,100 @@
 
 #include <dxconfig.h>
 
-#if defined(DX_NATIVE_WINDOWS)
+#if defined( DX_NATIVE_WINDOWS )
 
 #include <windows.h>
 #include "lbmsgs.h"
 
-void
-DXReleaseAndSignal(DWORD thread, HANDLE sem)
+void DXReleaseAndSignal( DWORD thread, HANDLE sem )
 {
-	ReleaseMutex(sem);
-	DXPostMessage(thread, DX_SIGNAL);
+  ReleaseMutex( sem );
+  DXPostMessage( thread, DX_SIGNAL );
 }
 
-int
-DXWaitForSignal(int n, HANDLE *sems)
-{		
-	MSG msg;
-	int found = (WaitForMultipleObjects(n, sems, FALSE, 0) != WAIT_TIMEOUT);
-	if (found)
-		return found;
+int DXWaitForSignal( int n, HANDLE *sems )
+{
+  MSG msg;
+  int found = ( WaitForMultipleObjects( n, sems, FALSE, 0 ) != WAIT_TIMEOUT );
+  if ( found )
+    return found;
 
-	while(found == WAIT_TIMEOUT && GetMessage(&msg, NULL, 0, 0))
-	{
-		if (msg.message == WM_DXMESSAGE)
-		{
-			if (msg.wParam == DX_SIGNAL)
-				found = WaitForMultipleObjects(n, sems, FALSE, 0);
-			if (msg.wParam == DX_INTERRUPT)
-				return WAIT_TIMEOUT;
-		}
-		else
-		{
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
+  while ( found == WAIT_TIMEOUT && GetMessage( &msg, NULL, 0, 0 ) )
+  {
+    if ( msg.message == WM_DXMESSAGE )
+    {
+      if ( msg.wParam == DX_SIGNAL )
+        found = WaitForMultipleObjects( n, sems, FALSE, 0 );
+      if ( msg.wParam == DX_INTERRUPT )
+        return WAIT_TIMEOUT;
+    }
+    else
+    {
+      TranslateMessage( &msg );
+      DispatchMessage( &msg );
 
-			found = WaitForMultipleObjects(n, sems, FALSE, 0);
-		}
-	}
+      found = WaitForMultipleObjects( n, sems, FALSE, 0 );
+    }
+  }
 }
 
-int
-DXWaitForMessage(int dxmsg)
+int DXWaitForMessage( int dxmsg )
 {
-	MSG msg;
-	int r;
+  MSG msg;
+  int r;
 
-	while (GetMessage(&msg, NULL, 0, 0))
-	{
-		if (msg.message == WM_DXMESSAGE)
-		{
-			if (msg.wParam & dxmsg)
-			{
-				r = msg.wParam;
-				break;
-			}
-			else if (msg.wParam == DX_INTERRUPT)
-			{
-				r = 0;
-				break;
-			}
-			else if (msg.wParam == DX_SIGNAL)
-			{
-				r = 0;
-				break;
-			}
-			else if (msg.wParam == DX_QUIT)
-			{
-				r = 0;
-				break;
-			}
-		}
-		else
-		{
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
-		}
-	}
+  while ( GetMessage( &msg, NULL, 0, 0 ) )
+  {
+    if ( msg.message == WM_DXMESSAGE )
+    {
+      if ( msg.wParam & dxmsg )
+      {
+        r = msg.wParam;
+        break;
+      }
+      else if ( msg.wParam == DX_INTERRUPT )
+      {
+        r = 0;
+        break;
+      }
+      else if ( msg.wParam == DX_SIGNAL )
+      {
+        r = 0;
+        break;
+      }
+      else if ( msg.wParam == DX_QUIT )
+      {
+        r = 0;
+        break;
+      }
+    }
+    else
+    {
+      TranslateMessage( &msg );
+      DispatchMessage( &msg );
+    }
+  }
 
-	return r;
+  return r;
 }
 
-int 
-DXPostQuitMessage(DWORD threadID)
+int DXPostQuitMessage( DWORD threadID )
 {
-	return DXPostMessage(threadID, DX_QUIT);
+  return DXPostMessage( threadID, DX_QUIT );
 
-	return 1;
+  return 1;
 }
 
-int 
-DXPostMessage(DWORD threadID, int msg)
+int DXPostMessage( DWORD threadID, int msg )
 {
-	PostThreadMessage(threadID, WM_DXMESSAGE, msg, 0);
+  PostThreadMessage( threadID, WM_DXMESSAGE, msg, 0 );
 
-	return 1;
+  return 1;
 }
 
-void	
-DXInterrupt(DWORD threadID)
+void DXInterrupt( DWORD threadID )
 {
-	DXPostMessage(threadID, DX_INTERRUPT);
+  DXPostMessage( threadID, DX_INTERRUPT );
 }
 
 #endif

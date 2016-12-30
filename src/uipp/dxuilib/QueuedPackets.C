@@ -9,49 +9,53 @@
 #include "QueuedPackets.h"
 #include "PacketIF.h"
 
-QueuedBytes::QueuedBytes(const char* data, int length)
+QueuedBytes::QueuedBytes( const char* data, int length )
 {
-    if (!length) {
-	this->length = strlen(data);
-	this->data = new char[this->length+1];
-	strcpy (this->data, data);
-    } else {
-	this->length = length;
-	this->data = new char[length+1];
-	strncpy (this->data, data, this->length);
-	this->data[this->length] = NUL(char);
-    }
+  if ( !length )
+  {
+    this->length = strlen( data );
+    this->data = new char[this->length + 1];
+    strcpy( this->data, data );
+  }
+  else
+  {
+    this->length = length;
+    this->data = new char[length + 1];
+    strncpy( this->data, data, this->length );
+    this->data[this->length] = NUL( char );
+  }
 }
 
-QueuedPacket::QueuedPacket(int type, int packetId, const char* data, int length) :
-    QueuedBytes(data, length)
+QueuedPacket::QueuedPacket( int type, int packetId, const char* data,
+                            int length )
+    : QueuedBytes( data, length )
 {
-    this->type = type;
-    this->packetId = packetId;
+  this->type = type;
+  this->packetId = packetId;
 }
 
-QueuedImmediate::QueuedImmediate(const char* data, int length) : QueuedBytes(data,length)
+QueuedImmediate::QueuedImmediate( const char* data, int length )
+    : QueuedBytes( data, length )
 {
 }
 
 QueuedBytes::~QueuedBytes()
 {
-    if (this->data) delete this->data;
+  if ( this->data )
+    delete this->data;
 }
 
-void QueuedPacket::send(PacketIF* pif)
+void QueuedPacket::send( PacketIF* pif )
 {
-    pif->_sendPacket (this->type, this->packetId, this->data, this->length);
+  pif->_sendPacket( this->type, this->packetId, this->data, this->length );
 }
 
-void QueuedImmediate::send(PacketIF* pif)
+void QueuedImmediate::send( PacketIF* pif )
 {
-    pif->_sendImmediate (this->data);
+  pif->_sendImmediate( this->data );
 }
 
-void QueuedBytes::send(PacketIF* pif)
+void QueuedBytes::send( PacketIF* pif )
 {
-    pif->_sendBytes (this->data);
+  pif->_sendBytes( this->data );
 }
-
-

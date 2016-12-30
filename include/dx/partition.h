@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -47,7 +46,7 @@ points into account.  In any case, the result is a {\tt Group} of {\tt
 Fields} each representing a partition.
 */
 
-Group DXPartition(Field f, int n, int size);
+Group DXPartition( Field f, int n, int size );
 /**
 \index{DXPartition}
 Divides {\tt f} into at most {\tt n} spatially local pieces with at least
@@ -58,6 +57,6 @@ returns null and sets the error code to indicate an error.
 
 #endif /* _DXI_PARTITION_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

@@ -8,13 +8,12 @@
 
 #include <dxconfig.h>
 
-
-
 /***
 MODULE:
     Route
 SHORTDESCRIPTION:
-    Passes the 2nd input object to the output path(s) specified by the selector list 
+    Passes the 2nd input object to the output path(s) specified by the selector
+list
     or NULL if the selector is not in valid range.
 CATEGORY:
     Special
@@ -24,7 +23,7 @@ INPUTS:
 OUTPUTS:
     Output;   	Object; 	NULL;	The 2nd input object or NULL
 FLAGS:
-    MODULE_ROUTE 
+    MODULE_ROUTE
 BUGS:
 AUTHOR:
     Nancy R. Brown
@@ -35,14 +34,13 @@ END:
 #define NARGS 22
 #define MAXOUTPUTS 4
 
-Error
-m_Route (Object *in, Object *out)
+Error m_Route( Object *in, Object *out )
 {
-    /* Route module handled entirely by the executive.  */
-    /* (will put following code in evalgraph.c)         */
-    
-    DXSetError(ERROR_INTERNAL, "#8015", "Route");
-    return(ERROR);
+  /* Route module handled entirely by the executive.  */
+  /* (will put following code in evalgraph.c)         */
+
+  DXSetError( ERROR_INTERNAL, "#8015", "Route" );
+  return ( ERROR );
 
 #if 0
     int i,limit;

@@ -9,10 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
-
 #include <Xm/MainW.h>
 
 #include "ScalarInteractor.h"
@@ -21,23 +17,20 @@
 #include "../widgets/Number.h"
 #include "WarningDialogManager.h"
 
-
-extern "C" void ScalarInteractor_NumberWarningCB(Widget  widget,
-                        XtPointer clientData,
-                        XtPointer callData)
+extern "C" void ScalarInteractor_NumberWarningCB( Widget widget,
+                                                  XtPointer clientData,
+                                                  XtPointer callData )
 {
-    XmNumberWarningCallbackStruct* warning;
+  XmNumberWarningCallbackStruct* warning;
 
 #if 1
-    while(NOT XmIsMainWindow(widget))
-    {
-        widget = XtParent(widget);
-    }
+  while ( NOT XmIsMainWindow( widget ) )
+  {
+    widget = XtParent( widget );
+  }
 #endif
-    warning = (XmNumberWarningCallbackStruct*)callData;
-    // FIXME: this should be modal
-    // ModalWarningMessage(widget, warning->message);
-    WarningMessage(warning->message);
+  warning = (XmNumberWarningCallbackStruct*)callData;
+  // FIXME: this should be modal
+  // ModalWarningMessage(widget, warning->message);
+  WarningMessage( warning->message );
 }
-
-

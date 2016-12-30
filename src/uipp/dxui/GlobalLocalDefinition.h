@@ -9,7 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _GlobalLocalDefinition_h
 #define _GlobalLocalDefinition_h
 
@@ -17,58 +16,61 @@
 
 #include "NodeDefinition.h"
 
-
 //
 // Class name definition:
 //
-#define ClassGlobalLocalDefinition	"GlobalLocalDefinition"
+#define ClassGlobalLocalDefinition "GlobalLocalDefinition"
 
 //
-// Forward definitions 
+// Forward definitions
 //
 class Network;
 
 //
 // GlobalLocalDefinition class definition:
-//				
-class GlobalLocalDefinition : public NodeDefinition 
+//
+class GlobalLocalDefinition : public NodeDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
+ public:
+  //
+  // Constructor:
+  //
+  GlobalLocalDefinition()
+  {
+  }
 
-  public:
-    //
-    // Constructor:
-    //
-    GlobalLocalDefinition() { }
+  //
+  // Destructor:
+  //
+  ~GlobalLocalDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~GlobalLocalDefinition() { }
-	
-    //
-    // Allocate a new GlobalLocalDefinition.  
-    // This function is intended to be used as an allocator in
-    // theNDAllocatorDictionary.
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Allocate a new GlobalLocalDefinition.
+  // This function is intended to be used as an allocator in
+  // theNDAllocatorDictionary.
+  //
+  static NodeDefinition *AllocateDefinition();
 
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() { return ClassGlobalLocalDefinition; }
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char *getClassName()
+  {
+    return ClassGlobalLocalDefinition;
+  }
 };
 
-
-#endif // _GlobalLocalDefinition_h
+#endif  // _GlobalLocalDefinition_h

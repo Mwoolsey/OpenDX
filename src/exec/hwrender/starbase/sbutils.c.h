@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 #ifndef sbutils_c_h
 #define sbutils_c_h
 /* SBUTILS:sbutils.c.h    07/14/90    01:44:21 */
@@ -19,9 +18,9 @@
 /* ANSI C uses function prototypes for passing floats */
 
 #ifdef __STDC__ /* FN PROTO [ */
-int translate3d(float xt, float yt, float zt, int stack);
-int rotate3d(float xa, float ya, float za, int stack);
-int scale3d(float xs, float ys, float zs, int stack);
+int translate3d( float xt, float yt, float zt, int stack );
+int rotate3d( float xa, float ya, float za, int stack );
+int scale3d( float xs, float ys, float zs, int stack );
 
 #else /* __STDC__ */
 
@@ -37,23 +36,22 @@ int scale3d(float xs, float ys, float zs, int stack);
  * creation with either the CreateImagePlanesWindow() or
  * CreateOverlayPlanesWindow():
  */
-#define NOT_FLEXIBLE            0
-#define FLEXIBLE                1
-
+#define NOT_FLEXIBLE 0
+#define FLEXIBLE 1
 
 /* These macros define the values of the "sbCmapHint" parameter of the
  * CreateImagePlanesWindow():
  */
 #ifndef SB_CMAP_TYPE_NORMAL
-#define SB_CMAP_TYPE_NORMAL     1
+#define SB_CMAP_TYPE_NORMAL 1
 #endif
 
 #ifndef SB_CMAP_TYPE_MONOTONIC
-#define SB_CMAP_TYPE_MONOTONIC  2
+#define SB_CMAP_TYPE_MONOTONIC 2
 #endif
 
 #ifndef SB_CMAP_TYPE_FULL
-#define SB_CMAP_TYPE_FULL       4
+#define SB_CMAP_TYPE_FULL 4
 #endif
 
 #endif /*  sbutils_c_h */

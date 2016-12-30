@@ -9,18 +9,16 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "VectorDefinition.h"
 #include "ScalarNode.h"
 
-Node *VectorDefinition::newNode(Network *net, int inst)
+Node *VectorDefinition::newNode( Network *net, int inst )
 {
-    ScalarNode *n = new ScalarNode(this, net, inst, TRUE, 3);
-    return n;
+  ScalarNode *n = new ScalarNode( this, net, inst, TRUE, 3 );
+  return n;
 }
 
-NodeDefinition *
-VectorDefinition::AllocateDefinition()
+NodeDefinition *VectorDefinition::AllocateDefinition()
 {
-    return (NodeDefinition*) new VectorDefinition;
+  return (NodeDefinition *)new VectorDefinition;
 }

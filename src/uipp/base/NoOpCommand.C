@@ -9,27 +9,23 @@
 #include <dxconfig.h>
 #include <defines.h>
 
-
-
-
 #include "NoOpCommand.h"
 
-
-NoOpCommand::NoOpCommand(const char*   name,
-			 CommandScope* scope,
-			 boolean       active) : Command(name, scope, active)
+NoOpCommand::NoOpCommand( const char* name, CommandScope* scope,
+                          boolean active )
+    : Command( name, scope, active )
 {
-    //
-    // No op.
-    //
+  //
+  // No op.
+  //
 }
 
-boolean NoOpCommand::doIt(CommandInterface *ci)
+boolean NoOpCommand::doIt( CommandInterface* ci )
 {
-    return TRUE;
+  return TRUE;
 }
 
 boolean NoOpCommand::undoIt()
 {
-    return TRUE;
+  return TRUE;
 }

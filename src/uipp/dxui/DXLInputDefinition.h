@@ -9,72 +9,71 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _DXLInputDefinition_h
 #define _DXLInputDefinition_h
 
-
 #include "NodeDefinition.h"
-
 
 //
 // Class name definition:
 //
-#define ClassDXLInputDefinition	"DXLInputDefinition"
+#define ClassDXLInputDefinition "DXLInputDefinition"
 
 //
 // Referenced classes
 
 //
 // DXLInputDefinition class definition:
-//				
+//
 class DXLInputDefinition : public NodeDefinition
 {
-  private:
-    //
-    // Private member data:
-    //
+ private:
+  //
+  // Private member data:
+  //
 
-  protected:
-    //
-    // Protected member data:
-    //
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
-    virtual SIAllocator getSIAllocator();
+  virtual SIAllocator getSIAllocator();
 
-  public:
-    //
-    // Constructor:
-    //
-    DXLInputDefinition();
+ public:
+  //
+  // Constructor:
+  //
+  DXLInputDefinition();
 
-    //
-    // Destructor:
-    //
-    ~DXLInputDefinition(){}
+  //
+  // Destructor:
+  //
+  ~DXLInputDefinition()
+  {
+  }
 
-    //
-    // Create a new Module and NodeDefinition of 'this' type. 
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Create a new Module and NodeDefinition of 'this' type.
+  //
+  static NodeDefinition *AllocateDefinition();
 
+  virtual boolean isAllowedInMacro()
+  {
+    return FALSE;
+  }
 
-    virtual boolean isAllowedInMacro() { return FALSE; }
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassDXLInputDefinition;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassDXLInputDefinition;
+  }
 };
 
-
-#endif // _DXLInputDefinition_h
+#endif  // _DXLInputDefinition_h

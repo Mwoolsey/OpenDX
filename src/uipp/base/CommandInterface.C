@@ -16,81 +16,74 @@
 #include "Command.h"
 #include "Application.h"
 
-
-extern "C" void CommandInterface_ExecuteCommandCB(Widget,
-					      XtPointer clientData,
-					      XtPointer)
+extern "C" void CommandInterface_ExecuteCommandCB( Widget, XtPointer clientData,
+                                                   XtPointer )
 {
-    ASSERT(clientData);
-    CommandInterface* DXinterface = (CommandInterface*)clientData;
+  ASSERT( clientData );
+  CommandInterface* DXinterface = (CommandInterface*)clientData;
 
-    DXinterface->executeCommand();
+  DXinterface->executeCommand();
 }
 
-
-
-CommandInterface::CommandInterface(char*    name,
-				   Command* command): UIComponent(name)
+CommandInterface::CommandInterface( char* name, Command* command )
+    : UIComponent( name )
 {
-    ASSERT(command);
+  ASSERT( command );
 
-    this->command = command;
+  this->command = command;
 
-    if (command != NUL(Command*))
-    {
-	command->registerClient(this);
-    }
+  if ( command != NUL(Command*))
+  {
+    command->registerClient( this );
+  }
 }
-
 
 CommandInterface::~CommandInterface()
 {
-    command->unregisterClient(this);
+  command->unregisterClient( this );
 }
 
-
-inline void CommandInterface::setCommand(Command* command)
+inline void CommandInterface::setCommand( Command* command )
 {
-    this->command = command;
+  this->command = command;
 }
 
-
-void CommandInterface::notify(const Symbol message, const void *data, const char *msg)
+void CommandInterface::notify( const Symbol message, const void* data,
+                               const char* msg )
 {
-    if (message == Command::MsgActivate)
-    {
-	this->activate();
-    }
-    else if (message == Command::MsgDeactivate)
-    {
-	this->deactivate(msg);
-    }
-    else if (message == Command::MsgDisassociate)
-    {
-	this->command = NUL(Command*);
-    }
+  if ( message == Command::MsgActivate )
+  {
+    this->activate();
+  }
+  else if ( message == Command::MsgDeactivate )
+  {
+    this->deactivate( msg );
+  }
+  else if ( message == Command::MsgDisassociate )
+  {
+    this->command = NUL( Command* );
+  }
 }
-
 
 Widget CommandInterface::getDialogParent()
 {
-    Widget w = this->getRootWidget();
+  Widget w = this->getRootWidget();
 
-    while (w && !XmIsMainWindow(w))
-	w = XtParent(w);
+  while ( w && !XmIsMainWindow( w ) )
+    w = XtParent( w );
 
-    if (!w)
-	w = theApplication->getRootWidget();
+  if ( !w )
+    w = theApplication->getRootWidget();
 
-    return w;
+  return w;
 }
 
 void CommandInterface::executeCommand()
 {
-    if (this->command != NUL(Command*))
-    {
-	theApplication->startCommandInterfaceExecution();
-	this->command->execute(this);
-	theApplication->endCommandInterfaceExecution();
-    }
+  if ( this->command != NUL(Command*))
+  {
+    theApplication->startCommandInterfaceExecution();
+    this->command->execute( this );
+    theApplication->endCommandInterfaceExecution();
+  }
 }

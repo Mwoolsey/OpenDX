@@ -9,7 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "SpreadSheetChoice.h"
 #include "DXChoice.h"
 #include "GridChoice.h"
@@ -20,26 +19,27 @@
 
 #include "Dictionary.h"
 
-Dictionary* theTypeChoiceDictionary = NUL(Dictionary*);
+Dictionary* theTypeChoiceDictionary = NUL( Dictionary* );
 
-void
-BuildTheTypeChoiceDictionary()
+void BuildTheTypeChoiceDictionary()
 {
-    theTypeChoiceDictionary = new Dictionary;
+  theTypeChoiceDictionary = new Dictionary;
 
-    //
-    // The first argument is a dictionary key.  Changes the key changes the order
-    // of the entry in the dictionary and thus changes the appearance of the window
-    // because the window is constructed by scanning the dictionary from top to 
-    // bottom.
-    //
-    theTypeChoiceDictionary->addDefinition ("A", (void*)DXChoice::Allocator);
-    theTypeChoiceDictionary->addDefinition ("B", (void*)CDFChoice::Allocator);
-    theTypeChoiceDictionary->addDefinition ("C", (void*)NetCDFChoice::Allocator);
-    theTypeChoiceDictionary->addDefinition ("D", (void*)HDFChoice::Allocator);
-    theTypeChoiceDictionary->addDefinition ("E", (void*)ImageChoice::Allocator);
-    theTypeChoiceDictionary->addDefinition ("F", (void*)GridChoice::Allocator);
-    theTypeChoiceDictionary->addDefinition ("G", (void*)SpreadSheetChoice::Allocator);
+  //
+  // The first argument is a dictionary key.  Changes the key changes the order
+  // of the entry in the dictionary and thus changes the appearance of the
+  // window
+  // because the window is constructed by scanning the dictionary from top to
+  // bottom.
+  //
+  theTypeChoiceDictionary->addDefinition( "A", (void*)DXChoice::Allocator );
+  theTypeChoiceDictionary->addDefinition( "B", (void*)CDFChoice::Allocator );
+  theTypeChoiceDictionary->addDefinition( "C", (void*)NetCDFChoice::Allocator );
+  theTypeChoiceDictionary->addDefinition( "D", (void*)HDFChoice::Allocator );
+  theTypeChoiceDictionary->addDefinition( "E", (void*)ImageChoice::Allocator );
+  theTypeChoiceDictionary->addDefinition( "F", (void*)GridChoice::Allocator );
+  theTypeChoiceDictionary->addDefinition( "G",
+                                          (void*)SpreadSheetChoice::Allocator );
 #if 0
     theTypeChoiceDictionary->addDefinition ("Spreadsheet",  SpreadSheetChoice::Allocator);
     theTypeChoiceDictionary->addDefinition ("Grid", GridChoice::Allocator);

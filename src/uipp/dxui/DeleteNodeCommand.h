@@ -9,59 +9,52 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _DeleteNodeCommand_h
 #define _DeleteNodeCommand_h
 
-
 #include "NoUndoCommand.h"
-
 
 //
 // Class name definition:
 //
-#define ClassDeleteNodeCommand	"DeleteNodeCommand"
-
+#define ClassDeleteNodeCommand "DeleteNodeCommand"
 
 class EditorWindow;
 class List;
 
 //
 // DeleteNodeCommand class definition:
-//				
+//
 class DeleteNodeCommand : public NoUndoCommand
 {
-  private:
+ private:
+ protected:
+  EditorWindow* editor;
+  List* toDelete;  // Buffer of nodes to restore on undo.
 
-  protected:
+  virtual boolean doIt( CommandInterface* ci );
 
-    EditorWindow *editor;
-    List	*toDelete;	// Buffer of nodes to restore on undo. 
+ public:
+  //
+  // Constructor:
+  //
+  DeleteNodeCommand( const char* name, CommandScope* scope, boolean active,
+                     EditorWindow* editor );
 
-    virtual boolean doIt(CommandInterface *ci);
-   
-  public:
-    //
-    // Constructor:
-    //
-    DeleteNodeCommand(const char*   name,
-		      CommandScope* scope, 
-		      boolean	active,
-                      EditorWindow* editor);
+  //
+  // Destructor:
+  //
+  ~DeleteNodeCommand()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~DeleteNodeCommand(){}
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassDeleteNodeCommand;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassDeleteNodeCommand;
+  }
 };
 
-
-#endif // _DeleteNodeCommand_h
+#endif  // _DeleteNodeCommand_h

@@ -9,68 +9,61 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
-
 #ifndef _LabeledStandIn_h
 #define _LabeledStandIn_h
 
-
 #include "StandIn.h"
-
 
 //
 // Class name definition:
 //
-#define ClassLabeledStandIn	"LabeledStandIn"
+#define ClassLabeledStandIn "LabeledStandIn"
 
 //
 // LabeledStandIn class definition:
-//				
+//
 
 class LabeledStandIn : public StandIn
 {
-  private:
-    static boolean ClassInitialized;
+ private:
+  static boolean ClassInitialized;
 
-    //
-    // Private member data:
-    //
+  //
+  // Private member data:
+  //
 
-  protected:
-    //
-    // Protected member data:
-    //
-    static String  DefaultResources[];
-    virtual const char *getButtonLabel();
+ protected:
+  //
+  // Protected member data:
+  //
+  static String DefaultResources[];
+  virtual const char *getButtonLabel();
 
-    //
-    // Constructor:
-    //
-    LabeledStandIn(WorkSpace *w, Node *node);
+  //
+  // Constructor:
+  //
+  LabeledStandIn( WorkSpace *w, Node *node );
 
-  public:
-    //
-    // Allocator that is installed in theSIAllocatorDictionary
-    //
-    static StandIn *AllocateStandIn(WorkSpace *w, Node *n);
+ public:
+  //
+  // Allocator that is installed in theSIAllocatorDictionary
+  //
+  static StandIn *AllocateStandIn( WorkSpace *w, Node *n );
 
-    //
-    // Destructor:
-    //
-    ~LabeledStandIn();
+  //
+  // Destructor:
+  //
+  ~LabeledStandIn();
 
-    virtual void initialize();
+  virtual void initialize();
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassLabeledStandIn;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassLabeledStandIn;
+  }
 };
 
-
-#endif // _LabeledStandIn_h
+#endif  // _LabeledStandIn_h

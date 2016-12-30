@@ -9,65 +9,67 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _FileSelectorDefinition_h
 #define _FileSelectorDefinition_h
 
 #include "ValueDefinition.h"
 
-
 //
 // Class name definition:
 //
-#define ClassFileSelectorDefinition	"FileSelectorDefinition"
+#define ClassFileSelectorDefinition "FileSelectorDefinition"
 
 //
-// Forward definitions 
+// Forward definitions
 //
 class ParameterDefinition;
 class Interactor;
 
 //
 // FileSelectorDefinition class definition:
-//				
-class FileSelectorDefinition : public ValueDefinition 
+//
+class FileSelectorDefinition : public ValueDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
+ public:
+  //
+  // Constructor:
+  //
+  FileSelectorDefinition()
+  {
+  }
 
-  public:
-    //
-    // Constructor:
-    //
-    FileSelectorDefinition() { }
+  //
+  // Destructor:
+  //
+  ~FileSelectorDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~FileSelectorDefinition() { }
-	
-    //
-    // Allocate a new FileSelectorDefinition.  
-    // This function is intended to be used as an allocator in
-    // theNDAllocatorDictionary.
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Allocate a new FileSelectorDefinition.
+  // This function is intended to be used as an allocator in
+  // theNDAllocatorDictionary.
+  //
+  static NodeDefinition *AllocateDefinition();
 
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() { return ClassFileSelectorDefinition; }
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char *getClassName()
+  {
+    return ClassFileSelectorDefinition;
+  }
 };
 
-
-#endif // _FileSelectorDefinition_h
+#endif  // _FileSelectorDefinition_h

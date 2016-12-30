@@ -27,38 +27,43 @@
 // will fail but we won't crash.
 //
 
-UndoNode::UndoNode(EditorWindow* editor, Node* n) : UndoableAction(editor)
+UndoNode::UndoNode( EditorWindow* editor, Node* n ) : UndoableAction( editor )
 {
-    this->className = n->getNameString();
-    this->instance_number = n->getInstanceNumber();
-    StandIn* si = n->getStandIn();
-    ASSERT (si);
-    this->workSpace = (EditorWorkSpace*)si->getWorkSpace();
+  this->className = n->getNameString();
+  this->instance_number = n->getInstanceNumber();
+  StandIn* si = n->getStandIn();
+  ASSERT( si );
+  this->workSpace = (EditorWorkSpace*)si->getWorkSpace();
 }
 
 Node* UndoNode::lookupNode()
 {
-    return UndoNode::LookupNode(this->editor, this->className, this->instance_number);
+  return UndoNode::LookupNode( this->editor, this->className,
+                               this->instance_number );
 }
-Node* UndoNode::LookupNode(EditorWindow* editor, const char* className, int instance_number)
+Node* UndoNode::LookupNode( EditorWindow* editor, const char* className,
+                            int instance_number )
 {
 
-    Network* net = editor->getNetwork();
+  Network* net = editor->getNetwork();
 
-    // list will contain nodes that aren't in the current vpe
-    // page, so we'll have to check that before using any of the nodes' info.
-    List *node_list = net->makeNamedNodeList(className);
-    if (!node_list) return NUL(Node*);
+  // list will contain nodes that aren't in the current vpe
+  // page, so we'll have to check that before using any of the nodes' info.
+  List* node_list = net->makeNamedNodeList( className );
+  if ( !node_list )
+    return NUL( Node* );
 
-    ListIterator iter(*node_list);
-    Node* n=NUL(Node*);
-    Node* lookedup = NUL(Node*);
-    while (n=(Node*)iter.getNext()) {
-	if (n->getInstanceNumber() == instance_number) {
-	    lookedup = n;
-	    break;
-	}
+  ListIterator iter( *node_list );
+  Node* n = NUL( Node* );
+  Node* lookedup = NUL( Node* );
+  while ( n = (Node*)iter.getNext() )
+  {
+    if ( n->getInstanceNumber() == instance_number )
+    {
+      lookedup = n;
+      break;
     }
-    delete node_list;
-    return lookedup;
+  }
+  delete node_list;
+  return lookedup;
 }

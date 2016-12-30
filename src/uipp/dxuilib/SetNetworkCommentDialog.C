@@ -9,42 +9,40 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "Application.h"
 #include "SetNetworkCommentDialog.h"
 #include "Network.h"
 
 boolean SetNetworkCommentDialog::ClassInitialized = FALSE;
 
-String SetNetworkCommentDialog::DefaultResources[] =
-{
-        "*dialogTitle:     		Application Comment...",
-	"*nameLabel.labelString:	Application Comment:",
-        // 
-        // These two must match what is in OpenNetCommentDialog
-        // 
-        "*editorText.columns:           45",  
-        "*editorText.rows:              16",
-        NULL
-};
+String SetNetworkCommentDialog::DefaultResources[] = {
+    "*dialogTitle:     		Application Comment...",
+    "*nameLabel.labelString:	Application Comment:",
+    //
+    // These two must match what is in OpenNetCommentDialog
+    //
+    "*editorText.columns:           45",
+    "*editorText.rows:              16",
+    NULL};
 
-SetNetworkCommentDialog::SetNetworkCommentDialog(const char *name,
-				Widget parent, boolean readonly, Network *n) : 
-			TextEditDialog(name,parent, readonly)
+SetNetworkCommentDialog::SetNetworkCommentDialog( const char *name,
+                                                  Widget parent,
+                                                  boolean readonly, Network *n )
+    : TextEditDialog( name, parent, readonly )
 {
-    this->network = n;
+  this->network = n;
 }
-SetNetworkCommentDialog::SetNetworkCommentDialog(Widget parent,
-				boolean readonly, Network *n) : 
-			TextEditDialog("setNetworkComment",parent, readonly)
+SetNetworkCommentDialog::SetNetworkCommentDialog( Widget parent,
+                                                  boolean readonly, Network *n )
+    : TextEditDialog( "setNetworkComment", parent, readonly )
 {
-    this->network = n;
+  this->network = n;
 
-    if (NOT SetNetworkCommentDialog::ClassInitialized)
-    {
-        SetNetworkCommentDialog::ClassInitialized = TRUE;
-	this->installDefaultResources(theApplication->getRootWidget());
-    }
+  if ( NOT SetNetworkCommentDialog::ClassInitialized )
+  {
+    SetNetworkCommentDialog::ClassInitialized = TRUE;
+    this->installDefaultResources( theApplication->getRootWidget() );
+  }
 }
 
 SetNetworkCommentDialog::~SetNetworkCommentDialog()
@@ -54,26 +52,25 @@ SetNetworkCommentDialog::~SetNetworkCommentDialog()
 //
 // Install the default resources for this class.
 //
-void SetNetworkCommentDialog::installDefaultResources(Widget  baseWidget)
+void SetNetworkCommentDialog::installDefaultResources( Widget baseWidget )
 {
-    this->setDefaultResources(baseWidget,
-				SetNetworkCommentDialog::DefaultResources);
-    this->TextEditDialog::installDefaultResources( baseWidget);
+  this->setDefaultResources( baseWidget,
+                             SetNetworkCommentDialog::DefaultResources );
+  this->TextEditDialog::installDefaultResources( baseWidget );
 }
 //
-// Get the the text that is to be edited. 
+// Get the the text that is to be edited.
 //
 const char *SetNetworkCommentDialog::getText()
 {
-    return this->network->getNetworkComment();
+  return this->network->getNetworkComment();
 }
 
 //
-// Save the given text. 
+// Save the given text.
 //
-boolean SetNetworkCommentDialog::saveText(const char *s)
+boolean SetNetworkCommentDialog::saveText( const char *s )
 {
-    this->network->setNetworkComment(s);
-    return TRUE;
+  this->network->setNetworkComment( s );
+  return TRUE;
 }
-

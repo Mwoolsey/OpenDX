@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -32,13 +31,13 @@ indicated by their each having a ``dep'' attribute of ``points''.  The
 following routines aid in constructing such components.
 */
 
-Field DXAddPoint(Field f, int id, Point p);
-Field DXAddColor(Field f, int id, RGBColor c);
-Field DXAddFrontColor(Field f, int id, RGBColor c);
-Field DXAddBackColor(Field f, int id, RGBColor c);
-Field DXAddOpacity(Field f, int id, double o);
-Field DXAddNormal(Field f, int id, Vector v);
-Field DXAddFaceNormal(Field f, int id, Vector v);
+Field DXAddPoint( Field f, int id, Point p );
+Field DXAddColor( Field f, int id, RGBColor c );
+Field DXAddFrontColor( Field f, int id, RGBColor c );
+Field DXAddBackColor( Field f, int id, RGBColor c );
+Field DXAddOpacity( Field f, int id, double o );
+Field DXAddNormal( Field f, int id, Vector v );
+Field DXAddFaceNormal( Field f, int id, Vector v );
 /**
 \index{DXAddPoint}\index{DXAddColor}\index{DXAddOpacity}\index{DXAddNormal}
 \index{DXAddFaceNormal}\index{DXAddFrontColor}\index{DXAddBackColor}
@@ -53,13 +52,13 @@ or for rapid prototyping.  For better performance, see {\tt
 DXAddArrayData()} for a discussion of direct access routines to arrays.
 **/
 
-Field DXAddPoints(Field f, int start, int n, Point *p);
-Field DXAddColors(Field f, int start, int n, RGBColor *c);
-Field DXAddFrontColors(Field f, int start, int n, RGBColor *c);
-Field DXAddBackColors(Field f, int start, int n, RGBColor *c);
-Field DXAddOpacities(Field f, int start, int n, float *o);
-Field DXAddNormals(Field f, int start, int n, Vector *v);
-Field DXAddFaceNormals(Field f, int start, int n, Vector *v);
+Field DXAddPoints( Field f, int start, int n, Point *p );
+Field DXAddColors( Field f, int start, int n, RGBColor *c );
+Field DXAddFrontColors( Field f, int start, int n, RGBColor *c );
+Field DXAddBackColors( Field f, int start, int n, RGBColor *c );
+Field DXAddOpacities( Field f, int start, int n, float *o );
+Field DXAddNormals( Field f, int start, int n, Vector *v );
+Field DXAddFaceNormals( Field f, int start, int n, Vector *v );
 /**
 \index{DXAddPoints}\index{DXAddColors}\index{DXAddOpacities}\index{DXAddNormals}
 \index{DXAddFaceNormals}\index{DXAddFrontColors}\index{DXAddBackColors}
@@ -81,10 +80,10 @@ elements of a field.  These routines result in the creation of a
 attribute.
 */
 
-Field DXAddLine(Field f, int id, Line l);
-Field DXAddTriangle(Field f, int id, Triangle t);
-Field DXAddQuad(Field f, int id, Quadrilateral q);
-Field DXAddTetrahedron(Field f, int id, Tetrahedron t);
+Field DXAddLine( Field f, int id, Line l );
+Field DXAddTriangle( Field f, int id, Triangle t );
+Field DXAddQuad( Field f, int id, Quadrilateral q );
+Field DXAddTetrahedron( Field f, int id, Tetrahedron t );
 /**
 \index{DXAddLine}\index{DXAddTriangle}\index{DXAddTetrahedron}\index{DXAddQuad}
 Adds one triangle or tetrahedron to {\tt f} with the specified {\tt
@@ -92,10 +91,10 @@ id}.  Creates an appropriate component if necessary.  Return {\tt f},
 or return null and set the error code to indicate an error.
 **/
 
-Field DXAddLines(Field f, int start, int n, Line *l);
-Field DXAddTriangles(Field f, int start, int n, Triangle *t);
-Field DXAddQuads(Field f, int start, int n, Quadrilateral *q);
-Field DXAddTetrahedra(Field f, int start, int n, Tetrahedron *t);
+Field DXAddLines( Field f, int start, int n, Line *l );
+Field DXAddTriangles( Field f, int start, int n, Triangle *t );
+Field DXAddQuads( Field f, int start, int n, Quadrilateral *q );
+Field DXAddTetrahedra( Field f, int start, int n, Tetrahedron *t );
 /**
 \index{DXAddLines}\index{DXAddTriangles}\index{DXAddTetrahedra}
 Adds {\tt n} triangles or tetrahedra to {\tt f} with identifiers
@@ -104,7 +103,7 @@ component if necessary.  Return {\tt f}, or return null and set the
 error code to indicate an error.
 **/
 
-Field DXSetConnections(Field f, char *type, Array a);
+Field DXSetConnections( Field f, char *type, Array a );
 /**
 \index{DXSetConnections}
 Sets the ``connections'' component of {\tt f} to {\tt a} and gives it
@@ -112,7 +111,7 @@ an ``element type'' attribute of {\tt type}.  Returns {\tt f}, or
 returns null and sets the error code to indicate an error.
 **/
 
-Array DXGetConnections(Field f, char *type);
+Array DXGetConnections( Field f, char *type );
 /**
 \index{DXGetConnections}
 Gets the ``connections'' component of {\tt f} and checks to see if it
@@ -128,7 +127,7 @@ This section describes routines for creating and manipulating standard
 components of a field.
 */
 
-Field DXEndField(Field f);
+Field DXEndField( Field f );
 /**
 \index{DXEndField}
 This routine 1) creates all the standard components that are expected
@@ -138,7 +137,7 @@ and 2) sets default values for ``ref'' and ``dep'' attributes.  This
 returns null and sets the error code to indicate an error.
 **/
 
-int DXEmptyField(Field f);
+int DXEmptyField( Field f );
 /**
 \index{DXEmptyField}
 Returns 1 if the field {\tt f} is an empty field, 0 otherwise.  An
@@ -148,8 +147,8 @@ to ignore empty fields, so that the absence of required components in
 an empty field is not treated as an error.
 **/
 
-Field DXChangedComponentValues(Field f, char *component);
-Field DXChangedComponentStructure(Field f, char *component);
+Field DXChangedComponentValues( Field f, char *component );
+Field DXChangedComponentStructure( Field f, char *component );
 /**
 \index{DXChangedComponentValues}\index{DXChangedComponentStructure}
 {\tt DXChangedComponentValues()} deletes all components of {\tt f} that
@@ -168,8 +167,8 @@ Return {\tt f}, or return null and set the error code to indicate an
 error.
 **/
 
-Object DXValidPositionsBoundingBox(Object o, Point *box);
-Object DXBoundingBox(Object o, Point *box);
+Object DXValidPositionsBoundingBox( Object o, Point *box );
+Object DXBoundingBox( Object o, Point *box );
 /**
 \index{DXBoundingBox}
 Computes the bounding box of a group or field {\tt o}.  Adds to {\tt
@@ -184,7 +183,7 @@ does not set the error code if it is not possible to define a bounding
 box for the given input (for example, the number of positions was 0).
 **/
 
-Array DXNeighbors(Field f);
+Array DXNeighbors( Field f );
 /**
 \index{DXNeighbors}
 Returns the neigbors array of field {\tt f}, as described in the
@@ -195,8 +194,8 @@ computed.  Returns the ``neighbors'' array, or returns null and sets
 the error code to indicate an error.
 **/
 
-Error DXStatistics(Object o, char *component, float *min, float *max, 
-		 float *avg,  float *sigma);
+Error DXStatistics( Object o, char *component, float *min, float *max,
+                    float *avg, float *sigma );
 /**
 \index{DXStatistics}
 Returns combined statistical information for an object.  If {\tt min}
@@ -211,7 +210,7 @@ component} and returns statistics for the array.  Returns {\tt OK}, or
 returns {\tt ERROR} and sets the error code to indicate an error.
 **/
 
-Array DXScalarConvert(Array a);
+Array DXScalarConvert( Array a );
 /**
 \index{DXScalarConvert}
 Creates and returns a new array with the contents of array {\tt a}
@@ -219,7 +218,7 @@ converted to scalar values using the same conversion as the DXStatistics
 routine uses for vector or matrix data.
 **/
 
-Error DXColorNameToRGB(char *name, RGBColor *color);
+Error DXColorNameToRGB( char *name, RGBColor *color );
 /**
 \index{DXColorNameToRGB}
 Returns the corresponding r,g,b value for the color "name" if name is
@@ -227,10 +226,10 @@ a valid color.  Uses DXCOLORS as the names file, or /usr/lpp/dx/lib/colors.txt
 if DXCOLORS is not set.
 **/
 
-Object DXApplyTransform(Object o, Matrix *m);
+Object DXApplyTransform( Object o, Matrix *m );
 /**
 \index{DXApplyTransform}
-Traverses an object, concatenating matricies as encountered, and 
+Traverses an object, concatenating matricies as encountered, and
 applys the results to the geometric data found in the fields.
 The result is a copy of the input with all matricies removed.
 The concatenated matrices are applied to arrays found in fields
@@ -246,6 +245,6 @@ transformed by the adjoint transpose.
 
 #endif /* _DXI_HELPER_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

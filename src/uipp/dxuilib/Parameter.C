@@ -9,9 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "lex.h"
 #include "Ark.h"
 #include "Parameter.h"
@@ -20,82 +17,87 @@
 #include "ListIterator.h"
 
 //////////////////////////////////////////////////////////////////////////////
-Parameter::Parameter(ParameterDefinition *pd)
+Parameter::Parameter( ParameterDefinition *pd )
 {
-    this->definition = pd;
-    this->value = NUL(DXValue*);
-    this->dirty = TRUE;
-    this->defaultingWhenUnconnected = TRUE;
-    if (pd) {
-        this->visible = pd->getDefaultVisibility();
-        this->cacheability = pd->getDefaultCacheability();
-    } else {
-        this->visible = TRUE; 
-        this->cacheability = OutputFullyCached; 
-    }
+  this->definition = pd;
+  this->value = NUL( DXValue * );
+  this->dirty = TRUE;
+  this->defaultingWhenUnconnected = TRUE;
+  if ( pd )
+  {
+    this->visible = pd->getDefaultVisibility();
+    this->cacheability = pd->getDefaultCacheability();
+  }
+  else
+  {
+    this->visible = TRUE;
+    this->cacheability = OutputFullyCached;
+  }
 }
 
 //
-// Delete all non-static state associated with a Parameter.  
-// Don't delete the definition as that is a pointer into the Parameter 
+// Delete all non-static state associated with a Parameter.
+// Don't delete the definition as that is a pointer into the Parameter
 // definition list of a NodeDefinition.
 // Don't delete the arcs from the arc list, as the Network should do
 // that.  We can however, clear the list (remove the links).
 //
 Parameter::~Parameter()
 {
-    if (this->value) 
-	delete this->value;
+  if ( this->value )
+    delete this->value;
 
-    this->disconnectArks();
-
+  this->disconnectArks();
 }
 //
 // Remove all the Arks connected to this parameter.
 //
 void Parameter::disconnectArks()
 {
-    //
-    // call getElement(1) because the arc destructor will 
-    // remove itself from the parameter list.  So, the 
-    // arc that should be destroyed is always the first 
-    // element in the list.
-    //
-    Ark  *a;
-    while ( (a = (Ark*) this->arcs.getElement(1)) ) 
-       delete a;
-
+  //
+  // call getElement(1) because the arc destructor will
+  // remove itself from the parameter list.  So, the
+  // arc that should be destroyed is always the first
+  // element in the list.
+  //
+  Ark *a;
+  while ( ( a = (Ark *)this->arcs.getElement( 1 ) ) )
+    delete a;
 }
 //
 // Return true if the Executive needs to know the value of this parameter
 //
-boolean Parameter::isNeededValue(boolean ignoreDirty)
+boolean Parameter::isNeededValue( boolean ignoreDirty )
 {
-	if (this->definition->isInput()) {		// An input
-		if (!this->isConnected())
-			return ignoreDirty || this->isDirty();
-	} else if (this->isConnected()) {		// An output
-		return ignoreDirty || this->isDirty();
-	}
+  if ( this->definition->isInput() )
+  {  // An input
+    if ( !this->isConnected() )
+      return ignoreDirty || this->isDirty();
+  }
+  else if ( this->isConnected() )
+  {  // An output
+    return ignoreDirty || this->isDirty();
+  }
 
-	return FALSE;
+  return FALSE;
 }
 
 //
-// For the given type, try and augment the given string value with 
+// For the given type, try and augment the given string value with
 // syntactic sugar to coerce the given value to the given type.
 // The types we can coerce are StringType, ListType, VectorType and TensorType.
 // Return T/F indicating whether the value was successfully set (and coerced)
 //
-boolean Parameter::coerceAndSetValue(const char *value, Type type)
+boolean Parameter::coerceAndSetValue( const char *value, Type type )
 {
-    char *s = DXValue::CoerceValue(value, type);
-    boolean r = FALSE;
-    if (s) {
-        r = this->value->setValue(s, type);
-	delete s;
-    }
-    return r;
+  char *s = DXValue::CoerceValue( value, type );
+  boolean r = FALSE;
+  if ( s )
+  {
+    r = this->value->setValue( s, type );
+    delete s;
+  }
+  return r;
 }
 //
 // Set this parameter to have the given value which must match one of the
@@ -104,368 +106,387 @@ boolean Parameter::coerceAndSetValue(const char *value, Type type)
 // of this parameter to the value given.
 // On failure, return DXType::UndefinedType
 //
-Type Parameter::setValue(const char *value)
+Type Parameter::setValue( const char *value )
 {
-    DXType *dxtype;
-    Type type;
-    ParameterDefinition *pd;
-    ListIterator iterator;
+  DXType *dxtype;
+  Type type;
+  ParameterDefinition *pd;
+  ListIterator iterator;
 
-    if (!value) {
-	if (this->setValue(NULL, DXType::UndefinedType))
-	    return DXType::UndefinedType;
-	else if (this->hasValue())
-	    return this->getValueType();
-	else
-	    return DXType::UndefinedType;
-    }
+  if ( !value )
+  {
+    if ( this->setValue( NULL, DXType::UndefinedType ) )
+      return DXType::UndefinedType;
+    else if ( this->hasValue() )
+      return this->getValueType();
+    else
+      return DXType::UndefinedType;
+  }
 
-    pd = this->getDefinition();
+  pd = this->getDefinition();
 
-    ASSERT(pd);
+  ASSERT( pd );
 
-    //
-    // Try matching the value to the type without coersion first. 
-    //
-    FOR_EACH_PARAM_TYPE(pd, dxtype, iterator) {
-        type = dxtype->getType();
-        if (this->setValue(value,type, FALSE))
-	    return type;
-    }   
+  //
+  // Try matching the value to the type without coersion first.
+  //
+  FOR_EACH_PARAM_TYPE( pd, dxtype, iterator )
+  {
+    type = dxtype->getType();
+    if ( this->setValue( value, type, FALSE ) )
+      return type;
+  }
 
-    //
-    // If the above didn't work, lets try and coerce the values
-    //
-    FOR_EACH_PARAM_TYPE(pd, dxtype, iterator) {
-        type = dxtype->getType();
-        if (this->setValue(value,type, TRUE))
-	    return type;
-    }   
+  //
+  // If the above didn't work, lets try and coerce the values
+  //
+  FOR_EACH_PARAM_TYPE( pd, dxtype, iterator )
+  {
+    type = dxtype->getType();
+    if ( this->setValue( value, type, TRUE ) )
+      return type;
+  }
 
-    return DXType::UndefinedType;
+  return DXType::UndefinedType;
 }
-boolean Parameter::setValue(const char *value, Type type, boolean coerce)
+boolean Parameter::setValue( const char *value, Type type, boolean coerce )
 {
-	boolean success;
+  boolean success;
 
-	if (!this->value) 
-		this->value = new DXValue;
+  if ( !this->value )
+    this->value = new DXValue;
 
+  if ( type == DXType::UndefinedType AND NOT value )
+  {
+    if ( this->value )
+      delete this->value;
+    this->value = NUL( DXValue * );
+    success = TRUE;
+  }
+  else
+  {
+    ParameterDefinition *pd = this->getDefinition();
+    ListIterator li( *pd->getTypes() );
+    DXType *dxt;
+    boolean typeMatch = FALSE;
+    while ( ( dxt = (DXType *)li.getNext() ) )
+      if ( dxt->MatchType( type, dxt->getType() ) )
+      {
+        typeMatch = TRUE;
+        break;
+      }
 
-	if (type == DXType::UndefinedType AND NOT value) {
-		if (this->value) delete this->value;
-		this->value = NUL(DXValue*);
-		success = TRUE;
-	} else {
-		ParameterDefinition *pd = this->getDefinition();
-		ListIterator li(*pd->getTypes());
-		DXType *dxt;
-		boolean typeMatch = FALSE;
-		while( (dxt = (DXType*)li.getNext()) )
-			if (dxt->MatchType(type, dxt->getType()))
-			{
-				typeMatch = TRUE;
-				break;
-			}
+    if ( typeMatch && ( this->value->setValue( value, type ) ||
+                        ( coerce && this->coerceAndSetValue( value, type ) ) ) )
+    {
+      success = TRUE;
+    }
+    else
+      success = FALSE;
+  }
 
-		if (typeMatch && (
-			this->value->setValue(value, type)  ||
-			(coerce && this->coerceAndSetValue(value,type)))) {
-				success = TRUE;
-		} else
-			success = FALSE;
-	}
+  if ( success )
+  {
+    this->setDirty();
+    if ( type == DXType::UndefinedType AND NOT value )
+      this->setUnconnectedDefaultingStatus( TRUE );
+    else
+      this->setUnconnectedDefaultingStatus( FALSE );
+  }
 
-	if (success) {
-		this->setDirty();
-		if (type == DXType::UndefinedType AND NOT value)
-			this->setUnconnectedDefaultingStatus(TRUE);
-		else
-			this->setUnconnectedDefaultingStatus(FALSE);
-	}
-
-	return success;
+  return success;
 }
 //
-// Set the stored value.  
+// Set the stored value.
 // If the parameter is not defaulting, this is
 // the same as setValue, but if it is defaulting, then we set the
 // value but leave the parameter clean and defaulting.
 //
-boolean Parameter::setSetValue(const char *value, Type type)
+boolean Parameter::setSetValue( const char *value, Type type )
 {
-    boolean was_defaulting = this->defaultingWhenUnconnected;
+  boolean was_defaulting = this->defaultingWhenUnconnected;
 
-    boolean r = this->setValue(value,type);
-        
-    if (was_defaulting) {
-        this->clearDirty();
-        this->setUnconnectedDefaultingStatus();
-    }   
-    return r;
-}       
+  boolean r = this->setValue( value, type );
+
+  if ( was_defaulting )
+  {
+    this->clearDirty();
+    this->setUnconnectedDefaultingStatus();
+  }
+  return r;
+}
 
 //
 // This method is somewhat of a hack, but at least it belongs here and
 // not in ScalarNode.C which is what uses it (for now anyway).
-// 
+//
 // Get the number of component of a vector, scalar or integer.  For scalars
-// and integers, the component count is 1.  
+// and integers, the component count is 1.
 //
 int Parameter::getComponentCount()
 {
-    int ret = 0;
+  int ret = 0;
 
-    switch (this->getValueType()) {
-        case DXType::IntegerListType:
-        case DXType::ScalarListType:
-        case DXType::IntegerType:
-        case DXType::ScalarType:
-        case DXType::FlagType:
-            ret = 1; 
-            break;
-        case DXType::VectorType:
-        case DXType::VectorListType:
-            ret = this->value->getVectorComponentCount();
-            break;
-        default:
-            ASSERT(0);
-    }
-    return ret;
+  switch ( this->getValueType() )
+  {
+    case DXType::IntegerListType:
+    case DXType::ScalarListType:
+    case DXType::IntegerType:
+    case DXType::ScalarType:
+    case DXType::FlagType:
+      ret = 1;
+      break;
+    case DXType::VectorType:
+    case DXType::VectorListType:
+      ret = this->value->getVectorComponentCount();
+      break;
+    default:
+      ASSERT( 0 );
+  }
+  return ret;
 }
 //
 // This method is somewhat of a hack, but at least it belongs here and
 // not in ScalarNode.C which is what uses it (for now anyway).
-// 
+//
 // Get the n'th component of a vector, scalar or integer.  For scalars
-// and integers, the component number must be 1.  
+// and integers, the component number must be 1.
 // Components are indexed from 1.
 //
-double Parameter::getComponentValue(int component)
+double Parameter::getComponentValue( int component )
 {
-    double ret = 0;
-    ASSERT(component > 0);
+  double ret = 0;
+  ASSERT( component > 0 );
 
-    switch (this->getValueType()) {
-        case DXType::FlagType:
-        case DXType::IntegerType:
-            ASSERT(component == 1);
-            ret = (double)this->getIntegerValue();
-            break;
-        case DXType::ScalarType:
-            ASSERT(component == 1);
-            ret = this->getScalarValue();
-            break;
-        case DXType::VectorType:
-            ret = this->getVectorComponentValue(component);
-            break;
-        default:
-            ASSERT(0);
-    }
-    return ret;
+  switch ( this->getValueType() )
+  {
+    case DXType::FlagType:
+    case DXType::IntegerType:
+      ASSERT( component == 1 );
+      ret = (double)this->getIntegerValue();
+      break;
+    case DXType::ScalarType:
+      ASSERT( component == 1 );
+      ret = this->getScalarValue();
+      break;
+    case DXType::VectorType:
+      ret = this->getVectorComponentValue( component );
+      break;
+    default:
+      ASSERT( 0 );
+  }
+  return ret;
 }
 
 //
 // This method is somewhat of a hack, but at least it belongs here and
 // not in ScalarNode.C which is what uses it (for now anyway).
-// 
+//
 // Set the n'th component of a vector, scalar or integer.  For scalars
-// and integers, the component number must be 1.  
+// and integers, the component number must be 1.
 // Components are indexed from 1.
 //
-boolean Parameter::setComponentValue(int component, double val)
+boolean Parameter::setComponentValue( int component, double val )
 {
-    ASSERT(component > 0);
-    DXValue *v = this->value;
-    boolean r = true;
+  ASSERT( component > 0 );
+  DXValue *v = this->value;
+  boolean r = true;
 
-    ASSERT(v);
+  ASSERT( v );
 
-    switch (this->getValueType()) {
-        case DXType::FlagType:
-            ASSERT(component == 1);
-            r = v->setInteger(val == 0.0 ? 0 : 1);
-            break;
-        case DXType::IntegerType:
-            ASSERT(component == 1);
-            r = v->setInteger((int)val);
-            break;
-        case DXType::ScalarType:
-            ASSERT(component == 1);
-            r = v->setScalar(val);
-            break;
-        case DXType::VectorType:
-            r = v->setVectorComponentValue(component, val);
-            break;
-        default:
-            ASSERT(0);
-    }
-    this->setDirty();
-    return r;
+  switch ( this->getValueType() )
+  {
+    case DXType::FlagType:
+      ASSERT( component == 1 );
+      r = v->setInteger( val == 0.0 ? 0 : 1 );
+      break;
+    case DXType::IntegerType:
+      ASSERT( component == 1 );
+      r = v->setInteger( (int)val );
+      break;
+    case DXType::ScalarType:
+      ASSERT( component == 1 );
+      r = v->setScalar( val );
+      break;
+    case DXType::VectorType:
+      r = v->setVectorComponentValue( component, val );
+      break;
+    default:
+      ASSERT( 0 );
+  }
+  this->setDirty();
+  return r;
 }
 //
-// Determine if this instance is derived from the given class 
+// Determine if this instance is derived from the given class
 //
-boolean Parameter::isA(const char *classname)
+boolean Parameter::isA( const char *classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(classname);
-    return this->isA(s);
+  Symbol s = theSymbolManager->registerSymbol( classname );
+  return this->isA( s );
 }
 //
-// Determine if this instance is derived from the given class 
+// Determine if this instance is derived from the given class
 //
-boolean Parameter::isA(Symbol classname)
+boolean Parameter::isA( Symbol classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(ClassParameter);
-    return (s == classname);
+  Symbol s = theSymbolManager->registerSymbol( ClassParameter );
+  return ( s == classname );
 }
 
 boolean Parameter::isDefaulting()
 {
-   if (this->isInput() && this->isConnected())
-	return FALSE;
-   else
-	return this->defaultingWhenUnconnected;
+  if ( this->isInput() && this->isConnected() )
+    return FALSE;
+  else
+    return this->defaultingWhenUnconnected;
 }
-void Parameter::setUnconnectedDefaultingStatus(boolean defaulting)	
+void Parameter::setUnconnectedDefaultingStatus( boolean defaulting )
 {
-    if (this->defaultingWhenUnconnected != defaulting) 
-    {
-	this->setDirty(); 
-	this->defaultingWhenUnconnected = defaulting; 
-    }
+  if ( this->defaultingWhenUnconnected != defaulting )
+  {
+    this->setDirty();
+    this->defaultingWhenUnconnected = defaulting;
+  }
 }
-boolean Parameter::addArk(Ark *a)	
+boolean Parameter::addArk( Ark *a )
 {
-    boolean r = this->arcs.appendElement((const void*)a);
+  boolean r = this->arcs.appendElement( (const void *)a );
 
-    //
-    // If this is the first arc and this is an output parameter,
-    // be sure it gets sent on the next execution (assuming someone
-    // asks this parameter if it needs to be sent).
-    //
-    if (r && (this->arcs.getSize() == 1) && !this->isInput())  
-	this->setDirty();
+  //
+  // If this is the first arc and this is an output parameter,
+  // be sure it gets sent on the next execution (assuming someone
+  // asks this parameter if it needs to be sent).
+  //
+  if ( r && ( this->arcs.getSize() == 1 ) && !this->isInput() )
+    this->setDirty();
 
-    return r;
+  return r;
 }
 
 //
-// Get the selectable values for this parameter. 
+// Get the selectable values for this parameter.
 // This returns a pointer to a constant array of pointers to
 // constant strings which is NOT to be manipulated by the caller.
 // NULL may be returned;
 // The returned array of pointers is NULL terminated.
 //
-const char* const *Parameter::getValueOptions()	
+const char *const *Parameter::getValueOptions()
 {
-    return this->definition->getValueOptions();
+  return this->definition->getValueOptions();
 }
 
-#ifdef DXUI_DEVKIT 
+#ifdef DXUI_DEVKIT
 //
 // Get any variable declarations that will be required by the code
 // generated in getObjectCreateCode(). NULL is returned if none required.
 // The returned string must be freed by the caller.
 //
-char *Parameter::getObjectCodeDecl(const char *indent, const char *tag)
+char *Parameter::getObjectCodeDecl( const char *indent, const char *tag )
 {
-    if (!this->hasValue())
-	return NULL;
+  if ( !this->hasValue() )
+    return NULL;
 
-    char *p, *code = new char[1024];
-    Type type = this->getValueType();
-    int i, count,items,tuples, hasDecimal;
-    double *values, *data;
+  char *p, *code = new char[1024];
+  Type type = this->getValueType();
+  int i, count, items, tuples, hasDecimal;
+  double *values, *data;
 
-    switch (this->getValueType()) {
+  switch ( this->getValueType() )
+  {
 
-        case DXType::IntegerListType:
-        case DXType::VectorListType:
-        case DXType::ScalarListType:
+    case DXType::IntegerListType:
+    case DXType::VectorListType:
+    case DXType::ScalarListType:
 
-	    items = DXValue::GetDoublesFromList(
-			this->getValueString(),type,&data,&tuples);
-	    
-	    count = items * tuples;
+      items = DXValue::GetDoublesFromList( this->getValueString(), type, &data,
+                                           &tuples );
 
-	    for (i = hasDecimal = 0; i < count && ! hasDecimal; i++)
-	        if ((int)data[i] != data[i])
-		    hasDecimal = 1;
+      count = items * tuples;
 
-	    if (hasDecimal)
-	    {
-		sprintf(code,"%sfloat %s_tmp1[] = { ",indent, tag);
-		for (i=0, p = code+STRLEN(code) ; i<count ; i++, p+=STRLEN(p))
-		{
-		    sprintf(p," %g", data[i]); 
-		    if (i != (count-1) && count > 1) strcat(p,", ");
-		}
-		strcat(p,"};\n");
-	    }
-	    else
-	    {
-		sprintf(code,"%sint %s_tmp1[] = { ",indent, tag);
-		for (i=0, p = code+STRLEN(code) ; i<count ; i++, p+=STRLEN(p))
-		{
-		    sprintf(p," %d", (int)data[i]); 
-		    if (i != (count-1) && count > 1) strcat(p,", ");
-		}
-		strcat(p,"};\n");
-	    }
+      for ( i = hasDecimal = 0; i < count && !hasDecimal; i++ )
+        if ( (int)data[i] != data[i] )
+          hasDecimal = 1;
 
-	    delete data;
- 
-	    break;
+      if ( hasDecimal )
+      {
+        sprintf( code, "%sfloat %s_tmp1[] = { ", indent, tag );
+        for ( i = 0, p = code + STRLEN( code ); i < count;
+              i++, p += STRLEN( p ) )
+        {
+          sprintf( p, " %g", data[i] );
+          if ( i != ( count - 1 ) && count > 1 )
+            strcat( p, ", " );
+        }
+        strcat( p, "};\n" );
+      }
+      else
+      {
+        sprintf( code, "%sint %s_tmp1[] = { ", indent, tag );
+        for ( i = 0, p = code + STRLEN( code ); i < count;
+              i++, p += STRLEN( p ) )
+        {
+          sprintf( p, " %d", (int)data[i] );
+          if ( i != ( count - 1 ) && count > 1 )
+            strcat( p, ", " );
+        }
+        strcat( p, "};\n" );
+      }
 
-        case DXType::FlagType:
-        case DXType::IntegerType:
-        case DXType::ScalarType:
-        case DXType::VectorType:
-	    count =  this->getComponentCount();
+      delete data;
 
-	    values = new double[count];
+      break;
 
-	    for (i = hasDecimal = 0; i < count; i++)
-	    {
-		values[i] = this->getComponentValue(i+1);
-		if ((int)values[i] != values[i])
-		    hasDecimal = 1;
-	    }
+    case DXType::FlagType:
+    case DXType::IntegerType:
+    case DXType::ScalarType:
+    case DXType::VectorType:
+      count = this->getComponentCount();
 
-	    if (hasDecimal)
-	    {
-		sprintf(code,"%sfloat %s_tmp1[] = { ",indent, tag);
-		for (i=0, p = code+STRLEN(code) ; i<count ; i++, p+=STRLEN(p))
-		{
-		    sprintf(p," %g", values[i]);
-		    if (i != (count-1) && count > 1) strcat(p,", ");
-		}
-		strcat(p,"};\n");
-	    }
-	    else
-	    {
-		sprintf(code,"%sint %s_tmp1[] = { ",indent, tag);
-		for (i=0, p = code+STRLEN(code) ; i<count ; i++, p+=STRLEN(p))
-		{
-		    sprintf(p," %g", values[i]);
-		    if (i != (count-1) && count > 1) strcat(p,", ");
-		}
-		strcat(p,"};\n");
-	    }
-		
-	    delete values;
+      values = new double[count];
 
-	    break;
+      for ( i = hasDecimal = 0; i < count; i++ )
+      {
+        values[i] = this->getComponentValue( i + 1 );
+        if ( (int)values[i] != values[i] )
+          hasDecimal = 1;
+      }
 
-        default:
-	    delete code;
-	    code = NULL;
+      if ( hasDecimal )
+      {
+        sprintf( code, "%sfloat %s_tmp1[] = { ", indent, tag );
+        for ( i = 0, p = code + STRLEN( code ); i < count;
+              i++, p += STRLEN( p ) )
+        {
+          sprintf( p, " %g", values[i] );
+          if ( i != ( count - 1 ) && count > 1 )
+            strcat( p, ", " );
+        }
+        strcat( p, "};\n" );
+      }
+      else
+      {
+        sprintf( code, "%sint %s_tmp1[] = { ", indent, tag );
+        for ( i = 0, p = code + STRLEN( code ); i < count;
+              i++, p += STRLEN( p ) )
+        {
+          sprintf( p, " %g", values[i] );
+          if ( i != ( count - 1 ) && count > 1 )
+            strcat( p, ", " );
+        }
+        strcat( p, "};\n" );
+      }
 
-    }
+      delete values;
 
-    return code;
+      break;
 
+    default:
+      delete code;
+      code = NULL;
+  }
+
+  return code;
 }
 //
 // Get a string that represents the libDX C code to generate
@@ -473,105 +494,104 @@ char *Parameter::getObjectCodeDecl(const char *indent, const char *tag)
 // created to assign the object to the given lvalue variable name.
 // The returned string must be freed by the caller.
 //
-char *Parameter::getObjectCreateCode(const char *indent, 
-					const char *tag, const char *lvalue)
+char *Parameter::getObjectCreateCode( const char *indent, const char *tag,
+                                      const char *lvalue )
 {
-    if (!this->hasValue())
-	return NULL;
+  if ( !this->hasValue() )
+    return NULL;
 
-    char *listitem, *code = new char[1024], varspec[128];
-    int i, rank, shape, items;
-    Type type = this->getValueType();
-    DXTensor tensor;
-    boolean r;
-    int count, hasDecimal;
-    double *data;
+  char *listitem, *code = new char[1024], varspec[128];
+  int i, rank, shape, items;
+  Type type = this->getValueType();
+  DXTensor tensor;
+  boolean r;
+  int count, hasDecimal;
+  double *data;
 
-    switch (this->getValueType()) {
+  switch ( this->getValueType() )
+  {
 
-        case DXType::IntegerListType:
-        case DXType::VectorListType:
-        case DXType::ScalarListType:
+    case DXType::IntegerListType:
+    case DXType::VectorListType:
+    case DXType::ScalarListType:
 
-	    items = DXValue::GetDoublesFromList(
-			this->getValueString(),type,&data,&shape);
-	    
-	    count = items * shape;
+      items = DXValue::GetDoublesFromList( this->getValueString(), type, &data,
+                                           &shape );
 
-	    for (i = hasDecimal = 0; i < count && ! hasDecimal; i++)
-	        if ((int)data[i] != data[i])
-		    hasDecimal = 1;
+      count = items * shape;
 
+      for ( i = hasDecimal = 0; i < count && !hasDecimal; i++ )
+        if ( (int)data[i] != data[i] )
+          hasDecimal = 1;
 
-	    delete data;
-	    break;
+      delete data;
+      break;
 
-        case DXType::FlagType:
-        case DXType::IntegerType:
-        case DXType::ScalarType:
-        case DXType::VectorType:
+    case DXType::FlagType:
+    case DXType::IntegerType:
+    case DXType::ScalarType:
+    case DXType::VectorType:
 
-	    items = 1;
-	    shape = count = this->getComponentCount();
+      items = 1;
+      shape = count = this->getComponentCount();
 
-	    for (i = hasDecimal = 0; i < count; i++)
-	    {
-		double value = this->getComponentValue(i+1);
-		if ((int)value != value)
-		    hasDecimal = 1;
-	    }
+      for ( i = hasDecimal = 0; i < count; i++ )
+      {
+        double value = this->getComponentValue( i + 1 );
+        if ( (int)value != value )
+          hasDecimal = 1;
+      }
 
-	    break;
-	
-        case DXType::StringType:
-	    sprintf(code,
-		"%s%s = (Object)DXNewString(%s);\n",
-		indent,lvalue,this->getValueString());
-	    return code;
+      break;
 
-        default:
-	    sprintf(code,"%s%s = NULL;\n",indent,lvalue);
-            fprintf(stderr,"Conversion to DX Object for type %s"
-                           " not supported yet.\n",DXType::TypeToString(type)); 
-	    return code;
-    }
-    
-    rank = (shape == 1) ? 0 : 1;
-    
-    sprintf(code,
-	"    %s = (Object)DXNewArray(%s, CATEGORY_REAL, %d, %d);\n"
-	"    if (%s == NULL) goto error;\n"
-	"    if (DXAddArrayData((Array)%s,0,%d,%s_tmp1) == NULL)\n"
-	"	goto error;\n",
-	lvalue, hasDecimal ? "TYPE_FLOAT" : "TYPE_INT", rank, shape, 
-	lvalue, 
-	lvalue, items, tag);
-    
-    return code;
+    case DXType::StringType:
+      sprintf( code, "%s%s = (Object)DXNewString(%s);\n", indent, lvalue,
+               this->getValueString() );
+      return code;
+
+    default:
+      sprintf( code, "%s%s = NULL;\n", indent, lvalue );
+      fprintf( stderr, "Conversion to DX Object for type %s"
+                       " not supported yet.\n",
+               DXType::TypeToString( type ) );
+      return code;
+  }
+
+  rank = ( shape == 1 ) ? 0 : 1;
+
+  sprintf( code, "    %s = (Object)DXNewArray(%s, CATEGORY_REAL, %d, %d);\n"
+                 "    if (%s == NULL) goto error;\n"
+                 "    if (DXAddArrayData((Array)%s,0,%d,%s_tmp1) == NULL)\n"
+                 "	goto error;\n",
+           lvalue, hasDecimal ? "TYPE_FLOAT" : "TYPE_INT", rank, shape, lvalue,
+           lvalue, items, tag );
+
+  return code;
 }
-// 
+//
 // Generate code to clean up after the code from getObjectCreateCode()
-// was executed. lvalue must be the same value that was passed to 
+// was executed. lvalue must be the same value that was passed to
 // getObjectCreateCode().
 // NULL may be returned;
 // The returned string must be freed by the caller.
 //
-char *Parameter::getObjectCleanupCode(const char *indent, const char *tag)
+char *Parameter::getObjectCleanupCode( const char *indent, const char *tag )
 {
 
-    if (!this->hasValue())
-	return NULL;
-
-    char *code = new char[1024];
-    Type type = this->getValueType();
-    switch (this->getValueType()) {
-
-        default:
-	    delete code;
-	    code = NULL;
-    }
-
-    return code;
+  if ( !this->hasValue() )
     return NULL;
+
+  char *code = new char[1024];
+  Type type = this->getValueType();
+  switch ( this->getValueType() )
+  {
+
+    default:
+      delete code;
+      code = NULL;
+  }
+
+  return code;
+  return NULL;
 }
-#endif // DXUI_DEVKIT
+#endif  // DXUI_DEVKIT

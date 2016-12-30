@@ -8,9 +8,8 @@
 
 #include <dxconfig.h>
 
-
 /***
-MODULE:		
+MODULE:
     Compute
 SHORTDESCRIPTION:
     computes a pointwise expression over a field
@@ -50,31 +49,29 @@ END:
 #include "_compputils.h"
 #include "_compoper.h"
 
-
 /* These are global variables to allow communication with the parser */
 PTreeNode *_dxdcomputeTree = NULL;
 CompInput _dxdcomputeInput[MAX_INPUTS] = {{0, (Class)NULL, NULL}};
-
 
 /*
  * A brief description of Compute:
  *
  * Compute is a general expression evaluator.  It parses an input expression
- * string and and performs that expression on its given inputs pointwise.  
+ * string and and performs that expression on its given inputs pointwise.
  *
- * Inputs are (as expressed in the MODULE section of this file) are the 
- * expression and input objects.  The expression is in pseudo-C format and 
+ * Inputs are (as expressed in the MODULE section of this file) are the
+ * expression and input objects.  The expression is in pseudo-C format and
  * refers to input objects as $0, $1, etc.  An example of the use of Compute
  * follows:
  *	res = Compute ("mag ($0) * ($1 dot [1.,2,3])", vect1, vect2);
- * This takes the magnitude of each element of `vect1', which is a set of 
+ * This takes the magnitude of each element of `vect1', which is a set of
  * n-vectors (where n is arbitrary), and multiplies that with the dot product
- * of each point in `vect2' with [1.,2.,3.].  `Vect2' must be a set of 
+ * of each point in `vect2' with [1.,2.,3.].  `Vect2' must be a set of
  * 3-vectors.  `Vect1' and `vect2' must have the same structure (i.e. they
  * must both be the same Class objects, and the parts of the objects (if they
  * are groups) must have the same number of elements.
  *
- * A `master' input is determined.  It is the first input that is not a one 
+ * A `master' input is determined.  It is the first input that is not a one
  * element array.  All inputs must match this input.
  * If the parts of any input groups are fields,
  * they are checked to see if the `positions' components are the same, and the
@@ -82,12 +79,12 @@ CompInput _dxdcomputeInput[MAX_INPUTS] = {{0, (Class)NULL, NULL}};
  * positions.  Trivial arrays (only one element) match with anything, and
  * is applied to all positions.
  *
- * Types are strictly checked, with ints automatically promoted to floats 
- * if the expression fails type checking as is.  Data elements are also 
- * checked to ensure they are of proper shape.  Most binary operators work 
+ * Types are strictly checked, with ints automatically promoted to floats
+ * if the expression fails type checking as is.  Data elements are also
+ * checked to ensure they are of proper shape.  Most binary operators work
  * on non- * scalars on an element-by-element basis.  Some operators enforce
  * that objects be of the correct rank, and have the same shape (e.g. dot).
- * 
+ *
  * Operators allowed are (where {} denotes optional, and ... denotes more
  * allowed):
  *	int or float constants -- 0x123abc is hex, 012 is octal (018 == 16,
@@ -103,9 +100,9 @@ CompInput _dxdcomputeInput[MAX_INPUTS] = {{0, (Class)NULL, NULL}};
  *	logical binarys <, <=, >, >=, ==, !=, ||, && -- || and && only
  *		work on ints, the others return ints.  0 is FALSE, !0 is TRUE.
  *	logical unary ! -- not.
- *	int Cexpr? Texpr: Eexpr -- Conditional expression.  Both Texpr and 
+ *	int Cexpr? Texpr: Eexpr -- Conditional expression.  Both Texpr and
  *		Eexpr are evaluated.  Cexpr must be of type int.
- * 	funcname({args {,args...}}) -- built in function.  The following 
+ * 	funcname({args {,args...}}) -- built in function.  The following
  * 		functions are supported:
  * 	likevectorwithrank-1 select(vector, int)
  * 	float sqrt(float)
@@ -158,10 +155,10 @@ CompInput _dxdcomputeInput[MAX_INPUTS] = {{0, (Class)NULL, NULL}};
  *
  * Compute Internals:
  *	The expression is parsed using a YACC built parser and a home-grown
- * lexor into _parseTree.  The inputs is then verified to be of the same 
+ * lexor into _parseTree.  The inputs is then verified to be of the same
  * structure, and a copy of this structure is created into inputStruct.
  * This structure contains a node for each object in the group hierarchy,
- * and an output object (a copy of the master input) is created.  Each 
+ * and an output object (a copy of the master input) is created.  Each
  * object in the heirarchy which is not a Generic Group and not a member
  * of a Homogeneous Group has a copy of the parse tree. The objects with parse
  * trees are typechecked and executed.  For more details on that process,
@@ -171,65 +168,71 @@ CompInput _dxdcomputeInput[MAX_INPUTS] = {{0, (Class)NULL, NULL}};
 
 int _dxfccparse();
 
-int
-m_Compute(Object *in, Object *out)
+int m_Compute( Object *in, Object *out )
 {
-    char		*expression;
-    ObjStruct		*inputStruct;
+  char *expression;
+  ObjStruct *inputStruct;
 
-    _dxfComputeInitInputs(_dxdcomputeInput);
+  _dxfComputeInitInputs( _dxdcomputeInput );
 
-    out[0] = NULL;
+  out[0] = NULL;
 
-    if (in[0] == NULL) {
-	DXSetError (ERROR_BAD_PARAMETER, "#10200", "expression");
-	return ERROR;
-    }
+  if ( in[0] == NULL )
+  {
+    DXSetError( ERROR_BAD_PARAMETER, "#10200", "expression" );
+    return ERROR;
+  }
 
-    if (!DXExtractString (in[0], &expression)) {
-	DXSetError (ERROR_BAD_TYPE, "#10200", "expression");
-	return ERROR;
-    }
+  if ( !DXExtractString( in[0], &expression ) )
+  {
+    DXSetError( ERROR_BAD_TYPE, "#10200", "expression" );
+    return ERROR;
+  }
 
-    if (strlen(expression) == 0) {
-	DXSetError (ERROR_BAD_PARAMETER, "#10210", expression, "expression");
-	return ERROR;
-    }
+  if ( strlen( expression ) == 0 )
+  {
+    DXSetError( ERROR_BAD_PARAMETER, "#10210", expression, "expression" );
+    return ERROR;
+  }
 
-    /* Build parse tree into _dxdcomputeTree */
-    _dxfccinput (expression);
-    if (_dxfccparse () == 1 || _dxdcomputeTree == NULL) {
-	return (ERROR);
-    }
-
-#if COMP_DEBUG
-    _dxfComputeDumpParseTree (_dxdcomputeTree, 0);
-#endif
-
-    /* Get the inputs used in the expression */
-    if ((inputStruct = _dxfComputeGetInputs (in + 1, _dxdcomputeInput)) == NULL) {
-	_dxfComputeFreeTree(_dxdcomputeTree);
-	return (ERROR);
-    }
+  /* Build parse tree into _dxdcomputeTree */
+  _dxfccinput( expression );
+  if ( _dxfccparse() == 1 || _dxdcomputeTree == NULL )
+  {
+    return ( ERROR );
+  }
 
 #if COMP_DEBUG
-    _dxfComputeDumpInputs (_dxdcomputeInput, inputStruct);
+  _dxfComputeDumpParseTree( _dxdcomputeTree, 0 );
 #endif
 
-    /* Type check the expression with the inputs, returning an output 
-     * description in the top tree element, and execute the tree with
-     * respect to that parse tree.
-     */
-    if (_dxfComputeExecute (_dxdcomputeTree, inputStruct) == ERROR) {
-	if (inputStruct->class != CLASS_ARRAY)
-	    DXDelete(inputStruct->output);
-	_dxfComputeFreeTree (_dxdcomputeTree);
-	_dxfComputeFreeObjStruct (inputStruct);
-	return (ERROR);
-    }
-    out[0] = inputStruct->output;
+  /* Get the inputs used in the expression */
+  if ( ( inputStruct = _dxfComputeGetInputs( in + 1, _dxdcomputeInput ) ) ==
+       NULL )
+  {
+    _dxfComputeFreeTree( _dxdcomputeTree );
+    return ( ERROR );
+  }
 
-    _dxfComputeFreeTree (_dxdcomputeTree);
-    _dxfComputeFreeObjStruct (inputStruct);
-    return (OK);
+#if COMP_DEBUG
+  _dxfComputeDumpInputs( _dxdcomputeInput, inputStruct );
+#endif
+
+  /* Type check the expression with the inputs, returning an output
+   * description in the top tree element, and execute the tree with
+   * respect to that parse tree.
+   */
+  if ( _dxfComputeExecute( _dxdcomputeTree, inputStruct ) == ERROR )
+  {
+    if ( inputStruct->class != CLASS_ARRAY )
+      DXDelete( inputStruct->output );
+    _dxfComputeFreeTree( _dxdcomputeTree );
+    _dxfComputeFreeObjStruct( inputStruct );
+    return ( ERROR );
+  }
+  out[0] = inputStruct->output;
+
+  _dxfComputeFreeTree( _dxdcomputeTree );
+  _dxfComputeFreeObjStruct( inputStruct );
+  return ( OK );
 }

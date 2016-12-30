@@ -6,9 +6,9 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dxmods/vsincos.c,v 1.4 2000/08/24 20:04:55 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dxmods/vsincos.c,v 1.4 2000/08/24 20:04:55
+ * davidt Exp $
  */
-
 
 #include <dxconfig.h>
 #include "vsincos.h"
@@ -55,91 +55,95 @@
  *
  * Revision 6.1  93/11/16  10:45:24  svs
  * ship level code, release 2.0
- * 
+ *
  * Revision 5.0  92/11/17  16:43:35  svs
  * ship level code, internal rev 1.2.2
- * 
+ *
  * Revision 4.0  92/08/18  15:36:14  svs
  * ship level code, rev 1.2
- * 
+ *
  * Revision 3.1  92/02/24  11:40:18  cpv
  * Rename vsin and vcos to qvsin and qvcos for compatability with KAI's
  * signal library.
- * 
+ *
  * Revision 3.0  91/12/03  09:19:17  nsc
  * ship level code, rev 1.0
- * 
+ *
  * Revision 1.1  91/07/09  16:50:37  cpv
  * Initial revision
- * 
+ *
  */
 
 /*
  * Both of the following routines utilize Maclaurin series taken from
  * _Calculus and Analytic Geometry_ by Thomas, Addison-Wesley, 1968, page
- * 640.  In essence, they are the sum of the nth derivitive of v times v to 
+ * 640.  In essence, they are the sum of the nth derivitive of v times v to
  * the nth power over n factorial.  This is
- * sin(x) = sum (k=1..inf) [(-1**(k-1)) * (x**(2 * k - 1)) / fact (2 * k - 1)], 
- * and 
+ * sin(x) = sum (k=1..inf) [(-1**(k-1)) * (x**(2 * k - 1)) / fact (2 * k - 1)],
+ * and
  * cos(x) = sum (k=0..inf) [(-1**k) * (x**(2*k)) / fact (2 * k)].
- * The accuracy of these formulae is greatest centered about x=0, and we 
- * desire the optimal range to be for -PI<=x<=PI, so we limit the number of 
+ * The accuracy of these formulae is greatest centered about x=0, and we
+ * desire the optimal range to be for -PI<=x<=PI, so we limit the number of
  * iterations to 5.
  */
-void qvsin(int n, float *in, float *out)
+void qvsin( int n, float *in, float *out )
 {
-    float v;
-    float s;
-    float pow;
-    float fact;
-    float sign;
-    int t;
-    int i, j;
+  float v;
+  float s;
+  float pow;
+  float fact;
+  float sign;
+  int t;
+  int i, j;
 
-    for (j = 0; j < n; ++j) {
-	v = in[j];
-	s = 0;
-	pow = v;
-	fact = 1;
-	sign = 1;
+  for ( j = 0; j < n; ++j )
+  {
+    v = in[j];
+    s = 0;
+    pow = v;
+    fact = 1;
+    sign = 1;
 
-	for (i = 0; i < 6; ++i) {
-	    s += pow * sign / fact;
-	    pow *= v * v;
-	    /* step from 1 to 1 * 2 * 3 */
-	    t = (i + 1) << 1;	/* (i + 1) * 2 */
-	    fact *= t * (t + 1);
-	    sign = -sign;
-	}
-	out[j] = s;
+    for ( i = 0; i < 6; ++i )
+    {
+      s += pow * sign / fact;
+      pow *= v * v;
+      /* step from 1 to 1 * 2 * 3 */
+      t = ( i + 1 ) << 1; /* (i + 1) * 2 */
+      fact *= t * ( t + 1 );
+      sign = -sign;
     }
+    out[j] = s;
+  }
 }
 
-void qvcos (int n, float *in, float *out)
+void qvcos( int n, float *in, float *out )
 {
-    float v;
-    float s;
-    float pow;
-    float fact;
-    float sign;
-    int t;
-    int i, j;
+  float v;
+  float s;
+  float pow;
+  float fact;
+  float sign;
+  int t;
+  int i, j;
 
-    for (j = 0; j < n; ++j) {
-	v = in[j];
-	s = 1;
-	pow = v * v;
-	fact = 2;
-	sign = -1;
+  for ( j = 0; j < n; ++j )
+  {
+    v = in[j];
+    s = 1;
+    pow = v * v;
+    fact = 2;
+    sign = -1;
 
-	for (i = 0; i < 5; ++i) {
-	    s += pow * sign / fact;
-	    pow *= v * v;
-	    /* step fact from 2 to 2 * 3 * 4 */
-	    t = (i + 2) << 1;
-	    fact *= t * (t - 1);
-	    sign = -sign;
-	}
-        out[j] = s;
+    for ( i = 0; i < 5; ++i )
+    {
+      s += pow * sign / fact;
+      pow *= v * v;
+      /* step fact from 2 to 2 * 3 * 4 */
+      t = ( i + 2 ) << 1;
+      fact *= t * ( t - 1 );
+      sign = -sign;
     }
+    out[j] = s;
+  }
 }

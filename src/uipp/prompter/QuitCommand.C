@@ -9,38 +9,29 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "QuitCommand.h"
 #include "../base/Application.h"
 #include "FileContents.h"
 
-QuitCommand::QuitCommand(Application*  app,
-			 const char*   name,
-			 CommandScope* scope,
-			 boolean       active,
-			 char*         dialogTitle,
-			 char*         dialogQuestion) :
-	ConfirmedCommand(name, scope, active, dialogTitle, dialogQuestion)
+QuitCommand::QuitCommand( Application* app, const char* name,
+                          CommandScope* scope, boolean active,
+                          char* dialogTitle, char* dialogQuestion )
+    : ConfirmedCommand( name, scope, active, dialogTitle, dialogQuestion )
 {
-    //
-    // No op.
-    //
-    this->application = app;
+  //
+  // No op.
+  //
+  this->application = app;
 }
 
-
-boolean QuitCommand::doIt(CommandInterface *)
+boolean QuitCommand::doIt( CommandInterface* )
 {
 
-    FileContents::CleanUp();
-    //
-    // Terminate the application
-    //
-    exit(0);
+  FileContents::CleanUp();
+  //
+  // Terminate the application
+  //
+  exit( 0 );
 
-    return TRUE;
+  return TRUE;
 }
-
-

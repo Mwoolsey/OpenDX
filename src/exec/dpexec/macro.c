@@ -8,8 +8,6 @@
 
 #include <dxconfig.h>
 
-
-
 #include <time.h>
 #include <dx/dx.h>
 #include "d.h"
@@ -22,27 +20,23 @@ EXDictionary _dxd_exMacroDict = NULL;
  * reduce (minimally at best) the complexity of the interface.
  */
 
-Error
-_dxf_ExMacroInit(void)
+Error _dxf_ExMacroInit( void )
 {
-    _dxd_exMacroDict = _dxf_ExDictionaryCreate (2048, TRUE, FALSE);
-    return (_dxd_exMacroDict == NULL? ERROR: OK);
+  _dxd_exMacroDict = _dxf_ExDictionaryCreate( 2048, TRUE, FALSE );
+  return ( _dxd_exMacroDict == NULL ? ERROR : OK );
 }
 
-int
-_dxf_ExMacroInsert(char *name, EXObj obj)
+int _dxf_ExMacroInsert( char *name, EXObj obj )
 {
-    return(_dxf_ExDictionaryInsert (_dxd_exMacroDict, name, obj));
+  return ( _dxf_ExDictionaryInsert( _dxd_exMacroDict, name, obj ) );
 }
 
-int
-_dxf_ExMacroDelete(char *name)
+int _dxf_ExMacroDelete( char *name )
 {
-    return(_dxf_ExDictionaryDelete (_dxd_exMacroDict, name));
+  return ( _dxf_ExDictionaryDelete( _dxd_exMacroDict, name ) );
 }
 
-EXObj
-_dxf_ExMacroSearch(char *name)
+EXObj _dxf_ExMacroSearch( char *name )
 {
-    return(_dxf_ExDictionarySearch(_dxd_exMacroDict, name));
+  return ( _dxf_ExDictionarySearch( _dxd_exMacroDict, name ) );
 }

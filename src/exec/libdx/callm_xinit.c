@@ -10,7 +10,7 @@
 
 #include <dx/dx.h>
 
-typedef Error (*PFE)();
+typedef Error ( *PFE )();
 
 #define Object XObject
 #define String XString
@@ -22,37 +22,36 @@ typedef Error (*PFE)();
 
 extern PFE _dxd_registerIHProc;
 static XtAppContext appcontext = NULL;
-Error _dxf_RegisterInputHandlerX(PFE func, int fd, Pointer arg);
+Error _dxf_RegisterInputHandlerX( PFE func, int fd, Pointer arg );
 
-void DXInitializeXMainLoop(XtAppContext app)
+void DXInitializeXMainLoop( XtAppContext app )
 {
-    appcontext = app;
-    _dxd_registerIHProc = _dxf_RegisterInputHandlerX;
+  appcontext = app;
+  _dxd_registerIHProc = _dxf_RegisterInputHandlerX;
 }
 
 typedef struct
 {
-    XtPointer data;
-    Error (*func)(int, Pointer);
+  XtPointer data;
+  Error ( *func )( int, Pointer );
 } MyEvent;
 
-static Boolean
-_rihProc(XtPointer client, int *socket, XtInputId *id)
+static Boolean _rihProc( XtPointer client, int *socket, XtInputId *id )
 {
-    MyEvent *mev = (MyEvent *)client;
-    return (*mev->func)(*socket, mev->data);
+  MyEvent *mev = (MyEvent *)client;
+  return ( *mev->func )( *socket, mev->data );
 }
 
-Error
-_dxf_RegisterInputHandlerX(Error (*func)(int, Pointer), int fd, Pointer arg)
+Error _dxf_RegisterInputHandlerX( Error ( *func )( int, Pointer ), int fd,
+                                  Pointer arg )
 {
-    MyEvent *mev  = (MyEvent *)DXAllocate(sizeof(MyEvent));
+  MyEvent *mev = (MyEvent *)DXAllocate( sizeof( MyEvent ) );
 
-    mev->func = func;
-    mev->data = (XtPointer)arg;
+  mev->func = func;
+  mev->data = (XtPointer)arg;
 
-    XtAppAddInput(appcontext, fd, (XtPointer)XtInputReadMask,
-        (XtInputCallbackProc)_rihProc, (XtPointer)mev);
+  XtAppAddInput( appcontext, fd, (XtPointer)XtInputReadMask,
+                 (XtInputCallbackProc)_rihProc, (XtPointer)mev );
 
-    return OK;
+  return OK;
 }

@@ -8,326 +8,319 @@
 
 #include <dxconfig.h>
 
-
-
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
 #include <dx/dx.h>
 #include "groupinterpClass.h"
 
-GroupInterpolator
-_dxfNewGroupInterpolator(Group g,
-	enum interp_init initType, float fuzz, Matrix *m)
+GroupInterpolator _dxfNewGroupInterpolator( Group g, enum interp_init initType,
+                                            float fuzz, Matrix *m )
 {
-    return _dxf_NewGroupInterpolator(g, initType, fuzz, m,
-				&_dxdgroupinterpolator_class);
+  return _dxf_NewGroupInterpolator( g, initType, fuzz, m,
+                                    &_dxdgroupinterpolator_class );
 }
 
-GroupInterpolator
-_dxf_NewGroupInterpolator(Group g,
-	enum interp_init initType, float fuzz, Matrix *m,
-			struct groupinterpolator_class *class)
+GroupInterpolator _dxf_NewGroupInterpolator(
+    Group g, enum interp_init initType, float fuzz, Matrix *m,
+    struct groupinterpolator_class *class )
 {
-    GroupInterpolator	gi;
-    int 		i, j;
-    Object		child;
-    Interpolator	*subPtr, sub, firstsub = NULL;
-    int			isMultigrid;
+  GroupInterpolator gi;
+  int i, j;
+  Object child;
+  Interpolator *subPtr, sub, firstsub = NULL;
+  int isMultigrid;
 
-    CHECK(g, CLASS_GROUP);
+  CHECK( g, CLASS_GROUP );
 
-    gi=(GroupInterpolator)
-	_dxf_NewInterpolator((struct interpolator_class *)class, (Object)g);
-    if (!gi) 
-	return NULL;
-    
-    isMultigrid = DXGetGroupClass(g) == CLASS_MULTIGRID;
-    
+  gi = (GroupInterpolator)_dxf_NewInterpolator(
+      (struct interpolator_class *)class, (Object)g );
+  if ( !gi )
+    return NULL;
+
+  isMultigrid = DXGetGroupClass( g ) == CLASS_MULTIGRID;
+
+  /*
+   * Create array of pointers to interpolators for each descendent
+   * of the current group.  First, how many descendents?
+   */
+  for ( i = 0; NULL != ( child = DXGetEnumeratedMember( g, i, NULL ) ); i++ )
+    ;
+
+  gi->subInterp = (Interpolator *)DXAllocate( i * sizeof( Interpolator * ) );
+  if ( !gi->subInterp )
+  {
+    DXFree( (Pointer)gi );
+    return NULL;
+  }
+
+  /*
+   * Create interpolators for each.  Collect a group bound box
+   * as we do so.
+   */
+  subPtr = gi->subInterp;
+  gi->nMembers = 0;
+  for ( i = 0; NULL != ( child = DXGetEnumeratedMember( g, i, NULL ) ); i++ )
+  {
     /*
-     * Create array of pointers to interpolators for each descendent
-     * of the current group.  First, how many descendents?
+     * Ignore fields that have no elements
      */
-    for (i = 0; NULL != (child = DXGetEnumeratedMember(g, i, NULL)); i++);
-
-    gi->subInterp = (Interpolator *)DXAllocate(i*sizeof(Interpolator *));
-    if (!gi->subInterp)
+    if ( DXGetObjectClass( child ) == CLASS_FIELD )
     {
-	DXFree((Pointer)gi);
-	return NULL;
+      Array array;
+      int nElements;
+
+      if ( DXEmptyField( (Field)child ) )
+        continue;
+
+      array = (Array)DXGetComponentValue( (Field)child, "connections" );
+      if ( !array )
+        continue;
+
+      DXGetArrayInfo( array, &nElements, NULL, NULL, NULL, NULL );
+      if ( nElements == 0 )
+        continue;
     }
 
-    /*
-     * Create interpolators for each.  Collect a group bound box
-     * as we do so.
-     */
-    subPtr = gi->subInterp;
-    gi->nMembers = 0;
-    for (i = 0; NULL != (child = DXGetEnumeratedMember(g, i, NULL)); i++)
+    sub = (Interpolator)_dxfNewInterpolatorSwitch( child, initType, fuzz, m );
+    if ( !sub )
     {
-	/*
-	 * Ignore fields that have no elements
-	 */
-	if (DXGetObjectClass(child) == CLASS_FIELD)
-	{
-	    Array array;
-	    int   nElements;
-
-	    if (DXEmptyField((Field)child))
-		continue;
-	    
-	    array = (Array)DXGetComponentValue((Field)child, "connections");
-	    if (! array)
-		continue;
-
-	    DXGetArrayInfo(array, &nElements, NULL, NULL, NULL, NULL);
-	    if (nElements == 0)
-		continue;
-	}
-
-	sub = (Interpolator)_dxfNewInterpolatorSwitch(child,
-						initType, fuzz, m);
-	if (! sub)
-	{
-	    DXDelete((Object)gi);
-	    return NULL;
-	}
-
-	*subPtr++ = sub;
-
-	DXReference((Object)sub);
-
-	gi->nMembers ++;
-
-	if (i == 0)
-	{
-	    DXGetType(sub->dataObject, &gi->interpolator.type,
-				     &gi->interpolator.category,
-				     &gi->interpolator.rank,
-				     gi->interpolator.shape);
-	    
-	    gi->interpolator.nDim = sub->nDim;
-
-	    memcpy((void *)(gi->interpolator.min), (void *)(sub->min),
-				gi->interpolator.nDim*sizeof(float));
-	    memcpy((void *)(gi->interpolator.max), (void *)(sub->max),
-				gi->interpolator.nDim*sizeof(float));
-		
-	    firstsub = sub;
-	}
-	else
-	{
-	    for (j = 0; j < gi->interpolator.nDim; j++)
-	    {
-		if (sub->min[j] < gi->interpolator.min[j])
-		    gi->interpolator.min[j] = sub->min[j];
-		if (sub->max[j] > gi->interpolator.max[j])
-		    gi->interpolator.max[j] = sub->max[j];
-	    }
-
-	    if (! isMultigrid)
-		((Interpolator)sub)->matrix = ((Interpolator)firstsub)->matrix;
-	}
+      DXDelete( (Object)gi );
+      return NULL;
     }
-    
-    /*
-     * Initially, no hint
-     */
+
+    *subPtr++ = sub;
+
+    DXReference( (Object)sub );
+
+    gi->nMembers++;
+
+    if ( i == 0 )
+    {
+      DXGetType( sub->dataObject, &gi->interpolator.type,
+                 &gi->interpolator.category, &gi->interpolator.rank,
+                 gi->interpolator.shape );
+
+      gi->interpolator.nDim = sub->nDim;
+
+      memcpy( (void *)( gi->interpolator.min ), (void *)( sub->min ),
+              gi->interpolator.nDim * sizeof( float ) );
+      memcpy( (void *)( gi->interpolator.max ), (void *)( sub->max ),
+              gi->interpolator.nDim * sizeof( float ) );
+
+      firstsub = sub;
+    }
+    else
+    {
+      for ( j = 0; j < gi->interpolator.nDim; j++ )
+      {
+        if ( sub->min[j] < gi->interpolator.min[j] )
+          gi->interpolator.min[j] = sub->min[j];
+        if ( sub->max[j] > gi->interpolator.max[j] )
+          gi->interpolator.max[j] = sub->max[j];
+      }
+
+      if ( !isMultigrid )
+        ( (Interpolator)sub )->matrix = ( (Interpolator)firstsub )->matrix;
+    }
+  }
+
+  /*
+   * Initially, no hint
+   */
+  gi->hint = NULL;
+
+  return gi;
+}
+
+Error _dxfGroupInterpolator_Delete( GroupInterpolator gi )
+{
+  int i;
+
+  /*
+   * DXFree interpolator pointed to by hint
+   */
+  if ( gi->hint )
+  {
+    DXDelete( (Object)gi->hint );
     gi->hint = NULL;
-    
-    return gi;
+  }
+
+  /*
+   * DXFree descendent interpolators
+   */
+  if ( gi->subInterp )
+  {
+    for ( i = 0; i < gi->nMembers; i++ )
+      if ( gi->subInterp[i] )
+      {
+        DXDelete( (Object)gi->subInterp[i] );
+        gi->subInterp[i] = NULL;
+      }
+
+    DXFree( (Pointer)gi->subInterp );
+    gi->subInterp = NULL;
+  }
+
+  _dxfInterpolator_Delete( (Interpolator)gi );
+
+  return OK;
 }
 
-Error
-_dxfGroupInterpolator_Delete(GroupInterpolator gi)
+int _dxfGroupInterpolator_Interpolate( GroupInterpolator gi, int *n,
+                                       float **points, Pointer *values,
+                                       Interpolator *parentHint, int fuzzFlag )
 {
-    int i;
+  Interpolator *sub, *subBase, myHint, newHint;
+  int i, nMem, nAtStart;
 
-    /*
-     * DXFree interpolator pointed to by hint
-     */
-    if (gi->hint)
+  myHint = NULL;
+
+  nAtStart = *n;
+
+  /*
+   * Start with the child (possibly distant descendent)
+   * pointed to by the hint.
+   */
+  if ( gi->hint )
+    if ( !_dxfInterpolate( gi->hint, n, points, values, &myHint, fuzzFlag ) )
+      return 0;
+
+  /*
+   * Turn off fuzz as soon as a sample succeeds. All subsequent
+   * interpolation attempts will be done sans fuzz.
+   */
+  if ( nAtStart > *n )
+    fuzzFlag = FUZZ_OFF;
+
+  /*
+   * As long as poits remain to be interpolated, call descendents
+   * to interpolate them.  When a point is encountered that does
+   * not lie in any child field, quit.
+   */
+  nMem = gi->nMembers;
+  subBase = gi->subInterp;
+  while ( *n != 0 )
+  {
+    newHint = NULL;
+
+    sub = subBase;
+    for ( i = 0; i < nMem; i++ )
     {
-	DXDelete((Object)gi->hint);
-	gi->hint = NULL;
+      if ( ( *sub ) != gi->hint )
+        if ( !_dxfInterpolate( ( *sub ), n, points, values, &newHint,
+                               fuzzFlag ) )
+          return 0;
+
+      /*
+       * Again, turn off fuzz as soon as a sample succeeds. All
+       * subsequent interpolation attempts will be done sans fuzz.
+       */
+      if ( nAtStart > *n )
+        fuzzFlag = FUZZ_OFF;
+
+      if ( newHint )
+        break;
+
+      sub++;
     }
 
     /*
-     * DXFree descendent interpolators
+     * Keep going as long as we have more points to interpolate and
+     * we interpolated some last time through the children.
      */
-    if (gi->subInterp)
-    {
-	for (i = 0; i < gi->nMembers; i++)
-	    if (gi->subInterp[i])
-	    {
-		DXDelete((Object)gi->subInterp[i]);
-		gi->subInterp[i] = NULL;
-	    }
-	
-	DXFree((Pointer)gi->subInterp);
-	gi->subInterp = NULL;
-    }
+    if ( !newHint )
+      break;
 
-    _dxfInterpolator_Delete((Interpolator)gi);
+    myHint = newHint;
+  }
 
-    return OK;
+  /*
+   * If we didn't interpolate any points and there was a hint,
+   * delete the old hint.
+   */
+  if ( gi->hint != myHint )
+  {
+    if ( gi->hint )
+      DXDelete( ( Object )( gi->hint ) );
+
+    if ( myHint )
+      gi->hint = (Interpolator)DXReference( ( Object )( myHint ) );
+    else
+      gi->hint = NULL;
+  }
+
+  /*
+   * If the parent requested a hint, pass it up.
+   */
+  if ( parentHint )
+    *parentHint = myHint;
+
+  return OK;
 }
 
-int
-_dxfGroupInterpolator_Interpolate(GroupInterpolator gi, int *n,
-    float **points, Pointer *values, Interpolator *parentHint, int fuzzFlag)
+Object _dxfGroupInterpolator_Copy( GroupInterpolator old, enum _dxd_copy copy )
 {
-    Interpolator	*sub, *subBase, myHint, newHint;
-    int			i, nMem, nAtStart;
+  GroupInterpolator new;
 
-    myHint = NULL;
+  new = (GroupInterpolator)_dxf_NewObject(
+      (struct object_class *)&_dxdgroupinterpolator_class );
 
-    nAtStart = *n;
-
-    /*
-     * Start with the child (possibly distant descendent)
-     * pointed to by the hint.
-     */
-    if (gi->hint)
-	if (! _dxfInterpolate(gi->hint, n, points, values, &myHint, fuzzFlag))
-	    return 0;
-    
-    /*
-     * Turn off fuzz as soon as a sample succeeds. All subsequent
-     * interpolation attempts will be done sans fuzz.
-     */
-    if (nAtStart > *n)
-	fuzzFlag = FUZZ_OFF;
-
-    /*
-     * As long as poits remain to be interpolated, call descendents
-     * to interpolate them.  When a point is encountered that does
-     * not lie in any child field, quit.
-     */
-    nMem = gi->nMembers;
-    subBase = gi->subInterp;
-    while(*n != 0)
-    {
-	newHint = NULL;
-
-	sub = subBase;
-	for (i = 0; i < nMem; i++)
-	{
-	    if ((*sub) != gi->hint)
-		if (! _dxfInterpolate((*sub), n, points, values, &newHint, fuzzFlag))
-		    return 0;
-
-	    /*
-	     * Again, turn off fuzz as soon as a sample succeeds. All 
-	     * subsequent interpolation attempts will be done sans fuzz.
-	     */
-	    if (nAtStart > *n)
-		fuzzFlag = FUZZ_OFF;
-
-	    if (newHint)
-		break;
-
-	    sub++;
-	}
-
-	/*
-	 * Keep going as long as we have more points to interpolate and
-	 * we interpolated some last time through the children.
-	 */
-	if (! newHint)
-	    break;
-	
-	myHint = newHint;
-    }
-
-    /*
-     * If we didn't interpolate any points and there was a hint,
-     * delete the old hint.
-     */
-    if (gi->hint != myHint)
-    {
-	if (gi->hint)
-	    DXDelete((Object)(gi->hint));
-
-	if (myHint)
-	    gi->hint = (Interpolator)DXReference((Object)(myHint));
-	else
-	    gi->hint = NULL;
-    }
-
-    /*
-     * If the parent requested a hint, pass it up.
-     */
-    if (parentHint)
-	*parentHint = myHint;
-
-    return OK;
+  return (Object)_dxf_CopyGroupInterpolator( new, old, copy );
 }
 
-Object
-_dxfGroupInterpolator_Copy(GroupInterpolator old, enum _dxd_copy copy)
+GroupInterpolator _dxf_CopyGroupInterpolator( GroupInterpolator new,
+                                              GroupInterpolator old,
+                                              enum _dxd_copy copy )
 {
-    GroupInterpolator new;
+  Interpolator *ns, *os;
+  int i;
 
-    new = (GroupInterpolator)
-	_dxf_NewObject((struct object_class *)&_dxdgroupinterpolator_class);
+  if ( old == NULL )
+    return NULL;
 
-    return (Object)_dxf_CopyGroupInterpolator(new, old, copy);
+  if ( !_dxf_CopyInterpolator( ( Interpolator ) new, (Interpolator)old ) )
+    return NULL;
+
+  new->nMembers = old->nMembers;
+
+  new->subInterp =
+      (Interpolator *)DXAllocate( new->nMembers * sizeof( Interpolator ) );
+
+  if ( !new->subInterp )
+  {
+    DXFree( ( Pointer ) new );
+    return NULL;
+  }
+
+  ns = new->subInterp;
+  os = old->subInterp;
+  for ( i = 0; i < new->nMembers; i++, os++, ns++ )
+  {
+    if ( NULL == ( *ns = (Interpolator)DXCopy( ( Object ) * os, copy ) ) )
+    {
+      while ( i-- > 0 )
+        DXDelete( ( Object ) * ( --ns ) );
+      DXFree( ( Pointer ) new->subInterp );
+      DXFree( ( Pointer ) new );
+      return NULL;
+    }
+    DXReference( ( Object ) * ns );
+  }
+
+  new->hint = NULL;
+
+  return new;
 }
 
-GroupInterpolator
-_dxf_CopyGroupInterpolator(GroupInterpolator new, GroupInterpolator old, 
-								enum _dxd_copy copy)
+Interpolator _dxfGroupInterpolator_LocalizeInterpolator( GroupInterpolator gi )
 {
-    Interpolator	*ns, *os;
-    int			i;
+  int i;
+  Interpolator *childi;
 
-    if (old == NULL)
-	return NULL;
+  childi = gi->subInterp;
+  for ( i = 0; i < gi->nMembers; i++, childi++ )
+    DXLocalizeInterpolator( *childi );
 
-    if (! _dxf_CopyInterpolator((Interpolator)new, (Interpolator)old))
-	return NULL;
-
-    new->nMembers = old->nMembers;
-
-    new->subInterp = (Interpolator *)
-			    DXAllocate(new->nMembers*sizeof(Interpolator));
-
-    if (! new->subInterp)
-    {
-	DXFree((Pointer)new);
-	return NULL;
-    }
-
-    ns = new->subInterp;
-    os = old->subInterp;
-    for (i = 0; i < new->nMembers; i++, os++, ns++)
-    {
-	if (NULL ==  (*ns = (Interpolator)DXCopy((Object)*os, copy)))
-	{
-	    while(i-- > 0)
-		DXDelete((Object)*(--ns));
-	    DXFree((Pointer)new->subInterp);
-	    DXFree((Pointer)new);
-	    return NULL;
-	}
-	DXReference((Object)*ns);
-    }
-    
-    new->hint = NULL;
-    
-    return new;
-}
-
-Interpolator
-_dxfGroupInterpolator_LocalizeInterpolator(GroupInterpolator gi)
-{
-    int			i;
-    Interpolator	*childi;
-
-    childi = gi->subInterp;
-    for (i = 0; i < gi->nMembers; i++, childi++)
-	DXLocalizeInterpolator(*childi);
-    
-    return (Interpolator)gi;
+  return (Interpolator)gi;
 }

@@ -9,12 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _OpenFileDialog_h
 #define _OpenFileDialog_h
-
 
 #include "../base/FileDialog.h"
 #include "GARMainWindow.h"
@@ -24,55 +20,55 @@
 //
 // Class name definition:
 //
-#define ClassOpenFileDialog	"OpenFileDialog"
+#define ClassOpenFileDialog "OpenFileDialog"
 
 class Dialog;
 class GARMainWindow;
 
 //
 // OpenFileDialog class definition:
-//				
+//
 class OpenFileDialog : public FileDialog
 {
-    static boolean ClassInitialized;
+  static boolean ClassInitialized;
 
-    GARMainWindow *gmw;
+  GARMainWindow *gmw;
 
-  protected:
-    static String  DefaultResources[];
+ protected:
+  static String DefaultResources[];
 
-    virtual void okFileWork(const char *string); 
-    virtual Widget createDialog(Widget parent);
+  virtual void okFileWork( const char *string );
+  virtual Widget createDialog( Widget parent );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-  public:
-    //
-    // Constructor:
-    //
-    OpenFileDialog(GARMainWindow *gmw);
+ public:
+  //
+  // Constructor:
+  //
+  OpenFileDialog( GARMainWindow *gmw );
 
+  //
+  // Destructor:
+  //
+  ~OpenFileDialog()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~OpenFileDialog(){}
+  virtual void post();
 
-    virtual void post();
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassOpenFileDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassOpenFileDialog;
+  }
 };
 
-
-#endif // _OpenFileDialog_h
+#endif  // _OpenFileDialog_h

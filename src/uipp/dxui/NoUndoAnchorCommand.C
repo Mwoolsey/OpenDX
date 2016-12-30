@@ -9,41 +9,34 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "NoUndoAnchorCommand.h"
 #include "DXAnchorWindow.h"
 #include "DXApplication.h"
 #include "Network.h"
 
-NoUndoAnchorCommand::NoUndoAnchorCommand(const char*   name,
-				       CommandScope* scope,
-				       boolean       active,
-				       DXAnchorWindow  *aw,
-				       AnchorCommandType comType ) :
-	NoUndoCommand(name, scope, active)
+NoUndoAnchorCommand::NoUndoAnchorCommand( const char *name, CommandScope *scope,
+                                          boolean active, DXAnchorWindow *aw,
+                                          AnchorCommandType comType )
+    : NoUndoCommand( name, scope, active )
 {
-	this->commandType = comType;
-	this->anchorWindow = aw;
+  this->commandType = comType;
+  this->anchorWindow = aw;
 }
 
-
-boolean NoUndoAnchorCommand::doIt(CommandInterface *ci)
+boolean NoUndoAnchorCommand::doIt( CommandInterface *ci )
 {
-    DXAnchorWindow *aw = this->anchorWindow;
+  DXAnchorWindow *aw = this->anchorWindow;
 
-    ASSERT(aw);
+  ASSERT( aw );
 
-    switch (this->commandType) {
-	case NoUndoAnchorCommand::OpenVPE:
-            aw->postVPE();
-	    break;
-	default:
-	    ASSERT(0);
-    }
+  switch ( this->commandType )
+  {
+    case NoUndoAnchorCommand::OpenVPE:
+      aw->postVPE();
+      break;
+    default:
+      ASSERT( 0 );
+  }
 
-    return TRUE;
+  return TRUE;
 }
-
-

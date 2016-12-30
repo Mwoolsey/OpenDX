@@ -11,8 +11,6 @@
 
 #include <dxconfig.h>
 
-
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/xgl/hwStub.c,v $
 
@@ -50,11 +48,11 @@
  *
  * Revision 7.5  94/03/31  15:55:24  tjm
  * added versioning
- * 
+ *
  * Revision 7.4  94/03/09  17:16:55  tjm
  * restored DrawOpaque interface, use TRANSLATION->gamma for gamma correction
- * 
- * 
+ *
+ *
 \*---------------------------------------------------------------------------*/
 #include "hwDeclarations.h"
 #include "hwPortLayer.h"
@@ -76,145 +74,148 @@
 #undef Screen
 #undef Boolean
 
-#define DXMARK(x)	DXMarkTime(x)
-Error
-_dxf_DrawOpaque (tdmPortHandleP portHandle, xfieldP xf,
-		 RGBColor ambientColor, int buttonUp)
+#define DXMARK( x ) DXMarkTime( x )
+Error _dxf_DrawOpaque( tdmPortHandleP portHandle, xfieldP xf,
+                       RGBColor ambientColor, int buttonUp )
 {
-  DEFPORT(portHandle);
-  enum approxE approx ;
-  int density ;
-  Error ret ;
+  DEFPORT( portHandle );
+  enum approxE approx;
+  int density;
+  Error ret;
 
-  DPRINT("\n(_dxf_DrawOpaque") ;
-  
-  if (buttonUp)
-    {
-      approx = xf->attributes.buttonUp.approx ;
-      density = xf->attributes.buttonUp.density ;
-    }
+  DPRINT( "\n(_dxf_DrawOpaque" );
+
+  if ( buttonUp )
+  {
+    approx = xf->attributes.buttonUp.approx;
+    density = xf->attributes.buttonUp.density;
+  }
   else
+  {
+    approx = xf->attributes.buttonDown.approx;
+    density = xf->attributes.buttonDown.density;
+  }
+
+  if ( xf->normalsDep != ct_none && approx == approx_none )
+  {
+    _dxf_SET_GLOBAL_LIGHT_ATTRIBUTES( PORT_CTX, 1 );
+
+    if ( !( xf->attributes.flags & CORRECTED_COLORS ) )
     {
-      approx = xf->attributes.buttonDown.approx ;
-      density = xf->attributes.buttonDown.density ;
+      xf->attributes.front.ambient = pow( (double)xf->attributes.front.ambient,
+                                          1. / XGLTRANSLATION->gamma );
+      xf->attributes.front.specular = pow(
+          (double)xf->attributes.front.specular, 1. / XGLTRANSLATION->gamma );
+      xf->attributes.flags |= CORRECTED_COLORS;
     }
 
-  if (xf->normalsDep != ct_none && approx == approx_none)
-    {
-      _dxf_SET_GLOBAL_LIGHT_ATTRIBUTES (PORT_CTX, 1) ;
+    _dxf_SET_MATERIAL_SPECULAR( PORT_CTX, 1.0 /*R*/, 1.0 /*G*/, 1.0 /*B*/,
+                                (float)xf->attributes.front.shininess
+                                /* specular power */ );
+  }
 
-      if ( !(xf->attributes.flags & CORRECTED_COLORS))
-	{
-	  xf->attributes.front.ambient = 
-	      pow((double)xf->attributes.front.ambient,
-		  1./XGLTRANSLATION->gamma) ;
-	  xf->attributes.front.specular = 
-	      pow((double)xf->attributes.front.specular,
-		  1./XGLTRANSLATION->gamma) ;
-	  xf->attributes.flags |= CORRECTED_COLORS ;
-	}
+  _dxf_PUSH_MULTIPLY_MATRIX( PORT_CTX, xf->attributes.mm );
 
-      _dxf_SET_MATERIAL_SPECULAR (PORT_CTX, 1.0 /*R*/, 1.0 /*G*/, 1.0 /*B*/,
-				  (float) xf->attributes.front.shininess
-				  /* specular power */) ;
-    }
+  if ( approx == approx_box )
+    ret = _dxfBoundingBoxDraw( portHandle, xf, 0 );
 
-  _dxf_PUSH_MULTIPLY_MATRIX (PORT_CTX, xf->attributes.mm) ;
+  else if ( approx == approx_dots && xf->colorsDep != dep_connections )
+    ret = _dxfUnconnectedPointDraw( portHandle, xf, buttonUp );
 
-  if (approx == approx_box)
-      ret = _dxfBoundingBoxDraw (portHandle, xf, 0) ;
-
-  else if (approx == approx_dots && xf->colorsDep != dep_connections)
-      ret = _dxfUnconnectedPointDraw (portHandle, xf, buttonUp) ;
-  
   else
-      /*
-       *  All primitives must handle line and connection-dependent dot
-       *  approximations themselves.
-       */
-      switch (xf->connectionType)
-	{
-	case ct_none:
-	  DXMARK("> dots:");
-	  ret = _dxfUnconnectedPointDraw (portHandle, xf, buttonUp) ;
-	  DXMARK("< dots:");
-	  break;
-	case ct_polylines:
-	  DXMARK("> polylines:");
-	  ret = _dxfPolylineDraw (portHandle, xf, buttonUp) ;
-	  DXMARK("< polylines:");
-	  break;
-	case ct_lines:
-	  DXMARK("> lines:");
-	  ret = _dxfLineDraw (portHandle, xf, buttonUp) ;
-	  DXMARK("< lines:");
-	  break;
-	case ct_tetrahedra:
-	  DXMARK("> tetras:");
-	  ret = _dxfTetraDraw (portHandle, xf, buttonUp) ;
-	  DXMARK("< tetras:");
-	  break;
-	case ct_cubes:
-	  DXMARK("> cubes:");
-	  ret = _dxfCubeDraw (portHandle, xf, buttonUp) ;
-	  DXMARK("< cubes:");
-	  break;
-	case ct_triangles:
-	  DXMARK("> triangles:");
-	  ret = _dxfTriDraw (portHandle, xf, buttonUp) ;
-	  DXMARK("< triangles:");
-	  break;
-	case ct_quads:
-	  DXMARK("> quads:");
-	  ret = _dxfQuadDraw (portHandle, xf, buttonUp) ;
-	  DXMARK("< quads:");
-	  break;
-	case ct_pline:
-	  if (density == 1 &&
-	      !(xf->colorsDep == dep_connections)) {
-	    DXMARK("> plines:");
-	    ret = _dxfPlineDraw (portHandle, xf, buttonUp) ;
-	    DXMARK("< plines:");
-	  } else {
-	    DXMARK("> lines:");
-	    ret = _dxfLineDraw (portHandle, xf, buttonUp) ;
-	    DXMARK("< lines:");
-	  }
-	  break;
-	case ct_tmesh:
-	  if (density == 1 &&
-	      approx != approx_dots &&
-	      !(approx == approx_lines && xf->colorsDep == dep_connections)) {
-	    DXMARK("> tmesh:");
-	    ret = _dxfTmeshDraw (portHandle, xf, buttonUp) ;
-	    DXMARK("< tmesh:");
-	  } else {
-	    DXMARK("> triangles:");
-	    ret = _dxfTriDraw (portHandle, xf, buttonUp) ;
-	    DXMARK("< triangles:");
-	  }
-	  break;
-	case ct_qmesh:
-	  if (density == 1 &&
-	      approx != approx_dots &&
-	      !(approx == approx_lines && xf->colorsDep == dep_connections)) {
-	    DXMARK("> qmesh:");
-	    ret = _dxfQmeshDraw (portHandle, xf, buttonUp) ;
-	    DXMARK("< qmesh:");
-	  } else {
-	    DXMARK("> quads:");
-	    ret = _dxfQuadDraw (portHandle, xf, buttonUp) ;
-	    DXMARK("< quads:");
-	  }
-	  break;
-	default:
-	  DPRINT("\nunknown connection type") ;
-	  DXSetError (ERROR_INTERNAL, "#13170") ;
-	  ret = 0 ;
-	  break ;
-	}
- done:
-  _dxf_POP_MATRIX(PORT_CTX) ;
-  DPRINT(")") ;
-  return ret ;
+    /*
+     *  All primitives must handle line and connection-dependent dot
+     *  approximations themselves.
+     */
+    switch ( xf->connectionType )
+    {
+      case ct_none:
+        DXMARK( "> dots:" );
+        ret = _dxfUnconnectedPointDraw( portHandle, xf, buttonUp );
+        DXMARK( "< dots:" );
+        break;
+      case ct_polylines:
+        DXMARK( "> polylines:" );
+        ret = _dxfPolylineDraw( portHandle, xf, buttonUp );
+        DXMARK( "< polylines:" );
+        break;
+      case ct_lines:
+        DXMARK( "> lines:" );
+        ret = _dxfLineDraw( portHandle, xf, buttonUp );
+        DXMARK( "< lines:" );
+        break;
+      case ct_tetrahedra:
+        DXMARK( "> tetras:" );
+        ret = _dxfTetraDraw( portHandle, xf, buttonUp );
+        DXMARK( "< tetras:" );
+        break;
+      case ct_cubes:
+        DXMARK( "> cubes:" );
+        ret = _dxfCubeDraw( portHandle, xf, buttonUp );
+        DXMARK( "< cubes:" );
+        break;
+      case ct_triangles:
+        DXMARK( "> triangles:" );
+        ret = _dxfTriDraw( portHandle, xf, buttonUp );
+        DXMARK( "< triangles:" );
+        break;
+      case ct_quads:
+        DXMARK( "> quads:" );
+        ret = _dxfQuadDraw( portHandle, xf, buttonUp );
+        DXMARK( "< quads:" );
+        break;
+      case ct_pline:
+        if ( density == 1 && !( xf->colorsDep == dep_connections ) )
+        {
+          DXMARK( "> plines:" );
+          ret = _dxfPlineDraw( portHandle, xf, buttonUp );
+          DXMARK( "< plines:" );
+        }
+        else
+        {
+          DXMARK( "> lines:" );
+          ret = _dxfLineDraw( portHandle, xf, buttonUp );
+          DXMARK( "< lines:" );
+        }
+        break;
+      case ct_tmesh:
+        if ( density == 1 && approx != approx_dots &&
+             !( approx == approx_lines && xf->colorsDep == dep_connections ) )
+        {
+          DXMARK( "> tmesh:" );
+          ret = _dxfTmeshDraw( portHandle, xf, buttonUp );
+          DXMARK( "< tmesh:" );
+        }
+        else
+        {
+          DXMARK( "> triangles:" );
+          ret = _dxfTriDraw( portHandle, xf, buttonUp );
+          DXMARK( "< triangles:" );
+        }
+        break;
+      case ct_qmesh:
+        if ( density == 1 && approx != approx_dots &&
+             !( approx == approx_lines && xf->colorsDep == dep_connections ) )
+        {
+          DXMARK( "> qmesh:" );
+          ret = _dxfQmeshDraw( portHandle, xf, buttonUp );
+          DXMARK( "< qmesh:" );
+        }
+        else
+        {
+          DXMARK( "> quads:" );
+          ret = _dxfQuadDraw( portHandle, xf, buttonUp );
+          DXMARK( "< quads:" );
+        }
+        break;
+      default:
+        DPRINT( "\nunknown connection type" );
+        DXSetError( ERROR_INTERNAL, "#13170" );
+        ret = 0;
+        break;
+    }
+done:
+  _dxf_POP_MATRIX( PORT_CTX );
+  DPRINT( ")" );
+  return ret;
 }

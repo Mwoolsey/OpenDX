@@ -9,9 +9,6 @@
 #include <dxconfig.h>
 #include <defines.h>
 
-
-
-
 #include <Xm/Xm.h>
 #include <Xm/RowColumn.h>
 #include <Xm/CascadeB.h>
@@ -20,46 +17,39 @@
 #include "DXStrings.h"
 #include "ListIterator.h"
 
-
-CascadeMenu::CascadeMenu(char*    name, Widget parent) : UIComponent(name)
+CascadeMenu::CascadeMenu( char *name, Widget parent ) : UIComponent( name )
 {
 #define BUFLEN 100
-#define NAME	"Submenu"
+#define NAME "Submenu"
 #define NAMELEN 7
-    char *pulldownName, buffer[BUFLEN]; 
-    int	len = STRLEN(name);
+  char *pulldownName, buffer[BUFLEN];
+  int len = STRLEN( name );
 
+  if ( len > BUFLEN - NAMELEN - 1 )
+    pulldownName = new char[len + NAMELEN];
+  else
+    pulldownName = buffer;
 
-    if (len > BUFLEN-NAMELEN-1)
-	pulldownName = new char[ len + NAMELEN];
-    else
-	pulldownName = buffer;
+  sprintf( pulldownName, "%s%s", name, NAME );
 
-    sprintf(pulldownName,"%s%s",name,NAME);
+  this->subMenu =
+      XmCreatePulldownMenu( parent, pulldownName, NUL( ArgList ), 0 );
 
-    this->subMenu = XmCreatePulldownMenu(parent, pulldownName, 
-						NUL(ArgList), 0);
+  Widget cascade = XtVaCreateManagedWidget(
+      name, xmCascadeButtonWidgetClass, parent, XmNsubMenuId, subMenu, NULL );
 
-    Widget cascade =  XtVaCreateManagedWidget
-            (name,
-             xmCascadeButtonWidgetClass,
-             parent,
-             XmNsubMenuId, subMenu, 
-             NULL);
+  this->setRootWidget( cascade );
 
-    this->setRootWidget(cascade);
-
-    if (pulldownName != buffer)
-	delete pulldownName;
+  if ( pulldownName != buffer )
+    delete pulldownName;
 }
-
 
 CascadeMenu::~CascadeMenu()
 {
-    this->clearComponents();
-    // FIXME: when/if to destroy this.
-    //        Does the parent own it or this class.
-    // XtDestroyWidget(this->subMenu);
+  this->clearComponents();
+  // FIXME: when/if to destroy this.
+  //        Does the parent own it or this class.
+  // XtDestroyWidget(this->subMenu);
 }
 
 #if 0
@@ -91,75 +81,73 @@ void CascadeMenu::createMenu()
 //
 Widget CascadeMenu::getMenuItemParent()
 {
-    ASSERT(this->subMenu);
-    return this->subMenu;
+  ASSERT( this->subMenu );
+  return this->subMenu;
 }
 
 //
 // Append the given UIComponent to the sub menu and manage it.
 //
-boolean CascadeMenu::appendComponent(UIComponent *uic)
+boolean CascadeMenu::appendComponent( UIComponent *uic )
 {
-    ASSERT(this->subMenu == XtParent(uic->getRootWidget()));
+  ASSERT( this->subMenu == XtParent( uic->getRootWidget() ) );
 
-    if (!this->componentList.appendElement(uic))
-	return FALSE;
+  if ( !this->componentList.appendElement( uic ) )
+    return FALSE;
 
-    uic->manage(); 
-    return TRUE;
+  uic->manage();
+  return TRUE;
 }
 //
 // Remove (but do not delete) the given UIComponent from the submenu and
 // unmanage it.
 //
-boolean CascadeMenu::removeComponent(UIComponent *uic)
+boolean CascadeMenu::removeComponent( UIComponent *uic )
 {
-    if (!this->componentList.removeElement(uic))
-	return FALSE;
+  if ( !this->componentList.removeElement( uic ) )
+    return FALSE;
 
-    uic->unmanage();
-    return TRUE;
+  uic->unmanage();
+  return TRUE;
 }
 //
-// Remove and delete the given UIComponent from the submenu. 
+// Remove and delete the given UIComponent from the submenu.
 //
-boolean CascadeMenu::deleteComponent(UIComponent *uic)
+boolean CascadeMenu::deleteComponent( UIComponent *uic )
 {
-    if (!this->componentList.removeElement(uic))
-	return FALSE;
+  if ( !this->componentList.removeElement( uic ) )
+    return FALSE;
 
-    delete uic;
-    return TRUE;
+  delete uic;
+  return TRUE;
 }
 //
 // Remove and delete all UIComponents owned by the menu.
 //
 void CascadeMenu::clearComponents()
 {
-    UIComponent *uic;
+  UIComponent *uic;
 
-    while ((uic = (UIComponent*)this->componentList.getElement(1))) {
-	this->componentList.deleteElement(1);
-	delete uic;
-    }
-
+  while ( ( uic = (UIComponent *)this->componentList.getElement( 1 ) ) )
+  {
+    this->componentList.deleteElement( 1 );
+    delete uic;
+  }
 }
 //
-// Set the label of the Cascade menu 
+// Set the label of the Cascade menu
 //
-void CascadeMenu::setLabel(const char *label)
+void CascadeMenu::setLabel( const char *label )
 {
-    Arg      arg[1];
-    XmString name;
+  Arg arg[1];
+  XmString name;
 
-    name = XmStringCreateSimple((char*)label);
-    XtSetArg(arg[0],XmNlabelString, name);
-    XtSetValues(this->getRootWidget(), arg, 1);
+  name = XmStringCreateSimple( (char *)label );
+  XtSetArg( arg[0], XmNlabelString, name );
+  XtSetValues( this->getRootWidget(), arg, 1 );
 
-    XmStringFree(name);
-
+  XmStringFree( name );
 }
-
 
 //
 // Set the sensitivity of the cascade menu item based on the sensitivity
@@ -169,19 +157,20 @@ void CascadeMenu::setLabel(const char *label)
 //
 boolean CascadeMenu::setActivationFromChildren()
 {
-    UIComponent *uic;
-    ListIterator iterator(this->componentList);
-    boolean active = FALSE;
+  UIComponent *uic;
+  ListIterator iterator( this->componentList );
+  boolean active = FALSE;
 
-    while(!active && (uic = (UIComponent*)iterator.getNext())) {
-	if (uic->isActivated())
-	   active = TRUE; 
-    }
+  while ( !active && ( uic = (UIComponent *)iterator.getNext() ) )
+  {
+    if ( uic->isActivated() )
+      active = TRUE;
+  }
 
-    if (active)
-	this->activate();
-    else
-	this->deactivate();
+  if ( active )
+    this->activate();
+  else
+    this->deactivate();
 
-    return active;
+  return active;
 }

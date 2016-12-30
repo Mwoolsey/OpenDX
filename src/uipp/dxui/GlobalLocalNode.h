@@ -9,9 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _GlobalLocalNode_h
 #define _GlobalLocalNode_h
 
@@ -27,14 +24,12 @@
 // on the setting of a flag.
 //
 
-
 #include "Node.h"
-
 
 //
 // Class name definition:
 //
-#define ClassGlobalLocalNode	"GlobalLocalNode"
+#define ClassGlobalLocalNode "GlobalLocalNode"
 
 //
 // Referenced Classes
@@ -45,69 +40,68 @@ class EditorWindow;
 
 //
 // GlobalLocalNode class definition:
-//				
+//
 class GlobalLocalNode : public Node
 {
-     friend class EditorWindow; // Actually, I only want convertGetAndSetNodes() to
-				// be able to call setAsLocal/GlobalNode().
-  private:
-    //
-    // Private member data:
-    //
-    boolean isGlobal;
-    Symbol  myNodeNameSymbol;
+  friend class EditorWindow;  // Actually, I only want convertGetAndSetNodes()
+                              // to
+                              // be able to call setAsLocal/GlobalNode().
+ private:
+  //
+  // Private member data:
+  //
+  boolean isGlobal;
+  Symbol myNodeNameSymbol;
 
-    void clearMyNodeName();
-    void setMyNodeNameIfNecessary();
+  void clearMyNodeName();
+  void setMyNodeNameIfNecessary();
 
+ protected:
+  //
+  // Protected member data:
+  //
 
-  protected:
-    //
-    // Protected member data:
-    //
+  void setAsLocalNode();
+  void setAsGlobalNode();
+  void markForResend();
 
-    void setAsLocalNode();
-    void setAsGlobalNode();
-    void markForResend();
+  boolean isLocalNode();
+  boolean isGlobalNode();
 
-    boolean isLocalNode(); 
-    boolean isGlobalNode();
+ public:
+  //
+  // Constructor:
+  //
+  GlobalLocalNode( NodeDefinition *nd, Network *net, int instnc );
 
-  public:
-    //
-    // Constructor:
-    //
-    GlobalLocalNode(NodeDefinition *nd, Network *net, int instnc);
+  //
+  // Destructor:
+  //
+  ~GlobalLocalNode();
 
-    //
-    // Destructor:
-    //
-    ~GlobalLocalNode();
-  
-    //
-    // Mangle the name if this is a local or global version of this node.
-    //
-    virtual Symbol getNameSymbol();
+  //
+  // Mangle the name if this is a local or global version of this node.
+  //
+  virtual Symbol getNameSymbol();
 
-    //
-    // The name string is normally returned by NodeDefinition however nodes
-    // of this class will not all return the same string.
-    //
-    virtual const char *getExecModuleNameString();
+  //
+  // The name string is normally returned by NodeDefinition however nodes
+  // of this class will not all return the same string.
+  //
+  virtual const char *getExecModuleNameString();
 
-    //
-    // Determine if this node is a node of the given class
-    //
-    virtual boolean isA(Symbol classname);
+  //
+  // Determine if this node is a node of the given class
+  //
+  virtual boolean isA( Symbol classname );
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassGlobalLocalNode;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassGlobalLocalNode;
+  }
 };
 
-
-#endif // _GlobalLocalNode_h
+#endif  // _GlobalLocalNode_h

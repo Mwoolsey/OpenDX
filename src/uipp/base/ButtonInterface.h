@@ -9,54 +9,47 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _ButtonInterface_h
 #define _ButtonInterface_h
 
-
 #include "CommandInterface.h"
-
 
 //
 // Class name definition:
 //
-#define ClassButtonInterface	"ButtonInterface"
-
+#define ClassButtonInterface "ButtonInterface"
 
 //
 // ButtonInterface class definition:
-//				
+//
 class ButtonInterface : public CommandInterface
 {
-  public:
-    //
-    // Constructor:
-    //
-    ButtonInterface(Widget   parent,
-		    char*    name,
-		    Command* command,
-		    const char *bubbleHelp = NUL(char*));
+ public:
+  //
+  // Constructor:
+  //
+  ButtonInterface( Widget parent, char* name, Command* command,
+                   const char* bubbleHelp = NUL(char*));
 
-    //
-    // Destructor:
-    //
-    ~ButtonInterface(){}
+  //
+  // Destructor:
+  //
+  ~ButtonInterface()
+  {
+  }
 
-    //
-    // Set the label string.
-    //
-    void setLabel(const char* string);
+  //
+  // Set the label string.
+  //
+  void setLabel( const char* string );
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassButtonInterface;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassButtonInterface;
+  }
 };
 
-
-#endif // _ButtonInterface_h
+#endif  // _ButtonInterface_h

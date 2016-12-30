@@ -9,25 +9,21 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "ImageSoftwareCommand.h"
 #include "ImageWindow.h"
 
-ImageSoftwareCommand::ImageSoftwareCommand(const char   *name,
-						 CommandScope *scope,
-						 boolean       active,
-						 ImageWindow  *w):
-    NoUndoCommand(name, scope, active)
+ImageSoftwareCommand::ImageSoftwareCommand( const char *name,
+                                            CommandScope *scope, boolean active,
+                                            ImageWindow *w )
+    : NoUndoCommand( name, scope, active )
 {
-    this->imageWindow = w;
+  this->imageWindow = w;
 }
 
-boolean ImageSoftwareCommand::doIt(CommandInterface *ci)
+boolean ImageSoftwareCommand::doIt( CommandInterface *ci )
 {
-    Boolean set;
-    XtVaGetValues(ci->getRootWidget(), XmNset, &set, NULL);
-    this->imageWindow->setSoftware(set);
-    return TRUE;
+  Boolean set;
+  XtVaGetValues( ci->getRootWidget(), XmNset, &set, NULL );
+  this->imageWindow->setSoftware( set );
+  return TRUE;
 }

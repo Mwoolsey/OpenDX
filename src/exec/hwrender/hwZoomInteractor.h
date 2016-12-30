@@ -8,21 +8,20 @@
 
 #include <dxconfig.h>
 
-
 /*
  *  Zoom interactor private data structure.
  */
 
-typedef struct {
+typedef struct
+{
   /* zoom center in pixels */
-  int cx, cy ;
+  int cx, cy;
   /* zoom box coordinates in pixels */
-  int x1, x2, y1, y2 ;
+  int x1, x2, y1, y2;
   /* button stroke started with */
-  int btn ;
+  int btn;
   /* previous mouse position */
-  int px, py ;
+  int px, py;
   /* frame buffer configuration */
-  int displaymode, buffermode ;
-} tdmZoomData ;
-
+  int displaymode, buffermode;
+} tdmZoomData;

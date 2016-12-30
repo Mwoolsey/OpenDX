@@ -6,17 +6,17 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dxmods/_maptoplane.h,v 1.1 2000/08/24 20:04:16 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dxmods/_maptoplane.h,v 1.1 2000/08/24
+ * 20:04:16 davidt Exp $
  */
 
 #include <dxconfig.h>
 
-#ifndef  __MAPTOPLANE_H_
-#define  __MAPTOPLANE_H_
+#ifndef __MAPTOPLANE_H_
+#define __MAPTOPLANE_H_
 
 #include <dx/dx.h>
 
-Object _dxfMapToPlane(Object, Vector *, Vector *);
+Object _dxfMapToPlane( Object, Vector *, Vector * );
 
 #endif /* __MAPTOPLANE_H_ */
-

@@ -6,7 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -86,10 +86,10 @@ where of course the return statement does not return {\tt o}.
 
 #define CACHE_PERMANENT 1e32
 
-Error DXSetCacheEntry(Object out, double cost,
-		    char *function, int key, int n, ...);
-Error DXSetCacheEntryV(Object out, double cost,
-		     char *function, int key, int n, Object *in);
+Error DXSetCacheEntry( Object out, double cost, char *function, int key, int n,
+                       ... );
+Error DXSetCacheEntryV( Object out, double cost, char *function, int key, int n,
+                        Object *in );
 /**
 \index{DXSetCacheEntry}\index{DXSetCacheEntryV}
 Sets the cache entry for the given {\tt function}, key {\tt key},
@@ -103,8 +103,8 @@ OK} to indicate success, or returns null and sets the error code to
 indicate an error.
 **/
 
-Object DXGetCacheEntry(char *function, int key, int n, ...);
-Object DXGetCacheEntryV(char *function, int key, int n, Object *in);
+Object DXGetCacheEntry( char *function, int key, int n, ... );
+Object DXGetCacheEntryV( char *function, int key, int n, Object *in );
 /**
 \index{DXGetCacheEntry}\index{DXGetCacheEntryV}
 Retrieves the cache entry for the given {\tt function}, output number
@@ -119,6 +119,6 @@ such cache entry exists.
 
 #endif /* _DXI_CACHE_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

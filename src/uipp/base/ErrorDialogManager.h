@@ -9,81 +9,70 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _ErrorDialogManager_h
 #define _ErrorDialogManager_h
 
-
 #include "DialogManager.h"
-
 
 //
 // Class name definition:
 //
-#define ClassErrorDialogManager	"ErrorDialogManager"
+#define ClassErrorDialogManager "ErrorDialogManager"
 
-void ErrorMessage(const char *fmt, ...);
+void ErrorMessage( const char* fmt, ... );
 
-void ModalErrorMessage(Widget parent, const char *fmt, ...);
+void ModalErrorMessage( Widget parent, const char* fmt, ... );
 
 //
 // ErrorDialogManager class definition:
-//				
+//
 class ErrorDialogManager : public DialogManager
 {
-  protected:
-    //
-    // Implementation of createDialog() for this class:
-    //   Creates the dialog.  Intended to be called by superclass getDialog().
-    //
-    Widget createDialog(Widget parent);
+ protected:
+  //
+  // Implementation of createDialog() for this class:
+  //   Creates the dialog.  Intended to be called by superclass getDialog().
+  //
+  Widget createDialog( Widget parent );
 
-  public:
-    //
-    // Constructor:
-    //
-    ErrorDialogManager(char* name);
+ public:
+  //
+  // Constructor:
+  //
+  ErrorDialogManager( char* name );
 
-    //
-    // Destructor:
-    //
-    ~ErrorDialogManager(){}
+  //
+  // Destructor:
+  //
+  ~ErrorDialogManager()
+  {
+  }
 
-    //
-    // A variation on the superclass post() function:
-    //   Only the message variable parameter is specifiable.
-    //   All other parameters are defaulted.
-    //
-    virtual void post(Widget parent,
-		      char* message,
-		      char* = NULL,
-		      void* = NULL,
-		      DialogCallback = NULL,
-		      DialogCallback = NULL,
-		      DialogCallback = NULL,
-                      char*          /* okLabel      */  = NULL,
-                      char*          /* cancelLabel  */  = NULL,
-                      char*          /* helpLabel    */  = NULL,
-                      int            /* cancelBtnNum */  = 2
-	)
+  //
+  // A variation on the superclass post() function:
+  //   Only the message variable parameter is specifiable.
+  //   All other parameters are defaulted.
+  //
+  virtual void post( Widget parent, char* message, const char* = NULL,
+                     void* = NULL, DialogCallback = NULL, DialogCallback = NULL,
+                     DialogCallback = NULL, char* /* okLabel      */ = NULL,
+                     char* /* cancelLabel  */ = NULL,
+                     char* /* helpLabel    */ = NULL,
+                     int /* cancelBtnNum */ = 2 )
 
-    {
-	this->DialogManager::post(parent, message, "Error");
-    }
+  {
+    this->DialogManager::post( parent, message, (char*)"Error" );
+  }
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassErrorDialogManager;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassErrorDialogManager;
+  }
 };
-
 
 extern ErrorDialogManager* theErrorDialogManager;
 
-
-#endif // _ErrorDialogManager_h
+#endif  // _ErrorDialogManager_h

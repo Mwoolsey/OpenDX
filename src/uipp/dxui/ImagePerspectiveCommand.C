@@ -9,25 +9,21 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "ImagePerspectiveCommand.h"
 #include "ImageWindow.h"
 
-ImagePerspectiveCommand::ImagePerspectiveCommand(const char   *name,
-				   CommandScope *scope,
-				   boolean       active,
-				   ImageWindow  *w,
-				   boolean       enable):
-    NoUndoCommand(name, scope, active)
+ImagePerspectiveCommand::ImagePerspectiveCommand( const char *name,
+                                                  CommandScope *scope,
+                                                  boolean active,
+                                                  ImageWindow *w,
+                                                  boolean enable )
+    : NoUndoCommand( name, scope, active )
 {
-    this->imageWindow = w;
-    this->enablePerspective = enable;
+  this->imageWindow = w;
+  this->enablePerspective = enable;
 }
 
-boolean
-ImagePerspectiveCommand::doIt(CommandInterface *ci)
+boolean ImagePerspectiveCommand::doIt( CommandInterface *ci )
 {
-    return this->imageWindow->enablePerspective(this->enablePerspective);
+  return this->imageWindow->enablePerspective( this->enablePerspective );
 }

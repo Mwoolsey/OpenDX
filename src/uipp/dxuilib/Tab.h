@@ -9,99 +9,104 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _Tab_h
 #define _Tab_h
-
 
 #include "UIComponent.h"
 // #include "StandIn.h"
 
-
 //
 // Class name definition:
 //
-#define ClassTab	"Tab"
+#define ClassTab "Tab"
 
 class StandIn;
 
 //
 // StandIn class definition:
-//				
+//
 class Tab : public UIComponent
 {
 
-  private:
+ private:
+  // static Boolean ClassInitialized;
+  // static String  DefaultResources[];
 
-    // static Boolean ClassInitialized;
-    // static String  DefaultResources[];
+  StandIn *standIn;
 
-    StandIn	*standIn;
+  Position x; /* x position                   */
+  Position y; /* y position                   */
 
-    Position	x;              /* x position                   */
-    Position	y;              /* y position                   */
+  Widget lineWidget; /* "Line" to tab that is connected */
 
-    Widget	lineWidget;	/* "Line" to tab that is connected */
+ public:
+  //
+  // Constructor:
+  //
+  Tab( StandIn *standIn );
 
-  public:
+  //
+  // Destructor:
+  //
+  ~Tab();
 
-    //
-    // Constructor:
-    //
-    Tab(StandIn *standIn);
+  //
+  // Creates the tab widget
+  //
+  void createTab( Widget parent, boolean createManaged = TRUE );
 
-    //
-    // Destructor:
-    //
-    ~Tab();
+  //
+  // Returns TRUE if the object has been initialized,
+  //   i.e., the window root widget has been created.
+  //
+  boolean isInitialized()
+  {
+    return this->getRootWidget() != NUL( Widget );
+  }
 
-    //
-    // Creates the tab widget 
-    //
-    void createTab(Widget parent, boolean createManaged = TRUE);
+  //
+  // Moves the Tab
+  //
+  void moveTabXY( Position x, Position y, boolean update );
+  void moveTabX( Position x, boolean update );
+  void moveTabY( Position y, boolean update );
 
-    //
-    // Returns TRUE if the object has been initialized,
-    //   i.e., the window root widget has been created.
-    //
-    boolean isInitialized()
-    {
-        return this->getRootWidget() != NUL(Widget);
-    }
+  //
+  // Return info about the Tab
+  //
+  int getTabX()
+  {
+    return this->x;
+  };
+  int getTabY()
+  {
+    return this->y;
+  };
+  Widget getLine()
+  {
+    return this->lineWidget;
+  };
 
-    //
-    // Moves the Tab
-    //
-    void moveTabXY(Position x, Position y, boolean update);
-    void moveTabX(Position x, boolean update);
-    void moveTabY(Position y, boolean update);
+  //
+  // Set the lineWidget
+  //
+  void setLine( Widget lineWidget )
+  {
+    this->lineWidget = lineWidget;
+  };
 
-    //
-    // Return info about the Tab
-    //
-    int getTabX(){return this->x;};
-    int getTabY(){return this->y;};
-    Widget getLine(){return this->lineWidget;};
+  //
+  // Set the background color of a tab
+  //
+  void setBackground( Pixel background );
 
-    //
-    // Set the lineWidget
-    //
-    void setLine(Widget  lineWidget){this->lineWidget = lineWidget;};
-
-    //
-    // Set the background color of a tab
-    //
-    void setBackground(Pixel  background);
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-        return ClassTab;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassTab;
+  }
 };
 
-#endif // _Tab_h
+#endif  // _Tab_h

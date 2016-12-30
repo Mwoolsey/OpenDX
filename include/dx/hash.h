@@ -6,7 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -31,7 +31,7 @@ to be associated with that key.
 
 Elements are stored into the table using 32-bit pseudo-keys.  These
 pseudo-keys should be uniformly distributed in any range beginning at
-zero.  The keys themselves either contain the pseudo-key as their first 
+zero.  The keys themselves either contain the pseudo-key as their first
 32-bit word or are derived from the key via a call-back function
 provided at hash-table creation time.
 
@@ -53,7 +53,7 @@ Optionally provided by the calling application:
 
 PseudoKey DXhashFunc(Key key);
 
-Called on insertion and query to convert the arbitrary-size search key 
+Called on insertion and query to convert the arbitrary-size search key
 into the 32-bit pseudo-key used to store the hash table elements.
 
 int DXcmpFunc(Key searchKey, Element element);
@@ -63,47 +63,47 @@ pseudo-key derived from the search key.  Returns 0 if the search key matches
 the key contained in the element found in the table, non-zero otherwise.
 */
 
-typedef struct hashTable  *HashTable;
+typedef struct hashTable *HashTable;
 
-typedef long  		  PseudoKey;
-typedef Pointer 	  Key;
-typedef Pointer 	  Element;
+typedef long PseudoKey;
+typedef Pointer Key;
+typedef Pointer Element;
 
-HashTable DXCreateHash(int elementSize, 
-		PseudoKey (*DXhashFunc)(), int (*DXcmpFunc)());
+HashTable DXCreateHash( int elementSize, PseudoKey ( *DXhashFunc )(),
+                        int ( *DXcmpFunc )() );
 /**
 \index{DXCreateHash}
 Creates a hash table storing elements (key + data) of size {\tt elementSize}.
-{\tt DXhashFunc} is the optional hash function callback.  Given an element, 
+{\tt DXhashFunc} is the optional hash function callback.  Given an element,
 {\tt DXhashFunc} should return an uniformly distributed 32-bit pseudo-key.
 If no hash function is supplied, the first 32-bit word of each key is
 assumed to be the pseudo-key.  {\tt DXcmpFunc} is the optional compare
-function callback.  Given a search key and an element, {\tt DXcmpFunc} 
+function callback.  Given a search key and an element, {\tt DXcmpFunc}
 should return 0 if the key matches the element.  If no compare function
 is supplied, any element matching the pseudo-key derived from a search key
 is assumed to match the search key.
 */
 
-Error DXDestroyHash(HashTable hashTable);
+Error DXDestroyHash( HashTable hashTable );
 /**
 \index{DXDestroyHash}
 DXDelete {\tt hashTable} and all storage associated with it.
 */
 
-Element	DXQueryHashElement(HashTable hashTable, Key searchKey);
+Element DXQueryHashElement( HashTable hashTable, Key searchKey );
 /**
 \index{DXQueryHashElement}
 Search the hash table for an element matching {\tt searchKey}.  Returns
 the element if found, NULL otherwise.
 */
 
-Error DXDeleteHashElement(HashTable hashTable, Key searchKey);
+Error DXDeleteHashElement( HashTable hashTable, Key searchKey );
 /**
 \index{DXDeleteHashElement}
 Removes any element that matches the {\tt searchKey}.  Always returns OK.
 */
 
-Error DXInsertHashElement(HashTable hashTable, Element element);
+Error DXInsertHashElement( HashTable hashTable, Element element );
 /**
 \index{DXInsertHashElement}
 Inserts {\tt element} into {\tt hashTable}.  If an element matching the key
@@ -112,17 +112,17 @@ contained in {\tt element} already exists in the table, it is overwritten.
 
 /**
 \paragraph{Hash Table Iteration}
-The following routines support iteration through the elements of the 
+The following routines support iteration through the elements of the
 hash table.  The elements are produced in no pre-defined order.
 */
 
-Error DXInitGetNextHashElement(HashTable hashTable);
+Error DXInitGetNextHashElement( HashTable hashTable );
 /**
 \index{DXInitGetNextHashElement}
 Initializes iteration through the contents of {\tt hashTable}.
 */
 
-Element DXGetNextHashElement(HashTable hashTable);
+Element DXGetNextHashElement( HashTable hashTable );
 /**
 \index{DXGetNextHashElement}
 Returns the next element in the iteration.  Returns NULL when the
@@ -131,6 +131,6 @@ entire contents of {\tt hashTable} have been passed.
 
 #endif /* _DXI_HASH_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

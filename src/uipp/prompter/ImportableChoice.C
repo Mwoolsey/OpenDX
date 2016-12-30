@@ -9,9 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "ImportableChoice.h"
 #include "GARApplication.h"
 #include "GARChooserWindow.h"
@@ -31,30 +28,22 @@
 //
 
 boolean ImportableChoice::ClassInitialized = FALSE;
-String ImportableChoice::DefaultResources[] =
-{
-    NUL(char*)
-};
+String ImportableChoice::DefaultResources[] = {NUL(char *)};
 
-ImportableChoice::ImportableChoice (
-    const char* name,
-    boolean     browsable, boolean      testable,
-    boolean     visualizable, boolean   prompterable,
-    GARChooserWindow *gcw,
-    Symbol sym
-) : TypeChoice(name, browsable, testable, visualizable, prompterable, gcw, sym)
+ImportableChoice::ImportableChoice( const char *name, boolean browsable,
+                                    boolean testable, boolean visualizable,
+                                    boolean prompterable, GARChooserWindow *gcw,
+                                    Symbol sym )
+    : TypeChoice( name, browsable, testable, visualizable, prompterable, gcw,
+                  sym )
 {
 }
-
-
 
 const char *ImportableChoice::getActiveHelpMsg()
 {
-static char msg[256];
+  static char msg[256];
 
-    sprintf (msg, "The import module can read %s files.", 
-	this->getInformalName());
-    return msg;
+  sprintf( msg, "The import module can read %s files.",
+           this->getInformalName() );
+  return msg;
 }
-
-

@@ -9,80 +9,75 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _ThrottleDialog_h
 #define _ThrottleDialog_h
-
 
 #include "Dialog.h"
 
 //
 // Class name definition:
 //
-#define ClassThrottleDialog	"ThrottleDialog"
+#define ClassThrottleDialog "ThrottleDialog"
 
 //
 // XtCallbackProc (*CB), XtEventHandler (*EH) and XtActionProc (*AP)
 // DialogCallback (*DCB), XtInputCallbackProc (*ICP), XtWorkProc (*WP)
 // functions for this and derived classes
 //
-extern "C" void ThrottleDialog_DoAllCB(Widget, XtPointer, XtPointer);
+extern "C" void ThrottleDialog_DoAllCB( Widget, XtPointer, XtPointer );
 
 class ImageWindow;
 
 //
 // ThrottleDialog class definition:
-//				
+//
 
 class ThrottleDialog : public Dialog
 {
-  private:
-    //
-    // Private member data:
-    //
-    static boolean ClassInitialized;
+ private:
+  //
+  // Private member data:
+  //
+  static boolean ClassInitialized;
 
-    Widget closebtn;
-    Widget seconds;
-    Widget label;
+  Widget closebtn;
+  Widget seconds;
+  Widget label;
 
-    ImageWindow* image;
- 
-  protected:
-    //
-    // Protected member data:
-    //
-    static String  DefaultResources[];
-    friend void ThrottleDialog_DoAllCB(Widget, XtPointer , XtPointer);
+  ImageWindow* image;
 
-    virtual Widget createDialog(Widget);
+ protected:
+  //
+  // Protected member data:
+  //
+  static String DefaultResources[];
+  friend void ThrottleDialog_DoAllCB( Widget, XtPointer, XtPointer );
 
-  public:
+  virtual Widget createDialog( Widget );
 
-    //
-    // Constructor:
-    //
-    ThrottleDialog(char *name, ImageWindow*);
+ public:
+  //
+  // Constructor:
+  //
+  ThrottleDialog( char* name, ImageWindow* );
 
-    //
-    // Destructor:
-    //
-    ~ThrottleDialog();
+  //
+  // Destructor:
+  //
+  ~ThrottleDialog();
 
-    virtual void    	manage();
-    virtual void    	initialize();
+  virtual void manage();
+  virtual void initialize();
 
-    void installThrottleValue(double value);
+  void installThrottleValue( double value );
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassThrottleDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassThrottleDialog;
+  }
 };
 
-
-#endif // _ThrottleDialog_h
+#endif  // _ThrottleDialog_h

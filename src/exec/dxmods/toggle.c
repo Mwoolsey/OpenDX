@@ -8,7 +8,7 @@
 
 #include <dxconfig.h>
 
-#if defined(HAVE_STRING_H)
+#if defined( HAVE_STRING_H )
 #include <string.h>
 #endif
 
@@ -17,152 +17,181 @@
 #define MAXRANK 16
 #define MSGLEN 240
 
-static int readvalue(Object,char *,char *,Object *);
+static int readvalue( Object, char *, char *, Object * );
 
 #if 0
 static int compare_arrays(Array *a, Array *b,int items,int dim,Type type);
-static Error read_and_compare(Object cvalue,Object svalue,Object uvalue,int *on,          Object *out); 
+static Error read_and_compare(Object cvalue,Object svalue,Object uvalue,int *on,          Object *out);
 #endif
 
-int m_Toggle(Object *in, Object *out)
+int m_Toggle( Object *in, Object *out )
 {
-   struct einfo ei;
-   char *id, *label;
-   Object idobj;
-   char *set="set= ",*unset="unset= ";
-   int shape[MAXRANK];
-   int toggle,change;
+  struct einfo ei;
+  char *id, *label;
+  Object idobj;
+  char *set = "set= ", *unset = "unset= ";
+  int shape[MAXRANK];
+  int toggle, change;
 
-   ei.msgbuf = NULL;
-   out[0] = in[1];
+  ei.msgbuf = NULL;
+  out[0] = in[1];
 
-   /* get id */
-   if (!DXExtractString(in[0], &id)){
-       DXSetError(ERROR_BAD_PARAMETER,"#10000","id");
-       goto error;
-   }
-   idobj=in[0];
+  /* get id */
+  if ( !DXExtractString( in[0], &id ) )
+  {
+    DXSetError( ERROR_BAD_PARAMETER, "#10000", "id" );
+    goto error;
+  }
+  idobj = in[0];
 
-   /* read toggle value (set=1, unset=0) */
-   if (!in[2])
-      toggle=0;
-   else{
-      if (!DXExtractInteger(in[2],&toggle)){
-	 DXSetError(ERROR_INTERNAL,"toggle value is not integer");
-	 goto error;
-      }
-   }
-   
-   /* read set value */
-   change = _dxfcheck_obj_cache(in[3],id,3,idobj);
-   if (change==0) set=NULL;
-   if (in[3]){	/* set value is data-driven */
-      if (toggle==1){
-	 if (!readvalue(in[3],id,set,out))
-            goto error;
-      }
-      else{
-	 if (!readvalue(in[3],id,set,NULL))
-	    goto error;
-      }
-   }
+  /* read toggle value (set=1, unset=0) */
+  if ( !in[2] )
+    toggle = 0;
+  else
+  {
+    if ( !DXExtractInteger( in[2], &toggle ) )
+    {
+      DXSetError( ERROR_INTERNAL, "toggle value is not integer" );
+      goto error;
+    }
+  }
 
-   /* read unset value */
-   change = _dxfcheck_obj_cache(in[4],id,4,idobj);
-   if (change==0) unset=NULL;
-   if (in[4]){
-      if (toggle==0){
-	 if (!readvalue(in[4],id,unset,out))
-            goto error;
-      }
-      else{
-	 if (!readvalue(in[4],id,unset,NULL))
-	    goto error;
-      }
-   }
+  /* read set value */
+  change = _dxfcheck_obj_cache( in[3], id, 3, idobj );
+  if ( change == 0 )
+    set = NULL;
+  if ( in[3] )
+  {/* set value is data-driven */
+    if ( toggle == 1 )
+    {
+      if ( !readvalue( in[3], id, set, out ) )
+        goto error;
+    }
+    else
+    {
+      if ( !readvalue( in[3], id, set, NULL ) )
+        goto error;
+    }
+  }
 
-   /* read label */
-   if (in[5]){
-      if (!DXExtractString(in[5], &label)){
-         DXSetError(ERROR_BAD_PARAMETER,"#10200","label");
-         goto error;
-      }
-      ei.maxlen = (int)strlen(label)+SLOP;
-      ei.msgbuf = (char *)DXAllocateZero(ei.maxlen);
-      ei.atend = 0;
-      if (!ei.msgbuf)
-         goto error;
-      ei.mp =ei.msgbuf;
-      shape[0] = (int)strlen(label);
-      sprintf(ei.mp, "label="); while(*ei.mp) ei.mp++;
-      if (!_dxfprint_message(label,&ei,TYPE_STRING,1,shape,1))
-         goto error;
-      DXUIMessage(id,ei.msgbuf);
-      DXFree(ei.msgbuf);
-   }
+  /* read unset value */
+  change = _dxfcheck_obj_cache( in[4], id, 4, idobj );
+  if ( change == 0 )
+    unset = NULL;
+  if ( in[4] )
+  {
+    if ( toggle == 0 )
+    {
+      if ( !readvalue( in[4], id, unset, out ) )
+        goto error;
+    }
+    else
+    {
+      if ( !readvalue( in[4], id, unset, NULL ) )
+        goto error;
+    }
+  }
 
+  /* read label */
+  if ( in[5] )
+  {
+    if ( !DXExtractString( in[5], &label ) )
+    {
+      DXSetError( ERROR_BAD_PARAMETER, "#10200", "label" );
+      goto error;
+    }
+    ei.maxlen = (int)strlen( label ) + SLOP;
+    ei.msgbuf = (char *)DXAllocateZero( ei.maxlen );
+    ei.atend = 0;
+    if ( !ei.msgbuf )
+      goto error;
+    ei.mp = ei.msgbuf;
+    shape[0] = (int)strlen( label );
+    sprintf( ei.mp, "label=" );
+    while ( *ei.mp )
+      ei.mp++;
+    if ( !_dxfprint_message( label, &ei, TYPE_STRING, 1, shape, 1 ) )
+      goto error;
+    DXUIMessage( id, ei.msgbuf );
+    DXFree( ei.msgbuf );
+  }
 
-   return OK;
+  return OK;
 
 error:
-   if (out[0]) out[0]=NULL;
-   if (ei.msgbuf) DXFree(ei.msgbuf);
-   return ERROR;
+  if ( out[0] )
+    out[0] = NULL;
+  if ( ei.msgbuf )
+    DXFree( ei.msgbuf );
+  return ERROR;
 }
 
-
 /* routine for reading, and optionally sending UIMessage or setting output */
-int readvalue(Object o,char *id,char *value,Object *out)
+int readvalue( Object o, char *id, char *value, Object *out )
 {
-   struct einfo ei;
-   char *set_string;
-   int items,shape[MAXRANK],rank;
-   Type type;
-   Category cat;
-   void *p_set;
-      
-   /* setup message */
-   ei.maxlen = MSGLEN;
-   ei.atend = 0;
-   if (value) ei.msgbuf = (char *)DXAllocateZero(ei.maxlen+SLOP);
-   if (!ei.msgbuf)
-      goto error;
-   ei.mp =ei.msgbuf;
+  struct einfo ei;
+  char *set_string;
+  int items, shape[MAXRANK], rank;
+  Type type;
+  Category cat;
+  void *p_set;
 
-      if (!DXExtractString((Object)o,&set_string)){
-         if (!DXGetArrayInfo((Array)o,&items,&type,&cat,&rank,shape))
-            return ERROR;
-         p_set = DXGetArrayData((Array)o); 
-         if (rank==0) shape[0]=1;
-         if (value){
-            sprintf(ei.mp, "%s",value); while(*ei.mp) ei.mp++;
-	    if (!_dxfprint_message(p_set,&ei,type,rank,shape,items))
-	       goto error;
-	 }
-	 if (out){
-            out[0] = (Object)DXNewArrayV(type,CATEGORY_REAL,rank,shape);
-            if(!out[0] || !DXAddArrayData((Array)out[0],0,items,(Pointer)p_set))
-	       goto error;
-	 }
-      }
-      else{
-         shape[0] = (int)strlen(set_string);
-         if (value){
-            sprintf(ei.mp,"%s",value); while(*ei.mp) ei.mp++;
-	    if (!_dxfprint_message(set_string,&ei,TYPE_STRING,1,shape,1))
-               goto error;
-	 }
-	 if (out) out[0] = (Object)DXNewString(set_string);
-      }
+  /* setup message */
+  ei.maxlen = MSGLEN;
+  ei.atend = 0;
+  if ( value )
+    ei.msgbuf = (char *)DXAllocateZero( ei.maxlen + SLOP );
+  if ( !ei.msgbuf )
+    goto error;
+  ei.mp = ei.msgbuf;
 
-   if (value) {
-      DXUIMessage(id,ei.msgbuf);
-      DXFree(ei.msgbuf);
-   }
-   return OK;
+  if ( !DXExtractString( (Object)o, &set_string ) )
+  {
+    if ( !DXGetArrayInfo( (Array)o, &items, &type, &cat, &rank, shape ) )
+      return ERROR;
+    p_set = DXGetArrayData( (Array)o );
+    if ( rank == 0 )
+      shape[0] = 1;
+    if ( value )
+    {
+      sprintf( ei.mp, "%s", value );
+      while ( *ei.mp )
+        ei.mp++;
+      if ( !_dxfprint_message( p_set, &ei, type, rank, shape, items ) )
+        goto error;
+    }
+    if ( out )
+    {
+      out[0] = (Object)DXNewArrayV( type, CATEGORY_REAL, rank, shape );
+      if ( !out[0] ||
+           !DXAddArrayData( (Array)out[0], 0, items, (Pointer)p_set ) )
+        goto error;
+    }
+  }
+  else
+  {
+    shape[0] = (int)strlen( set_string );
+    if ( value )
+    {
+      sprintf( ei.mp, "%s", value );
+      while ( *ei.mp )
+        ei.mp++;
+      if ( !_dxfprint_message( set_string, &ei, TYPE_STRING, 1, shape, 1 ) )
+        goto error;
+    }
+    if ( out )
+      out[0] = (Object)DXNewString( set_string );
+  }
+
+  if ( value )
+  {
+    DXUIMessage( id, ei.msgbuf );
+    DXFree( ei.msgbuf );
+  }
+  return OK;
 
 error:
-      return ERROR;
+  return ERROR;
 }
 
 #if 0

@@ -8,44 +8,43 @@
 
 #include <dxconfig.h>
 
+#ifndef tdmSort_h
+#define tdmSort_h
 
-#ifndef	tdmSort_h
-#define	tdmSort_h
-
-typedef struct sort 
+typedef struct sort
 {
-    void 	*xfp;
-    int		poly;
+  void *xfp;
+  int poly;
 } *Sort;
 
 typedef struct sortD
 {
-    void 	*xfp;
-    int		poly;
-    float	depth;
+  void *xfp;
+  int poly;
+  float depth;
 } *SortD;
 
 #define DXHW_TLIST_BLOCKSIZE 1024
 
 typedef struct sortBlock
 {
-    struct sort        list[DXHW_TLIST_BLOCKSIZE];
-    int                numUsed;
-    struct sortBlock   *next;
+  struct sort list[DXHW_TLIST_BLOCKSIZE];
+  int numUsed;
+  struct sortBlock *next;
 } *SortBlock;
 
 typedef struct sortList
 {
-    SortBlock 	sortBlockList;
-    int		itemCount;
-    SortD	sortList;
-    int		sortListLength;
+  SortBlock sortBlockList;
+  int itemCount;
+  SortD sortList;
+  int sortListLength;
 } *SortListP;
 
 SortList _dxf_newSortList();
-void     _dxf_deleteSortList(SortList sl);
-void     _dxf_clearSortList(SortList sl);
-int      _dxf_Insert_Translucent(SortList sl, void *xfp, int i);
-int      _dxf_Sort_Translucent(SortList sl);
+void _dxf_deleteSortList( SortList sl );
+void _dxf_clearSortList( SortList sl );
+int _dxf_Insert_Translucent( SortList sl, void *xfp, int i );
+int _dxf_Sort_Translucent( SortList sl );
 
-#endif	/* tdmSort_h */
+#endif /* tdmSort_h */

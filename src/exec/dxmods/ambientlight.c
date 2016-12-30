@@ -6,16 +6,16 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dxmods/ambientlight.c,v 1.4 2000/08/24 20:04:23 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dxmods/ambientlight.c,v 1.4 2000/08/24
+ * 20:04:23 davidt Exp $
  */
 
 #include <dxconfig.h>
 
-
 /***
-MODULE: 
+MODULE:
  AmbientLight
-SHORTDESCRIPTION: 
+SHORTDESCRIPTION:
  Creates an ambient light source.
 CATEGORY:
  Rendering
@@ -37,30 +37,29 @@ END:
 static int GoodRGB(RGBColor);
 #endif
 
-int
-m_AmbientLight(Object *in, Object *out)
+int m_AmbientLight( Object *in, Object *out )
 {
-    RGBColor c;
-    char *colorstring;
+  RGBColor c;
+  char *colorstring;
 
+  if ( !in[0] )
+    c = DXRGB( 0.2, 0.2, 0.2 );
 
-    if(!in[0])
-	c = DXRGB(0.2, 0.2, 0.2);
+  else if ( !DXExtractParameter( in[0], TYPE_FLOAT, 3, 1, ( Pointer ) & c ) )
+  {
+    if ( !DXExtractString( in[0], &colorstring ) )
+    {
+      DXSetError( ERROR_BAD_PARAMETER, "#10510", "color" );
+      return ERROR;
+    }
+    if ( !DXColorNameToRGB( colorstring, &c ) )
+      return ERROR;
+  }
 
-    else if(!DXExtractParameter(in[0], TYPE_FLOAT, 3, 1, (Pointer)&c)) {
-        if (!DXExtractString(in[0], &colorstring)) {
-          DXSetError(ERROR_BAD_PARAMETER, "#10510", "color");
-          return ERROR;
-        }
-        if (!DXColorNameToRGB(colorstring, &c))
-          return ERROR;
-    }   
-        
-    out[0] = (Object)DXNewAmbientLight(c);
+  out[0] = (Object)DXNewAmbientLight( c );
 
-    return(out[0] ? OK : ERROR);
+  return ( out[0] ? OK : ERROR );
 }
-
 
 #if 0
 static int GoodRGB(RGBColor col)
@@ -79,4 +78,3 @@ static int GoodRGB(RGBColor col)
   return OK;
 }
 #endif
-

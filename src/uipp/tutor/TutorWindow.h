@@ -9,8 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _TutorWindow_h
 #define _TutorWindow_h
 
@@ -20,7 +18,7 @@
 //
 // Class name definition:
 //
-#define ClassTutorWindow	"TutorWindow"
+#define ClassTutorWindow "TutorWindow"
 
 class CommandScope;
 class Command;
@@ -28,68 +26,63 @@ class Dictionary;
 
 //
 // TutorWindow class definition:
-//				
+//
 class TutorWindow : public HelpWin
 {
 
-  private:
-    //
-    // Private class data:
-    //
-    static boolean ClassInitialized;
- 
-  protected:
+ private:
+  //
+  // Private class data:
+  //
+  static boolean ClassInitialized;
 
-    static String DefaultResources[];
-    //
-    // Menus & pulldowns:
-    //
+ protected:
+  static String DefaultResources[];
+  //
+  // Menus & pulldowns:
+  //
 
-    Widget		fileMenu;
+  Widget fileMenu;
 
-    Widget		fileMenuPulldown;
+  Widget fileMenuPulldown;
 
-    //
-    // File menu options:
-    //
+  //
+  // File menu options:
+  //
 
-    //
-    // This routine is called by initialize() function to create
-    // the menus for the menubar in the window.
-    //
-    virtual void createMenus(Widget parent);
-    virtual void createFileMenu(Widget parent);
+  //
+  // This routine is called by initialize() function to create
+  // the menus for the menubar in the window.
+  //
+  virtual void createMenus( Widget parent );
+  virtual void createFileMenu( Widget parent );
 
+ public:
+  TutorWindow();
 
-  public:
+  //
+  // Destructor:
+  //
+  ~TutorWindow();
 
-    TutorWindow();
+  //
+  // Sets the default resources before calling the superclass
+  // initialize() function.
+  //
+  virtual void initialize();
 
-    //
-    // Destructor:
-    //
-    ~TutorWindow();
+  //
+  // Any unmanage is an implied exit().
+  //
+  virtual void unmanage();
 
-    //
-    // Sets the default resources before calling the superclass
-    // initialize() function.
-    //
-    virtual void initialize();
-
-    //
-    // Any unmanage is an implied exit().
-    //
-    virtual void unmanage();
-
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassTutorWindow;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassTutorWindow;
+  }
 };
 
-
-#endif // _TutorWindow_h
+#endif  // _TutorWindow_h

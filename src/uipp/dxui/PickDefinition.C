@@ -9,21 +9,19 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #include "PickDefinition.h"
 #include "PickNode.h"
 
 NodeDefinition *PickDefinition::AllocateDefinition()
 {
-    return new PickDefinition;
+  return new PickDefinition;
 }
-
 
 PickDefinition::PickDefinition() : ProbeDefinition()
 {
 }
 
-Node *PickDefinition::newNode(Network *net, int instance)
+Node *PickDefinition::newNode( Network *net, int instance )
 {
-    return new PickNode(this, net, instance);
+  return new PickNode( this, net, instance );
 }

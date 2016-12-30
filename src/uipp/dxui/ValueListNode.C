@@ -9,42 +9,39 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "ValueListNode.h"
 #include "ValueListInstance.h"
 
 //
-// The Constructor... 
+// The Constructor...
 //
-ValueListNode::ValueListNode(NodeDefinition *nd, Network *net, int instnc) :
-                        ValueNode(nd, net, instnc)
-{ 
+ValueListNode::ValueListNode( NodeDefinition *nd, Network *net, int instnc )
+    : ValueNode( nd, net, instnc )
+{
 }
 
 //
-// Destructure: needs to delete all its instances. 
+// Destructure: needs to delete all its instances.
 //
 ValueListNode::~ValueListNode()
 {
 }
-InteractorInstance* ValueListNode::newInteractorInstance()
+InteractorInstance *ValueListNode::newInteractorInstance()
 {
-    ValueListInstance *ii;
+  ValueListInstance *ii;
 
-    ii = new ValueListInstance(this);
+  ii = new ValueListInstance( this );
 
-    return ii;
+  return ii;
 }
 //
 // Determine if this node is of the given class.
 //
-boolean ValueListNode::isA(Symbol classname)
+boolean ValueListNode::isA( Symbol classname )
 {
-    Symbol s = theSymbolManager->registerSymbol(ClassValueListNode);
-    if (s == classname)
-	return TRUE;
-    else
-	return this->ValueNode::isA(classname);
+  Symbol s = theSymbolManager->registerSymbol( ClassValueListNode );
+  if ( s == classname )
+    return TRUE;
+  else
+    return this->ValueNode::isA( classname );
 }

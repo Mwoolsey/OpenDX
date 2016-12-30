@@ -9,9 +9,6 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "NoUndoChoiceCommand.h"
 #include "TypeChoice.h"
 
@@ -23,86 +20,84 @@
 #include "GridChoice.h"
 #include "SpreadSheetChoice.h"
 
-NoUndoChoiceCommand::NoUndoChoiceCommand(const char*   name,
-				       CommandScope* scope,
-				       boolean       active,
-				       TypeChoice *choice,
-				       ChoiceCommandType comType) :
-	NoUndoCommand(name, scope, active)
+NoUndoChoiceCommand::NoUndoChoiceCommand( const char *name, CommandScope *scope,
+                                          boolean active, TypeChoice *choice,
+                                          ChoiceCommandType comType )
+    : NoUndoCommand( name, scope, active )
 {
-	this->commandType = comType;
-	this->choice = choice;
+  this->commandType = comType;
+  this->choice = choice;
 }
 
-
-boolean NoUndoChoiceCommand::doIt(CommandInterface *)
+boolean NoUndoChoiceCommand::doIt( CommandInterface * )
 {
-    TypeChoice *choice = this->choice;
-    GridChoice *grid;
-    SpreadSheetChoice *ssc;
-    boolean ret;
+  TypeChoice *choice = this->choice;
+  GridChoice *grid;
+  SpreadSheetChoice *ssc;
+  boolean ret;
 
-    ASSERT(choice);
+  ASSERT( choice );
 
-    ret = TRUE;
-    switch (this->commandType) {
+  ret = TRUE;
+  switch ( this->commandType )
+  {
 
     case NoUndoChoiceCommand::Browse:
-	ret = choice->browse();
-	break;
+      ret = choice->browse();
+      break;
 
     case NoUndoChoiceCommand::SetChoice:
-	ret = choice->setChoice();
-	break;
+      ret = choice->setChoice();
+      break;
 
     case NoUndoChoiceCommand::Visualize:
-	ret = choice->visualize();
-	break;
+      ret = choice->visualize();
+      break;
 
     case NoUndoChoiceCommand::VerifyData:
-	ret = choice->verify();
-	break;
+      ret = choice->verify();
+      break;
 
     case NoUndoChoiceCommand::SetGridType:
-	grid = (GridChoice*)choice;
-	ret = grid->setGridType();
-	break;
+      grid = (GridChoice *)choice;
+      ret = grid->setGridType();
+      break;
 
     case NoUndoChoiceCommand::Positions:
-	grid = (GridChoice*)choice;
-	ret = grid->usePositions();
-	break;
+      grid = (GridChoice *)choice;
+      ret = grid->usePositions();
+      break;
 
     case NoUndoChoiceCommand::Prompter:
-	ret = choice->prompter();
-	break;
+      ret = choice->prompter();
+      break;
 
     case NoUndoChoiceCommand::SimplePrompter:
-	ret = choice->simplePrompter();
-	break;
+      ret = choice->simplePrompter();
+      break;
 
     case NoUndoChoiceCommand::RestrictNames:
-	ssc = (SpreadSheetChoice*)choice;
-	ret = ssc->restrictNamesCB();
-	break;
+      ssc = (SpreadSheetChoice *)choice;
+      ret = ssc->restrictNamesCB();
+      break;
 
     case NoUndoChoiceCommand::SpecifyRows:
-	ssc = (SpreadSheetChoice*)choice;
-	ret = ssc->useRowsCB();
-	break;
+      ssc = (SpreadSheetChoice *)choice;
+      ret = ssc->useRowsCB();
+      break;
 
     case NoUndoChoiceCommand::UseDelimiter:
-	ssc = (SpreadSheetChoice*)choice;
-	ret = ssc->useDelimiterCB();
-	break;
+      ssc = (SpreadSheetChoice *)choice;
+      ret = ssc->useDelimiterCB();
+      break;
 
     case NoUndoChoiceCommand::NoOp:
-	ret = TRUE;
-	break;
+      ret = TRUE;
+      break;
 
     default:
-	ASSERT(0);
-    }
+      ASSERT( 0 );
+  }
 
-    return ret;
+  return ret;
 }

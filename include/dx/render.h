@@ -6,8 +6,7 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 
-
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -44,7 +43,7 @@ and regular volume rendering algorithms.  Rendering can be
 accomplished by the {\tt DXRender()} routine:
 */
 
-Field DXRender(Object o, Camera c, char *format);
+Field DXRender( Object o, Camera c, char *format );
 /**
 \index{DXRender}
 Renders {\tt o} using the parameters defined by attributes of the
@@ -238,7 +237,7 @@ opacity at $z$, then the total color of a ray passing through the
 volume is given by
 \[
     c =  \int_{-\infty}^\infty c(z)
-	\exp \left( - \int_{-\infty}^z o(\zeta)\,d\zeta \right)\,dz.
+        \exp \left( - \int_{-\infty}^z o(\zeta)\,d\zeta \right)\,dz.
 \]
 
 
@@ -274,6 +273,6 @@ against a surface with a slope of two.
 
 #endif /* _DXI_RENDER_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

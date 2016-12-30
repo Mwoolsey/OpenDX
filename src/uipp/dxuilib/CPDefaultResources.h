@@ -9,233 +9,252 @@
 #ifndef _CPDefaultResources_h
 #define _CPDefaultResources_h
 
-#if !defined(DX_NEW_KEYLAYOUT)
+#if !defined( DX_NEW_KEYLAYOUT )
 
-String ControlPanel::DefaultResources[] =
-{
-    ".width:                                      375",
-    ".height:                                     450",
-    ".iconName:                                   Control Panel",
-    ".title:                                      Control Panel",
-
-    "*fileMenu.labelString:                       File",
-    "*fileMenu.mnemonic:                          F",
-    "*panelOpenOption.labelString:                     Open...",
-    "*panelOpenOption.mnemonic:                        O",
-    "*panelSaveAsOption.labelString:                   Save As...",
-    "*panelSaveAsOption.mnemonic:                      S",
-    "*panelCloseOption.labelString:                    Close",
-    "*panelCloseOption.mnemonic:                       C",
-    "*panelCloseAllOption.labelString:                 Close All Control Panels",
-
-    "*stylePulldown.tearOffModel:		  XmTEAR_OFF_DISABLED",
-    "*dimensionalityePulldown.tearOffModel:	  XmTEAR_OFF_DISABLED",
-    "*layoutPulldown.tearOffModel:		  XmTEAR_OFF_DISABLED",
-    "*editMenuPulldown.tearOffModel:		  XmTEAR_OFF_DISABLED",
-
-    "*editMenu.labelString:                       Edit",
-    "*editMenu.mnemonic:                          E",
-    "*panelSetStyleButton.labelString:                 Set Style",
-    "*panelSetStyleButton.mnemonic:                    y",
-    "*panelSetDimensionalityButton.labelString:        Set Dimensionality",
-    "*panelSetDimensionalityButton.mnemonic:           i",
-    "*dimensionalityPulldown*set1DOption.labelString:      1 Dimensional",
-    "*dimensionalityPulldown*set2DOption.labelString:      2 Dimensional",
-    "*dimensionalityPulldown*set3DOption.labelString:      3 Dimensional",
-    "*dimensionalityPulldown*set4DOption.labelString:      4 Dimensional",
-
-    "*panelAddButton.labelString:    		       Add Element",
-    "*panelAddButton.mnemonic:    		       A",
-    "*panelSetLayoutButton.labelString:                Set Layout",
-    "*panelSetLayoutButton.mnemonic:                   L",
-    "*panelVerticalOption.labelString:                 Vertical", 
-    "*panelHorizontalOption.labelString:               Horizontal",
-    "*panelSetAttributesOption.labelString:            Set Attributes...",
-    "*panelSetAttributesOption.mnemonic:               e",
-    "*panelSetInteractorLabelOption.labelString:       Set Label...",
-    "*panelSetInteractorLabelOption.mnemonic:          t",
-
-    "*panelDeleteOption.labelString:                   Delete",
-    "*panelDeleteOption.mnemonic:                      D",
-#if defined(aviion)
+String ControlPanel::DefaultResources[] = {
+    (char *)".width:                                      375",
+    (char *)".height:                                     450",
+    (char *)".iconName:                                   Control Panel",
+    (char *)".title:                                      Control Panel",
+    (char *)"*fileMenu.labelString:                       File",
+    (char *)"*fileMenu.mnemonic:                          F",
+    (char *)"*panelOpenOption.labelString:                     Open...",
+    (char *)"*panelOpenOption.mnemonic:                        O",
+    (char *)"*panelSaveAsOption.labelString:                   Save As...",
+    (char *)"*panelSaveAsOption.mnemonic:                      S",
+    (char *)"*panelCloseOption.labelString:                    Close",
+    (char *)"*panelCloseOption.mnemonic:                       C",
+    (char *)"*panelCloseAllOption.labelString:                 Close All "
+            "Control Panels",
+    (char *)"*stylePulldown.tearOffModel:		  XmTEAR_OFF_DISABLED",
+    (char *)"*dimensionalityePulldown.tearOffModel:	  XmTEAR_OFF_DISABLED",
+    (char *)"*layoutPulldown.tearOffModel:		  XmTEAR_OFF_DISABLED",
+    (char *)"*editMenuPulldown.tearOffModel:		  XmTEAR_OFF_DISABLED",
+    (char *)"*editMenu.labelString:                       Edit",
+    (char *)"*editMenu.mnemonic:                          E",
+    (char *)"*panelSetStyleButton.labelString:                 Set Style",
+    (char *)"*panelSetStyleButton.mnemonic:                    y",
+    (char *)"*panelSetDimensionalityButton.labelString:        Set "
+            "Dimensionality",
+    (char *)"*panelSetDimensionalityButton.mnemonic:           i",
+    (char *)"*dimensionalityPulldown*set1DOption.labelString:      1 "
+            "Dimensional",
+    (char *)"*dimensionalityPulldown*set2DOption.labelString:      2 "
+            "Dimensional",
+    (char *)"*dimensionalityPulldown*set3DOption.labelString:      3 "
+            "Dimensional",
+    (char *)"*dimensionalityPulldown*set4DOption.labelString:      4 "
+            "Dimensional",
+    (char *)"*panelAddButton.labelString:    		       Add Element",
+    (char *)"*panelAddButton.mnemonic:    		       A",
+    (char *)"*panelSetLayoutButton.labelString:                Set Layout",
+    (char *)"*panelSetLayoutButton.mnemonic:                   L",
+    (char *)"*panelVerticalOption.labelString:                 Vertical",
+    (char *)"*panelHorizontalOption.labelString:               Horizontal",
+    (char *)"*panelSetAttributesOption.labelString:            Set "
+            "Attributes...",
+    (char *)"*panelSetAttributesOption.mnemonic:               e",
+    (char *)"*panelSetInteractorLabelOption.labelString:       Set Label...",
+    (char *)"*panelSetInteractorLabelOption.mnemonic:          t",
+    (char *)"*panelDeleteOption.labelString:                   Delete",
+    (char *)"*panelDeleteOption.mnemonic:                      D",
+#if defined( aviion )
     "*panelDeleteOption.accelerator:                   Ctrl<Key>Delete",
 #else
-    "*panelDeleteOption.accelerator:                   Ctrl<Key>osfDelete",
+    (char *)"*panelDeleteOption.accelerator:                   "
+            "Ctrl<Key>osfDelete",
 #endif
 #ifdef sun4
-    "*panelDeleteOption.acceleratorText: 		Ctrl+Del",
+    (char *)"*panelDeleteOption.acceleratorText: 		Ctrl+Del",
 #else
-    "*panelDeleteOption.acceleratorText: 		Ctrl+Delete",
+    (char *)"*panelDeleteOption.acceleratorText: 		Ctrl+Delete",
 #endif
-    "*panelAddSelectedInteractorsOption.labelString:   Add Selected Interactor(s)",
-    "*panelAddSelectedInteractorsOption.mnemonic:      S",
-    "*panelShowSelectedInteractorsOption.labelString:  Show Selected Interactor(s)",
-    "*panelShowSelectedInteractorsOption.mnemonic:     h",
-    "*panelShowSelectedStandInsOption.labelString:     Show Selected Tool",
-    "*panelShowSelectedStandInsOption.mnemonic:        S",
-    "*panelCommentOption.labelString:                  Comment...",
-    "*panelCommentOption.mnemonic:                     C",
-
-    "*panelsMenu.labelString:                     Panels",
-    "*panelsMenu.mnemonic:                        P",
-    "*panelOpenAllControlPanelsOption.labelString:     Open All Control Panels",
-    "*panelOpenAllControlPanelsOption.mnemonic:        A",
-    "*panelOpenAllControlPanelsOption.accelerator:     Ctrl<Key>P",
-    "*panelOpenAllControlPanelsOption.acceleratorText: Ctrl+P",
-    "*panelOpenControlPanelByNameOption.labelString:   Open Control Panel by Name",
-    "*panelPanelCascade.labelString:   		  Open Control Panel by Name",
-    "*panelPanelGroupCascade.labelString:   		  Open Control Panel by Group",
-    "*panelOpenControlPanelByNameOption.mnemonic:      N",
-
-    "*optionsMenu.labelString:                    Options",
-    "*optionsMenu.mnemonic:                       O",
-    "*panelChangeControlPanelNameOption.labelString:   Change Control Panel Name...",
-    "*panelChangeControlPanelNameOption.mnemonic:      C",
-    "*panelSetAccessOption.labelString:                Control Panel Access...",
-    "*panelSetAccessOption.mnemonic:                   A",
-    "*panelGridOption.labelString:                     Grid...",
-    "*panelGridOption.mnemonic:                        G",
-    "*panelStyleOption.labelString:                    Dialog Style",
-    "*panelStyleOption.mnemonic:                       D",
-    "*toggleWindowStartupOption.labelString:           Startup Control Panel",
-
-    "*hitDetectionOption.labelString:                  Prevent Overlap",
-    "*hitDetectionOption.mnemonic:                     v",
-    "*hitDetectionOption.accelerator:                  Ctrl<Key>V",
-    "*hitDetectionOption.acceleratorText:              Ctrl+V",
-
-    "*panelOnVisualProgramOption.labelString:          Application Comment...",
-    "*panelOnVisualProgramOption.mnemonic:             A",
-    "*panelOnControlPanelOption.labelString:           On Control Panel...",
-    "*panelOnControlPanelOption.mnemonic:              P",
-    "*panelOK.labelString:                             OK",
-    "*panelCancel.labelString:                         Close",
-    "*userHelpOption.labelString:                      Help",
-    "*XmPushButtonGadget.shadowThickness:              1",
-
-    NULL
-};
-
+    (char *)"*panelAddSelectedInteractorsOption.labelString:   Add Selected "
+            "Interactor(s)",
+    (char *)"*panelAddSelectedInteractorsOption.mnemonic:      S",
+    (char *)"*panelShowSelectedInteractorsOption.labelString:  Show Selected "
+            "Interactor(s)",
+    (char *)"*panelShowSelectedInteractorsOption.mnemonic:     h",
+    (char *)"*panelShowSelectedStandInsOption.labelString:     Show Selected "
+            "Tool",
+    (char *)"*panelShowSelectedStandInsOption.mnemonic:        S",
+    (char *)"*panelCommentOption.labelString:                  Comment...",
+    (char *)"*panelCommentOption.mnemonic:                     C",
+    (char *)"*panelsMenu.labelString:                     Panels",
+    (char *)"*panelsMenu.mnemonic:                        P",
+    (char *)"*panelOpenAllControlPanelsOption.labelString:     Open All "
+            "Control Panels",
+    (char *)"*panelOpenAllControlPanelsOption.mnemonic:        A",
+    (char *)"*panelOpenAllControlPanelsOption.accelerator:     Ctrl<Key>P",
+    (char *)"*panelOpenAllControlPanelsOption.acceleratorText: Ctrl+P",
+    (char *)"*panelOpenControlPanelByNameOption.labelString:   Open Control "
+            "Panel by Name",
+    (char *)"*panelPanelCascade.labelString:   		  Open Control "
+            "Panel by Name",
+    (char *)"*panelPanelGroupCascade.labelString:   		  Open Control "
+            "Panel by Group",
+    (char *)"*panelOpenControlPanelByNameOption.mnemonic:      N",
+    (char *)"*optionsMenu.labelString:                    Options",
+    (char *)"*optionsMenu.mnemonic:                       O",
+    (char *)"*panelChangeControlPanelNameOption.labelString:   Change Control "
+            "Panel Name...",
+    (char *)"*panelChangeControlPanelNameOption.mnemonic:      C",
+    (char *)"*panelSetAccessOption.labelString:                Control Panel "
+            "Access...",
+    (char *)"*panelSetAccessOption.mnemonic:                   A",
+    (char *)"*panelGridOption.labelString:                     Grid...",
+    (char *)"*panelGridOption.mnemonic:                        G",
+    (char *)"*panelStyleOption.labelString:                    Dialog Style",
+    (char *)"*panelStyleOption.mnemonic:                       D",
+    (char *)"*toggleWindowStartupOption.labelString:           Startup Control "
+            "Panel",
+    (char *)"*hitDetectionOption.labelString:                  Prevent Overlap",
+    (char *)"*hitDetectionOption.mnemonic:                     v",
+    (char *)"*hitDetectionOption.accelerator:                  Ctrl<Key>V",
+    (char *)"*hitDetectionOption.acceleratorText:              Ctrl+V",
+    (char *)"*panelOnVisualProgramOption.labelString:          Application "
+            "Comment...",
+    (char *)"*panelOnVisualProgramOption.mnemonic:             A",
+    (char *)"*panelOnControlPanelOption.labelString:           On Control "
+            "Panel...",
+    (char *)"*panelOnControlPanelOption.mnemonic:              P",
+    (char *)"*panelOK.labelString:                             OK",
+    (char *)"*panelCancel.labelString:                         Close",
+    (char *)"*userHelpOption.labelString:                      Help",
+    (char *)"*XmPushButtonGadget.shadowThickness:              1",
+    (char *)NULL};
 
 #else /* defined(DX_NEW_KEYLAYOUT) */
 
-String ControlPanel::DefaultResources[] =
-{
-    ".width:                                      	375",
-    ".height:                                     	450",
-    ".iconName:                                   	Control Panel",
-    ".title:                                      	Control Panel",
+String ControlPanel::DefaultResources[] = {
+    (char *)".width:                                      	375",
+    (char *)".height:                                     	450",
+    (char *)".iconName:                                   	Control Panel",
+    (char *)".title:                                      	Control Panel",
+    (char *)"*fileMenu.labelString:                       	File",
+    (char *)"*fileMenu.mnemonic:                          	F",
+    (char *)"*panelCloseOption.labelString:                    	Close",
+    (char *)"*panelCloseOption.mnemonic:                       	C",
+    (char *)"*panelCloseOption.accelerator:			Ctrl <Key>W",
+    (char *)"*panelCloseOption.acceleratorText:			Ctrl+W",
+    (char *)"*panelCloseAllOption.labelString:                 	Close All "(
+        char *)"Control Panels",
+    (char *)"*panelCloseAllOption.mnemonic:			P",
+    (char *)"*panelCloseAllOption.accelerator:			Ctrl Shift "
+            "<Key> W",
+    (char *)"*panelCloseAllOption.acceleratorText:		Ctrl+Shift+W",
+    (char *)"*stylePulldown.tearOffModel:		  	"
+            "XmTEAR_OFF_DISABLED",
+    (char *)"*dimensionalityePulldown.tearOffModel:	  	"
+            "XmTEAR_OFF_DISABLED",
+    (char *)"*layoutPulldown.tearOffModel:		  	"
+            "XmTEAR_OFF_DISABLED",
+    (char *)"*editMenuPulldown.tearOffModel:		  	"
+            "XmTEAR_OFF_DISABLED",
+    (char *)"*editMenu.labelString:                       	Edit",
+    (char *)"*editMenu.mnemonic:                          	E",
+    (char *)"*panelSetStyleButton.labelString:                 	Set Style",
+    (char *)"*panelSetStyleButton.mnemonic:                    	y",
+    (char *)"*panelSetDimensionalityButton.labelString:        	Set "
+            "Dimensionality",
+    (char *)"*panelSetDimensionalityButton.mnemonic:           	i",
+    (char *)"*dimensionalityPulldown*set1DOption.labelString:   1 Dimensional",
+    (char *)"*dimensionalityPulldown*set1DOption.mnemonic:	1",
+    (char *)"*dimensionalityPulldown*set2DOption.labelString:   2 Dimensional",
+    (char *)"*dimensionalityPulldown*set2DOption.mnemonic:	2",
+    (char *)"*dimensionalityPulldown*set3DOption.labelString:   3 Dimensional",
+    (char *)"*dimensionalityPulldown*set3DOption.mnemonic:	3",
+    (char *)"*dimensionalityPulldown*set4DOption.labelString:   4 Dimensional",
+    (char *)"*dimensionalityPulldown*set4DOption.mnemonic:	4",
+    (char *)"*panelAddButton.labelString:    			Add Element",
+    (char *)"*panelAddButton.mnemonic:    			A",
+    (char *)"*panelSetLayoutButton.labelString:			Set Layout",
+    (char *)"*panelSetLayoutButton.mnemonic:			L",
+    (char *)"*panelVerticalOption.labelString:			Vertical",
+    (char *)"*panelVerticalOption.mnemonic:			V",
+    (char *)"*panelHorizontalOption.labelString:		Horizontal",
+    (char *)"*panelHorizontalOption.mnemonic:			H",
+    (char *)"*panelSetAttributesOption.labelString:		Set "
+            "Attributes...",
+    (char *)"*panelSetAttributesOption.mnemonic:		e",
+    (char *)"*panelSetAttributesOption.accelerator:		Ctrl <Key>F",
+    (char *)"*panelSetAttributesOption.acceleratorText:		Ctrl+F",
+    (char *)"*panelSetInteractorLabelOption.labelString:	Set Label...",
+    (char *)"*panelSetInteractorLabelOption.mnemonic:		t",
+    (char *)"*panelDeleteOption.labelString:                   	Delete",
+    (char *)"*panelDeleteOption.mnemonic:                      	D",
 
-    "*fileMenu.labelString:                       	File",
-    "*fileMenu.mnemonic:                          	F",
-    "*panelCloseOption.labelString:                    	Close",
-    "*panelCloseOption.mnemonic:                       	C",
-    "*panelCloseOption.accelerator:			Ctrl <Key>W",
-    "*panelCloseOption.acceleratorText:			Ctrl+W",
-    "*panelCloseAllOption.labelString:                 	Close All Control Panels",
-    "*panelCloseAllOption.mnemonic:			P",
-    "*panelCloseAllOption.accelerator:			Ctrl Shift <Key> W",
-    "*panelCloseAllOption.acceleratorText:		Ctrl+Shift+W",
-
-    "*stylePulldown.tearOffModel:		  	XmTEAR_OFF_DISABLED",
-    "*dimensionalityePulldown.tearOffModel:	  	XmTEAR_OFF_DISABLED",
-    "*layoutPulldown.tearOffModel:		  	XmTEAR_OFF_DISABLED",
-    "*editMenuPulldown.tearOffModel:		  	XmTEAR_OFF_DISABLED",
-
-    "*editMenu.labelString:                       	Edit",
-    "*editMenu.mnemonic:                          	E",
-    "*panelSetStyleButton.labelString:                 	Set Style",
-    "*panelSetStyleButton.mnemonic:                    	y",
-    "*panelSetDimensionalityButton.labelString:        	Set Dimensionality",
-    "*panelSetDimensionalityButton.mnemonic:           	i",
-    "*dimensionalityPulldown*set1DOption.labelString:   1 Dimensional",
-    "*dimensionalityPulldown*set1DOption.mnemonic:	1",
-    "*dimensionalityPulldown*set2DOption.labelString:   2 Dimensional",
-    "*dimensionalityPulldown*set2DOption.mnemonic:	2",
-    "*dimensionalityPulldown*set3DOption.labelString:   3 Dimensional",
-    "*dimensionalityPulldown*set3DOption.mnemonic:	3",
-    "*dimensionalityPulldown*set4DOption.labelString:   4 Dimensional",
-    "*dimensionalityPulldown*set4DOption.mnemonic:	4",
-
-    "*panelAddButton.labelString:    			Add Element",
-    "*panelAddButton.mnemonic:    			A",
-    "*panelSetLayoutButton.labelString:			Set Layout",
-    "*panelSetLayoutButton.mnemonic:			L",
-    "*panelVerticalOption.labelString:			Vertical",
-    "*panelVerticalOption.mnemonic:			V",
-    "*panelHorizontalOption.labelString:		Horizontal",
-    "*panelHorizontalOption.mnemonic:			H",
-    "*panelSetAttributesOption.labelString:		Set Attributes...",
-    "*panelSetAttributesOption.mnemonic:		e",
-    "*panelSetAttributesOption.accelerator:		Ctrl <Key>F",
-    "*panelSetAttributesOption.acceleratorText:		Ctrl+F",
-    "*panelSetInteractorLabelOption.labelString:	Set Label...",
-    "*panelSetInteractorLabelOption.mnemonic:		t",
-
-    "*panelDeleteOption.labelString:                   	Delete",
-    "*panelDeleteOption.mnemonic:                      	D",
-
-#if defined(intelnt)
-    "*panelDeleteOption.acceleratorText:                  Ctrl+Backspace",
+#if defined( intelnt )
+    (char *)"*panelDeleteOption.acceleratorText:                  "
+            "Ctrl+Backspace",
 #else
-    "*panelDeleteOption.acceleratorText:                  Ctrl+Delete",
+    (char *)"*panelDeleteOption.acceleratorText:                  Ctrl+Delete",
 #endif
-#if defined(macos) || defined(intelnt)
-    "*panelDeleteOption.accelerator:                      Ctrl<Key>BackSpace",
-#elif defined(aviion)
-    "*panelDeleteOption.accelerator:                      Ctrl<Key>Delete",
+#if defined( macos ) || defined( intelnt )
+    (char *)"*panelDeleteOption.accelerator:                      "
+            "Ctrl<Key>BackSpace",
+#elif defined( aviion )
+    (char *)"*panelDeleteOption.accelerator:                      "
+            "Ctrl<Key>Delete",
 #else
-    "*panelDeleteOption.accelerator:                      Ctrl<Key>osfDelete",
+    (char *)"*panelDeleteOption.accelerator:                      "
+            "Ctrl<Key>osfDelete",
+#endif
+    (char *)"*panelAddSelectedInteractorsOption.labelString:	Add Selected "
+            "Interactor(s)",
+    (char *)"*panelAddSelectedInteractorsOption.mnemonic:      	R",
+    (char *)"*panelShowSelectedInteractorsOption.labelString:  	Show Selected "
+            "Interactor(s)",
+    (char *)"*panelShowSelectedInteractorsOption.mnemonic:     	h",
+    (char *)"*panelShowSelectedStandInsOption.labelString:     	Show "
+            "Selected Tool",
+    (char *)"*panelShowSelectedStandInsOption.mnemonic:        	S",
+    (char *)"*panelCommentOption.labelString:                  	Comment...",
+    (char *)"*panelCommentOption.mnemonic:                     	C",
+    (char *)"*panelsMenu.labelString:                     	Panels",
+    (char *)"*panelsMenu.mnemonic:                        	P",
+    (char *)"*panelOpenAllControlPanelsOption.labelString:     	Open All "
+            "Control Panels",
+    (char *)"*panelOpenAllControlPanelsOption.mnemonic:        	A",
+    (char *)"*panelOpenAllControlPanelsOption.accelerator:     	Ctrl "
+            "Shift <Key>P",
+    (char *)"*panelOpenAllControlPanelsOption.acceleratorText: 	Ctrl+Shift+P",
+    (char *)"*panelOpenControlPanelByNameOption.labelString:   	Open Control "
+            "Panel by Name",
+    (char *)"*panelOpenControlPanelByNameOption.mnemonic:	N",
+    (char *)"*panelPanelCascade.labelString:   		  	Open Control "
+            "Panel by Name",
+    (char *)"*panelPanelGroupCascade.labelString:   		Open Control "
+            "Panel by Group",
+    (char *)"*optionsMenu.labelString:                    	Options",
+    (char *)"*optionsMenu.mnemonic:                       	O",
+    (char *)"*panelChangeControlPanelNameOption.labelString:   Change Control "
+            "Panel "
+            "Name...",
+    (char *)"*panelChangeControlPanelNameOption.mnemonic:      C",
+    (char *)"*panelSetAccessOption.labelString:                Control Panel "
+            "Access...",
+    (char *)"*panelSetAccessOption.mnemonic:                   A",
+    (char *)"*panelGridOption.labelString:                     Grid...",
+    (char *)"*panelGridOption.mnemonic:                        G",
+    (char *)"*panelStyleOption.labelString:                    Dialog Style",
+    (char *)"*panelStyleOption.mnemonic:                       D",
+    (char *)"*toggleWindowStartupOption.labelString:           Startup Control "
+            "Panel",
+    (char *)"*hitDetectionOption.labelString:                  Prevent Overlap",
+    (char *)"*hitDetectionOption.mnemonic:                     v",
+    (char *)"*panelOnVisualProgramOption.labelString:          Application "
+            "Comment...",
+    (char *)"*panelOnVisualProgramOption.mnemonic:             A",
+    (char *)"*panelOnControlPanelOption.labelString:           On Control "
+            "Panel...",
+    (char *)"*panelOnControlPanelOption.mnemonic:              P",
+    (char *)"*panelOK.labelString:                             OK",
+    (char *)"*panelCancel.labelString:                         Close",
+    (char *)"*userHelpOption.labelString:                      Help",
+    (char *)"*XmPushButtonGadget.shadowThickness:              1",
+    (char *)NULL};
+
 #endif
 
-    "*panelAddSelectedInteractorsOption.labelString:	Add Selected Interactor(s)",
-    "*panelAddSelectedInteractorsOption.mnemonic:      	R",
-    "*panelShowSelectedInteractorsOption.labelString:  	Show Selected Interactor(s)",
-    "*panelShowSelectedInteractorsOption.mnemonic:     	h",
-    "*panelShowSelectedStandInsOption.labelString:     	Show Selected Tool",
-    "*panelShowSelectedStandInsOption.mnemonic:        	S",
-    "*panelCommentOption.labelString:                  	Comment...",
-    "*panelCommentOption.mnemonic:                     	C",
-
-    "*panelsMenu.labelString:                     	Panels",
-    "*panelsMenu.mnemonic:                        	P",
-    "*panelOpenAllControlPanelsOption.labelString:     	Open All Control Panels",
-    "*panelOpenAllControlPanelsOption.mnemonic:        	A",
-    "*panelOpenAllControlPanelsOption.accelerator:     	Ctrl Shift <Key>P",
-    "*panelOpenAllControlPanelsOption.acceleratorText: 	Ctrl+Shift+P",
-    "*panelOpenControlPanelByNameOption.labelString:   	Open Control Panel by Name",
-    "*panelOpenControlPanelByNameOption.mnemonic:	N",
-    "*panelPanelCascade.labelString:   		  	Open Control Panel by Name",
-    "*panelPanelGroupCascade.labelString:   		Open Control Panel by Group",
-
-    "*optionsMenu.labelString:                    	Options",
-    "*optionsMenu.mnemonic:                       	O",
-    "*panelChangeControlPanelNameOption.labelString:   Change Control Panel Name...",
-    "*panelChangeControlPanelNameOption.mnemonic:      C",
-    "*panelSetAccessOption.labelString:                Control Panel Access...",
-    "*panelSetAccessOption.mnemonic:                   A",
-    "*panelGridOption.labelString:                     Grid...",
-    "*panelGridOption.mnemonic:                        G",
-    "*panelStyleOption.labelString:                    Dialog Style",
-    "*panelStyleOption.mnemonic:                       D",
-    "*toggleWindowStartupOption.labelString:           Startup Control Panel",
-
-    "*hitDetectionOption.labelString:                  Prevent Overlap",
-    "*hitDetectionOption.mnemonic:                     v",
-
-    "*panelOnVisualProgramOption.labelString:          Application Comment...",
-    "*panelOnVisualProgramOption.mnemonic:             A",
-    "*panelOnControlPanelOption.labelString:           On Control Panel...",
-    "*panelOnControlPanelOption.mnemonic:              P",
-    "*panelOK.labelString:                             OK",
-    "*panelCancel.labelString:                         Close",
-    "*userHelpOption.labelString:                      Help",
-    "*XmPushButtonGadget.shadowThickness:              1",
-
-    NULL
-};
-
-#endif
-
-#endif // _CPDefaultResources_h
-
+#endif  // _CPDefaultResources_h

@@ -9,73 +9,67 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _SetInteractorNameDialog_h
 #define _SetInteractorNameDialog_h
 
-
 #include "SetNameDialog.h"
-
 
 //
 // Class name definition:
 //
-#define ClassSetInteractorNameDialog	"SetInteractorNameDialog"
+#define ClassSetInteractorNameDialog "SetInteractorNameDialog"
 
 class ControlPanel;
 
 //
 // SetInteractorNameDialog class definition:
-//				
+//
 class SetInteractorNameDialog : public SetNameDialog
 {
-  private:
-    //
-    // Private member data:
-    //
-    static Boolean ClassInitialized;
-    static String  DefaultResources[];
+ private:
+  //
+  // Private member data:
+  //
+  static Boolean ClassInitialized;
+  static String DefaultResources[];
 
-    ControlPanel *panel;
+  ControlPanel *panel;
 
-  protected:
-    //
-    // Protected member data:
-    //
+ protected:
+  //
+  // Protected member data:
+  //
 
-    virtual boolean saveText(const char *s);
-    virtual const char *getText();
+  virtual boolean saveText( const char *s );
+  virtual const char *getText();
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-    virtual Widget createDialog (Widget parent);
+  virtual Widget createDialog( Widget parent );
 
-  public:
-    //
-    // Constructor:
-    //
-    SetInteractorNameDialog(ControlPanel *panel);
+ public:
+  //
+  // Constructor:
+  //
+  SetInteractorNameDialog( ControlPanel *panel );
 
-    //
-    // Destructor:
-    //
-    ~SetInteractorNameDialog();
+  //
+  // Destructor:
+  //
+  ~SetInteractorNameDialog();
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassSetInteractorNameDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassSetInteractorNameDialog;
+  }
 };
 
-
-#endif // _SetInteractorNameDialog_h
+#endif  // _SetInteractorNameDialog_h

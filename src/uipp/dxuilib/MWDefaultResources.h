@@ -9,9 +9,9 @@
 #ifndef _MWDefaultResources_h
 #define _MWDefaultResources_h
 
-#if !defined(DX_NEW_KEYLAYOUT)
+#if !defined( DX_NEW_KEYLAYOUT )
 
-String  MsgWin::DefaultResources[] = {
+String MsgWin::DefaultResources[] = {
     ".title:				Message Window",
     ".iconName:				Message Window",
     "*fileMenu.labelString:		File",
@@ -58,12 +58,11 @@ String  MsgWin::DefaultResources[] = {
     "*msgFrame.marginHeight:		3",
     "*msgList.visibleItemCount:		12",
     "*workArea.width:			600",
-    NULL
-};
+    NULL};
 
 #else /* defined(DX_NEW_KEYLAYOUT) */
 
-String  MsgWin::DefaultResources[] = {
+String MsgWin::DefaultResources[] = {
     ".title:				Message Window",
     ".iconName:				Message Window",
     "*fileMenu.labelString:		File",
@@ -82,20 +81,18 @@ String  MsgWin::DefaultResources[] = {
     "*msgClearOption.labelString:	Clear",
     "*msgClearOption.mnemonic:		C",
 
-#if defined(intelnt)
+#if defined( intelnt )
     "*msgClearOption.acceleratorText:   Ctrl+Backspace",
 #else
     "*msgClearOption.acceleratorText:   Ctrl+Delete",
 #endif
-#if defined(macos) || defined(intelnt)
+#if defined( macos ) || defined( intelnt )
     "*msgClearOption.accelerator:       Ctrl<Key>BackSpace",
-#elif defined(aviion)
+#elif defined( aviion )
     "*msgClearOption.accelerator:       Ctrl<Key>Delete",
 #else
     "*msgClearOption.accelerator:       Ctrl<Key>osfDelete",
 #endif
-
-
     "*commandsMenu.labelString:		Commands",
     "*commandsMenu.mnemonic:		C",
     "*msgShowMemoryOption.labelString:	Show Memory Use",
@@ -125,10 +122,8 @@ String  MsgWin::DefaultResources[] = {
     "*msgFrame.marginHeight:		3",
     "*msgList.visibleItemCount:		12",
     "*workArea.width:			600",
-    NULL
-};
+    NULL};
 
 #endif
 
-#endif // _MWDefaultResources_h
-
+#endif  // _MWDefaultResources_h

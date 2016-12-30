@@ -9,23 +9,18 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "ImageResetCommand.h"
 #include "ImageWindow.h"
 
-ImageResetCommand::ImageResetCommand(const char   *name,
-						 CommandScope *scope,
-						 boolean       active,
-						 ImageWindow  *w):
-    NoUndoCommand(name, scope, active)
+ImageResetCommand::ImageResetCommand( const char *name, CommandScope *scope,
+                                      boolean active, ImageWindow *w )
+    : NoUndoCommand( name, scope, active )
 {
-    this->imageWindow = w;
+  this->imageWindow = w;
 }
 
-boolean ImageResetCommand::doIt(CommandInterface *ci)
+boolean ImageResetCommand::doIt( CommandInterface *ci )
 {
-    this->imageWindow->resetCamera();
-    return TRUE;
+  this->imageWindow->resetCamera();
+  return TRUE;
 }

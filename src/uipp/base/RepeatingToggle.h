@@ -8,50 +8,45 @@
 
 #include <dxconfig.h>
 
-
-
-
 #ifndef _RepeatingToggle_H
 #define _RepeatingToggle_H
-
 
 #include "ToggleButtonInterface.h"
 
 //
 // Class name definition:
 //
-#define ClassRepeatingToggle	"RepeatingToggle"
-
+#define ClassRepeatingToggle "RepeatingToggle"
 
 //
 // ToggleButtonInterface class definition:
-//				
+//
 class RepeatingToggle : public ToggleButtonInterface
 {
-  private:
+ private:
+ public:
+  //
+  // Constructor:
+  //
+  RepeatingToggle( Widget parent, char* name, Command* command, boolean state,
+                   const char* bubbleHelp = NULL );
 
-  public:
-    //
-    // Constructor:
-    //
-    RepeatingToggle(Widget   parent, char*    name,
-	      Command* command, boolean  state, const char *bubbleHelp = NULL);
+  //
+  // Destructor:
+  //
+  ~RepeatingToggle()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~RepeatingToggle(){}
+  virtual void activate();
 
-    virtual void activate();
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassRepeatingToggle;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassRepeatingToggle;
+  }
 };
 
-
-#endif // _RepeatingToggle_H
+#endif  // _RepeatingToggle_H

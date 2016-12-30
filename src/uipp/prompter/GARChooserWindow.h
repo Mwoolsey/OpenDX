@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 #ifndef _GARChooserWindow_h_
 #define _GARChooserWindow_h_
 
@@ -21,106 +20,122 @@ class CommandTextPopup;
 class TypeChoice;
 class DataFileDialog;
 
-extern "C" void TypeChoice_BrokenConnCB (DXLConnection *, void *);
-extern "C" void TypeChoice_HandleMessagesCB (XtPointer , int*, XtInputId* );
-extern "C" Boolean GARChooserWindow_SyncWP (XtPointer );
+extern "C" void TypeChoice_BrokenConnCB( DXLConnection*, void* );
+extern "C" void TypeChoice_HandleMessagesCB( XtPointer, int*, XtInputId* );
+extern "C" Boolean GARChooserWindow_SyncWP( XtPointer );
 
+#define ClassGARChooserWindow "GARChooserWindow"
 
-#define ClassGARChooserWindow  "GARChooserWindow"
-
-class GARChooserWindow: public IBMMainWindow
+class GARChooserWindow : public IBMMainWindow
 {
-  private:
-    CommandTextPopup *text_file;
+ private:
+  CommandTextPopup* text_file;
 
-    friend class TypeChoice;
-    friend void TypeChoice_BrokenConnCB(DXLConnection*, void*);
-    friend void TypeChoice_HandleMessagesCB (XtPointer , int*, XtInputId* );
-    friend Boolean GARChooserWindow_SyncWP (XtPointer );
+  friend class TypeChoice;
+  friend void TypeChoice_BrokenConnCB( DXLConnection*, void* );
+  friend void TypeChoice_HandleMessagesCB( XtPointer, int*, XtInputId* );
+  friend Boolean GARChooserWindow_SyncWP( XtPointer );
 
-    static String DefaultResources[];
-    static boolean ClassInitialized;
+  static String DefaultResources[];
+  static boolean ClassInitialized;
 
-    char *		getFileReady();
-    char *		findExtension(const char *);
-    char *		file_search_dir;
+  char* getFileReady();
+  char* findExtension( const char* );
+  char* file_search_dir;
 
-    DXLConnection*	connection;
+  DXLConnection* connection;
 
-    boolean		mismatch_complaint;
+  boolean mismatch_complaint;
 
-    DataFileDialog*	dfdialog;
+  DataFileDialog* dfdialog;
 
-    XtWorkProcId	unset_sync_wpid;
+  XtWorkProcId unset_sync_wpid;
 
-  protected:
+ protected:
+  virtual Widget createWorkArea( Widget menu_bar );
+  virtual void createMenus( Widget menu_bar );
+  virtual void createFileMenu( Widget menu_bar );
+  virtual void createOptionsMenu( Widget menu_bar );
 
-    virtual Widget createWorkArea (Widget menu_bar);
-    virtual void   createMenus (Widget menu_bar);
-    virtual void   createFileMenu (Widget menu_bar);
-    virtual void   createOptionsMenu (Widget menu_bar);
+  //
+  // Commands
+  //
+  Command* quitCmd;
+  Command* showMessagesCmd;
+  Command* selectDataCmd;
+  Command* openPrompterCmd;
+  Command* nullCmd;
 
-    //
-    // Commands
-    //
-    Command*	quitCmd;
-    Command*	showMessagesCmd;
-    Command*	selectDataCmd;
-    Command*	openPrompterCmd;
-    Command*	nullCmd;
+  TypeChoice* choice;
+  List* typeChoices;
 
-    TypeChoice*	choice;
-    List*	typeChoices;
+  void showForms();
+  void controlDimension();
 
-    void 	showForms();
-    void	controlDimension();
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+ public:
+  GARChooserWindow();
+  ~GARChooserWindow();
 
-  public:
+  void setCommandActivation();
+  void setDataFile( const char* );
+  void fileNameCB();
+  void setChoice( TypeChoice* new_choice );
+  TypeChoice* getChoice()
+  {
+    return this->choice;
+  }
 
-    GARChooserWindow ();
-    ~GARChooserWindow();
+  virtual void manage();
+  virtual void closeWindow();
 
-    void	setCommandActivation();
-    void	setDataFile(const char *);
-    void	fileNameCB();
-    void	setChoice(TypeChoice *new_choice);
-    TypeChoice* getChoice() { return this->choice; }
+  boolean showMessages();
+  boolean openExistingPrompter();
+  boolean postDataFileSelector();
+  boolean nullFunc()
+  {
+    return TRUE;
+  }
 
-    virtual	void manage();
-    virtual	void closeWindow();
+  Command* getNullCmd()
+  {
+    return this->nullCmd;
+  }
 
-    boolean	showMessages ();
-    boolean	openExistingPrompter();
-    boolean 	postDataFileSelector();
-    boolean	nullFunc() { return TRUE; }
+  const char* getDataFilename();
 
-    Command*	getNullCmd() { return this->nullCmd; }
+  DXLConnection* getConnection()
+  {
+    return this->connection;
+  }
 
-    const char *getDataFilename();
+  void setFileSearchDir( const char* );
 
-    DXLConnection* getConnection() { return this->connection; }
+  void loadAndSet( DXLConnection*, const char* net_file, char* argv[],
+                   int argc );
 
-    void setFileSearchDir(const char *);
+  CommandTextPopup* getCommandText()
+  {
+    return this->text_file;
+  }
 
-    void loadAndSet (DXLConnection*, const char* net_file, char* argv[], int argc);
+  //
+  // So that CommandTextPopup can post the file selector dialog
+  Command* getSelectDataCmd()
+  {
+    return this->selectDataCmd;
+  }
 
-    CommandTextPopup* getCommandText() { return this->text_file; }
-
-    //
-    // So that CommandTextPopup can post the file selector dialog
-    Command* getSelectDataCmd() { return this->selectDataCmd; }
-
-    virtual const char *getClassName()
-    {
-	return ClassGARChooserWindow;
-    }
+  virtual const char* getClassName()
+  {
+    return ClassGARChooserWindow;
+  }
 };
 
 #endif

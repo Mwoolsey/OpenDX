@@ -8,88 +8,82 @@
 
 #include <dxconfig.h>
 
-
-
 #ifndef _SetAnnotatorTextDialog_h
 #define _SetAnnotatorTextDialog_h
-
 
 #include "SetDecoratorTextDialog.h"
 
 //
 // Class name definition:
 //
-#define ClassSetAnnotatorTextDialog	"SetAnnotatorTextDialog"
+#define ClassSetAnnotatorTextDialog "SetAnnotatorTextDialog"
 
 class LabelDecorator;
 class DecoratorStyle;
 
-
-extern "C" void SetAnnotatorTextDialog_HideShowCB (Widget , XtPointer , XtPointer);
-
+extern "C" void SetAnnotatorTextDialog_HideShowCB( Widget, XtPointer,
+                                                   XtPointer );
 
 //
 // SetAnnotatorTextDialog class definition:
-//				
+//
 
 class SetAnnotatorTextDialog : public SetDecoratorTextDialog
 {
-  private:
-    //
-    // Private member data:
-    //
-    static boolean ClassInitialized;
-    static String  DefaultResources[];
+ private:
+  //
+  // Private member data:
+  //
+  static boolean ClassInitialized;
+  static String DefaultResources[];
 
-    DecoratorStyle* hide_style;
-    DecoratorStyle* show_style;
+  DecoratorStyle* hide_style;
+  DecoratorStyle* show_style;
 
-  protected:
-    //
-    // Protected member data:
-    //
-    Widget hide_show;
-    virtual Widget createDialog(Widget);
-    virtual void hideCallback();
+ protected:
+  //
+  // Protected member data:
+  //
+  Widget hide_show;
+  virtual Widget createDialog( Widget );
+  virtual void hideCallback();
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-    friend void SetAnnotatorTextDialog_HideShowCB (Widget , XtPointer , XtPointer);
+  friend void SetAnnotatorTextDialog_HideShowCB( Widget, XtPointer, XtPointer );
 
-    //
-    // The string returned must match what's in VPEAnnotator::DefaultResources
-    //
-    virtual const char* defaultJustifySetting();
+  //
+  // The string returned must match what's in VPEAnnotator::DefaultResources
+  //
+  virtual const char* defaultJustifySetting();
 
-  public:
+ public:
+  //
+  // Constructor:
+  //
+  SetAnnotatorTextDialog( Widget parent, boolean readonly,
+                          LabelDecorator* dec );
 
-    //
-    // Constructor:
-    //
-    SetAnnotatorTextDialog(Widget parent, boolean readonly, 
-	LabelDecorator *dec);
+  //
+  // Destructor:
+  //
+  ~SetAnnotatorTextDialog();
 
-    //
-    // Destructor:
-    //
-    ~SetAnnotatorTextDialog();
+  virtual void setDecorator( LabelDecorator* );
+  virtual void manage();
 
-    virtual void setDecorator(LabelDecorator*);
-    virtual void manage();
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassSetAnnotatorTextDialog;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassSetAnnotatorTextDialog;
+  }
 };
 
-
-#endif // _SetAnnotatorTextDialog_h
+#endif  // _SetAnnotatorTextDialog_h

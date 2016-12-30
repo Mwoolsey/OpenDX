@@ -9,7 +9,6 @@
 #ifndef _StartWebBrowser_h_
 #define _StartWebBrowser_h_
 
-int _dxf_StartWebBrowserWithURL(char *URL);
+int _dxf_StartWebBrowserWithURL( char *URL );
 
 #endif
-

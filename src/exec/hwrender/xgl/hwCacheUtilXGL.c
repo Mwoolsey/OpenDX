@@ -11,7 +11,6 @@
 
 #include <dxconfig.h>
 
-
 /*---------------------------------------------------------------------------*\
  $Source: /src/master/dx/src/exec/hwrender/xgl/hwCacheUtilXGL.c,v $
 
@@ -55,35 +54,35 @@
  * the xfield data structure.  XGL objects are now cached on the address of
  * the xfield.  XGL port now no longer requires STUBBED_CALLS preprocessor
  * definition.
- * 
+ *
  * Revision 7.1  94/01/18  18:59:53  svs
  * changes since release 2.0.1
- * 
+ *
  * Revision 6.1  93/11/16  10:25:58  svs
  * ship level code, release 2.0
- * 
+ *
  * Revision 1.2  93/07/28  19:34:16  mjh
  * apply 2D position hacks, install invalid connection/postion support
- * 
+ *
  * Revision 1.1  93/06/29  10:01:12  tjm
  * Initial revision
- * 
+ *
  * Revision 5.4  93/05/07  19:56:55  mjh
  * add polygon cache
- * 
+ *
  * Revision 5.3  93/05/03  18:24:25  mjh
  * add polygon cache, update names tdm -> dxf
- * 
+ *
  * Revision 5.2  93/04/30  23:41:09  mjh
  * Fix huge memory leak.  Previous code assumed deallocating clist would
  * deallocate all vertex information.
- * 
+ *
  * Revision 5.1  93/03/30  14:41:38  ellen
  * Moved these files from the 5.0.2 Branch
- * 
+ *
  * Revision 5.0.2.1  93/01/18  11:01:33  john
  * initial XGL revision
- * 
+ *
  * Revision 5.0  93/01/17  16:45:40  owens
  * added caching of tmesh xgl data
 \*---------------------------------------------------------------------------*/
@@ -105,287 +104,273 @@
 #undef USE_POLY_CACHE
 #undef USE_LINE_CACHE
 
-tdmStripDataXGL *
-_dxf_GetTmeshCacheXGL (char *fun, xfieldT *f)
+tdmStripDataXGL *_dxf_GetTmeshCacheXGL( char *fun, xfieldT *f )
 {
-  Private o ;
-  char cache_id[128] ;
-  tdmStripDataXGL *stripsXGL ;
-  DPRINT("\n(_dxf_GetTmeshCacheXGL") ;
+  Private o;
+  char cache_id[128];
+  tdmStripDataXGL *stripsXGL;
+  DPRINT( "\n(_dxf_GetTmeshCacheXGL" );
 
 #ifdef USE_TSTRIP_CACHE
-  sprintf (cache_id, "%x-%s", f, fun) ;
-  DPRINT1("\nusing %s for cache_id", cache_id) ;
+  sprintf( cache_id, "%x-%s", f, fun );
+  DPRINT1( "\nusing %s for cache_id", cache_id );
 
-  if (o = (Private) DXGetCacheEntry(cache_id, 1, 0))
-    {
-      stripsXGL = (tdmStripDataXGL *) DXGetPrivateData(o) ;
-      DXDelete((Pointer)o) ;
+  if ( o = (Private)DXGetCacheEntry( cache_id, 1, 0 ) )
+  {
+    stripsXGL = (tdmStripDataXGL *)DXGetPrivateData( o );
+    DXDelete( (Pointer)o );
 
-      DPRINT1("\nreturning %x)", stripsXGL) ;
-      return stripsXGL ;
-    }
+    DPRINT1( "\nreturning %x)", stripsXGL );
+    return stripsXGL;
+  }
 #endif
 
-  DPRINT("\nreturning 0)") ;
+  DPRINT( "\nreturning 0)" );
   return 0;
 }
 
-void
-_dxf_PutTmeshCacheXGL (char *fun, xfieldT *f, tdmStripDataXGL *stripsXGL)
+void _dxf_PutTmeshCacheXGL( char *fun, xfieldT *f, tdmStripDataXGL *stripsXGL )
 {
-  Private o ;
-  DPRINT("\n(_dxf_PutTmeshCacheXGL") ;
+  Private o;
+  DPRINT( "\n(_dxf_PutTmeshCacheXGL" );
 
 #ifdef USE_TSTRIP_CACHE
-  if (o = DXNewPrivate((Pointer)stripsXGL, _dxf_FreeTmeshCacheXGL))
-    {
-      char cache_id[128] ;
-      sprintf (cache_id, "%x-%s", f, fun) ;
-      DPRINT1("\nusing %s for cache_id", cache_id) ;
+  if ( o = DXNewPrivate( (Pointer)stripsXGL, _dxf_FreeTmeshCacheXGL ) )
+  {
+    char cache_id[128];
+    sprintf( cache_id, "%x-%s", f, fun );
+    DPRINT1( "\nusing %s for cache_id", cache_id );
 
-      DXSetCacheEntry((Pointer)o, 0, cache_id, 1, 0) ;
-    }
+    DXSetCacheEntry( (Pointer)o, 0, cache_id, 1, 0 );
+  }
   else
 #endif
-      _dxf_FreeTmeshCacheXGL((Pointer)stripsXGL) ;
+    _dxf_FreeTmeshCacheXGL( (Pointer)stripsXGL );
 
-  DPRINT(")") ;
+  DPRINT( ")" );
 }
 
-Error
-_dxf_FreeTmeshCacheXGL (Pointer p)
+Error _dxf_FreeTmeshCacheXGL( Pointer p )
 {
-  register tdmStripDataXGL *stripsXGL = p ;
-  DPRINT1("\n(_dxf_FreeTmeshCacheXGL %x)", stripsXGL) ;
+  register tdmStripDataXGL *stripsXGL = p;
+  DPRINT1( "\n(_dxf_FreeTmeshCacheXGL %x)", stripsXGL );
 
-  if (stripsXGL)
+  if ( stripsXGL )
+  {
+    register int i;
+    register int num = stripsXGL->num_strips;
+    if ( stripsXGL->pt_lists )
     {
-      register int i ;
-      register int num = stripsXGL->num_strips ;
-      if (stripsXGL->pt_lists)
-	{
-	  register Xgl_pt_list *pt_lists = stripsXGL->pt_lists ;
-	  for (i=0 ; i<num ; i++)
-	    {
-	      if (pt_lists[i].pts.color_normal_f3d)
-		{
-		  tdmFree((Pointer)pt_lists[i].pts.color_normal_f3d) ;
-		  pt_lists[i].pts.color_normal_f3d = 0 ;
-		}
-	      if (pt_lists[i].bbox)
-		{
-		  tdmFree((Pointer)pt_lists[i].bbox) ;
-		  pt_lists[i].bbox = 0 ;
-		}
-	    }
-	  tdmFree(stripsXGL->pt_lists) ;
-	  stripsXGL->pt_lists = 0 ;
-	}
-      if (stripsXGL->facet_lists)
-	{
-	  register Xgl_facet_list *facet_lists = stripsXGL->facet_lists ;
-	  for (i=0 ; i<num ; i++)
-	    {
-	      if (facet_lists[i].facets.color_normal_facets)
-		{
-		  tdmFree((Pointer)facet_lists[i].facets.color_normal_facets) ;
-		  facet_lists[i].facets.color_normal_facets = 0 ;
-		}
-	    }
-	  tdmFree(stripsXGL->facet_lists) ;
-	  stripsXGL->facet_lists = 0 ;
-	}
-      tdmFree(stripsXGL) ;
+      register Xgl_pt_list *pt_lists = stripsXGL->pt_lists;
+      for ( i = 0; i < num; i++ )
+      {
+        if ( pt_lists[i].pts.color_normal_f3d )
+        {
+          tdmFree( (Pointer)pt_lists[i].pts.color_normal_f3d );
+          pt_lists[i].pts.color_normal_f3d = 0;
+        }
+        if ( pt_lists[i].bbox )
+        {
+          tdmFree( (Pointer)pt_lists[i].bbox );
+          pt_lists[i].bbox = 0;
+        }
+      }
+      tdmFree( stripsXGL->pt_lists );
+      stripsXGL->pt_lists = 0;
     }
-  return OK ;
+    if ( stripsXGL->facet_lists )
+    {
+      register Xgl_facet_list *facet_lists = stripsXGL->facet_lists;
+      for ( i = 0; i < num; i++ )
+      {
+        if ( facet_lists[i].facets.color_normal_facets )
+        {
+          tdmFree( (Pointer)facet_lists[i].facets.color_normal_facets );
+          facet_lists[i].facets.color_normal_facets = 0;
+        }
+      }
+      tdmFree( stripsXGL->facet_lists );
+      stripsXGL->facet_lists = 0;
+    }
+    tdmFree( stripsXGL );
+  }
+  return OK;
 }
 
-
-
-char *
-_dxf_GetPolyCacheXGL (char *fun, int mod, xfieldT *f)
+char *_dxf_GetPolyCacheXGL( char *fun, int mod, xfieldT *f )
 {
-  Private o ;
-  char *priv, cache_id[128] ;
-  DPRINT("\n(_dxf_GetPolyCacheXGL") ;
+  Private o;
+  char *priv, cache_id[128];
+  DPRINT( "\n(_dxf_GetPolyCacheXGL" );
 
 #ifdef USE_POLY_CACHE
-  sprintf (cache_id, "%x-%s", f, fun) ;
-  DPRINT1("\nusing %s for cache_id", cache_id) ;
+  sprintf( cache_id, "%x-%s", f, fun );
+  DPRINT1( "\nusing %s for cache_id", cache_id );
 
-  if (o = (Private) DXGetCacheEntry(cache_id, mod, 0))
-    {
-      priv = (char *) DXGetPrivateData(o) ;
-      DXDelete((Pointer)o) ;
+  if ( o = (Private)DXGetCacheEntry( cache_id, mod, 0 ) )
+  {
+    priv = (char *)DXGetPrivateData( o );
+    DXDelete( (Pointer)o );
 
-      DPRINT1("\nreturning %x)", priv) ;
-      return priv ;
-    }
+    DPRINT1( "\nreturning %x)", priv );
+    return priv;
+  }
 #endif
-  DPRINT("\nreturning 0)") ;
-  return 0 ;
+  DPRINT( "\nreturning 0)" );
+  return 0;
 }
 
-void
-_dxf_PutPolyCacheXGL (char *fun, int mod, xfieldT *f, char *polysXGL)
+void _dxf_PutPolyCacheXGL( char *fun, int mod, xfieldT *f, char *polysXGL )
 {
-  Private o ;
-  DPRINT("\n(_dxf_PutPolyCacheXGL") ;
+  Private o;
+  DPRINT( "\n(_dxf_PutPolyCacheXGL" );
 
 #ifdef USE_POLY_CACHE
-  if (o = DXNewPrivate((Pointer)polysXGL, _dxf_FreePolyCacheXGL))
-    {
-      char cache_id[128] ;
-      sprintf (cache_id, "%x-%s", f, fun) ;
-      DPRINT1("\nusing %s for cache_id", cache_id) ;
+  if ( o = DXNewPrivate( (Pointer)polysXGL, _dxf_FreePolyCacheXGL ) )
+  {
+    char cache_id[128];
+    sprintf( cache_id, "%x-%s", f, fun );
+    DPRINT1( "\nusing %s for cache_id", cache_id );
 
-      DXSetCacheEntry((Pointer)o, 0, cache_id, mod, 0) ;
-    }
+    DXSetCacheEntry( (Pointer)o, 0, cache_id, mod, 0 );
+  }
   else
 #endif
-      _dxf_FreePolyCacheXGL((Pointer)polysXGL) ;
+    _dxf_FreePolyCacheXGL( (Pointer)polysXGL );
 
-  DPRINT(")") ;
+  DPRINT( ")" );
 }
 
-Error
-_dxf_FreePolyCacheXGL (Pointer p)
+Error _dxf_FreePolyCacheXGL( Pointer p )
 {
-  char *polysXGL = p ;
-  DPRINT1("\n(_dxf_FreePolygCacheXGL %x)", polysXGL) ;
+  char *polysXGL = p;
+  DPRINT1( "\n(_dxf_FreePolygCacheXGL %x)", polysXGL );
 
-  if (polysXGL) tdmFree(polysXGL) ;
-  return OK ;
+  if ( polysXGL )
+    tdmFree( polysXGL );
+  return OK;
 }
 
-
-
-Xgl_pt_list *
-_dxf_GetPointCacheXGL (char *fun, int mod, xfieldT *f)
+Xgl_pt_list *_dxf_GetPointCacheXGL( char *fun, int mod, xfieldT *f )
 {
-  Private o ;
-  Xgl_pt_list *priv ;
-  char cache_id[128] ;
-  DPRINT("\n(_dxf_GetPointCacheXGL") ;
+  Private o;
+  Xgl_pt_list *priv;
+  char cache_id[128];
+  DPRINT( "\n(_dxf_GetPointCacheXGL" );
 
 #ifdef USE_POINT_CACHE
-  sprintf (cache_id, "%x-%s", f, fun) ;
-  DPRINT1("\nusing %s for cache_id", cache_id) ;
+  sprintf( cache_id, "%x-%s", f, fun );
+  DPRINT1( "\nusing %s for cache_id", cache_id );
 
-  if (o = (Private) DXGetCacheEntry(cache_id, mod, 0))
-    {
-      priv = (Xgl_pt_list *) DXGetPrivateData(o) ;
-      DXDelete((Pointer)o) ;
+  if ( o = (Private)DXGetCacheEntry( cache_id, mod, 0 ) )
+  {
+    priv = (Xgl_pt_list *)DXGetPrivateData( o );
+    DXDelete( (Pointer)o );
 
-      DPRINT1("\nreturning %x)", priv) ;
-      return priv ;
-    }
+    DPRINT1( "\nreturning %x)", priv );
+    return priv;
+  }
 #endif
 
-  DPRINT("\nreturning 0)") ;
-  return 0 ;
+  DPRINT( "\nreturning 0)" );
+  return 0;
 }
 
-void
-_dxf_PutPointCacheXGL (char *fun, int mod, xfieldT *f, Xgl_pt_list *pt_list)
+void _dxf_PutPointCacheXGL( char *fun, int mod, xfieldT *f,
+                            Xgl_pt_list *pt_list )
 {
-  Private o ;
-  DPRINT("\n(_dxf_PutPointCacheXGL") ;
+  Private o;
+  DPRINT( "\n(_dxf_PutPointCacheXGL" );
 
 #ifdef USE_POINT_CACHE
-  if (o = DXNewPrivate((Pointer)pt_list, _dxf_FreePointCacheXGL))
-    {
-      char cache_id[128] ;
-      sprintf (cache_id, "%x-%s", f, fun) ;
-      DPRINT1("\nusing %s for cache_id", cache_id) ;
+  if ( o = DXNewPrivate( (Pointer)pt_list, _dxf_FreePointCacheXGL ) )
+  {
+    char cache_id[128];
+    sprintf( cache_id, "%x-%s", f, fun );
+    DPRINT1( "\nusing %s for cache_id", cache_id );
 
-      DXSetCacheEntry((Pointer)o, 0, cache_id, mod, 0) ;
-    }
+    DXSetCacheEntry( (Pointer)o, 0, cache_id, mod, 0 );
+  }
   else
 #endif
-      _dxf_FreePointCacheXGL((Pointer)pt_list) ;
+    _dxf_FreePointCacheXGL( (Pointer)pt_list );
 
-  DPRINT(")") ;
+  DPRINT( ")" );
 }
 
-Error
-_dxf_FreePointCacheXGL (Pointer p)
+Error _dxf_FreePointCacheXGL( Pointer p )
 {
-  Xgl_pt_list *pt_list = (Xgl_pt_list *)p ;
-  DPRINT1("\n(_dxf_FreePointCacheXGL %x)", pt_list) ;
+  Xgl_pt_list *pt_list = (Xgl_pt_list *)p;
+  DPRINT1( "\n(_dxf_FreePointCacheXGL %x)", pt_list );
 
-  if (pt_list)
+  if ( pt_list )
+  {
+    if ( pt_list->pts.color_normal_f3d )
     {
-      if (pt_list->pts.color_normal_f3d)
-	{
-	  tdmFree((Pointer)pt_list->pts.color_normal_f3d) ;
-	  pt_list->pts.color_normal_f3d = 0 ;
-	}
-      if (pt_list->bbox)
-	{
-	  tdmFree((Pointer)pt_list->bbox) ;
-	  pt_list->bbox = 0 ;
-	}
-      tdmFree((Pointer)pt_list) ;
+      tdmFree( (Pointer)pt_list->pts.color_normal_f3d );
+      pt_list->pts.color_normal_f3d = 0;
     }
-  return OK ;
+    if ( pt_list->bbox )
+    {
+      tdmFree( (Pointer)pt_list->bbox );
+      pt_list->bbox = 0;
+    }
+    tdmFree( (Pointer)pt_list );
+  }
+  return OK;
 }
 
-
-char *
-_dxf_GetLineCacheXGL (char *fun, int mod, xfieldT *f)
+char *_dxf_GetLineCacheXGL( char *fun, int mod, xfieldT *f )
 {
-  Private o ;
-  char *priv, cache_id[128] ;
-  DPRINT("\n(_dxf_GetLineCacheXGL") ;
+  Private o;
+  char *priv, cache_id[128];
+  DPRINT( "\n(_dxf_GetLineCacheXGL" );
 
 #ifdef USE_LINE_CACHE
-  sprintf (cache_id, "%x-%s", f, fun) ;
-  DPRINT1("\nusing %s for cache_id", cache_id) ;
+  sprintf( cache_id, "%x-%s", f, fun );
+  DPRINT1( "\nusing %s for cache_id", cache_id );
 
-  if (o = (Private) DXGetCacheEntry(cache_id, mod, 0))
-    {
-      priv = (char *) DXGetPrivateData(o) ;
-      DXDelete((Pointer)o) ;
+  if ( o = (Private)DXGetCacheEntry( cache_id, mod, 0 ) )
+  {
+    priv = (char *)DXGetPrivateData( o );
+    DXDelete( (Pointer)o );
 
-      DPRINT1("\nreturning %x)", priv) ;
-      return priv ;
-    }
+    DPRINT1( "\nreturning %x)", priv );
+    return priv;
+  }
 #endif
 
-  DPRINT("\nreturning 0)") ;
-  return 0 ;
+  DPRINT( "\nreturning 0)" );
+  return 0;
 }
 
-void
-_dxf_PutLineCacheXGL (char *fun, int mod, xfieldT *f, char *linesXGL)
+void _dxf_PutLineCacheXGL( char *fun, int mod, xfieldT *f, char *linesXGL )
 {
-  Private o ;
-  DPRINT("\n(_dxf_PutLineCacheXGL") ;
+  Private o;
+  DPRINT( "\n(_dxf_PutLineCacheXGL" );
 
 #ifdef USE_LINE_CACHE
-  if (o = DXNewPrivate((Pointer)linesXGL, _dxf_FreeLineCacheXGL))
-    {
-      char cache_id[128] ;
-      sprintf (cache_id, "%x-%s", f, fun) ;
-      DPRINT1("\nusing %s for cache_id", cache_id) ;
+  if ( o = DXNewPrivate( (Pointer)linesXGL, _dxf_FreeLineCacheXGL ) )
+  {
+    char cache_id[128];
+    sprintf( cache_id, "%x-%s", f, fun );
+    DPRINT1( "\nusing %s for cache_id", cache_id );
 
-      DXSetCacheEntry((Pointer)o, 0, cache_id, mod, 0) ;
-    }
+    DXSetCacheEntry( (Pointer)o, 0, cache_id, mod, 0 );
+  }
   else
 #endif
-      _dxf_FreeLineCacheXGL((Pointer)linesXGL) ;
+    _dxf_FreeLineCacheXGL( (Pointer)linesXGL );
 
-  DPRINT(")") ;
+  DPRINT( ")" );
 }
 
-Error
-_dxf_FreeLineCacheXGL (Pointer p)
+Error _dxf_FreeLineCacheXGL( Pointer p )
 {
-  char *linesXGL = p ;
-  DPRINT1("\n(_dxf_FreeLineCacheXGL %x)", linesXGL) ;
+  char *linesXGL = p;
+  DPRINT1( "\n(_dxf_FreeLineCacheXGL %x)", linesXGL );
 
-  if (linesXGL) tdmFree(linesXGL) ;
-  return OK ;
+  if ( linesXGL )
+    tdmFree( linesXGL );
+  return OK;
 }

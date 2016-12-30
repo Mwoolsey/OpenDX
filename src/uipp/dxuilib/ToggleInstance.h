@@ -9,11 +9,8 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #ifndef _ToggleInstance_h
 #define _ToggleInstance_h
-
 
 #include "InteractorInstance.h"
 #include "ToggleNode.h"
@@ -21,43 +18,49 @@
 //
 // Class name definition:
 //
-#define ClassToggleInstance	"ToggleInstance"
+#define ClassToggleInstance "ToggleInstance"
 
 //
 // Describes an instance of an scalar interactor in a control Panel.
 //
-class ToggleInstance : public InteractorInstance  {
+class ToggleInstance : public InteractorInstance
+{
 
-    friend class ToggleNode;
+  friend class ToggleNode;
 
-  private:
+ private:
+ protected:
+  //
+  // Create the default  set attributes dialog box for this class of
+  // Interactor.
+  //
+  virtual SetAttrDialog *newSetAttrDialog( Widget parent );
 
-  protected:
+  virtual boolean defaultVertical()
+  {
+    return FALSE;
+  }
 
-    //
-    // Create the default  set attributes dialog box for this class of
-    // Interactor.
-    //
-    virtual SetAttrDialog *newSetAttrDialog(Widget parent);
+  virtual const char *javaName()
+  {
+    return "toggle";
+  }
 
-    virtual boolean defaultVertical() { return FALSE; }
+ public:
+  ToggleInstance( ToggleNode *n );
 
-    virtual const char* javaName() { return "toggle"; }
+  ~ToggleInstance();
 
-  public:
-    ToggleInstance(ToggleNode *n);
+  virtual boolean hasSetAttrDialog();
 
-    ~ToggleInstance();
+  virtual void setVerticalLayout( boolean val = TRUE );
 
-    virtual boolean hasSetAttrDialog();
+  virtual boolean printAsJava( FILE * );
 
-    virtual void setVerticalLayout(boolean val = TRUE);
-
-    virtual boolean printAsJava (FILE* );
-
-    const char *getClassName() { return ClassToggleInstance; }
-	
+  const char *getClassName()
+  {
+    return ClassToggleInstance;
+  }
 };
 
-#endif // _ToggleInstance_h
-
+#endif  // _ToggleInstance_h

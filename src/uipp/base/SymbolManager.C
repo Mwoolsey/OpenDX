@@ -9,26 +9,19 @@
 #include <dxconfig.h>
 #include <defines.h>
 
-
-
-
 #include "SymbolManager.h"
-
 
 SymbolManager* theSymbolManager = new SymbolManager;
 
-
-Symbol SymbolManager::registerSymbol(const char* symbolString)
+Symbol SymbolManager::registerSymbol( const char* symbolString )
 {
-    Symbol symbol;
+  Symbol symbol;
 
-    symbol = 0;
-    if (NOT this->StringTable::addString(symbolString, symbol))
-    {
-	symbol = this->StringTable::findString(symbolString);
-    }
+  symbol = 0;
+  if ( NOT this->StringTable::addString( symbolString, symbol ) )
+  {
+    symbol = this->StringTable::findString( symbolString );
+  }
 
-    return symbol;
+  return symbol;
 }
-
-

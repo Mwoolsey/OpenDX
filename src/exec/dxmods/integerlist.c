@@ -11,10 +11,9 @@
 #include <dx/dx.h>
 #include "integer.h"
 
-int m_IntegerList(Object *in, Object *out)
+int m_IntegerList( Object *in, Object *out )
 {
-   if (!_dxfinteger_base(in, out,1))
-      return ERROR;
-   return OK;
+  if ( !_dxfinteger_base( in, out, 1 ) )
+    return ERROR;
+  return OK;
 }
-

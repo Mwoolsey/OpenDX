@@ -9,10 +9,9 @@
 #ifndef _DXWDefaultResources_h
 #define _DXWDefaultResources_h
 
-#if !defined(DX_NEW_KEYLAYOUT)
+#if !defined( DX_NEW_KEYLAYOUT )
 
-String DXWindow::DefaultResources[] =
-{
+String DXWindow::DefaultResources[] = {
     "*executeMenu.labelString:                    Execute",
     "*executeMenu.mnemonic:                       x",
     "*executeOnceOption.labelString:              Execute Once",
@@ -28,7 +27,7 @@ String DXWindow::DefaultResources[] =
 // Switched to using osfEndLine for the accelerator instead of End
 // because of problems on osf1.  Motif libs on (ARCH?) can't deal with
 // an osf key name as an accelerator.
-#if defined(aviion)
+#if defined( aviion )
     "*endExecutionOption.accelerator:             Ctrl<Key>End",
 #else
     "*endExecutionOption.accelerator:             Ctrl<Key>osfEndLine",
@@ -36,11 +35,10 @@ String DXWindow::DefaultResources[] =
     "*endExecutionOption.acceleratorText:         Ctrl+End",
     "*sequencerOption.labelString:                Sequencer",
     "*sequencerOption.mnemonic:                   S",
-#if USE_REMAP	// 6/14/93
-    "*remapInteractorOutputsOption.labelString:   Remap Interactor Outputs", 
+#if USE_REMAP  // 6/14/93
+    "*remapInteractorOutputsOption.labelString:   Remap Interactor Outputs",
     "*remapInteractorOutputsOption.mnemonic:      R",
 #endif
-
     "*connectionMenu.labelString:                 Connection",
     "*connectionMenu.mnemonic:                    C",
     "*startServerOption.labelString:              Start Server...",
@@ -49,27 +47,19 @@ String DXWindow::DefaultResources[] =
     "*disconnectFromServerOption.mnemonic:        D",
     "*resetServerOption.labelString:              Reset Server",
     "*resetServerOption.mnemonic:                 R",
-    "*processGroupAssignmentOption.labelString:   Execution Group Assignment...",
+    "*processGroupAssignmentOption.labelString:   Execution Group "
+    "Assignment...",
     "*processGroupAssignmentOption.mnemonic:      P",
-
     "*helpTutorialOption.labelString:             Tutorial...",
     "*helpTutorialOption.mnemonic:                u",
-
     "*toggleWindowStartupOption.labelString:      Startup Window",
     "*toggleWindowStartupOption.mnemonic:         S",
-
     "*connectionMenuPulldown.tearOffModel:	  XmTEAR_OFF_DISABLED",
-    "*fileHistory.labelString:			  Recent Programs",
-
-    NULL
-};
-
+    "*fileHistory.labelString:			  Recent Programs", NULL};
 
 #else /* defined(DX_NEW_KEYLAYOUT) */
 
-
-String DXWindow::DefaultResources[] =
-{
+String DXWindow::DefaultResources[] = {
     "*executeMenu.labelString:                    	Execute",
     "*executeMenu.mnemonic:                       	x",
     "*executeOnceOption.labelString:              	Execute Once",
@@ -85,10 +75,10 @@ String DXWindow::DefaultResources[] =
 // Switched to using osfEndLine for the accelerator instead of End
 // because of problems on osf1.  Motif libs on (ARCH?) can't deal with
 // an osf key name as an accelerator.
-#if defined(aviion)
+#if defined( aviion )
     "*endExecutionOption.accelerator:             Ctrl<Key>End",
     "*endExecutionOption.acceleratorText:         Ctrl+End",
-#elif defined(macos)
+#elif defined( macos )
     "*endExecutionOption.accelerator:			Ctrl <Key>period",
     "*endExecutionOption.acceleratorText:		Ctrl+.",
 #else
@@ -98,11 +88,10 @@ String DXWindow::DefaultResources[] =
     "*sequencerOption.labelString:                	Sequencer",
     "*sequencerOption.mnemonic:                   	S",
 
-#if USE_REMAP	// 6/14/93
-    "*remapInteractorOutputsOption.labelString:   Remap Interactor Outputs", 
+#if USE_REMAP  // 6/14/93
+    "*remapInteractorOutputsOption.labelString:   Remap Interactor Outputs",
     "*remapInteractorOutputsOption.mnemonic:      R",
 #endif
-
     "*connectionMenu.labelString:                 	Connection",
     "*connectionMenu.mnemonic:                    	C",
     "*startServerOption.labelString:              	Start Server...",
@@ -113,24 +102,16 @@ String DXWindow::DefaultResources[] =
     "*resetServerOption.mnemonic:                 	R",
     "*resetServerOption.accelerator:			Ctrl Shift <Key>R",
     "*resetServerOption.acceleratorText:		Ctrl+Shift+R",
-    "*processGroupAssignmentOption.labelString:   	Execution Group Assignment...",
+    "*processGroupAssignmentOption.labelString:   	Execution Group "
+    "Assignment...",
     "*processGroupAssignmentOption.mnemonic:      	P",
-
     "*helpTutorialOption.labelString:             	Tutorial...",
     "*helpTutorialOption.mnemonic:                	u",
-
     "*toggleWindowStartupOption.labelString:      	Startup Window",
     "*toggleWindowStartupOption.mnemonic:         	S",
-
     "*connectionMenuPulldown.tearOffModel:	  XmTEAR_OFF_DISABLED",
-
-    "*fileHistory.labelString:			  Recent Programs",
-
-    NULL
-};
-
+    "*fileHistory.labelString:			  Recent Programs", NULL};
 
 #endif
 
-#endif // _DXWDefaultResources_h
-
+#endif  // _DXWDefaultResources_h

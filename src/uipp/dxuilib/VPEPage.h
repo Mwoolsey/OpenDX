@@ -9,22 +9,17 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #ifndef _VPEPage_h
 #define _VPEPage_h
-
 
 #include "EditorWorkSpace.h"
 #include "WorkSpacePage.h"
 #include "SymbolManager.h"
 
-
 //
 // Class name definition:
 //
-#define ClassVPEPage	"VPEPage"
+#define ClassVPEPage "VPEPage"
 
 class WorkSpaceInfo;
 class WorkSpaceRoot;
@@ -32,32 +27,37 @@ class EditorWindow;
 
 //
 // EditorWorkSpace class definition:
-//				
+//
 class VPEPage : public EditorWorkSpace, public WorkSpacePage
 {
-  private:
+ private:
+ protected:
+  virtual boolean isRoot()
+  {
+    return FALSE;
+  }
 
-  protected:
+  virtual void saveWorkSpaceParams( WorkSpace* );
 
-    virtual boolean isRoot() { return FALSE; }
+ public:
+  VPEPage( const char* name, Widget parent, WorkSpaceInfo* info,
+           EditorWindow* editor, WorkSpaceRoot* root );
 
-    virtual void saveWorkSpaceParams(WorkSpace*);
+  ~VPEPage()
+  {
+    this->getWorkSpaceRoot()->removePage( this );
+  }
 
-  public:
+  virtual void resize()
+  {
+  }
 
-    VPEPage(const char *name, Widget parent, WorkSpaceInfo *info, 
-			EditorWindow *editor, WorkSpaceRoot* root);
- 
-    ~VPEPage(){
-	this->getWorkSpaceRoot()->removePage(this);
-    }
-
-    virtual void resize() {}
-
-    const char* getClassName() { return ClassVPEPage; }
-    virtual boolean isA (Symbol classname);
-    boolean isA (const char* classname);
+  const char* getClassName()
+  {
+    return ClassVPEPage;
+  }
+  virtual boolean isA( Symbol classname );
+  boolean isA( const char* classname );
 };
 
-
-#endif // _VPEPage_h
+#endif  // _VPEPage_h

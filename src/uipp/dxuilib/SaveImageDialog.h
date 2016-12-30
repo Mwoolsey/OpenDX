@@ -8,19 +8,17 @@
 
 #include <dxconfig.h>
 
-
 #ifndef _SaveImageDialog_h
 #define _SaveImageDialog_h
-
 
 #include "ImageFormatDialog.h"
 
 //
 // Class name definition:
 //
-#define ClassSaveImageDialog	"SaveImageDialog"
+#define ClassSaveImageDialog "SaveImageDialog"
 
-extern "C" void SaveImageDialog_ModifyCB (Widget, XtPointer, XtPointer);
+extern "C" void SaveImageDialog_ModifyCB( Widget, XtPointer, XtPointer );
 
 class Dialog;
 class ImageNode;
@@ -33,80 +31,88 @@ class ImageFileDialog;
 
 //
 // SaveImageDialog class definition:
-//				
+//
 class SaveImageDialog : public ImageFormatDialog
 {
-  private:
+ private:
+  static boolean ClassInitialized;
+  static String DefaultResources[];
 
-    static boolean ClassInitialized;
-    static String  DefaultResources[];
+  Widget file_name;
+  char* file;
+  ImageFileDialog* fsb;
+  int sid_dirty;
 
-    Widget			file_name;
-    char*			file;
-    ImageFileDialog*		fsb;
-    int				sid_dirty;
+ protected:
+  ToggleButtonInterface* saveCurrentOption;
+  ToggleButtonInterface* saveContinuousOption;
+  ButtonInterface* fileSelectOption;
 
-  protected:
+  Command* saveCurrentCmd;
+  Command* saveContinuousCmd;
+  Command* fileSelectCmd;
 
-    ToggleButtonInterface*	saveCurrentOption;
-    ToggleButtonInterface*	saveContinuousOption;
-    ButtonInterface*		fileSelectOption;
+  virtual Widget createControls( Widget parent );
 
-    Command*			saveCurrentCmd;
-    Command*			saveContinuousCmd;
-    Command*			fileSelectCmd;
+  virtual boolean okCallback( Dialog* );
+  virtual void restoreCallback();
+  virtual int getRequiredHeight()
+  {
+    return 190;
+  }
 
-    virtual Widget 		createControls(Widget parent );
+  //
+  // Install the default resources for this class and then call the
+  // same super class method to get the default resources from the
+  // super classes.
+  //
+  virtual void installDefaultResources( Widget baseWidget );
 
-    virtual boolean 		okCallback(Dialog *);
-    virtual void		restoreCallback();
-    virtual int			getRequiredHeight() { return 190; }
+  enum
+  {
+    DirtyFilename = 64,
+    DirtyCurrent = 128,
+    DirtyContinuous = 256,
+    DirtyRecordEnabled = 512
+  };
 
-    //
-    // Install the default resources for this class and then call the
-    // same super class method to get the default resources from the
-    // super classes.
-    //
-    virtual void installDefaultResources(Widget baseWidget);
+  friend void SaveImageDialog_ModifyCB( Widget, XtPointer, XtPointer );
 
+ public:
+  virtual void setCommandActivation();
 
-    enum {
-	DirtyFilename   	= 64,
-	DirtyCurrent 		= 128,
-	DirtyContinuous 	= 256,
-	DirtyRecordEnabled	= 512
-    };
+  virtual const char* getOutputFile();
+  virtual boolean isPrinting()
+  {
+    return FALSE;
+  }
+  virtual boolean postFileSelectionDialog();
+  void setFilename( const char* file, boolean skip_callbacks = TRUE );
 
-    friend void SaveImageDialog_ModifyCB (Widget, XtPointer, XtPointer);
+  boolean dirtyCurrent();
+  boolean dirtyContinuous()
+  {
+    this->sid_dirty |= DirtyContinuous;
+    return TRUE;
+  }
 
-  public:
+  //
+  // Constructor:
+  //
+  SaveImageDialog( Widget parent, ImageNode* node, CommandScope* commandScope );
 
-    virtual void 	setCommandActivation();
+  //
+  // Destructor:
+  //
+  ~SaveImageDialog();
 
-    virtual const char*	getOutputFile();
-    virtual boolean	isPrinting() { return FALSE; }
-    virtual boolean             postFileSelectionDialog();
-    void		setFilename(const char *file, boolean skip_callbacks=TRUE);
-
-    boolean		dirtyCurrent();
-    boolean		dirtyContinuous() 
-	{ this->sid_dirty|= DirtyContinuous; return TRUE; }
-
-    //
-    // Constructor:
-    //
-    SaveImageDialog(Widget parent, ImageNode* node, CommandScope* commandScope);
-
-    //
-    // Destructor:
-    //
-    ~SaveImageDialog();
-
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName() { return ClassSaveImageDialog; }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char* getClassName()
+  {
+    return ClassSaveImageDialog;
+  }
 };
 
-
-#endif // _SaveImageDialog_h
+#endif  // _SaveImageDialog_h

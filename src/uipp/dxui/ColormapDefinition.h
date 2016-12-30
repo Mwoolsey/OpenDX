@@ -9,18 +9,15 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _ColormapDefinition_h
 #define _ColormapDefinition_h
 
-
 #include "DrivenDefinition.h"
-
 
 //
 // Class name definition:
 //
-#define ClassColormapDefinition	"ColormapDefinition"
+#define ClassColormapDefinition "ColormapDefinition"
 
 //
 // Referenced classes
@@ -28,48 +25,49 @@ class Network;
 
 //
 // ColormapDefinition class definition:
-//				
+//
 class ColormapDefinition : public DrivenDefinition
 {
-  private:
-    //
-    // Private member data:
-    //
+ private:
+  //
+  // Private member data:
+  //
 
-  protected:
-    //
-    // Allocate a new Node of the corresponding type.
-    //
-    virtual Node *newNode(Network *net, int instance = -1); 
+ protected:
+  //
+  // Allocate a new Node of the corresponding type.
+  //
+  virtual Node *newNode( Network *net, int instance = -1 );
 
-  public:
-    //
-    // Constructor:
-    //
-    ColormapDefinition();
+ public:
+  //
+  // Constructor:
+  //
+  ColormapDefinition();
 
-    //
-    // Destructor:
-    //
-    ~ColormapDefinition(){}
+  //
+  // Destructor:
+  //
+  ~ColormapDefinition()
+  {
+  }
 
-    //
-    // Create a new Module and DrivenDefinition of 'this' type. 
-    //
-    static NodeDefinition *AllocateDefinition();
+  //
+  // Create a new Module and DrivenDefinition of 'this' type.
+  //
+  static NodeDefinition *AllocateDefinition();
 
-#if 0 // Moved to DrivenNode 6/30/93
+#if 0  // Moved to DrivenNode 6/30/93
     virtual boolean isAllowedInMacro() { return FALSE; }
 #endif
 
-    //
-    // Returns a pointer to the class name.
-    //
-    const char* getClassName()
-    {
-	return ClassColormapDefinition;
-    }
+  //
+  // Returns a pointer to the class name.
+  //
+  const char *getClassName()
+  {
+    return ClassColormapDefinition;
+  }
 };
 
-
-#endif // _ColormapDefinition_h
+#endif  // _ColormapDefinition_h

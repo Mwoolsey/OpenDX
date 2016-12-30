@@ -8,26 +8,24 @@
 
 #include <dxconfig.h>
 
-
-
 #undef STATS
 
-typedef struct grid		*Grid;
+typedef struct grid *Grid;
 
-Grid		_dxfMakeSearchGrid(float *, float *, int, int);
-void	 	_dxfFreeSearchGrid(Grid);
-Grid		_dxfCopySearchGrid(Grid);
-Error		_dxfAddItemToSearchGrid(Grid, float **, int, int);
-void	 	_dxfInitGetSearchGrid(Grid, float *);
-int	 	_dxfGetNextSearchGrid(Grid);
+Grid _dxfMakeSearchGrid( float *, float *, int, int );
+void _dxfFreeSearchGrid( Grid );
+Grid _dxfCopySearchGrid( Grid );
+Error _dxfAddItemToSearchGrid( Grid, float **, int, int );
+void _dxfInitGetSearchGrid( Grid, float * );
+int _dxfGetNextSearchGrid( Grid );
 
 /*
  * These are the linked list entries
  */
 struct _item
 {
-    int 	    primNum;
-    int 	    next;
+  int primNum;
+  int next;
 };
 
 /*
@@ -35,34 +33,34 @@ struct _item
  * dynamic allocation and deallocation.
  */
 
-#define MAXDIM		3
-#define MAXGRID		32
-#define MAXVERTS	16
+#define MAXDIM 3
+#define MAXGRID 32
+#define MAXVERTS 16
 
 struct _gridlevel
 {
-    int			stride[MAXDIM];
-    int			counts[MAXDIM];
-    Array		bucketArray;
-    int			*buckets;
-    int			current;
-    int			count;
+  int stride[MAXDIM];
+  int counts[MAXDIM];
+  Array bucketArray;
+  int *buckets;
+  int current;
+  int count;
 };
 
 struct grid
 {
-    int			nDim;
+  int nDim;
 
-    float		min[MAXDIM];
-    float		scale[MAXDIM];
-    int			counts[MAXDIM];
+  float min[MAXDIM];
+  float scale[MAXDIM];
+  int counts[MAXDIM];
 
-    int			currentGrid;
-    float		gridPoint[MAXDIM];
+  int currentGrid;
+  float gridPoint[MAXDIM];
 
-    struct _gridlevel	gridlevels[MAXGRID];
+  struct _gridlevel gridlevels[MAXGRID];
 
-    Array   	    	itemArray;
-    struct _item 	*items;
-    int	   	    	next;
+  Array itemArray;
+  struct _item *items;
+  int next;
 };

@@ -9,14 +9,11 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
 #include <Xm/Xm.h>
 #include <Xm/Label.h>
 #include <X11/cursorfont.h>
 
-
-#if defined(HAVE_UNISTD_H)
+#if defined( HAVE_UNISTD_H )
 #include <unistd.h>
 #endif
 #include <signal.h>
@@ -30,143 +27,113 @@
 #define XK_MISCELLANY
 #include <X11/keysym.h>
 
-MBApplication* theMBApplication = NUL(MBApplication*);
+MBApplication *theMBApplication = NUL( MBApplication * );
 
-boolean    MBApplication::MBApplicationClassInitialized = FALSE;
+boolean MBApplication::MBApplicationClassInitialized = FALSE;
 MBResource MBApplication::resource;
 
-static
-XrmOptionDescRec _MBOptionList[] =
+static XrmOptionDescRec _MBOptionList[] = {
+    {"-warning", "*warningEnabled", XrmoptionSepArg, "False"}, };
+
+static XtResource _MBResourceList[] = {
+    {"MBInsensitiveColor",                       "Color",
+     XmRPixel,                                   sizeof( Pixel ),
+     XtOffset( MBResource *, insensitiveColor ), XmRString,
+     ( XtPointer ) "#888"}, };
+
+static const String _defaultMBResources[] = {
+    "*XmScrollBar.initialDelay:    2000", "*XmScrollBar.repeatDelay:     2000",
+    NULL};
+
+MBApplication::MBApplication( char *className ) : IBMApplication( className )
 {
-    {
-	"-warning",
-	"*warningEnabled",
-	XrmoptionSepArg,
-	"False"
-    },
-};
-
-
-static
-XtResource _MBResourceList[] =
-{
-    {
-	"MBInsensitiveColor",
-	"Color",
-	XmRPixel,
-	sizeof(Pixel),
-	XtOffset(MBResource*, insensitiveColor),
-	XmRString,
-	(XtPointer)"#888"
-    },
-};
-
-static
-const String _defaultMBResources[] =
-{
-    "*XmScrollBar.initialDelay:    2000",
-    "*XmScrollBar.repeatDelay:     2000",
-
-    NULL
-};
-
-
-MBApplication::MBApplication(char* className): IBMApplication(className)
-{
-    //
-    // Set the global MB application pointer.
-    //
-    theMBApplication = this;
-    theMBApplication->is_dirty = FALSE;
-
+  //
+  // Set the global MB application pointer.
+  //
+  theMBApplication = this;
+  theMBApplication->is_dirty = FALSE;
 }
-
 
 MBApplication::~MBApplication()
 {
-    //
-    // Set the flag to terminate the event processing loop.
-    //
-    theMBApplication = NULL;
+  //
+  // Set the flag to terminate the event processing loop.
+  //
+  theMBApplication = NULL;
 }
 
-
-#if defined (SIGDANGER)
+#if defined( SIGDANGER )
 extern "C" {
-static void
-SigDangerHandler(int dummy)
+static void SigDangerHandler( int dummy )
 {
-    char *msg = 
-#if defined(ibm6000)
-    "AIX has notified Data Explorer that the User Interface\nis in"
-    " danger of being killed due to insufficient page space.\n";
-#else        
-    "The operating system has issued a SIGDANGER to the User Interface\n";
-#endif       
-    write(2, msg, strlen(msg));
-    signal(SIGDANGER, SigDangerHandler);
-}            
+  char *msg =
+#if defined( ibm6000 )
+      "AIX has notified Data Explorer that the User Interface\nis in"
+      " danger of being killed due to insufficient page space.\n";
+#else
+      "The operating system has issued a SIGDANGER to the User Interface\n";
+#endif
+  write( 2, msg, strlen( msg ) );
+  signal( SIGDANGER, SigDangerHandler );
+}
 }
 #endif
- 
-static void 
-InitializeSignals(void)
-{            
-#if defined(SIGDANGER)
-    signal(SIGDANGER, SigDangerHandler);
-#endif       
-}            
 
-boolean MBApplication::initialize(unsigned int* argcp,
-			       char**        argv)
+static void InitializeSignals( void )
 {
-    ASSERT(argcp);
-    ASSERT(argv);
+#if defined( SIGDANGER )
+  signal( SIGDANGER, SigDangerHandler );
+#endif
+}
 
-    if (!this->IBMApplication::initializeWindowSystem(argcp,argv))
-        return FALSE;
+boolean MBApplication::initialize( unsigned int *argcp, char **argv )
+{
+  ASSERT( argcp );
+  ASSERT( argv );
 
-    if (!this->IBMApplication::initialize(argcp,argv))
-        return FALSE;
+  if ( !this->IBMApplication::initializeWindowSystem( argcp, argv ) )
+    return FALSE;
 
-    InitializeSignals();
+  if ( !this->IBMApplication::initialize( argcp, argv ) )
+    return FALSE;
 
-    this->parseCommand(argcp, argv, _MBOptionList, XtNumber(_MBOptionList));
+  InitializeSignals();
 
-    this->setDefaultResources(this->getRootWidget(), _defaultMBResources);
+  this->parseCommand( argcp, argv, _MBOptionList, XtNumber( _MBOptionList ) );
 
-    this->setDefaultResources(this->getRootWidget(), 
-				IBMApplication::DefaultResources);
+  this->setDefaultResources( this->getRootWidget(), _defaultMBResources );
 
-    //
-    // Get application resources.
-    //
-    if (NOT MBApplication::MBApplicationClassInitialized)
-    {
-	this->getResources((XtPointer)&MBApplication::resource,
-			   _MBResourceList,
-			   XtNumber(_MBResourceList));
-	MBApplication::MBApplicationClassInitialized = TRUE;
-    }
+  this->setDefaultResources( this->getRootWidget(),
+                             IBMApplication::DefaultResources );
 
-    this->mainWindow = new MBMainWindow();
-    this->mainWindow->manage();
+  //
+  // Get application resources.
+  //
+  if ( NOT MBApplication::MBApplicationClassInitialized )
+  {
+    this->getResources( ( XtPointer ) & MBApplication::resource,
+                        _MBResourceList, XtNumber( _MBResourceList ) );
+    MBApplication::MBApplicationClassInitialized = TRUE;
+  }
 
-    this->setBusyCursor(TRUE);
+  this->mainWindow = new MBMainWindow();
+  this->mainWindow->manage();
 
-    //
-    // Refresh the screen.
-    //
-    XmUpdateDisplay(this->getRootWidget());
+  this->setBusyCursor( TRUE );
 
-    //
-    // Post the copyright message.
-    //
-    this->postCopyrightNotice();
+  //
+  // Refresh the screen.
+  //
+  XmUpdateDisplay( this->getRootWidget() );
 
-    this->setBusyCursor(FALSE);
+  //
+  // Post the copyright message.
+  //
+  this->postCopyrightNotice();
 
-    return TRUE;
+  this->setBusyCursor( FALSE );
+
+  return TRUE;
 }
 
 //
@@ -175,7 +142,7 @@ boolean MBApplication::initialize(unsigned int* argcp,
 //
 const char *MBApplication::getInformalName()
 {
-    return "Module Builder";
+  return "Module Builder";
 }
 //
 // Return the formal name of the application (i.e.
@@ -183,7 +150,7 @@ const char *MBApplication::getInformalName()
 //
 const char *MBApplication::getFormalName()
 {
-   return "Open Visualization Module Builder";
+  return "Open Visualization Module Builder";
 }
 //
 // Get the applications copyright notice, for example...
@@ -192,18 +159,17 @@ const char *MBApplication::getFormalName()
 //
 const char *MBApplication::getCopyrightNotice()
 {
-    return DXD_COPYRIGHT_STRING;
+  return DXD_COPYRIGHT_STRING;
 }
 
 const char *MBApplication::getHelpDirFileName()
 {
-    return "MBHelpDir";
+  return "MBHelpDir";
 }
 
 const char *MBApplication::getStartTutorialCommandString()
 {
-    // At some point we may want to define this to be the module builder 
-    // specific tutorial.
-    return this->IBMApplication::getStartTutorialCommandString();
+  // At some point we may want to define this to be the module builder
+  // specific tutorial.
+  return this->IBMApplication::getStartTutorialCommandString();
 }
-

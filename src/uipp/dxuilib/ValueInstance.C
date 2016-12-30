@@ -9,20 +9,16 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
-
-
 #include "ValueInstance.h"
 #include "ValueNode.h"
 
-
-ValueInstance::ValueInstance(ValueNode *n) : InteractorInstance(n)
-{ 
+ValueInstance::ValueInstance( ValueNode *n ) : InteractorInstance( n )
+{
 }
-	
-ValueInstance::~ValueInstance() 
-{ 
-} 
+
+ValueInstance::~ValueInstance()
+{
+}
 
 #if 0  // This is moved to ValueInteractor on 4/9/93
 //

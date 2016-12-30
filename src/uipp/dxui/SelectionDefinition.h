@@ -9,48 +9,49 @@
 #include <dxconfig.h>
 #include "../base/defines.h"
 
-
 #ifndef _SelectionDefinition_h
 #define _SelectionDefinition_h
 
 #include "InteractorDefinition.h"
 
-
 //
 // Class name definition:
 //
-#define ClassSelectionDefinition	"SelectionDefinition"
-
+#define ClassSelectionDefinition "SelectionDefinition"
 
 //
 // SelectionDefinition class definition:
-//				
-class SelectionDefinition : public InteractorDefinition 
+//
+class SelectionDefinition : public InteractorDefinition
 {
-  private:
-	
-  protected:
-    //
-    // Protected member data:
-    //
+ private:
+ protected:
+  //
+  // Protected member data:
+  //
 
-  public:
-    //
-    // Constructor:
-    //
-    SelectionDefinition() { }
+ public:
+  //
+  // Constructor:
+  //
+  SelectionDefinition()
+  {
+  }
 
-    //
-    // Destructor:
-    //
-    ~SelectionDefinition() { }
-	
-    //
-    // Returns a pointer to the class name.
-    //
-    virtual const char* getClassName() 
-		{ return ClassSelectionDefinition; }
+  //
+  // Destructor:
+  //
+  ~SelectionDefinition()
+  {
+  }
+
+  //
+  // Returns a pointer to the class name.
+  //
+  virtual const char* getClassName()
+  {
+    return ClassSelectionDefinition;
+  }
 };
 
-
-#endif // _SelectionDefinition_h
+#endif  // _SelectionDefinition_h

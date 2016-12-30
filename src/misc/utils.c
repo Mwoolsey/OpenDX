@@ -12,41 +12,41 @@
 #include "dx.h"
 #include <stdio.h>
 
-#if defined(intelnt) || defined(cygwin) || defined(WIN32)
+#if defined( intelnt ) || defined( cygwin ) || defined( WIN32 )
 
-#if defined(HAVE_WINDOWS_H)
+#if defined( HAVE_WINDOWS_H )
 #include <windows.h>
 #endif
 
-#if defined(HAVE_UNISTD_H)
+#if defined( HAVE_UNISTD_H )
 #include <unistd.h>
 #endif
 
-#if defined(HAVE_ERRNO_H)
+#if defined( HAVE_ERRNO_H )
 #include <errno.h>
 #endif
 
-#if defined(HAVE_PROCESS_H)
+#if defined( HAVE_PROCESS_H )
 #include <process.h>
 #endif
 
-void d2u(char *s)
+void d2u( char *s )
 {
-#if defined(intelnt) || defined(WIN32)
-    int i;
-    for (i=0; s && *s && (i<strlen(s)); i++)
-	if (s[i] == '\\')
-	    s[i] = '/';
+#if defined( intelnt ) || defined( WIN32 )
+  int i;
+  for ( i = 0; s && *s && ( i < strlen( s ) ); i++ )
+    if ( s[i] == '\\' )
+      s[i] = '/';
 #endif
 }
 
-void u2d(char *s)
+void u2d( char *s )
 {
-#if defined(intelnt) || defined(WIN32)
-    int i;
-    for (i=0; s && *s && (i<strlen(s)); i++)
-	if (s[i] == '/')
-	    s[i] = '\\';
+#if defined( intelnt ) || defined( WIN32 )
+  int i;
+  for ( i = 0; s && *s && ( i < strlen( s ) ); i++ )
+    if ( s[i] == '/' )
+      s[i] = '\\';
 #endif
 }
 
@@ -67,85 +67,97 @@ void p2des(char *s) /* path to dos with extra seperator */
 }
 #endif
 
-void removeQuotes(char *s)
+void removeQuotes( char *s )
 {
-    char *p, *p2; p = s; p2 = s;
-    while(p && *p) {
-	while(*p && p && *p == '"') p++;
-	*p2 = *p; p2++; p++;
-    }
-    *p2 = '\0';
+  char *p, *p2;
+  p = s;
+  p2 = s;
+  while ( p && *p )
+  {
+    while ( *p && p && *p == '"' )
+      p++;
+    *p2 = *p;
+    p2++;
+    p++;
+  }
+  *p2 = '\0';
 }
 
-void addQuotes(char *s)
+void addQuotes( char *s )
 {
-    int i, length;
-    length=strlen(s);
-    for(i=length; i>0; i--)
-	s[i]=s[i-1];
-    s[length+1] = '"';
-    s[length+2] = '\0';
-    s[0] = '"';
+  int i, length;
+  length = strlen( s );
+  for ( i = length; i > 0; i-- )
+    s[i] = s[i - 1];
+  s[length + 1] = '"';
+  s[length + 2] = '\0';
+  s[0] = '"';
 }
 
-int getenvstr(char *name, char *value)
+int getenvstr( char *name, char *value )
 {
-    char *s=NULL;
+  char *s = NULL;
 
-    s = getenv(name);
-    if (s)
-	strcpy(value, s);
+  s = getenv( name );
+  if ( s )
+    strcpy( value, s );
 
-    return ((s && *s) ? 1 : 0);
+  return ( ( s && *s ) ? 1 : 0 );
 }
 
 /*  In Windows, the name/value pair must be separated by = 	*/
 /*  with no blanks on either side of =.  Null values would have */
 /*  name=\0 to unset them in the environment.			*/
-int putenvstr(char *name, char *value, int echo)
+int putenvstr( char *name, char *value, int echo )
 {
-    char s[MAXENV];
-    char *p, *q;
-    int rc;
-    int len;
-    int newlen;
+  char s[MAXENV];
+  char *p, *q;
+  int rc;
+  int len;
+  int newlen;
 
-    if (!*name)
-	return 0;
+  if ( !*name )
+    return 0;
 
-    if (!*value)
-        return 0;
+  if ( !*value )
+    return 0;
 
-    for(p = name; *p == ' '; p++);
-    for(q = &name[strlen(name)-1]; *q == ' ' && q != p; q--);
+  for ( p = name; *p == ' '; p++ )
+    ;
+  for ( q = &name[strlen( name ) - 1]; *q == ' ' && q != p; q-- )
+    ;
 
-    len = (int)(q-p)+1;
-    strncpy(s, p, len);
-    s[len] = '\0';
-    strcat(s, "=");
+  len = (int)( q - p ) + 1;
+  strncpy( s, p, len );
+  s[len] = '\0';
+  strcat( s, "=" );
 
-    /* All env params except path and MAGICK_HOME should be Unix style */
-    if (strcasecmp(s, "path=") && strcasecmp(s, "magick_home="))
-	d2u(value);
+  /* All env params except path and MAGICK_HOME should be Unix style */
+  if ( strcasecmp( s, "path=" ) && strcasecmp( s, "magick_home=" ) )
+    d2u( value );
 
-    for(p = value; *p == ' '; p++);
-    if(strlen(p)) {
-	for(q = &value[strlen(value)-1]; *q == ' ' && q != p; q--);
-	if (*p != ' ') {
-	    newlen = strlen(s);
-	    len = (int)(q-p)+1;
-	    strncat(s, p, len);
-	    s[len+newlen] = '\0';
-	}
+  for ( p = value; *p == ' '; p++ )
+    ;
+  if ( strlen( p ) )
+  {
+    for ( q = &value[strlen( value ) - 1]; *q == ' ' && q != p; q-- )
+      ;
+    if ( *p != ' ' )
+    {
+      newlen = strlen( s );
+      len = (int)( q - p ) + 1;
+      strncat( s, p, len );
+      s[len + newlen] = '\0';
     }
+  }
 
-    p = malloc(strlen(s) + 1);
-    strcpy(p, s);
-    
-    rc = _putenv(p);
-    if (echo)
-		printf("%s\n", s);
-    return (!rc ? 1 :0);
+  p = malloc( strlen( s ) + 1 );
+  strcpy( p, s );
+
+  rc = _putenv( p );
+  if ( echo )
+    printf( "%s\n", s );
+  return ( !rc ? 1 : 0 );
 }
 
 #endif

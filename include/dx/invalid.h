@@ -5,9 +5,8 @@
 /* This code licensed under the                                        */
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
- 
- 
-#if defined(__cplusplus) || defined(c_plusplus)
+
+#if defined( __cplusplus ) || defined( c_plusplus )
 extern "C" {
 #endif
 
@@ -39,7 +38,7 @@ DXInvalidateConnections} which will create an invalid connections
 component, if necessary.  Note that the ``invalid connections''
 component cannot be assumed to be up-to-date with regard to invalid
 positions unless this routine is called.
- 
+
 Invalid positions and connections (and their dependent information) may
 be actually removed from the data set be calling {\tt DXCull}.  This
 routine removes all invalidated positions and connections and the
@@ -48,7 +47,7 @@ and connections, renumbers components that reference positions or
 connections (inserting a -1 for indices that refer to removed positions
 or connections) and, finally, removes the invalid positions and
 connections components.
- 
+
 The removal of invalid positions and connections may have significantly
 detrimental effect on the performance of the system as a whole since it
 may require the conversion or regular positions and connections
@@ -61,11 +60,11 @@ components intact, cull the connections component, leaving the invalid
 positions component intact, or cull both positions and connections.
 
 */
- 
-#define DATA_VALID   0
+
+#define DATA_VALID 0
 #define DATA_INVALID 1
- 
-Object DXInvalidateConnections(Object object);
+
+Object DXInvalidateConnections( Object object );
 /**
 \index{DXInvalidateConnections}
 Propagate the validity of positions within the fields of {\tt object}
@@ -74,8 +73,8 @@ which it is incident is invalid.  An ``invalid connections'' component
 will be created if necessary.  Returns the updated object on success,
 or returns null and sets the error code to indicate an error.
 **/
- 
-Object DXInvalidateUnreferencedPositions(Object object);
+
+Object DXInvalidateUnreferencedPositions( Object object );
 /**
 \index{DXInvalidateUnreferencedPositions}
 Determine which positions in the constituent fields of {\tt object}
@@ -84,8 +83,8 @@ are not referenced by any connections element and invalidate them.  An
 the updated object, or returns null and sets the error code to
 indicate an error.
 **/
- 
-Object DXCull(Object object);
+
+Object DXCull( Object object );
 /**
 \index{DXCull}
 DXRemove any invalidated positions and/or connections from the
@@ -97,8 +96,8 @@ connections.  DXRemove "invalid positions" and "invalid connections"
 components.  Returns the updated object, or returns null and sets the
 error code to indicate an error.
 **/
- 
-Object DXCullConditional(Object object);
+
+Object DXCullConditional( Object object );
 /**
 \index{DXCullConditional}
 Conditionally cull {\tt object}.  Based on effiency criteria, {\tt
@@ -110,67 +109,67 @@ that reference culled components are renumbered.  Returns the updated
 object, or returns null and sets the error code to indicate an error.
 **/
 
-#define IC_HASH				1
-#define IC_DEP_ARRAY 			2
-#define IC_SEGLIST   			3
-#define IC_SORTED_LIST  		4
-#define IC_ALL_MARKED 			5
-#define IC_ALL_UNMARKED 		6
+#define IC_HASH 1
+#define IC_DEP_ARRAY 2
+#define IC_SEGLIST 3
+#define IC_SORTED_LIST 4
+#define IC_ALL_MARKED 5
+#define IC_ALL_UNMARKED 6
 
-#define IC_ELEMENT_MARKED		DATA_INVALID
-#define IC_ELEMENT_UNMARKED		DATA_VALID
+#define IC_ELEMENT_MARKED DATA_INVALID
+#define IC_ELEMENT_UNMARKED DATA_VALID
 
-#define IC_MARKS_INDICATE_VALID		0
-#define IC_MARKS_INDICATE_INVALID	1
+#define IC_MARKS_INDICATE_VALID 0
+#define IC_MARKS_INDICATE_INVALID 1
 
 typedef struct invalidComponentHandle
 {
-    int       type;		/* current type, eg. dep array or hash	*/
-    int	      myData;		/* did I allocate the data pointer?   	*/
-    int	      nItems;		/* total number of items in component 	*/
-    int	      nMarkedItems;	/* current number of marked items	*/
-    char      *iName;		/* invalid component name		*/
-    HashTable hash;		/* hash table pointer			*/
-    Pointer   data;		/* data pointer				*/
-    SegList   *seglist;		/* seg list pointer			*/
-    int	      next;		/* next pointer for sequential queries  */
-    Array     array;		/* original array			*/
-    int	      sense;		/* do marks indicate valid?		*/
+  int type;         /* current type, eg. dep array or hash	*/
+  int myData;       /* did I allocate the data pointer?   	*/
+  int nItems;       /* total number of items in component 	*/
+  int nMarkedItems; /* current number of marked items	*/
+  char *iName;      /* invalid component name		*/
+  HashTable hash;   /* hash table pointer			*/
+  Pointer data;     /* data pointer				*/
+  SegList *seglist; /* seg list pointer			*/
+  int next;         /* next pointer for sequential queries  */
+  Array array;      /* original array			*/
+  int sense;        /* do marks indicate valid?		*/
 
-    /*
-     * For iteration
-     */
-    int       *sortList;	/* for hashed handles			*/
-    int	      sortListSize;
-    int	      nextSlot;		
-    int	      nextCand;
-    int       nextMark;
-    int       nextMarkI;
+  /*
+   * For iteration
+   */
+  int *sortList; /* for hashed handles			*/
+  int sortListSize;
+  int nextSlot;
+  int nextCand;
+  int nextMark;
+  int nextMarkI;
 } *InvalidComponentHandle;
 
-InvalidComponentHandle DXCreateInvalidComponentHandle(Object, Array, char *);
-Error DXFreeInvalidComponentHandle(InvalidComponentHandle);
-Error DXSaveInvalidComponent(Field, InvalidComponentHandle);
-Array DXGetInvalidComponentArray(InvalidComponentHandle);
-Error DXSetElementInvalid(InvalidComponentHandle, int);
-Error DXSetElementValid(InvalidComponentHandle, int);
-Error DXInvertValidity(InvalidComponentHandle);
-Error DXSetAllValid(InvalidComponentHandle);
-Error DXSetAllInvalid(InvalidComponentHandle);
-int   DXIsElementInvalid(InvalidComponentHandle, int);
-int   DXIsElementValid(InvalidComponentHandle, int);
-int   DXIsElementValidSequential(InvalidComponentHandle, int);
-int   DXIsElementInvalidSequential(InvalidComponentHandle, int);
-int   DXGetInvalidCount(InvalidComponentHandle);
-int   DXGetValidCount(InvalidComponentHandle);
-Error DXInitGetNextInvalidElementIndex(InvalidComponentHandle);
-Error DXInitGetNextValidElementIndex(InvalidComponentHandle);
-int   DXGetNextValidElementIndex(InvalidComponentHandle);
-int   DXGetNextInvalidElementIndex(InvalidComponentHandle);
-Array DXForceInvalidArrayDependent(Array, Array);
+InvalidComponentHandle DXCreateInvalidComponentHandle( Object, Array, char * );
+Error DXFreeInvalidComponentHandle( InvalidComponentHandle );
+Error DXSaveInvalidComponent( Field, InvalidComponentHandle );
+Array DXGetInvalidComponentArray( InvalidComponentHandle );
+Error DXSetElementInvalid( InvalidComponentHandle, int );
+Error DXSetElementValid( InvalidComponentHandle, int );
+Error DXInvertValidity( InvalidComponentHandle );
+Error DXSetAllValid( InvalidComponentHandle );
+Error DXSetAllInvalid( InvalidComponentHandle );
+int DXIsElementInvalid( InvalidComponentHandle, int );
+int DXIsElementValid( InvalidComponentHandle, int );
+int DXIsElementValidSequential( InvalidComponentHandle, int );
+int DXIsElementInvalidSequential( InvalidComponentHandle, int );
+int DXGetInvalidCount( InvalidComponentHandle );
+int DXGetValidCount( InvalidComponentHandle );
+Error DXInitGetNextInvalidElementIndex( InvalidComponentHandle );
+Error DXInitGetNextValidElementIndex( InvalidComponentHandle );
+int DXGetNextValidElementIndex( InvalidComponentHandle );
+int DXGetNextInvalidElementIndex( InvalidComponentHandle );
+Array DXForceInvalidArrayDependent( Array, Array );
 
 #endif /* _DXI_INVALID_H_ */
 
-#if defined(__cplusplus) || defined(c_plusplus)
+#if defined( __cplusplus ) || defined( c_plusplus )
 }
 #endif

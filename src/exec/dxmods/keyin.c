@@ -6,22 +6,23 @@
 /*    "IBM PUBLIC LICENSE - Open Visualization Data Explorer"          */
 /***********************************************************************/
 /*
- * $Header: /src/master/dx/src/exec/dxmods/keyin.c,v 1.6 2006/01/03 17:02:23 davidt Exp $
+ * $Header: /src/master/dx/src/exec/dxmods/keyin.c,v 1.6 2006/01/03 17:02:23
+ * davidt Exp $
  */
 
 #include <dxconfig.h>
 
-#if defined(HAVE_UNISTD_H)
+#if defined( HAVE_UNISTD_H )
 #include <unistd.h>
 #endif
 
-#if defined(HAVE_STRING_H)
+#if defined( HAVE_STRING_H )
 #include <string.h>
 #endif
 
 /***
 MODULE:
- KeyIn 
+ KeyIn
 SHORTDESCRIPTION:
  Stops execution until an Enter keystroke is received.
 CATEGORY:
@@ -41,50 +42,55 @@ END:
 
 static char defmessage[] = "Type <ENTER> to continue";
 
-
-Error
-m_KeyIn(Object *in, Object *out)
+Error m_KeyIn( Object *in, Object *out )
 {
-    int fh;
-    char c, *s;
+  int fh;
+  char c, *s;
 
-    if(in[0]) {
-	if(!DXExtractString(in[0], &s)) {
-	    DXSetError(ERROR_BAD_PARAMETER, "#10200", "prompt");
-	    return ERROR;
-	}
-    } else
-	s = defmessage;
+  if ( in[0] )
+  {
+    if ( !DXExtractString( in[0], &s ) )
+    {
+      DXSetError( ERROR_BAD_PARAMETER, "#10200", "prompt" );
+      return ERROR;
+    }
+  }
+  else
+    s = defmessage;
 
 #ifdef DXD_OS_NON_UNIX
-    _cprintf("%s", s);
-    /*
-    {
-	char tmpStr[1024];
-	 _cgets(tmpStr);
-     }
-     */
-     while(1) {
-	c = getche();
-	if( c == '\n' || c == 13)
-	    break;
-
-     }
-     putch('\n');
+  _cprintf( "%s", s );
+  /*
+  {
+      char tmpStr[1024];
+       _cgets(tmpStr);
+   }
+   */
+  while ( 1 )
+  {
+    c = getche();
+    if ( c == '\n' || c == 13 )
+      break;
+  }
+  putch( '\n' );
 #else
-    fh = open("/dev/tty", 2);
-    if (fh < 0) {
-	DXSetError(ERROR_DATA_INVALID, "cannot open /dev/tty");
-	return ERROR;
-    }
-    write(fh, s, strlen(s));
+  fh = open( "/dev/tty", 2 );
+  if ( fh < 0 )
+  {
+    DXSetError( ERROR_DATA_INVALID, "cannot open /dev/tty" );
+    return ERROR;
+  }
+  if ( write( fh, s, strlen( s ) ) < 0 )
+    return ERROR;
 
-    do {
-	read(fh, &c, 1);
-    } while(c != '\n');
+  do
+  {
+    if ( read( fh, &c, 1 ) < 0 )
+      return ERROR;
+  } while ( c != '\n' );
 
-    close(fh);
+  close( fh );
 #endif
 
-    return OK;
+  return OK;
 }

@@ -8,7 +8,6 @@
 
 #include <dxconfig.h>
 
-
 #ifndef tdmView_h
 #define tdmView_h
 
@@ -23,14 +22,14 @@
 \*---------------------------------------------------------------------------*/
 
 viewO _dxf_newHwView();
-viewO _dxf_getHwViewInfo(viewO vo,
-	    int *flags, gatherO *gather, translationO *translation,
-	    float *projection, float *view, RGBColor *background);
-viewO _dxf_setHwViewFlags(viewO vo, int flags);
-viewO _dxf_setHwViewGather(viewO vo, gatherO gather);
-viewO _dxf_setHwViewTranslation(viewO vo, translationO translation);
-viewO _dxf_setHwViewProjectionMatrix(viewO vo, float projectionMatrix[4][4]);
-viewO _dxf_setHwViewViewMatrix(viewO vo, float viewMatrix[4][4]);
-viewO _dxf_setHwViewBackground(viewO vo, RGBColor background);
+viewO _dxf_getHwViewInfo( viewO vo, int *flags, gatherO *gather,
+                          translationO *translation, float *projection,
+                          float *view, RGBColor *background );
+viewO _dxf_setHwViewFlags( viewO vo, int flags );
+viewO _dxf_setHwViewGather( viewO vo, gatherO gather );
+viewO _dxf_setHwViewTranslation( viewO vo, translationO translation );
+viewO _dxf_setHwViewProjectionMatrix( viewO vo, float projectionMatrix[4][4] );
+viewO _dxf_setHwViewViewMatrix( viewO vo, float viewMatrix[4][4] );
+viewO _dxf_setHwViewBackground( viewO vo, RGBColor background );
 
 #endif /* tdmView_h */

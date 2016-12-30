@@ -11,10 +11,9 @@
 
 #include "scalar.h"
 
-int m_ScalarList(Object *in, Object *out)
+int m_ScalarList( Object *in, Object *out )
 {
-   if (!_dxfscalar_base(in, out,1))
-      return ERROR;
-   return OK;
+  if ( !_dxfscalar_base( in, out, 1 ) )
+    return ERROR;
+  return OK;
 }
-

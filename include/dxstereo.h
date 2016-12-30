@@ -11,56 +11,52 @@
 
 typedef struct
 {
-    int xOffset, yOffset;
-    int xSize, ySize;
-    float aspect;
+  int xOffset, yOffset;
+  int xSize, ySize;
+  float aspect;
 } WindowInfo;
 
-#if defined(DX_NATIVE_WINDOWS)
+#if defined( DX_NATIVE_WINDOWS )
 
-typedef int (*InitializeStereoSystemMode)(HDC, HWND);
-typedef int (*CreateStereoWindows)(HDC, HWND,
-								   HRGN *, WindowInfo *,
-								   HRGN *, WindowInfo *);
-typedef int (*ExitStereo)(HDC, HWND, HRGN *, HRGN *);
+typedef int ( *InitializeStereoSystemMode )( HDC, HWND );
+typedef int ( *CreateStereoWindows )( HDC, HWND, HRGN *, WindowInfo *, HRGN *,
+                                      WindowInfo * );
+typedef int ( *ExitStereo )( HDC, HWND, HRGN *, HRGN * );
 
-typedef int   (*MapStereoXY)(void *, HWND, HWND, WindowInfo, 
-				int, int, int*, int*);
+typedef int ( *MapStereoXY )( void *, HWND, HWND, WindowInfo, int, int, int *,
+                              int * );
 
 #else
 
-typedef int   (*InitializeStereoSystemMode)(Display *, Window);
-typedef int   (*CreateStereoWindows)(Display *, Window,
-				Window *, WindowInfo *,
-				Window *, WindowInfo *);
-typedef int   (*ExitStereo)(Display *, Window, Window, Window);
+typedef int ( *InitializeStereoSystemMode )( Display *, Window );
+typedef int ( *CreateStereoWindows )( Display *, Window, Window *, WindowInfo *,
+                                      Window *, WindowInfo * );
+typedef int ( *ExitStereo )( Display *, Window, Window, Window );
 
-typedef int   (*MapStereoXY)(void *, Window, Window, WindowInfo, 
-				int, int, int*, int*);
+typedef int ( *MapStereoXY )( void *, Window, Window, WindowInfo, int, int,
+                              int *, int * );
 #endif /* native windows */
 
-typedef void *(*InitializeStereoCameraMode)(void *, dxObject);
-typedef int   (*ExitStereoCameraMode)(void *);
-typedef int   (*CreateStereoCameras)(void *,
-				int, float, float,
-				float *, float *, float *, float, float,
-				float *, float *, float *, float **,
-				float *, float *, float *, float **);
+typedef void *( *InitializeStereoCameraMode )( void *, dxObject );
+typedef int ( *ExitStereoCameraMode )( void * );
+typedef int ( *CreateStereoCameras )( void *, int, float, float, float *,
+                                      float *, float *, float, float, float *,
+                                      float *, float *, float **, float *,
+                                      float *, float *, float ** );
 
-typedef struct 
+typedef struct
 {
-    InitializeStereoSystemMode 	initializeStereoSystemMode;
-    CreateStereoWindows 	createStereoWindows;
-    ExitStereo          	exitStereo;
+  InitializeStereoSystemMode initializeStereoSystemMode;
+  CreateStereoWindows createStereoWindows;
+  ExitStereo exitStereo;
 } StereoSystemMode;
 
-typedef struct 
+typedef struct
 {
-    InitializeStereoCameraMode  initializeStereoCameraMode;
-    ExitStereoCameraMode  	exitStereoCameraMode;
-    CreateStereoCameras     	createStereoCameras;
-    MapStereoXY			mapStereoXY;
+  InitializeStereoCameraMode initializeStereoCameraMode;
+  ExitStereoCameraMode exitStereoCameraMode;
+  CreateStereoCameras createStereoCameras;
+  MapStereoXY mapStereoXY;
 } StereoCameraMode;
-
 
 #endif
