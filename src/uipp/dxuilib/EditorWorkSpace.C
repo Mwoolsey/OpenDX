@@ -44,7 +44,7 @@
 Boolean EditorWorkSpace::EditorWorkSpaceClassInitialized = FALSE;
 
 static XtTranslations pageTranslations = 0;
-static String pageTable = "\
+static String pageTable = (char *)"\
   <Btn1Down>:    select_w()\n\
   <Btn1Motion>:  move_w()\n\
   <Btn1Up>(2+):  select_w() release_w() select_w() release_w()\n\
@@ -52,31 +52,31 @@ static String pageTable = "\
 ";
 
 String EditorWorkSpace::DefaultResources[] = {
-    "*manhattanRoute:          True",
-    "*lineThickness:       	1",
-    "*accentColor:       	#dddddddddddd",
+    (char *)"*manhattanRoute:          True",
+    (char *)"*lineThickness:       	1",
+    (char *)"*accentColor:       	#dddddddddddd",
 #if WORKSPACE_PAGES
-    "*vpeCanvas.traversalOn:             True",
-    "*vpeCanvas.marginWidth:             0",
-    "*vpeCanvas.marginHeight:            0",
-    "*vpeCanvas.allowResize:             True",
-    "*vpeCanvas.sensitive:               True",
-    "*vpeCanvas.allowMovement:           True",
-    "*vpeCanvas.allowOverlap:  		 False",
-    "*vpeCanvas.button1PressMode:        False",
-    "*vpeCanvas.resizePolicy:            RESIZE_GROW",
-    "*vpeCanvas.accentPolicy:            ACCENT_BACKGROUND",
-    "*vpeCanvas.horizontalDrawGrid:      DRAW_HASH",
-    "*vpeCanvas.verticalDrawGrid:        DRAW_HASH",
-    "*vpeCanvas.horizontalAlignment:     ALIGNMENT_CENTER",
-    "*vpeCanvas.verticalAlignment:       ALIGNMENT_CENTER",
-    "*vpeCanvas.inclusionPolicy:         INCLUDE_ALL",
-    "*vpeCanvas.outlineType:             OUTLINE_EACH",
-    "*vpeCanvas.selectionPolicy:         EXTENDED_SELECT",
-    "*vpeCanvas.sortPolicy:              ALIGNMENT_BEGINNING",
-    "*vpeCanvas.allowVerticalResizing:   False",
-    "*vpeCanvas.allowHorizontalResizing: False",
-    "*vpeCanvas.lineInvisibility:	 True",
+    (char *)"*vpeCanvas.traversalOn:             True",
+    (char *)"*vpeCanvas.marginWidth:             0",
+    (char *)"*vpeCanvas.marginHeight:            0",
+    (char *)"*vpeCanvas.allowResize:             True",
+    (char *)"*vpeCanvas.sensitive:               True",
+    (char *)"*vpeCanvas.allowMovement:           True",
+    (char *)"*vpeCanvas.allowOverlap:  		 False",
+    (char *)"*vpeCanvas.button1PressMode:        False",
+    (char *)"*vpeCanvas.resizePolicy:            RESIZE_GROW",
+    (char *)"*vpeCanvas.accentPolicy:            ACCENT_BACKGROUND",
+    (char *)"*vpeCanvas.horizontalDrawGrid:      DRAW_HASH",
+    (char *)"*vpeCanvas.verticalDrawGrid:        DRAW_HASH",
+    (char *)"*vpeCanvas.horizontalAlignment:     ALIGNMENT_CENTER",
+    (char *)"*vpeCanvas.verticalAlignment:       ALIGNMENT_CENTER",
+    (char *)"*vpeCanvas.inclusionPolicy:         INCLUDE_ALL",
+    (char *)"*vpeCanvas.outlineType:             OUTLINE_EACH",
+    (char *)"*vpeCanvas.selectionPolicy:         EXTENDED_SELECT",
+    (char *)"*vpeCanvas.sortPolicy:              ALIGNMENT_BEGINNING",
+    (char *)"*vpeCanvas.allowVerticalResizing:   False",
+    (char *)"*vpeCanvas.allowHorizontalResizing: False",
+    (char *)"*vpeCanvas.lineInvisibility:	 True",
 #endif
     NUL(char *)};
 

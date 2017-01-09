@@ -268,7 +268,7 @@ int DXChild::ConnectTo( const char *host, const char *user, const char *cwd,
 
   local_rsh_cmd = getenv( "DXRSH" );
   if ( !local_rsh_cmd )
-    local_rsh_cmd = RSH;
+    local_rsh_cmd = (char *)RSH;
 
   /*
    * Initialize return values (to default negative results).
@@ -410,7 +410,7 @@ int DXChild::ConnectTo( const char *host, const char *user, const char *cwd,
 
     if ( user != NULL )
     {
-      fargv[findx++] = "-l";
+      fargv[findx++] = (char *)"-l";
       fargv[findx++] = (char *)user;
       sprintf( cmd, "%s -c \"%s %s -l %s 'cat > %s' > /dev/null 2>&1\"", BSH,
                local_rsh_cmd, host, user, script_name );
@@ -419,7 +419,7 @@ int DXChild::ConnectTo( const char *host, const char *user, const char *cwd,
       sprintf( cmd, "%s -c \"%s %s 'cat > %s' > /dev/null 2>&1\"", BSH,
                local_rsh_cmd, host, script_name );
 
-    fargv[findx++] = BSH;
+    fargv[findx++] = (char *)BSH;
     fargv[findx++] = script_name;
     fargv[findx++] = NULL;
 
@@ -434,7 +434,9 @@ int DXChild::ConnectTo( const char *host, const char *user, const char *cwd,
     for ( i = 0; ep[i]; ++i )
     {
       /* Environment variables which are NOT passed to remote process */
-      static char *eignore[] = {"HOST=", "HOSTNAME=", "TZ=", "SHELL=", 0};
+      static char *eignore[] = {(char *)"HOST=", (char *)"HOSTNAME=",
+                                (char *)"TZ=",   (char *)"SHELL=",
+                                (char *)0};
       int ignore;
 
       /* Look for and skip certain environment variables */
@@ -1130,10 +1132,10 @@ DXChild::DXChild( char *host, char *cmd, int block, char *user, char *cwd )
                                  this->err, (XtPointer)XtInputReadMask,
                                  DXChild_ErrInputHandler, ( XtPointer ) this );
 #endif  // SMH
-    //	if (block)
-    //	{
-    //	    theDXApplication->connectToServer(port, this);
-    //	}
+        //	if (block)
+        //	{
+        //	    theDXApplication->connectToServer(port, this);
+        //	}
   }
   else
   {

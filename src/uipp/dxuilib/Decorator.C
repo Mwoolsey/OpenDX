@@ -28,9 +28,9 @@
 
 boolean Decorator::DecoratorClassInitialized = FALSE;
 
-String Decorator::DefaultResources[] = {".allowVerticalResizing:	False",
-                                        ".allowHorizontalResizing:	True",
-                                        NUL(char *)};
+String Decorator::DefaultResources[] = {
+    (char *)".allowVerticalResizing:	False",
+    (char *)".allowHorizontalResizing:	True", NUL(char *)};
 
 #define DXXOFFSET "DX_XOFFSET"
 #define DXYOFFSET "DX_YOFFSET"

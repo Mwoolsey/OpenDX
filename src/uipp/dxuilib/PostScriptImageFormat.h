@@ -7,6 +7,7 @@
 /***********************************************************************/
 
 #include <dxconfig.h>
+#include <stdint.h>  // for intptr_t
 
 #ifndef _PostScriptImageFormat_h
 #define _PostScriptImageFormat_h
@@ -61,7 +62,7 @@ class DirtyQueue
     if ( dirty == top )
       return;
 
-    ASSERT( this->data->insertElement( (void*)dirty, 1 ) );
+    ASSERT( this->data->insertElement( (void*)(intptr_t)dirty, 1 ) );
     size++;
     if ( size > this->max_size )
     {

@@ -56,6 +56,8 @@
 #define chdir _chdir
 #endif
 
+#include <stdint.h>  // for cast to intptr_t
+
 #include "lex.h"
 #include "DXVersion.h"
 #include "DXApplication.h"
@@ -334,154 +336,173 @@ static XrmOptionDescRec _DXOptionList[] = {
      XrmoptionSepArg,                  (char *)NULL}, };
 
 static XtResource _DXResourceList[] = {
-    {"standInBackground",                         "StandInBackground",
+    {(char *)"standInBackground",                 (char *)"StandInBackground",
      XmRPixel,                                    sizeof( Pixel ),
      XtOffset( DXResource *, standInBackground ), XmRImmediate,
-     ( XtPointer ) "#5F9EA0"  // CadetBlue
+     ( XtPointer )(char *)"#5F9EA0"  // CadetBlue
     },
-    {"executionHighlightForeground",                         "Foreground",
-     XmRPixel,                                               sizeof( Pixel ),
-     XtOffset( DXResource *, executionHighlightForeground ), XmRImmediate,
-     ( XtPointer ) "#00ff7e"},
-    {"backgroundExecutionForeground",                         "Foreground",
-     XmRPixel,                                                sizeof( Pixel ),
-     XtOffset( DXResource *, backgroundExecutionForeground ), XmRImmediate,
-     ( XtPointer ) "#7e7eb4"},
-    {"errorHighlightForeground",                    "Foreground",
+    {(char *)"executionHighlightForeground",
+     (char *)"Foreground",
+     XmRPixel,
+     sizeof( Pixel ),
+     XtOffset( DXResource *, executionHighlightForeground ),
+     XmRImmediate,
+     ( XtPointer )(char *)"#00ff7e"},
+    {(char *)"backgroundExecutionForeground",
+     (char *)"Foreground",
+     XmRPixel,
+     sizeof( Pixel ),
+     XtOffset( DXResource *, backgroundExecutionForeground ),
+     XmRImmediate,
+     ( XtPointer )(char *)"#7e7eb4"},
+    {(char *)"errorHighlightForeground",            (char *)"Foreground",
      XmRPixel,                                      sizeof( Pixel ),
      XtOffset( DXResource *, errorNodeForeground ), XmRImmediate,
-     ( XtPointer ) "#ff9b00"},
-    {"foreground",         "Foreground",                         XmRPixel,
-     sizeof( Pixel ),      XtOffset( DXResource *, foreground ), XmRImmediate,
-     ( XtPointer ) "Black"},
-    {"background",           "Background",                         XmRPixel,
-     sizeof( Pixel ),        XtOffset( DXResource *, background ), XmRImmediate,
-     ( XtPointer ) "#b4b4b4"},
-    {"InsensitiveColor",                         "Color",
+     ( XtPointer )(char *)"#ff9b00"},
+    {(char *)"foreground",                 (char *)"Foreground",
+     XmRPixel,                             sizeof( Pixel ),
+     XtOffset( DXResource *, foreground ), XmRImmediate,
+     ( XtPointer )(char *)"Black"},
+    {(char *)"background",                 (char *)"Background",
+     XmRPixel,                             sizeof( Pixel ),
+     XtOffset( DXResource *, background ), XmRImmediate,
+     ( XtPointer )(char *)"#b4b4b4"},
+    {(char *)"InsensitiveColor",                 (char *)"Color",
      XmRPixel,                                   sizeof( Pixel ),
      XtOffset( DXResource *, insensitiveColor ), XmRString,
-     ( XtPointer ) "#888888"},
-    {"anchorMode",                         "AnchorMode",
+     ( XtPointer )(char *)"#888888"},
+    {(char *)"anchorMode",                 (char *)"AnchorMode",
      XmRString,                            sizeof( String ),
      XtOffset( DXResource *, anchorMode ), XmRString,
      (XtPointer)EDIT_ANCHOR_MODE},
-    {"DXVersion",       "Flag",                                XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, echoVersion ), XmRImmediate,
+    {(char *)"DXVersion", (char *)"Flag",                        XmRBoolean,
+     sizeof( Boolean ),   XtOffset( DXResource *, echoVersion ), XmRImmediate,
      (XtPointer)False},
-    {"debugMode",       "Flag",                              XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, debugMode ), XmRImmediate,
+    {(char *)"debugMode", (char *)"Flag",                      XmRBoolean,
+     sizeof( Boolean ),   XtOffset( DXResource *, debugMode ), XmRImmediate,
      (XtPointer)False},
-    {"showInstanceNumbers",                         "Flag",
+    {(char *)"showInstanceNumbers",                 (char *)"Flag",
      XmRBoolean,                                    sizeof( Boolean ),
      XtOffset( DXResource *, showInstanceNumbers ), XmRImmediate,
      (XtPointer)False},
-    {"directory",      "Pathname",                                 XmRString,
-     sizeof( String ), XtOffset( DXResource *, workingDirectory ), XmRString,
+    {(char *)"directory", (char *)"Pathname",                         XmRString,
+     sizeof( String ),    XtOffset( DXResource *, workingDirectory ), XmRString,
      NULL},
-    {"executive",      "Pathname",                          XmRString,
-     sizeof( String ), XtOffset( DXResource *, executive ), XmRString,
+    {(char *)"executive", (char *)"Pathname",                  XmRString,
+     sizeof( String ),    XtOffset( DXResource *, executive ), XmRString,
      NULL},
-    {"executeProgram",  "Flag",                                   XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, executeProgram ), XmRImmediate,
+    {(char *)"executeProgram",                 (char *)"Flag",
+     XmRBoolean,                               sizeof( Boolean ),
+     XtOffset( DXResource *, executeProgram ), XmRImmediate,
      (XtPointer)False},
-    {"executeOnChange", "Flag",                                    XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, executeOnChange ), XmRImmediate,
+    {(char *)"executeOnChange",                 (char *)"Flag",
+     XmRBoolean,                                sizeof( Boolean ),
+     XtOffset( DXResource *, executeOnChange ), XmRImmediate,
      (XtPointer)False},
-    {"printHelpMessage",                        "Flag",
+    {(char *)"printHelpMessage",                (char *)"Flag",
      XmRBoolean,                                sizeof( Boolean ),
      XtOffset( DXResource *, showHelpMessage ), XmRImmediate,
      (XtPointer)False},
-    {"host",                           "Host",    XmRString, sizeof( String ),
-     XtOffset( DXResource *, server ), XmRString, NULL},
-    {"noAnchorAtStartup",                         "Flag",
+    {(char *)"host",   (char *)"Host",                   XmRString,
+     sizeof( String ), XtOffset( DXResource *, server ), XmRString,
+     NULL},
+    {(char *)"noAnchorAtStartup",                 (char *)"Flag",
      XmRBoolean,                                  sizeof( Boolean ),
      XtOffset( DXResource *, noAnchorAtStartup ), XmRImmediate,
      (XtPointer)False},
-    {"noConfirmedQuit", "Flag",                                    XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noConfirmedQuit ), XmRImmediate,
+    {(char *)"noConfirmedQuit",                 (char *)"Flag",
+     XmRBoolean,                                sizeof( Boolean ),
+     XtOffset( DXResource *, noConfirmedQuit ), XmRImmediate,
      (XtPointer)False},
-    {"macros",         "Searchlist",                     XmRString,
+    {(char *)"macros", (char *)"Searchlist",             XmRString,
      sizeof( String ), XtOffset( DXResource *, macros ), XmRString,
      NULL},
-    {"memory",                             "Number", XmRInt, sizeof( int ),
-     XtOffset( DXResource *, memorySize ), XmRInt,   0},
-    {"metric",          "Flag",                             XmRBoolean,
+    {(char *)"memory", (char *)"Number",                     XmRInt,
+     sizeof( int ),    XtOffset( DXResource *, memorySize ), XmRInt,
+     0},
+    {(char *)"metric",  (char *)"Flag",                     XmRBoolean,
      sizeof( Boolean ), XtOffset( DXResource *, isMetric ), XmRBoolean,
      (XtPointer)False},
-    {"messages",       "Pathname",                          XmRString,
-     sizeof( String ), XtOffset( DXResource *, errorPath ), XmRString,
+    {(char *)"messages", (char *)"Pathname",                  XmRString,
+     sizeof( String ),   XtOffset( DXResource *, errorPath ), XmRString,
      NULL},
-    {"port",                         "Number", XmRInt, sizeof( int ),
-     XtOffset( DXResource *, port ), XmRInt,   0},
-    {"printImageCommand",                         "PrintCommand",
+    {(char *)"port",                 (char *)"Number", XmRInt, sizeof( int ),
+     XtOffset( DXResource *, port ), XmRInt,           0},
+    {(char *)"printImageCommand",                 (char *)"PrintCommand",
      XmRString,                                   sizeof( String ),
      XtOffset( DXResource *, printImageCommand ), XmRString,
-     ( XtPointer ) "lpr"},
-    {"printImageFormat",                         "ImageFileFormat",
+     ( XtPointer )(char *)"lpr"},
+    {(char *)"printImageFormat",                 (char *)"ImageFileFormat",
      XmRString,                                  sizeof( String ),
      XtOffset( DXResource *, printImageFormat ), XmRString,
-     ( XtPointer ) "PSCOLOR"},
-    {"printImagePageSize",                         "ImagePageSize",
+     ( XtPointer )(char *)"PSCOLOR"},
+    {(char *)"printImagePageSize",                 (char *)"ImagePageSize",
      XmRString,                                    sizeof( String ),
      XtOffset( DXResource *, printImagePageSize ), XmRString,
      NULL},
-    {"printImageSize", "ImageSize",                              XmRString,
-     sizeof( String ), XtOffset( DXResource *, printImageSize ), XmRString,
+    {(char *)"printImageSize",                 (char *)"ImageSize",
+     XmRString,                                sizeof( String ),
+     XtOffset( DXResource *, printImageSize ), XmRString,
      NULL},
-    {"printImageResolution",                         "ImageResolution",
+    {(char *)"printImageResolution",                 (char *)"ImageResolution",
      XmRInt,                                         sizeof( int ),
      XtOffset( DXResource *, printImageResolution ), XmRImmediate,
      (XtPointer)0  // This is 0 (not 300) so that PrintImageDialog can
                    // tell if the user specified this option/resource
     },
-    {"program",                         "Pathname", XmRString, sizeof( String ),
-     XtOffset( DXResource *, program ), XmRString,  NULL},
-    {"cfg",                             "Pathname", XmRString, sizeof( String ),
-     XtOffset( DXResource *, cfgfile ), XmRString,  NULL},
-    {"runLocally",      "Flag",                               XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, runLocally ), XmRImmediate,
+    {(char *)"program", (char *)"Pathname",                XmRString,
+     sizeof( String ),  XtOffset( DXResource *, program ), XmRString,
+     NULL},
+    {(char *)"cfg",    (char *)"Pathname",                XmRString,
+     sizeof( String ), XtOffset( DXResource *, cfgfile ), XmRString,
+     NULL},
+    {(char *)"runLocally", (char *)"Flag",                       XmRBoolean,
+     sizeof( Boolean ),    XtOffset( DXResource *, runLocally ), XmRImmediate,
      (XtPointer)False},
-    {"runUIOnly",       "Flag",                              XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, runUIOnly ), XmRImmediate,
+    {(char *)"runUIOnly", (char *)"Flag",                      XmRBoolean,
+     sizeof( Boolean ),   XtOffset( DXResource *, runUIOnly ), XmRImmediate,
      (XtPointer)False},
-    {"saveImageFormat", "ImageFileFormat",                         XmRString,
-     sizeof( String ),  XtOffset( DXResource *, saveImageFormat ), XmRString,
-     NULL,  // This is NULL (not "PSCOLOR")  so that
+    {(char *)"saveImageFormat",                 (char *)"ImageFileFormat",
+     XmRString,                                 sizeof( String ),
+     XtOffset( DXResource *, saveImageFormat ), XmRString,
+     NULL,  // This is NULL (not (char *)"PSCOLOR")  so that
             // SaveImageDialog can tell if the user
             // specified this option/resource
     },
-    {"saveImagePageSize",                         "ImagePageSize",
+    {(char *)"saveImagePageSize",                 (char *)"ImagePageSize",
      XmRString,                                   sizeof( String ),
      XtOffset( DXResource *, saveImagePageSize ), XmRString,
-     NULL,  // This is NULL (not "8.5x11")  so that
+     NULL,  // This is NULL (not (char *)"8.5x11")  so that
             // SaveImageDialog can tell if the user
             // specified this option/resource
     },
-    {"saveImageSize",  "ImageSize",                             XmRString,
-     sizeof( String ), XtOffset( DXResource *, saveImageSize ), XmRString,
+    {(char *)"saveImageSize",                 (char *)"ImageSize",
+     XmRString,                               sizeof( String ),
+     XtOffset( DXResource *, saveImageSize ), XmRString,
      NULL, },
-    {"saveImageResolution",                         "ImageResolution",
+    {(char *)"saveImageResolution",                 (char *)"ImageResolution",
      XmRInt,                                        sizeof( int ),
      XtOffset( DXResource *, saveImageResolution ), XmRImmediate,
      (XtPointer)0  // This is 0 (not 300) so that SaveImageDialog can
                    // tell if the user specified this option/resource
     },
-    {"suppressStartupWindows",                         "Flag",
+    {(char *)"suppressStartupWindows",                 (char *)"Flag",
      XmRBoolean,                                       sizeof( Boolean ),
      XtOffset( DXResource *, suppressStartupWindows ), XmRImmediate,
      (XtPointer)False},
-    {"userModuleDescriptionFile",           "Pathname",
+    {(char *)"userModuleDescriptionFile",   (char *)"Pathname",
      XmRString,                             sizeof( String ),
      XtOffset( DXResource *, userModules ), XmRString,
      NULL},
-    {"executiveModuleDescriptionFile",          "Pathname",
+    {(char *)"executiveModuleDescriptionFile",  (char *)"Pathname",
      XmRString,                                 sizeof( String ),
      XtOffset( DXResource *, executiveModule ), XmRString,
      NULL},
-    {"uiModuleDescriptionFile", "Pathname",                         XmRString,
-     sizeof( String ),          XtOffset( DXResource *, uiModule ), XmRString,
+    {(char *)"uiModuleDescriptionFile",  (char *)"Pathname",
+     XmRString,                          sizeof( String ),
+     XtOffset( DXResource *, uiModule ), XmRString,
      NULL},
-    {"noWindowPlacement",                         "WindowPlacement",
+    {(char *)"noWindowPlacement",                 (char *)"WindowPlacement",
      XmRBoolean,                                  sizeof( Boolean ),
      XtOffset( DXResource *, noWindowPlacement ), XmRImmediate,
      (XtPointer)False},
@@ -489,226 +510,263 @@ static XtResource _DXResourceList[] = {
     /*
      * Backdoor resources:
      */
-    {"restrictionLevel", "Restriction",                              XmRString,
-     sizeof( String ),   XtOffset( DXResource *, restrictionLevel ), XmRString,
+    {(char *)"restrictionLevel",                 (char *)"Restriction",
+     XmRString,                                  sizeof( String ),
+     XtOffset( DXResource *, restrictionLevel ), XmRString,
      NULL},
-    {"noRWConfig",      "Flag",                               XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noRWConfig ), XmRImmediate,
+    {(char *)"noRWConfig", (char *)"Flag",                       XmRBoolean,
+     sizeof( Boolean ),    XtOffset( DXResource *, noRWConfig ), XmRImmediate,
      (XtPointer)False},
-    {"noPanelEdit",     "Flag",                                XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noPanelEdit ), XmRImmediate,
+    {(char *)"noPanelEdit", (char *)"Flag",                        XmRBoolean,
+     sizeof( Boolean ),     XtOffset( DXResource *, noPanelEdit ), XmRImmediate,
      (XtPointer)False},
-    {"noInteractorEdits",                         "Flag",
+    {(char *)"noInteractorEdits",                 (char *)"Flag",
      XmRBoolean,                                  sizeof( Boolean ),
      XtOffset( DXResource *, noInteractorEdits ), XmRImmediate,
      (XtPointer)False},
-    {"noInteractorAttributes",                         "Flag",
+    {(char *)"noInteractorAttributes",                 (char *)"Flag",
      XmRBoolean,                                       sizeof( Boolean ),
      XtOffset( DXResource *, noInteractorAttributes ), XmRImmediate,
      (XtPointer)False},
-    {"noInteractorMovement",                         "Flag",
+    {(char *)"noInteractorMovement",                 (char *)"Flag",
      XmRBoolean,                                     sizeof( Boolean ),
      XtOffset( DXResource *, noInteractorMovement ), XmRImmediate,
      (XtPointer)False},
-    {"noOpenAllPanels", "Flag",                                    XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noOpenAllPanels ), XmRImmediate,
+    {(char *)"noOpenAllPanels",                 (char *)"Flag",
+     XmRBoolean,                                sizeof( Boolean ),
+     XtOffset( DXResource *, noOpenAllPanels ), XmRImmediate,
      (XtPointer)False},
-    {"noPanelAccess",   "Flag",                                  XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noPanelAccess ), XmRImmediate,
+    {(char *)"noPanelAccess",                 (char *)"Flag",
+     XmRBoolean,                              sizeof( Boolean ),
+     XtOffset( DXResource *, noPanelAccess ), XmRImmediate,
      (XtPointer)False},
-    {"noPanelOptions",  "Flag",                                   XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noPanelOptions ), XmRImmediate,
+    {(char *)"noPanelOptions",                 (char *)"Flag",
+     XmRBoolean,                               sizeof( Boolean ),
+     XtOffset( DXResource *, noPanelOptions ), XmRImmediate,
      (XtPointer)False},
-    {"noMessageInfoOption",                         "Flag",
+    {(char *)"noMessageInfoOption",                 (char *)"Flag",
      XmRBoolean,                                    sizeof( Boolean ),
      XtOffset( DXResource *, noMessageInfoOption ), XmRImmediate,
      (XtPointer)False},
-    {"noMessageWarningOption",                         "Flag",
+    {(char *)"noMessageWarningOption",                 (char *)"Flag",
      XmRBoolean,                                       sizeof( Boolean ),
      XtOffset( DXResource *, noMessageWarningOption ), XmRImmediate,
      (XtPointer)False},
-    {"noEditorOnError", "Flag",                                    XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noEditorOnError ), XmRImmediate,
+    {(char *)"noEditorOnError",                 (char *)"Flag",
+     XmRBoolean,                                sizeof( Boolean ),
+     XtOffset( DXResource *, noEditorOnError ), XmRImmediate,
      (XtPointer)False},
-    {"noScriptCommands",                         "Flag",
+    {(char *)"noScriptCommands",                 (char *)"Flag",
      XmRBoolean,                                 sizeof( Boolean ),
      XtOffset( DXResource *, noScriptCommands ), XmRImmediate,
      (XtPointer)False},
-    {"noPGroupAssignment",                         "Flag",
+    {(char *)"noPGroupAssignment",                 (char *)"Flag",
      XmRBoolean,                                   sizeof( Boolean ),
      XtOffset( DXResource *, noPGroupAssignment ), XmRImmediate,
      (XtPointer)False},
-    {"noImageRWNetFile",                         "Flag",
+    {(char *)"noImageRWNetFile",                 (char *)"Flag",
      XmRBoolean,                                 sizeof( Boolean ),
      XtOffset( DXResource *, noImageRWNetFile ), XmRImmediate,
      (XtPointer)False},
-    {"limitedNetFileSelection",                         "Flag",
+    {(char *)"limitedNetFileSelection",                 (char *)"Flag",
      XmRBoolean,                                        sizeof( Boolean ),
      XtOffset( DXResource *, limitedNetFileSelection ), XmRImmediate,
      (XtPointer)False},
-    {"netPath",                         "NetPath", XmRString, sizeof( String ),
-     XtOffset( DXResource *, netPath ), XmRString, NULL},
-    {"noImageLoad",     "Flag",                                XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noImageLoad ), XmRImmediate,
+    {(char *)"netPath", (char *)"NetPath",                 XmRString,
+     sizeof( String ),  XtOffset( DXResource *, netPath ), XmRString,
+     NULL},
+    {(char *)"noImageLoad", (char *)"Flag",                        XmRBoolean,
+     sizeof( Boolean ),     XtOffset( DXResource *, noImageLoad ), XmRImmediate,
      (XtPointer)False},
-    {"noImageSaving",   "Flag",                                  XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noImageSaving ), XmRImmediate,
+    {(char *)"noImageSaving",                 (char *)"Flag",
+     XmRBoolean,                              sizeof( Boolean ),
+     XtOffset( DXResource *, noImageSaving ), XmRImmediate,
      (XtPointer)False},
-    {"noImagePrinting", "Flag",                                    XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noImagePrinting ), XmRImmediate,
+    {(char *)"noImagePrinting",                 (char *)"Flag",
+     XmRBoolean,                                sizeof( Boolean ),
+     XtOffset( DXResource *, noImagePrinting ), XmRImmediate,
      (XtPointer)False},
-    {"limitImageOptions",                         "Flag",
+    {(char *)"limitImageOptions",                 (char *)"Flag",
      XmRBoolean,                                  sizeof( Boolean ),
      XtOffset( DXResource *, limitImageOptions ), XmRImmediate,
      (XtPointer)False},
-    {"notifySaveNet",   "Flag",                                  XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, notifySaveNet ), XmRImmediate,
+    {(char *)"notifySaveNet",                 (char *)"Flag",
+     XmRBoolean,                              sizeof( Boolean ),
+     XtOffset( DXResource *, notifySaveNet ), XmRImmediate,
      (XtPointer)False},
-    {"noNetworkExecute",                         "Flag",
+    {(char *)"noNetworkExecute",                 (char *)"Flag",
      XmRBoolean,                                 sizeof( Boolean ),
      XtOffset( DXResource *, noNetworkExecute ), XmRImmediate,
      (XtPointer)False},
-    {"noEditorAccess",  "Flag",                                   XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noEditorAccess ), XmRImmediate,
+    {(char *)"noEditorAccess",                 (char *)"Flag",
+     XmRBoolean,                               sizeof( Boolean ),
+     XtOffset( DXResource *, noEditorAccess ), XmRImmediate,
      (XtPointer)False},
-    {"noDXHelp",        "Flag",                             XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noDXHelp ), XmRImmediate,
+    {(char *)"noDXHelp", (char *)"Flag",                     XmRBoolean,
+     sizeof( Boolean ),  XtOffset( DXResource *, noDXHelp ), XmRImmediate,
      (XtPointer)False},
-    {"noCMapSetNameOption",                         "Flag",
+    {(char *)"noCMapSetNameOption",                 (char *)"Flag",
      XmRBoolean,                                    sizeof( Boolean ),
      XtOffset( DXResource *, noCMapSetNameOption ), XmRImmediate,
      (XtPointer)False},
-    {"noCMapOpenMap",   "Flag",                                  XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noCMapOpenMap ), XmRImmediate,
+    {(char *)"noCMapOpenMap",                 (char *)"Flag",
+     XmRBoolean,                              sizeof( Boolean ),
+     XtOffset( DXResource *, noCMapOpenMap ), XmRImmediate,
      (XtPointer)False},
-    {"noCMapSaveMap",   "Flag",                                  XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noCMapSaveMap ), XmRImmediate,
+    {(char *)"noCMapSaveMap",                 (char *)"Flag",
+     XmRBoolean,                              sizeof( Boolean ),
+     XtOffset( DXResource *, noCMapSaveMap ), XmRImmediate,
      (XtPointer)False},
-    {"applicationPort",                         "Number", XmRInt, sizeof( int ),
-     XtOffset( DXResource *, applicationPort ), XmRInt,   NULL},
-    {"applicationHost", "ApplicationHost",                         XmRString,
-     sizeof( String ),  XtOffset( DXResource *, applicationHost ), XmRString,
+    {(char *)"applicationPort",                 (char *)"Number",
+     XmRInt,                                    sizeof( int ),
+     XtOffset( DXResource *, applicationPort ), XmRInt,
      NULL},
-    {"infoEnabled",     "InfoEnabled",                         XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, infoEnabled ), XmRImmediate,
+    {(char *)"applicationHost",                 (char *)"ApplicationHost",
+     XmRString,                                 sizeof( String ),
+     XtOffset( DXResource *, applicationHost ), XmRString,
+     NULL},
+    {(char *)"infoEnabled", (char *)"InfoEnabled",                 XmRBoolean,
+     sizeof( Boolean ),     XtOffset( DXResource *, infoEnabled ), XmRImmediate,
      (XtPointer)True},
-    {"warningEnabled",  "WarningEnabled",                         XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, warningEnabled ), XmRImmediate,
+    {(char *)"warningEnabled",                 (char *)"WarningEnabled",
+     XmRBoolean,                               sizeof( Boolean ),
+     XtOffset( DXResource *, warningEnabled ), XmRImmediate,
      (XtPointer)True},
-    {"errorEnabled",    "ErrorEnabled",                         XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, errorEnabled ), XmRImmediate,
+    {(char *)"errorEnabled",                 (char *)"ErrorEnabled",
+     XmRBoolean,                             sizeof( Boolean ),
+     XtOffset( DXResource *, errorEnabled ), XmRImmediate,
      (XtPointer)True},
-    {"moduleInfoOpensMessage",                         "ModuleInfoOpensMessage",
-     XmRBoolean,                                       sizeof( Boolean ),
-     XtOffset( DXResource *, moduleInfoOpensMessage ), XmRImmediate,
+    {(char *)"moduleInfoOpensMessage",
+     (char *)"ModuleInfoOpensMessage",
+     XmRBoolean,
+     sizeof( Boolean ),
+     XtOffset( DXResource *, moduleInfoOpensMessage ),
+     XmRImmediate,
      (XtPointer)True},
-    {"infoOpensMessage",                         "InfoOpensMessage",
+    {(char *)"infoOpensMessage",                 (char *)"InfoOpensMessage",
      XmRBoolean,                                 sizeof( Boolean ),
      XtOffset( DXResource *, infoOpensMessage ), XmRImmediate,
      (XtPointer)False},
-    {"warningOpensMessage",                         "WarningOpensMessage",
-     XmRBoolean,                                    sizeof( Boolean ),
-     XtOffset( DXResource *, warningOpensMessage ), XmRImmediate,
+    {(char *)"warningOpensMessage",
+     (char *)"WarningOpensMessage",
+     XmRBoolean,
+     sizeof( Boolean ),
+     XtOffset( DXResource *, warningOpensMessage ),
+     XmRImmediate,
      (XtPointer)False},
-    {"errorOpensMessage",                         "ErrorOpensMessage",
+    {(char *)"errorOpensMessage",                 (char *)"ErrorOpensMessage",
      XmRBoolean,                                  sizeof( Boolean ),
      XtOffset( DXResource *, errorOpensMessage ), XmRImmediate,
      (XtPointer)True},
-    {"useWindowSpecs",  "UseWindowSpecs",                         XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, useWindowSpecs ), XmRImmediate,
+    {(char *)"useWindowSpecs",                 (char *)"UseWindowSpecs",
+     XmRBoolean,                               sizeof( Boolean ),
+     XtOffset( DXResource *, useWindowSpecs ), XmRImmediate,
      (XtPointer)False},
-    {"forceNetFileEncryption",                         "ForceNetFileEncryption",
-     XmRBoolean,                                       sizeof( Boolean ),
-     XtOffset( DXResource *, forceNetFileEncryption ), XmRImmediate,
+    {(char *)"forceNetFileEncryption",
+     (char *)"ForceNetFileEncryption",
+     XmRBoolean,
+     sizeof( Boolean ),
+     XtOffset( DXResource *, forceNetFileEncryption ),
+     XmRImmediate,
      (XtPointer)False},
-    {"cryptKey",       "Cryptkey",                         XmRString,
-     sizeof( String ), XtOffset( DXResource *, cryptKey ), XmRString,
+    {(char *)"cryptKey", (char *)"Cryptkey",                 XmRString,
+     sizeof( String ),   XtOffset( DXResource *, cryptKey ), XmRString,
      NULL},
-    {"exitAfter",       "ExitAfter",                         XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, exitAfter ), XmRImmediate,
+    {(char *)"exitAfter", (char *)"ExitAfter",                 XmRBoolean,
+     sizeof( Boolean ),   XtOffset( DXResource *, exitAfter ), XmRImmediate,
      (XtPointer)False},
-    {"forceLicense",                                   "License",
+    {(char *)"forceLicense",                           (char *)"License",
      XmRString,                                        sizeof( String ),
      XtOffset( DXResource *, forceFunctionalLicense ), XmRString,
      NULL},
-    {"noExecuteMenus",  "NoExecuteMenus",                         XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noExecuteMenus ), XmRImmediate,
+    {(char *)"noExecuteMenus",                 (char *)"NoExecuteMenus",
+     XmRBoolean,                               sizeof( Boolean ),
+     XtOffset( DXResource *, noExecuteMenus ), XmRImmediate,
      (XtPointer)False},
-    {"noConnectionMenus",                         "NoConnectionMenus",
+    {(char *)"noConnectionMenus",                 (char *)"NoConnectionMenus",
      XmRBoolean,                                  sizeof( Boolean ),
      XtOffset( DXResource *, noConnectionMenus ), XmRImmediate,
      (XtPointer)False},
-    {"noWindowsMenus",  "NoWindowsMenus",                         XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noWindowsMenus ), XmRImmediate,
+    {(char *)"noWindowsMenus",                 (char *)"NoWindowsMenus",
+     XmRBoolean,                               sizeof( Boolean ),
+     XtOffset( DXResource *, noWindowsMenus ), XmRImmediate,
      (XtPointer)False},
-    {"noExitOptions",   "NoExitOptions",                         XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noExitOptions ), XmRImmediate,
+    {(char *)"noExitOptions",                 (char *)"NoExitOptions",
+     XmRBoolean,                              sizeof( Boolean ),
+     XtOffset( DXResource *, noExitOptions ), XmRImmediate,
      (XtPointer)False},
-    {"noImageMenus",    "NoMenus",                              XmRBoolean,
-     sizeof( Boolean ), XtOffset( DXResource *, noImageMenus ), XmRImmediate,
+    {(char *)"noImageMenus",                 (char *)"NoMenus",
+     XmRBoolean,                             sizeof( Boolean ),
+     XtOffset( DXResource *, noImageMenus ), XmRImmediate,
      (XtPointer)False},
-    {"oemApplicationName",                         "ApplicationName",
+    {(char *)"oemApplicationName",                 (char *)"ApplicationName",
      XmRString,                                    sizeof( String ),
      XtOffset( DXResource *, oemApplicationName ), XmRString,
      NULL},
-    {"oemApplicationNameCode",                         "ApplicationNameCode",
-     XmRString,                                        sizeof( String ),
-     XtOffset( DXResource *, oemApplicationNameCode ), XmRString,
+    {(char *)"oemApplicationNameCode",
+     (char *)"ApplicationNameCode",
+     XmRString,
+     sizeof( String ),
+     XtOffset( DXResource *, oemApplicationNameCode ),
+     XmRString,
      NULL},
-    {"oemLicenseCode", "LicenseCode",                            XmRString,
-     sizeof( String ), XtOffset( DXResource *, oemLicenseCode ), XmRString,
+    {(char *)"oemLicenseCode",                 (char *)"LicenseCode",
+     XmRString,                                sizeof( String ),
+     XtOffset( DXResource *, oemLicenseCode ), XmRString,
      NULL},
-    {"viewDataFile",   "ViewDataFile",                         XmRString,
-     sizeof( String ), XtOffset( DXResource *, viewDataFile ), XmRString,
+    {(char *)"viewDataFile", (char *)"ViewDataFile",                 XmRString,
+     sizeof( String ),       XtOffset( DXResource *, viewDataFile ), XmRString,
      NULL},
-    {"autoScrollVPE",                                "Flag",
+    {(char *)"autoScrollVPE",                        (char *)"Flag",
      XmRBoolean,                                     sizeof( Boolean ),
      XtOffset( DXResource *, autoScrollVPEInitVal ), XmRImmediate,
      (XtPointer)True},
-    {"autoLayoutHeight", "Number",                                   XmRInt,
-     sizeof( int ),      XtOffset( DXResource *, autoLayoutHeight ), XmRInt,
+    {(char *)"autoLayoutHeight",                 (char *)"Number",
+     XmRInt,                                     sizeof( int ),
+     XtOffset( DXResource *, autoLayoutHeight ), XmRInt,
      0},
-    {"autoLayoutGroupSpacing",                         "Number",
+    {(char *)"autoLayoutGroupSpacing",                 (char *)"Number",
      XmRInt,                                           sizeof( int ),
      XtOffset( DXResource *, autoLayoutGroupSpacing ), XmRInt,
      0},
-    {"autoLayoutNodeSpacing",                         "Number",
+    {(char *)"autoLayoutNodeSpacing",                 (char *)"Number",
      XmRInt,                                          sizeof( int ),
      XtOffset( DXResource *, autoLayoutNodeSpacing ), XmRInt,
      0},
     //
     // For java
     //
-    {"cosmoDir",       "CosmoDir",                         XmRString,
-     sizeof( String ), XtOffset( DXResource *, cosmoDir ), XmRString,
-     ( XtPointer ) ""},
-    {"jdkDir",         "JdkDir",                         XmRString,
-     sizeof( String ), XtOffset( DXResource *, jdkDir ), XmRString,
-     ( XtPointer ) ""},
-    {"htmlDir",        "HtmlDir",                         XmRString,
-     sizeof( String ), XtOffset( DXResource *, htmlDir ), XmRString,
-     ( XtPointer ) ""},
-    {"serverDir",      "ServerDir",                         XmRString,
-     sizeof( String ), XtOffset( DXResource *, serverDir ), XmRString,
-     ( XtPointer ) ""},
-    {"dxJarFile",      "DxJarFile",                         XmRString,
-     sizeof( String ), XtOffset( DXResource *, dxJarFile ), XmRString,
-     ( XtPointer ) ""},
-    {"userHtmlDir",       "UserHtmlDir",                         XmRString,
-     sizeof( String ),    XtOffset( DXResource *, userHtmlDir ), XmRString,
-     ( XtPointer ) "user"}, };
+    {(char *)"cosmoDir",     (char *)"CosmoDir",                 XmRString,
+     sizeof( String ),       XtOffset( DXResource *, cosmoDir ), XmRString,
+     ( XtPointer )(char *)""},
+    {(char *)"jdkDir",       (char *)"JdkDir",                 XmRString,
+     sizeof( String ),       XtOffset( DXResource *, jdkDir ), XmRString,
+     ( XtPointer )(char *)""},
+    {(char *)"htmlDir",      (char *)"HtmlDir",                 XmRString,
+     sizeof( String ),       XtOffset( DXResource *, htmlDir ), XmRString,
+     ( XtPointer )(char *)""},
+    {(char *)"serverDir",    (char *)"ServerDir",                 XmRString,
+     sizeof( String ),       XtOffset( DXResource *, serverDir ), XmRString,
+     ( XtPointer )(char *)""},
+    {(char *)"dxJarFile",    (char *)"DxJarFile",                 XmRString,
+     sizeof( String ),       XtOffset( DXResource *, dxJarFile ), XmRString,
+     ( XtPointer )(char *)""},
+    {(char *)"userHtmlDir",                 (char *)"UserHtmlDir",
+     XmRString,                             sizeof( String ),
+     XtOffset( DXResource *, userHtmlDir ), XmRString,
+     ( XtPointer )(char *)"user"}, };
 #endif
 
 static const String _defaultDXResources[] = {
-    "*quitOption.labelString:                Quit",
-    "*quitOption.mnemonic:                   Q",
-    "*quitOption.accelerator:                Ctrl<Key>Q",
-    "*quitOption.acceleratorText:            Ctrl+Q",
-    "*standInBackground:              #5F9EA0",  // CadetBlue
-    "*executionHighlightForeground:   #00ff7e",
-    "*backgroundExecutionForeground:  #7e7eb4",
-    "*errorHighlightForeground:       #ff9b00",
-    "*InsensitiveColor:     #888888",
+    (char *)"*quitOption.labelString:                Quit",
+    (char *)"*quitOption.mnemonic:                   Q",
+    (char *)"*quitOption.accelerator:                Ctrl<Key>Q",
+    (char *)"*quitOption.acceleratorText:            Ctrl+Q",
+    (char *)"*standInBackground:              #5F9EA0",  // CadetBlue
+    (char *)"*executionHighlightForeground:   #00ff7e",
+    (char *)"*backgroundExecutionForeground:  #7e7eb4",
+    (char *)"*errorHighlightForeground:       #ff9b00",
+    (char *)"*InsensitiveColor:     #888888",
 
     // purify <explitive deleted> the bed because of this
     //    "*tearOffModel:			     XmTEAR_OFF_ENABLED",
@@ -721,8 +779,8 @@ extern "C" void TurnOffButtonHelp( Widget /* widget */, XEvent * /* event */,
   return;
 }
 
-String DXApplication::ListValuedSettings[] = {RECENT_NETS, EXPANDED_CATEGORIES,
-                                              NULL};
+String DXApplication::ListValuedSettings[] = {
+    (char *)RECENT_NETS, (char *)EXPANDED_CATEGORIES, (char *)NULL};
 
 DXApplication::DXApplication( char *className ) : IBMApplication( className )
 {
@@ -1287,10 +1345,10 @@ boolean DXApplication::initialize( unsigned int *argcp, char **argv )
   // setup resources that can be environment varialbles.
   //
   if ( DXApplication::resource.executiveModule == NULL )
-    DXApplication::resource.executiveModule = "lib/dx.mdf";
+    DXApplication::resource.executiveModule = (char *)"lib/dx.mdf";
 
   if ( DXApplication::resource.uiModule == NULL )
-    DXApplication::resource.uiModule = "ui/ui.mdf";
+    DXApplication::resource.uiModule = (char *)"ui/ui.mdf";
 
   if ( DXApplication::resource.userModules == NULL )
   {
@@ -1315,7 +1373,7 @@ boolean DXApplication::initialize( unsigned int *argcp, char **argv )
       // This will show up as a memory leak, not worth worrying about
       DXApplication::resource.server = DuplicateString( s );
     else
-      DXApplication::resource.server = "localhost";
+      DXApplication::resource.server = (char *)"localhost";
   }
   // Remove the port number if it exists (i.e DXHOST=slope,1920)
   char *p;
@@ -1354,9 +1412,9 @@ boolean DXApplication::initialize( unsigned int *argcp, char **argv )
        DXApplication::resource.noAnchorAtStartup )
   {
     if ( this->inMenuBarMode() )
-      DXApplication::resource.anchorMode = MENUBAR_ANCHOR_MODE;
+      DXApplication::resource.anchorMode = (char *)MENUBAR_ANCHOR_MODE;
     else
-      DXApplication::resource.anchorMode = IMAGE_ANCHOR_MODE;
+      DXApplication::resource.anchorMode = (char *)IMAGE_ANCHOR_MODE;
   }
 
   //
@@ -1522,7 +1580,7 @@ boolean DXApplication::initialize( unsigned int *argcp, char **argv )
   if ( !this->appAllowsDXHelp() )
   {
     XtActionsRec action;
-    action.string = "IBMButtonHelp";
+    action.string = (char *)"IBMButtonHelp";
     action.proc = TurnOffButtonHelp;
     XtAppAddActions( this->applicationContext, &action, 1 );
   }
@@ -1536,7 +1594,7 @@ boolean DXApplication::initialize( unsigned int *argcp, char **argv )
         DXApplication::resource.autoLayoutHeight );
     if ( errmsg )
     {
-      fprintf( stderr, errmsg );
+      fprintf( stderr, "%s", errmsg );
       return FALSE;
     }
   }
@@ -1546,7 +1604,7 @@ boolean DXApplication::initialize( unsigned int *argcp, char **argv )
         DXApplication::resource.autoLayoutGroupSpacing );
     if ( errmsg )
     {
-      fprintf( stderr, errmsg );
+      fprintf( stderr, "%s", errmsg );
       return FALSE;
     }
   }
@@ -1556,7 +1614,7 @@ boolean DXApplication::initialize( unsigned int *argcp, char **argv )
         DXApplication::resource.autoLayoutNodeSpacing );
     if ( errmsg )
     {
-      fprintf( stderr, errmsg );
+      fprintf( stderr, "%s", errmsg );
       return FALSE;
     }
   }
@@ -1641,7 +1699,7 @@ boolean DXApplication::initialize( unsigned int *argcp, char **argv )
     this->resource.noScriptCommands = True;
     this->resource.noConnectionMenus = True;
     this->resource.noWindowsMenus = True;
-    this->resource.anchorMode = IMAGE_ANCHOR_MODE;
+    this->resource.anchorMode = (char *)IMAGE_ANCHOR_MODE;
     this->resource.noAnchorAtStartup = True;
     this->resource.suppressStartupWindows = True;
     this->resource.noConfirmedQuit = True;
@@ -2742,22 +2800,22 @@ Network *DXApplication::newNetwork( boolean nonJava )
 //
 EditorWindow *DXApplication::newNetworkEditor( Network *n )
 {
-  char *msg = "";
+  char *msg = (char *)"";
 
   ASSERT( n );
 
   if ( n->wasNetFileEncoded() )
   {
-    msg = "This visual program is encoded and therefore is not "
-          "viewable in the VPE";
+    msg = (char *)"This visual program is encoded and therefore is not "
+                  "viewable in the VPE";
     goto error;
   }
   else if ( !this->appAllowsEditorAccess() )
   {
-    msg = "This invocation of Data Explorer does not allow editor "
-          "access (-edit).\n"
-          "Try image mode (-image), or forcing a developer license "
-          "(-license develop).\n";
+    msg = (char *)"This invocation of Data Explorer does not allow editor "
+                  "access (-edit).\n"
+                  "Try image mode (-image), or forcing a developer license "
+                  "(-license develop).\n";
     goto error;
   }
 
@@ -2773,7 +2831,7 @@ error:
   if ( this->anchor )
     InfoMessage( msg );
   else
-    fprintf( stderr, msg );
+    fprintf( stderr, "%s", msg );
 
   return NULL;
 }
@@ -3675,14 +3733,15 @@ extern "C" void ShutdownTimeout( XtPointer clientData, XtIntervalId *id )
 
     theWarningDialogManager->modalPost(
         theDXApplication->getAnchor()->getRootWidget(), buffer,
-        "WARNING: User Interface License", (void *)seconds, NULL,  // Ok button
+        (char *)"WARNING: User Interface License", (void *)(intptr_t)seconds,
+        NULL,    // Ok button
         NULL );  // Close manager options menu
     Widget w = XtParent( theWarningDialogManager->getRootWidget() );
     ASSERT( XtHasCallbacks( w, XmNpopdownCallback ) );
     XtRemoveCallback( w, XmNpopdownCallback, InstallShutdownTimer,
-                      ( XtPointer )( seconds * 2 ) );
+                      ( XtPointer )( intptr_t )( seconds * 2 ) );
     XtAddCallback( w, XmNpopdownCallback, InstallShutdownTimer,
-                   (XtPointer)seconds );
+                   ( XtPointer )(intptr_t)seconds );
   }
   else if ( can_save )
   {
@@ -3704,7 +3763,7 @@ extern "C" void ShutdownTimeout( XtPointer clientData, XtIntervalId *id )
     dirs[1] = "/usr/tmp";
     dirs[2] = NULL;
 #else
-    char *dirs[] = {"/tmp", "/usr/tmp", NULL};
+    char *dirs[] = {(char *)"/tmp", (char *)"/usr/tmp", (char *)NULL};
 #endif
 #endif
     //
@@ -3769,9 +3828,9 @@ extern "C" void ShutdownTimeout( XtPointer clientData, XtIntervalId *id )
       strcat( msg, buf );
 
       theWarningDialogManager->modalPost(
-          theDXApplication->getAnchor()->getRootWidget(), msg, "Terminating",
-          (void *)theDXApplication, NULL,  // Ok button
-          NULL );                          // Close manager options menu
+          theDXApplication->getAnchor()->getRootWidget(), msg,
+          (char *)"Terminating", (void *)theDXApplication, NULL,  // Ok button
+          NULL );  // Close manager options menu
       Widget w = XtParent( theWarningDialogManager->getRootWidget() );
       ASSERT( XtHasCallbacks( w, XmNpopdownCallback ) );
       XtAddCallback( w, XmNpopdownCallback, ShutdownApplication,
@@ -3800,7 +3859,7 @@ extern "C" void InstallShutdownTimer( Widget w, XtPointer clientData,
   ASSERT( seconds > 0 );
 
   XtAppAddTimeOut( theApplication->getApplicationContext(), 1000 * seconds,
-                   ShutdownTimeout, (XtPointer)seconds );
+                   ShutdownTimeout, ( XtPointer )(intptr_t)seconds );
 }
 //
 // Called when the license for the user interface has been lost
@@ -3992,11 +4051,11 @@ void DXApplication::emergencySave( char *msg )
   dirs[1] = "/usr/tmp";
   dirs[2] = NULL;
 #else
-  char *dirs[] = {"/tmp", "/usr/tmp", NULL};
+  char *dirs[] = {(char *)"/tmp", (char *)"/usr/tmp", (char *)NULL};
 #endif
 #endif
 
-  char *introMsg = "The following files have been written...\n\n";
+  char *introMsg = (char *)"The following files have been written...\n\n";
   Boolean introMsgUsed = False;
   char buf[1024];
 
@@ -4077,7 +4136,7 @@ void
              "Attempting to save any modified files.\n"
              "Please check saved files for integrity by reloading them.\n" );
     theDXApplication->emergencySave( msg );
-    fprintf( stderr, msg );
+    fprintf( stderr, "%s", msg );
   }
 
   fprintf( stderr, "The application will now abort.\n" );
@@ -4094,7 +4153,7 @@ void DXApplication::abortApplication()
   {
     char msg[4096];
     this->emergencySave( msg );
-    fprintf( stderr, msg );
+    fprintf( stderr, "%s", msg );
   }
 
   this->IBMApplication::abortApplication();

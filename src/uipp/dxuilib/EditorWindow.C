@@ -1425,16 +1425,16 @@ void EditorWindow::createFileMenu( Widget parent )
   //
   // Create "File" menu and options.
   //
-  pulldown = this->fileMenuPulldown =
-      XmCreatePulldownMenu( parent, "fileMenuPulldown", NUL( ArgList ), 0 );
+  pulldown = this->fileMenuPulldown = XmCreatePulldownMenu(
+      parent, (char *)"fileMenuPulldown", NUL( ArgList ), 0 );
   this->fileMenu =
       XtVaCreateManagedWidget( "fileMenu", xmCascadeButtonWidgetClass, parent,
                                XmNsubMenuId, pulldown, NULL );
 
-  this->newOption = new ButtonInterface( pulldown, "vpeNewOption",
+  this->newOption = new ButtonInterface( pulldown, (char *)"vpeNewOption",
                                          this->network->getNewCommand() );
 
-  this->openOption = new ButtonInterface( pulldown, "vpeOpenOption",
+  this->openOption = new ButtonInterface( pulldown, (char *)"vpeOpenOption",
                                           theDXApplication->openFileCmd );
 
   this->createFileHistoryMenu( pulldown );
@@ -1442,69 +1442,71 @@ void EditorWindow::createFileMenu( Widget parent )
   if ( ( cmd = this->network->getSaveCommand() ) )
   {
     if ( this->network->isMacro() == FALSE )
-      this->saveOption = new ButtonInterface( pulldown, "vpeSaveOption", cmd );
+      this->saveOption =
+          new ButtonInterface( pulldown, (char *)"vpeSaveOption", cmd );
     else
       this->saveOption =
-          new ButtonInterface( pulldown, "vpeSaveMacroOption", cmd );
+          new ButtonInterface( pulldown, (char *)"vpeSaveMacroOption", cmd );
   }
 
   if ( ( cmd = this->network->getSaveAsCommand() ) )
   {
     if ( this->network->isMacro() == FALSE )
       this->saveAsOption =
-          new ButtonInterface( pulldown, "vpeSaveAsOption", cmd );
+          new ButtonInterface( pulldown, (char *)"vpeSaveAsOption", cmd );
     else
       this->saveAsOption =
-          new ButtonInterface( pulldown, "vpeSaveMacroAsOption", cmd );
+          new ButtonInterface( pulldown, (char *)"vpeSaveMacroAsOption", cmd );
   }
 
   Command *openCfgCmd = this->network->getOpenCfgCommand();
   Command *saveCfgCmd = this->network->getSaveCfgCommand();
   if ( openCfgCmd && saveCfgCmd )
   {
-    this->settingsCascade = new CascadeMenu( "vpeSettingsCascade", pulldown );
+    this->settingsCascade =
+        new CascadeMenu( (char *)"vpeSettingsCascade", pulldown );
     Widget menu_parent = this->settingsCascade->getMenuItemParent();
-    this->saveCfgOption =
-        new ButtonInterface( menu_parent, "vpeSaveCfgOption", saveCfgCmd );
-    this->openCfgOption =
-        new ButtonInterface( menu_parent, "vpeOpenCfgOption", openCfgCmd );
+    this->saveCfgOption = new ButtonInterface(
+        menu_parent, (char *)"vpeSaveCfgOption", saveCfgCmd );
+    this->openCfgOption = new ButtonInterface(
+        menu_parent, (char *)"vpeOpenCfgOption", openCfgCmd );
   }
   else if ( openCfgCmd )
   {
     this->openCfgOption =
-        new ButtonInterface( pulldown, "vpeOpenCfgOption", openCfgCmd );
+        new ButtonInterface( pulldown, (char *)"vpeOpenCfgOption", openCfgCmd );
   }
   else if ( saveCfgCmd )
   {
     this->saveCfgOption =
-        new ButtonInterface( pulldown, "vpeSaveCfgOption", saveCfgCmd );
+        new ButtonInterface( pulldown, (char *)"vpeSaveCfgOption", saveCfgCmd );
   }
 
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass, pulldown,
                            NULL );
 
-  this->loadMacroOption = new ButtonInterface( pulldown, "vpeLoadMacroOption",
-                                               theDXApplication->loadMacroCmd );
-  this->loadMDFOption = new ButtonInterface( pulldown, "vpeLoadMDFOption",
-                                             theDXApplication->loadMDFCmd );
+  this->loadMacroOption = new ButtonInterface(
+      pulldown, (char *)"vpeLoadMacroOption", theDXApplication->loadMacroCmd );
+  this->loadMDFOption = new ButtonInterface(
+      pulldown, (char *)"vpeLoadMDFOption", theDXApplication->loadMDFCmd );
 
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass, pulldown,
                            NULL );
 
   this->printProgramOption = new ButtonInterface(
-      pulldown, "vpePrintProgramOption", this->printProgramCmd );
+      pulldown, (char *)"vpePrintProgramOption", this->printProgramCmd );
   if ( this->saveAsCCodeCmd )
     this->saveAsCCodeOption = new ButtonInterface(
-        pulldown, "vpeSaveAsCCodeOption", this->saveAsCCodeCmd );
+        pulldown, (char *)"vpeSaveAsCCodeOption", this->saveAsCCodeCmd );
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass, pulldown,
                            NULL );
 
   if ( this->isAnchor() && theDXApplication->appAllowsExitOptions() )
-    this->quitOption = new ButtonInterface( pulldown, "quitOption",
+    this->quitOption = new ButtonInterface( pulldown, (char *)"quitOption",
                                             theDXApplication->exitCmd );
   else
-    this->closeOption =
-        new ButtonInterface( pulldown, "vpeCloseOption", this->closeCmd );
+    this->closeOption = new ButtonInterface( pulldown, (char *)"vpeCloseOption",
+                                             this->closeCmd );
 
   XtAddCallback( pulldown, XmNmapCallback,
                  (XtCallbackProc)EditorWindow_FileMenuMapCB,
@@ -1523,25 +1525,25 @@ void EditorWindow::createEditMenu( Widget parent )
   //
   // Create "Edit" menu and options.
   //
-  pulldown = this->editMenuPulldown =
-      XmCreatePulldownMenu( parent, "editMenuPulldown", NUL( ArgList ), 0 );
+  pulldown = this->editMenuPulldown = XmCreatePulldownMenu(
+      parent, (char *)"editMenuPulldown", NUL( ArgList ), 0 );
   this->editMenu =
       XtVaCreateManagedWidget( "editMenu", xmCascadeButtonWidgetClass, parent,
                                XmNsubMenuId, pulldown, NULL );
 
   this->undoOption =
-      new ButtonInterface( pulldown, "vpeUndoOption", this->undoCmd );
+      new ButtonInterface( pulldown, (char *)"vpeUndoOption", this->undoCmd );
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass, pulldown,
                            NULL );
 
   //
   // Module level functions
   //
-  this->valuesOption =
-      new ButtonInterface( pulldown, "vpeValuesOption", this->valuesCmd );
+  this->valuesOption = new ButtonInterface( pulldown, (char *)"vpeValuesOption",
+                                            this->valuesCmd );
 
-  this->findToolOption =
-      new ButtonInterface( pulldown, "vpeFindToolOption", this->findToolCmd );
+  this->findToolOption = new ButtonInterface(
+      pulldown, (char *)"vpeFindToolOption", this->findToolCmd );
 
 //
 // Add/removing tabs
@@ -1551,29 +1553,29 @@ void EditorWindow::createEditMenu( Widget parent )
 						pulldown, NULL);
 #endif
   cascade_menu = this->editTabsCascade =
-      new CascadeMenu( "vpeEditTabsCascade", pulldown );
+      new CascadeMenu( (char *)"vpeEditTabsCascade", pulldown );
   menu_parent = cascade_menu->getMenuItemParent();
 
   this->addInputTabOption = new ButtonInterface(
-      menu_parent, "vpeAddInputTabOption", this->addInputTabCmd );
+      menu_parent, (char *)"vpeAddInputTabOption", this->addInputTabCmd );
   cascade_menu->appendComponent( this->addInputTabOption );
 
   this->removeInputTabOption = new ButtonInterface(
-      menu_parent, "vpeRemoveInputTabOption", this->removeInputTabCmd );
+      menu_parent, (char *)"vpeRemoveInputTabOption", this->removeInputTabCmd );
   cascade_menu->appendComponent( this->removeInputTabOption );
-  ci = new ButtonInterface( menu_parent, "vpeAddOutputTabOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeAddOutputTabOption",
                             this->addOutputTabCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeRemoveOutputTabOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeRemoveOutputTabOption",
                             this->removeOutputTabCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeRevealAllTabsOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeRevealAllTabsOption",
                             this->revealAllTabsCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeHideAllTabsOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeHideAllTabsOption",
                             this->hideAllTabsCmd );
   cascade_menu->appendComponent( ci );
 
@@ -1582,17 +1584,19 @@ void EditorWindow::createEditMenu( Widget parent )
   // GetSet Conversion operation
   //
   cascade_menu = this->programVerifyCascade =
-      new CascadeMenu( "programVerifyCascade", pulldown );
+      new CascadeMenu( (char *)"programVerifyCascade", pulldown );
   menu_parent = cascade_menu->getMenuItemParent();
 
-  ci = new ButtonInterface( menu_parent, "getSetConversion",
+  ci = new ButtonInterface( menu_parent, (char *)"getSetConversion",
                             this->postGetSetCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "setToLocal", this->toLocalCmd );
+  ci = new ButtonInterface( menu_parent, (char *)"setToLocal",
+                            this->toLocalCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "setToGlobal", this->toGlobalCmd );
+  ci = new ButtonInterface( menu_parent, (char *)"setToGlobal",
+                            this->toGlobalCmd );
   cascade_menu->appendComponent( ci );
 #endif
 
@@ -1605,38 +1609,38 @@ void EditorWindow::createEditMenu( Widget parent )
 #endif
 
   this->editSelectCascade = cascade_menu =
-      new CascadeMenu( "vpeEditSelectCascade", pulldown );
+      new CascadeMenu( (char *)"vpeEditSelectCascade", pulldown );
   menu_parent = cascade_menu->getMenuItemParent();
 
-  ci = new ButtonInterface( menu_parent, "vpeSelectAllOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeSelectAllOption",
                             this->selectAllNodeCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeSelectConnectedOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeSelectConnectedOption",
                             this->selectConnectedNodeCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeSelectUnconnectedOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeSelectUnconnectedOption",
                             this->selectUnconnectedNodeCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeSelectUpwardOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeSelectUpwardOption",
                             this->selectUpwardNodeCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeSelectDownwardOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeSelectDownwardOption",
                             this->selectDownwardNodeCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeDeselectAllOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeDeselectAllOption",
                             this->deselectAllNodeCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeSelectUnselectedOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeSelectUnselectedOption",
                             this->selectUnselectedNodeCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeShowExecutedOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeShowExecutedOption",
                             this->showExecutedCmd );
   cascade_menu->appendComponent( ci );
 
@@ -1644,45 +1648,46 @@ void EditorWindow::createEditMenu( Widget parent )
   // Output Cacheability (two cascade menus)
   //
   this->outputCacheabilityCascade = cascade_menu =
-      new CascadeMenu( "vpeOutputCacheabilityCascade", pulldown );
+      new CascadeMenu( (char *)"vpeOutputCacheabilityCascade", pulldown );
   menu_parent = cascade_menu->getMenuItemParent();
 
-  ci = new ButtonInterface( menu_parent, "vpeOptimizeCacheability",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeOptimizeCacheability",
                             this->optimizeCacheabilityCmd );
   cascade_menu->appendComponent( ci );
 
   // Set
-  this->editOutputCacheabilityCascade = cascade_menu =
-      new CascadeMenu( "vpeEditOutputCacheabilityCascade", menu_parent );
+  this->editOutputCacheabilityCascade = cascade_menu = new CascadeMenu(
+      (char *)"vpeEditOutputCacheabilityCascade", menu_parent );
   menu_parent = cascade_menu->getMenuItemParent();
 
-  ci = new ButtonInterface( menu_parent, "vpeCacheAllOutputsOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeCacheAllOutputsOption",
                             this->cacheAllOutputsCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeCacheLastOutputsOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeCacheLastOutputsOption",
                             this->cacheLastOutputsCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeCacheNoOutputsOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeCacheNoOutputsOption",
                             this->cacheNoOutputsCmd );
   cascade_menu->appendComponent( ci );
   // Show
   menu_parent = this->outputCacheabilityCascade->getMenuItemParent();
-  cascade_menu =
-      new CascadeMenu( "vpeShowOutputCacheabilityCascade", menu_parent );
+  cascade_menu = new CascadeMenu( (char *)"vpeShowOutputCacheabilityCascade",
+                                  menu_parent );
   this->outputCacheabilityCascade->appendComponent( cascade_menu );
   menu_parent = cascade_menu->getMenuItemParent();
 
-  ci = new ButtonInterface( menu_parent, "vpeShowCacheAllOutputsOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeShowCacheAllOutputsOption",
                             this->showCacheAllOutputsCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeShowCacheLastOutputsOption",
-                            this->showCacheLastOutputsCmd );
+  ci =
+      new ButtonInterface( menu_parent, (char *)"vpeShowCacheLastOutputsOption",
+                           this->showCacheLastOutputsCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeShowCacheNoOutputsOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeShowCacheNoOutputsOption",
                             this->showCacheNoOutputsCmd );
   cascade_menu->appendComponent( ci );
 
@@ -1691,21 +1696,21 @@ void EditorWindow::createEditMenu( Widget parent )
   //
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass, pulldown,
                            NULL );
-  this->deleteOption =
-      new ButtonInterface( pulldown, "vpeDeleteOption", this->deleteNodeCmd );
+  this->deleteOption = new ButtonInterface( pulldown, (char *)"vpeDeleteOption",
+                                            this->deleteNodeCmd );
 
   if ( ( theDXApplication->appAllowsSavingNetFile() ) &&
        ( theDXApplication->appAllowsSavingCfgFile() ) &&
        ( theDXApplication->appAllowsEditorAccess() ) )
   {
-    this->copyOption =
-        new ButtonInterface( pulldown, "vpeCopyOption", this->copyNodeCmd );
+    this->copyOption = new ButtonInterface( pulldown, (char *)"vpeCopyOption",
+                                            this->copyNodeCmd );
 
-    this->cutOption =
-        new ButtonInterface( pulldown, "vpeCutOption", this->cutNodeCmd );
+    this->cutOption = new ButtonInterface( pulldown, (char *)"vpeCutOption",
+                                           this->cutNodeCmd );
 
-    this->pasteOption =
-        new ButtonInterface( pulldown, "vpePasteOption", this->pasteNodeCmd );
+    this->pasteOption = new ButtonInterface( pulldown, (char *)"vpePasteOption",
+                                             this->pasteNodeCmd );
   }
 
   //
@@ -1714,54 +1719,54 @@ void EditorWindow::createEditMenu( Widget parent )
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass, pulldown,
                            NULL );
 
-  this->addAnnotationOption = new ButtonInterface( pulldown, "vpeAddDecorator",
-                                                   this->addAnnotationCmd );
+  this->addAnnotationOption = new ButtonInterface(
+      pulldown, (char *)"vpeAddDecorator", this->addAnnotationCmd );
 
   //
   // Miscellaneous
   //
-  this->insertNetworkOption =
-      new ButtonInterface( pulldown, "vpeInsertNetOption", this->insertNetCmd );
+  this->insertNetworkOption = new ButtonInterface(
+      pulldown, (char *)"vpeInsertNetOption", this->insertNetCmd );
 
   this->createMacroOption = new ButtonInterface(
-      pulldown, "vpeCreateMacroOption", this->macroifyCmd );
+      pulldown, (char *)"vpeCreateMacroOption", this->macroifyCmd );
 
 #if WORKSPACE_PAGES
   this->pageCascade = cascade_menu =
-      new CascadeMenu( "vpePageCascade", pulldown );
+      new CascadeMenu( (char *)"vpePageCascade", pulldown );
   menu_parent = cascade_menu->getMenuItemParent();
 
-  ci = new ButtonInterface( menu_parent, "vpeCreatePageOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeCreatePageOption",
                             this->pagifyCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeSelectedPageOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeSelectedPageOption",
                             this->pagifySelectedCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeDeletePageOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeDeletePageOption",
                             this->deletePageCmd );
   cascade_menu->appendComponent( ci );
 
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass,
                            menu_parent, NULL );
 
-  ci = new ButtonInterface( menu_parent, "vpeChopPageOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeChopPageOption",
                             this->autoChopSelectedCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeFusePageOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeFusePageOption",
                             this->autoFuseSelectedCmd );
   cascade_menu->appendComponent( ci );
 
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass,
                            menu_parent, NULL );
 
-  ci = new ButtonInterface( menu_parent, "vpeConfigurePageOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeConfigurePageOption",
                             this->configurePageCmd );
   cascade_menu->appendComponent( ci );
 
-  ci = new ButtonInterface( menu_parent, "vpeMoveToPageOption",
+  ci = new ButtonInterface( menu_parent, (char *)"vpeMoveToPageOption",
                             this->moveSelectedCmd );
   cascade_menu->appendComponent( ci );
 #endif
@@ -1769,14 +1774,14 @@ void EditorWindow::createEditMenu( Widget parent )
   if ( this->javifyNetCmd )
   {
     this->javaCascade = cascade_menu =
-        new CascadeMenu( "vpeJavaCascade", pulldown );
+        new CascadeMenu( (char *)"vpeJavaCascade", pulldown );
     menu_parent = cascade_menu->getMenuItemParent();
 
-    ci = new ButtonInterface( menu_parent, "vpeJavifyNetOption",
+    ci = new ButtonInterface( menu_parent, (char *)"vpeJavifyNetOption",
                               this->javifyNetCmd );
     cascade_menu->appendComponent( ci );
 
-    ci = new ButtonInterface( menu_parent, "vpeUnjavifyNetOption",
+    ci = new ButtonInterface( menu_parent, (char *)"vpeUnjavifyNetOption",
                               this->unjavifyNetCmd );
     cascade_menu->appendComponent( ci );
 
@@ -1786,36 +1791,40 @@ void EditorWindow::createEditMenu( Widget parent )
     {
       XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass,
                                menu_parent, NULL );
-      ci = new ButtonInterface( menu_parent, "vpeSaveWebPageOption", cmd );
+      ci = new ButtonInterface( menu_parent, (char *)"vpeSaveWebPageOption",
+                                cmd );
       cascade_menu->appendComponent( ci );
     }
 
     cmd = this->network->getSaveAppletCommand();
     if ( cmd )
     {
-      ci = new ButtonInterface( menu_parent, "vpeSaveAppletOption", cmd );
+      ci = new ButtonInterface( menu_parent, (char *)"vpeSaveAppletOption",
+                                cmd );
       cascade_menu->appendComponent( ci );
     }
 
     cmd = this->network->getSaveBeanCommand();
     if ( cmd )
     {
-      ci = new ButtonInterface( menu_parent, "vpeSaveBeanOption", cmd );
+      ci = new ButtonInterface( menu_parent, (char *)"vpeSaveBeanOption", cmd );
       cascade_menu->appendComponent( ci );
     }
   }
 
-  this->macroNameOption = new ButtonInterface(
-      pulldown, "vpeMacroNameOption", this->network->getSetNameCommand() );
+  this->macroNameOption =
+      new ButtonInterface( pulldown, (char *)"vpeMacroNameOption",
+                           this->network->getSetNameCommand() );
 
   this->reflowGraphOption = new ButtonInterface(
-      pulldown, "vpeReflowGraphOption", this->reflowGraphCmd );
+      pulldown, (char *)"vpeReflowGraphOption", this->reflowGraphCmd );
 
-  this->createProcessGroupOption = new ButtonInterface(
-      pulldown, "vpeCreateProcessGroupOption", this->createProcessGroupCmd );
+  this->createProcessGroupOption =
+      new ButtonInterface( pulldown, (char *)"vpeCreateProcessGroupOption",
+                           this->createProcessGroupCmd );
 
-  this->commentOption =
-      new ButtonInterface( pulldown, "vpeCommentOption", this->editCommentCmd );
+  this->commentOption = new ButtonInterface(
+      pulldown, (char *)"vpeCommentOption", this->editCommentCmd );
 
   XtAddCallback( pulldown, XmNmapCallback,
                  (XtCallbackProc)EditorWindow_EditMenuMapCB,
@@ -1831,24 +1840,25 @@ void EditorWindow::createWindowsMenu( Widget parent )
   //
   // Create "Windows" menu and options.
   //
-  pulldown = this->windowsMenuPulldown =
-      XmCreatePulldownMenu( parent, "windowsMenuPulldown", NUL( ArgList ), 0 );
+  pulldown = this->windowsMenuPulldown = XmCreatePulldownMenu(
+      parent, (char *)"windowsMenuPulldown", NUL( ArgList ), 0 );
   this->windowsMenu =
       XtVaCreateManagedWidget( "windowsMenu", xmCascadeButtonWidgetClass,
                                parent, XmNsubMenuId, pulldown, NULL );
 
   this->newControlPanelOption = new ButtonInterface(
-      pulldown, "vpeNewControlPanelOption", this->newControlPanelCmd );
+      pulldown, (char *)"vpeNewControlPanelOption", this->newControlPanelCmd );
 
-  this->openControlPanelOption = new ButtonInterface(
-      pulldown, "vpeOpenControlPanelOption", this->openControlPanelCmd );
+  this->openControlPanelOption =
+      new ButtonInterface( pulldown, (char *)"vpeOpenControlPanelOption",
+                           this->openControlPanelCmd );
 
   this->openAllControlPanelsOption =
-      new ButtonInterface( pulldown, "vpeOpenAllControlPanelsOption",
+      new ButtonInterface( pulldown, (char *)"vpeOpenAllControlPanelsOption",
                            this->network->getOpenAllPanelsCommand() );
 
   this->openControlPanelByNameMenu =
-      new CascadeMenu( "vpePanelCascade", pulldown );
+      new CascadeMenu( (char *)"vpePanelCascade", pulldown );
 
   XtAddCallback( pulldown, XmNmapCallback,
                  (XtCallbackProc)EditorWindow_WindowMenuMapCB,
@@ -1866,17 +1876,18 @@ void EditorWindow::createWindowsMenu( Widget parent )
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass, pulldown,
                            NULL );
 
-  this->openMacroOption =
-      new ButtonInterface( pulldown, "vpeOpenMacroOption", this->openMacroCmd );
+  this->openMacroOption = new ButtonInterface(
+      pulldown, (char *)"vpeOpenMacroOption", this->openMacroCmd );
 
-  this->openImageOption =
-      new ButtonInterface( pulldown, "vpeOpenImageOption", this->openImageCmd );
+  this->openImageOption = new ButtonInterface(
+      pulldown, (char *)"vpeOpenImageOption", this->openImageCmd );
 
   this->openColormapEditorOption = new ButtonInterface(
-      pulldown, "vpeOpenColormapEditorOption", this->openColormapCmd );
+      pulldown, (char *)"vpeOpenColormapEditorOption", this->openColormapCmd );
 
-  this->messageWindowOption = new ButtonInterface(
-      pulldown, "vpeMessageWindowOption", theDXApplication->messageWindowCmd );
+  this->messageWindowOption =
+      new ButtonInterface( pulldown, (char *)"vpeMessageWindowOption",
+                           theDXApplication->messageWindowCmd );
 }
 
 void EditorWindow::createOptionsMenu( Widget parent )
@@ -1888,28 +1899,28 @@ void EditorWindow::createOptionsMenu( Widget parent )
   //
   // Create "Options" menu and options.
   //
-  pulldown = this->optionsMenuPulldown =
-      XmCreatePulldownMenu( parent, "optionsMenuPulldown", NUL( ArgList ), 0 );
+  pulldown = this->optionsMenuPulldown = XmCreatePulldownMenu(
+      parent, (char *)"optionsMenuPulldown", NUL( ArgList ), 0 );
   this->optionsMenu =
       XtVaCreateManagedWidget( "optionsMenu", xmCascadeButtonWidgetClass,
                                parent, XmNsubMenuId, pulldown, NULL );
 
   this->toolPalettesOption =
-      new ToggleButtonInterface( pulldown, "vpeToolPalettesOption",
+      new ToggleButtonInterface( pulldown, (char *)"vpeToolPalettesOption",
                                  this->toolPanelCmd, this->panelVisible );
 
   this->hitDetectionOption =
-      new ToggleButtonInterface( pulldown, "vpeHitDetectionOption",
+      new ToggleButtonInterface( pulldown, (char *)"vpeHitDetectionOption",
                                  this->hitDetectionCmd, this->hit_detection );
 
   this->panelAccessOption = new ButtonInterface(
-      pulldown, "vpePanelAccessOption", this->setPanelAccessCmd );
+      pulldown, (char *)"vpePanelAccessOption", this->setPanelAccessCmd );
 
-  this->panelGroupOption = new ButtonInterface( pulldown, "vpePanelGroupOption",
-                                                this->setPanelGroupCmd );
+  this->panelGroupOption = new ButtonInterface(
+      pulldown, (char *)"vpePanelGroupOption", this->setPanelGroupCmd );
 
   this->gridOption =
-      new ButtonInterface( pulldown, "vpeGridOption", this->gridCmd );
+      new ButtonInterface( pulldown, (char *)"vpeGridOption", this->gridCmd );
 
   XtAddCallback( pulldown, XmNmapCallback,
                  (XtCallbackProc)EditorWindow_OptionsMenuMapCB,
@@ -1925,9 +1936,9 @@ void EditorWindow::createHelpMenu( Widget parent )
   XtVaCreateManagedWidget( "separator", xmSeparatorWidgetClass,
                            this->helpMenuPulldown, NULL );
 
-  this->onVisualProgramOption =
-      new ButtonInterface( this->helpMenuPulldown, "vpeOnVisualProgramOption",
-                           this->network->getHelpOnNetworkCommand() );
+  this->onVisualProgramOption = new ButtonInterface(
+      this->helpMenuPulldown, (char *)"vpeOnVisualProgramOption",
+      this->network->getHelpOnNetworkCommand() );
 }
 
 void EditorWindow::createMenus( Widget parent )
@@ -2008,7 +2019,7 @@ extern "C" void EditorWindow_EditMenuMapCB( Widget widget, XtPointer clientdata,
   // vpe establishes or loses selection ownership.
   //
   Display *d = XtDisplay( widget );
-  Atom file_atom = XmInternAtom( d, NET_ATOM, True );
+  Atom file_atom = XmInternAtom( d, (char *)NET_ATOM, True );
   if ( file_atom )
   {
     Window win = XGetSelectionOwner( d, file_atom );
@@ -2489,7 +2500,8 @@ void EditorWindow::openSelectedNodesCDB()
     char msg[128];
     sprintf( msg, "Really open %d configuration dialogs?", selected_count );
     int response = theQuestionDialogManager->userQuery(
-        this->getRootWidget(), msg, "Confirm Open CDB", "Yes", "No", NULL, 2 );
+        this->getRootWidget(), msg, (char *)"Confirm Open CDB", (char *)"Yes",
+        (char *)"No", NULL, 2 );
     if ( response != QuestionDialogManager::OK )
       return;
   }
@@ -2539,7 +2551,8 @@ void EditorWindow::doSelectedNodesDefaultAction()
     char msg[128];
     sprintf( msg, "Really open %d configuration dialogs?", cdb_count );
     int response = theQuestionDialogManager->userQuery(
-        this->getRootWidget(), msg, "Confirm Open CDB", "Yes", "No", NULL, 2 );
+        this->getRootWidget(), msg, (char *)"Confirm Open CDB", (char *)"Yes",
+        (char *)"No", NULL, 2 );
     if ( response != QuestionDialogManager::OK )
       return;
   }
@@ -2592,22 +2605,22 @@ void EditorWindow::doSelectedNodesDefaultAction()
         {
           // Transfer Accelerations
           TransferAccelerator( cdbWidget, this->saveOption->getRootWidget(),
-                               "ArmAndActivate" );
+                               (char *)"ArmAndActivate" );
           TransferAccelerator( cdbWidget,
                                this->addInputTabOption->getRootWidget(),
-                               "ArmAndActivate" );
+                               (char *)"ArmAndActivate" );
           TransferAccelerator( cdbWidget,
                                this->removeInputTabOption->getRootWidget(),
-                               "ArmAndActivate" );
+                               (char *)"ArmAndActivate" );
           TransferAccelerator( cdbWidget,
                                this->executeOnceOption->getRootWidget(),
-                               "ArmAndActivate" );
+                               (char *)"ArmAndActivate" );
           TransferAccelerator( cdbWidget,
                                this->executeOnChangeOption->getRootWidget(),
-                               "ArmAndActivate" );
+                               (char *)"ArmAndActivate" );
           TransferAccelerator( cdbWidget,
                                this->endExecutionOption->getRootWidget(),
-                               "ArmAndActivate" );
+                               (char *)"ArmAndActivate" );
         }
       }
     }
@@ -6229,8 +6242,8 @@ boolean EditorWindow::copySelectedNodes( boolean delete_property )
 {
   char msg[128];
   Display *d = XtDisplay( this->getRootWidget() );
-  Atom file_atom = XmInternAtom( d, NET_ATOM, False );
-  Atom delete_atom = XmInternAtom( d, "DELETE", False );
+  Atom file_atom = XmInternAtom( d, (char *)NET_ATOM, False );
+  Atom delete_atom = XmInternAtom( d, (char *)"DELETE", False );
   Screen *screen = XtScreen( this->getRootWidget() );
   Window root = RootWindowOfScreen( screen );
 
@@ -6449,7 +6462,7 @@ char *EditorWindow::createNetFileFromSelection( int &net_len, char **cfg_out,
 boolean EditorWindow::pasteCopiedNodes()
 {
   Display *d = XtDisplay( this->getRootWidget() );
-  Atom file_atom = XmInternAtom( d, NET_ATOM, False );
+  Atom file_atom = XmInternAtom( d, (char *)NET_ATOM, False );
   boolean proceed = TRUE;
 
   //
@@ -6552,8 +6565,8 @@ boolean EditorWindow_ConvertSelectionCB( Widget w, Atom *selection,
                                          unsigned long *length, int *format )
 {
   Display *d = XtDisplay( w );
-  Atom file_atom = XmInternAtom( d, NET_ATOM, False );
-  Atom cfg_atom = XmInternAtom( d, CFG_ATOM, False );
+  Atom file_atom = XmInternAtom( d, (char *)NET_ATOM, False );
+  Atom cfg_atom = XmInternAtom( d, (char *)CFG_ATOM, False );
   Screen *screen = XtScreen( w );
   Window root = RootWindowOfScreen( screen );
 
@@ -6644,8 +6657,8 @@ void EditorWindow_SelectionReadyCB( Widget w, XtPointer clientData,
   int status;
   FILE *netf;
   Display *d = XtDisplay( editor->getRootWidget() );
-  Atom file_atom = XmInternAtom( d, NET_ATOM, False );
-  Atom cfg_atom = XmInternAtom( d, CFG_ATOM, False );
+  Atom file_atom = XmInternAtom( d, (char *)NET_ATOM, False );
+  Atom cfg_atom = XmInternAtom( d, (char *)CFG_ATOM, False );
   Screen *screen = XtScreen( editor->getRootWidget() );
   Window root = RootWindowOfScreen( screen );
   unsigned long bytes_after;
@@ -6720,7 +6733,7 @@ void EditorWindow_SelectionReadyCB( Widget w, XtPointer clientData,
   unlink( net_file_name );
 
   unsigned char *del_buf;
-  Atom delete_atom = XmInternAtom( d, "DELETE", False );
+  Atom delete_atom = XmInternAtom( d, (char *)"DELETE", False );
   status = XGetWindowProperty( d, root, delete_atom, 0, 4, False, XA_STRING,
                                &actual_type, &actual_format, &n_items,
                                &bytes_after, &del_buf );
@@ -7674,7 +7687,7 @@ boolean EditorWindow::javifyNetwork()
   if ( !wopt_nd )
   {
     // try loading web-options
-    char *macros = "/java/server/dxmacros";
+    char *macros = (char *)"/java/server/dxmacros";
     const char *uiroot = theDXApplication->getUIRoot();
     char *jxmacros;
     fprintf( stderr, "WebOptions macro not in DXMACROS path\n" );
@@ -8106,7 +8119,7 @@ void EditorWindow::setUndoActivation()
   {
     this->undoCmd->deactivate();
   }
-  XmString xmstr = XmStringCreateLtoR( button_label, "bold" );
+  XmString xmstr = XmStringCreateLtoR( button_label, (char *)"bold" );
   XtVaSetValues( this->undoOption->getRootWidget(), XmNlabelString, xmstr,
                  NULL );
   XmStringFree( xmstr );

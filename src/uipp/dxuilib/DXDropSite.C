@@ -38,7 +38,7 @@ extern "C" int gethostname( char *address, int address_len );
 
 // static char *header_fmt = "%s:%d, net length = %d, cfg length = %d\n";
 // static char *header_fmt = "%d, net length = %d, cfg length = %d\n";
-static char *header_fmt = "%[^:]:%d, net length = %d, cfg length = %d";
+static char *header_fmt = (char *)"%[^:]:%d, net length = %d, cfg length = %d";
 
 DXDropSite::DXDropSite( boolean intraExecutable ) : DropSite()
 {

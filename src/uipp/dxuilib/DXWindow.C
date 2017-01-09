@@ -360,27 +360,29 @@ void DXWindow::createExecuteMenu( Widget parent )
   //
   // Create "Execute" menu and options.
   //
-  pulldown = this->executeMenuPulldown =
-      XmCreatePulldownMenu( parent, "executeMenuPulldown", NUL( ArgList ), 0 );
+  pulldown = this->executeMenuPulldown = XmCreatePulldownMenu(
+      parent, (char*)"executeMenuPulldown", NUL( ArgList ), 0 );
 
   this->executeMenu =
       XtVaCreateManagedWidget( "executeMenu", xmCascadeButtonWidgetClass,
                                parent, XmNsubMenuId, pulldown, NULL );
 
   this->executeOnceOption = new ButtonInterface(
-      pulldown, "executeOnceOption", theDXApplication->executeOnceCmd );
+      pulldown, (char*)"executeOnceOption", theDXApplication->executeOnceCmd );
 
-  this->executeOnChangeOption = new ButtonInterface(
-      pulldown, "executeOnChangeOption", theDXApplication->executeOnChangeCmd );
+  this->executeOnChangeOption =
+      new ButtonInterface( pulldown, (char*)"executeOnChangeOption",
+                           theDXApplication->executeOnChangeCmd );
 
-  this->endExecutionOption = new ButtonInterface(
-      pulldown, "endExecutionOption", theDXApplication->endExecutionCmd );
+  this->endExecutionOption =
+      new ButtonInterface( pulldown, (char*)"endExecutionOption",
+                           theDXApplication->endExecutionCmd );
 
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass, pulldown,
                            NULL );
 
   this->sequencerOption = new ButtonInterface(
-      pulldown, "sequencerOption", theDXApplication->openSequencerCmd );
+      pulldown, (char*)"sequencerOption", theDXApplication->openSequencerCmd );
 #if USE_REMAP  // 6/14/93
   XtVaCreateManagedWidget( "optionSeparator", xmSeparatorWidgetClass, pulldown,
                            NULL );
@@ -404,9 +406,9 @@ void DXWindow::createHelpMenu( Widget parent )
   {
     XtVaCreateManagedWidget( "separator", xmSeparatorWidgetClass,
                              this->helpMenuPulldown, NULL );
-    this->helpTutorialOption =
-        new ButtonInterface( this->helpMenuPulldown, "helpTutorialOption",
-                             theDXApplication->helpTutorialCmd );
+    this->helpTutorialOption = new ButtonInterface(
+        this->helpMenuPulldown, (char*)"helpTutorialOption",
+        theDXApplication->helpTutorialCmd );
   }
 }
 
@@ -424,7 +426,7 @@ void DXWindow::createConnectionMenu( Widget parent )
   // Create "Connection" menu and options.
   //
   pulldown = this->connectionMenuPulldown = XmCreatePulldownMenu(
-      parent, "connectionMenuPulldown", NUL( ArgList ), 0 );
+      parent, (char*)"connectionMenuPulldown", NUL( ArgList ), 0 );
   this->connectionMenu =
       XtVaCreateManagedWidget( "connectionMenu", xmCascadeButtonWidgetClass,
                                parent, XmNsubMenuId, pulldown, NULL );
@@ -433,15 +435,16 @@ void DXWindow::createConnectionMenu( Widget parent )
                  (XtCallbackProc)DXWindow_ConnectionMenuMapCB,
                  ( XtPointer ) this );
 
-  this->startServerOption = new ButtonInterface(
-      pulldown, "startServerOption", theDXApplication->connectToServerCmd );
+  this->startServerOption =
+      new ButtonInterface( pulldown, (char*)"startServerOption",
+                           theDXApplication->connectToServerCmd );
 
   this->disconnectFromServerOption =
-      new ButtonInterface( pulldown, "disconnectFromServerOption",
+      new ButtonInterface( pulldown, (char*)"disconnectFromServerOption",
                            theDXApplication->disconnectFromServerCmd );
 
   this->resetServerOption = new ButtonInterface(
-      pulldown, "resetServerOption", theDXApplication->resetServerCmd );
+      pulldown, (char*)"resetServerOption", theDXApplication->resetServerCmd );
 
   if ( theDXApplication->appAllowsPGroupAssignmentChange() )
   {
@@ -449,7 +452,7 @@ void DXWindow::createConnectionMenu( Widget parent )
                              pulldown, NULL );
 
     this->processGroupAssignmentOption =
-        new ButtonInterface( pulldown, "processGroupAssignmentOption",
+        new ButtonInterface( pulldown, (char*)"processGroupAssignmentOption",
                              theDXApplication->assignProcessGroupCmd );
   }
 }
@@ -595,7 +598,7 @@ Widget DXWindow::addStartupToggleOption( Widget parent )
         NoUndoDXWindowCommand::ToggleWindowStartup );
 
   this->toggleWindowStartupOption =
-      new ToggleButtonInterface( parent, "toggleWindowStartupOption",
+      new ToggleButtonInterface( parent, (char*)"toggleWindowStartupOption",
                                  this->toggleWindowStartupCmd, this->startup );
 
   return this->toggleWindowStartupOption->getRootWidget();
@@ -727,7 +730,7 @@ void DXWindow::createFileHistoryMenu( Widget parent )
     }
   }
 
-  this->file_history_cascade = new CascadeMenu( "fileHistory", parent );
+  this->file_history_cascade = new CascadeMenu( (char*)"fileHistory", parent );
 
   //
   // put the callback on the menu parent in which we create the cascade
@@ -776,7 +779,7 @@ void DXWindow::buildFileHistoryMenu()
     Symbol s = theSymbolManager->registerSymbol( cp );
     cmd = new OpenFileCommand( s );
     this->file_history_commands.appendElement( cmd );
-    bi = new ButtonInterface( menu_parent, "openFile", cmd );
+    bi = new ButtonInterface( menu_parent, (char*)"openFile", cmd );
     bi->setLabel( cp );
     this->file_history_buttons.appendElement( bi );
     cmd->deactivate();
@@ -799,7 +802,7 @@ void DXWindow::buildFileHistoryMenu()
     {
       cmd = new OpenFileCommand( s );
       this->file_history_commands.appendElement( cmd );
-      bi = new ButtonInterface( menu_parent, "openFile", cmd );
+      bi = new ButtonInterface( menu_parent, (char*)"openFile", cmd );
       this->file_history_buttons.appendElement( bi );
 
       const char* fullpath = theSymbolManager->getSymbolString( s );

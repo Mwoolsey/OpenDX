@@ -36,7 +36,7 @@ extern "C" int gethostname( char *address, int address_len );
 
 boolean DXDragSource::DXDragSourceClassInitialized = FALSE;
 
-static char *header_fmt = "%s:%d, net length = %d, cfg length = %d\n";
+static char *header_fmt = (char *)"%s:%d, net length = %d, cfg length = %d\n";
 
 //
 // superclass constructor used a list of Atom names which we have
